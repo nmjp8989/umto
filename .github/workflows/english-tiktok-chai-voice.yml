@@ -1,0 +1,51 @@
+name: Generate English TikTok chai dialogue with MiMo
+on:
+  push:
+    branches: [animation/punjabi-bazaar-chai-20261110]
+    paths: ['.github/workflows/english-tiktok-chai-voice.yml']
+permissions:
+  contents: read
+jobs:
+  dialogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r tools/requirements-audio.txt
+      - name: Generate six English dialogue clips with existing UMTO MiMo integration
+        env:
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          from genaudio import generate_mp3
+          if not os.environ.get('MIMO_API_KEY'):
+              raise RuntimeError('MIMO_API_KEY secret is missing')
+          lines = [
+              {'speaker': 'Gurpreet', 'text': 'Uncle ji, my new A I app says it can solve any problem.'},
+              {'speaker': 'Baldev', 'text': 'Any problem? Ask it why our tea disappears faster than our money.'},
+              {'speaker': 'Gurpreet', 'text': 'It recommends a bigger cup and a smart kettle.'},
+              {'speaker': 'Baldev', 'text': 'Smart kettle? My old one has one job: make delicious chai.'},
+              {'speaker': 'Gurpreet', 'text': 'But the new one can talk to your phone!'},
+              {'speaker': 'Baldev', 'text': 'Then tell it to pay for the biscuits. Now that is intelligence!'},
+          ]
+          out=Path('renders/english-tiktok-chai')
+          out.mkdir(parents=True, exist_ok=True)
+          for i, line in enumerate(lines):
+              data=generate_mp3(line['text'], 'male_sample.wav', os.environ['MIMO_API_KEY'])
+              (out/f'line-{i:02d}.mp3').write_bytes(data)
+              print('Generated clip', i+1, 'bytes', len(data))
+          (out/'dialogue.json').write_text(json.dumps(lines, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: english-tiktok-chai-mimo
+          path: renders/english-tiktok-chai/
+          if-no-files-found: warn
+          retention-days: 7
