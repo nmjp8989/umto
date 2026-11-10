@@ -1,0 +1,41 @@
+name: Render Punjabi bazaar dialogue
+on:
+  push:
+    branches: [animation/punjabi-bazaar-chai-20261110]
+    paths: ['.github/workflows/punjabi-bazaar-voice.yml']
+permissions:
+  contents: write
+jobs:
+  dialogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests
+      - name: Generate six Punjabi lines with existing Umto voices
+        env:
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json,os,base64,sys
+          from pathlib import Path
+          sys.path.insert(0,'tools')
+          from genaudio import generate_mp3
+          lines=json.loads("[[\"harpreet\",\"male_sample.wav\",\"ਮੀਨਾ ਜੀ, ਤੁਹਾਡੀ ਚਾਹ ਵਿੱਚ ਕਿਹੜਾ ਜਾਦੂ ਹੈ?\"],[\"meena\",\"female_sample.wav\",\"ਇੱਕ ਘੁੱਟ ਪੀਓ, ਸਾਰੀਆਂ ਚਿੰਤਾਵਾਂ ਗਾਇਬ!\"],[\"harpreet\",\"male_sample.wav\",\"ਵਾਹ! ਫਿਰ ਤਾਂ ਅੱਜ ਦਾ ਬਿੱਲ ਵੀ ਗਾਇਬ ਹੋ ਜਾਣਾ ਚਾਹੀਦਾ!\"],[\"meena\",\"female_sample.wav\",\"ਬਿੱਲ ਨਹੀਂ ਜੀ, ਸਿਰਫ਼ ਚਿੰਤਾਵਾਂ!\"],[\"harpreet\",\"male_sample.wav\",\"ਚਲੋ, ਦੋ ਕੱਪ ਬਣਾ ਦਿਓ। ਇੱਕ ਮੇਰੇ ਲਈ, ਇੱਕ ਤੁਹਾਡੇ ਲਈ।\"],[\"meena\",\"female_sample.wav\",\"ਹੁਣ ਬਣੀ ਨਾ ਗੱਲ! ਚਾਹ ਦਾ ਅਸਲੀ ਜਾਦੂ ਤਾਂ ਸਾਥ ਹੈ।\"]]")
+          root=Path('renders/punjabi-chai');root.mkdir(parents=True,exist_ok=True)
+          for i,(speaker,voice,text) in enumerate(lines):
+              data=generate_mp3(text,voice,os.environ['MIMO_API_KEY'])
+              (root/f'line-{i}.mp3.b64').write_text(base64.b64encode(data).decode())
+              print(f'Completed line {i+1}')
+          (root/'dialogue.json').write_text(json.dumps(lines,ensure_ascii=False,indent=2))
+          PY
+      - name: Save generated clips on this animation branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add renders/punjabi-chai
+          git commit -m 'Generate Punjabi chai dialogue using existing Umto voices'
+          git push origin HEAD:animation/punjabi-bazaar-chai-20261110
