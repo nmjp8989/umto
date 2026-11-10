@@ -1,0 +1,36 @@
+name: Correct English TikTok chai reaction with MiMo
+on:
+  push:
+    branches: [animation/punjabi-bazaar-chai-20261110]
+    paths: ['.github/workflows/english-tiktok-chai-line1-correction.yml']
+permissions:
+  contents: read
+jobs:
+  dialogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r tools/requirements-audio.txt
+      - name: Generate shorter English reaction
+        env:
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os,sys
+          from pathlib import Path
+          sys.path.insert(0,'tools')
+          from genaudio import generate_mp3
+          out=Path('renders/english-tiktok-correction')
+          out.mkdir(parents=True,exist_ok=True)
+          text='Any problem? Can it make this chai last longer?'
+          (out/'line-01.mp3').write_bytes(generate_mp3(text,'male_sample.wav',os.environ['MIMO_API_KEY']))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: english-tiktok-chai-reaction
+          path: renders/english-tiktok-correction/
+          retention-days: 7
