@@ -29,6 +29,7 @@ jobs:
           node --check missions/storm-beacon-art.js
           node --check missions/night-platform-art.js
           node --check missions/empty-carriage-art.js
+          node --check missions/whispering-village-art.js
       - name: Verify story flows and saved dialogue manifests
         run: |
           node tests/missions.cjs
@@ -37,4 +38,5 @@ jobs:
           node tests/missions-004.cjs
           node tests/missions-005-006.cjs
           node tests/missions-007.cjs
+          node tests/missions-008.cjs
           node tests/mission-voice.cjs
