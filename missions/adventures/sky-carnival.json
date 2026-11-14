@@ -1,0 +1,1084 @@
+{
+  "id": "sky-carnival",
+  "number": "009",
+  "version": 3,
+  "category": "A HIGH-FLYING RESCUE ADVENTURE",
+  "title": "The Great Sky Carnival",
+  "subtitle": "One runaway cake. Six unlikely heroes. Absolutely no monsters.",
+  "startScene": "fairground",
+  "startMessage": "intro",
+  "finalScene": "skydeck",
+  "finalSequence": "finale",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "PILOT",
+      "colour": "#f3c77f"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "CO-PILOT",
+      "colour": "#99c3f3"
+    },
+    "meher": {
+      "name": "Meher",
+      "role": "WIND WATCHER",
+      "colour": "#f8afcd"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "INVENTOR",
+      "colour": "#80d5cb"
+    },
+    "rohan": {
+      "name": "Rohan",
+      "role": "BUILDER",
+      "colour": "#c2f4a0"
+    },
+    "baldev": {
+      "name": "Baldev",
+      "role": "CARNIVAL HOST",
+      "colour": "#f6d090"
+    }
+  },
+  "inventoryItems": {
+    "fabric": {
+      "label": "Balloon patch",
+      "icon": "fabric"
+    },
+    "rope": {
+      "label": "Safety rope",
+      "icon": "rope"
+    }
+  },
+  "scenes": {
+    "fairground": {
+      "name": "The Sky Carnival",
+      "chapter": "01 / THE GREAT CAKE ESCAPE",
+      "heroX": 670,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 880,
+          "y": 615,
+          "height": 270
+        },
+        {
+          "id": "meher",
+          "x": 485,
+          "y": 615,
+          "height": 272
+        },
+        {
+          "id": "baldev",
+          "x": 1125,
+          "y": 615,
+          "height": 326
+        }
+      ],
+      "objects": [
+        {
+          "id": "banner",
+          "name": "Read the carnival announcement",
+          "x": 505,
+          "y": 105,
+          "w": 255,
+          "h": 76
+        },
+        {
+          "id": "kabir",
+          "name": "Ask Kabir what happened to the birthday cake",
+          "x": 811,
+          "y": 295,
+          "w": 154,
+          "h": 259
+        },
+        {
+          "id": "meher",
+          "name": "Ask Meher about the wind",
+          "x": 408,
+          "y": 292,
+          "w": 141,
+          "h": 255
+        },
+        {
+          "id": "baldev",
+          "name": "Ask Baldev about the runaway balloon",
+          "x": 1058,
+          "y": 289,
+          "w": 154,
+          "h": 261
+        },
+        {
+          "id": "goWorkshop",
+          "name": "Go to Meena's repair tent",
+          "x": 857,
+          "y": 550,
+          "w": 330,
+          "h": 79
+        },
+        {
+          "id": "goPad",
+          "name": "Go to the balloon launch field",
+          "x": 60,
+          "y": 553,
+          "w": 294,
+          "h": 81
+        }
+      ],
+      "foreground": false
+    },
+    "workshop": {
+      "name": "Meena’s Invention Tent",
+      "chapter": "02 / BUILD THE RESCUE KIT",
+      "heroX": 590,
+      "actors": [
+        {
+          "id": "meena",
+          "x": 347,
+          "y": 618,
+          "height": 313
+        },
+        {
+          "id": "rohan",
+          "x": 944,
+          "y": 616,
+          "height": 276
+        }
+      ],
+      "objects": [
+        {
+          "id": "meena",
+          "name": "Ask Meena about the rescue",
+          "x": 276,
+          "y": 291,
+          "w": 148,
+          "h": 255
+        },
+        {
+          "id": "rohan",
+          "name": "Ask Rohan how to repair the balloon",
+          "x": 868,
+          "y": 300,
+          "w": 166,
+          "h": 252
+        },
+        {
+          "id": "fabric",
+          "name": "Collect the bright balloon patch",
+          "x": 1015,
+          "y": 345,
+          "w": 201,
+          "h": 160,
+          "if": "!inventory.fabric+!patched"
+        },
+        {
+          "id": "rope",
+          "name": "Collect the safety rope",
+          "x": 760,
+          "y": 346,
+          "w": 187,
+          "h": 157,
+          "if": "!inventory.rope+!tethered"
+        },
+        {
+          "id": "fan",
+          "name": "Tune the rescue fan",
+          "x": 457,
+          "y": 300,
+          "w": 195,
+          "h": 173
+        },
+        {
+          "id": "back",
+          "name": "Return to the fairground",
+          "x": 32,
+          "y": 551,
+          "w": 235,
+          "h": 76
+        },
+        {
+          "id": "pad",
+          "name": "Take rescue supplies to the launch field",
+          "x": 870,
+          "y": 548,
+          "w": 348,
+          "h": 79
+        }
+      ],
+      "foreground": false
+    },
+    "launchpad": {
+      "name": "Balloon Launch Field",
+      "chapter": "03 / COUNTDOWN TO TAKEOFF",
+      "heroX": 600,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 439,
+          "y": 612,
+          "height": 265
+        },
+        {
+          "id": "rohan",
+          "x": 1115,
+          "y": 612,
+          "height": 270
+        }
+      ],
+      "objects": [
+        {
+          "id": "fair",
+          "name": "Back to the carnival",
+          "x": 30,
+          "y": 555,
+          "w": 245,
+          "h": 70
+        },
+        {
+          "id": "windvane",
+          "name": "Choose the safe wind direction",
+          "x": 367,
+          "y": 206,
+          "w": 229,
+          "h": 206
+        },
+        {
+          "id": "balloon",
+          "name": "Repair the balloon, then attach its rope",
+          "x": 775,
+          "y": 132,
+          "w": 285,
+          "h": 427
+        },
+        {
+          "id": "board",
+          "name": "Launch the rescue balloon",
+          "x": 823,
+          "y": 557,
+          "w": 340,
+          "h": 72,
+          "if": "patched+tethered+windEast"
+        },
+        {
+          "id": "kabir",
+          "name": "Ask Kabir to check the rescue plan",
+          "x": 355,
+          "y": 321,
+          "w": 148,
+          "h": 229
+        }
+      ],
+      "foreground": false
+    },
+    "skydeck": {
+      "name": "Above the Rainbow Clouds",
+      "chapter": "04 / CATCH THAT CAKE!",
+      "heroX": 490,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 762,
+          "y": 616,
+          "height": 273
+        },
+        {
+          "id": "meher",
+          "x": 310,
+          "y": 617,
+          "height": 268
+        },
+        {
+          "id": "meena",
+          "x": 925,
+          "y": 616,
+          "height": 301
+        }
+      ],
+      "objects": [
+        {
+          "id": "cake",
+          "name": "Rescue the floating birthday cake",
+          "x": 909,
+          "y": 124,
+          "w": 209,
+          "h": 347,
+          "if": "!cakeCaught"
+        },
+        {
+          "id": "cloud",
+          "name": "Look at the floating clouds",
+          "x": 55,
+          "y": 271,
+          "w": 197,
+          "h": 167
+        },
+        {
+          "id": "net",
+          "name": "Inspect the rescue net",
+          "x": 770,
+          "y": 425,
+          "w": 194,
+          "h": 116
+        },
+        {
+          "id": "land",
+          "name": "Return with the rescued cake",
+          "x": 492,
+          "y": 566,
+          "w": 319,
+          "h": 73
+        },
+        {
+          "id": "kabir",
+          "name": "Ask Kabir for a plan",
+          "x": 690,
+          "y": 341,
+          "w": 142,
+          "h": 207
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "kabir",
+      "text": "Emergency! The giant carnival balloon escaped with the birthday cake! It has a better seat than I do."
+    },
+    "shock": {
+      "speaker": "meher",
+      "text": "We have to save it before the candles become shooting stars. Look! The wind is blowing east."
+    },
+    "banner": {
+      "speaker": "baldev",
+      "text": "Today's programme: music at noon, cake at one. Please do not launch the cake into outer space."
+    },
+    "kabir": {
+      "speaker": "kabir",
+      "text": "The cake is still safe in the basket. If we repair our spare balloon, we can catch up."
+    },
+    "meher": {
+      "speaker": "meher",
+      "text": "The flags are pointing east. A gentle east breeze is perfect; a wild gust will flip us."
+    },
+    "baldev": {
+      "speaker": "baldev",
+      "text": "I was watching the balloon. Then I sneezed and it stole the entire cake! Even the cherry."
+    },
+    "workshopWelcome": {
+      "speaker": "meena",
+      "text": "Welcome to my invention tent. Take a patch and safety rope, then tune the fan gently."
+    },
+    "meena": {
+      "speaker": "meena",
+      "text": "Safety first! A good repair, a strong rope, and a gentle fan. No shortcuts."
+    },
+    "rohan": {
+      "speaker": "rohan",
+      "text": "I made a fan with three settings. Soft breeze, giant gust, and absolutely nothing."
+    },
+    "fabric": {
+      "speaker": "rohan",
+      "text": "Brilliant pink fabric! This will fix the tear in our rescue balloon."
+    },
+    "rope": {
+      "speaker": "meena",
+      "text": "A proper safety rope. Attach it before the balloon lifts, or we'll be chasing another one."
+    },
+    "fanQuestion": {
+      "speaker": "rohan",
+      "text": "What fan setting makes a calm, safe balloon launch?",
+      "choices": [
+        {
+          "label": "Gentle breeze",
+          "event": "fan:gentle"
+        },
+        {
+          "label": "Super-hurricane blast!",
+          "event": "fan:storm"
+        },
+        {
+          "label": "Switch the fan off",
+          "event": "fan:off"
+        }
+      ]
+    },
+    "fanRetry": {
+      "speaker": "meena",
+      "text": "That won't give us a steady launch. Pick the gentle breeze.",
+      "choices": [
+        {
+          "label": "Try the gentle setting",
+          "event": "fan:gentle"
+        },
+        {
+          "label": "Try a giant gust again",
+          "event": "fan:storm"
+        }
+      ]
+    },
+    "fanDone": {
+      "speaker": "rohan",
+      "text": "Perfect! The fan purrs like a sleepy kitten. And nobody lost their eyebrows."
+    },
+    "needParts": {
+      "speaker": "harpreet",
+      "text": "We need a patch, safety rope and a tuned fan. Visit Meena's repair tent."
+    },
+    "readyForField": {
+      "speaker": "harpreet",
+      "text": "Great teamwork! We've got the fabric, rope and fan ready. Let's head to the launch field."
+    },
+    "launchIntro": {
+      "speaker": "kabir",
+      "text": "Big balloon. Tiny basket. I vote we check every safety step before takeoff."
+    },
+    "needPatch": {
+      "speaker": "meena",
+      "text": "The balloon has a tear. Use the pink patch from your pocket on the balloon.",
+      "choices": [
+        {
+          "label": "Attach the patch",
+          "event": "drop:fabric:balloon"
+        }
+      ]
+    },
+    "patched": {
+      "speaker": "meena",
+      "text": "Patch secured. That's one less hole between us and the clouds."
+    },
+    "needRope": {
+      "speaker": "rohan",
+      "text": "Now fasten the safety rope! Tap it in your pocket, then tap the balloon.",
+      "choices": [
+        {
+          "label": "Tie the safety rope",
+          "event": "drop:rope:balloon"
+        }
+      ]
+    },
+    "tethered": {
+      "speaker": "rohan",
+      "text": "Tied tight! That knot could hold Baldev's whole tea collection."
+    },
+    "chooseWind": {
+      "speaker": "meher",
+      "text": "Which wind will carry us steadily toward the cake?",
+      "choices": [
+        {
+          "label": "Gentle east wind",
+          "event": "wind:east"
+        },
+        {
+          "label": "Strong west gust",
+          "event": "wind:west"
+        },
+        {
+          "label": "Swirling wind from every direction",
+          "event": "wind:swirl"
+        }
+      ]
+    },
+    "windRetry": {
+      "speaker": "meher",
+      "text": "Watch the carnival flags. They point east, so the safe breeze is east.",
+      "choices": [
+        {
+          "label": "Choose east",
+          "event": "wind:east"
+        },
+        {
+          "label": "Try west",
+          "event": "wind:west"
+        }
+      ]
+    },
+    "windDone": {
+      "speaker": "meher",
+      "text": "East wind confirmed. A beautiful day for a sky-high cake delivery."
+    },
+    "boardHint": {
+      "speaker": "harpreet",
+      "text": "Balloon repaired, rope attached and gentle east wind selected. All aboard!"
+    },
+    "launch": {
+      "speaker": "kabir",
+      "text": "We're flying! Please tell the ground I left my sandwich in the workshop."
+    },
+    "skyIntro": {
+      "speaker": "meher",
+      "text": "Whoa! Look at those rainbow clouds. And the runaway cake is right beside us!"
+    },
+    "skyKabir": {
+      "speaker": "kabir",
+      "text": "We must catch it gently. I can reach the basket using our safety rope."
+    },
+    "cloud": {
+      "speaker": "meher",
+      "text": "That cloud looks like a giant doughnut. I think I'm hungry."
+    },
+    "netHint": {
+      "speaker": "meena",
+      "text": "We can hold our rescue net under the cake. First, secure its basket with the rope."
+    },
+    "cakeChoice": {
+      "speaker": "kabir",
+      "text": "How should we catch the cake without dropping it?",
+      "choices": [
+        {
+          "label": "Hook the safety rope to the basket",
+          "event": "catch:rope"
+        },
+        {
+          "label": "Jump out and grab the cake",
+          "event": "catch:jump"
+        },
+        {
+          "label": "Shake the balloon wildly",
+          "event": "catch:shake"
+        }
+      ]
+    },
+    "cakeRetry": {
+      "speaker": "harpreet",
+      "text": "Safe rescuers stay in their balloon. Use the rope to pull the other basket close.",
+      "choices": [
+        {
+          "label": "Use our safety rope",
+          "event": "catch:rope"
+        },
+        {
+          "label": "Jump anyway",
+          "event": "catch:jump"
+        }
+      ]
+    },
+    "cakeCaught": {
+      "speaker": "meena",
+      "text": "Got it! Cake secured in the rescue net. Not a single cherry lost."
+    },
+    "needCake": {
+      "speaker": "kabir",
+      "text": "Not yet! We can't go home without the cake. Tap the runaway basket first."
+    },
+    "finalHero": {
+      "speaker": "harpreet",
+      "text": "Mission complete! Today we proved teamwork is stronger than the wind."
+    },
+    "finalMeher": {
+      "speaker": "meher",
+      "text": "Best cake delivery ever. It came with a free flight!"
+    },
+    "finalKabir": {
+      "speaker": "kabir",
+      "text": "Can I have the first slice? I've been emotionally supporting that cake for miles."
+    },
+    "finalBaldev": {
+      "speaker": "baldev",
+      "text": "Nobody touch the candles. I sneezed once and nearly sent the icing to the moon!"
+    },
+    "saveResume": {
+      "speaker": "kabir",
+      "text": "Welcome back, pilot. Our flying cake still needs you."
+    },
+    "cantCombine": {
+      "speaker": "meena",
+      "text": "Try attaching the patch or rope to the rescue balloon. Other items won't stick."
+    }
+  },
+  "rules": [
+    {
+      "when": "click:banner",
+      "in": "fairground",
+      "actions": [
+        "flag:readPoster",
+        "message:banner"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "fairground",
+      "actions": [
+        "flag:heardKabir",
+        "message:kabir"
+      ]
+    },
+    {
+      "when": "click:meher",
+      "in": "fairground",
+      "actions": [
+        "flag:heardMeher",
+        "message:meher"
+      ]
+    },
+    {
+      "when": "click:baldev",
+      "in": "fairground",
+      "actions": [
+        "message:baldev"
+      ]
+    },
+    {
+      "when": "click:goWorkshop",
+      "in": "fairground",
+      "actions": [
+        "scene:workshop",
+        "message:workshopWelcome"
+      ]
+    },
+    {
+      "when": "click:goPad",
+      "in": "fairground",
+      "if": "inventory.fabric+inventory.rope+fanFixed",
+      "actions": [
+        "scene:launchpad",
+        "message:launchIntro"
+      ]
+    },
+    {
+      "when": "click:goPad",
+      "in": "fairground",
+      "actions": [
+        "message:needParts"
+      ]
+    },
+    {
+      "when": "click:meena",
+      "in": "workshop",
+      "actions": [
+        "message:meena"
+      ]
+    },
+    {
+      "when": "click:rohan",
+      "in": "workshop",
+      "actions": [
+        "message:rohan"
+      ]
+    },
+    {
+      "when": "click:fabric",
+      "in": "workshop",
+      "if": "!inventory.fabric+!patched",
+      "actions": [
+        "inventory:fabric",
+        "sound:paper",
+        "message:fabric"
+      ]
+    },
+    {
+      "when": "click:rope",
+      "in": "workshop",
+      "if": "!inventory.rope+!tethered",
+      "actions": [
+        "inventory:rope",
+        "sound:click",
+        "message:rope"
+      ]
+    },
+    {
+      "when": "click:fan",
+      "in": "workshop",
+      "if": "fanFixed",
+      "actions": [
+        "message:fanDone"
+      ]
+    },
+    {
+      "when": "click:fan",
+      "in": "workshop",
+      "actions": [
+        "message:fanQuestion"
+      ]
+    },
+    {
+      "when": "fan:gentle",
+      "in": "workshop",
+      "actions": [
+        "flag:fanFixed",
+        "sound:complete",
+        "message:fanDone"
+      ]
+    },
+    {
+      "when": "fan:storm",
+      "in": "workshop",
+      "actions": [
+        "message:fanRetry"
+      ]
+    },
+    {
+      "when": "fan:off",
+      "in": "workshop",
+      "actions": [
+        "message:fanRetry"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "workshop",
+      "actions": [
+        "scene:fairground"
+      ]
+    },
+    {
+      "when": "click:pad",
+      "in": "workshop",
+      "if": "inventory.fabric+inventory.rope+fanFixed",
+      "actions": [
+        "scene:launchpad",
+        "message:launchIntro"
+      ]
+    },
+    {
+      "when": "click:pad",
+      "in": "workshop",
+      "actions": [
+        "message:needParts"
+      ]
+    },
+    {
+      "when": "click:fair",
+      "in": "launchpad",
+      "actions": [
+        "scene:fairground"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "launchpad",
+      "actions": [
+        "message:boardHint"
+      ]
+    },
+    {
+      "when": "click:balloon",
+      "in": "launchpad",
+      "if": "!patched",
+      "actions": [
+        "message:needPatch"
+      ]
+    },
+    {
+      "when": "click:balloon",
+      "in": "launchpad",
+      "if": "!tethered",
+      "actions": [
+        "message:needRope"
+      ]
+    },
+    {
+      "when": "click:balloon",
+      "in": "launchpad",
+      "if": "!windEast",
+      "actions": [
+        "message:chooseWind"
+      ]
+    },
+    {
+      "when": "click:balloon",
+      "in": "launchpad",
+      "actions": [
+        "message:boardHint"
+      ]
+    },
+    {
+      "when": "drop:fabric:balloon",
+      "in": "launchpad",
+      "if": "inventory.fabric+!patched",
+      "actions": [
+        "flag:patched",
+        "remove:fabric",
+        "sound:click",
+        "message:patched"
+      ]
+    },
+    {
+      "when": "drop:rope:balloon",
+      "in": "launchpad",
+      "if": "inventory.rope+!tethered",
+      "actions": [
+        "flag:tethered",
+        "remove:rope",
+        "sound:click",
+        "message:tethered"
+      ]
+    },
+    {
+      "when": "click:windvane",
+      "in": "launchpad",
+      "if": "windEast",
+      "actions": [
+        "message:windDone"
+      ]
+    },
+    {
+      "when": "click:windvane",
+      "in": "launchpad",
+      "actions": [
+        "message:chooseWind"
+      ]
+    },
+    {
+      "when": "wind:east",
+      "in": "launchpad",
+      "actions": [
+        "flag:windEast",
+        "sound:complete",
+        "message:windDone"
+      ]
+    },
+    {
+      "when": "wind:west",
+      "in": "launchpad",
+      "actions": [
+        "message:windRetry"
+      ]
+    },
+    {
+      "when": "wind:swirl",
+      "in": "launchpad",
+      "actions": [
+        "message:windRetry"
+      ]
+    },
+    {
+      "when": "click:board",
+      "in": "launchpad",
+      "if": "patched+tethered+windEast",
+      "actions": [
+        "sequence:takeoff"
+      ]
+    },
+    {
+      "when": "click:cloud",
+      "in": "skydeck",
+      "actions": [
+        "message:cloud"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "skydeck",
+      "actions": [
+        "message:skyKabir"
+      ]
+    },
+    {
+      "when": "click:net",
+      "in": "skydeck",
+      "if": "cakeCaught",
+      "actions": [
+        "message:cakeCaught"
+      ]
+    },
+    {
+      "when": "click:net",
+      "in": "skydeck",
+      "actions": [
+        "message:netHint"
+      ]
+    },
+    {
+      "when": "click:cake",
+      "in": "skydeck",
+      "if": "!cakeCaught",
+      "actions": [
+        "message:cakeChoice"
+      ]
+    },
+    {
+      "when": "catch:jump",
+      "in": "skydeck",
+      "actions": [
+        "message:cakeRetry"
+      ]
+    },
+    {
+      "when": "catch:shake",
+      "in": "skydeck",
+      "actions": [
+        "message:cakeRetry"
+      ]
+    },
+    {
+      "when": "catch:rope",
+      "in": "skydeck",
+      "if": "!cakeCaught",
+      "actions": [
+        "flag:cakeCaught",
+        "sound:complete",
+        "message:cakeCaught"
+      ]
+    },
+    {
+      "when": "click:land",
+      "in": "skydeck",
+      "if": "cakeCaught",
+      "actions": [
+        "sequence:finale"
+      ]
+    },
+    {
+      "when": "click:land",
+      "in": "skydeck",
+      "actions": [
+        "message:needCake"
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "if": "!inventory.fabric+!patched",
+      "text": "Collect the repair patch in Meena's tent."
+    },
+    {
+      "if": "!inventory.rope+!tethered",
+      "text": "Collect the safety rope in the tent."
+    },
+    {
+      "if": "!fanFixed",
+      "text": "Tune Rohan's fan to a gentle breeze."
+    },
+    {
+      "if": "!patched",
+      "text": "Attach the pink patch to the balloon."
+    },
+    {
+      "if": "!tethered",
+      "text": "Tie the safety rope to the balloon."
+    },
+    {
+      "if": "!windEast",
+      "text": "Choose the safe east wind."
+    },
+    {
+      "if": "scene.launchpad",
+      "text": "Climb aboard and launch the rescue balloon."
+    },
+    {
+      "if": "!cakeCaught",
+      "text": "Catch the floating cake with the rope."
+    },
+    {
+      "if": "complete",
+      "text": "Mission complete! The carnival is saved."
+    },
+    {
+      "text": "Return home with the birthday cake!"
+    }
+  ],
+  "hints": [
+    {
+      "if": "scene.fairground",
+      "text": "Go right to the repair tent. Talk to Meena and Rohan, then bring the patch and rope."
+    },
+    {
+      "if": "!inventory.fabric+!patched",
+      "text": "In the repair tent, tap the pink balloon patch on the right."
+    },
+    {
+      "if": "!inventory.rope+!tethered",
+      "text": "In the repair tent, tap the coiled safety rope on the table."
+    },
+    {
+      "if": "!fanFixed",
+      "text": "Tap the fan and choose a gentle breeze. Strong gusts are unsafe."
+    },
+    {
+      "if": "scene.workshop",
+      "text": "With the patch, rope and fan ready, tap LAUNCH FIELD."
+    },
+    {
+      "if": "!patched",
+      "text": "Tap the pink fabric in your pocket, then tap the rescue balloon."
+    },
+    {
+      "if": "!tethered",
+      "text": "Tap the safety rope in your pocket, then tap the rescue balloon."
+    },
+    {
+      "if": "!windEast",
+      "text": "Tap the wind vane. Meher said the steady breeze blows east."
+    },
+    {
+      "if": "scene.launchpad",
+      "text": "Tap CLIMB ABOARD once the patch, rope and wind are ready."
+    },
+    {
+      "if": "!cakeCaught",
+      "text": "Tap the cake in the runaway balloon and choose the safe rope rescue."
+    },
+    {
+      "text": "Tap SAVE THE PARTY to fly home with the cake."
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "line": "shock"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "takeoff": [
+      {
+        "camera": "wide"
+      },
+      {
+        "sound": "engine"
+      },
+      {
+        "line": "launch"
+      },
+      {
+        "wait": 500
+      },
+      {
+        "scene": "skydeck"
+      },
+      {
+        "line": "skyIntro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "finale": [
+      {
+        "camera": "wide"
+      },
+      {
+        "effect": "skyCarnivalFinale"
+      },
+      {
+        "line": "finalHero"
+      },
+      {
+        "line": "finalMeher"
+      },
+      {
+        "line": "finalKabir"
+      },
+      {
+        "line": "finalBaldev"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "completionObjective": "The birthday cake has been saved by the sky rescue team."
+}
