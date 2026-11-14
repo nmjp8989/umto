@@ -9,7 +9,13 @@ class MissionVoicePlayer{
   try{
    const response=await fetch('audio/'+id+'.json?updated='+Date.now(),{cache:'no-store'});
    if(response.ok){const manifest=await response.json();if(manifest.mission===id)this.lines=manifest.lines||{};}
-  }catch{/* Subtitles remain available when audio is absent/offline. */}
+  }catch{/* Try the bundled Part 3 dialogue below. */}
+  if(id==='whispering-village-part3'&&!Object.keys(this.lines).length){
+   try{
+    const response=await fetch('audio/whispering-village-part3-local.json?v=1');
+    if(response.ok){const manifest=await response.json();if(manifest.mission===id)this.lines=manifest.lines||{};}
+   }catch{/* Subtitles remain available when audio is absent/offline. */}
+  }
  }
  stop(){
   if(!this.clip)return;
