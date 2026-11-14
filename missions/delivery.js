@@ -206,7 +206,7 @@ async function applyRule(event){
 async function dispatch(event){if(!started||busy||paused||S.complete)return;const token=epoch;setBusy(true);camera.to('wide');clearSelection();stopLine();try{await applyRule(event);if(token===epoch)save();}catch(error){console.error(error);announceError('That action could not finish. Your last saved progress is available after a refresh.');}finally{if(token===epoch)setBusy(false);}}
 async function interact(id){if(!started||busy||paused||S.complete)return;if(selected&&selected!==id){const item=selected;await dispatch('drop:'+item+':'+id);return;}
  const o=mission.scenes[S.scene]?.objects.find(o=>o.id===id);if(!o)return;
- if(!['door','homeDoor','stallDoor','back','depart','gardenGate','cross','platform','cabin'].includes(id)&&id!=='scooter'){setBusy(true);await walkTo(Math.max(200,Math.min(1000,o.x-55)));setBusy(false);}
+ if(!['door','homeDoor','stallDoor','back','depart','gardenGate','cross','platform','cabin'].includes(id)&&!['scooter','bike'].includes(id)){setBusy(true);await walkTo(Math.max(200,Math.min(1000,o.x-55)));setBusy(false);}
  await dispatch('click:'+id);
 }
 function worldPoint(e){const matrix=$('world').getScreenCTM();return matrix?new DOMPoint(e.clientX,e.clientY).matrixTransform(matrix.inverse()):{x:0,y:0};}
