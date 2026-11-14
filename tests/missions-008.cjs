@@ -8,6 +8,20 @@ const Runner=require('../missions/sequence-runner.js');
 const def=require('../missions/adventures/whispering-village.json');
 const previous=require('../missions/adventures/empty-carriage.json');
 const voices=require('../voices.json');
+const vm=require('node:vm');
+const artSandbox={window:{},DeliveryArt:{defs:'',icons:{}}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../missions/whispering-village-art.js'),'utf8'),artSandbox);
+const art=artSandbox.DeliveryArt;
+for(const [scene,definition] of Object.entries(def.scenes)){
+ assert.equal(typeof art[scene],'function','Missing original art in '+scene);
+ assert(art[scene]().length>500,'Blank scene '+scene);
+ for(const object of definition.objects){
+  assert(art.prop(object,{flags:{}}).length>0,'Unillustrated target '+object.id+' in '+scene);
+ }
+}
+assert(artSandbox.window.WhisperingVillageArt?.ride?.length>100,'Missing motorcycle animation');
+assert(artSandbox.window.WhisperingVillageArt?.reveal?.length>100,'Missing cellar ending artwork');
+
 
 assert.equal(def.id,'whispering-village');
 assert.equal(def.number,'008');
