@@ -1,0 +1,31 @@
+name: Whispering Village Part 2 browser test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'missions/whispering-village-part2*'
+      - 'missions/delivery.js'
+      - 'missions/adventures/whispering-village-part2.json'
+      - 'tests/missions-008-part2-browser.cjs'
+      - '.github/workflows/mission-008-part2-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  play-part2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Play full detective sequel with Kabir companion
+        run: node tests/missions-008-part2-browser.cjs
