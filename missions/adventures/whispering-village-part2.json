@@ -1,0 +1,871 @@
+{
+  "id": "whispering-village-part2",
+  "number": "008-II",
+  "version": 3,
+  "title": "The House That Answered",
+  "subtitle": "Two detectives. An empty house. A knock with no hand behind it.",
+  "sequelTo": "whispering-village",
+  "startScene": "home",
+  "startMessage": "intro",
+  "finalScene": "platform",
+  "finalSequence": "reveal",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "NIGHT DETECTIVE",
+      "colour": "#e9bd89"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "DETECTIVE PARTNER",
+      "colour": "#9ac9f7"
+    },
+    "meena": {
+      "name": "Bibi Noor",
+      "role": "VILLAGE ELDER",
+      "colour": "#b4dfb1"
+    }
+  },
+  "inventoryItems": {
+    "battery": {
+      "label": "Relay battery",
+      "icon": "battery"
+    },
+    "wire": {
+      "label": "Copper wire",
+      "icon": "wire"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "Neem Lane · 12:17 AM",
+      "chapter": "01 / THE ANSWERING KNOCK",
+      "heroX": 407,
+      "objects": [
+        {
+          "id": "kabir",
+          "name": "Ask Kabir what he heard in the cellar",
+          "x": 778,
+          "y": 326,
+          "w": 188,
+          "h": 264
+        },
+        {
+          "id": "shutter",
+          "name": "Listen by the dark house window",
+          "x": 211,
+          "y": 229,
+          "w": 239,
+          "h": 208
+        },
+        {
+          "id": "cross",
+          "name": "Walk to the abandoned house",
+          "x": 1038,
+          "y": 288,
+          "w": 216,
+          "h": 250
+        },
+        {
+          "id": "yardGate",
+          "name": "Walk behind the empty house",
+          "x": 30,
+          "y": 291,
+          "w": 175,
+          "h": 241
+        },
+        {
+          "id": "shedPath",
+          "name": "Walk to the grain shed",
+          "x": 548,
+          "y": 246,
+          "w": 179,
+          "h": 241
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 881,
+          "y": 616,
+          "height": 283
+        }
+      ],
+      "foreground": false
+    },
+    "stall": {
+      "name": "The Empty House",
+      "chapter": "02 / THE RELAY WITHOUT POWER",
+      "heroX": 472,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to Neem Lane",
+          "x": 20,
+          "y": 401,
+          "w": 180,
+          "h": 155
+        },
+        {
+          "id": "diagram",
+          "name": "Inspect the strange pipe diagram",
+          "x": 267,
+          "y": 196,
+          "w": 233,
+          "h": 194
+        },
+        {
+          "id": "panel",
+          "name": "Inspect the broken relay cabinet",
+          "x": 613,
+          "y": 310,
+          "w": 209,
+          "h": 232
+        },
+        {
+          "id": "hatch",
+          "name": "Follow the knocking behind the wall",
+          "x": 1029,
+          "y": 334,
+          "w": 206,
+          "h": 230
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 918,
+          "y": 616,
+          "height": 283
+        }
+      ],
+      "foreground": false
+    },
+    "yard": {
+      "name": "Rear Courtyard",
+      "chapter": "03 / FOOTPRINTS IN THE MUD",
+      "heroX": 471,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to Neem Lane",
+          "x": 25,
+          "y": 383,
+          "w": 185,
+          "h": 184
+        },
+        {
+          "id": "tracks",
+          "name": "Investigate the footprints by the rain barrel",
+          "x": 247,
+          "y": 405,
+          "w": 315,
+          "h": 118
+        },
+        {
+          "id": "wire",
+          "name": "Collect the loose copper wire",
+          "x": 586,
+          "y": 373,
+          "w": 112,
+          "h": 126,
+          "if": "!inventory.wire+!wired"
+        },
+        {
+          "id": "pipe",
+          "name": "Listen to the drainpipe under the window",
+          "x": 994,
+          "y": 185,
+          "w": 172,
+          "h": 294
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 839,
+          "y": 616,
+          "height": 283
+        }
+      ],
+      "foreground": false
+    },
+    "shed": {
+      "name": "The Grain Shed",
+      "chapter": "04 / THE KNOCKING CODE",
+      "heroX": 459,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to Neem Lane",
+          "x": 20,
+          "y": 379,
+          "w": 194,
+          "h": 179
+        },
+        {
+          "id": "ledger",
+          "name": "Read the caretaker’s signal ledger",
+          "x": 266,
+          "y": 222,
+          "w": 284,
+          "h": 179
+        },
+        {
+          "id": "battery",
+          "name": "Pick up the relay battery",
+          "x": 664,
+          "y": 405,
+          "w": 121,
+          "h": 92,
+          "if": "!inventory.battery+!powered"
+        },
+        {
+          "id": "drum",
+          "name": "Examine the old signal drum",
+          "x": 991,
+          "y": 272,
+          "w": 181,
+          "h": 223
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 886,
+          "y": 616,
+          "height": 283
+        }
+      ],
+      "foreground": false
+    },
+    "platform": {
+      "name": "Underfloor Signal Room",
+      "chapter": "05 / BEHIND THE WALL",
+      "heroX": 416,
+      "objects": [
+        {
+          "id": "cabin",
+          "name": "Return to the empty house",
+          "x": 22,
+          "y": 386,
+          "w": 192,
+          "h": 169
+        },
+        {
+          "id": "knocker",
+          "name": "Listen to the tapping inside the wall",
+          "x": 466,
+          "y": 277,
+          "w": 167,
+          "h": 197
+        },
+        {
+          "id": "switch",
+          "name": "Choose a signal and open the inner door",
+          "x": 893,
+          "y": 255,
+          "w": 221,
+          "h": 236
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 820,
+          "y": 616,
+          "height": 283
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "harpreet",
+      "text": "Kabir is safe, but someone answered his knock from the supposedly empty house. The village clock reads twelve seventeen. Kabir, stay close. We are going back in."
+    },
+    "saveResume": {
+      "speaker": "harpreet",
+      "text": "That empty house still has secrets. Kabir is with me now. We must follow the knocking signal."
+    },
+    "kabirFirst": {
+      "speaker": "kabir",
+      "text": "I heard three knocks from the cellar. Then a different answer came from next door: one long, two short. I saw a wire running beneath the houses."
+    },
+    "kabirAgain": {
+      "speaker": "kabir",
+      "text": "I'm right here, Harpreet. One long knock, then two short. That's not the sound I made."
+    },
+    "shutter": {
+      "speaker": "harpreet",
+      "text": "The shutters tremble. Three seconds of silence. Then: one long knock, two short. Something inside is replying through the wall."
+    },
+    "shutterAgain": {
+      "speaker": "harpreet",
+      "text": "The house answers: long, short, short. The old window has no light behind it."
+    },
+    "street": {
+      "speaker": "harpreet",
+      "text": "Fresh footprints cross the lane toward the back yard, but nobody is outside. The shadows are moving with the moonlight."
+    },
+    "diagram": {
+      "speaker": "harpreet",
+      "text": "This diagram shows a copper speaking-pipe linking the grain shed to a sealed room beneath the house. An old relay box needs both power and a cable."
+    },
+    "diagramAgain": {
+      "speaker": "harpreet",
+      "text": "The pipe diagram connects a shed to a sealed room. The relay needs a battery and a copper wire."
+    },
+    "panelDead": {
+      "speaker": "harpreet",
+      "text": "No power. The battery socket is empty, and an open terminal waits for a length of copper wire."
+    },
+    "panelHalf": {
+      "speaker": "harpreet",
+      "text": "The old relay is powered, but the terminal has no copper wire. The knocks can't reach the sealed room yet."
+    },
+    "panelReady": {
+      "speaker": "harpreet",
+      "text": "The relay is humming. The tapping now sounds like a deliberate message, not a ghost."
+    },
+    "batteryUsed": {
+      "speaker": "kabir",
+      "text": "Look! The cabinet lights up! Now we need to restore the copper wire in the terminal."
+    },
+    "wireTooSoon": {
+      "speaker": "harpreet",
+      "text": "The copper lead belongs on the panel, but the battery socket must have power first."
+    },
+    "wireUsed": {
+      "speaker": "harpreet",
+      "text": "The wire makes contact. Three lamps blink through the wall. Someone is definitely sending a message."
+    },
+    "doorLocked": {
+      "speaker": "harpreet",
+      "text": "The wall opens onto a narrow staircase, but the relay is dead. We need to repair it before searching below."
+    },
+    "doorNeedsClues": {
+      "speaker": "kabir",
+      "text": "We might open the wrong door if we guess. Let's study the ledger and the footprints first."
+    },
+    "doorOpen": {
+      "speaker": "harpreet",
+      "text": "The relay holds the latch open. Come on, Kabir. Keep your lantern up."
+    },
+    "tracks": {
+      "speaker": "harpreet",
+      "text": "These muddy footprints came from a small boot, then stopped at a drainage grate. Someone followed the copper pipe beneath the house."
+    },
+    "tracksAgain": {
+      "speaker": "harpreet",
+      "text": "The little boot prints lead underground. No one walked back out."
+    },
+    "wireFound": {
+      "speaker": "kabir",
+      "text": "A copper wire! It's the same gauge as the broken relay cable. I'll keep it safe for you."
+    },
+    "pipe": {
+      "speaker": "harpreet",
+      "text": "Through the pipe I hear a scrape, then a long knock and two short ones. It isn't the wind."
+    },
+    "ledger": {
+      "speaker": "kabir",
+      "text": "The caretaker's ledger says: one LONG knock followed by two SHORT knocks means 'OPEN THE INNER DOOR'. Three quick knocks mean 'STOP'."
+    },
+    "ledgerAgain": {
+      "speaker": "kabir",
+      "text": "The ledger is clear: LONG, SHORT, SHORT opens the inner door."
+    },
+    "batteryFound": {
+      "speaker": "harpreet",
+      "text": "A heavy old relay battery. It's still charged. I can carry it to the cabinet."
+    },
+    "drum": {
+      "speaker": "harpreet",
+      "text": "A hand-operated signal drum sits in the dark. Its striker lines up in groups of one, two and three. Whoever knocked from the wall knew this mechanism."
+    },
+    "knocker": {
+      "speaker": "kabir",
+      "text": "I can hear the other end of the speaking-pipe. The knocking is getting weaker. We should hurry."
+    },
+    "choose": {
+      "speaker": "harpreet",
+      "text": "The relay is ready. What signal should we send to open the hidden door?",
+      "choices": [
+        {
+          "label": "Three fast knocks",
+          "event": "signal:stop"
+        },
+        {
+          "label": "One long, then two short",
+          "event": "signal:open"
+        },
+        {
+          "label": "Two long, then one short",
+          "event": "signal:wrong"
+        }
+      ]
+    },
+    "retry": {
+      "speaker": "kabir",
+      "text": "That pattern doesn't match the caretaker's ledger. Listen for the long knock first.",
+      "choices": [
+        {
+          "label": "Three fast knocks",
+          "event": "signal:stop"
+        },
+        {
+          "label": "One long, then two short",
+          "event": "signal:open"
+        },
+        {
+          "label": "Two long, then one short",
+          "event": "signal:wrong"
+        }
+      ]
+    },
+    "cantCombine": {
+      "speaker": "harpreet",
+      "text": "That does not fit. A charged battery powers the relay, and copper wire reconnects its open terminal."
+    },
+    "reveal": {
+      "speaker": "kabir",
+      "text": "Harpreet, there's someone behind the door! It's the village caretaker. He's been knocking from the sealed signal room."
+    },
+    "caretaker": {
+      "speaker": "meena",
+      "text": "It was the caretaker who repaired the underground warning line before the storm. The house was empty above, but not below. Thank goodness you heard him."
+    },
+    "explanation": {
+      "speaker": "harpreet",
+      "text": "We followed footprints, restored the relay and sent the right signal. The strange knocking travelled through the copper pipes between houses."
+    },
+    "final": {
+      "speaker": "kabir",
+      "text": "So it wasn't a ghost after all. But why did somebody lock the caretaker down here? And where did they take the missing village register?"
+    },
+    "closing": {
+      "speaker": "harpreet",
+      "text": "One mystery solved, another beginning. We'll keep the lantern burning. Neem Village still has someone to answer for."
+    }
+  },
+  "objectives": [
+    {
+      "if": "!partnerBriefed",
+      "text": "Talk to Kabir about the reply he heard."
+    },
+    {
+      "if": "!heardWindow",
+      "text": "Listen for knocking from the empty house window."
+    },
+    {
+      "if": "!readDiagram",
+      "text": "Find the diagram inside the empty house."
+    },
+    {
+      "if": "!tracedSteps",
+      "text": "Investigate the tracks in the rear courtyard."
+    },
+    {
+      "if": "!readLedger",
+      "text": "Read the signal ledger in the grain shed."
+    },
+    {
+      "if": "!powered",
+      "text": "Find the battery and power the relay cabinet."
+    },
+    {
+      "if": "!wired",
+      "text": "Connect the copper wire to the relay cabinet."
+    },
+    {
+      "if": "!enteredSignalRoom",
+      "text": "Open the staircase into the hidden signal room."
+    },
+    {
+      "if": "",
+      "text": "Send the signal that opens the caretaker's door."
+    }
+  ],
+  "hints": [
+    {
+      "if": "!partnerBriefed",
+      "text": "Tap Kabir at the edge of Neem Lane and listen to his account."
+    },
+    {
+      "if": "!heardWindow",
+      "text": "The shutter on Neem Lane is moving. Tap the dark house window."
+    },
+    {
+      "if": "!readDiagram",
+      "text": "Inside the empty house, inspect the paper diagram on the wall."
+    },
+    {
+      "if": "!tracedSteps",
+      "text": "Search the muddy footsteps behind the house."
+    },
+    {
+      "if": "!readLedger",
+      "text": "Check the caretaker's ledger at the grain shed."
+    },
+    {
+      "if": "!powered+!inventory.battery",
+      "text": "Pick up the charged relay battery in the grain shed."
+    },
+    {
+      "if": "!powered",
+      "text": "Select the battery in your pocket and tap the relay cabinet in the empty house."
+    },
+    {
+      "if": "!wired+!inventory.wire",
+      "text": "Collect the copper wire in the rear courtyard."
+    },
+    {
+      "if": "!wired",
+      "text": "Select the copper wire and tap the powered relay cabinet."
+    },
+    {
+      "if": "!enteredSignalRoom",
+      "text": "Tap the small hatch at the far side of the abandoned house."
+    },
+    {
+      "if": "",
+      "text": "Send one long knock followed by two short knocks."
+    }
+  ],
+  "rules": [
+    {
+      "when": "click:kabir",
+      "actions": [
+        "message:kabirAgain"
+      ],
+      "in": "home",
+      "if": "partnerBriefed"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "flag:partnerBriefed",
+        "message:kabirFirst"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:shutter",
+      "actions": [
+        "message:shutterAgain"
+      ],
+      "in": "home",
+      "if": "heardWindow"
+    },
+    {
+      "when": "click:shutter",
+      "actions": [
+        "flag:heardWindow",
+        "message:shutter"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:cross",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:yardGate",
+      "actions": [
+        "scene:yard"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:shedPath",
+      "actions": [
+        "scene:shed"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "yard"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "shed"
+    },
+    {
+      "when": "click:cabin",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "click:diagram",
+      "actions": [
+        "message:diagramAgain"
+      ],
+      "in": "stall",
+      "if": "readDiagram"
+    },
+    {
+      "when": "click:diagram",
+      "actions": [
+        "flag:readDiagram",
+        "message:diagram"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:panelReady"
+      ],
+      "in": "stall",
+      "if": "wired"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:panelHalf"
+      ],
+      "in": "stall",
+      "if": "powered"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:panelDead"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "drop:wire:panel",
+      "actions": [
+        "remove:wire",
+        "flag:wired",
+        "sound:click",
+        "message:wireUsed"
+      ],
+      "in": "stall",
+      "if": "inventory.wire+powered+!wired"
+    },
+    {
+      "when": "drop:wire:panel",
+      "actions": [
+        "message:wireTooSoon"
+      ],
+      "in": "stall",
+      "if": "inventory.wire+!powered"
+    },
+    {
+      "when": "drop:battery:panel",
+      "actions": [
+        "remove:battery",
+        "flag:powered",
+        "sound:click",
+        "message:batteryUsed"
+      ],
+      "in": "stall",
+      "if": "inventory.battery+!powered"
+    },
+    {
+      "when": "click:hatch",
+      "actions": [
+        "flag:enteredSignalRoom",
+        "scene:platform",
+        "message:doorOpen"
+      ],
+      "in": "stall",
+      "if": "wired+readLedger+tracedSteps+partnerBriefed+heardWindow+readDiagram"
+    },
+    {
+      "when": "click:hatch",
+      "actions": [
+        "message:doorNeedsClues"
+      ],
+      "in": "stall",
+      "if": "wired"
+    },
+    {
+      "when": "click:hatch",
+      "actions": [
+        "message:doorLocked"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:tracks",
+      "actions": [
+        "message:tracksAgain"
+      ],
+      "in": "yard",
+      "if": "tracedSteps"
+    },
+    {
+      "when": "click:tracks",
+      "actions": [
+        "flag:tracedSteps",
+        "message:tracks"
+      ],
+      "in": "yard"
+    },
+    {
+      "when": "click:wire",
+      "actions": [
+        "inventory:wire",
+        "sound:click",
+        "message:wireFound"
+      ],
+      "in": "yard",
+      "if": "!inventory.wire+!wired"
+    },
+    {
+      "when": "click:pipe",
+      "actions": [
+        "message:pipe"
+      ],
+      "in": "yard"
+    },
+    {
+      "when": "click:ledger",
+      "actions": [
+        "message:ledgerAgain"
+      ],
+      "in": "shed",
+      "if": "readLedger"
+    },
+    {
+      "when": "click:ledger",
+      "actions": [
+        "flag:readLedger",
+        "message:ledger"
+      ],
+      "in": "shed"
+    },
+    {
+      "when": "click:battery",
+      "actions": [
+        "inventory:battery",
+        "sound:click",
+        "message:batteryFound"
+      ],
+      "in": "shed",
+      "if": "!inventory.battery+!powered"
+    },
+    {
+      "when": "click:drum",
+      "actions": [
+        "message:drum"
+      ],
+      "in": "shed"
+    },
+    {
+      "when": "click:knocker",
+      "actions": [
+        "message:knocker"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "click:switch",
+      "actions": [
+        "message:choose"
+      ],
+      "in": "platform",
+      "if": "enteredSignalRoom+readLedger+wired"
+    },
+    {
+      "when": "signal:stop",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "enteredSignalRoom+readLedger+wired"
+    },
+    {
+      "when": "signal:wrong",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "enteredSignalRoom+readLedger+wired"
+    },
+    {
+      "when": "signal:open",
+      "actions": [
+        "flag:rescuedCaretaker",
+        "ending:reveal",
+        "sequence:reveal"
+      ],
+      "in": "platform",
+      "if": "enteredSignalRoom+readLedger+wired+!rescuedCaretaker"
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "reveal": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "switch"
+        }
+      },
+      {
+        "sound": "metal"
+      },
+      {
+        "effect": "villagePart2Reveal"
+      },
+      {
+        "line": "reveal"
+      },
+      {
+        "line": "caretaker"
+      },
+      {
+        "line": "explanation"
+      },
+      {
+        "line": "final"
+      },
+      {
+        "line": "closing"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "completionObjective": "Kabir and the caretaker are safe. Who locked the caretaker inside?"
+}
