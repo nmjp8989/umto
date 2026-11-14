@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "mission": "sky-carnival",
+  "lines": {
+    "intro": {
+      "text": "Emergency! The giant carnival balloon escaped with the birthday cake! It has a better seat than I do.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/intro-08ac6c9352cd656feee4.mp3"
+    },
+    "shock": {
+      "text": "We have to save it before the candles become shooting stars. Look! The wind is blowing east.",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/shock-aea3c83fd4413d1d940f.mp3"
+    },
+    "banner": {
+      "text": "Today's programme: music at noon, cake at one. Please do not launch the cake into outer space.",
+      "speaker": "baldev",
+      "src": "audio/sky-carnival/banner-998cd53b03db18cd39ed.mp3"
+    },
+    "kabir": {
+      "text": "The cake is still safe in the basket. If we repair our spare balloon, we can catch up.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/kabir-52332946b248670f7e87.mp3"
+    },
+    "meher": {
+      "text": "The flags are pointing east. A gentle east breeze is perfect; a wild gust will flip us.",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/meher-35f1c81d4bdd58743d04.mp3"
+    },
+    "baldev": {
+      "text": "I was watching the balloon. Then I sneezed and it stole the entire cake! Even the cherry.",
+      "speaker": "baldev",
+      "src": "audio/sky-carnival/baldev-accc39993ca5211f0d02.mp3"
+    },
+    "workshopWelcome": {
+      "text": "Welcome to my invention tent. Take a patch and safety rope, then tune the fan gently.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/workshopWelcome-83a740f0088719884b24.mp3"
+    },
+    "meena": {
+      "text": "Safety first! A good repair, a strong rope, and a gentle fan. No shortcuts.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/meena-2d8af62009c7d5b2b6df.mp3"
+    },
+    "rohan": {
+      "text": "I made a fan with three settings. Soft breeze, giant gust, and absolutely nothing.",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/rohan-a61f7fd77aefa560a014.mp3"
+    },
+    "fabric": {
+      "text": "Brilliant pink fabric! This will fix the tear in our rescue balloon.",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/fabric-19963bbf14bdb6b4a570.mp3"
+    },
+    "rope": {
+      "text": "A proper safety rope. Attach it before the balloon lifts, or we'll be chasing another one.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/rope-6b34a67bbe4bc045aa0a.mp3"
+    },
+    "fanQuestion": {
+      "text": "What fan setting makes a calm, safe balloon launch?",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/fanQuestion-a49afd98417aa273de5b.mp3"
+    },
+    "fanRetry": {
+      "text": "That won't give us a steady launch. Pick the gentle breeze.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/fanRetry-49a30e55d5195adaa750.mp3"
+    },
+    "fanDone": {
+      "text": "Perfect! The fan purrs like a sleepy kitten. And nobody lost their eyebrows.",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/fanDone-380e75d1bbf93851f1da.mp3"
+    },
+    "needParts": {
+      "text": "We need a patch, safety rope and a tuned fan. Visit Meena's repair tent.",
+      "speaker": "harpreet",
+      "src": "audio/sky-carnival/needParts-e9efbc8537e6dcfb09a7.mp3"
+    },
+    "readyForField": {
+      "text": "Great teamwork! We've got the fabric, rope and fan ready. Let's head to the launch field.",
+      "speaker": "harpreet",
+      "src": "audio/sky-carnival/readyForField-7182340bd79562d82a6b.mp3"
+    },
+    "launchIntro": {
+      "text": "Big balloon. Tiny basket. I vote we check every safety step before takeoff.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/launchIntro-fcb212affe5a797cd685.mp3"
+    },
+    "needPatch": {
+      "text": "The balloon has a tear. Use the pink patch from your pocket on the balloon.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/needPatch-0206cdfe469fb45f8963.mp3"
+    },
+    "patched": {
+      "text": "Patch secured. That's one less hole between us and the clouds.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/patched-ec0d3c31c29853834294.mp3"
+    },
+    "needRope": {
+      "text": "Now fasten the safety rope! Tap it in your pocket, then tap the balloon.",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/needRope-0d7376b5f885d45a9ee7.mp3"
+    },
+    "tethered": {
+      "text": "Tied tight! That knot could hold Baldev's whole tea collection.",
+      "speaker": "rohan",
+      "src": "audio/sky-carnival/tethered-8796cc12d006d04f70c5.mp3"
+    },
+    "chooseWind": {
+      "text": "Which wind will carry us steadily toward the cake?",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/chooseWind-a3b4896c5215803253a7.mp3"
+    },
+    "windRetry": {
+      "text": "Watch the carnival flags. They point east, so the safe breeze is east.",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/windRetry-d1c0bc4479e283d26e16.mp3"
+    },
+    "windDone": {
+      "text": "East wind confirmed. A beautiful day for a sky-high cake delivery.",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/windDone-a72964892c2b220bdbfa.mp3"
+    },
+    "boardHint": {
+      "text": "Balloon repaired, rope attached and gentle east wind selected. All aboard!",
+      "speaker": "harpreet",
+      "src": "audio/sky-carnival/boardHint-d3f7ab644fba0c995cb0.mp3"
+    },
+    "launch": {
+      "text": "We're flying! Please tell the ground I left my sandwich in the workshop.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/launch-2794963850725a7a8b34.mp3"
+    },
+    "skyIntro": {
+      "text": "Whoa! Look at those rainbow clouds. And the runaway cake is right beside us!",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/skyIntro-06fc69b0eeac9e137605.mp3"
+    },
+    "skyKabir": {
+      "text": "We must catch it gently. I can reach the basket using our safety rope.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/skyKabir-acbb79500bd3f13f8187.mp3"
+    },
+    "cloud": {
+      "text": "That cloud looks like a giant doughnut. I think I'm hungry.",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/cloud-52395a00508b3aff6cc6.mp3"
+    },
+    "netHint": {
+      "text": "We can hold our rescue net under the cake. First, secure its basket with the rope.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/netHint-fc5bbd644fb53422ffa6.mp3"
+    },
+    "cakeChoice": {
+      "text": "How should we catch the cake without dropping it?",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/cakeChoice-9e409f8417275cf43684.mp3"
+    },
+    "cakeRetry": {
+      "text": "Safe rescuers stay in their balloon. Use the rope to pull the other basket close.",
+      "speaker": "harpreet",
+      "src": "audio/sky-carnival/cakeRetry-3bcf74e8da6d6f6c25ae.mp3"
+    },
+    "cakeCaught": {
+      "text": "Got it! Cake secured in the rescue net. Not a single cherry lost.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/cakeCaught-04fc887893368da70507.mp3"
+    },
+    "needCake": {
+      "text": "Not yet! We can't go home without the cake. Tap the runaway basket first.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/needCake-bec8287cc98cb2d6dba3.mp3"
+    },
+    "finalHero": {
+      "text": "Mission complete! Today we proved teamwork is stronger than the wind.",
+      "speaker": "harpreet",
+      "src": "audio/sky-carnival/finalHero-0080791303a1ce507a51.mp3"
+    },
+    "finalMeher": {
+      "text": "Best cake delivery ever. It came with a free flight!",
+      "speaker": "meher",
+      "src": "audio/sky-carnival/finalMeher-9ce222c1fb4e892a704c.mp3"
+    },
+    "finalKabir": {
+      "text": "Can I have the first slice? I've been emotionally supporting that cake for miles.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/finalKabir-7583fbc73c12ec4db137.mp3"
+    },
+    "finalBaldev": {
+      "text": "Nobody touch the candles. I sneezed once and nearly sent the icing to the moon!",
+      "speaker": "baldev",
+      "src": "audio/sky-carnival/finalBaldev-fec2a4e348d51a98c874.mp3"
+    },
+    "saveResume": {
+      "text": "Welcome back, pilot. Our flying cake still needs you.",
+      "speaker": "kabir",
+      "src": "audio/sky-carnival/saveResume-c049fa80f0ac5fcc5baa.mp3"
+    },
+    "cantCombine": {
+      "text": "Try attaching the patch or rope to the rescue balloon. Other items won't stick.",
+      "speaker": "meena",
+      "src": "audio/sky-carnival/cantCombine-b2e18317b967c0315d8a.mp3"
+    }
+  }
+}
