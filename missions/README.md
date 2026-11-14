@@ -162,3 +162,23 @@ mobile/desktop with existing subtitles, audio, autosave, inventory and hints.
 Validate with `node tests/missions-008.cjs` and the browser test
 `node tests/missions-008-browser.cjs`. MiMo voice clips use the standard
 single-secret generator and are cached in `missions/audio/`.
+
+## Mission 008 — Part 2: The House That Answered
+
+Open `/missions/whispering-village-part2.html` or
+`/missions/?mission=whispering-village-part2`.
+After Harpreet finds Kabir beneath the blue door, both investigate the answering
+knock from the house across Neem Lane. Kabir is a *real full-body rig actor* in
+every scene and walks with Harpreet as his detective companion.
+
+Visit the moonlit lane, abandoned house, muddy rear courtyard, grain shed and
+sealed relay room. Investigate footprints and a signal ledger; recover a battery
+and copper wire; repair the old signal relay; deduce the one-long, two-short
+knock pattern to open the caretaker's hidden room. Wrong answers retry safely.
+The chapter ends with a cliffhanger about the missing village register.
+
+Mission 008 Part 1's ending was also repaired: Kabir is rendered by his full
+animated character rig rather than an improvised static rescue figure.
+Part 2 has independent autosave, original vector environments, MiMo audio,
+original atmospheric score, replayable cinematic ending and tap/drag/keyboard
+controls. Validate with `node tests/missions-008-part2.cjs`.
