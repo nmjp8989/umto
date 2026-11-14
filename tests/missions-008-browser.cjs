@@ -33,6 +33,7 @@ async function action(page,event){await page.evaluate(async evt=>{await dispatch
   const base='http://127.0.0.1:'+server.address().port;
   const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];
   page.on('pageerror',err=>errors.push(err.message));
+  page.on('console',msg=>{if(msg.type()==='error')console.log('BROWSER CONSOLE ERROR:',msg.text());});
   await page.goto(base+'/missions/whispering-village.html',{waitUntil:'domcontentloaded'});
   assert.equal(await page.locator('body').getAttribute('data-mission'),'whispering-village');
   await page.waitForFunction(()=>!document.getElementById('start').disabled,null,{timeout:35000});
