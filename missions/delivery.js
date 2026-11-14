@@ -220,7 +220,7 @@ async function begin(fresh=false){
  else restore();
  $('opening').hidden=true;$('game').classList.remove('departing','door-open','projector-on','lantern-found');$('error').hidden=true;render();await sound.start();
  if(S.complete){await changeScene(mission.finalScene||'cinema');if(isNight)$('effects').innerHTML=NightPlatformArt.train;if(isBeacon)$('effects').innerHTML=StormBeaconArt.rescue;if(isCarriage){$('effects').innerHTML=EmptyCarriageArt.reveal;$('effects').classList.add('ec-rescued');}if(isVillage){$('props').replaceChildren();$('effects').innerHTML=WhisperingVillageArt.reveal;$('effects').classList.add('wv-cellar-rescue');}$('game').classList.add('projector-on');finish();setBusy(false);return;}
- if(fresh||!saved()){await sequence.run(mission.sequences.opening);}else showDialogue('saveResume');
+ if(fresh||!saved()){await sequence.run(mission.sequences.opening);$('dialogue').hidden=true;}else showDialogue('saveResume');
  setBusy(false);save();window.MysteryUI?.progress(mission,engine);
 }
 $('start').onclick=()=>{if(!document.fullscreenElement)$('game').requestFullscreen?.().catch(()=>{});begin(false);};
