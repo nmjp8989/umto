@@ -1,0 +1,488 @@
+{
+  "id": "night-platform",
+  "version": 3,
+  "number": "005",
+  "title": "The Midnight Platform",
+  "startScene": "home",
+  "startMessage": "intro",
+  "finalScene": "platform",
+  "finalSequence": "arrival",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "THE NIGHT COURIER",
+      "colour": "#e9b65d"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "THE SIGNAL KEEPER",
+      "colour": "#75d4c0"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "THE LAST PASSENGER",
+      "colour": "#e5929e"
+    }
+  },
+  "inventoryItems": {
+    "fuse": {
+      "label": "Spare fuse",
+      "icon": "fuse"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "Booking Hall",
+      "chapter": "01 / THE BLACKOUT",
+      "heroX": 590,
+      "objects": [
+        {
+          "id": "notice",
+          "name": "Read the station notice",
+          "x": 223,
+          "y": 233,
+          "w": 215,
+          "h": 162
+        },
+        {
+          "id": "kabir",
+          "name": "Talk to Kabir",
+          "x": 800,
+          "y": 339,
+          "w": 125,
+          "h": 264
+        },
+        {
+          "id": "cross",
+          "name": "Go to the Signal Cabin",
+          "x": 1070,
+          "y": 390,
+          "w": 188,
+          "h": 164
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 855,
+          "y": 602,
+          "height": 245
+        }
+      ],
+      "foreground": false
+    },
+    "stall": {
+      "name": "Signal Cabin",
+      "chapter": "02 / THE DEAD SIGNAL",
+      "heroX": 415,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to the Booking Hall",
+          "x": 25,
+          "y": 390,
+          "w": 175,
+          "h": 164
+        },
+        {
+          "id": "fuse",
+          "name": "Pick up the spare fuse",
+          "x": 318,
+          "y": 404,
+          "w": 112,
+          "h": 80,
+          "if": "!inventory.fuse+!powered"
+        },
+        {
+          "id": "panel",
+          "name": "Inspect signal panel",
+          "x": 590,
+          "y": 232,
+          "w": 196,
+          "h": 198
+        },
+        {
+          "id": "meena",
+          "name": "Talk to Meena",
+          "x": 852,
+          "y": 305,
+          "w": 140,
+          "h": 300
+        },
+        {
+          "id": "platform",
+          "name": "Go to the Platform",
+          "x": 1070,
+          "y": 390,
+          "w": 188,
+          "h": 164
+        }
+      ],
+      "actors": [
+        {
+          "id": "meena",
+          "x": 920,
+          "y": 602,
+          "height": 305
+        }
+      ],
+      "foreground": false
+    },
+    "platform": {
+      "name": "Rain Platform",
+      "chapter": "03 / THE LAST TRAIN",
+      "heroX": 488,
+      "objects": [
+        {
+          "id": "cabin",
+          "name": "Return to the Signal Cabin",
+          "x": 25,
+          "y": 390,
+          "w": 175,
+          "h": 164
+        },
+        {
+          "id": "lever",
+          "name": "Set the route selector",
+          "x": 765,
+          "y": 326,
+          "w": 153,
+          "h": 168
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 623,
+          "y": 610,
+          "height": 232
+        },
+        {
+          "id": "meena",
+          "x": 1010,
+          "y": 606,
+          "height": 294
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "harpreet",
+      "text": "The storm knocked out the station lights. Kabir is waiting for the last train home. Let’s get the signal working."
+    },
+    "saveResume": {
+      "speaker": "harpreet",
+      "text": "We’re back at the station. Let’s pick up where we left off."
+    },
+    "notice": {
+      "speaker": "harpreet",
+      "text": "Here’s the route board. Blue is North Bridge, amber is Mill Road, and violet is the depot."
+    },
+    "ticket": {
+      "speaker": "kabir",
+      "text": "My ticket says North Bridge. Will the driver know where to stop?"
+    },
+    "repair": {
+      "speaker": "meena",
+      "text": "The storm blew the signal fuse. There’s a spare on the bench. Put it in the panel beside me."
+    },
+    "repaired": {
+      "speaker": "meena",
+      "text": "The signal has power again. Kabir’s ticket and the route board will tell you which route to set."
+    },
+    "foundFuse": {
+      "speaker": "harpreet",
+      "text": "A spare fuse. I’ll take it to the signal panel."
+    },
+    "dead": {
+      "speaker": "harpreet",
+      "text": "The route selector has no power. The panel in the cabin might explain why."
+    },
+    "unknown": {
+      "speaker": "harpreet",
+      "text": "I need Kabir’s destination and the route colours on the booking hall notice."
+    },
+    "choose": {
+      "speaker": "harpreet",
+      "text": "Kabir is going to North Bridge. Which signal should guide the driver?",
+      "choices": [
+        {
+          "label": "Amber · Mill Road",
+          "event": "route:amber"
+        },
+        {
+          "label": "Blue · North Bridge",
+          "event": "route:blue"
+        },
+        {
+          "label": "Violet · Depot",
+          "event": "route:violet"
+        }
+      ]
+    },
+    "retry": {
+      "speaker": "harpreet",
+      "text": "Check the route board again. Which colour goes with North Bridge?",
+      "choices": [
+        {
+          "label": "Amber · Mill Road",
+          "event": "route:amber"
+        },
+        {
+          "label": "Blue · North Bridge",
+          "event": "route:blue"
+        },
+        {
+          "label": "Violet · Depot",
+          "event": "route:violet"
+        }
+      ]
+    },
+    "cantCombine": {
+      "speaker": "harpreet",
+      "text": "The spare fuse fits the signal panel inside the cabin."
+    },
+    "train": {
+      "speaker": "meena",
+      "text": "Blue signal. North Bridge is clear. Here comes the train."
+    },
+    "thanks": {
+      "speaker": "kabir",
+      "text": "There it is! I can see the lights through the rain. Thanks, Harpreet."
+    }
+  },
+  "objectives": [
+    {
+      "text": "Restore power in the Signal Cabin.",
+      "if": "!powered"
+    },
+    {
+      "text": "Ask Kabir where he’s going.",
+      "if": "!destination"
+    },
+    {
+      "text": "Read the route board in the Booking Hall.",
+      "if": "!readNotice"
+    },
+    {
+      "text": "Set the route selector on the platform.",
+      "if": ""
+    }
+  ],
+  "hints": [
+    {
+      "text": "Look for the spare fuse on the bench in the Signal Cabin.",
+      "if": "!powered+!inventory.fuse"
+    },
+    {
+      "text": "Select the spare fuse in your pocket, then tap the signal panel.",
+      "if": "!powered"
+    },
+    {
+      "text": "Kabir is waiting beside the Booking Hall door.",
+      "if": "!destination"
+    },
+    {
+      "text": "The Booking Hall notice shows a colour for each destination.",
+      "if": "!readNotice"
+    },
+    {
+      "text": "Go to the platform and match the route colour to Kabir’s ticket.",
+      "if": ""
+    }
+  ],
+  "rules": [
+    {
+      "when": "click:notice",
+      "actions": [
+        "flag:readNotice",
+        "message:notice"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "flag:destination",
+        "message:ticket"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:cross",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:platform",
+      "actions": [
+        "scene:platform"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:cabin",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "click:fuse",
+      "actions": [
+        "inventory:fuse",
+        "sound:click",
+        "message:foundFuse"
+      ],
+      "in": "stall",
+      "if": "!inventory.fuse+!powered"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:repaired"
+      ],
+      "in": "stall",
+      "if": "powered"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:repair"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:repaired"
+      ],
+      "in": "stall",
+      "if": "powered"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:repair"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "drop:fuse:panel",
+      "actions": [
+        "remove:fuse",
+        "flag:powered",
+        "sound:click",
+        "message:repaired"
+      ],
+      "in": "stall",
+      "if": "inventory.fuse+!powered"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:dead"
+      ],
+      "in": "platform",
+      "if": "!powered"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:choose"
+      ],
+      "in": "platform",
+      "if": "powered+destination+readNotice"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:unknown"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "route:amber",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "powered+destination+readNotice"
+    },
+    {
+      "when": "route:violet",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "powered+destination+readNotice"
+    },
+    {
+      "when": "route:blue",
+      "actions": [
+        "flag:signalSet",
+        "ending:arrival",
+        "sequence:arrival"
+      ],
+      "in": "platform",
+      "if": "powered+destination+readNotice+!signalSet"
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "arrival": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "lever"
+        }
+      },
+      {
+        "sound": "click"
+      },
+      {
+        "wait": 450
+      },
+      {
+        "camera": "wide"
+      },
+      {
+        "effect": "midnightArrival"
+      },
+      {
+        "line": "train"
+      },
+      {
+        "line": "thanks"
+      },
+      {
+        "ending": true
+      }
+    ]
+  }
+}
