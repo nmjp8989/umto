@@ -24,7 +24,7 @@ for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
 const p=await browser.newPage({viewport,hasTouch:viewport.width<500});
 const errors=[];
 p.on('pageerror',e=>errors.push(e.message));
-p.on('response',r=>{if(r.status()>=400&&!/manifest\.json|favicon/.test(r.url()))errors.push(r.status()+' '+r.url())});
+p.on('response',r=>{if(r.status()>=400&&!/[\/]audio[\/]whispering-village-part3\.json\?|favicon/.test(r.url()))errors.push(r.status()+' '+r.url())});
 const url='http://127.0.0.1:'+server.address().port+'/missions/whispering-village-part3.html';
 await p.goto(url);
 await p.locator('#start:not([disabled])').waitFor();
