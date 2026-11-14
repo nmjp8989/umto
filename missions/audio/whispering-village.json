@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "mission": "whispering-village",
+  "lines": {
+    "intro": {
+      "text": "After the North Bridge rescue, Kabir travelled to his ancestral village. Tonight he called about a blue door and three knocks. Then the call went silent. I’m taking my motorbike to find him.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/intro-1006f877af5efcfea9b8.mp3"
+    },
+    "sign": {
+      "text": "Neem Village. Three kilometres ahead. The warning below says: When the bell rings at midnight, do not open the blue door. Someone scratched out the last word.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/sign-336c8cb86b63f0ce2cda.mp3"
+    },
+    "headlight": {
+      "text": "Fog across the canal. There are no other headlights. The village is very quiet.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/headlight-804f0a856bf260991426.mp3"
+    },
+    "rideOut": {
+      "text": "Come on, old bike. One more trip. The fog is thick, and I swear somebody just crossed the road ahead of me.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/rideOut-b38042129041d0cdae1a.mp3"
+    },
+    "arrival": {
+      "text": "There it is. Neem Lane. Three dark houses and an abandoned well. I’ll park the bike and search on foot.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/arrival-f731d57dbb29bed957f1.mp3"
+    },
+    "rideBack": {
+      "text": "I can retrace the road, but Kabir is still somewhere in this village. I shouldn’t leave without him.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/rideBack-e50811ea5ca67134cf62.mp3"
+    },
+    "laneLook": {
+      "text": "One warm window, one silent loom, and one blue door that looks freshly painted. Kabir said to listen for three knocks.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/laneLook-a2b4ded1f41479b19151.mp3"
+    },
+    "bibiFirst": {
+      "text": "You are looking for Kabir? He came here after the rain, looking pale. Someone kept knocking from the house with the blue door. Take the lantern on my step. Don’t go down there alone.",
+      "speaker": "meena",
+      "src": "audio/whispering-village/bibiFirst-58f921106a36859ab806.mp3"
+    },
+    "bibiAgain": {
+      "text": "The blue door frightened even the dogs. The first clue is on my wall. Then ask what the weaver saw.",
+      "speaker": "meena",
+      "src": "audio/whispering-village/bibiAgain-160dfd704ea933bcf2f9.mp3"
+    },
+    "marks": {
+      "text": "Three chalk strokes beside a drawing of a staircase going DOWN. Kabir must have made these. He draws the same little arrow in his notes.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/marks-6471d5f409747cadab60.mp3"
+    },
+    "marksAgain": {
+      "text": "Three strokes, then an arrow down. The mark points beneath a staircase.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/marksAgain-8ae9f2c0f2e657ffc633.mp3"
+    },
+    "lantern": {
+      "text": "Bibi’s lantern still has oil. I can carry it and use it to see down the old well.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/lantern-34e6ccaca4888eca35d2.mp3"
+    },
+    "loom": {
+      "text": "The loom stopped in mid-weave. Red wool was pulled toward the blue-door house, and a shoe print in wet clay points in the same direction.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/loom-af1a50ebbf294970b1aa.mp3"
+    },
+    "loomAgain": {
+      "text": "That red thread was dragged toward the blue door. The footsteps match Kabir’s boots.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/loomAgain-f8d120c22b4f67d97953.mp3"
+    },
+    "thread": {
+      "text": "A strong length of red wool. Thin enough to reach beneath a door latch without breaking. I’ll take it.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/thread-7ffdec08dc2c17201232.mp3"
+    },
+    "shadow": {
+      "text": "A tall shadow passes the window. Wait... it’s the loom’s loose curtain swaying in the wind. Still gave me a fright.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/shadow-1d8fa7c54c723a0a195d.mp3"
+    },
+    "bell": {
+      "text": "The well bell is moving without wind. One... two... three knocks echo from under the lane. Someone is signalling from below.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/bell-da0106904141f0f0abba.mp3"
+    },
+    "bellAgain": {
+      "text": "Three knocks. Bibi’s staircase drawing. They both point underground.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/bellAgain-ca97cde0a52281bea34d.mp3"
+    },
+    "wellDark": {
+      "text": "The bucket is too deep to see. I can hear a chain moving, but the darkness hides what is below.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/wellDark-768847ff666c03d49273.mp3"
+    },
+    "wellLit": {
+      "text": "The lantern catches a glint in the bucket! An iron key on a string. If I turn the winch, I might bring it up.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/wellLit-45902cffe3d51b1b420a.mp3"
+    },
+    "crankDark": {
+      "text": "I can’t tell whether the bucket holds anything. I should shine the lantern down first.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/crankDark-c2a614d1543554ec361c.mp3"
+    },
+    "keyFound": {
+      "text": "I’ve pulled up a cold iron key. Its blue paint matches the door on Neem Lane.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/keyFound-44bd491b4ca710e20406.mp3"
+    },
+    "crankAgain": {
+      "text": "Nothing left in the bucket except rainwater.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/crankAgain-f8d7022331755b4529ec.mp3"
+    },
+    "gateLocked": {
+      "text": "The blue door is locked from the street. There’s a narrow iron keyhole under the handle.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/gateLocked-ec1261adde1d38797d0d.mp3"
+    },
+    "gateOpen": {
+      "text": "The iron key turns. The blue door groans open. The house smells of rain, old wood, and candle smoke.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/gateOpen-0d783cfd3bcbd6f8d694.mp3"
+    },
+    "gateOpenAgain": {
+      "text": "The blue door is open. Kabir’s trail leads inside.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/gateOpenAgain-573d638c73d3ad8e9be1.mp3"
+    },
+    "portrait": {
+      "text": "The portrait is hanging crooked. Beneath it someone has carved three little marks and a downward arrow. The same symbol as Bibi’s wall.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/portrait-7eac67620bc5fd31a700.mp3"
+    },
+    "clock": {
+      "text": "The hallway clock stopped at midnight. But there’s fresh mud on the stairs, and the handrail is clean where somebody grabbed it.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/clock-473108d2111ca51c6458.mp3"
+    },
+    "latchStuck": {
+      "text": "A hatch under the staircase! Its latch is out of reach through a narrow gap. I need something thin and strong to pull it open.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/latchStuck-d278487aa36bc236f945.mp3"
+    },
+    "latchOpen": {
+      "text": "The red wool caught the latch. One careful pull and the hatch springs free. The knocking is louder now.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/latchOpen-3d1cfdb6321acbe7a0e3.mp3"
+    },
+    "latchAgain": {
+      "text": "The latch is released. I can open the passage now.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/latchAgain-19d7a96a00dd5f475e61.mp3"
+    },
+    "missingClues": {
+      "text": "Before I choose a passage, I need to connect Bibi’s marks, the weaver’s trail, and the sounds at the well.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/missingClues-9ffbf7f66653d420b8fc.mp3"
+    },
+    "choose": {
+      "text": "The floor hides three passages. Which way did Kabir go?",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/choose-a6562b0c0cc20e089aaf.mp3"
+    },
+    "retry": {
+      "text": "That way is silent. Think about the marks pointing DOWN, the dragged thread, and the three knocks under the lane.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/retry-deccbd92f273cfa35fdb.mp3"
+    },
+    "cantCombine": {
+      "text": "That doesn’t fit. I should use the lantern at the well, the iron key at the blue door, and the thread on the stuck hatch.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/cantCombine-190a87bed7ea36da753f.mp3"
+    },
+    "findKabir": {
+      "text": "Harpreet! Thank goodness. I followed the knocks and found a little boy trapped in the cellar after the rain. Then the hatch jammed above us.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village/findKabir-31a6d2afe5c11dea33a8.mp3"
+    },
+    "rescued": {
+      "text": "I’ve got you both. That lantern on the stairs is the way out. The knocks were your signal. The scary shadows were only wind and old machinery.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/rescued-5934e35594d70fd20c12.mp3"
+    },
+    "lastWhisper": {
+      "text": "Yes... I knocked three times. But Harpreet, someone knocked back from the empty house across the lane. I never found out who.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village/lastWhisper-abbda8aac9dd03fb9e1b.mp3"
+    },
+    "after": {
+      "text": "Kabir is safe. The boy is home. But someone else is awake in Neem Village, and this mystery isn’t finished yet.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/after-160e7353b571659abf64.mp3"
+    },
+    "saveResume": {
+      "text": "I still need to find Kabir. I left my motorbike by Neem Lane; I can continue searching the houses.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village/saveResume-4e13b0f27e055bc52e65.mp3"
+    }
+  }
+}
