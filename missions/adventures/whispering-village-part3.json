@@ -211,6 +211,15 @@
           "y": 457,
           "w": 225,
           "h": 80
+        },
+        {
+          "id": "register",
+          "name": "Open the village register",
+          "x": 801,
+          "y": 180,
+          "w": 205,
+          "h": 110,
+          "if": "registerFound"
         }
       ],
       "foreground": false
@@ -395,7 +404,7 @@
     },
     {
       "if": "registerFound",
-      "text": "Connect the pink string and star mark to Baldev’s door."
+      "text": "Tap the village register or solve the case."
     },
     {
       "text": "Tell Kabir where the register is hidden."
@@ -557,6 +566,14 @@
         "flag:checkedDrum",
         "sound:paper",
         "message:crate"
+      ]
+    },
+    {
+      "when": "click:register",
+      "in": "clocktower",
+      "if": "registerFound",
+      "actions": [
+        "message:chooseCause"
       ]
     },
     {

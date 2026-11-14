@@ -57,6 +57,8 @@ await p.getByRole('button',{name:'Try again'}).click();
 await p.getByRole('button',{name:'Behind the kite reel'}).click();
 await p.getByRole('button',{name:'Try again'}).click();
 await p.getByRole('button',{name:'Inside the blue drum'}).click();
+await p.getByRole('button',{name:'Open the village register'}).click();
+await p.waitForFunction(()=>!document.querySelector('#game').classList.contains('busy'));
 await p.getByRole('button',{name:'A monster pulled the latch'}).click();
 await p.getByRole('button',{name:'Try again'}).click();
 await p.getByRole('button',{name:'The wind tugged the kite string'}).click();

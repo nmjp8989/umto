@@ -35,11 +35,11 @@
   if(id==='print')return box(x,y,w,h,'#203848')+`<circle cx="${cx}" cy="${y+62}" r="49" fill="#8b4762"/><polygon points="${star}" transform="translate(${cx} ${y+61}) scale(.75)" fill="#feabc7"/>`+label(cx,y+140,'WAX MARK');
   if(id==='bell')return `<path d="M${cx-55} ${y+113}q22-19 23-61a32 32 0 0164 0q1 42 23 61Z" fill="#d1a45e" stroke="${gold}" stroke-width="5"/><circle cx="${cx}" cy="${y+117}" r="9" fill="${gold}"/>`+label(cx,y+146,'DUSTY BELL');
   if(id==='reel')return `<circle cx="${cx}" cy="${y+63}" r="49" fill="#332c42" stroke="${pink}" stroke-width="5"/><polygon points="${star}" transform="translate(${cx} ${y+62})" fill="${gold}"/><circle cx="${cx}" cy="${y+62}" r="10" fill="#8d6551"/>`+label(cx,y+137,'KITE REEL');
+  if(id==='register')return box(x,y,w,h,'#874c48',gold)+label(cx,y+48,'VILLAGE REGISTER')+label(cx,y+79,'OPEN →');
   if(id==='crate'){
-   const found=state.flags.registerFound;
    return box(x+20,y+54,w-40,107,'#255a75',sky)
     +`<ellipse cx="${cx}" cy="${y+52}" rx="${w/2-20}" ry="23" fill="#4085a4" stroke="${sky}" stroke-width="4"/>`
-    + (found?box(x+64,y+5,w-128,67,'#874c48',gold)+label(cx,y+45,'REGISTER'):`<path d="M${cx+25} ${y+46}l24-12 6 17Z" fill="${gold}"/>`)
+    + (!state.flags.registerFound?`<path d="M${cx+25} ${y+46}l24-12 6 17Z" fill="${gold}"/>`:'')
     +label(cx,y+121,'BLUE DRUM');
   }
   return '';
