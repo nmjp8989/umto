@@ -38,7 +38,7 @@
  <path d="M0 155H1280M0 387H1280" stroke="#566069" opacity=".28" stroke-width="6"/>
  <path d="M74 90V${floor}M1200 90V${floor}" stroke="#172230" stroke-width="23"/>${stones(floor)}
  <path d="M0 ${floor}H1280" stroke="#161b26" stroke-width="14"/>`;
- const window=(x,y,w=167,h=204,lit=false)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${lit?'#947f60':'#102a3f'}" stroke="#1c232b" stroke-width="12"/><path d="M${x+w/2} ${y}v${h}M${x} ${y+h/2}h${w}" stroke="#718390" stroke-width="7"/>${lit?glow(x+w/2,y+h/2,114):''}<path d="M${x+20} ${y+17}l-12 43m65-39-21 63" stroke="#d2e8f1" opacity=".17" stroke-width="4"/>`;
+ const villageWindow=(x,y,w=167,h=204,lit=false)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${lit?'#947f60':'#102a3f'}" stroke="#1c232b" stroke-width="12"/><path d="M${x+w/2} ${y}v${h}M${x} ${y+h/2}h${w}" stroke="#718390" stroke-width="7"/>${lit?glow(x+w/2,y+h/2,114):''}<path d="M${x+20} ${y+17}l-12 43m65-39-21 63" stroke="#d2e8f1" opacity=".17" stroke-width="4"/>`;
  const door=(x=20,y=320)=>rect(x,y,176,246,'#162536','#658094',7)+`<path d="M${x+28} ${y+14}h120v209H${x+28}Z" fill="#0e1b2c"/><circle cx="${x+135}" cy="${y+125}" r="5" fill="#e7ba79"/>`;
  const back=()=>rect(20,520,191,46,'#132538','#6b8f9b',7)+text(114,549,'← NEEM LANE',13,gold);
  const vines=(x)=>`<path d="M${x} 0q-35 70 7 126t-8 95m-36-140 36 13m-5 77 30-20" stroke="#34493d" stroke-width="11" fill="none"/>`;
@@ -71,7 +71,7 @@
  <g class="wv-watch-eyes"><circle cx="705" cy="367" r="4" fill="#ea9d72"/><circle cx="719" cy="367" r="4" fill="#ea9d72"/></g>`;
  DeliveryArt.bibi=()=>interior('#4b4442',528)+`
  <path d="M0 90H1280M0 197H1280M0 365H1280" stroke="#80736a" stroke-width="4" opacity=".35"/>
- ${window(491,170,182,199,true)}${vines(1188)}
+ ${villageWindow(491,170,182,199,true)}${vines(1188)}
  ${door()}
  ${rect(273,234,219,191,'#756659','#a5967d')}
  ${glow(691,388,101)}${rect(628,501,143,23,'#6d4637','#aa7855')}
@@ -79,7 +79,7 @@
  <path d="M766 425q61-65 105 18" stroke="#bba78e" fill="none" stroke-width="11" opacity=".7"/>
  <path d="M830 517q119-51 237 0" stroke="#353f38" stroke-width="17" fill="none"/>`;
  DeliveryArt.weaver=()=>interior('#403b40',531)+`
- ${door()}${window(1021,170,193,256)}
+ ${door()}${villageWindow(1021,170,193,256)}
  <path d="M209 477H945" stroke="#1b232d" stroke-width="11"/>
  ${rect(264,303,361,217,'#2b2531','#8d6952')}
  <path d="M280 320v182m320-182v182m-320-180h320m-320 65h320m-320 69h320" stroke="#b0885b" stroke-width="13"/>
@@ -103,7 +103,7 @@
  <path d="M711 429l84-22 16 28-80 25" fill="#8d7863" stroke="#2a3436" stroke-width="7"/>`;
  DeliveryArt.blue=()=>interior('#293947',523)+`
  ${door()}
- ${window(545,151,168,186)}
+ ${villageWindow(545,151,168,186)}
  ${rect(280,190,285,231,'#1b2534','#997958',4)}
  <path d="M308 368q56-80 105-42 35-96 104-19v84H308Z" fill="#464e55"/>
  <circle cx="420" cy="293" r="31" fill="#7b7474"/>
