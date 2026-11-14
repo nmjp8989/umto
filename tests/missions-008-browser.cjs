@@ -100,6 +100,12 @@ async function action(page,event){await page.evaluate(async evt=>{await dispatch
    await page.locator('#skip').click();
   }
   await page.waitForFunction(()=>document.getElementById('ending').open,null,{timeout:20000});
+  // Kabir must be drawn by his complete animated character rig, not a flat cut-out.
+  assert(await page.locator('#actor-kabir .actor-sprite svg').count(),'Missing Kabir full-body rig');
+  assert(await page.locator('#actor-kabir [data-scene-layer="torso"]').count(),'Kabir torso missing');
+  const body=await page.locator('#actor-kabir .actor-sprite').boundingBox();
+  assert(body&&body.width>35&&body.height>100,'Kabir body clipped: '+JSON.stringify(body));
+  assert(!(await page.locator('#effects').innerHTML()).includes('cx="857" cy="456"'),'Placeholder Kabir head still visible');
   assert.equal(await page.locator('#error').isHidden(),true);
   assert.deepEqual(errors,[],'Browser reported a game exception');
   console.log('PASS desktop: six scenes, click-to-ride, walking, inventory combinations, three-way cellar choice, rescue & autosave');
