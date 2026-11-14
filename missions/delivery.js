@@ -4,7 +4,8 @@ const missionId=document.body.dataset.mission||'last-delivery';
 const isMystery=missionId==='moon-lantern';
 const isDelivery=missionId==='last-delivery';
 const isNight=missionId==='night-platform';
-const voice=new MissionVoicePlayer(),saveKey=isNight?'umto-night-platform-v3':isMystery?'umto-moon-lantern-v4':'anitoons-last-delivery-v3',camera=new DeliveryCamera($('world'));
+const isBeacon=missionId==='storm-beacon';
+const voice=new MissionVoicePlayer(),saveKey=isBeacon?'umto-storm-beacon-v3':isNight?'umto-night-platform-v3':isMystery?'umto-moon-lantern-v4':'anitoons-last-delivery-v3',camera=new DeliveryCamera($('world'));
 let animationTime=0,lastAnimationTime=0;
 let resolveRig;const rigReady=new Promise(resolve=>{resolveRig=resolve;});
 let mission,engine,S,bank={},actors={},selected=null,busy=false,paused=false,started=false,epoch=0,sceneName='home',heldProps={},drag=null,ignoreClick=0,skipLine=null,speakerId=null,voiceAnalyzer=null,walkSerial=0,frameTime=0,firstCourtyard=true;
@@ -32,13 +33,13 @@ function restore(){const data=saved();if(!data)return false;Object.assign(S,{sce
 function setBusy(value){busy=value;$('game').classList.toggle('busy',busy);}
 function clearSelection(){$('tooltip').style.opacity='0';selected=null;document.querySelectorAll('.selected').forEach(n=>n.classList.remove('selected'));$('selection').textContent='Explore the neighbourhood';}
 function select(id){clearSelection();selected=id;document.querySelector(`[data-item="${id}"]`)?.classList.add('selected');$('selection').textContent=mission.inventoryItems[id]?.label+' → choose a target';}
-function goal(){if(isNight)return S.complete?'Kabir’s train has arrived.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(isMystery)return S.complete?'The lantern is safe. Everyone belongs.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
+function goal(){if(isBeacon)return S.complete?mission.completionObjective:mission.objectives.find(o=>engine.has(o.if))?.text;if(isNight)return S.complete?'Kabir’s train has arrived.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(isMystery)return S.complete?'The lantern is safe. Everyone belongs.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
 function renderInventory(){const list=$('inventory');list.replaceChildren();for(const id of S.inventory){const item=mission.inventoryItems[id];if(!item)continue;const button=document.createElement('button');button.className='inventory-item'+(selected===id?' selected':'');button.dataset.item=id;button.setAttribute('aria-label',item.label+' — select or drag');button.innerHTML=`<svg viewBox="0 0 90 90" aria-hidden="true">${DeliveryArt.icons[item.icon]}</svg><span>${item.label}</span>`;list.append(button);}if(!S.inventory.length)list.innerHTML='<span class="inventory-empty">A little room for possibilities.</span>';}
 function makeActor(id,x,y,height){return {id,x,y,height,action:'idle',frame:'',walkTime:0,walkFrom:0,walkTo:0,direction:id==='harpreet'?1:-1,walkDistance:0,seed:id==='harpreet'?0:id==='meena'?1700:4100};}
 function render(scene=S.scene){
  sceneName=scene;heldProps={};camera.to(scene==='cinema'?'arrival':'wide',null,true);$('tooltip').style.opacity='0';
  const scenic=DeliveryArt[scene];$('scenery').innerHTML=typeof scenic==='function'?scenic.call(DeliveryArt):'';
- $('ambient').innerHTML=DeliveryArt.ambient?.(scene)||'';$('props').replaceChildren();$('cast').replaceChildren();$('foreground').replaceChildren();$('effects').replaceChildren();$('effects').classList.remove('train-arriving');
+ $('ambient').innerHTML=DeliveryArt.ambient?.(scene)||'';$('props').replaceChildren();$('cast').replaceChildren();$('foreground').replaceChildren();$('effects').replaceChildren();$('effects').classList.remove('train-arriving','beacon-rescue');
  const def=mission.scenes[scene];
  if(def){
   for(const o of def.objects){if(!engine.has(o.if))continue;
@@ -126,6 +127,13 @@ function showDialogue(id,waitForEnd=false){
 async function changeScene(scene){stopLine();clearSelection();$('dialogue').hidden=true;$('transition').classList.add('dark');await sleep(240);render(scene);$('transition').classList.remove('dark');sound.beat=0;}
 function pose({actor,action,facing}){if(actors[actor]){actors[actor].action=action;if(facing)actors[actor].direction=facing;if(action==='ride'){actors[actor].direction=1;actors[actor].x=775;actors[actor].y=533;actors[actor].height=270;}paintActors(animationTime);}}
 async function effect(kind){
+ if(kind==='stormBeacon'){
+  $('effects').innerHTML=StormBeaconArt.rescue;
+  $('effects').classList.add('beacon-rescue');
+  sound.tone(146,.9,.075,'triangle',.15);
+  sound.tone(146,.9,.075,'triangle',1.25);
+  await sleep(2850);
+ }
  if(kind==='midnightArrival'){
   const effects=$('effects');
   effects.innerHTML=NightPlatformArt.train;
@@ -177,7 +185,7 @@ async function interact(id){if(!started||busy||paused||S.complete)return;if(sele
 }
 function worldPoint(e){const matrix=$('world').getScreenCTM();return matrix?new DOMPoint(e.clientX,e.clientY).matrixTransform(matrix.inverse()):{x:0,y:0};}
 function refreshSceneProps(){const def=mission.scenes[sceneName];if(!def)return;$('props').replaceChildren();for(const o of def.objects){if(!engine.has(o.if))continue;const g=document.createElementNS(NS,'g');g.dataset.target=o.id;g.setAttribute('role','button');g.setAttribute('tabindex','0');g.setAttribute('aria-label',o.name);g.innerHTML=`<rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" fill="transparent" pointer-events="all"/>${DeliveryArt.prop(o,S)}<rect class="focus-ring" x="${o.x-4}" y="${o.y-4}" width="${o.w+8}" height="${o.h+8}" rx="12" pointer-events="none"/>`;$('props').append(g);}}
-function finish(){stopLine();S.complete=true;engine.finish();save();$('dialogue').hidden=true;if(isMystery)window.MysteryUI?.progress(mission,engine);$('tradeStat').textContent=isNight?'North Bridge service':isMystery?'Everyone included':S.flags.pinwheelTraded?'A wind-powered trade':'Warm chai, warm hearts';$('ending').showModal();}
+function finish(){stopLine();S.complete=true;engine.finish();save();$('dialogue').hidden=true;if(isMystery)window.MysteryUI?.progress(mission,engine);$('tradeStat').textContent=isBeacon?'Deep channel cleared':isNight?'North Bridge service':isMystery?'Everyone included':S.flags.pinwheelTraded?'A wind-powered trade':'Warm chai, warm hearts';$('ending').showModal();}
 function setPaused(value){paused=value;$('game').classList.toggle('paused',value);voice.setHidden(value||document.hidden);if(value){$('pauseMenu').showModal();}else if($('pauseMenu').open)$('pauseMenu').close();}
 async function toggleFullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await $('game').requestFullscreen();}catch{$('fullscreen').title='Fullscreen is unavailable; the game still fills this window.';}}
 async function begin(fresh=false){
@@ -185,7 +193,7 @@ async function begin(fresh=false){
  if(fresh){engine.reset();S=engine.state;S.started=true;firstCourtyard=true;try{localStorage.removeItem(saveKey);}catch{}}
  else restore();
  $('opening').hidden=true;$('game').classList.remove('departing','door-open','projector-on','lantern-found');$('error').hidden=true;render();await sound.start();
- if(S.complete){await changeScene(mission.finalScene||'cinema');if(isNight)$('effects').innerHTML=NightPlatformArt.train;$('game').classList.add('projector-on');finish();setBusy(false);return;}
+ if(S.complete){await changeScene(mission.finalScene||'cinema');if(isNight)$('effects').innerHTML=NightPlatformArt.train;if(isBeacon)$('effects').innerHTML=StormBeaconArt.rescue;$('game').classList.add('projector-on');finish();setBusy(false);return;}
  if(fresh||!saved()){await sequence.run(mission.sequences.opening);}else showDialogue('saveResume');
  setBusy(false);save();window.MysteryUI?.progress(mission,engine);
 }
@@ -220,4 +228,4 @@ const cameraNames={auto:'Cinematic',follow:'Follow',wide:'Wide'};
 function chooseCamera(mode){camera.mode=mode;$('cameraMode').value=mode;$('camera').setAttribute('aria-label','Camera: '+cameraNames[mode]);$('camera').title='Camera: '+cameraNames[mode];camera.to('wide');}
 $('camera').onclick=()=>chooseCamera(['auto','follow','wide'][(['auto','follow','wide'].indexOf(camera.mode)+1)%3]);$('cameraMode').onchange=e=>chooseCamera(e.target.value);
 $('artDefs').innerHTML=DeliveryArt.defs;
-fetch('adventures/'+missionId+'.json?v=004.0',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);await Promise.race([rigReady,new Promise((_,reject)=>setTimeout(()=>reject(Error('Character rig did not load')),20000))]);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?(isNight?'Continue mission →':isMystery?'Continue the mystery →':'Continue delivery →'):(isNight?'Enter the station →':isMystery?'Begin the mystery →':'Begin the delivery →');$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':isMystery?'Read along · Music & sound on · Take your time':isNight?'Subtitles · Original music and sound effects':'Three neighbours. One last delivery.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});
+fetch('adventures/'+missionId+'.json?v=004.0',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);await Promise.race([rigReady,new Promise((_,reject)=>setTimeout(()=>reject(Error('Character rig did not load')),20000))]);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?((isNight||isBeacon)?'Continue mission →':isMystery?'Continue the mystery →':'Continue delivery →'):(isBeacon?'Head to the pier →':isNight?'Enter the station →':isMystery?'Begin the mystery →':'Begin the delivery →');$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':isMystery?'Read along · Music & sound on · Take your time':(isNight||isBeacon)?'Subtitles · Original music and sound effects':'Three neighbours. One last delivery.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});
