@@ -1,0 +1,31 @@
+name: Mission 008 village browser smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'missions/whispering-village*'
+      - 'missions/delivery.js'
+      - 'missions/adventures/whispering-village.json'
+      - 'tests/missions-008-browser.cjs'
+      - '.github/workflows/mission-008-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  play-village:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install headless Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Play through the motorbike-and-houses mystery
+        run: node tests/missions-008-browser.cjs
