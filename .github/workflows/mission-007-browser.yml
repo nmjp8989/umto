@@ -1,0 +1,31 @@
+name: Mission 007 browser smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'missions/empty-carriage*'
+      - 'missions/delivery.js'
+      - 'missions/adventures/empty-carriage.json'
+      - 'tests/missions-007-browser.cjs'
+      - '.github/workflows/mission-007-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  play-sequel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install headless browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Open and interact with Mission 007
+        run: node tests/missions-007-browser.cjs
