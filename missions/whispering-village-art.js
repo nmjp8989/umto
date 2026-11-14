@@ -148,12 +148,11 @@
   (scene==='home'||scene==='lane'||scene==='well'?`<g class="wv-night-birds" fill="#0b1521"><path d="M245 177q22-24 39 0q22-24 45-7-22 5-45 22-19-14-39-15ZM883 255q18-16 40 0 25-19 41-1-22-1-39 14-21-12-42-13Z"/></g>`:'');
  window.WhisperingVillageArt={
   ride:`<g class="wv-ride-fx"><path d="M0 590h1280" stroke="${gold}" opacity=".36" stroke-width="5" stroke-dasharray="180 155"/><path d="M0 620h1280" stroke="#c9e9ee" opacity=".25" stroke-width="4" stroke-dasharray="120 80"/><path d="M0 650h1280" stroke="#c9e9ee" opacity=".23" stroke-width="4" stroke-dasharray="105 160"/><path d="M698 451l582-163v325Z" fill="url(#wv-headbeam)"/><circle cx="767" cy="496" r="8" fill="${gold}"/>${glow(767,496,155)}</g>`,
+  // Only the trapped child is illustrated; Kabir uses the animated full-body rig in delivery.js.
   reveal:`<g class="wv-cellar-light">${glow(852,448,244)}</g><path class="wv-hatch-open" d="M739 424h334l-41 117H691Z" stroke="#d2bb8f" stroke-width="12" fill="#13263c"/><g class="wv-rescue-figures">
-   <circle cx="857" cy="456" r="31" fill="#c99e82" stroke="#ead6c2" stroke-width="4"/>
-   <path d="M812 501q43-33 89 0l17 128H788Z" fill="#5c6580" stroke="#a6b9c9" stroke-width="4"/>
    <circle cx="977" cy="488" r="22" fill="#ceac99" stroke="#e3d4bc" stroke-width="3"/>
    <path d="M947 516q30-23 61 0l18 103h-94Z" fill="#7c5d5c" stroke="#af9999" stroke-width="4"/>
-   <path d="M824 628v39m69-39 2 41m63-44 2 33m52-33 5 33" stroke="#667484" stroke-width="16"/>
+   <path d="M958 625l-6 36m52-36 7 36" stroke="#667484" stroke-width="16"/>
    </g><g class="wv-rescue-dust">${Array.from({length:24},(_,i)=>`<circle cx="${703+(i*67)%370}" cy="${325+(i*83)%225}" r="${1+i%4}" fill="${i%2?gold:blue}" opacity=".7"/>`).join('')}</g>`
  };
 })();
