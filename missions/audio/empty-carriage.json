@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "mission": "empty-carriage",
+  "lines": {
+    "intro": {
+      "text": "The blue signal worked. Kabir’s last train arrived at North Bridge. But he never came through the exit. His carriage is empty. Let’s find out why.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/intro-12dd0401c598c7203a63.mp3"
+    },
+    "saveResume": {
+      "text": "We still need to find Kabir. The answer must be somewhere in the station.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/saveResume-2f190e903b6b37791047.mp3"
+    },
+    "notice": {
+      "text": "The after-hours board lists three doors: 12 past midnight for the northbound stair, 17 past for the service passage, and 21 past for the freight yard.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/notice-15494f69bf839181f57d.mp3"
+    },
+    "meena": {
+      "text": "I heard three knocks behind the station wall just as the lights went out. Then I saw a small lantern glow near the service control door. Kabir might have followed it.",
+      "speaker": "meena",
+      "src": "audio/empty-carriage/meena-36d6af8d47dccddf415b.mp3"
+    },
+    "meenaRepeat": {
+      "text": "Those knocks came from the service passage, not the northbound stairs. Find out how to open it.",
+      "speaker": "meena",
+      "src": "audio/empty-carriage/meenaRepeat-b53eb65279315757cb09.mp3"
+    },
+    "note": {
+      "text": "A note from Kabir! 'I heard someone calling near the service passage. The old clock stopped at seventeen past midnight. I’m checking on them. — K'",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/note-15bdef5e29d8639b0cbb.mp3"
+    },
+    "noteAgain": {
+      "text": "Kabir wrote that the old clock stopped at seventeen past midnight. We should keep that in mind.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/noteAgain-fe1cff62bfaaba886ccc.mp3"
+    },
+    "foundToken": {
+      "text": "A brass token rolled beneath seat seven. It has the North Bridge crest. Maybe it fits a lock in the service control room.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/foundToken-a04c8fa244de71df2a27.mp3"
+    },
+    "locked": {
+      "text": "The control panel has a round brass slot. We need something shaped like a station token.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/locked-f159c56af6452f8b2c0f.mp3"
+    },
+    "opened": {
+      "text": "That did it. The panel lights up, and three time settings are available.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/opened-d563ace7c8725123463d.mp3"
+    },
+    "openedAgain": {
+      "text": "The panel is unlocked. Now we can route the power to the right passage.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/openedAgain-1addd05c0a89c2decc86.mp3"
+    },
+    "dead": {
+      "text": "The time selector is dead. The brass lock on the panel must be opened first.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/dead-787be59307b14812860b.mp3"
+    },
+    "unknown": {
+      "text": "We need the passage board, Kabir’s note, and Meena’s account before touching this switch.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/unknown-ed5a33781d77030b297e.mp3"
+    },
+    "choose": {
+      "text": "Kabir went toward the service passage. Which time on the board sends power to that door?",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/choose-1213b7425287c3aa468c.mp3"
+    },
+    "retry": {
+      "text": "That setting opens a different passage. Match Kabir’s note to the after-hours board.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/retry-7c363946c2caddf59cea.mp3"
+    },
+    "cantCombine": {
+      "text": "The brass token belongs in the round lock on the service control panel.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/cantCombine-bd89c49883e2e7f85eee.mp3"
+    },
+    "rescue": {
+      "text": "Harpreet! I heard the night attendant calling for help and went through the service door. The power failed and trapped us both. You opened it!",
+      "speaker": "kabir",
+      "src": "audio/empty-carriage/rescue-45aedae4019cf1b4ca2c.mp3"
+    },
+    "relief": {
+      "text": "We brought the last train safely to North Bridge. Now we’ve brought its last passengers home. Nice detective work.",
+      "speaker": "meena",
+      "src": "audio/empty-carriage/relief-1bcb50c5a5c93afe14ed.mp3"
+    },
+    "epilogue": {
+      "text": "Case closed. But why did the old clock stop at exactly seventeen past midnight? That’s a mystery for another night.",
+      "speaker": "harpreet",
+      "src": "audio/empty-carriage/epilogue-af0ae1501b97a7d5cb37.mp3"
+    }
+  }
+}
