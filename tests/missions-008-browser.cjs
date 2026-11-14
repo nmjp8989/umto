@@ -45,6 +45,11 @@ async function action(page,event){await page.evaluate(async evt=>{await dispatch
   await page.waitForFunction(()=>document.getElementById('opening').hidden&&!document.getElementById('game').classList.contains('busy'),null,{timeout:20000});
   // Ride from a browser click — this exercises the bike, sound, and ride cutscene.
   await page.locator('#props [data-target="bike"]').click({force:true});
+  console.log('Motorbike interaction:',await page.evaluate(()=>{
+    const g=document.querySelector('[data-target="bike"]'),b=g?.getBoundingClientRect();
+    const hit=b?document.elementFromPoint(b.x+b.width/2,b.y+b.height/2):null;
+    return {scene:S.scene,started,busy,hit:hit?.nodeName,hitTarget:hit?.closest('[data-target]')?.dataset.target,hitId:hit?.id,dialogueVisible:!document.querySelector('#dialogue').hidden,errors:document.querySelector('#error').textContent};
+  }));
   await page.waitForFunction(()=>document.getElementById('location').textContent==='Neem Lane'&&!document.getElementById('game').classList.contains('busy'),null,{timeout:20000});
   await checkScene(page,'Neem Lane','houseBibi');
   assert(await page.locator('#props [data-target="houseWeaver"]').count());
