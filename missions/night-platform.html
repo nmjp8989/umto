@@ -17,14 +17,14 @@
    <small id="voiceStatus" role="status"></small>
   </div>
  </section>
- <dialog id="pauseMenu"><div class="eyebrow">TAKE A BREATHER</div><h2>The neighbourhood<br>can wait.</h2><button id="resume" class="primary">Resume mission →</button><label>Camera<select id="cameraMode"><option value="auto">Cinematic</option><option value="follow">Follow character</option><option value="wide">Wide scene</option></select></label><label>Music & atmosphere<input id="musicVolume" type="range" min="0" max="100" value="55"></label><label>Dialogue volume<input id="voiceVolume" type="range" min="0" max="100" value="90"></label><label class="toggle-label"><input id="reduceMotion" type="checkbox"> Reduce ambient motion</label><p>Tap to explore. Select an item, then its target. Dragging works too. Tap the ground to walk. Enter skips speech; Escape opens this menu. Choose replies with A–D or 1–4.</p><button id="restart" class="text-button">Restart mission</button><nav><a href="storm-beacon.html">Mission 006 ✦</a><a href="delivery.html">Mission 003</a><a href="./">Mission 001</a><a href="./?mission=rooftop-kite">Mission 002</a><a href="../">Character studio ↗</a></nav></dialog>
+ <dialog id="pauseMenu"><div class="eyebrow">TAKE A BREATHER</div><h2>The neighbourhood<br>can wait.</h2><button id="resume" class="primary">Resume mission →</button><label>Camera<select id="cameraMode"><option value="auto">Cinematic</option><option value="follow">Follow character</option><option value="wide">Wide scene</option></select></label><label>Music & atmosphere<input id="musicVolume" type="range" min="0" max="100" value="55"></label><label>Dialogue volume<input id="voiceVolume" type="range" min="0" max="100" value="90"></label><label class="toggle-label"><input id="reduceMotion" type="checkbox"> Reduce ambient motion</label><p>Tap to explore. Select an item, then its target. Dragging works too. Tap the ground to walk. Enter skips speech; Escape opens this menu. Choose replies with A–D or 1–4.</p><button id="restart" class="text-button">Restart mission</button><nav><a href="empty-carriage.html">Mission 007 · Continue the mystery →</a><a href="storm-beacon.html">Mission 006 ✦</a><a href="delivery.html">Mission 003</a><a href="./">Mission 001</a><a href="./?mission=rooftop-kite">Mission 002</a><a href="../">Character studio ↗</a></nav></dialog>
  <dialog id="ending">
   <div class="eyebrow">MISSION 005 COMPLETE</div>
   <h2>Right on time.</h2>
   <p>The signal is blue. Kabir can catch the last train to North Bridge.</p>
   <div class="ending-stats"><span>Signal restored</span><span id="tradeStat">North Bridge service</span></div>
   <button id="playAgain" class="primary">Play again ↻</button>
-  <button id="replayFinale" class="text-button">Replay the train arrival</button>
+  <a href="empty-carriage.html" class="text-button">Continue the story · Mission 007 →</a><button id="replayFinale" class="text-button">Replay the train arrival</button>
   <button id="stay" class="text-button">Stay on the platform</button>
  </dialog>
  <div id="error" hidden role="alert"></div>
