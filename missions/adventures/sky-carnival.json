@@ -116,18 +116,18 @@
         {
           "id": "goWorkshop",
           "name": "Go to Meena's repair tent",
-          "x": 857,
-          "y": 550,
+          "x": 920,
+          "y": 440,
           "w": 330,
-          "h": 79
+          "h": 83
         },
         {
           "id": "goPad",
           "name": "Go to the balloon launch field",
-          "x": 60,
-          "y": 553,
-          "w": 294,
-          "h": 81
+          "x": 25,
+          "y": 443,
+          "w": 293,
+          "h": 77
         }
       ],
       "foreground": false
@@ -196,18 +196,18 @@
         {
           "id": "back",
           "name": "Return to the fairground",
-          "x": 32,
-          "y": 551,
-          "w": 235,
+          "x": 25,
+          "y": 448,
+          "w": 225,
           "h": 76
         },
         {
           "id": "pad",
           "name": "Take rescue supplies to the launch field",
-          "x": 870,
-          "y": 548,
-          "w": 348,
-          "h": 79
+          "x": 902,
+          "y": 446,
+          "w": 345,
+          "h": 80
         }
       ],
       "foreground": false
@@ -234,10 +234,10 @@
         {
           "id": "fair",
           "name": "Back to the carnival",
-          "x": 30,
-          "y": 555,
-          "w": 245,
-          "h": 70
+          "x": 24,
+          "y": 450,
+          "w": 225,
+          "h": 72
         },
         {
           "id": "windvane",
@@ -258,10 +258,10 @@
         {
           "id": "board",
           "name": "Launch the rescue balloon",
-          "x": 823,
-          "y": 557,
+          "x": 884,
+          "y": 444,
           "w": 340,
-          "h": 72,
+          "h": 78,
           "if": "patched+tethered+windEast"
         },
         {
@@ -329,9 +329,9 @@
           "id": "land",
           "name": "Return with the rescued cake",
           "x": 492,
-          "y": 566,
+          "y": 447,
           "w": 319,
-          "h": 73
+          "h": 79
         },
         {
           "id": "kabir",
