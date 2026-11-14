@@ -1,0 +1,74 @@
+
+/* UMTO Mission 008 — haunted village after midnight; readable on phones. */
+body[data-mission="whispering-village-part2"]{--gold:#f4c390;background:#050916;color:#eee1d0;}
+[data-mission="whispering-village-part2"] .cover{
+ background:radial-gradient(ellipse at 86% 24%,#8592ac2b 0%,#040a1800 49%),
+ linear-gradient(95deg,#030814f8 0%,#0b1028f2 46%,#111e32d8 77%,#080d1ae9 100%);
+}
+[data-mission="whispering-village-part2"] .opening-copy{max-width:730px;}
+[data-mission="whispering-village-part2"] .opening-copy h1{
+ font-size:clamp(48px,7.6vw,108px);
+ line-height:.9;
+ letter-spacing:-.05em;
+ text-shadow:0 10px 40px #050715;
+}
+[data-mission="whispering-village-part2"] .opening-copy p{color:#e8dccc;line-height:1.55;max-width:600px;}
+[data-mission="whispering-village-part2"] .eyebrow{color:#d8c09b;letter-spacing:.19em;}
+[data-mission="whispering-village-part2"] .goal i{box-shadow:0 0 23px #eb9d63;}
+[data-mission="whispering-village-part2"] .vignette{
+ background:radial-gradient(ellipse at center,transparent 43%,#0207129a 100%),
+ linear-gradient(#02061577,transparent 30%,transparent 75%,#030615b8);
+}
+[data-mission="whispering-village-part2"] .inventory-item.selected{outline-color:#f3b779;}
+[data-mission="whispering-village-part2"] .dialogue{border-color:#6e5f57;}
+.wv-ghost-fog{animation:wv-fog 10s ease-in-out infinite alternate;transform-origin:center;}
+.wv-night-birds{animation:wv-birds 7.5s ease-in-out infinite alternate;}
+.wv-watch-eyes{animation:wv-eyes 5.2s ease-in-out infinite;}
+.wv-shadow{animation:wv-shadow 5s ease-in-out infinite alternate;transform-origin:center;}
+.wv-curtain{animation:wv-curtain 3.6s ease-in-out infinite alternate;transform-origin:1050px 170px;}
+.wv-bell{animation:wv-bell 2.7s ease-in-out infinite alternate;transform-origin:center top;}
+.wv-ride-fx{animation:wv-speed 1s linear infinite;}
+.wv-cellar-rescue .wv-hatch-open{transform-box:fill-box;transform-origin:top right;animation:wv-hatch 2.8s ease-in-out forwards;}
+.wv-cellar-rescue .wv-rescue-figures{animation:wv-rescue 3s ease-out forwards;}
+.wv-cellar-rescue .wv-cellar-light{animation:wv-lantern-light 3s ease-in-out forwards;}
+.wv-cellar-rescue .wv-rescue-dust{animation:wv-rescue-dust 3.5s ease-in-out forwards;}
+@keyframes wv-fog{0%{transform:translateX(-40px);opacity:.13}100%{transform:translateX(45px);opacity:.35}}
+@keyframes wv-birds{0%{transform:translate(-5px,0)}100%{transform:translate(55px,-12px)}}
+@keyframes wv-eyes{0%,42%,62%,100%{opacity:0}47%,56%{opacity:1}}
+@keyframes wv-shadow{0%{opacity:.25;transform:translateX(-9px)}100%{opacity:.6;transform:translateX(13px)}}
+@keyframes wv-curtain{to{transform:rotate(4deg) skewX(-3deg)}}
+@keyframes wv-bell{to{transform:rotate(5deg)}}
+@keyframes wv-speed{from{transform:translateX(150px)}to{transform:translateX(-330px)}}
+@keyframes wv-hatch{0%,20%{transform:scaleY(1)}80%,100%{transform:scaleY(.25)}}
+@keyframes wv-rescue{0%,28%{opacity:0;transform:translateY(90px)}100%{opacity:1;transform:translateY(-50px)}}
+@keyframes wv-lantern-light{0%{opacity:.1}45%{opacity:1}100%{opacity:.75}}
+@keyframes wv-rescue-dust{0%,20%{opacity:0}45%{opacity:1}100%{opacity:.15}}
+.reduced-motion .wv-ghost-fog,.reduced-motion .wv-night-birds,.reduced-motion .wv-watch-eyes,
+.reduced-motion .wv-shadow,.reduced-motion .wv-curtain,.reduced-motion .wv-bell,.reduced-motion .wv-ride-fx,
+.reduced-motion .wv-cellar-rescue *{animation:none!important;}
+@media(prefers-reduced-motion:reduce){
+ .wv-ghost-fog,.wv-night-birds,.wv-watch-eyes,.wv-shadow,.wv-curtain,.wv-bell,.wv-ride-fx,
+ .wv-cellar-rescue *{animation:none!important;}
+}
+@media(max-height:480px){[data-mission="whispering-village-part2"] .opening-copy h1{font-size:clamp(38px,6vw,62px)}}
+
+/* Characters are visual layers; puzzle hitboxes below must receive the tap. */
+[data-mission="whispering-village-part2"] #cast{pointer-events:none;}
+
+/* Full-body Kabir rig sits above the opening hatch; the child remains drawn in the scene. */
+[data-mission="whispering-village-part2"] #actor-kabir{pointer-events:none;}
+[data-mission="whispering-village-part2"] #cast{pointer-events:none;}
+
+/* Part 2: companion detective, spooky signal-room ambience */
+[data-mission="whispering-village-part2"] #cast{pointer-events:none;}
+[data-mission="whispering-village-part2"] #actor-kabir{pointer-events:none;filter:drop-shadow(0 5px 4px #02071299);}
+[data-mission="whispering-village-part2"] .cover{background:radial-gradient(ellipse at 73% 39%,#31476267,transparent 57%),linear-gradient(90deg,#060916f9 0%,#111d30ee 61%,#0b1123b8 100%);}
+[data-mission="whispering-village-part2"] .opening-copy h1{font-size:clamp(44px,7.2vw,103px);line-height:.94;}
+.wvp-mist{animation:wvp-drift 8s ease-in-out infinite alternate;}
+.wvp-window-ghost{animation:wvp-ghost 4.5s ease-in-out infinite;}
+.wvp-open .wvp-reveal{animation:wvp-door 2.9s ease-in-out forwards;}
+@keyframes wvp-drift{to{transform:translateX(40px);opacity:.3}}
+@keyframes wvp-ghost{0%,35%,72%,100%{opacity:0}48%,63%{opacity:.95}}
+@keyframes wvp-door{0%,22%{opacity:0;transform:translateY(45px)}75%,100%{opacity:1;transform:translateY(0)}}
+.reduced-motion .wvp-mist,.reduced-motion .wvp-window-ghost,.reduced-motion .wvp-open .wvp-reveal{animation:none!important;}
+@media(prefers-reduced-motion:reduce){.wvp-mist,.wvp-window-ghost,.wvp-open .wvp-reveal{animation:none!important;}}
