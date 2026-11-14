@@ -1,3 +1,4 @@
+[data-mission="sky-carnival"] #cast{pointer-events:none}
 /* Mission 009: cheerful, original, high-contrast sky-carnival presentation. */
 [data-mission="sky-carnival"]{--gold:#ffe18c;--sky:#9bdef4}
 [data-mission="sky-carnival"] .cover{background:radial-gradient(ellipse at 76% 35%,#ffca75a6 0%,transparent 47%),linear-gradient(106deg,#163759f7 0%,#2872a8ed 52%,#50b6caac 100%)}
