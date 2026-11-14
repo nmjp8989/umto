@@ -38,6 +38,17 @@ function select(id){clearSelection();selected=id;document.querySelector(`[data-i
 function goal(){if(isBeacon||isCarriage||isVillage)return S.complete?mission.completionObjective:mission.objectives.find(o=>engine.has(o.if))?.text;if(isNight)return S.complete?'Kabir’s train has arrived.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(isMystery)return S.complete?'The lantern is safe. Everyone belongs.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
 function renderInventory(){const list=$('inventory');list.replaceChildren();for(const id of S.inventory){const item=mission.inventoryItems[id];if(!item)continue;const button=document.createElement('button');button.className='inventory-item'+(selected===id?' selected':'');button.dataset.item=id;button.setAttribute('aria-label',item.label+' — select or drag');button.innerHTML=`<svg viewBox="0 0 90 90" aria-hidden="true">${DeliveryArt.icons[item.icon]}</svg><span>${item.label}</span>`;list.append(button);}if(!S.inventory.length)list.innerHTML='<span class="inventory-empty">A little room for possibilities.</span>';}
 function makeActor(id,x,y,height){return {id,x,y,height,action:'idle',frame:'',walkTime:0,walkFrom:0,walkTo:0,direction:id==='harpreet'?1:-1,walkDistance:0,seed:id==='harpreet'?0:id==='meena'?1700:4100};}
+function addActorRig(id,x,y,height){
+ if(actors[id])return actors[id];
+ const actor=makeActor(id,x,y,height);
+ actors[id]=actor;
+ const g=document.createElementNS(NS,'g');
+ g.id='actor-'+id;g.classList.add('actor');
+ g.setAttribute('aria-label',mission.cast[id]?.name||id);
+ g.innerHTML='<ellipse class="actor-shadow" cx="0" cy="-2" rx="47" ry="9"/><g class="actor-sprite"></g><g class="held-prop" pointer-events="none"></g>';
+ $('cast').append(g);paintActors(animationTime);
+ return actor;
+}
 function render(scene=S.scene){
  sceneName=scene;heldProps={};camera.to(scene==='cinema'?'arrival':'wide',null,true);$('tooltip').style.opacity='0';
  const scenic=DeliveryArt[scene];$('scenery').innerHTML=typeof scenic==='function'?scenic.call(DeliveryArt):'';
@@ -140,6 +151,8 @@ async function effect(kind){
    $('props').replaceChildren();
    $('effects').innerHTML=WhisperingVillageArt.reveal;
    $('effects').classList.add('wv-cellar-rescue');
+   // Reveal Kabir using the full animated kid rig, never a cut-out body.
+   addActorRig('kabir',848,671,294);
    sound.tone(130.81,.85,.06,'triangle',.05);
    sound.tone(196,.9,.06,'triangle',.75);
    sound.tone(261.63,1.0,.07,'triangle',1.6);
@@ -219,7 +232,7 @@ async function begin(fresh=false){
  if(fresh){engine.reset();S=engine.state;S.started=true;firstCourtyard=true;try{localStorage.removeItem(saveKey);}catch{}}
  else restore();
  $('opening').hidden=true;$('game').classList.remove('departing','door-open','projector-on','lantern-found');$('error').hidden=true;render();await sound.start();
- if(S.complete){await changeScene(mission.finalScene||'cinema');if(isNight)$('effects').innerHTML=NightPlatformArt.train;if(isBeacon)$('effects').innerHTML=StormBeaconArt.rescue;if(isCarriage){$('effects').innerHTML=EmptyCarriageArt.reveal;$('effects').classList.add('ec-rescued');}if(isVillage){$('props').replaceChildren();$('effects').innerHTML=WhisperingVillageArt.reveal;$('effects').classList.add('wv-cellar-rescue');}$('game').classList.add('projector-on');finish();setBusy(false);return;}
+ if(S.complete){await changeScene(mission.finalScene||'cinema');if(isNight)$('effects').innerHTML=NightPlatformArt.train;if(isBeacon)$('effects').innerHTML=StormBeaconArt.rescue;if(isCarriage){$('effects').innerHTML=EmptyCarriageArt.reveal;$('effects').classList.add('ec-rescued');}if(isVillage){$('props').replaceChildren();$('effects').innerHTML=WhisperingVillageArt.reveal;$('effects').classList.add('wv-cellar-rescue');addActorRig('kabir',848,671,294);}$('game').classList.add('projector-on');finish();setBusy(false);return;}
  if(fresh||!saved()){await sequence.run(mission.sequences.opening);$('dialogue').hidden=true;}else showDialogue('saveResume');
  setBusy(false);save();window.MysteryUI?.progress(mission,engine);
 }
