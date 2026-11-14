@@ -1,0 +1,38 @@
+name: Mission story smoke tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'missions/**'
+      - 'tests/missions*.cjs'
+      - 'tests/mission-voice.cjs'
+      - 'voices.json'
+      - '.github/workflows/mission-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mission-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify shared mission scripts
+        run: |
+          node --check missions/delivery.js
+          node --check missions/storm-beacon-art.js
+          node --check missions/night-platform-art.js
+      - name: Verify story flows and saved dialogue manifests
+        run: |
+          node tests/missions.cjs
+          node tests/missions-002.cjs
+          node tests/missions-003.cjs
+          node tests/missions-004.cjs
+          node tests/missions-005-006.cjs
+          node tests/mission-voice.cjs
