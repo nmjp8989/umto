@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "mission": "whispering-village-part3",
+  "lines": {
+    "intro": {
+      "text": "The house knocked. The clock just sneezed. If the well burps, I’m going home.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/intro-a3e5267d22c9cff5efd6.mp3"
+    },
+    "brief": {
+      "text": "Baldev is safe. Find what pulled his door shut and where the village register went.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part3/brief-ef13dfad5da4bc25ed45.mp3"
+    },
+    "baldev": {
+      "text": "I moved the register to the blue drum upstairs to keep it dry. When I came back down, a gust tugged something and my door latched shut.",
+      "speaker": "baldev",
+      "src": "audio/whispering-village-part3/baldev-cd9f6b6a2702cae18377.mp3"
+    },
+    "print": {
+      "text": "A star pressed into the wax, right beside a strand of pink string. Whatever made it pulled the latch tight.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part3/print-f2d0e98b7b3bb38e17dd.mp3"
+    },
+    "needPrint": {
+      "text": "Wait. Something left a mark beside the latch. Check it before we go.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/needPrint-2025381c81958565b62c.mp3"
+    },
+    "meher": {
+      "text": "I saw a monster with wings! Then lightning lit it up. It was a kite with a pink tail, flying toward the clock tower.",
+      "speaker": "meher",
+      "src": "audio/whispering-village-part3/meher-bfa14a83d50532ae0025.mp3"
+    },
+    "rohan": {
+      "text": "I left my star-shaped reel by Baldev’s door. The wind snatched the kite, and the pink string whipped right into the crack by the latch.",
+      "speaker": "rohan",
+      "src": "audio/whispering-village-part3/rohan-17d9d29406fab3763e49.mp3"
+    },
+    "needFriends": {
+      "text": "Meher saw the shadow. Rohan knows the string. Let’s hear both before climbing the tower.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/needFriends-aaf0e205512367102838.mp3"
+    },
+    "bell": {
+      "text": "Achoo! The kite tail is tickling the bell and shaking dust out of it. There’s your sneezing clock.",
+      "speaker": "meher",
+      "src": "audio/whispering-village-part3/bell-c716c7c48c17134306d1.mp3"
+    },
+    "reel": {
+      "text": "My reel! The star matches the wax mark. Look, the pink string runs back down through the old signal pipe.",
+      "speaker": "rohan",
+      "src": "audio/whispering-village-part3/reel-1c7bd005b1d77dd20f23.mp3"
+    },
+    "crate": {
+      "text": "Blue paint. A dry lid. There’s a little paper corner peeking out.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part3/crate-84ab7f3400ac935cfbb6.mp3"
+    },
+    "needTower": {
+      "text": "Check the dusty bell, the reel and the blue drum. Then tell me which one is hiding the book.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/needTower-12d9494476b8fb1d12a1.mp3"
+    },
+    "choose": {
+      "text": "Detectives, where did Baldev put the register?",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/choose-594af1b0b583184799f2.mp3"
+    },
+    "retryBell": {
+      "text": "The bell has plenty of dust. What colour did Baldev say to look for?",
+      "speaker": "meher",
+      "src": "audio/whispering-village-part3/retryBell-a13f7e4485fd48c98715.mp3"
+    },
+    "retryReel": {
+      "text": "The reel tells us what pulled the latch. What did Baldev use to keep the book dry?",
+      "speaker": "rohan",
+      "src": "audio/whispering-village-part3/retryReel-b2fcb013a28684cf6c1c.mp3"
+    },
+    "found": {
+      "text": "Village register, found! It’s so dry I can still smell the pencil.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/found-03ec94f89169418c59d8.mp3"
+    },
+    "solved": {
+      "text": "The wind yanked the kite string. The star reel hit the wax, the string swung the door shut, and Baldev’s latch clicked on its own.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part3/solved-ac42e251c651818ac681.mp3"
+    },
+    "laugh": {
+      "text": "Case closed. Can someone get the clock a tissue?",
+      "speaker": "meher",
+      "src": "audio/whispering-village-part3/laugh-293dee61916c990dfadb.mp3"
+    },
+    "tease": {
+      "text": "Hang on. The last page says “Tomorrow, 12:17. Bring one very small umbrella.” Who’s that for?",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/tease-2bafe56327caf6986a01.mp3"
+    },
+    "saveResume": {
+      "text": "Ready, detective? Let’s pick up where we left off.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/saveResume-62db3eefa019e0776f9a.mp3"
+    },
+    "cantCombine": {
+      "text": "Tap a clue to look at it up close.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part3/cantCombine-e6a2d70c01309593b4b5.mp3"
+    },
+    "chooseCause": {
+      "text": "You found the register. Now fit the clues together. What pulled Baldev’s door shut?",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part3/chooseCause-3e5fdbe44727a46612a0.mp3"
+    },
+    "retryCause": {
+      "text": "The shadow had a pink tail. What connects that tail to the star mark by the latch?",
+      "speaker": "meher",
+      "src": "audio/whispering-village-part3/retryCause-58b5197a4967bece3a2a.mp3"
+    }
+  }
+}
