@@ -930,6 +930,14 @@
       "actions": [
         "message:needCake"
       ]
+    },
+    {
+      "when": "go:sky",
+      "in": "launchpad",
+      "if": "patched+tethered+windEast",
+      "actions": [
+        "scene:skydeck"
+      ]
     }
   ],
   "objectives": [
@@ -1047,7 +1055,7 @@
         "wait": 500
       },
       {
-        "scene": "skydeck"
+        "event": "go:sky"
       },
       {
         "line": "skyIntro"
