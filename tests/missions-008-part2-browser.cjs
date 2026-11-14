@@ -10,7 +10,7 @@ const server=http.createServer((req,res)=>{
  const route=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
  const abs=path.resolve(root,'.'+route);
  if(!abs.startsWith(root+path.sep)){res.writeHead(403);return res.end();}
- const st=fs.existsSync(abs)&&fs.statSync(abs);
+ const st=fs.existsSync(abs)?fs.statSync(abs):null;
  const file=st?.isDirectory()?path.join(abs,'index.html'):abs;
  if(!fs.existsSync(file)){res.writeHead(404);return res.end('not found');}
  res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');
