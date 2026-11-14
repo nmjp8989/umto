@@ -1,0 +1,26 @@
+/* Mission 009: cheerful, original, high-contrast sky-carnival presentation. */
+[data-mission="sky-carnival"]{--gold:#ffe18c;--sky:#9bdef4}
+[data-mission="sky-carnival"] .cover{background:radial-gradient(ellipse at 76% 35%,#ffca75a6 0%,transparent 47%),linear-gradient(106deg,#163759f7 0%,#2872a8ed 52%,#50b6caac 100%)}
+[data-mission="sky-carnival"] .opening-copy{max-width:720px}
+[data-mission="sky-carnival"] .opening-copy h1{font-size:clamp(48px,7.9vw,108px);line-height:.96}
+[data-mission="sky-carnival"] .opening-copy h1 em{color:#ffe18c}
+[data-mission="sky-carnival"] .opening-copy p{max-width:580px}
+[data-mission="sky-carnival"] .goal{background:#193958de;color:#fff8d9}
+[data-mission="sky-carnival"] .goal i{background:#ffe18c}
+[data-mission="sky-carnival"] .hud{background:linear-gradient(180deg,#113d60eb,#1b5477b9)}
+[data-mission="sky-carnival"] .inventory-bar{background:linear-gradient(0deg,#153550ef,#174564e0)}
+[data-mission="sky-carnival"] #game{background:#94d8f5}
+[data-mission="sky-carnival"] .vignette{pointer-events:none;opacity:.25}
+[data-mission="sky-carnival"] .primary{background:#ffdb73;color:#193a52}
+[data-mission="sky-carnival"] .dialogue{border-color:#f4d49b}
+[data-mission="sky-carnival"] .wordmark span{color:#ffd67b}
+[data-mission="sky-carnival"] .ending-stats span{border-color:#d9b77a}
+.sky-balloon{animation:sky-bob 3.1s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center center}
+.fan-turn{transform-origin:center 40px;animation:sky-spin 5s linear infinite}
+.sky-confetti rect{animation:sky-confetti 3s ease-in-out infinite alternate}
+@keyframes sky-bob{0%{translate:0 -4px}100%{translate:0 10px}}
+@keyframes sky-spin{to{transform:rotate(360deg)}}
+@keyframes sky-confetti{to{translate:0 48px;opacity:.65}}
+.reduced-motion .sky-balloon,.reduced-motion .fan-turn,.reduced-motion .sky-confetti rect{animation:none}
+@media(prefers-reduced-motion:reduce){.sky-balloon,.fan-turn,.sky-confetti rect{animation:none}}
+@media(max-height:450px){[data-mission="sky-carnival"] .opening-copy h1{font-size:clamp(35px,5.8vw,64px)}}
