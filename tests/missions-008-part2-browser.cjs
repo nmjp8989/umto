@@ -30,7 +30,7 @@ async function scene(page,title,obj){
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  page.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});
+  page.on('response',r=>{if(r.status()>=400&&/\.(js|css)(\?|$)/.test(r.url()))errors.push('Asset '+r.status()+' '+r.url())});
   await page.goto('http://127.0.0.1:'+server.address().port+'/missions/whispering-village-part2.html',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>!document.querySelector('#start').disabled,null,{timeout:35000});
   await scene(page,'Neem Lane · 12:17 AM','kabir');
