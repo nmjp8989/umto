@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080e1b"><title>The House That Answered · Whispering Village Part 2 · Umto</title><meta name="description" content="A scary night detective sequel. Harpreet and Kabir investigate the house that knocked back, repair its signal relay and rescue the caretaker."><link rel="stylesheet" href="delivery.css?v=004.0"><link rel="stylesheet" href="whispering-village-part2.css?v=008.2"></head><body data-mission="whispering-village-part2">
+<main id="game" aria-label="The House That Answered game">
+ <div class="scene-wrap"><svg id="world" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid meet" aria-label="Interactive adventure scene"><defs id="artDefs"></defs><g id="scenery"></g><g id="ambient" pointer-events="none"></g><g id="effects" pointer-events="none"></g><g id="props"></g><g id="cast"></g><g id="foreground" pointer-events="none"></g></svg><div class="vignette" aria-hidden="true"></div><div id="transition" aria-hidden="true"></div></div>
+ <header class="hud"><div class="identity"><a href="./" aria-label="All missions" class="wordmark">umto<span>MISSIONS / 008 · II</span></a><span class="hud-divider"></span><div><small id="chapter">A NEIGHBOURHOOD AFTER DARK</small><span id="location">The House That Answered</span></div></div><div class="hud-actions"><span id="saveStatus" aria-live="polite"></span><button id="camera" title="Camera: Cinematic" aria-label="Camera: Cinematic">▣</button><button id="fullscreen" title="Toggle fullscreen" aria-label="Toggle fullscreen">⛶</button><button id="pause" title="Pause and settings" aria-label="Pause and settings">Ⅱ</button></div></header>
+ <div class="goal"><i></i><span id="objective">Find out who answered Kabir’s three knocks.</span></div>
+ <div id="tooltip" role="status"></div>
+ <section id="dialogue" class="dialogue" hidden aria-live="polite"><div class="dialogue-heading"><span id="speaker"></span><small id="speakerRole"></small><button id="skip" aria-label="Skip current dialogue">Continue ↵</button></div><p id="subtitle"></p><div id="choices"></div></section>
+ <footer class="inventory-bar"><button id="pocketToggle" aria-expanded="true" aria-controls="inventory"><span>▱</span><small>POCKET</small></button><div id="inventory" role="group" aria-label="Inventory"></div><div class="utility"><span id="selection">Explore the neighbourhood</span><button id="hint" aria-label="Get a hint">✧ <span>Hint</span></button></div></footer>
+ <div id="dragGhost" hidden aria-hidden="true"></div>
+ <section id="opening" class="cover">
+  <div class="opening-copy">
+   <div class="eyebrow">UMTO / MISSION 008 · PART 2</div>
+   <h1>The House<br><em>That Answered</em></h1>
+   <p>Kabir is safe. But the empty house answered his signal.<br>Investigate its secret with Harpreet and Kabir together.</p>
+   <button id="start" class="primary" disabled>Opening the empty house…</button>
+   <button id="newGame" class="text-button" hidden>Start a new mission</button>
+   <small id="voiceStatus" role="status"></small>
+  </div>
+ </section>
+ <dialog id="pauseMenu"><div class="eyebrow">TAKE A BREATHER</div><h2>The village has<br>one more secret.</h2><button id="resume" class="primary">Resume mission →</button><label>Camera<select id="cameraMode"><option value="auto">Cinematic</option><option value="follow">Follow character</option><option value="wide">Wide scene</option></select></label><label>Music & atmosphere<input id="musicVolume" type="range" min="0" max="100" value="55"></label><label>Dialogue volume<input id="voiceVolume" type="range" min="0" max="100" value="90"></label><label class="toggle-label"><input id="reduceMotion" type="checkbox"> Reduce ambient motion</label><p>Tap to explore. Select an item, then its target. Dragging works too. Tap the ground to walk. Enter skips speech; Escape opens this menu. Choose replies with A–D or 1–4.</p><button id="restart" class="text-button">Restart mission</button><nav><a href="whispering-village.html">Mission 008 · Part 1</a><a href="empty-carriage.html">Mission 007</a><a href="night-platform.html">Mission 005</a><a href="storm-beacon.html">Mission 006</a><a href="./">Mission 001</a><a href="./?mission=rooftop-kite">Mission 002</a><a href="../">Character studio ↗</a></nav></dialog>
+ <dialog id="ending">
+  <div class="eyebrow">MISSION 008 · PART 2 COMPLETE</div>
+  <h2>The house was never empty.</h2>
+  <p>The hidden signal room is open. The caretaker is safe. Who locked him inside?</p>
+  <div class="ending-stats"><span>Signal relay repaired</span><span id="tradeStat">Caretaker found</span></div>
+  <button id="playAgain" class="primary">Play again ↻</button><a class="text-button" href="whispering-village.html">Replay Part 1 · The Whispering Village</a>
+  <button id="replayFinale" class="text-button">Replay the secret-room reveal</button>
+  <button id="stay" class="text-button">Stay in the hidden signal room</button>
+ </dialog>
+ <div id="error" hidden role="alert"></div>
+ <iframe id="rigBridge" title="Umto character animation renderer" src="../index.html?missionBridge=delivery&amp;v=004.0" hidden></iframe>
+</main><script src="mission-engine.js?v=004.0"></script><script src="sequence-runner.js?v=004.0"></script><script src="voice-player.js?v=004.0"></script><script src="delivery-art.js?v=004.0"></script><script src="delivery-camera.js?v=004.0"></script><script src="delivery-score.js?v=004.0"></script><script src="whispering-village-part2-art.js?v=008.2"></script><script src="delivery.js?v=008.2"></script></body></html>
