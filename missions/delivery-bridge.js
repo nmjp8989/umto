@@ -6,8 +6,8 @@
   meena:{preset:'adult-priya',colours:{shirt:'kurti',shirtColour:'#188c87',trouserColour:'#27334e',shoeColour:'#573c36',hair:'sideBraid',headSize:88,bodyType:'classic'}},
   kabir:{preset:'kid-amir',colours:{shirt:'hoodie',shirtColour:'#dc6653',trouserColour:'#334862',shoeColour:'#e2c484',headSize:92,bodyType:'short'}}
  };
- if(new URLSearchParams(location.search).get('cast')==='village-part3'){
-  delete cast.meena;
+ if(['village-part3','sky-carnival'].includes(new URLSearchParams(location.search).get('cast'))){
+  if(new URLSearchParams(location.search).get('cast')==='village-part3')delete cast.meena;
   Object.assign(cast,{
    meher:{preset:'kid-meher',colours:{bodyType:'short'}},
    rohan:{preset:'kid-rohan',colours:{bodyType:'short'}},
