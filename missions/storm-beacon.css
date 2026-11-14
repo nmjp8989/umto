@@ -1,0 +1,50 @@
+body[data-mission="storm-beacon"] {
+  --gold: #99e1e7;
+  background: #080e1c;
+}
+
+[data-mission="storm-beacon"] .cover {
+  background:
+    radial-gradient(ellipse at 70% 40%, #19364e45, transparent 60%),
+    linear-gradient(90deg, #090e1bf7 0%, #0a1224e6 41%, #0a122430 100%);
+}
+
+[data-mission="storm-beacon"] .opening-copy h1 {
+  font-size: clamp(52px, 8vw, 112px);
+  text-shadow: 0 4px 40px #040810;
+}
+
+[data-mission="storm-beacon"] .opening-copy p {
+  color: #dae4ef;
+}
+
+[data-mission="storm-beacon"] .vignette {
+  background: linear-gradient(#070c18aa, transparent 23%, transparent 76%, #070c18b8);
+}
+
+.harbour-fog { animation: drift-fog 5s ease-in-out infinite alternate; }
+.beacon-rescue .beacon-flash { animation: flash-beacon 2.85s ease both; }
+.beacon-rescue .rescue-ferry { animation: ferry-rescue 2.85s ease-out both; }
+.beacon-flash { opacity: .27; }
+
+@keyframes drift-fog {
+  to { transform: translate(42px,7px); opacity: .22; }
+}
+@keyframes flash-beacon {
+  0%, 31%, 62% { opacity: 0; }
+  12%, 45% { opacity: .85; }
+  100% { opacity: .27; }
+}
+@keyframes ferry-rescue {
+  from { translate: 475px 0; }
+  to { translate: 0 0; }
+}
+.reduced-motion .harbour-fog,
+.reduced-motion .beacon-flash,
+.reduced-motion .rescue-ferry { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .harbour-fog, .beacon-flash, .rescue-ferry { animation: none !important; }
+}
+@media (max-height: 460px) {
+  [data-mission="storm-beacon"] .opening-copy h1 { font-size: clamp(39px, 6.5vw, 61px); }
+}

@@ -1,0 +1,489 @@
+{
+  "id": "storm-beacon",
+  "version": 3,
+  "number": "006",
+  "title": "The Storm Beacon",
+  "startScene": "home",
+  "startMessage": "intro",
+  "finalScene": "platform",
+  "finalSequence": "arrival",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "THE NIGHT COURIER",
+      "colour": "#e9b65d"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "THE LIGHTHOUSE KEEPER",
+      "colour": "#75d4c0"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "THE LOOKOUT",
+      "colour": "#e5929e"
+    }
+  },
+  "inventoryItems": {
+    "lens": {
+      "label": "Spare lens",
+      "icon": "lens"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "Harbour Pier",
+      "chapter": "01 / A FERRY IN THE FOG",
+      "heroX": 590,
+      "objects": [
+        {
+          "id": "notice",
+          "name": "Read the channel chart",
+          "x": 223,
+          "y": 233,
+          "w": 230,
+          "h": 162
+        },
+        {
+          "id": "kabir",
+          "name": "Talk to Kabir",
+          "x": 800,
+          "y": 339,
+          "w": 125,
+          "h": 264
+        },
+        {
+          "id": "cross",
+          "name": "Go to the Keeper’s Workshop",
+          "x": 1070,
+          "y": 390,
+          "w": 188,
+          "h": 164
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 855,
+          "y": 602,
+          "height": 245
+        }
+      ],
+      "foreground": false
+    },
+    "stall": {
+      "name": "Keeper’s Workshop",
+      "chapter": "02 / THE CRACKED LENS",
+      "heroX": 415,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to the Harbour Pier",
+          "x": 25,
+          "y": 390,
+          "w": 175,
+          "h": 164
+        },
+        {
+          "id": "lens",
+          "name": "Pick up the spare lens",
+          "x": 318,
+          "y": 404,
+          "w": 112,
+          "h": 80,
+          "if": "!inventory.lens+!lensFitted"
+        },
+        {
+          "id": "meena",
+          "name": "Talk to Meena",
+          "x": 852,
+          "y": 305,
+          "w": 140,
+          "h": 300
+        },
+        {
+          "id": "platform",
+          "name": "Climb to the Lantern Room",
+          "x": 1070,
+          "y": 390,
+          "w": 188,
+          "h": 164
+        }
+      ],
+      "actors": [
+        {
+          "id": "meena",
+          "x": 920,
+          "y": 602,
+          "height": 305
+        }
+      ],
+      "foreground": false
+    },
+    "platform": {
+      "name": "Lantern Room",
+      "chapter": "03 / LIGHT THE CHANNEL",
+      "heroX": 488,
+      "objects": [
+        {
+          "id": "cabin",
+          "name": "Return to the Keeper’s Workshop",
+          "x": 25,
+          "y": 390,
+          "w": 175,
+          "h": 164
+        },
+        {
+          "id": "lever",
+          "name": "Set the signal dial",
+          "x": 858,
+          "y": 326,
+          "w": 165,
+          "h": 168
+        },
+        {
+          "id": "panel",
+          "name": "Inspect the lighthouse lens mount",
+          "x": 580,
+          "y": 218,
+          "w": 162,
+          "h": 265
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 395,
+          "y": 610,
+          "height": 232
+        },
+        {
+          "id": "meena",
+          "x": 1010,
+          "y": 606,
+          "height": 294
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "harpreet",
+      "text": "That horn is the last ferry. The lighthouse is dark, and the fog is closing in. Let’s get the beacon working."
+    },
+    "saveResume": {
+      "speaker": "harpreet",
+      "text": "The ferry is still out there. Let’s pick up where we left off."
+    },
+    "notice": {
+      "speaker": "harpreet",
+      "text": "The chart shows one steady light for the inner harbour, two flashes for the deep channel, and three flashes for the shoals."
+    },
+    "ticket": {
+      "speaker": "kabir",
+      "text": "I heard the captain on the radio. They need the deep channel. The ferry is too big for the inner harbour."
+    },
+    "repair": {
+      "speaker": "meena",
+      "text": "The old lens cracked in the storm. Take the spare from my workbench and fit it into the mount upstairs."
+    },
+    "repaired": {
+      "speaker": "meena",
+      "text": "The lens is fitted. Now you can set the signal dial."
+    },
+    "foundLens": {
+      "speaker": "harpreet",
+      "text": "A spare lens. Let’s get it to the lantern room."
+    },
+    "dead": {
+      "speaker": "harpreet",
+      "text": "The beacon needs a lens before I can set the signal."
+    },
+    "unknown": {
+      "speaker": "harpreet",
+      "text": "I need both clues. The chart shows the signals, and Kabir knows where the ferry is headed."
+    },
+    "choose": {
+      "speaker": "harpreet",
+      "text": "The ferry needs the deep channel. Which signal marks it on the chart?",
+      "choices": [
+        {
+          "label": "One steady light",
+          "event": "signal:steady"
+        },
+        {
+          "label": "Two flashes",
+          "event": "signal:double"
+        },
+        {
+          "label": "Three flashes",
+          "event": "signal:triple"
+        }
+      ]
+    },
+    "retry": {
+      "speaker": "harpreet",
+      "text": "That signal leads somewhere else. Check the flash pattern for the deep channel.",
+      "choices": [
+        {
+          "label": "One steady light",
+          "event": "signal:steady"
+        },
+        {
+          "label": "Two flashes",
+          "event": "signal:double"
+        },
+        {
+          "label": "Three flashes",
+          "event": "signal:triple"
+        }
+      ]
+    },
+    "cantCombine": {
+      "speaker": "harpreet",
+      "text": "The spare lens belongs in the circular mount in the lantern room."
+    },
+    "ferrySafe": {
+      "speaker": "meena",
+      "text": "The captain sees our two flashes. The ferry is through the deep channel."
+    },
+    "thanks": {
+      "speaker": "kabir",
+      "text": "Look at all those lights on the water! I can see the ferry from here."
+    }
+  },
+  "objectives": [
+    {
+      "text": "Repair the lighthouse with the spare lens.",
+      "if": "!lensFitted"
+    },
+    {
+      "text": "Ask Kabir which route the ferry needs.",
+      "if": "!destination"
+    },
+    {
+      "text": "Read the channel chart on the harbour pier.",
+      "if": "!readNotice"
+    },
+    {
+      "text": "Set the signal dial in the lantern room.",
+      "if": ""
+    }
+  ],
+  "hints": [
+    {
+      "text": "Find the spare lens on Meena’s workshop bench.",
+      "if": "!lensFitted+!inventory.lens"
+    },
+    {
+      "text": "Select the lens in your pocket and tap the circular mount upstairs.",
+      "if": "!lensFitted"
+    },
+    {
+      "text": "Talk to Kabir on the harbour pier.",
+      "if": "!destination"
+    },
+    {
+      "text": "Read the framed channel chart on the pier.",
+      "if": "!readNotice"
+    },
+    {
+      "text": "Match the deep channel to its light pattern at the dial.",
+      "if": ""
+    }
+  ],
+  "rules": [
+    {
+      "when": "click:notice",
+      "actions": [
+        "flag:readNotice",
+        "message:notice"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "flag:destination",
+        "message:ticket"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:cross",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:platform",
+      "actions": [
+        "scene:platform"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:cabin",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "click:lens",
+      "actions": [
+        "inventory:lens",
+        "sound:click",
+        "message:foundLens"
+      ],
+      "in": "stall",
+      "if": "!inventory.lens+!lensFitted"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:repaired"
+      ],
+      "in": "stall",
+      "if": "lensFitted"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:repair"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:repaired"
+      ],
+      "in": "platform",
+      "if": "lensFitted"
+    },
+    {
+      "when": "click:panel",
+      "actions": [
+        "message:repair"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "drop:lens:panel",
+      "actions": [
+        "remove:lens",
+        "flag:lensFitted",
+        "sound:click",
+        "message:repaired"
+      ],
+      "in": "platform",
+      "if": "inventory.lens+!lensFitted"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:dead"
+      ],
+      "in": "platform",
+      "if": "!lensFitted"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:choose"
+      ],
+      "in": "platform",
+      "if": "lensFitted+destination+readNotice"
+    },
+    {
+      "when": "click:lever",
+      "actions": [
+        "message:unknown"
+      ],
+      "in": "platform"
+    },
+    {
+      "when": "signal:steady",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "lensFitted+destination+readNotice"
+    },
+    {
+      "when": "signal:triple",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "platform",
+      "if": "lensFitted+destination+readNotice"
+    },
+    {
+      "when": "signal:double",
+      "actions": [
+        "flag:signalSet",
+        "ending:arrival",
+        "sequence:arrival"
+      ],
+      "in": "platform",
+      "if": "lensFitted+destination+readNotice+!signalSet"
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "arrival": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "panel"
+        }
+      },
+      {
+        "sound": "click"
+      },
+      {
+        "wait": 450
+      },
+      {
+        "camera": "wide"
+      },
+      {
+        "effect": "stormBeacon"
+      },
+      {
+        "line": "ferrySafe"
+      },
+      {
+        "line": "thanks"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "completionObjective": "The ferry is safely through the channel."
+}
