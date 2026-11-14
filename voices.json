@@ -1,5 +1,8 @@
 {
   "harpreet": "male_sample.wav",
   "meena": "female_sample.wav",
-  "kabir": "kid_sample.mp3"
+  "kabir": "kid_sample.mp3",
+  "meher": "female_sample.wav",
+  "rohan": "kid_sample.mp3",
+  "baldev": "male_sample.wav"
 }

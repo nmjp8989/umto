@@ -1,0 +1,14 @@
+[data-mission="whispering-village-part3"] #cast{pointer-events:none}
+[data-mission="whispering-village-part3"] .cover{
+ background:radial-gradient(ellipse at 75% 37%,#67466155,transparent 54%),
+ linear-gradient(92deg,#071324fa 0%,#142138eb 49%,#19284188 100%);
+}
+[data-mission="whispering-village-part3"] .opening-copy{max-width:690px}
+[data-mission="whispering-village-part3"] h1{font-size:clamp(48px,7.9vw,110px)}
+[data-mission="whispering-village-part3"] h1 em{color:#f4accb}
+[data-mission="whispering-village-part3"] .goal{color:#f6e4c4}
+.kite-tail{animation:kite-flick 2s ease-in-out infinite alternate}
+@keyframes kite-flick{to{stroke-dashoffset:18;transform:translateY(3px)}}
+.reduced-motion .kite-tail{animation:none}
+@media(prefers-reduced-motion:reduce){.kite-tail{animation:none}}
+@media(max-height:450px){[data-mission="whispering-village-part3"] h1{font-size:clamp(36px,6vw,60px)}}

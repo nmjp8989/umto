@@ -6,6 +6,14 @@
   meena:{preset:'adult-priya',colours:{shirt:'kurti',shirtColour:'#188c87',trouserColour:'#27334e',shoeColour:'#573c36',hair:'sideBraid',headSize:88,bodyType:'classic'}},
   kabir:{preset:'kid-amir',colours:{shirt:'hoodie',shirtColour:'#dc6653',trouserColour:'#334862',shoeColour:'#e2c484',headSize:92,bodyType:'short'}}
  };
+ if(new URLSearchParams(location.search).get('cast')==='village-part3'){
+  delete cast.meena;
+  Object.assign(cast,{
+   meher:{preset:'kid-meher',colours:{bodyType:'short'}},
+   rohan:{preset:'kid-rohan',colours:{bodyType:'short'}},
+   baldev:{preset:'elder-baldev',colours:{bodyType:'classic'}}
+  });
+ }
  const bank={};let serial=300;
  function rider(node){
     node.svg.querySelectorAll('[data-rig-arm]').forEach(e=>e.remove());
@@ -21,7 +29,7 @@
   for(const view of ['left','right']){
    const actor=newSceneActor(def.preset,0);actor.view=view;actor.appearance={...actor.appearance,...def.colours,framing:'full',pose:'relaxed'};
    const base=createSceneActor(actor,serial++);
-   base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir'}[id]);
+   base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
    const keys=['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];

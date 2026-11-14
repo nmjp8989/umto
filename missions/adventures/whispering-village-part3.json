@@ -1,0 +1,676 @@
+{
+  "id": "whispering-village-part3",
+  "number": "008-III",
+  "version": 3,
+  "title": "The Clock That Sneezed",
+  "sequelTo": "whispering-village-part2",
+  "startScene": "platform",
+  "startMessage": "intro",
+  "finalScene": "clocktower",
+  "finalSequence": "reveal",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "NIGHT DETECTIVE",
+      "colour": "#e9bd89"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "DETECTIVE PARTNER",
+      "colour": "#9ac9f7"
+    },
+    "meher": {
+      "name": "Meher",
+      "role": "SHADOW SPOTTER",
+      "colour": "#f4a7cc"
+    },
+    "rohan": {
+      "name": "Rohan",
+      "role": "KITE MAKER",
+      "colour": "#b5efac"
+    },
+    "baldev": {
+      "name": "Baldev",
+      "role": "VILLAGE CARETAKER",
+      "colour": "#f7d499"
+    }
+  },
+  "inventoryItems": {},
+  "scenes": {
+    "platform": {
+      "name": "Hidden Signal Room",
+      "chapter": "THE PRINT",
+      "heroX": 475,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 700,
+          "y": 615,
+          "height": 280
+        },
+        {
+          "id": "baldev",
+          "x": 985,
+          "y": 615,
+          "height": 326
+        }
+      ],
+      "objects": [
+        {
+          "id": "baldev",
+          "name": "Ask Baldev about the door",
+          "x": 920,
+          "y": 295,
+          "w": 135,
+          "h": 230
+        },
+        {
+          "id": "print",
+          "name": "Inspect the star-shaped mark",
+          "x": 235,
+          "y": 320,
+          "w": 180,
+          "h": 158
+        },
+        {
+          "id": "cross",
+          "name": "Go to the kite courtyard",
+          "x": 1048,
+          "y": 435,
+          "w": 206,
+          "h": 86
+        }
+      ],
+      "foreground": false
+    },
+    "yard": {
+      "name": "Kite Courtyard",
+      "chapter": "THE SHADOW",
+      "heroX": 577,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 750,
+          "y": 615,
+          "height": 280
+        },
+        {
+          "id": "meher",
+          "x": 355,
+          "y": 615,
+          "height": 270
+        },
+        {
+          "id": "rohan",
+          "x": 962,
+          "y": 615,
+          "height": 274
+        }
+      ],
+      "objects": [
+        {
+          "id": "meher",
+          "name": "Ask Meher what she saw",
+          "x": 270,
+          "y": 285,
+          "w": 155,
+          "h": 250
+        },
+        {
+          "id": "rohan",
+          "name": "Ask Rohan about the kite reel",
+          "x": 885,
+          "y": 285,
+          "w": 144,
+          "h": 250
+        },
+        {
+          "id": "back",
+          "name": "Return to the signal room",
+          "x": 24,
+          "y": 443,
+          "w": 201,
+          "h": 85
+        },
+        {
+          "id": "cabin",
+          "name": "Follow the string to the clock tower",
+          "x": 1048,
+          "y": 443,
+          "w": 210,
+          "h": 85
+        }
+      ],
+      "foreground": false
+    },
+    "clocktower": {
+      "name": "Village Clock Tower",
+      "chapter": "THE SNEEZE",
+      "heroX": 470,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 670,
+          "y": 615,
+          "height": 280
+        },
+        {
+          "id": "meher",
+          "x": 240,
+          "y": 615,
+          "height": 269
+        },
+        {
+          "id": "rohan",
+          "x": 922,
+          "y": 615,
+          "height": 274
+        }
+      ],
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to the kite courtyard",
+          "x": 24,
+          "y": 438,
+          "w": 213,
+          "h": 85
+        },
+        {
+          "id": "bell",
+          "name": "Inspect the dusty bell",
+          "x": 327,
+          "y": 205,
+          "w": 202,
+          "h": 149
+        },
+        {
+          "id": "reel",
+          "name": "Inspect the star-shaped spool",
+          "x": 574,
+          "y": 252,
+          "w": 233,
+          "h": 162
+        },
+        {
+          "id": "crate",
+          "name": "Inspect the blue drum",
+          "x": 1004,
+          "y": 272,
+          "w": 220,
+          "h": 194
+        },
+        {
+          "id": "solve",
+          "name": "Tell Kabir where to look",
+          "x": 807,
+          "y": 457,
+          "w": 225,
+          "h": 80
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "kabir",
+      "text": "The house knocked. The clock just sneezed. If the well burps, I’m going home."
+    },
+    "brief": {
+      "speaker": "harpreet",
+      "text": "Baldev is safe. Find what pulled his door shut and where the village register went."
+    },
+    "baldev": {
+      "speaker": "baldev",
+      "text": "I moved the register to the blue drum upstairs to keep it dry. When I came back down, a gust tugged something and my door latched shut."
+    },
+    "print": {
+      "speaker": "harpreet",
+      "text": "A star pressed into the wax, right beside a strand of pink string. Whatever made it pulled the latch tight."
+    },
+    "needPrint": {
+      "speaker": "kabir",
+      "text": "Wait. Something left a mark beside the latch. Check it before we go."
+    },
+    "meher": {
+      "speaker": "meher",
+      "text": "I saw a monster with wings! Then lightning lit it up. It was a kite with a pink tail, flying toward the clock tower."
+    },
+    "rohan": {
+      "speaker": "rohan",
+      "text": "I left my star-shaped reel by Baldev’s door. The wind snatched the kite, and the pink string whipped right into the crack by the latch."
+    },
+    "needFriends": {
+      "speaker": "kabir",
+      "text": "Meher saw the shadow. Rohan knows the string. Let’s hear both before climbing the tower."
+    },
+    "bell": {
+      "speaker": "meher",
+      "text": "Achoo! The kite tail is tickling the bell and shaking dust out of it. There’s your sneezing clock."
+    },
+    "reel": {
+      "speaker": "rohan",
+      "text": "My reel! The star matches the wax mark. Look, the pink string runs back down through the old signal pipe."
+    },
+    "crate": {
+      "speaker": "harpreet",
+      "text": "Blue paint. A dry lid. There’s a little paper corner peeking out."
+    },
+    "needTower": {
+      "speaker": "kabir",
+      "text": "Check the dusty bell, the reel and the blue drum. Then tell me which one is hiding the book."
+    },
+    "choose": {
+      "speaker": "kabir",
+      "text": "Detectives, where did Baldev put the register?",
+      "choices": [
+        {
+          "label": "Inside the dusty bell",
+          "event": "answer:bell"
+        },
+        {
+          "label": "Behind the kite reel",
+          "event": "answer:reel"
+        },
+        {
+          "label": "Inside the blue drum",
+          "event": "answer:drum"
+        }
+      ]
+    },
+    "retryBell": {
+      "speaker": "meher",
+      "text": "The bell has plenty of dust. What colour did Baldev say to look for?",
+      "choices": [
+        {
+          "label": "Try again",
+          "event": "click:solve"
+        }
+      ]
+    },
+    "retryReel": {
+      "speaker": "rohan",
+      "text": "The reel tells us what pulled the latch. What did Baldev use to keep the book dry?",
+      "choices": [
+        {
+          "label": "Try again",
+          "event": "click:solve"
+        }
+      ]
+    },
+    "found": {
+      "speaker": "kabir",
+      "text": "Village register, found! It’s so dry I can still smell the pencil."
+    },
+    "solved": {
+      "speaker": "harpreet",
+      "text": "The wind yanked the kite string. The star reel hit the wax, the string swung the door shut, and Baldev’s latch clicked on its own."
+    },
+    "laugh": {
+      "speaker": "meher",
+      "text": "Case closed. Can someone get the clock a tissue?"
+    },
+    "tease": {
+      "speaker": "kabir",
+      "text": "Hang on. The last page says “Tomorrow, 12:17. Bring one very small umbrella.” Who’s that for?"
+    },
+    "saveResume": {
+      "speaker": "kabir",
+      "text": "Ready, detective? Let’s pick up where we left off."
+    },
+    "cantCombine": {
+      "speaker": "kabir",
+      "text": "Tap a clue to look at it up close."
+    },
+    "chooseCause": {
+      "speaker": "harpreet",
+      "text": "You found the register. Now fit the clues together. What pulled Baldev’s door shut?",
+      "choices": [
+        {
+          "label": "The wind tugged the kite string",
+          "event": "cause:kite"
+        },
+        {
+          "label": "The clock bell shook it shut",
+          "event": "cause:bell"
+        },
+        {
+          "label": "A monster pulled the latch",
+          "event": "cause:monster"
+        }
+      ]
+    },
+    "retryCause": {
+      "speaker": "meher",
+      "text": "The shadow had a pink tail. What connects that tail to the star mark by the latch?",
+      "choices": [
+        {
+          "label": "Try again",
+          "event": "click:solve"
+        }
+      ]
+    }
+  },
+  "objectives": [
+    {
+      "if": "!heardBaldev",
+      "text": "Ask Baldev where he last saw the register."
+    },
+    {
+      "if": "!readPrint",
+      "text": "Inspect the mark next to the latch."
+    },
+    {
+      "if": "scene.platform",
+      "text": "Follow the pink string to the kite courtyard."
+    },
+    {
+      "if": "!heardMeher",
+      "text": "Ask Meher what she saw in the storm."
+    },
+    {
+      "if": "!heardRohan",
+      "text": "Ask Rohan about the pink string."
+    },
+    {
+      "if": "scene.yard",
+      "text": "Follow the string to the clock tower."
+    },
+    {
+      "if": "!checkedBell",
+      "text": "Find out why the bell sneezed."
+    },
+    {
+      "if": "!checkedReel",
+      "text": "Compare the reel to the mark by the latch."
+    },
+    {
+      "if": "!checkedDrum",
+      "text": "Inspect the blue drum."
+    },
+    {
+      "if": "registerFound",
+      "text": "Connect the pink string and star mark to Baldev’s door."
+    },
+    {
+      "text": "Tell Kabir where the register is hidden."
+    }
+  ],
+  "hints": [
+    {
+      "if": "!heardBaldev",
+      "text": "Tap Baldev. He remembers where he put the book."
+    },
+    {
+      "if": "!readPrint",
+      "text": "The wax beside the latch has a shape you can match later."
+    },
+    {
+      "if": "scene.platform",
+      "text": "Tap the arrow to the kite courtyard."
+    },
+    {
+      "if": "!heardMeher",
+      "text": "Tap Meher. She saw the shadow when lightning lit the sky."
+    },
+    {
+      "if": "!heardRohan",
+      "text": "Tap Rohan. He knows the pink string and star reel."
+    },
+    {
+      "if": "scene.yard",
+      "text": "Tap the arrow to the clock tower."
+    },
+    {
+      "if": "!checkedBell",
+      "text": "Tap the bell to see what was tickling it."
+    },
+    {
+      "if": "!checkedReel",
+      "text": "Tap the reel. Its shape matches a clue from the signal room."
+    },
+    {
+      "if": "!checkedDrum",
+      "text": "Tap the blue drum. Look closely around its lid."
+    },
+    {
+      "if": "registerFound",
+      "text": "Follow the pink string from the kite to the reel, then back to the latch."
+    },
+    {
+      "text": "Baldev said he put the register somewhere blue and dry."
+    }
+  ],
+  "rules": [
+    {
+      "when": "click:baldev",
+      "in": "platform",
+      "actions": [
+        "flag:heardBaldev",
+        "message:baldev"
+      ]
+    },
+    {
+      "when": "click:print",
+      "in": "platform",
+      "actions": [
+        "flag:readPrint",
+        "sound:paper",
+        "message:print"
+      ]
+    },
+    {
+      "when": "click:cross",
+      "in": "platform",
+      "actions": [
+        "scene:yard"
+      ],
+      "if": "heardBaldev+readPrint"
+    },
+    {
+      "when": "click:cross",
+      "in": "platform",
+      "actions": [
+        "message:needPrint"
+      ],
+      "if": "heardBaldev"
+    },
+    {
+      "when": "click:cross",
+      "in": "platform",
+      "actions": [
+        "message:baldev",
+        "flag:heardBaldev"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "yard",
+      "actions": [
+        "scene:platform"
+      ]
+    },
+    {
+      "when": "click:meher",
+      "in": "yard",
+      "actions": [
+        "flag:heardMeher",
+        "message:meher"
+      ]
+    },
+    {
+      "when": "click:rohan",
+      "in": "yard",
+      "actions": [
+        "flag:heardRohan",
+        "message:rohan"
+      ]
+    },
+    {
+      "when": "click:cabin",
+      "in": "yard",
+      "actions": [
+        "scene:clocktower"
+      ],
+      "if": "heardMeher+heardRohan"
+    },
+    {
+      "when": "click:cabin",
+      "in": "yard",
+      "actions": [
+        "message:needFriends"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "clocktower",
+      "actions": [
+        "scene:yard"
+      ]
+    },
+    {
+      "when": "click:bell",
+      "in": "clocktower",
+      "actions": [
+        "flag:checkedBell",
+        "sound:metal",
+        "message:bell"
+      ]
+    },
+    {
+      "when": "click:reel",
+      "in": "clocktower",
+      "actions": [
+        "flag:checkedReel",
+        "message:reel"
+      ]
+    },
+    {
+      "when": "click:crate",
+      "in": "clocktower",
+      "actions": [
+        "flag:checkedDrum",
+        "sound:paper",
+        "message:crate"
+      ]
+    },
+    {
+      "when": "click:solve",
+      "in": "clocktower",
+      "if": "registerFound",
+      "actions": [
+        "message:chooseCause"
+      ]
+    },
+    {
+      "when": "click:solve",
+      "in": "clocktower",
+      "actions": [
+        "message:choose"
+      ],
+      "if": "checkedBell+checkedReel+checkedDrum"
+    },
+    {
+      "when": "click:solve",
+      "in": "clocktower",
+      "actions": [
+        "message:needTower"
+      ]
+    },
+    {
+      "when": "answer:bell",
+      "in": "clocktower",
+      "actions": [
+        "message:retryBell"
+      ],
+      "if": "checkedBell+checkedReel+checkedDrum"
+    },
+    {
+      "when": "answer:reel",
+      "in": "clocktower",
+      "actions": [
+        "message:retryReel"
+      ],
+      "if": "checkedBell+checkedReel+checkedDrum"
+    },
+    {
+      "when": "answer:drum",
+      "in": "clocktower",
+      "actions": [
+        "flag:registerFound",
+        "sound:complete",
+        "message:chooseCause"
+      ],
+      "if": "checkedBell+checkedReel+checkedDrum+!registerFound"
+    },
+    {
+      "when": "cause:bell",
+      "in": "clocktower",
+      "if": "registerFound",
+      "actions": [
+        "message:retryCause"
+      ]
+    },
+    {
+      "when": "cause:monster",
+      "in": "clocktower",
+      "if": "registerFound",
+      "actions": [
+        "message:retryCause"
+      ]
+    },
+    {
+      "when": "cause:kite",
+      "in": "clocktower",
+      "if": "registerFound",
+      "actions": [
+        "sequence:reveal"
+      ]
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "line": "brief"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "reveal": [
+      {
+        "camera": "wide"
+      },
+      {
+        "sound": "complete"
+      },
+      {
+        "line": "found"
+      },
+      {
+        "line": "solved"
+      },
+      {
+        "line": "laugh"
+      },
+      {
+        "line": "tease"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "completionObjective": "The register is back and Baldev’s mystery is solved."
+}

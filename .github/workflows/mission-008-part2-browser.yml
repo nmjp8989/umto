@@ -1,4 +1,4 @@
-name: Whispering Village Part 2 browser test
+name: Whispering Village sequel browser tests
 
 on:
   push:
@@ -6,6 +6,10 @@ on:
     paths:
       - 'missions/whispering-village-part2*'
       - 'missions/delivery.js'
+      - 'missions/delivery-bridge.js'
+      - 'missions/whispering-village-part3*'
+      - 'missions/adventures/whispering-village-part3.json'
+      - 'tests/missions-008-part3-browser.cjs'
       - 'missions/adventures/whispering-village-part2.json'
       - 'tests/missions-008-part2-browser.cjs'
       - '.github/workflows/mission-008-part2-browser.yml'
@@ -29,3 +33,5 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Play full detective sequel with Kabir companion
         run: node tests/missions-008-part2-browser.cjs
+      - name: Solve the clock tower mystery on desktop and mobile
+        run: node tests/missions-008-part3-browser.cjs
