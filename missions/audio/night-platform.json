@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "mission": "night-platform",
+  "lines": {
+    "intro": {
+      "text": "The storm knocked out the station lights. Kabir is waiting for the last train home. Let’s get the signal working.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/intro-92848735a5ea2549c8e0.mp3"
+    },
+    "saveResume": {
+      "text": "We’re back at the station. Let’s pick up where we left off.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/saveResume-8a2fbbaa06c7eed4124c.mp3"
+    },
+    "notice": {
+      "text": "Here’s the route board. Blue is North Bridge, amber is Mill Road, and violet is the depot.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/notice-4f5f08ac6eb58359d76e.mp3"
+    },
+    "ticket": {
+      "text": "My ticket says North Bridge. Will the driver know where to stop?",
+      "speaker": "kabir",
+      "src": "audio/night-platform/ticket-cee63579930fa58d767f.mp3"
+    },
+    "repair": {
+      "text": "The storm blew the signal fuse. There’s a spare on the bench. Put it in the panel beside me.",
+      "speaker": "meena",
+      "src": "audio/night-platform/repair-59ed74a126c09ebc7796.mp3"
+    },
+    "repaired": {
+      "text": "The signal has power again. Kabir’s ticket and the route board will tell you which route to set.",
+      "speaker": "meena",
+      "src": "audio/night-platform/repaired-dfc4d927e07d86b8a20c.mp3"
+    },
+    "foundFuse": {
+      "text": "A spare fuse. I’ll take it to the signal panel.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/foundFuse-d6d8a707433eb821ffbb.mp3"
+    },
+    "dead": {
+      "text": "The route selector has no power. The panel in the cabin might explain why.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/dead-03772b1c993c769d4e50.mp3"
+    },
+    "unknown": {
+      "text": "I need Kabir’s destination and the route colours on the booking hall notice.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/unknown-26c504e1d8e786862145.mp3"
+    },
+    "choose": {
+      "text": "Kabir is going to North Bridge. Which signal should guide the driver?",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/choose-3cff75e34ecb95e00102.mp3"
+    },
+    "retry": {
+      "text": "Check the route board again. Which colour goes with North Bridge?",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/retry-a8bcd71f830a61c681fc.mp3"
+    },
+    "cantCombine": {
+      "text": "The spare fuse fits the signal panel inside the cabin.",
+      "speaker": "harpreet",
+      "src": "audio/night-platform/cantCombine-c864195dc35c900d05ea.mp3"
+    },
+    "train": {
+      "text": "Blue signal. North Bridge is clear. Here comes the train.",
+      "speaker": "meena",
+      "src": "audio/night-platform/train-306340730f080d74153f.mp3"
+    },
+    "thanks": {
+      "text": "There it is! I can see the lights through the rain. Thanks, Harpreet.",
+      "speaker": "kabir",
+      "src": "audio/night-platform/thanks-1c44fec9f53852c927fb.mp3"
+    }
+  }
+}
