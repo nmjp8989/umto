@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "mission": "storm-beacon",
+  "lines": {
+    "intro": {
+      "text": "That horn is the last ferry. The lighthouse is dark, and the fog is closing in. Let’s get the beacon working.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/intro-2059880168292c9ea5e8.mp3"
+    },
+    "saveResume": {
+      "text": "The ferry is still out there. Let’s pick up where we left off.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/saveResume-b8104d6cf5d855f97dac.mp3"
+    },
+    "notice": {
+      "text": "The chart shows one steady light for the inner harbour, two flashes for the deep channel, and three flashes for the shoals.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/notice-1149db7042d102a1f7f7.mp3"
+    },
+    "ticket": {
+      "text": "I heard the captain on the radio. They need the deep channel. The ferry is too big for the inner harbour.",
+      "speaker": "kabir",
+      "src": "audio/storm-beacon/ticket-03c8e63573c8871b492a.mp3"
+    },
+    "repair": {
+      "text": "The old lens cracked in the storm. Take the spare from my workbench and fit it into the mount upstairs.",
+      "speaker": "meena",
+      "src": "audio/storm-beacon/repair-98fdf35a3446e0037fbf.mp3"
+    },
+    "repaired": {
+      "text": "The lens is fitted. Now you can set the signal dial.",
+      "speaker": "meena",
+      "src": "audio/storm-beacon/repaired-1147a06d6b8f7fa548af.mp3"
+    },
+    "foundLens": {
+      "text": "A spare lens. Let’s get it to the lantern room.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/foundLens-b7c0b7b5ce8f6f53661c.mp3"
+    },
+    "dead": {
+      "text": "The beacon needs a lens before I can set the signal.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/dead-2785610f80871e5a9b2e.mp3"
+    },
+    "unknown": {
+      "text": "I need both clues. The chart shows the signals, and Kabir knows where the ferry is headed.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/unknown-66726c86add9bbd23082.mp3"
+    },
+    "choose": {
+      "text": "The ferry needs the deep channel. Which signal marks it on the chart?",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/choose-b7735023dfe2c57d4f55.mp3"
+    },
+    "retry": {
+      "text": "That signal leads somewhere else. Check the flash pattern for the deep channel.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/retry-68ce720a5b71c643bef8.mp3"
+    },
+    "cantCombine": {
+      "text": "The spare lens belongs in the circular mount in the lantern room.",
+      "speaker": "harpreet",
+      "src": "audio/storm-beacon/cantCombine-c74d5b1090fc5dec7ccc.mp3"
+    },
+    "ferrySafe": {
+      "text": "The captain sees our two flashes. The ferry is through the deep channel.",
+      "speaker": "meena",
+      "src": "audio/storm-beacon/ferrySafe-9fb499cc1dd8fe55798c.mp3"
+    },
+    "thanks": {
+      "text": "Look at all those lights on the water! I can see the ferry from here.",
+      "speaker": "kabir",
+      "src": "audio/storm-beacon/thanks-57103498746bcef0d624.mp3"
+    }
+  }
+}
