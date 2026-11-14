@@ -1,0 +1,1008 @@
+{
+  "id": "whispering-village",
+  "number": "008",
+  "version": 3,
+  "title": "The Whispering Village",
+  "subtitle": "Six houses. One missing friend. Something knocking in the dark.",
+  "sequelTo": "empty-carriage",
+  "startScene": "home",
+  "startMessage": "intro",
+  "finalScene": "blue",
+  "finalSequence": "findKabir",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "THE NIGHT DETECTIVE",
+      "colour": "#edbb85"
+    },
+    "meena": {
+      "name": "Bibi Noor",
+      "role": "THE VILLAGE ELDER",
+      "colour": "#a9dbc5"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "THE MISSING FRIEND",
+      "colour": "#c8a7e9"
+    }
+  },
+  "inventoryItems": {
+    "lantern": {
+      "label": "Oil lantern",
+      "icon": "lantern"
+    },
+    "thread": {
+      "label": "Red wool thread",
+      "icon": "thread"
+    },
+    "key": {
+      "label": "Cold iron key",
+      "icon": "key"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "Canal Road",
+      "chapter": "01 / THE MOTORBIKE RIDE",
+      "heroX": 540,
+      "objects": [
+        {
+          "id": "sign",
+          "name": "Read the weathered village sign",
+          "x": 110,
+          "y": 244,
+          "w": 240,
+          "h": 185
+        },
+        {
+          "id": "bike",
+          "name": "Ride the motorbike into the village",
+          "x": 665,
+          "y": 354,
+          "w": 370,
+          "h": 202
+        },
+        {
+          "id": "headlight",
+          "name": "Look down the empty road",
+          "x": 1010,
+          "y": 270,
+          "w": 204,
+          "h": 222
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    },
+    "lane": {
+      "name": "Neem Lane",
+      "chapter": "02 / HOUSES WITH NO LIGHTS",
+      "heroX": 600,
+      "objects": [
+        {
+          "id": "houseBibi",
+          "name": "Walk to Bibi Noor’s house",
+          "x": 35,
+          "y": 230,
+          "w": 251,
+          "h": 264
+        },
+        {
+          "id": "houseWeaver",
+          "name": "Walk to the weaver’s house",
+          "x": 352,
+          "y": 236,
+          "w": 242,
+          "h": 256
+        },
+        {
+          "id": "houseBlue",
+          "name": "Inspect the blue-door house",
+          "x": 754,
+          "y": 236,
+          "w": 246,
+          "h": 256
+        },
+        {
+          "id": "wellPath",
+          "name": "Walk to the old well",
+          "x": 1037,
+          "y": 260,
+          "w": 220,
+          "h": 253
+        },
+        {
+          "id": "bike",
+          "name": "Ride the motorbike back to Canal Road",
+          "x": 515,
+          "y": 521,
+          "w": 232,
+          "h": 119
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    },
+    "bibi": {
+      "name": "Bibi Noor’s House",
+      "chapter": "03 / THE HOUSE OF THREE KNOCKS",
+      "heroX": 520,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Walk back to Neem Lane",
+          "x": 20,
+          "y": 371,
+          "w": 192,
+          "h": 167
+        },
+        {
+          "id": "bibi",
+          "name": "Ask Bibi Noor about Kabir",
+          "x": 850,
+          "y": 320,
+          "w": 177,
+          "h": 251
+        },
+        {
+          "id": "marks",
+          "name": "Examine the marks on the courtyard wall",
+          "x": 295,
+          "y": 253,
+          "w": 186,
+          "h": 155
+        },
+        {
+          "id": "lantern",
+          "name": "Take Bibi’s oil lantern",
+          "x": 633,
+          "y": 385,
+          "w": 119,
+          "h": 109,
+          "if": "spokeBibi+!inventory.lantern"
+        }
+      ],
+      "actors": [
+        {
+          "id": "meena",
+          "x": 947,
+          "y": 615,
+          "height": 300
+        }
+      ],
+      "foreground": false
+    },
+    "weaver": {
+      "name": "The Weaver’s House",
+      "chapter": "04 / THE THREAD ON THE LOOM",
+      "heroX": 520,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Walk back to Neem Lane",
+          "x": 20,
+          "y": 371,
+          "w": 192,
+          "h": 167
+        },
+        {
+          "id": "loom",
+          "name": "Inspect the stopped weaving loom",
+          "x": 264,
+          "y": 303,
+          "w": 363,
+          "h": 226
+        },
+        {
+          "id": "thread",
+          "name": "Take the loose red wool",
+          "x": 816,
+          "y": 413,
+          "w": 144,
+          "h": 90,
+          "if": "!inventory.thread+!latchClear"
+        },
+        {
+          "id": "shadow",
+          "name": "Inspect the moving shadow in the window",
+          "x": 1026,
+          "y": 170,
+          "w": 195,
+          "h": 250
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    },
+    "well": {
+      "name": "The Old Well",
+      "chapter": "05 / WHISPERS IN THE WATER",
+      "heroX": 475,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Walk back to Neem Lane",
+          "x": 20,
+          "y": 371,
+          "w": 192,
+          "h": 167
+        },
+        {
+          "id": "bell",
+          "name": "Listen to the bell and three knocks",
+          "x": 835,
+          "y": 186,
+          "w": 140,
+          "h": 183
+        },
+        {
+          "id": "well",
+          "name": "Look down the deep stone well",
+          "x": 443,
+          "y": 352,
+          "w": 308,
+          "h": 184
+        },
+        {
+          "id": "crank",
+          "name": "Turn the rusty bucket winch",
+          "x": 790,
+          "y": 405,
+          "w": 190,
+          "h": 148
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    },
+    "blue": {
+      "name": "The Blue-Door House",
+      "chapter": "06 / THE HIDDEN CELLAR",
+      "heroX": 443,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Return to Neem Lane",
+          "x": 20,
+          "y": 371,
+          "w": 192,
+          "h": 167
+        },
+        {
+          "id": "portrait",
+          "name": "Study the crooked family portrait",
+          "x": 305,
+          "y": 207,
+          "w": 239,
+          "h": 188
+        },
+        {
+          "id": "cellarLatch",
+          "name": "Investigate the hatch under the staircase",
+          "x": 741,
+          "y": 429,
+          "w": 300,
+          "h": 140
+        },
+        {
+          "id": "clock",
+          "name": "Inspect the stopped hallway clock",
+          "x": 978,
+          "y": 163,
+          "w": 177,
+          "h": 230
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "harpreet",
+      "text": "After the North Bridge rescue, Kabir travelled to his ancestral village. Tonight he called about a blue door and three knocks. Then the call went silent. I’m taking my motorbike to find him."
+    },
+    "sign": {
+      "speaker": "harpreet",
+      "text": "Neem Village. Three kilometres ahead. The warning below says: When the bell rings at midnight, do not open the blue door. Someone scratched out the last word."
+    },
+    "headlight": {
+      "speaker": "harpreet",
+      "text": "Fog across the canal. There are no other headlights. The village is very quiet."
+    },
+    "rideOut": {
+      "speaker": "harpreet",
+      "text": "Come on, old bike. One more trip. The fog is thick, and I swear somebody just crossed the road ahead of me."
+    },
+    "arrival": {
+      "speaker": "harpreet",
+      "text": "There it is. Neem Lane. Three dark houses and an abandoned well. I’ll park the bike and search on foot."
+    },
+    "rideBack": {
+      "speaker": "harpreet",
+      "text": "I can retrace the road, but Kabir is still somewhere in this village. I shouldn’t leave without him."
+    },
+    "laneLook": {
+      "speaker": "harpreet",
+      "text": "One warm window, one silent loom, and one blue door that looks freshly painted. Kabir said to listen for three knocks."
+    },
+    "bibiFirst": {
+      "speaker": "meena",
+      "text": "You are looking for Kabir? He came here after the rain, looking pale. Someone kept knocking from the house with the blue door. Take the lantern on my step. Don’t go down there alone."
+    },
+    "bibiAgain": {
+      "speaker": "meena",
+      "text": "The blue door frightened even the dogs. The first clue is on my wall. Then ask what the weaver saw."
+    },
+    "marks": {
+      "speaker": "harpreet",
+      "text": "Three chalk strokes beside a drawing of a staircase going DOWN. Kabir must have made these. He draws the same little arrow in his notes."
+    },
+    "marksAgain": {
+      "speaker": "harpreet",
+      "text": "Three strokes, then an arrow down. The mark points beneath a staircase."
+    },
+    "lantern": {
+      "speaker": "harpreet",
+      "text": "Bibi’s lantern still has oil. I can carry it and use it to see down the old well."
+    },
+    "loom": {
+      "speaker": "harpreet",
+      "text": "The loom stopped in mid-weave. Red wool was pulled toward the blue-door house, and a shoe print in wet clay points in the same direction."
+    },
+    "loomAgain": {
+      "speaker": "harpreet",
+      "text": "That red thread was dragged toward the blue door. The footsteps match Kabir’s boots."
+    },
+    "thread": {
+      "speaker": "harpreet",
+      "text": "A strong length of red wool. Thin enough to reach beneath a door latch without breaking. I’ll take it."
+    },
+    "shadow": {
+      "speaker": "harpreet",
+      "text": "A tall shadow passes the window. Wait... it’s the loom’s loose curtain swaying in the wind. Still gave me a fright."
+    },
+    "bell": {
+      "speaker": "harpreet",
+      "text": "The well bell is moving without wind. One... two... three knocks echo from under the lane. Someone is signalling from below."
+    },
+    "bellAgain": {
+      "speaker": "harpreet",
+      "text": "Three knocks. Bibi’s staircase drawing. They both point underground."
+    },
+    "wellDark": {
+      "speaker": "harpreet",
+      "text": "The bucket is too deep to see. I can hear a chain moving, but the darkness hides what is below."
+    },
+    "wellLit": {
+      "speaker": "harpreet",
+      "text": "The lantern catches a glint in the bucket! An iron key on a string. If I turn the winch, I might bring it up."
+    },
+    "crankDark": {
+      "speaker": "harpreet",
+      "text": "I can’t tell whether the bucket holds anything. I should shine the lantern down first."
+    },
+    "keyFound": {
+      "speaker": "harpreet",
+      "text": "I’ve pulled up a cold iron key. Its blue paint matches the door on Neem Lane."
+    },
+    "crankAgain": {
+      "speaker": "harpreet",
+      "text": "Nothing left in the bucket except rainwater."
+    },
+    "gateLocked": {
+      "speaker": "harpreet",
+      "text": "The blue door is locked from the street. There’s a narrow iron keyhole under the handle."
+    },
+    "gateOpen": {
+      "speaker": "harpreet",
+      "text": "The iron key turns. The blue door groans open. The house smells of rain, old wood, and candle smoke."
+    },
+    "gateOpenAgain": {
+      "speaker": "harpreet",
+      "text": "The blue door is open. Kabir’s trail leads inside."
+    },
+    "portrait": {
+      "speaker": "harpreet",
+      "text": "The portrait is hanging crooked. Beneath it someone has carved three little marks and a downward arrow. The same symbol as Bibi’s wall."
+    },
+    "clock": {
+      "speaker": "harpreet",
+      "text": "The hallway clock stopped at midnight. But there’s fresh mud on the stairs, and the handrail is clean where somebody grabbed it."
+    },
+    "latchStuck": {
+      "speaker": "harpreet",
+      "text": "A hatch under the staircase! Its latch is out of reach through a narrow gap. I need something thin and strong to pull it open."
+    },
+    "latchOpen": {
+      "speaker": "harpreet",
+      "text": "The red wool caught the latch. One careful pull and the hatch springs free. The knocking is louder now."
+    },
+    "latchAgain": {
+      "speaker": "harpreet",
+      "text": "The latch is released. I can open the passage now."
+    },
+    "missingClues": {
+      "speaker": "harpreet",
+      "text": "Before I choose a passage, I need to connect Bibi’s marks, the weaver’s trail, and the sounds at the well."
+    },
+    "choose": {
+      "speaker": "harpreet",
+      "text": "The floor hides three passages. Which way did Kabir go?",
+      "choices": [
+        {
+          "label": "Climb to the attic",
+          "event": "passage:attic"
+        },
+        {
+          "label": "Search the rear courtyard",
+          "event": "passage:yard"
+        },
+        {
+          "label": "Follow the steps down to the cellar",
+          "event": "passage:cellar"
+        }
+      ]
+    },
+    "retry": {
+      "speaker": "harpreet",
+      "text": "That way is silent. Think about the marks pointing DOWN, the dragged thread, and the three knocks under the lane.",
+      "choices": [
+        {
+          "label": "Climb to the attic",
+          "event": "passage:attic"
+        },
+        {
+          "label": "Search the rear courtyard",
+          "event": "passage:yard"
+        },
+        {
+          "label": "Follow the steps down to the cellar",
+          "event": "passage:cellar"
+        }
+      ]
+    },
+    "cantCombine": {
+      "speaker": "harpreet",
+      "text": "That doesn’t fit. I should use the lantern at the well, the iron key at the blue door, and the thread on the stuck hatch."
+    },
+    "findKabir": {
+      "speaker": "kabir",
+      "text": "Harpreet! Thank goodness. I followed the knocks and found a little boy trapped in the cellar after the rain. Then the hatch jammed above us."
+    },
+    "rescued": {
+      "speaker": "harpreet",
+      "text": "I’ve got you both. That lantern on the stairs is the way out. The knocks were your signal. The scary shadows were only wind and old machinery."
+    },
+    "lastWhisper": {
+      "speaker": "kabir",
+      "text": "Yes... I knocked three times. But Harpreet, someone knocked back from the empty house across the lane. I never found out who."
+    },
+    "after": {
+      "speaker": "harpreet",
+      "text": "Kabir is safe. The boy is home. But someone else is awake in Neem Village, and this mystery isn’t finished yet."
+    },
+    "saveResume": {
+      "speaker": "harpreet",
+      "text": "I still need to find Kabir. I left my motorbike by Neem Lane; I can continue searching the houses."
+    }
+  },
+  "objectives": [
+    {
+      "text": "Ride the motorbike into Neem Village.",
+      "if": "!villageArrived"
+    },
+    {
+      "text": "Talk to Bibi Noor at her house.",
+      "if": "!spokeBibi"
+    },
+    {
+      "text": "Study the three chalk marks at Bibi’s house.",
+      "if": "!readMarks"
+    },
+    {
+      "text": "Investigate the weaver’s house and its red thread.",
+      "if": "!examinedLoom"
+    },
+    {
+      "text": "Take the red thread from the weaver’s house.",
+      "if": "!inventory.thread+!latchClear"
+    },
+    {
+      "text": "Listen for the three knocks at the village well.",
+      "if": "!heardKnocks"
+    },
+    {
+      "text": "Use the lantern to look down the old well.",
+      "if": "!sawGlimmer"
+    },
+    {
+      "text": "Raise the bucket and recover the iron key.",
+      "if": "!keyFound"
+    },
+    {
+      "text": "Unlock the blue-door house.",
+      "if": "!gateOpen"
+    },
+    {
+      "text": "Use the red thread to release the cellar latch.",
+      "if": "!latchClear"
+    },
+    {
+      "text": "Choose the hidden passage and find Kabir.",
+      "if": ""
+    }
+  ],
+  "hints": [
+    {
+      "text": "Tap the motorbike by the canal road to ride into Neem Village.",
+      "if": "!villageArrived"
+    },
+    {
+      "text": "The elderly neighbour lives in the first house on the left of Neem Lane.",
+      "if": "!spokeBibi"
+    },
+    {
+      "text": "Examine the chalk marks on the wall in Bibi Noor’s courtyard.",
+      "if": "!readMarks"
+    },
+    {
+      "text": "Visit the weaver’s house and inspect the stopped loom.",
+      "if": "!examinedLoom"
+    },
+    {
+      "text": "Pick up the loose red thread beside the loom.",
+      "if": "!inventory.thread+!latchClear"
+    },
+    {
+      "text": "Walk to the old well and tap the hanging bell.",
+      "if": "!heardKnocks"
+    },
+    {
+      "text": "Pick up Bibi’s oil lantern, then select it in your pocket and tap the well.",
+      "if": "!inventory.lantern"
+    },
+    {
+      "text": "Select the oil lantern in your pocket and tap the stone well.",
+      "if": "!sawGlimmer"
+    },
+    {
+      "text": "Turn the rusty winch to recover the key from the bucket.",
+      "if": "!keyFound"
+    },
+    {
+      "text": "Select the iron key in your pocket, then tap the blue house on Neem Lane.",
+      "if": "!gateOpen"
+    },
+    {
+      "text": "Select the red thread in your pocket, then tap the cellar hatch inside the blue house.",
+      "if": "!latchClear"
+    },
+    {
+      "text": "The chalk arrow points down. The knocks came from below the lane. Try the cellar.",
+      "if": ""
+    }
+  ],
+  "rules": [
+    {
+      "when": "click:sign",
+      "actions": [
+        "message:sign"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:headlight",
+      "actions": [
+        "message:headlight"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:bike",
+      "actions": [
+        "flag:villageArrived",
+        "sequence:rideOut",
+        "scene:lane",
+        "message:arrival"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:bike",
+      "actions": [
+        "sequence:rideBack",
+        "scene:home",
+        "message:rideBack"
+      ],
+      "in": "lane"
+    },
+    {
+      "when": "click:houseBibi",
+      "actions": [
+        "scene:bibi"
+      ],
+      "in": "lane"
+    },
+    {
+      "when": "click:houseWeaver",
+      "actions": [
+        "scene:weaver"
+      ],
+      "in": "lane"
+    },
+    {
+      "when": "click:wellPath",
+      "actions": [
+        "scene:well"
+      ],
+      "in": "lane"
+    },
+    {
+      "when": "click:houseBlue",
+      "actions": [
+        "scene:blue",
+        "message:gateOpenAgain"
+      ],
+      "in": "lane",
+      "if": "gateOpen"
+    },
+    {
+      "when": "click:houseBlue",
+      "actions": [
+        "message:gateLocked"
+      ],
+      "in": "lane"
+    },
+    {
+      "when": "drop:key:houseBlue",
+      "actions": [
+        "remove:key",
+        "flag:gateOpen",
+        "sound:click",
+        "message:gateOpen"
+      ],
+      "in": "lane",
+      "if": "inventory.key+!gateOpen"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:lane"
+      ],
+      "in": "bibi"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:lane"
+      ],
+      "in": "weaver"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:lane"
+      ],
+      "in": "well"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:lane"
+      ],
+      "in": "blue"
+    },
+    {
+      "when": "click:bibi",
+      "actions": [
+        "message:bibiAgain"
+      ],
+      "in": "bibi",
+      "if": "spokeBibi"
+    },
+    {
+      "when": "click:bibi",
+      "actions": [
+        "flag:spokeBibi",
+        "message:bibiFirst"
+      ],
+      "in": "bibi"
+    },
+    {
+      "when": "click:marks",
+      "actions": [
+        "message:marksAgain"
+      ],
+      "in": "bibi",
+      "if": "readMarks"
+    },
+    {
+      "when": "click:marks",
+      "actions": [
+        "flag:readMarks",
+        "message:marks"
+      ],
+      "in": "bibi"
+    },
+    {
+      "when": "click:lantern",
+      "actions": [
+        "inventory:lantern",
+        "sound:click",
+        "message:lantern"
+      ],
+      "in": "bibi",
+      "if": "spokeBibi+!inventory.lantern"
+    },
+    {
+      "when": "click:loom",
+      "actions": [
+        "message:loomAgain"
+      ],
+      "in": "weaver",
+      "if": "examinedLoom"
+    },
+    {
+      "when": "click:loom",
+      "actions": [
+        "flag:examinedLoom",
+        "message:loom"
+      ],
+      "in": "weaver"
+    },
+    {
+      "when": "click:shadow",
+      "actions": [
+        "message:shadow"
+      ],
+      "in": "weaver"
+    },
+    {
+      "when": "click:thread",
+      "actions": [
+        "inventory:thread",
+        "sound:paper",
+        "message:thread"
+      ],
+      "in": "weaver",
+      "if": "!inventory.thread+!latchClear"
+    },
+    {
+      "when": "click:bell",
+      "actions": [
+        "message:bellAgain"
+      ],
+      "in": "well",
+      "if": "heardKnocks"
+    },
+    {
+      "when": "click:bell",
+      "actions": [
+        "flag:heardKnocks",
+        "message:bell"
+      ],
+      "in": "well"
+    },
+    {
+      "when": "click:well",
+      "actions": [
+        "message:wellLit"
+      ],
+      "in": "well",
+      "if": "sawGlimmer"
+    },
+    {
+      "when": "click:well",
+      "actions": [
+        "message:wellDark"
+      ],
+      "in": "well"
+    },
+    {
+      "when": "drop:lantern:well",
+      "actions": [
+        "flag:sawGlimmer",
+        "sound:click",
+        "message:wellLit"
+      ],
+      "in": "well",
+      "if": "inventory.lantern"
+    },
+    {
+      "when": "click:crank",
+      "actions": [
+        "message:crankAgain"
+      ],
+      "in": "well",
+      "if": "keyFound"
+    },
+    {
+      "when": "click:crank",
+      "actions": [
+        "flag:keyFound",
+        "inventory:key",
+        "sound:metal",
+        "message:keyFound"
+      ],
+      "in": "well",
+      "if": "sawGlimmer"
+    },
+    {
+      "when": "click:crank",
+      "actions": [
+        "message:crankDark"
+      ],
+      "in": "well"
+    },
+    {
+      "when": "click:portrait",
+      "actions": [
+        "message:portrait"
+      ],
+      "in": "blue"
+    },
+    {
+      "when": "click:clock",
+      "actions": [
+        "message:clock"
+      ],
+      "in": "blue"
+    },
+    {
+      "when": "drop:thread:cellarLatch",
+      "actions": [
+        "remove:thread",
+        "flag:latchClear",
+        "sound:click",
+        "message:latchOpen"
+      ],
+      "in": "blue",
+      "if": "inventory.thread+!latchClear"
+    },
+    {
+      "when": "click:cellarLatch",
+      "actions": [
+        "message:choose"
+      ],
+      "in": "blue",
+      "if": "latchClear+readMarks+examinedLoom+heardKnocks"
+    },
+    {
+      "when": "click:cellarLatch",
+      "actions": [
+        "message:missingClues"
+      ],
+      "in": "blue",
+      "if": "latchClear"
+    },
+    {
+      "when": "click:cellarLatch",
+      "actions": [
+        "message:latchStuck"
+      ],
+      "in": "blue"
+    },
+    {
+      "when": "passage:attic",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "blue",
+      "if": "latchClear+readMarks+examinedLoom+heardKnocks"
+    },
+    {
+      "when": "passage:yard",
+      "actions": [
+        "message:retry"
+      ],
+      "in": "blue",
+      "if": "latchClear+readMarks+examinedLoom+heardKnocks"
+    },
+    {
+      "when": "passage:cellar",
+      "actions": [
+        "flag:kabirFound",
+        "ending:rescue",
+        "sequence:findKabir"
+      ],
+      "in": "blue",
+      "if": "latchClear+readMarks+examinedLoom+heardKnocks+!kabirFound"
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "rideOut": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "bike"
+        }
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "ride",
+          "facing": 1
+        }
+      },
+      {
+        "sound": "engine"
+      },
+      {
+        "effect": "villageRide"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "rideBack": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "bike"
+        }
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "ride",
+          "facing": 1
+        }
+      },
+      {
+        "sound": "engine"
+      },
+      {
+        "effect": "villageRide"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "findKabir": [
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "cellarLatch"
+        }
+      },
+      {
+        "sound": "metal"
+      },
+      {
+        "effect": "villageReveal"
+      },
+      {
+        "line": "findKabir"
+      },
+      {
+        "line": "rescued"
+      },
+      {
+        "line": "lastWhisper"
+      },
+      {
+        "line": "after"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "completionObjective": "Kabir and the boy are safe. But the village still has a secret."
+}
