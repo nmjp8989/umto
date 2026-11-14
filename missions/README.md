@@ -111,3 +111,13 @@ all dialogue remains readable and the procedural music and sounds still play.
 Validation: `node tests/missions-004.cjs`, Mission 003 regression and shared
 camera/score checks. Browser/device layout should also be checked at landscape
 phone and desktop sizes.
+
+## Mission 005 — The Midnight Platform
+
+Open `/missions/night-platform.html` or `/missions/?mission=night-platform`.
+Explore a dim booking hall, the signal cabin and a rain-soaked railway platform.
+Restore the signal with a spare fuse, then use Kabir's destination and the route
+board to choose a track. The train arrival can be replayed after completion.
+
+The mission uses the shared cinematic player and character rig, with its own
+saved progress, SVG scenery, rain and arrival effects. Dialogue is subtitled.
