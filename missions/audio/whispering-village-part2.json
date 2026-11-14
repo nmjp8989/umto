@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "mission": "whispering-village-part2",
+  "lines": {
+    "intro": {
+      "text": "Kabir is safe, but someone answered his knock from the supposedly empty house. The village clock reads twelve seventeen. Kabir, stay close. We are going back in.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/intro-8ce91cbd8bee5d780a31.mp3"
+    },
+    "saveResume": {
+      "text": "That empty house still has secrets. Kabir is with me now. We must follow the knocking signal.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/saveResume-1576e100764ef7235f50.mp3"
+    },
+    "kabirFirst": {
+      "text": "I heard three knocks from the cellar. Then a different answer came from next door: one long, two short. I saw a wire running beneath the houses.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/kabirFirst-eba96fd883d9f4904eb6.mp3"
+    },
+    "kabirAgain": {
+      "text": "I'm right here, Harpreet. One long knock, then two short. That's not the sound I made.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/kabirAgain-41b27e97fdea949532d5.mp3"
+    },
+    "shutter": {
+      "text": "The shutters tremble. Three seconds of silence. Then: one long knock, two short. Something inside is replying through the wall.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/shutter-c2ac303f70456f38ce41.mp3"
+    },
+    "shutterAgain": {
+      "text": "The house answers: long, short, short. The old window has no light behind it.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/shutterAgain-3a0418a59871636eb933.mp3"
+    },
+    "street": {
+      "text": "Fresh footprints cross the lane toward the back yard, but nobody is outside. The shadows are moving with the moonlight.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/street-415ef52c5dbde570b2c1.mp3"
+    },
+    "diagram": {
+      "text": "This diagram shows a copper speaking-pipe linking the grain shed to a sealed room beneath the house. An old relay box needs both power and a cable.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/diagram-715e1488ab241147d090.mp3"
+    },
+    "diagramAgain": {
+      "text": "The pipe diagram connects a shed to a sealed room. The relay needs a battery and a copper wire.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/diagramAgain-127e2b8dcc1d1a300933.mp3"
+    },
+    "panelDead": {
+      "text": "No power. The battery socket is empty, and an open terminal waits for a length of copper wire.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/panelDead-9694b2bb76883ccdab41.mp3"
+    },
+    "panelHalf": {
+      "text": "The old relay is powered, but the terminal has no copper wire. The knocks can't reach the sealed room yet.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/panelHalf-da789d249d0aad3d4cca.mp3"
+    },
+    "panelReady": {
+      "text": "The relay is humming. The tapping now sounds like a deliberate message, not a ghost.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/panelReady-2fb5f8b690aec3377130.mp3"
+    },
+    "batteryUsed": {
+      "text": "Look! The cabinet lights up! Now we need to restore the copper wire in the terminal.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/batteryUsed-9a551439fe5f2704fa4d.mp3"
+    },
+    "wireTooSoon": {
+      "text": "The copper lead belongs on the panel, but the battery socket must have power first.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/wireTooSoon-46942c839c129e87824f.mp3"
+    },
+    "wireUsed": {
+      "text": "The wire makes contact. Three lamps blink through the wall. Someone is definitely sending a message.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/wireUsed-21fed010c826db1f719f.mp3"
+    },
+    "doorLocked": {
+      "text": "The wall opens onto a narrow staircase, but the relay is dead. We need to repair it before searching below.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/doorLocked-51d8089ca9aa6c34c56c.mp3"
+    },
+    "doorNeedsClues": {
+      "text": "We might open the wrong door if we guess. Let's study the ledger and the footprints first.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/doorNeedsClues-b8e09a23824204c6d0d6.mp3"
+    },
+    "doorOpen": {
+      "text": "The relay holds the latch open. Come on, Kabir. Keep your lantern up.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/doorOpen-8d964fe1b9e74eadce76.mp3"
+    },
+    "tracks": {
+      "text": "These muddy footprints came from a small boot, then stopped at a drainage grate. Someone followed the copper pipe beneath the house.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/tracks-8ac0425ba3dd184f7f4a.mp3"
+    },
+    "tracksAgain": {
+      "text": "The little boot prints lead underground. No one walked back out.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/tracksAgain-8b2a4a29eb3f841268ff.mp3"
+    },
+    "wireFound": {
+      "text": "A copper wire! It's the same gauge as the broken relay cable. I'll keep it safe for you.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/wireFound-0ca3c2916629d390666d.mp3"
+    },
+    "pipe": {
+      "text": "Through the pipe I hear a scrape, then a long knock and two short ones. It isn't the wind.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/pipe-de424f1e0fe48de287a6.mp3"
+    },
+    "ledger": {
+      "text": "The caretaker's ledger says: one LONG knock followed by two SHORT knocks means 'OPEN THE INNER DOOR'. Three quick knocks mean 'STOP'.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/ledger-d210eb053c1d84c42403.mp3"
+    },
+    "ledgerAgain": {
+      "text": "The ledger is clear: LONG, SHORT, SHORT opens the inner door.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/ledgerAgain-43cd0ec6153ab486a70d.mp3"
+    },
+    "batteryFound": {
+      "text": "A heavy old relay battery. It's still charged. I can carry it to the cabinet.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/batteryFound-20fef8e298a1e80dbe5a.mp3"
+    },
+    "drum": {
+      "text": "A hand-operated signal drum sits in the dark. Its striker lines up in groups of one, two and three. Whoever knocked from the wall knew this mechanism.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/drum-836f41ebc0a3a4adc84e.mp3"
+    },
+    "knocker": {
+      "text": "I can hear the other end of the speaking-pipe. The knocking is getting weaker. We should hurry.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/knocker-8fe6f66c7c8f91f6ba02.mp3"
+    },
+    "choose": {
+      "text": "The relay is ready. What signal should we send to open the hidden door?",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/choose-3c2a1330947e0347b379.mp3"
+    },
+    "retry": {
+      "text": "That pattern doesn't match the caretaker's ledger. Listen for the long knock first.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/retry-4894104250b7833db59f.mp3"
+    },
+    "cantCombine": {
+      "text": "That does not fit. A charged battery powers the relay, and copper wire reconnects its open terminal.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/cantCombine-8bf69f5815abe1fb0a7d.mp3"
+    },
+    "reveal": {
+      "text": "Harpreet, there's someone behind the door! It's the village caretaker. He's been knocking from the sealed signal room.",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/reveal-8f011171ca54565b11d7.mp3"
+    },
+    "caretaker": {
+      "text": "It was the caretaker who repaired the underground warning line before the storm. The house was empty above, but not below. Thank goodness you heard him.",
+      "speaker": "meena",
+      "src": "audio/whispering-village-part2/caretaker-f9c35166410d38c28667.mp3"
+    },
+    "explanation": {
+      "text": "We followed footprints, restored the relay and sent the right signal. The strange knocking travelled through the copper pipes between houses.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/explanation-be5c06d41fa5ec57d909.mp3"
+    },
+    "final": {
+      "text": "So it wasn't a ghost after all. But why did somebody lock the caretaker down here? And where did they take the missing village register?",
+      "speaker": "kabir",
+      "src": "audio/whispering-village-part2/final-f03f8481a6aa8d73e38e.mp3"
+    },
+    "closing": {
+      "text": "One mystery solved, another beginning. We'll keep the lantern burning. Neem Village still has someone to answer for.",
+      "speaker": "harpreet",
+      "src": "audio/whispering-village-part2/closing-527391e928dc111707dc.mp3"
+    }
+  }
+}
