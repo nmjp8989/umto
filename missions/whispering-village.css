@@ -54,3 +54,7 @@ body[data-mission="whispering-village"]{--gold:#f4c390;background:#050916;color:
 
 /* Characters are visual layers; puzzle hitboxes below must receive the tap. */
 [data-mission="whispering-village"] #cast{pointer-events:none;}
+
+/* Full-body Kabir rig sits above the opening hatch; the child remains drawn in the scene. */
+[data-mission="whispering-village"] #actor-kabir{pointer-events:none;}
+[data-mission="whispering-village"] #cast{pointer-events:none;}
