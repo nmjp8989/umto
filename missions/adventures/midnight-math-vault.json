@@ -1,0 +1,870 @@
+{
+  "id": "midnight-math-vault",
+  "number": "010",
+  "version": 3,
+  "category": "GRADE 4 MYSTERY MINI-GAMES",
+  "title": "The Midnight Math Vault",
+  "subtitle": "Five puzzles. One forgotten time capsule. A mysterious clock that has started ticking again.",
+  "startScene": "courtyard",
+  "startMessage": "intro",
+  "finalScene": "vault",
+  "finalSequence": "finale",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "DETECTIVE",
+      "colour": "#f2ca89"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "NUMBER HUNTER",
+      "colour": "#9dc7f2"
+    },
+    "meher": {
+      "name": "Meher",
+      "role": "PATTERN EXPERT",
+      "colour": "#f3adce"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "INVENTOR",
+      "colour": "#8cdbc7"
+    },
+    "rohan": {
+      "name": "Rohan",
+      "role": "PUZZLE KEEPER",
+      "colour": "#b7e9a1"
+    },
+    "baldev": {
+      "name": "Baldev",
+      "role": "OLD SCHOOL CARETAKER",
+      "colour": "#edce99"
+    }
+  },
+  "inventoryItems": {},
+  "scenes": {
+    "courtyard": {
+      "name": "The Abandoned School Gate",
+      "chapter": "01 / A MESSAGE AT MIDNIGHT",
+      "heroX": 570,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 830,
+          "y": 611,
+          "height": 278
+        },
+        {
+          "id": "baldev",
+          "x": 1094,
+          "y": 610,
+          "height": 304
+        }
+      ],
+      "objects": [
+        {
+          "id": "note",
+          "name": "Read the glowing chalk message",
+          "x": 87,
+          "y": 194,
+          "w": 259,
+          "h": 179
+        },
+        {
+          "id": "baldev",
+          "name": "Ask Baldev about the old school",
+          "x": 1022,
+          "y": 300,
+          "w": 150,
+          "h": 247
+        },
+        {
+          "id": "kabir",
+          "name": "Ask Kabir for help",
+          "x": 741,
+          "y": 308,
+          "w": 166,
+          "h": 232
+        },
+        {
+          "id": "gate",
+          "name": "Open the gate with the rounding dial",
+          "x": 391,
+          "y": 207,
+          "w": 338,
+          "h": 319
+        }
+      ]
+    },
+    "hallway": {
+      "name": "Hall of Lost Numbers",
+      "chapter": "02 / THE CLOCKWORK CORRIDOR",
+      "heroX": 638,
+      "actors": [
+        {
+          "id": "meher",
+          "x": 346,
+          "y": 607,
+          "height": 278
+        },
+        {
+          "id": "rohan",
+          "x": 1087,
+          "y": 607,
+          "height": 268
+        }
+      ],
+      "objects": [
+        {
+          "id": "pattern",
+          "name": "Repair the glowing number sequence",
+          "x": 112,
+          "y": 210,
+          "w": 331,
+          "h": 201
+        },
+        {
+          "id": "tiles",
+          "name": "Activate the multiplication floor",
+          "x": 737,
+          "y": 298,
+          "w": 279,
+          "h": 211
+        },
+        {
+          "id": "meher",
+          "name": "Ask Meher about patterns",
+          "x": 276,
+          "y": 303,
+          "w": 143,
+          "h": 249
+        },
+        {
+          "id": "rohan",
+          "name": "Ask Rohan about the secret machine",
+          "x": 1026,
+          "y": 294,
+          "w": 169,
+          "h": 260
+        },
+        {
+          "id": "back",
+          "name": "Return to the school gate",
+          "x": 14,
+          "y": 451,
+          "w": 232,
+          "h": 78
+        },
+        {
+          "id": "door",
+          "name": "Open the classroom door",
+          "x": 923,
+          "y": 173,
+          "w": 306,
+          "h": 339
+        }
+      ]
+    },
+    "classroom": {
+      "name": "The Lantern Mathematics Lab",
+      "chapter": "03 / THE HIDDEN LABORATORY",
+      "heroX": 580,
+      "actors": [
+        {
+          "id": "meena",
+          "x": 342,
+          "y": 609,
+          "height": 309
+        },
+        {
+          "id": "kabir",
+          "x": 948,
+          "y": 607,
+          "height": 262
+        }
+      ],
+      "objects": [
+        {
+          "id": "lanterns",
+          "name": "Solve the fraction lanterns",
+          "x": 66,
+          "y": 170,
+          "w": 260,
+          "h": 280
+        },
+        {
+          "id": "blueprint",
+          "name": "Measure the perimeter diagram",
+          "x": 481,
+          "y": 190,
+          "w": 314,
+          "h": 234
+        },
+        {
+          "id": "meena",
+          "name": "Ask Meena about the vault",
+          "x": 260,
+          "y": 297,
+          "w": 157,
+          "h": 254
+        },
+        {
+          "id": "kabir",
+          "name": "Ask Kabir about the numbers",
+          "x": 871,
+          "y": 302,
+          "w": 148,
+          "h": 250
+        },
+        {
+          "id": "back",
+          "name": "Return to the number corridor",
+          "x": 12,
+          "y": 448,
+          "w": 290,
+          "h": 70
+        },
+        {
+          "id": "vaultDoor",
+          "name": "Unlock the time-capsule vault",
+          "x": 993,
+          "y": 143,
+          "w": 262,
+          "h": 408
+        }
+      ]
+    },
+    "vault": {
+      "name": "The Midnight Time Capsule",
+      "chapter": "04 / THE SECRET BEHIND THE CLOCK",
+      "heroX": 515,
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 754,
+          "y": 611,
+          "height": 278
+        },
+        {
+          "id": "meher",
+          "x": 320,
+          "y": 610,
+          "height": 265
+        }
+      ],
+      "objects": [
+        {
+          "id": "capsule",
+          "name": "Open the mysterious time capsule",
+          "x": 846,
+          "y": 274,
+          "w": 300,
+          "h": 252
+        },
+        {
+          "id": "clock",
+          "name": "Inspect the clock frozen at midnight",
+          "x": 534,
+          "y": 101,
+          "w": 204,
+          "h": 187
+        },
+        {
+          "id": "kabir",
+          "name": "Talk to Kabir",
+          "x": 682,
+          "y": 300,
+          "w": 153,
+          "h": 250
+        },
+        {
+          "id": "back",
+          "name": "Return to the mathematics lab",
+          "x": 14,
+          "y": 448,
+          "w": 257,
+          "h": 78
+        }
+      ]
+    }
+  },
+  "puzzles": {
+    "rounding": {
+      "type": "rounding",
+      "title": "The Rounding Dial",
+      "instruction": "Round 3,472 to the nearest hundred.",
+      "start": 3300,
+      "end": 3700,
+      "step": 100,
+      "correct": 3500,
+      "hint": "Look at the tens digit: 7 is five or more, so round 3,400 up."
+    },
+    "pattern": {
+      "type": "pattern",
+      "title": "The Number Trail",
+      "instruction": "Complete the sequence: 12, 18, 24, 30, ___",
+      "options": [
+        32,
+        34,
+        36,
+        38
+      ],
+      "correct": 36,
+      "hint": "Each number goes up by 6."
+    },
+    "array": {
+      "type": "array",
+      "title": "The Multiplication Tiles",
+      "instruction": "Seven rows have eight tiles each. How many tiles in total?",
+      "rows": 7,
+      "cols": 8,
+      "correct": 56,
+      "hint": "Repeated addition works: 8+8+8+8+8+8+8."
+    },
+    "fractions": {
+      "type": "fraction",
+      "title": "The Lantern Switchboard",
+      "instruction": "Light up three quarters of the 12 lanterns.",
+      "total": 12,
+      "numerator": 3,
+      "denominator": 4,
+      "correct": 9,
+      "hint": "Divide 12 into 4 equal groups, then take 3 groups."
+    },
+    "perimeter": {
+      "type": "perimeter",
+      "title": "The Vault Blueprint",
+      "instruction": "The vault is 7 m long and 5 m wide. Find its perimeter.",
+      "length": 7,
+      "width": 5,
+      "correct": 24,
+      "hint": "Add all four sides: 7 + 5 + 7 + 5."
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "speaker": "harpreet",
+      "text": "Someone left a note at the old school. Its clock started ringing at midnight, even though it has been silent for years."
+    },
+    "kabirIntro": {
+      "speaker": "kabir",
+      "text": "I hear a ticking sound. Five math locks guard a hidden time capsule. And apparently I'm the only one who brought a pencil."
+    },
+    "note": {
+      "speaker": "kabir",
+      "text": "The chalk says: 'Round the number on the gate. Find the pattern. Count the tiles. Share the light. Measure the room.' Five locks!"
+    },
+    "baldev": {
+      "speaker": "baldev",
+      "text": "I was the caretaker. We buried a time capsule long ago. The school clock only wakes up when clever young detectives arrive."
+    },
+    "kabir": {
+      "speaker": "kabir",
+      "text": "I'll check for secret clues while you solve the puzzles. You can always ask for a hint."
+    },
+    "gateQuestion": {
+      "speaker": "kabir",
+      "text": "The gate has a rounding dial. Move it to the nearest hundred, then test your answer.",
+      "puzzle": "rounding",
+      "choices": [
+        {
+          "label": "Unlock mechanism",
+          "event": "solve:rounding"
+        }
+      ]
+    },
+    "gateOpened": {
+      "speaker": "baldev",
+      "text": "The gate opened! You rounded 3,472 to 3,500. That's one lock down."
+    },
+    "hallwayIntro": {
+      "speaker": "meher",
+      "text": "Welcome to the number corridor! The floor and the wall are connected. Solve both mini-games to open the classroom."
+    },
+    "meher": {
+      "speaker": "meher",
+      "text": "The wall numbers keep growing in a pattern. Figure out what is being added each time."
+    },
+    "rohan": {
+      "speaker": "rohan",
+      "text": "I built these glowing tiles. Each row must have the same number of squares. Count carefully!"
+    },
+    "patternQuestion": {
+      "speaker": "meher",
+      "text": "The numbers on the wall are blinking. Tap the missing number to keep the pattern going.",
+      "puzzle": "pattern",
+      "choices": [
+        {
+          "label": "Unlock mechanism",
+          "event": "solve:pattern"
+        }
+      ]
+    },
+    "patternSolved": {
+      "speaker": "meher",
+      "text": "Yes! 12, 18, 24, 30, 36. Each step adds six. The wall lights are on."
+    },
+    "arrayQuestion": {
+      "speaker": "rohan",
+      "text": "Count the tiles in this rectangle. You can use multiplication or repeated addition.",
+      "puzzle": "array",
+      "choices": [
+        {
+          "label": "Unlock mechanism",
+          "event": "solve:array"
+        }
+      ]
+    },
+    "arraySolved": {
+      "speaker": "rohan",
+      "text": "Seven groups of eight equals fifty-six tiles! The floor is glowing like a tiny disco."
+    },
+    "needHallway": {
+      "speaker": "meher",
+      "text": "The classroom is locked until the pattern wall AND the multiplication floor are fixed."
+    },
+    "classroomIntro": {
+      "speaker": "meena",
+      "text": "This is the hidden math laboratory. Choose the correct fraction of lanterns, then measure the vault's perimeter."
+    },
+    "labMeena": {
+      "speaker": "meena",
+      "text": "A quarter means one of four equal parts. For the vault's perimeter, count the entire distance around its edges."
+    },
+    "labKabir": {
+      "speaker": "kabir",
+      "text": "I found a blueprint and twelve lantern switches. They look like puzzles, not decorations."
+    },
+    "fractionQuestion": {
+      "speaker": "meena",
+      "text": "Tap the lantern switches until exactly three quarters of twelve are lit.",
+      "puzzle": "fractions",
+      "choices": [
+        {
+          "label": "Unlock mechanism",
+          "event": "solve:fractions"
+        }
+      ]
+    },
+    "fractionSolved": {
+      "speaker": "meena",
+      "text": "Nine of twelve lanterns are on. Three quarters is the same as nine twelfths. Beautiful work!"
+    },
+    "perimeterQuestion": {
+      "speaker": "harpreet",
+      "text": "The blueprint shows a seven-metre by five-metre rectangle. What is the total distance around it?",
+      "puzzle": "perimeter",
+      "choices": [
+        {
+          "label": "Unlock mechanism",
+          "event": "solve:perimeter"
+        }
+      ]
+    },
+    "perimeterSolved": {
+      "speaker": "kabir",
+      "text": "Twenty-four metres around! That is the perimeter. I wish our schoolwork opened real secret doors."
+    },
+    "needLab": {
+      "speaker": "meena",
+      "text": "We still need both the fraction switchboard and the perimeter blueprint."
+    },
+    "vaultIntro": {
+      "speaker": "kabir",
+      "text": "The last door just opened! That's the time capsule. Why is the clock pointing to twelve?"
+    },
+    "clock": {
+      "speaker": "meher",
+      "text": "The hands point to twelve. Maybe the clock was saving this exact moment for us."
+    },
+    "ready": {
+      "speaker": "harpreet",
+      "text": "All five locks are solved. Open the capsule and see what the old school wanted us to remember."
+    },
+    "finalKabir": {
+      "speaker": "kabir",
+      "text": "It's full of drawings from children who studied here years ago! One says: 'To the kids of the future—keep asking questions.'"
+    },
+    "finalMeher": {
+      "speaker": "meher",
+      "text": "Look! The missing clock hand is tucked inside the capsule with a note about friendship and curiosity."
+    },
+    "finalHarpreet": {
+      "speaker": "harpreet",
+      "text": "Case closed. We solved five Grade Four math puzzles, rescued a memory, and uncovered a story worth sharing."
+    },
+    "finalRohan": {
+      "speaker": "rohan",
+      "text": "The clock is ticking again! And my tiles are still glowing. Can we call it an educational disco?"
+    },
+    "saveResume": {
+      "speaker": "kabir",
+      "text": "Welcome back! The five math locks are still waiting for you."
+    },
+    "cantCombine": {
+      "speaker": "harpreet",
+      "text": "That object doesn't fit here. Explore the clues and solve each puzzle."
+    }
+  },
+  "rules": [
+    {
+      "when": "click:note",
+      "in": "courtyard",
+      "actions": [
+        "message:note"
+      ]
+    },
+    {
+      "when": "click:baldev",
+      "in": "courtyard",
+      "actions": [
+        "message:baldev"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "courtyard",
+      "actions": [
+        "message:kabir"
+      ]
+    },
+    {
+      "when": "click:gate",
+      "in": "courtyard",
+      "if": "!rounded",
+      "actions": [
+        "message:gateQuestion"
+      ]
+    },
+    {
+      "when": "solve:rounding",
+      "in": "courtyard",
+      "actions": [
+        "flag:rounded",
+        "sound:complete",
+        "message:gateOpened"
+      ]
+    },
+    {
+      "when": "click:gate",
+      "in": "courtyard",
+      "if": "rounded",
+      "actions": [
+        "scene:hallway",
+        "message:hallwayIntro"
+      ]
+    },
+    {
+      "when": "click:meher",
+      "in": "hallway",
+      "actions": [
+        "message:meher"
+      ]
+    },
+    {
+      "when": "click:rohan",
+      "in": "hallway",
+      "actions": [
+        "message:rohan"
+      ]
+    },
+    {
+      "when": "click:pattern",
+      "in": "hallway",
+      "if": "!patternDone",
+      "actions": [
+        "message:patternQuestion"
+      ]
+    },
+    {
+      "when": "solve:pattern",
+      "in": "hallway",
+      "actions": [
+        "flag:patternDone",
+        "sound:complete",
+        "message:patternSolved"
+      ]
+    },
+    {
+      "when": "click:pattern",
+      "in": "hallway",
+      "if": "patternDone",
+      "actions": [
+        "message:patternSolved"
+      ]
+    },
+    {
+      "when": "click:tiles",
+      "in": "hallway",
+      "if": "!arrayDone",
+      "actions": [
+        "message:arrayQuestion"
+      ]
+    },
+    {
+      "when": "solve:array",
+      "in": "hallway",
+      "actions": [
+        "flag:arrayDone",
+        "sound:complete",
+        "message:arraySolved"
+      ]
+    },
+    {
+      "when": "click:tiles",
+      "in": "hallway",
+      "if": "arrayDone",
+      "actions": [
+        "message:arraySolved"
+      ]
+    },
+    {
+      "when": "click:door",
+      "in": "hallway",
+      "if": "patternDone+arrayDone",
+      "actions": [
+        "scene:classroom",
+        "message:classroomIntro"
+      ]
+    },
+    {
+      "when": "click:door",
+      "in": "hallway",
+      "actions": [
+        "message:needHallway"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "hallway",
+      "actions": [
+        "scene:courtyard"
+      ]
+    },
+    {
+      "when": "click:meena",
+      "in": "classroom",
+      "actions": [
+        "message:labMeena"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "classroom",
+      "actions": [
+        "message:labKabir"
+      ]
+    },
+    {
+      "when": "click:lanterns",
+      "in": "classroom",
+      "if": "!fractionsDone",
+      "actions": [
+        "message:fractionQuestion"
+      ]
+    },
+    {
+      "when": "solve:fractions",
+      "in": "classroom",
+      "actions": [
+        "flag:fractionsDone",
+        "sound:complete",
+        "message:fractionSolved"
+      ]
+    },
+    {
+      "when": "click:lanterns",
+      "in": "classroom",
+      "if": "fractionsDone",
+      "actions": [
+        "message:fractionSolved"
+      ]
+    },
+    {
+      "when": "click:blueprint",
+      "in": "classroom",
+      "if": "!perimeterDone",
+      "actions": [
+        "message:perimeterQuestion"
+      ]
+    },
+    {
+      "when": "solve:perimeter",
+      "in": "classroom",
+      "actions": [
+        "flag:perimeterDone",
+        "sound:complete",
+        "message:perimeterSolved"
+      ]
+    },
+    {
+      "when": "click:blueprint",
+      "in": "classroom",
+      "if": "perimeterDone",
+      "actions": [
+        "message:perimeterSolved"
+      ]
+    },
+    {
+      "when": "click:vaultDoor",
+      "in": "classroom",
+      "if": "fractionsDone+perimeterDone",
+      "actions": [
+        "scene:vault",
+        "message:vaultIntro"
+      ]
+    },
+    {
+      "when": "click:vaultDoor",
+      "in": "classroom",
+      "actions": [
+        "message:needLab"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "classroom",
+      "actions": [
+        "scene:hallway"
+      ]
+    },
+    {
+      "when": "click:clock",
+      "in": "vault",
+      "actions": [
+        "message:clock"
+      ]
+    },
+    {
+      "when": "click:kabir",
+      "in": "vault",
+      "actions": [
+        "message:ready"
+      ]
+    },
+    {
+      "when": "click:back",
+      "in": "vault",
+      "actions": [
+        "scene:classroom"
+      ]
+    },
+    {
+      "when": "click:capsule",
+      "in": "vault",
+      "if": "rounded+patternDone+arrayDone+fractionsDone+perimeterDone",
+      "actions": [
+        "sequence:finale"
+      ]
+    },
+    {
+      "when": "click:capsule",
+      "in": "vault",
+      "actions": [
+        "message:ready"
+      ]
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "line": "kabirIntro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "finale": [
+      {
+        "camera": "wide"
+      },
+      {
+        "line": "finalKabir"
+      },
+      {
+        "effect": "mathVaultReveal"
+      },
+      {
+        "line": "finalMeher"
+      },
+      {
+        "line": "finalHarpreet"
+      },
+      {
+        "line": "finalRohan"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "if": "!rounded",
+      "text": "Round 3,472 to unlock the front gate."
+    },
+    {
+      "if": "!patternDone",
+      "text": "Complete the number pattern in the corridor."
+    },
+    {
+      "if": "!arrayDone",
+      "text": "Count the multiplication tiles."
+    },
+    {
+      "if": "!fractionsDone",
+      "text": "Light up three quarters of the lanterns."
+    },
+    {
+      "if": "!perimeterDone",
+      "text": "Calculate the vault's perimeter."
+    },
+    {
+      "if": "scene.vault",
+      "text": "Open the time capsule."
+    },
+    {
+      "text": "Investigate the midnight school."
+    }
+  ],
+  "hints": [
+    {
+      "if": "!rounded",
+      "text": "Round 3,472 to the nearest hundred. The tens digit is 7, so choose 3,500 on the dial."
+    },
+    {
+      "if": "!patternDone",
+      "text": "In the corridor, the sequence increases by six each time. Add six to thirty."
+    },
+    {
+      "if": "!arrayDone",
+      "text": "There are seven rows of eight: multiply 7 × 8, or add eight seven times."
+    },
+    {
+      "if": "!fractionsDone",
+      "text": "To find three quarters of twelve, divide twelve by four, then multiply by three."
+    },
+    {
+      "if": "!perimeterDone",
+      "text": "For the rectangle's perimeter, add the lengths of all four sides: 7+5+7+5."
+    },
+    {
+      "if": "scene.vault",
+      "text": "Tap the glowing time capsule to complete the mission."
+    },
+    {
+      "text": "Explore each glowing object to find the next clue."
+    }
+  ],
+  "completionObjective": "The secret time capsule has been recovered."
+}
