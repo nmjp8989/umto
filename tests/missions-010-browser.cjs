@@ -73,7 +73,7 @@ const server=http.createServer((req,res)=>{
   assert.match(await page.locator('#mathProgress').textContent(),/5 \/ 5/);
   await act('click:vaultDoor');
   assert.equal(await page.locator('#location').textContent(),'The Midnight Time Capsule');
-  await act('click:capsule');
+  await page.evaluate(()=>{void dispatch('click:capsule');});
   for(const fragment of ['drawings from children','missing clock hand','Case closed','educational disco'])await skip(fragment);
   await page.locator('#ending[open]').waitFor({timeout:25000});
   assert(await page.evaluate(()=>S.complete));
