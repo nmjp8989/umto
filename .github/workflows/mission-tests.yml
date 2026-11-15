@@ -32,6 +32,8 @@ jobs:
           node --check missions/whispering-village-art.js
           node --check missions/whispering-village-part2-art.js
           node --check missions/sky-carnival-art.js
+          node --check missions/midnight-math-vault-art.js
+          node --check missions/midnight-math-vault-puzzles.js
       - name: Verify story flows and saved dialogue manifests
         run: |
           node tests/missions.cjs
@@ -43,4 +45,5 @@ jobs:
           node tests/missions-008.cjs
           node tests/missions-008-part2.cjs
           node tests/missions-009.cjs
+          node tests/missions-010.cjs
           node tests/mission-voice.cjs
