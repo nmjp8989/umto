@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101b30"><title>The Midnight Math Vault · Mission 010 · Umto</title><meta name="description" content="Five interactive Grade 4 math mini-games inside a cinematic nighttime detective mission."><link rel="stylesheet" href="delivery.css?v=004.0"><link rel="stylesheet" href="midnight-math-vault.css?v=010.1"></head><body data-mission="midnight-math-vault">
+<main id="game" aria-label="The Midnight Math Vault game">
+ <div class="scene-wrap"><svg id="world" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid meet" aria-label="Interactive adventure scene"><defs id="artDefs"></defs><g id="scenery"></g><g id="ambient" pointer-events="none"></g><g id="effects" pointer-events="none"></g><g id="props"></g><g id="cast"></g><g id="foreground" pointer-events="none"></g></svg><div class="vignette" aria-hidden="true"></div><div id="transition" aria-hidden="true"></div></div>
+ <header class="hud"><div class="identity"><a href="./" aria-label="All missions" class="wordmark">umto<span>MISSIONS / 010</span></a><span class="hud-divider"></span><div><small id="chapter">GRADE 4 MYSTERY</small><span id="location">The Midnight Math Vault</span></div></div><div class="hud-actions"><span id="saveStatus" aria-live="polite"></span><button id="camera" title="Camera: Cinematic" aria-label="Camera: Cinematic">▣</button><button id="fullscreen" title="Toggle fullscreen" aria-label="Toggle fullscreen">⛶</button><button id="pause" title="Pause and settings" aria-label="Pause and settings">Ⅱ</button></div></header>
+ <div class="goal"><i></i><span id="objective">Solve the five math locks.</span></div>
+ <div id="tooltip" role="status"></div>
+ <section id="dialogue" class="dialogue" hidden aria-live="polite"><div class="dialogue-heading"><span id="speaker"></span><small id="speakerRole"></small><button id="skip" aria-label="Skip current dialogue">Continue ↵</button></div><p id="subtitle"></p><div id="choices"></div></section>
+ <footer class="inventory-bar"><button id="pocketToggle" aria-expanded="true" aria-controls="inventory"><span>▱</span><small>POCKET</small></button><div id="inventory" role="group" aria-label="Inventory"></div><div class="utility"><span id="selection">Explore the midnight school</span><button id="hint" aria-label="Get a hint">✧ <span>Hint</span></button></div></footer>
+ <div id="dragGhost" hidden aria-hidden="true"></div>
+ <section id="opening" class="cover">
+  <div class="opening-copy">
+   <div class="eyebrow">UMTO / MISSION 010 · GRADE 4 MINI-GAMES</div>
+   <h1>The Midnight<br><em>Math Vault</em></h1>
+   <p>The old school clock has come alive!<br>Explore four mysterious locations and solve five interactive Grade 4 math games to open a hidden time capsule.</p>
+   <button id="start" class="primary" disabled>Unlocking the school…</button>
+   <button id="newGame" class="text-button" hidden>Start a new mission</button>
+   <small id="voiceStatus" role="status"></small>
+  </div>
+ </section>
+ <dialog id="pauseMenu"><div class="eyebrow">DETECTIVE PAUSE</div><h2>Take a break, detective.</h2><button id="resume" class="primary">Resume mission →</button><label>Camera<select id="cameraMode"><option value="auto">Cinematic</option><option value="follow">Follow character</option><option value="wide">Wide scene</option></select></label><label>Music & atmosphere<input id="musicVolume" type="range" min="0" max="100" value="55"></label><label>Dialogue volume<input id="voiceVolume" type="range" min="0" max="100" value="90"></label><label class="toggle-label"><input id="reduceMotion" type="checkbox"> Reduce ambient motion</label><p>Tap to explore. Select an item, then its target. Dragging works too. Tap the ground to walk. Enter skips speech; Escape opens this menu. Choose replies with A–D or 1–4.</p><button id="restart" class="text-button">Restart mission</button><nav><a href="whispering-village-part2.html">Mission 008 · Village Mystery</a><a href="./">All missions</a><a href="../">Character studio ↗</a></nav></dialog>
+ <dialog id="ending">
+  <div class="eyebrow">MISSION 010 · CASE CLOSED</div>
+  <h2>The math vault is open!</h2>
+  <p>You rounded numbers, discovered a pattern, multiplied an array, solved fractions, and calculated perimeter to recover the midnight time capsule.</p>
+  <div class="ending-stats"><span>Five math games solved</span><span id="tradeStat">Time capsule recovered</span></div>
+  <button id="playAgain" class="primary">Play again ↻</button><a class="text-button" href="sky-carnival.html">Play Mission 009 · The Sky Carnival</a>
+  <button id="replayFinale" class="text-button">Replay the midnight discovery</button>
+  <button id="stay" class="text-button">Stay inside the vault</button>
+ </dialog>
+ <div id="mathProgress" aria-live="polite">✦ 0 / 5 MATH LOCKS</div><dialog id="mathGame" aria-label="Grade Four interactive math puzzle"></dialog><div id="error" hidden role="alert"></div>
+ <iframe id="rigBridge" title="Umto character animation renderer" src="../index.html?missionBridge=delivery&amp;cast=sky-carnival&amp;v=010.1" hidden></iframe>
+</main><script src="mission-engine.js?v=004.0"></script><script src="sequence-runner.js?v=004.0"></script><script src="voice-player.js?v=009.1"></script><script src="delivery-art.js?v=004.0"></script><script src="delivery-camera.js?v=004.0"></script><script src="delivery-score.js?v=004.0"></script><script src="midnight-math-vault-art.js?v=010.1"></script><script src="midnight-math-vault-puzzles.js?v=010.1"></script><script src="delivery.js?v=010.1"></script></body></html>
