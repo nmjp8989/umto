@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "mission": "midnight-math-vault",
+  "lines": {
+    "intro": {
+      "text": "Someone left a note at the old school. Its clock started ringing at midnight, even though it has been silent for years.",
+      "speaker": "harpreet",
+      "src": "audio/midnight-math-vault/intro-57f9f9914940fe601dc6.mp3"
+    },
+    "kabirIntro": {
+      "text": "I hear a ticking sound. Five math locks guard a hidden time capsule. And apparently I'm the only one who brought a pencil.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/kabirIntro-3c9b304f1c107f5785ae.mp3"
+    },
+    "note": {
+      "text": "The chalk says: 'Round the number on the gate. Find the pattern. Count the tiles. Share the light. Measure the room.' Five locks!",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/note-5fcdd5155fc4cefe63fd.mp3"
+    },
+    "baldev": {
+      "text": "I was the caretaker. We buried a time capsule long ago. The school clock only wakes up when clever young detectives arrive.",
+      "speaker": "baldev",
+      "src": "audio/midnight-math-vault/baldev-183a2d10ae2badc000c1.mp3"
+    },
+    "kabir": {
+      "text": "I'll check for secret clues while you solve the puzzles. You can always ask for a hint.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/kabir-538903f45c12486dd47f.mp3"
+    },
+    "gateQuestion": {
+      "text": "The gate has a rounding dial. Move it to the nearest hundred, then test your answer.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/gateQuestion-5cdbdfd0ee241af2c5fe.mp3"
+    },
+    "gateOpened": {
+      "text": "The gate opened! You rounded 3,472 to 3,500. That's one lock down.",
+      "speaker": "baldev",
+      "src": "audio/midnight-math-vault/gateOpened-4649a03f0f15ab089118.mp3"
+    },
+    "hallwayIntro": {
+      "text": "Welcome to the number corridor! The floor and the wall are connected. Solve both mini-games to open the classroom.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/hallwayIntro-d81bfec7c93c5ac218c7.mp3"
+    },
+    "meher": {
+      "text": "The wall numbers keep growing in a pattern. Figure out what is being added each time.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/meher-87f24a8d108cea5b3a97.mp3"
+    },
+    "rohan": {
+      "text": "I built these glowing tiles. Each row must have the same number of squares. Count carefully!",
+      "speaker": "rohan",
+      "src": "audio/midnight-math-vault/rohan-61290587adc1ceed06c3.mp3"
+    },
+    "patternQuestion": {
+      "text": "The numbers on the wall are blinking. Tap the missing number to keep the pattern going.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/patternQuestion-603641d42cfd4503c8ea.mp3"
+    },
+    "patternSolved": {
+      "text": "Yes! 12, 18, 24, 30, 36. Each step adds six. The wall lights are on.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/patternSolved-36ff98eaa1ad4fe5e6ee.mp3"
+    },
+    "arrayQuestion": {
+      "text": "Count the tiles in this rectangle. You can use multiplication or repeated addition.",
+      "speaker": "rohan",
+      "src": "audio/midnight-math-vault/arrayQuestion-4f4b1aa011141d7053ec.mp3"
+    },
+    "arraySolved": {
+      "text": "Seven groups of eight equals fifty-six tiles! The floor is glowing like a tiny disco.",
+      "speaker": "rohan",
+      "src": "audio/midnight-math-vault/arraySolved-becda8fdcdb25730f19c.mp3"
+    },
+    "needHallway": {
+      "text": "The classroom is locked until the pattern wall AND the multiplication floor are fixed.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/needHallway-2f25c971860a927d9a77.mp3"
+    },
+    "classroomIntro": {
+      "text": "This is the hidden math laboratory. Choose the correct fraction of lanterns, then measure the vault's perimeter.",
+      "speaker": "meena",
+      "src": "audio/midnight-math-vault/classroomIntro-4fdcf0cebea294fcbe56.mp3"
+    },
+    "labMeena": {
+      "text": "A quarter means one of four equal parts. For the vault's perimeter, count the entire distance around its edges.",
+      "speaker": "meena",
+      "src": "audio/midnight-math-vault/labMeena-a726f61f97ceea8700e7.mp3"
+    },
+    "labKabir": {
+      "text": "I found a blueprint and twelve lantern switches. They look like puzzles, not decorations.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/labKabir-90a664ec5cf4fe5b0aff.mp3"
+    },
+    "fractionQuestion": {
+      "text": "Tap the lantern switches until exactly three quarters of twelve are lit.",
+      "speaker": "meena",
+      "src": "audio/midnight-math-vault/fractionQuestion-7db84072c6d6ceddd2df.mp3"
+    },
+    "fractionSolved": {
+      "text": "Nine of twelve lanterns are on. Three quarters is the same as nine twelfths. Beautiful work!",
+      "speaker": "meena",
+      "src": "audio/midnight-math-vault/fractionSolved-9dfe11444ada0219ad7c.mp3"
+    },
+    "perimeterQuestion": {
+      "text": "The blueprint shows a seven-metre by five-metre rectangle. What is the total distance around it?",
+      "speaker": "harpreet",
+      "src": "audio/midnight-math-vault/perimeterQuestion-24976d1620bf78de2454.mp3"
+    },
+    "perimeterSolved": {
+      "text": "Twenty-four metres around! That is the perimeter. I wish our schoolwork opened real secret doors.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/perimeterSolved-5b16e2974d1b18886a2c.mp3"
+    },
+    "needLab": {
+      "text": "We still need both the fraction switchboard and the perimeter blueprint.",
+      "speaker": "meena",
+      "src": "audio/midnight-math-vault/needLab-62278b46f30b55f2744e.mp3"
+    },
+    "vaultIntro": {
+      "text": "The last door just opened! That's the time capsule. Why is the clock pointing to twelve?",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/vaultIntro-031d4607de59624abcc1.mp3"
+    },
+    "clock": {
+      "text": "The hands point to twelve. Maybe the clock was saving this exact moment for us.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/clock-fe8836617c0a27ca4b73.mp3"
+    },
+    "ready": {
+      "text": "All five locks are solved. Open the capsule and see what the old school wanted us to remember.",
+      "speaker": "harpreet",
+      "src": "audio/midnight-math-vault/ready-36efbf0b937d36f735e5.mp3"
+    },
+    "finalKabir": {
+      "text": "It's full of drawings from children who studied here years ago! One says: 'To the kids of the future—keep asking questions.'",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/finalKabir-ca383b0c4ff910810d87.mp3"
+    },
+    "finalMeher": {
+      "text": "Look! The missing clock hand is tucked inside the capsule with a note about friendship and curiosity.",
+      "speaker": "meher",
+      "src": "audio/midnight-math-vault/finalMeher-a443d76b02faf3e7de9b.mp3"
+    },
+    "finalHarpreet": {
+      "text": "Case closed. We solved five Grade Four math puzzles, rescued a memory, and uncovered a story worth sharing.",
+      "speaker": "harpreet",
+      "src": "audio/midnight-math-vault/finalHarpreet-a491a0e8b1ad9ac2669b.mp3"
+    },
+    "finalRohan": {
+      "text": "The clock is ticking again! And my tiles are still glowing. Can we call it an educational disco?",
+      "speaker": "rohan",
+      "src": "audio/midnight-math-vault/finalRohan-3f9578c5ac13c1d0a44f.mp3"
+    },
+    "saveResume": {
+      "text": "Welcome back! The five math locks are still waiting for you.",
+      "speaker": "kabir",
+      "src": "audio/midnight-math-vault/saveResume-2a6b09177386c0ea0030.mp3"
+    },
+    "cantCombine": {
+      "text": "That object doesn't fit here. Explore the clues and solve each puzzle.",
+      "speaker": "harpreet",
+      "src": "audio/midnight-math-vault/cantCombine-dc1036e3d91983db302e.mp3"
+    }
+  }
+}
