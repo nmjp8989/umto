@@ -7,13 +7,13 @@
  const add=(parent,...kids)=>{kids.forEach(k=>parent.append(k));return parent;};
  const btn=(label,action,cls='')=>{const b=make('button','mq-button '+cls,label);b.type='button';b.onclick=action;return b;};
  const dlg=()=>by('mathGame');
- function clear(){const d=dlg();if(d?.open)d.close();if(d)d.replaceChildren();activeId=null;by('choices')?.removeAttribute('hidden');}
+ function clear(){const d=dlg();if(d?.open)d.close();if(d)d.replaceChildren();activeId=null;}
  function dialogue(d,mission,engine){
   clear();
   const puzzle=d.puzzle&&mission.puzzles?.[d.puzzle];
+  by('choices').hidden=!!puzzle;
   if(!puzzle)return;
   activeId=d.puzzle;locked=false;mistakes=0;answer=undefined;selected=undefined;
-  by('choices').hidden=true;
   const container=dlg();
   const top=add(make('header','mq-top'),make('div','mq-eyebrow','UMTO / GRADE 4 MINI-GAME'),btn('× Close',()=>clear(),'mq-close'));
   const heading=add(make('section','mq-heading'),make('h2','',puzzle.title),make('p','',puzzle.instruction));
