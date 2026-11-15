@@ -1,0 +1,57 @@
+[data-mission="midnight-math-vault"] .cover{background:radial-gradient(circle at 80% 35%,#856b5124,transparent 34%),linear-gradient(95deg,#071324f9,#0f2437ec 52%,#0c24358c)}
+[data-mission="midnight-math-vault"] .opening-copy{max-width:730px}
+[data-mission="midnight-math-vault"] h1{font-size:clamp(52px,7.2vw,105px)}
+[data-mission="midnight-math-vault"] h1 em{color:#e2b995}
+[data-mission="midnight-math-vault"] #cast{pointer-events:none}
+[data-mission="midnight-math-vault"] #mathProgress{position:absolute;right:28px;top:115px;z-index:4;color:#e8d3a7;border:1px solid #d7b98450;background:#102234dd;border-radius:100px;font-size:11px;letter-spacing:1.2px;padding:10px 14px;pointer-events:none}
+#mathGame{width:min(700px,calc(100% - 22px));max-height:calc(100dvh - 26px);margin:auto;border:1px solid #d9bc87;border-radius:18px;padding:0;background:#11273b;color:#f4e5c9;box-shadow:0 24px 95px #000b;overflow:auto}
+#mathGame::backdrop{background:#04111de6;backdrop-filter:blur(7px)}
+.mq-top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:#20374a;border-bottom:1px solid #d9bc8755;gap:10px}
+.mq-eyebrow{font-size:10px;letter-spacing:2px;color:#f1c789}
+.mq-button{border:1px solid #d5b6767d;background:#263e55;color:#f7e6c8;border-radius:10px;font-size:15px;font-weight:650;padding:12px 18px}
+.mq-button:hover,.mq-button:focus-visible{border-color:#ffe4a1;background:#36546b}
+.mq-close{padding:8px 12px;font-size:12px}
+.mq-heading{text-align:center;padding:12px 24px 0}
+.mq-heading h2{font:normal 35px/1.2 Georgia,serif;margin:5px 0 10px;color:#ffe4ae}
+.mq-heading p{font-size:17px;line-height:1.5;color:#f6f3ed;margin:0 auto 6px;max-width:570px}
+.mq-play{padding:18px 32px 12px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.mq-mini-label{font-size:12px;color:#b8d9e5;letter-spacing:1.3px;margin:0}
+.mq-number{font-size:clamp(30px,6vw,49px);font-weight:800;font-variant-numeric:tabular-nums;color:#fff1c3}
+.mq-range{width:min(470px,95%);accent-color:#eec080;height:30px}
+.mq-range-labels{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.mq-tick{font-size:12px;padding:8px}
+.mq-sequence,.mq-options{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.mq-seq-tile{display:grid;place-items:center;width:72px;height:73px;background:#35556c;border:2px solid #81b2cb;border-radius:12px;color:#ffe7ab;font-weight:750;font-size:24px}
+.mq-unknown{border-color:#f0b9ce;color:#f3bbcd}
+.mq-options .mq-button{min-width:74px;font-size:23px}
+.mq-chosen{background:#4d7770!important;border-color:#fff2a3!important}
+.mq-array{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:4px;width:min(380px,96%);padding:8px;background:#0c2338;border-radius:12px;border:1px solid #c8b48155}
+.mq-array-tile{display:block;aspect-ratio:1.2;background:linear-gradient(130deg,#edd290,#b89c6a);border:1px solid #fff3c4;border-radius:4px}
+.mq-input{border:2px solid #8aaab6;border-radius:9px;background:#091a2b;color:#fff1c5;padding:10px;text-align:center;width:160px;min-height:50px;font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.mq-input::placeholder{font-size:16px;color:#a1b8bf}
+.mq-lanterns{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;width:min(465px,100%)}
+.mq-lantern{border:2px solid #7a899e;background:#1d3549;color:#8b99a8;aspect-ratio:1;font-size:35px;padding:0;border-radius:12px}
+.mq-lit{color:#ffe9a0;background:#6d572e;border-color:#ffeaa4;box-shadow:0 0 14px #f3c67e52}
+.mq-count{margin:0;font-weight:700;color:#d9f2e0;font-size:17px}
+.mq-perimeter{position:relative;width:230px;height:118px;margin:20px 38px 12px;border:8px solid #e8c993;background:#30536a;box-shadow:inset 0 0 0 1px #d8edeb38}
+.mq-perimeter span{position:absolute;color:#f3e8c7;font-weight:750;font-size:19px}
+.mq-top-side{top:-38px;left:calc(50% - 20px)}.mq-bottom-side{bottom:-38px;left:calc(50% - 20px)}.mq-left-side{left:-51px;top:36px}.mq-right-side{right:-51px;top:36px}
+.mq-perimeter-input{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:14px}
+.mq-step{font-size:30px;padding:8px 19px}
+.mq-footer{padding:8px 25px 22px;display:flex;flex-direction:column;align-items:center;gap:13px}
+.mq-feedback{font-size:14px;line-height:1.4;min-height:20px;text-align:center;color:#c2d7db;margin:0}
+.mq-wrong{color:#ffd18a}.mq-correct{color:#9af0be}
+.mq-check{background:#dfb87e;color:#18293a;border:2px solid #f8d8a4;font-size:17px;padding:14px 32px;min-width:215px}
+.mq-check:hover{background:#ffe2af;color:#18293a}
+.mq-check:disabled{opacity:1;background:#8ed3ae;border-color:#c3f5c9}
+@media(max-width:580px){[data-mission="midnight-math-vault"] #mathProgress{right:13px;top:85px;font-size:9px;padding:7px}
+ .mq-top{padding:9px 13px}.mq-eyebrow{font-size:8px}.mq-heading{padding:6px 12px}.mq-heading h2{font-size:27px}.mq-heading p{font-size:14px}
+ .mq-play{padding:10px 12px;gap:8px;min-height:130px}.mq-seq-tile{width:51px;height:56px;font-size:19px}
+ .mq-options .mq-button{min-width:58px;font-size:17px}.mq-lanterns{gap:5px}.mq-lantern{font-size:26px}
+ .mq-footer{padding:6px 15px 15px}.mq-feedback{font-size:12px}.mq-check{padding:10px 18px;min-width:180px;font-size:14px}
+}
+@media(max-height:480px){.mq-heading h2{font-size:25px}.mq-heading p{font-size:13px}.mq-play{min-height:0;padding:5px 10px;gap:6px}.mq-array{width:280px;gap:2px;padding:4px}
+.mq-lanterns{max-width:290px;gap:3px}.mq-lantern{font-size:18px;max-height:34px}
+.mq-perimeter{height:76px;width:175px;margin:15px 30px 9px}.mq-footer{padding:2px 10px 10px;gap:5px}.mq-number{font-size:30px}.mq-input{min-height:37px;padding:5px}
+}
+@media(prefers-reduced-motion:reduce){#mathGame *{transition:none!important;animation:none!important}}
