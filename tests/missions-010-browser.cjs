@@ -34,7 +34,7 @@ const server=http.createServer((req,res)=>{
   await skip('clock started ringing');
   await skip('Five math locks');
   await page.waitForFunction(()=>!document.querySelector('#game').classList.contains('busy'));
-  const act=event=>page.evaluate(event=>dispatch(event),event);
+  const act=async event=>{await page.waitForFunction(()=>!document.querySelector('#game').classList.contains('busy'));return page.evaluate(event=>dispatch(event),event);};
   await act('click:gate');
   await page.locator('#mathGame[open]').waitFor();
   await page.locator('.mq-close').click();
