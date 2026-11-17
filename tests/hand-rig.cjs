@@ -13,7 +13,8 @@ for(const [pose,h] of Object.entries(HAND_POSES)){
  for(const view of ['palm','back','edge','up']){
   const art=actionHandSvg(pose,view);
   assert(!/NaN|undefined|scale\(-/.test(art));
-  assert(art.includes(HAND_REAL_PATH),pose+' must retain common palm and wrist');
+  if(pose!=='relaxed')assert(art.includes(HAND_REAL_PATH),pose+' must retain common palm and wrist');
+  else assert(art.includes('M-25 -12 L25 -12'),'Resting fingers should share a continuous silhouette');
   assert(art.includes(`scale(${view==='edge'?.78:1} 1)`),'No pose-dependent scale or finger stretching');
   assert(art.includes('stroke="#161011"'),'Hand contours must be explicit');
  }

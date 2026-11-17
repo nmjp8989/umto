@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Umto · Character Studio v93</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Umto · Character Studio v94</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Umto · Character Studio v93</h1><p>v93 · seated poses, props and interactions</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Umto · Character Studio v94</h1><p>v94 · full-body hands and walking refinements</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -126,7 +126,7 @@
 <label class="motion-label" for="audioFile">Optional: use your own audio (MP3, WAV, M4A)</label><input class="motion-file" id="audioFile" type="file" accept="audio/*"><div class="motion-note" id="audioStatus">No audio selected · animated cue demo only. With audio, cues are stretched uniformly to its duration; this is manual timing, not automatic speech recognition.</div>
 </section><h3>Same character · four mouth positions</h3><div id="fourup" class="fourup"></div><h3>Expression mouths</h3><div id="focus" class="focus-grid"></div><p class="hint">For regular talking, the default library is smaller on purpose: <strong>Closed</strong>, <strong>M/B/P</strong>, <strong>EE/teeth</strong>, <strong>A</strong>, <strong>O</strong>, <strong>U/pucker</strong>, and <strong>F/V</strong>. Separate expressive mouths are available for <strong>Smile</strong>, <strong>Sad</strong>, and <strong>Laugh</strong>.</p><p class="hint">Every mouth uses the same face and mouth anchor. All parts are SVG paths, so the hairstyle, ears, head, face, clothing and mouth can be independently changed without generating a new portrait.</p></section>
 <section class="card"><div class="row"><h2>Character parts</h2><span class="tag">ILLUSTRATION REFINEMENT</span></div><div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-tab="mouth">Mouth</button><button class="tab" role="tab" aria-selected="false" data-tab="eyes">Eyes</button><button class="tab" role="tab" aria-selected="false" data-tab="brows">Brows</button><button class="tab" role="tab" aria-selected="false" data-tab="nose">Nose</button><button class="tab" role="tab" aria-selected="false" data-tab="hair">Hair</button><button class="tab" role="tab" aria-selected="false" data-tab="ears">Ears</button><button class="tab" role="tab" aria-selected="false" data-tab="mood">Moods</button></div><h3 id="category">Mouth shapes</h3><div id="choices" class="choices"></div><div class="sliders"><label>Mouth width <input id="width" type="range" min="75" max="135" value="110"></label><label>Mouth position <input id="position" type="range" min="-22" max="22" value="5"></label></div><div class="toolbar"><button class="btn" id="reset">Reset mouth</button><button class="btn" id="exportPart">Save selected part SVG</button><button class="btn" id="saveJson">Save rig JSON</button></div><div class="notes"><b>v20 simplified mouth system:</b> The main talking set is intentionally reduced to seven practical speech visemes: Closed, M/B/P, EE/teeth, A, O, U/pucker, and F/V. Extra emotional shapes are provided separately for Smile, Sad, and Laugh. <b>Drawing goal:</b> professional cartoon features, strong line weight, no raster face or image overlays. Consistent eyes, eyebrows, mouth and hair are individual SVG layers, not separately generated full portraits. Speech-motion playback uses hand-set cues; imported audio is not automatically transcribed or analyzed. Timing is scaled to the audio duration for preview.</div></section>
-</main><div class="footer">Umto prototype v93 · Local/offline · No uploads or external requests</div>
+</main><div class="footer">Umto prototype v94 · Local/offline · No uploads or external requests</div>
 <script src="scenes/catalog.js"></script><script>
 'use strict';
 
@@ -912,7 +912,7 @@ Object.assign(WARDROBE,{
  kurtaChunni:{label:'Kurta with draped chunni',template:'tunic',neck:'round',sleeve:.74,hem:1790,flare:35,dupatta:true,trim:'embroidery',suggestedColour:'#487d80'},
  salwarChunni:{label:'Long kurta with chunni',template:'dress',neck:'round',sleeve:1,hem:1970,flare:50,dupatta:true,suggestedColour:'#a5647e'},
  sherwani:{label:'Sherwani · formal long coat',template:'tunic',neck:'high',sleeve:1,hem:1850,flare:22,buttons:true,trim:'piping',suggestedColour:'#70436e'},
- punjabiVestKurta:{label:'Punjabi waistcoat & kurta',template:'tunic',hem:1800,flare:12,sleeve:1,sleeveColour:'#f3efe4',layeredVest:true,relaxedHands:true,jutti:true,suggestedColour:'#b99a32'},
+ punjabiVestKurta:{label:'Punjabi waistcoat & kurta',template:'tunic',hem:1800,flare:12,sleeve:1,sleeveColour:'#f3efe4',layeredVest:true,jutti:true,suggestedColour:'#b99a32'},
  nehruVest:{label:'Nehru waistcoat & shirt',template:'long',neck:'high',sleeveColour:'#f5f0e7',buttons:true,pocket:true,suggestedColour:'#bb9140'},
  suitTie:{label:'Business suit & tie',template:'jacket',neck:'lapel',tie:true,pocket:true,suggestedColour:'#364e62'},
  shirtTie:{label:'Shirt & tie',template:'long',neck:'collar',tie:true,buttons:true,suggestedColour:'#82acc0'},
@@ -1115,6 +1115,7 @@ function rigLegSvg(side,pose,view){
  return `<g data-rig-leg="${side}" transform="translate(${bodyCameraX(627,turn)} 1450) scale(${side*(turn?.84:1)} 1)"><g data-rig-hip>`+
  `<path data-walk-trouser fill="${bare?skin:c}" visibility="hidden"/><path data-walk-shorts fill="${c}" visibility="hidden"/><g data-rig-thigh>${thighArt}</g><g data-moving-leg-details>${bottomDetailsSvg(p)}</g>`+
  `<g data-rig-knee transform="translate(${ankle} 380)"><g data-rest-shin>${rigFill(shin,bare?skin:c)}${!bare?(p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):rigDetail('M-40 6 Q0 -9 39 6',2.5)):''}</g>`+
+ `<g data-moving-shin-details display="none">${p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):''}</g>`+
  `<g data-rig-ankle transform="translate(0 360) scale(${turn&&side!==turn?-1:1} 1)">`+
  `<g data-rig-foot transform="translate(0 111) scale(${bodyShapeProfile().foot} ${Math.max(1,bodyShapeProfile().foot/bodyHeight())}) translate(0 -111)">`+
  (p.cuffed?rigFill(`M${-p.cuff} -18 H${p.cuff} V5 H${-p.cuff}Z`,bodyShade(c,.2)):'' )+
@@ -1205,8 +1206,9 @@ const HAND_POSES={
 state.handPose='auto';state.handSurface='auto';
 catalogs.handPose={auto:'Automatic',...Object.fromEntries(Object.entries(HAND_POSES).map(([k,v])=>[k,v.label]))};catalogs.handSurface={auto:'Automatic',palm:'Palm',back:'Back',edge:'Side',up:'Palm up'};
 function actionHandSvg(pose='relaxed',view='palm'){
+ if(!Object.hasOwn(HAND_POSES,pose))pose='relaxed';
  // A closed resting silhouette keeps the fingers together like the reference.
- if(pose==='relaxed'&&typeof garmentDesign==='function'&&garmentDesign().relaxedHands){
+ if(pose==='relaxed'){
   return `<g data-action-hand="relaxed" data-hand-surface="${view}" transform="scale(${view==='edge'?.78:1} 1)"><path d="M-25 -12 L25 -12 Q27 15 32 38 Q39 65 29 94 Q22 116 8 123 Q-6 128 -16 116 Q-30 99 -30 77 L-28 51 Q-36 72 -43 68 Q-50 65 -45 48 L-34 15Z" fill="url(#skinFill)" stroke="#161011" stroke-width="3.2" stroke-linejoin="round"/>${rigDetail('M-16 78 Q-16 103 -5 117 M-3 81 Q-2 105 8 118 M10 80 Q13 101 20 107',2.5)}</g>`;
  }
  const h=HAND_POSES[pose]||HAND_POSES.relaxed,back=view==='back';
@@ -1835,7 +1837,7 @@ function applyPremade(preset){
  for(const [k,v] of Object.entries(preset.changes)){
   if(Object.hasOwn(freshCharacterDefaults,k)&&typeof v===typeof freshCharacterDefaults[k])state[k]=v;
  }
- if(!preset.saved)state.framing='head';
+ if(!preset.saved)state.framing='full';
 }
 function switchStudioMode(mode){
  stopDemo();
@@ -1997,7 +1999,7 @@ const headshotAnimations=[
  ['point','Pointing','☝','One finger · presenter'],['bow','Thank-you bow','🙇','Full body · gentle bow'],
  ['dance','Happy dance','💃','Full body · step and sway'],['breathe','Calm breathing','🌿','Bust · soft breathing']
 ];
-let chosenAnimation='smile',animationFraming='auto';
+let chosenAnimation='smile',animationFraming='full';
 function applyAnimationFraming(key=chosenAnimation){
  const frame=animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':['wave','explain','shrug','celebrate','point'].includes(key)?'upper':'bust'):animationFraming;
  svg.dataset.animationFrame=frame;
@@ -2064,7 +2066,8 @@ function walkingStep(seconds,side){
  const angle=Math.atan2(forward,down)+bend;
  // A tiny extension keeps the planted sole on the floor through the stride.
  const stretch=dist/(upper+lower)>1?dist/(upper+lower):1;
- return {t,stance,forward,lift,kneeForward:upper*stretch*Math.sin(angle),kneeDown:upper*stretch*Math.cos(angle),down};
+ const footPitch=stance?0:-10*Math.sin(2*Math.PI*u)*Math.sin(Math.PI*u);
+ return {t,stance,forward,lift,footPitch,kneeForward:upper*stretch*Math.sin(angle),kneeDown:upper*stretch*Math.cos(angle),down};
 }
 function poseWalkingGarment(seconds,root=document){
  const groups=root.querySelectorAll('#torso [data-moving-garment]');
@@ -2110,22 +2113,28 @@ function poseWalking(seconds,root=document){
   const n=normal((k.x/k.y+(f.x-k.x)/(f.y-k.y))/2,1);
   const K={x:x+k.x,y:k.y},F={x:x+f.x,y:f.y+2};
   const edge=(sign)=>({hx:sign<0?0:profile.hip,hy:-50,kx:K.x+sign*n.x*profile.knee,ky:K.y+sign*n.y*profile.knee,fx:F.x+sign*profile.cuff,fy:F.y});
-  const l=edge(-1),r=edge(1),clothPath=`M${l.hx} ${l.hy} L${r.hx} ${r.hy} Q${r.hx+n1.x*12} ${K.y*.5} ${r.kx} ${r.ky-24} Q${r.kx+n2.x*3} ${r.ky} ${r.kx} ${r.ky+24} L${r.fx} ${r.fy} L${l.fx} ${l.fy} L${l.kx} ${l.ky+24} Q${l.kx-n2.x*3} ${l.ky} ${l.kx} ${l.ky-24} Q${l.hx-n1.x*12} ${K.y*.5} ${l.hx} ${l.hy}Z`;
+  const l=edge(-1),r=edge(1),fullness=profile.gathered?1:.35;
+  const lowerEdge=(a,b)=>`C${a.kx} ${a.ky+(b.fy-a.ky)*.48} ${b.fx+(a.kx-b.fx)*fullness} ${b.fy-64} ${b.fx} ${b.fy}`;
+  const clothPath=`M${l.hx} ${l.hy} L${r.hx} ${r.hy} Q${r.hx+n1.x*12} ${K.y*.5} ${r.kx} ${r.ky-24} Q${r.kx+n2.x*3} ${r.ky} ${r.kx} ${r.ky+24} ${lowerEdge(r,r)} L${l.fx} ${l.fy} C${l.fx+(l.kx-l.fx)*fullness} ${l.fy-64} ${l.kx} ${l.ky+(l.fy-l.ky)*.48} ${l.kx} ${l.ky+24} Q${l.kx-n2.x*3} ${l.ky} ${l.kx} ${l.ky-24} Q${l.hx-n1.x*12} ${K.y*.5} ${l.hx} ${l.hy}Z`;
   const cloth=leg.querySelector('[data-walk-trouser]');cloth.setAttribute('d',clothPath);cloth.setAttribute('visibility','visible');
   const details=leg.querySelector('[data-moving-leg-details]');details.setAttribute('transform',`matrix(${upper.join(' ')})`);
   const shorts=leg.querySelector('[data-walk-shorts]');if(profile.length){const u=profile.length/400,ex=x+k.x*u,ey=k.y*u,w=profile.knee+12;shorts.setAttribute('d',`M0 -50 H${profile.hip} Q${profile.hip} ${ey*.5} ${ex+n1.x*w} ${ey+n1.y*w} L${ex-n1.x*w} ${ey-n1.y*w} Q0 ${ey*.5} 0 -50Z`);shorts.setAttribute('visibility','visible');}
   leg.querySelector('[data-rig-thigh]').setAttribute('display','none');leg.querySelector('[data-rest-shin]').setAttribute('display','none');
   const shin=segment(f.x-k.x,f.y-k.y,360,x+k.x,k.y);
   leg.querySelector('[data-rig-knee]').setAttribute('transform',`matrix(${shin.join(' ')})`);
+  leg.querySelector('[data-moving-shin-details]').setAttribute('display',profile.gathered?'inline':'none');
   // Undo shin rotation and foreshortening so the shoe does not shear or tilt sideways.
   const [a,b,c,d]=shin,det=a*d-b*c,flip=turn&&side!==turn?-1:1;
   leg.querySelector('[data-rig-ankle]').setAttribute('transform',`translate(0 360) matrix(${d/det} ${-b/det} ${-c/det} ${a/det} 0 0) scale(${flip} 1)`);
+  // Pitch only the airborne shoe; the support sole remains level and planted.
+  const footScale=bodyShapeProfile().foot,footY=Math.max(1,footScale/bodyHeight());
+  leg.querySelector('[data-rig-foot]').setAttribute('transform',`translate(0 111) rotate(${turn*side*flip*g.footPitch}) scale(${footScale} ${footY}) translate(0 -111)`);
  }
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/105;
-  arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
-  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*11*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
+  arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display','none');arm.querySelector('[data-hand-relaxed]').setAttribute('display','inline');
+  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-(turn?turn*side*11:4)*swing} 0 48)`);
   arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
   arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
  }
@@ -2358,6 +2367,6 @@ document.getElementById('sceneSaveImage').onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseScene();});
 
-</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=008.3"></script></body></html>
+</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=94"></script></body></html>
 
 

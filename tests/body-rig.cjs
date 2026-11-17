@@ -14,7 +14,7 @@ const result=await p.evaluate(()=>{
  }
  state.gazeX=0;state.gazeY=0;
  for(const view of ['left','front','right']){cameraView=view;const g=eyeGaze('open');if(g.x!==cameraDirections[view]*.8)throw Error('Gaze does not follow face');for(const style of Object.keys(eyeStyles)){state.eyeStyle=style;render();if(document.querySelector('#eyeGroup').innerHTML.includes('NaN'))throw Error('Invalid eye geometry');}if(eyeGaze('left').x!==-1||eyeGaze('right').x!==1)throw Error('Explicit look lost');}
- if(!document.querySelector('.appbar').textContent.includes('77')||!document.title.includes('v77'))throw Error('Build label mismatch');
+ const version=document.title.match(/v(\d+)/)?.[1];if(!version||!document.querySelector('.appbar').textContent.includes(version))throw Error('Build label mismatch');
  const socketCheck=()=>{for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){const fixed=new DOMPoint(0,48).matrixTransform(arm.getCTM()),moving=new DOMPoint(0,48).matrixTransform(arm.querySelector('[data-rig-shoulder]').getCTM());if(Math.hypot(fixed.x-moving.x,fixed.y-moving.y)>.001)throw Error('Shoulder left socket');}};
  for(const hair of Object.keys(indianLongHair))for(const view of ['front','left','right']){state.hair=hair;cameraView=view;render();if(!document.querySelector('#frontHair path'))throw Error('Missing long hair');}
  if(premadeCharacters.filter(p=>p.id.startsWith('india-')).length!==8)throw Error('Indian presets missing');
@@ -22,7 +22,7 @@ const result=await p.evaluate(()=>{
  const styles=Object.keys(WARDROBE);let checks=0;
  for(const shirt of styles)for(const view of ['front','left','right'])for(const framing of ['head','full']){
   state.shirt=shirt;cameraView=view;state.framing=framing;render();
-  const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].map(n=>n.getAttribute('d')));
+  const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].filter(n=>!n.closest('[data-hand-action]')).map(n=>n.getAttribute('d')));
   const original=geometry();const nodes=[...document.querySelectorAll('#torso [data-rig-arm]')];
   for(const time of [0,.2,1,2.8,3.5]){poseHeadshotArms(reactionPose('wave',time));socketCheck();if(geometry()!==original)throw Error('Geometry changed '+shirt);if(nodes.some(n=>!n.isConnected))throw Error('Rig replaced mid-animation');checks++;}
   if(framing==='full'){for(const time of Array.from({length:24},(_,i)=>i*.05)){poseWalking(time);socketCheck();if(document.getElementById('torso').innerHTML.includes('NaN'))throw Error('Invalid gait');
@@ -42,7 +42,7 @@ const result=await p.evaluate(()=>{
   if(framing==='full'&&document.querySelectorAll('#torso [data-rig-knee]').length!==2)throw Error('Leg joint missing');
  }
  state.framing='head';cameraView='front';render();poseHeadshotArms(reactionPose('explain',1));
- if(document.querySelectorAll('#torso [data-hand-open][display="inline"]').length!==1||document.querySelectorAll('#torso [data-hand-point][display="inline"]').length!==1)throw Error('Explaining hand states lost');
+ if(document.querySelectorAll('#torso [data-hand-action][display="inline"] [data-action-hand="palmUp"]').length!==1||document.querySelectorAll('#torso [data-hand-action][display="inline"] [data-action-hand="point"]').length!==1)throw Error('Explaining hand states lost');
  WARDROBE.testDesign={label:'Test',template:'short',neck:'v',pocket:true};state.shirt='testDesign';render();if(!document.querySelector('[data-garment="testDesign"]'))throw Error('Registry addition failed');delete WARDROBE.testDesign;render();if(!document.querySelector('[data-garment="crew"]'))throw Error('Removed design fallback failed');
  return {styles:styles.length,checks,templates:Object.keys(GARMENT_TEMPLATES).length};
 });assert.deepEqual(errors,[]);console.log('PASS',result);await browser.close();})().catch(e=>{console.error(e);process.exit(1)});
