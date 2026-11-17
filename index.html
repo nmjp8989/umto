@@ -912,6 +912,7 @@ Object.assign(WARDROBE,{
  kurtaChunni:{label:'Kurta with draped chunni',template:'tunic',neck:'round',sleeve:.74,hem:1790,flare:35,dupatta:true,trim:'embroidery',suggestedColour:'#487d80'},
  salwarChunni:{label:'Long kurta with chunni',template:'dress',neck:'round',sleeve:1,hem:1970,flare:50,dupatta:true,suggestedColour:'#a5647e'},
  sherwani:{label:'Sherwani · formal long coat',template:'tunic',neck:'high',sleeve:1,hem:1850,flare:22,buttons:true,trim:'piping',suggestedColour:'#70436e'},
+ punjabiVestKurta:{label:'Punjabi waistcoat & kurta',template:'tunic',hem:1800,flare:12,sleeve:1,sleeveColour:'#f3efe4',layeredVest:true,relaxedHands:true,jutti:true,suggestedColour:'#b99a32'},
  nehruVest:{label:'Nehru waistcoat & shirt',template:'long',neck:'high',sleeveColour:'#f5f0e7',buttons:true,pocket:true,suggestedColour:'#bb9140'},
  suitTie:{label:'Business suit & tie',template:'jacket',neck:'lapel',tie:true,pocket:true,suggestedColour:'#364e62'},
  shirtTie:{label:'Shirt & tie',template:'long',neck:'collar',tie:true,buttons:true,suggestedColour:'#82acc0'},
@@ -937,7 +938,7 @@ const BOTTOMS={
  bermuda:{label:'Bermuda shorts',hip:198,knee:74,cuff:56,length:360},
  pleatedSkirt:{label:'Pleated skirt',hip:183,knee:60,cuff:46,skirt:true,hem:1810,flare:95,pleats:true},
  maxiSkirt:{label:'Maxi skirt',hip:183,knee:60,cuff:46,skirt:true,hem:2110,flare:115},
- salwar:{label:'Salwar-inspired trousers · South Asia',hip:215,knee:104,cuff:37,cuffed:true},
+ salwar:{label:'Salwar-inspired trousers · South Asia',hip:215,knee:104,cuff:37,cuffed:true,gathered:true},
  hakama:{label:'Hakama-inspired wide pants · Japan',hip:220,knee:112,cuff:108,crease:true},
 };
 state.bottom='straight';catalogs.bottom=Object.fromEntries(Object.entries(BOTTOMS).map(([k,v])=>[k,v.label]));
@@ -989,6 +990,7 @@ function garmentBodiceSvg(){
  const d=garmentDesign(),t=garmentTemplate(),hem=t.hem,half=218+t.flare;
  const opening=d.neck==='wrap'?'L627 1130 L542 1005':d.neck==='v'?'L627 1120 L542 1005':d.neck==='scoop'?'Q627 1140 542 1005':'Q627 1080 542 1005';
  const body=`M542 1005 C463 979 382 980 335 1028 Q354 1130 399 1210 L${627-half} ${hem} Q627 ${hem+20} ${627+half} ${hem} L855 1210 Q900 1130 919 1028 C872 980 791 979 712 1005 ${opening}Z`;
+ if(d.layeredVest)return punjabiVestKurtaSvg(hem,half);
  let a=rigFill('M535 830 H715 V952 Q721 986 739 1000 L718 1142 H536 L515 1000 Q535 980 535 952Z','url(#skinFill)')+rigFill(body);
  if(d.pattern==='stripe'){
   a+=`<defs><clipPath id="rigGarmentClip"><path d="${body}"/></clipPath></defs><g clip-path="url(#rigGarmentClip)">`;
@@ -1051,6 +1053,20 @@ function garmentBodiceSvg(){
  if(t.hem<1500)a+=rigFill(`M${627-half} ${hem-18} Q627 ${hem-3} ${627+half} ${hem-18} L${627+half} ${hem} Q627 ${hem+20} ${627-half} ${hem}Z`,bodyShade(rigCloth(),.09));
  return a+rigDetail(`M${627-half+8} ${hem-16} Q627 ${hem+2} ${627+half-8} ${hem-16}`,3);
 }
+// Separate kurta and waistcoat hems retain the silhouette during cloth motion.
+function punjabiVestKurtaSvg(hem,half){
+ const cream=garmentTemplate().sleeveColour;
+ const kurta=`M542 1005 Q627 1055 712 1005 L866 1070 L${627+half} ${hem} Q627 ${hem+32} ${627-half} ${hem} L388 1070Z`;
+ const vest='M542 1005 Q627 1070 712 1005 Q804 982 866 1024 L827 1215 L857 1485 Q768 1514 650 1505 L627 1418 L605 1505 Q486 1514 397 1485 L427 1215 L388 1024 Q450 982 542 1005Z';
+ let art=rigFill('M535 830 H715 V1030 H535Z','url(#skinFill)')+rigFill(kurta,cream)+rigDetail(`M${627-half} ${hem} Q627 ${hem+32} ${627+half} ${hem} M414 1640 L405 1770 M840 1640 L849 1770`,4)+rigFill(vest)+rigDetail(vest,5)+rigDetail('M627 1060 V1418 M722 1120 H797 V1185 Q759 1206 722 1185Z M722 1133 H797',3);
+ for(let y=1110;y<1430;y+=65)art+=`<circle cx="642" cy="${y}" r="4" fill="#30291c"/>`;
+ return art;
+}
+function juttiSvg(turn){
+ return rigFill('M-37 -16 H35 L40 42 Q15 66 -40 52Z','url(#skinFill)')+
+ rigFill(turn?'M-42 35 Q-9 77 37 43 Q67 66 98 63 Q109 44 119 63 Q142 86 126 103 Q46 119 -53 102 L-55 62Z':'M-42 35 Q-8 78 37 43 Q59 65 94 67 Q105 48 117 69 Q133 87 116 103 Q29 120 -55 103 L-55 64Z',state.shoeColour)+
+ rigDetail('M-42 35 Q-8 78 37 43 M-54 92 Q29 112 119 92',3);
+}
 function rigArmSvg(side,view=cameraView){
  const turn=cameraDirections[view]||0,armX=bodyCameraX(bodyShapeX(627+side*BODY_RIG.shoulderX,1020),turn),depth=turn?(side===turn?.82:1):1;
  const t=garmentTemplate(),skin='url(#skinFill)',cloth=t.sleeveColour||rigCloth();
@@ -1095,14 +1111,14 @@ function rigLegSvg(side,pose,view){
  const thigh=`M0 -50 H${p.hip} C${p.hip+5} 85 ${p.hip+1} 252 ${ankle+p.knee} 388 H${ankle-p.knee} L8 180Z`;
  let thighArt=rigFill(thigh,bare?skin:c);
  if(p.length)thighArt+=`<defs><clipPath id="shortLeg-${side}"><rect x="-100" y="-80" width="500" height="${p.length+80}"/></clipPath></defs><g clip-path="url(#shortLeg-${side})">${rigFill(thigh,c)}</g>`+rigDetail(`M32 ${p.length-8} H${p.hip-6}`,3);
- const shin=`M${-p.knee-1} -18 Q0 -30 ${p.knee-1} -18 L${p.cuff} 360 H${-p.cuff} L${-p.knee+6} 180Z`;
+ const shin=p.gathered?`M${-p.knee-1} -18 Q0 -30 ${p.knee-1} -18 C${p.knee+5} 140 ${p.knee-12} 292 ${p.cuff} 352 Q0 370 ${-p.cuff} 352 C${-p.knee+12} 292 ${-p.knee-5} 140 ${-p.knee-1} -18Z`:`M${-p.knee-1} -18 Q0 -30 ${p.knee-1} -18 L${p.cuff} 360 H${-p.cuff} L${-p.knee+6} 180Z`;
  return `<g data-rig-leg="${side}" transform="translate(${bodyCameraX(627,turn)} 1450) scale(${side*(turn?.84:1)} 1)"><g data-rig-hip>`+
  `<path data-walk-trouser fill="${bare?skin:c}" visibility="hidden"/><path data-walk-shorts fill="${c}" visibility="hidden"/><g data-rig-thigh>${thighArt}</g><g data-moving-leg-details>${bottomDetailsSvg(p)}</g>`+
- `<g data-rig-knee transform="translate(${ankle} 380)"><g data-rest-shin>${rigFill(shin,bare?skin:c)}${!bare?rigDetail('M-40 6 Q0 -9 39 6',2.5):''}</g>`+
+ `<g data-rig-knee transform="translate(${ankle} 380)"><g data-rest-shin>${rigFill(shin,bare?skin:c)}${!bare?(p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):rigDetail('M-40 6 Q0 -9 39 6',2.5)):''}</g>`+
  `<g data-rig-ankle transform="translate(0 360) scale(${turn&&side!==turn?-1:1} 1)">`+
  `<g data-rig-foot transform="translate(0 111) scale(${bodyShapeProfile().foot} ${Math.max(1,bodyShapeProfile().foot/bodyHeight())}) translate(0 -111)">`+
  (p.cuffed?rigFill(`M${-p.cuff} -18 H${p.cuff} V5 H${-p.cuff}Z`,bodyShade(c,.2)):'' )+
- rigFill(turn?'M-43 -8 H40 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z':'M-49 -8 H47 L53 32 Q66 53 102 69 Q122 79 116 100 Q95 116 29 112 L-55 107 Q-66 92 -58 65Z',state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56':'M-59 91 Q24 112 117 91 M-26 35 Q3 33 28 48 M-30 49 Q0 47 21 60',3)+'</g></g></g></g></g>';
+ (garmentDesign().jutti?juttiSvg(turn):rigFill(turn?'M-43 -8 H40 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z':'M-49 -8 H47 L53 32 Q66 53 102 69 Q122 79 116 100 Q95 116 29 112 L-55 107 Q-66 92 -58 65Z',state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56':'M-59 91 Q24 112 117 91 M-26 35 Q3 33 28 48 M-30 49 Q0 47 21 60',3))+'</g></g></g></g></g>';
 }
 function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
  const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
@@ -1189,6 +1205,10 @@ const HAND_POSES={
 state.handPose='auto';state.handSurface='auto';
 catalogs.handPose={auto:'Automatic',...Object.fromEntries(Object.entries(HAND_POSES).map(([k,v])=>[k,v.label]))};catalogs.handSurface={auto:'Automatic',palm:'Palm',back:'Back',edge:'Side',up:'Palm up'};
 function actionHandSvg(pose='relaxed',view='palm'){
+ // A closed resting silhouette keeps the fingers together like the reference.
+ if(pose==='relaxed'&&typeof garmentDesign==='function'&&garmentDesign().relaxedHands){
+  return `<g data-action-hand="relaxed" data-hand-surface="${view}" transform="scale(${view==='edge'?.78:1} 1)"><path d="M-25 -12 L25 -12 Q27 15 32 38 Q39 65 29 94 Q22 116 8 123 Q-6 128 -16 116 Q-30 99 -30 77 L-28 51 Q-36 72 -43 68 Q-50 65 -45 48 L-34 15Z" fill="url(#skinFill)" stroke="#161011" stroke-width="3.2" stroke-linejoin="round"/>${rigDetail('M-16 78 Q-16 103 -5 117 M-3 81 Q-2 105 8 118 M10 80 Q13 101 20 107',2.5)}</g>`;
+ }
  const h=HAND_POSES[pose]||HAND_POSES.relaxed,back=view==='back';
  const ink='#161011',skin='url(#skinFill)';
  const fill=d=>`<path d="${d}" fill="${skin}" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -1789,12 +1809,13 @@ for(const preset of worldCharacters)if(worldWardrobe[preset.name])Object.assign(
 for(const preset of premadeCharacters)if(preset.id==='india-meera')Object.assign(preset.changes,{shirt:'kurtaChunni',bottom:'salwar'});
 for(const preset of premadeCharacters)if(preset.id==='india-arjun'||preset.id==='adult-arjan')Object.assign(preset.changes,{shirt:'embroideredKurta',bottom:'straight'});
 
-const referenceOutfits={'adult-harpreet':'nehruVest','adult-omar':'suitTie','adult-jun':'rolledShirt','adult-marcus':'formalVest','india-arjun':'sherwani','world-7':'shirtTie','world-8':'safetyVest','world-21':'utilityVest'};
+const referenceOutfits={'adult-harpreet':'punjabiVestKurta','adult-omar':'suitTie','adult-jun':'rolledShirt','adult-marcus':'formalVest','india-arjun':'sherwani','world-7':'shirtTie','world-8':'safetyVest','world-21':'utilityVest'};
 for(const p of premadeCharacters)if(referenceOutfits[p.id]){p.changes.shirt=referenceOutfits[p.id];p.changes.shirtColour=WARDROBE[p.changes.shirt].suggestedColour;}
 
 for(const p of premadeCharacters)if(p.category==='kids')p.changes.bodyType='child';
 const variedBodies={'adult-harpreet':'broad','adult-omar':'slim','adult-marcus':'broad','adult-aisha':'rounded','adult-carmen':'short','world-8':'tall','world-10':'rounded','world-15':'slim','world-27':'short'};
 for(const p of premadeCharacters)if(variedBodies[p.id])p.changes.bodyType=variedBodies[p.id];
+Object.assign(premadeCharacters.find(p=>p.id==='adult-harpreet').changes,{bodyType:'classic',bottom:'salwar',headSize:94,skinColour:'#c79559',headwearColour:'#58688e',shirtColour:'#b99a32',trouserColour:'#f3efe4',shoeColour:'#79552e',pose:'relaxed'});
 premadeCharacters.push(...[
  {id:'toddler-milo',name:'Milo',category:'kids',changes:{bodyType:'toddler',hair:'crop',shirt:'hoodie',shirtColour:'#d89a47',skinColour:'#d8a07b',headSize:97,mouth:'smile'}},
  {id:'toddler-asha',name:'Asha',category:'kids',changes:{bodyType:'toddler',hair:'bobBangs',shirt:'dress',shirtColour:'#9274bd',skinColour:'#b8805c',headSize:97,mouth:'smile'}}
