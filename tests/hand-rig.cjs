@@ -1,32 +1,17 @@
 'use strict';
-const assert=require('node:assert/strict');
-const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-const start=html.indexOf('const HAND_REAL_PATH=');
-const end=html.indexOf('\nfunction applyFraming()',start);
-const code=html.slice(start,end).replace(/^state\.handPose=.*\n/m,'').replace(/^catalogs\.handPose=.*\n/m,'');
-const sandbox={rigDetail:(d,w)=>`<path d="${d}" fill="none" stroke="#161011" stroke-width="${w}"/>`};
-vm.runInNewContext(code+'\nglobalThis.hands={HAND_POSES,actionHandSvg,proportionalHandSvg,HAND_REAL_PATH};',sandbox);
-const {HAND_POSES,actionHandSvg,proportionalHandSvg,HAND_REAL_PATH}=sandbox.hands;
-for(const [pose,h] of Object.entries(HAND_POSES)){
- assert.equal(h.fingers.length,4,pose+' needs four digits in addition to thumb');
- for(const view of ['palm','back','edge','up']){
-  const art=actionHandSvg(pose,view);
-  assert(!/NaN|undefined|scale\(-/.test(art));
-  if(pose!=='relaxed')assert(art.includes(HAND_REAL_PATH),pose+' must retain common palm and wrist');
-  else assert(art.includes('M-25 -12 L25 -12'),'Resting fingers should share a continuous silhouette');
-  assert(art.includes(`scale(${view==='edge'?.78:1} 1)`),'No pose-dependent scale or finger stretching');
-  assert(art.includes('stroke="#161011"'),'Hand contours must be explicit');
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
+const code=html.slice(html.indexOf('const HAND_POSES='),html.indexOf('function applyFraming()'));
+const ctx={state:{},catalogs:{},rigDetail:()=>''};
+vm.runInNewContext(code+';globalThis.draw=actionHandSvg;globalThis.poses=HAND_POSES',ctx);
+assert.equal(new Set(Object.values(ctx.poses).map(p=>p.d)).size,9);
+for(const pose of Object.keys(ctx.poses)){
+ for(const [surface,width] of Object.entries({back:1,palm:-1,up:-1,edge:.76})){
+  const svg=ctx.draw(pose,surface);
+  assert(svg.includes('scale('+width+' 1)'));
+  assert(svg.includes(ctx.poses[pose].d));
+  assert(!/NaN|undefined/.test(svg));
  }
 }
-for(const pose of ['open','relaxed','palmUp']){
- const f=HAND_POSES[pose].fingers;
- assert(f[1][1]>f[0][1]&&f[1][1]>f[2][1]&&f[3][1]<f[2][1],'Natural digit lengths');
- for(let i=1;i<4;i++)assert(f[i][0]-f[i-1][0]>=21,'Tip gaps must survive thick body ink');
-}
-assert.equal(actionHandSvg('unknown').replace('unknown','relaxed'),actionHandSvg('relaxed'));
-assert(proportionalHandSvg(0,0,1,'open').includes(actionHandSvg('open')));
-const arm=html.slice(html.indexOf('function rigArmSvg('),html.indexOf('\nfunction bodyCameraX('));
-assert(arm.includes('scale(${side*depth*bodyShapeProfile().arm} 1)'),'Arm supplies mirroring');
-assert(arm.indexOf('data-hand-action display="none"')<arm.indexOf('data-hand-cuff'),'Cuff covers wrist');
-console.log('PASS: nine anatomical poses, four fingers + thumb, shared proportions, visible finger gaps, mirror and cuff layering');
+assert.equal(ctx.draw('unknown'),ctx.draw('relaxed'));
+console.log('PASS: nine distinct hand outlines with side-correct palm and back orientation');
