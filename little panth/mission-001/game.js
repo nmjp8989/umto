@@ -77,6 +77,7 @@ const sound=sounds; // melody and all effects synthesized locally, no audio depe
 function img(path,x,y,w,h,clazz='',label=''){const el=n('image',{x,y,width:w,height:h,href:imageOf(path),'class':clazz,preserveAspectRatio:'xMidYMid meet'});if(label){el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label',label)}return el}
 function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-anchor':'middle','font-family':'Nunito,system-ui,sans-serif','font-size':size,'font-weight':'900',fill,stroke:'#23454d','stroke-width':.5});el.textContent=text;return el}
 function arrangeCast(type){
+ cast.replaceChildren();actorNodes.clear();
  const layouts={
  intro:[['baldev',345,665,420],['mehar',960,675,300]],
  harvest:[['baldev',160,657,320],['mehar',1130,666,260]],
@@ -153,7 +154,7 @@ async function harvest(){
  await speak('fieldIntro');setLabel('Swipe or tap each wheat patch five times','0 / 3 bundles','Swipe on the wheat to collect three bundles');
  for(let i=0;i<3;i++){
    const x=170+i*305,y=350;const holder=n('g',{'class':'wheat-target tap-target','data-patch':i,role:'button',tabindex:0,'aria-label':'Cut wheat patch '+(i+1)});
-   const picture=img(asset.patch,x,y,260,208);holder.append(picture);holder.dataset.cuts='0';
+   const picture=img(asset.patch,x,y,260,208);picture.style.pointerEvents='all';holder.append(picture);holder.dataset.cuts='0';
    const cut=()=>{
      if(stageBusy||holder.dataset.done)return;
      const count=Number(holder.dataset.cuts)+1;holder.dataset.cuts=String(count);sound.cut();
@@ -180,12 +181,7 @@ async function finishHarvest(){
 function fieldLoad(){
  setPhase('fieldLoad');loaded=0;stageBusy=false;props.replaceChildren();cart(435,320,.63);arrangeCast('load');
  setLabel('Load three sacks into the cart','0 / 3','Tap or drag the sacks onto the cart');
- looseSacks(3,async()=>{
-   if(stageBusy)return;loaded++;sound.load();updateCart();
-   setLabel('Load three sacks into the cart',loaded+' / 3');looseSacks(3-loaded,()=>{}); // replaced with active handlers below
-   if(loaded>=3){stageBusy=true;sound.cheer();await speak('loadThree');button('Head to the storage courtyard →',()=>storage())}
-   else drawFieldSacks();
- });
+ drawFieldSacks();
 }
 function drawFieldSacks(){looseSacks(3-loaded,async()=>{
  if(stageBusy)return;loaded++;sound.load();updateCart();setLabel('Load three sacks into the cart',loaded+' / 3');
