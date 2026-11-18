@@ -25,7 +25,7 @@ $('captionToggle').onclick=()=>{
 };
 const STORAGE_KEY='little-panth-lp001-v1';
 let story,cartSource,rig={},actors=[],currentVoice=null,voiceResolver=null,voiceEnabled=true,musicEnabled=true,
-    epoch=0,activeSpeaker='',stageBusy=false,loaded=0,harvested=0,selectedSack=null,shareCounts={home:0,seeds:0,sharing:0},quizIndex=0,
+    epoch=0,activeSpeaker='',activeListener='',stageBusy=false,loaded=0,harvested=0,selectedSack=null,shareCounts={home:0,seeds:0,sharing:0},quizIndex=0,
     eighthAttempts=0,locationId='village',act=1,runStarted=false,firstLoad=true;
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 const getXY=e=>{const pt=stage.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;return pt.matrixTransform(stage.getScreenCTM().inverse())};
@@ -34,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -44,8 +44,10 @@ async function oneLine(id,token,autoRead) {
  if(token!==epoch)return;
  const line=story.lines[id];if(!line)return;
  activeSpeaker=line.speaker;
- dialoguePose=storyPoses[id]||'idle';
+ activeListener=line.to||'';
+ dialoguePose=storyPoses[id]||'explain';
  dialogueStart=performance.now();
+ directAttention();
  captionRequired=!voiceEnabled||Boolean(line.sacred);
  updateCaptions();
  updateTalking();
@@ -91,7 +93,7 @@ async function oneLine(id,token,autoRead) {
  if(token!==epoch)return;
  if(lastFocus&&typeof lastFocus.focus==='function'&&lastFocus!==$('nextLine'))try{lastFocus.focus({preventScroll:true})}catch{}
 }
-async function speak(beat){const token=epoch;const ids=story.beats[beat]||[];stageBusy=true;for(const id of ids){if(token!==epoch)break;await oneLine(id,token,beat==='gurbani'||beat==='lessonExplain');}if(token===epoch){$('speech').hidden=true;activeSpeaker='';updateTalking();stageBusy=false;}return token===epoch}
+async function speak(beat){const token=epoch;const ids=story.beats[beat]||[];stageBusy=true;for(const id of ids){if(token!==epoch)break;await oneLine(id,token,beat==='gurbani'||beat==='lessonExplain'||story.lines[id]?.speaker==='narrator');}if(token===epoch){$('speech').hidden=true;activeSpeaker='';activeListener='';resetCamera();updateTalking();stageBusy=false;}return token===epoch}
 const sounds={
   ctx:null,gain:null,timer:null,tick:0,mood:'village',
   start(){try{if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.gain=this.ctx.createGain();this.gain.gain.value=.2;this.gain.connect(this.ctx.destination);}this.ctx.resume();if(!this.timer)this.timer=setInterval(()=>this.musicTick(),300)}catch{}},
@@ -111,7 +113,7 @@ function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-an
 function arrangeCast(type){
  cast.replaceChildren();
  const layouts={
- intro:[['baldev',265,660,430],['mehar',1110,675,320,'left']],
+ intro:[['baldev',265,660,430],['mehar',1050,675,320,'left']],
  harvest:[['baldev',160,657,320],['mehar',1100,666,290,'left']],
  load:[['baldev',180,656,310],['mehar',1115,666,280,'left']],
  storage:[['baldev',145,647,340],['mehar',1125,660,290,'left']],
@@ -120,9 +122,9 @@ function arrangeCast(type){
  share:[['baldev',245,660,390],['mehar',1100,655,285,'left']],
  sharingGame:[['baldev',96,665,310],['mehar',1180,665,265,'left']],
  shareDone:[['baldev',290,660,365],['mehar',665,655,280],['farmer',1040,655,345,'left']],
- finale:[['baldev',300,670,365],['mehar',1035,670,320,'left']],
+ finale:[['baldev',440,670,365],['mehar',825,670,320,'left']],
  };
- actors=(layouts[type]||layouts.intro).map(([id,x,y,height,view='right'])=>({id,x,y,height,view,frame:'',action:'idle',node:null}));
+ actors=(layouts[type]||layouts.intro).map(([id,x,y,height,view='right'])=>({id,x,y,height,view,homeView:view,frame:'',action:'idle',node:null}));
  renderCast();
  if(type==='requests'&&!reducedMotion.matches){
    for(const actor of actors.filter(a=>a.view==='left')){
@@ -136,10 +138,11 @@ function fallback(actor){
  const size=actor.id==='mehar'?0.76:1;
  const c={baldev:['#bc7641','#df873d','#f1c165'],mehar:['#c17f49','#e9b450','#fd6f69'],baba:['#c19565','#d3c4a3','#7bb2ad'],farmer:['#b88256','#ad7c51','#9cb87d']}[actor.id];
  const turban=actor.id==='mehar'?'<path d="M-44-122q35-50 90-4v24h-90Z" fill="#e28d49" stroke="#573323" stroke-width="4"/>':'<path d="M-51-129q0-43 51-52q51 11 51 52v25h-102Z" fill="'+c[1]+'" stroke="#4c3125" stroke-width="4"/><path d="M-48-139q46 11 96-6M-45-122q40 10 89-9" fill="none" stroke="#faf2d3" stroke-width="4"/>';
- return `<svg x="${-actor.height*.28}" y="${-actor.height}" width="${actor.height*.56}" height="${actor.height}" viewBox="-115 -200 230 390" overflow="visible"><g class="fallback-body"><path d="M-40 58L-44 151H-9L-4 69 9 151H45L41 56Z" fill="#524b53" stroke="#302b29" stroke-width="6"/><path d="M-56-19Q0-32 56-19L74 100H-69Z" fill="${c[2]}" stroke="#402f29" stroke-width="6"/><path d="M-52-9l-27 81 20 8 28-56M53-9l27 81-20 8-28-56" fill="${c[0]}" stroke="#493126" stroke-width="6"/><circle cy="-102" r="48" fill="${c[0]}" stroke="#493126" stroke-width="5"/>${turban}<circle cx="-17" cy="-106" r="4" fill="#282321"/><circle cx="18" cy="-106" r="4" fill="#282321"/><path d="M-12-84Q3-72 16-86" stroke="#733725" fill="none" stroke-width="3"/>${actor.id!=='mehar'?'<path d="M-24-69Q0-52 24-69L14-50H-12Z" fill="#5d4537"/>':''}</g></svg>`;
+ return `<svg x="${-actor.height*.28}" y="${-actor.height}" width="${actor.height*.56}" height="${actor.height}" viewBox="-115 -200 230 390" overflow="visible"><g class="fallback-body"><path d="M-40 58L-44 151H-9L-4 69 9 151H45L41 56Z" fill="#524b53" stroke="#302b29" stroke-width="6"/><path d="M-56-19Q0-32 56-19L74 100H-69Z" fill="${c[2]}" stroke="#402f29" stroke-width="6"/><path d="M-52-9l-27 81 20 8 28-56M53-9l27 81-20 8-28-56" fill="${c[0]}" stroke="#493126" stroke-width="6"/><circle cy="-102" r="48" fill="${c[0]}" stroke="#493126" stroke-width="5"/>${turban}<circle cx="${actor.view==='left'?-23:-11}" cy="-106" r="4" fill="#282321"/><circle cx="${actor.view==='left'?12:24}" cy="-106" r="4" fill="#282321"/><path d="M-12-84Q3-72 16-86" stroke="#733725" fill="none" stroke-width="3"/>${actor.id!=='mehar'?`<path d="${actor.id==='baba'?'M-35-83Q0-58 35-83Q40-36 0 1Q-40-36-35-83Z':actor.id==='farmer'?'M-35-83Q0-58 35-83Q32-36 0-24Q-32-36-35-83Z':'M-35-83Q0-58 35-83Q39-38 0-30Q-39-38-35-83Z'}" fill="${actor.id==='baba'?'#e0e1e1':actor.id==='farmer'?'#a8a8a2':'#34312d'}"/>`:''}</g></svg>`;
 }
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const storyPoses={
+ lp005:'explain',lp010:'wonder',lp011:'point',lp012:'beckon',lp015:'point',lp028:'explain',
  lp001:'beckon',lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
  lp007:'wonder',lp008:'celebrate',lp009:'point',lp013:'point',lp014:'alarm',
  lp016:'alarm',lp017:'alarm',lp018:'alarm',lp019:'reflect',lp020:'reflect',
@@ -149,6 +152,33 @@ const storyPoses={
  lp037:'wonder',lp038:'alarm'
 };
 let dialoguePose='idle', dialogueStart=0;
+function directAttention(){
+ const speaker=actors.find(a=>a.id===activeSpeaker);
+ const listener=actors.find(a=>a.id===activeListener)||actors.filter(a=>a!==speaker).sort((a,b)=>Math.abs(a.x-(speaker?.x||640))-Math.abs(b.x-(speaker?.x||640)))[0];
+ for(const actor of actors){
+  const target=actor===speaker?listener:speaker;
+  if(!target||target===actor)continue;
+  const view=target.x<actor.x?'left':'right';
+  if(actor.view!==view){actor.view=view;actor.frame='';actor.art._sprite=null;actor.art.replaceChildren();}
+  actor.node.dataset.facing=actor.view;
+ }
+}
+const camera={x:0,y:0,w:1280,h:720};
+const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+function resetCamera(){Object.assign(camera,{x:0,y:0,w:1280,h:720});stage.setAttribute('viewBox','0 0 1280 720')}
+function animateCamera(now){
+ if(reducedMotion.matches||!activeSpeaker||!stageBusy){if(camera.w!==1280)resetCamera();return}
+ const actor=actors.find(a=>a.id===activeSpeaker);
+ const elapsed=Math.max(0,now-dialogueStart);
+ const zoom=actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
+ const w=1280/zoom,h=720/zoom;
+ const x=clamp((actor?.x??640)-w/2,0,1280-w);
+ const focusY=actor?actor.y-actor.height*.64:360;
+ const y=clamp(focusY-h*.40,0,720-h);
+ for(const [k,v] of Object.entries({x,y,w,h}))camera[k]+=(v-camera[k])*.045;
+ stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));
+}
+
 function renderCast(){
  for(const actor of actors){
    const node=n('g',{class:'actor',id:'actor-'+actor.id,transform:`translate(${actor.x} ${actor.y})`});
@@ -170,7 +200,8 @@ function renderActor(actor,now=performance.now()){
  const mouth=!reducedMotion.matches&&speaking&&clipPlaying?['talkA','talkEE','idle','talkO','talkEE'][Math.floor(speakingTime/118)%5]:'idle';
  const blink=!reducedMotion.matches&&(now+actor.x*3)%4300<135;
  const reaction=speaking?dialoguePose:actor.action;
- const gesture=speaking&&!reducedMotion.matches&&elapsed>1450&&elapsed%2400>1450?'idle':reaction;
+ const listener=Boolean(activeSpeaker&&activeSpeaker!=='narrator'&&!speaking);
+  const gesture=reducedMotion.matches?'idle':speaking?(elapsed%3000<1900?reaction:(reaction==='explain'?'offer':'explain')):listener&&actor.action==='idle'&&(elapsed+actor.x)%3500<650?'nod':reaction;
  const walkTime=now-(actor.walkStart??-Infinity);
  const walk=walkTime>=0&&walkTime<760;
  const pose=walk?'walk'+Math.floor(walkTime/760*12):gesture;
@@ -179,6 +210,7 @@ function renderActor(actor,now=performance.now()){
  const frame=slot?.frames[pose]??slot?.frames.idle;
  if(!slot){
    if(!art.firstChild)art.innerHTML=fallback(actor);
+    art.firstElementChild?.setAttribute('data-fallback-facing',actor.view);
    return;
  }
  if(!art._sprite){
@@ -188,7 +220,7 @@ function renderActor(actor,now=performance.now()){
    art._parts={};
  }
  const face=slot.frames[mouth];
- const key=[pose,mouth,blink].join(':');
+ const key=[actor.view,pose,mouth,blink].join(':');
  if(key===actor.frame)return;
  actor.frame=key;
  for(const [part,original] of Object.entries(frame.parts)){
@@ -205,6 +237,7 @@ function renderActor(actor,now=performance.now()){
 function updateTalking(){for(const actor of actors)renderActor(actor)}
 let last=0;
 function animate(now){
+ animateCamera(now);
  if(now-last>55){last=now;for(const actor of actors)renderActor(actor,now)}
  requestAnimationFrame(animate);
 }
@@ -426,7 +459,7 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c]=await Promise.all([fetch('dialogue.json?v=1'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);
+   const [d,c]=await Promise.all([fetch('dialogue.json?v=2'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);
    if(!d.ok)throw Error('Mission dialogue not available');
    story=await d.json();cartSource=c.ok?await c.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}

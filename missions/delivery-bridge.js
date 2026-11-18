@@ -18,10 +18,10 @@
  if(littlePanth){
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
-   baldev:{preset:'adult-harpreet',colours:{headwear:'dastaar',headwearColour:'#bb5729',shirt:'kurta',shirtColour:'#e7ad43',trouserColour:'#675f52',facialHair:'beard_tied',beard:'tied',beardColour:'#34312d',moustache:'thick',moustacheColour:'#34312d',bodyType:'classic'}},
+   baldev:{preset:'adult-harpreet',colours:{headwear:'dastaar',headwearColour:'#bb5729',shirt:'kurta',shirtColour:'#e7ad43',trouserColour:'#675f52',facialHair:'beard_round',beard:'round',beardColour:'#34312d',moustache:'thick',moustacheColour:'#34312d',bodyType:'classic'}},
    mehar:{preset:'kid-meher',colours:{headwear:'patka',headwearColour:'#be5378',shirt:'kurtaChunni',shirtColour:'#397e92',bottom:'salwar',trouserColour:'#e6a870',bodyType:'short'}},
-   baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#477d76',trouserColour:'#e8e1cd',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
-   farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#78658f',shirt:'kurta',shirtColour:'#84935e',trouserColour:'#d6c6a4',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
+   baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#477d76',trouserColour:'#e8e1cd',facialHair:'beard_flowing',beard:'flowing',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
+   farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#78658f',shirt:'kurta',shirtColour:'#84935e',trouserColour:'#d6c6a4',facialHair:'beard_wavy',beard:'wavy',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
   });
  }
  const bank={};let serial=300;
@@ -42,7 +42,7 @@
    base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
- const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome'};
+ const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod'};
    const keys=littlePanth?['idle','blink','talkA','talkEE','talkO',...Object.keys(storyReactions),...Array.from({length:12},(_,i)=>'walk'+i)]:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
    for(const key of keys){
     const copy=base.svg.cloneNode(true);

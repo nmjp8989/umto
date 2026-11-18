@@ -36,7 +36,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  assert.equal(await page.locator('#english').isVisible(),true,'Muted lines remain readable with CC off');
  await page.locator('#captionToggle').click();
  await shot('01-opening');
- await advance(6);await action();await advance(1);await shot('02-harvest');
+ await advance(7);await action();await advance(1);await shot('02-harvest');
  for(let p=0;p<3;p++)for(let i=0;i<5;i++)await page.locator('[data-patch="'+p+'"]').click({force:true});
  await advance(2);await shot('03-cart-load');
  for(let i=0;i<3;i++)await load();
@@ -50,7 +50,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
  await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});
- await advance(4);await action();await advance(1);await shot('07-sharing');
+ await advance(5);await action();await advance(1);await shot('07-sharing');
  assert.equal(await page.locator('#actor-baldev').getAttribute('transform'),'translate(96 665)');
  assert.equal(await page.locator('#actor-mehar').getAttribute('transform'),'translate(1180 665)');
  for(const [key,count] of [['home',3],['seeds',2],['sharing',3]]){
@@ -59,12 +59,14 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
    await page.locator('#shareTargets [data-target="'+key+'"]').click({force:true});
   }
  }
- await advance(4);
+ await advance(5);
  for(let i=0;i<3;i++){
   await page.locator('#quiz:not([hidden])').waitFor({timeout:15000});
   await page.locator('#quizChoices button').nth(i===2?2:1).click();
   await page.waitForTimeout(1300);
  }
+ await page.locator('#actor-mehar').evaluate(el=>el.dataset.facing==='left').then(v=>assert.ok(v,'Mehar should face Baldev in finale'));
+ await page.waitForTimeout(1000);assert.ok(Number((await page.locator('#stage').getAttribute('viewBox')).split(' ')[2])<1280,'Dialogue camera should push in');
  await advance(2);await page.locator('#finish:not([hidden])').waitFor({timeout:15000});
  await shot('08-complete');
  assert.equal(errors.length,0,'Browser errors: '+errors.join('\n'));
