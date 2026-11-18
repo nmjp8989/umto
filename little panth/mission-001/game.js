@@ -71,7 +71,7 @@ const sounds={
   load(){this.tone(135,.24,.14,'triangle');this.tone(205,.12,.045,'sine',.1)},
   wobble(){for(let j=0;j<4;j++)this.tone(145+j*13,.16,.08,'sawtooth',j*.095)},
   crash(){this.tone(88,.75,.2,'sawtooth');this.tone(66,.75,.18,'triangle',.2);this.tone(290,.17,.1,'square',.05)},
-  cheer(){[392,494,587,784].forEach((f,i)=>this.tone(f,.25,.1,'sine',i*.12)}
+  cheer(){[392,494,587,784].forEach((f,i)=>this.tone(f,.25,.1,'sine',i*.12))}
 };
 const sound=sounds; // melody and all effects synthesized locally, no audio dependencies
 function img(path,x,y,w,h,clazz='',label=''){const el=n('image',{x,y,width:w,height:h,href:imageOf(path),'class':clazz,preserveAspectRatio:'xMidYMid meet'});if(label){el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label',label)}return el}
