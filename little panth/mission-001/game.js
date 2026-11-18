@@ -79,7 +79,7 @@ function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-an
 function arrangeCast(type){
  cast.replaceChildren();actorNodes.clear();
  const layouts={
- intro:[['baldev',345,665,420],['mehar',960,675,300]],
+ intro:[['baldev',260,665,420],['mehar',1180,675,300]],
  harvest:[['baldev',160,657,320],['mehar',1130,666,260]],
  load:[['baldev',180,656,310],['mehar',1115,666,260]],
  storage:[['baldev',145,647,340],['mehar',1153,660,265]],
@@ -146,7 +146,7 @@ function looseSacks(count,onCollect){
 }
 async function intro(){
  setPhase('intro');scene('village',1,'THE EMERGENCY');sound.setMood('village');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
- arrangeCast('intro');setLabel('What is Chacha Baldev so worried about?');
+ arrangeCast('intro');cart(622,320,.55);decoratePile(3,430,558);setLabel('What is Chacha Baldev so worried about?');
  await speak('intro');button('Follow Baldev to the fields →',()=>harvest());
 }
 async function harvest(){
@@ -297,7 +297,7 @@ function showQuestion(){
  }
 }
 async function finishQuiz(){
- setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');arrangeCast('finale');setLabel('You helped Baldev discover Santokh');
+ setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(570,320,.55);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
  await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=false;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
 }
 async function begin(resume=false){
