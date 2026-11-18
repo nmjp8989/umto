@@ -1,0 +1,56 @@
+{
+  "lp001": {
+    "hash": "82cc9ede11a7076ac2168f794251c1b6fa2ead0b11490ab51e106c9d3a60084a",
+    "voice": "Puck",
+    "text": "ਓਏ ਮੇਹਰ! ਜਲਦੀ ਆ! ਬਹੁਤ ਵੱਡਾ ਸੰਕਟ ਆ ਗਿਆ!",
+    "speaker": "baldev"
+  },
+  "lp002": {
+    "hash": "3fd7caecd039ae2bc1e52d7aec8cf2edfb612a480611331791fe66a4065cd7bc",
+    "voice": "Kore",
+    "text": "ਕੀ ਹੋਇਆ ਚਾਚਾ ਜੀ? ਤੂਫ਼ਾਨ ਆ ਗਿਆ?",
+    "speaker": "mehar"
+  },
+  "lp003": {
+    "hash": "76f139f09fe8bfc2ce94f6bc5826f404c831d1991741b88a4ca7c9051a44c9af",
+    "voice": "Puck",
+    "text": "ਉਸ ਤੋਂ ਵੀ ਬੁਰਾ! ਮੇਰੀ ਕਣਕ ਦੀ ਗੱਡੀ ਹਾਲੇ ਵੀ ਖਾਲੀ ਆ!",
+    "speaker": "baldev"
+  },
+  "lp004": {
+    "hash": "279eb30b35ddc97e7e81552ecb51a8508c57f62b3878ea13900513e2755b488b",
+    "voice": "Kore",
+    "text": "ਪਰ ਚਾਚਾ ਜੀ, ਤੁਹਾਡੇ ਕੋਲ ਤਾਂ ਪਹਿਲਾਂ ਹੀ ਬੋਰੀਆਂ ਨੇ!",
+    "speaker": "mehar"
+  },
+  "lp005": {
+    "hash": "8de1e26b6b63be1c833e3ec3e164cf79dbce98c121167d9f6c9e5f69b89fdce2",
+    "voice": "Puck",
+    "text": "ਹਾਂ, ਪਰ ਜਿੰਨੀ ਜ਼ਿਆਦਾ ਕਣਕ, ਓਨੀ ਜ਼ਿਆਦਾ ਖੁਸ਼ੀ!",
+    "speaker": "baldev"
+  },
+  "lp006": {
+    "hash": "b3c0474e342e2ac35b85f9ed18934b88fcf7998405062e7111d5565f3a7e790d",
+    "voice": "Puck",
+    "text": "ਅੱਜ ਆਪਾਂ ਦੁਨੀਆ ਦੀ ਸਭ ਤੋਂ ਵੱਡੀ ਗੱਡੀ ਭਰਾਂਗੇ! ਚਲੋ!",
+    "speaker": "baldev"
+  },
+  "lp007": {
+    "hash": "0986316a26cd75614b140249fcb5ff74904517f8f30dd4464989e386f0539cc4",
+    "voice": "Puck",
+    "text": "ਵਾਹ! ਸੋਨਾ ਹੀ ਸੋਨਾ! ਚਲੋ, ਕਣਕ ਕੱਟਣੀ ਸ਼ੁਰੂ ਕਰੋ!",
+    "speaker": "baldev"
+  },
+  "lp008": {
+    "hash": "beadcc77d9d8cbc3f83f58bb746e067ed2815e49c597a5380cea6de98d7d4a45",
+    "voice": "Puck",
+    "text": "ਸ਼ਾਬਾਸ਼! ਤਿੰਨ ਗੱਠੜੀਆਂ ਤਿਆਰ! ਹੁਣ ਕਣਕ ਦੀਆਂ ਬੋਰੀਆਂ ਬਣ ਗਈਆਂ!",
+    "speaker": "baldev"
+  },
+  "lp009": {
+    "hash": "f89214ff77f73134817c2b81ac4ea692113385a37f110ef3e6f2f1f3261f53d1",
+    "voice": "Puck",
+    "text": "ਲੋ ਜੀ, ਮੇਰੀ ਗੱਡੀ ਆ ਗਈ! ਲੋਡ ਇਟ! ਲੋਡ ਇਟ!",
+    "speaker": "baldev"
+  }
+}
