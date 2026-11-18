@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 128 215 202" width="215" height="202">
+<defs>
+    <!-- Shared Gradients Matching bullock-cart.svg -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcfaff"/>
+      <stop offset="100%" stop-color="#f2ecfa"/>
+    </linearGradient>
+
+    <linearGradient id="wheatGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe761"/>
+      <stop offset="60%" stop-color="#f5be2e"/>
+      <stop offset="100%" stop-color="#cc8b14"/>
+    </linearGradient>
+
+    <linearGradient id="sackGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe18c"/>
+      <stop offset="55%" stop-color="#f2be57"/>
+      <stop offset="100%" stop-color="#cc8d2b"/>
+    </linearGradient>
+
+    <linearGradient id="woodHandle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e38d3b"/>
+      <stop offset="100%" stop-color="#8c4514"/>
+    </linearGradient>
+
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cfd8de"/>
+      <stop offset="100%" stop-color="#8b99a3"/>
+    </linearGradient>
+
+    <linearGradient id="oxGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="65%" stop-color="#f7ead4"/>
+      <stop offset="100%" stop-color="#e3c8a1"/>
+    </linearGradient>
+
+    <linearGradient id="hornGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e6642"/>
+      <stop offset="100%" stop-color="#59331d"/>
+    </linearGradient>
+
+    <linearGradient id="bellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffea61"/>
+      <stop offset="55%" stop-color="#f5b81d"/>
+      <stop offset="100%" stop-color="#c47e0e"/>
+    </linearGradient>
+
+    <linearGradient id="chickenGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="55%" stop-color="#f7b754"/>
+      <stop offset="100%" stop-color="#cf7129"/>
+    </linearGradient>
+
+    <linearGradient id="basketGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0b654"/>
+      <stop offset="55%" stop-color="#d48e32"/>
+      <stop offset="100%" stop-color="#9e6019"/>
+    </linearGradient>
+
+    <!-- Reusable Wheat Stalk for Patch -->
+    <g id="patchStalk" stroke="#1f140d" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#c98912" stroke-width="3.2"/>
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+      <path d="M-1,-22 Q-18,-50 -14,-78 Q-6,-54 0,-32 Z" fill="#e6a81c" stroke-width="2"/>
+      <path d="M1,-36 Q16,-62 18,-86 Q7,-62 1,-44 Z" fill="#ffd238" stroke-width="2"/>
+      <g fill="#ffd238" stroke-width="2">
+        <ellipse cx="-2" cy="-112" rx="4.2" ry="7" transform="rotate(-22 -2 -112)"/>
+        <ellipse cx="8" cy="-116" rx="4.2" ry="7" transform="rotate(22 8 -116)"/>
+        <ellipse cx="-1" cy="-124" rx="4.2" ry="7" transform="rotate(-20 -1 -124)"/>
+        <ellipse cx="9" cy="-128" rx="4.2" ry="7" transform="rotate(20 9 -128)"/>
+        <ellipse cx="1" cy="-136" rx="3.8" ry="6.5" transform="rotate(-14 1 -136)"/>
+        <ellipse cx="10" cy="-138" rx="3.8" ry="6.5" transform="rotate(14 10 -138)"/>
+        <ellipse cx="6" cy="-147" rx="3.5" ry="6" transform="rotate(6 6 -147)"/>
+      </g>
+      <path d="M6,-153 L10,-168 M-1,-138 L-8,-152 M11,-138 L18,-150" fill="none" stroke-width="1.5"/>
+    </g>
+  </defs>
+<g id="asset-wheat-sack" transform="translate(145, 252)">
+      <ellipse id="sack-shadow" cx="0" cy="68" rx="72" ry="13" fill="#b38c68" opacity="0.38"/>
+
+      <g id="sack-body" stroke="#1f140d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Ruffled Top Collar -->
+        <path d="M-36,-86 Q-24,-114 -6,-100 Q6,-116 20,-102 Q34,-114 38,-86 Q20,-70 0,-70 Q-20,-70 -36,-86 Z" fill="#f7c966"/>
+        <!-- Plump Burlap Body -->
+        <path d="M-34,-74 C-74,-52 -88,18 -60,54 C-38,76 38,76 60,54 C88,18 74,-52 34,-74 Z" fill="url(#sackGrad)"/>
+        <!-- Highlights & Fold Creases -->
+        <path d="M-46,-28 Q-58,4 -48,36" fill="none" stroke="#fff0b3" stroke-width="4" opacity="0.6"/>
+        <path d="M-28,-54 Q-38,-22 -32,16 M28,-54 Q38,-18 32,20 M-22,42 Q0,52 24,42" fill="none" stroke="#b5771f" stroke-width="2"/>
+
+        <!-- Rope Tie -->
+        <g id="sack-tie">
+          <path d="M-34,-74 Q0,-64 34,-74" fill="none" stroke="#9e5a1d" stroke-width="7"/>
+          <path d="M-34,-74 Q0,-64 34,-74" fill="none" stroke="#1f140d" stroke-width="2"/>
+          <path d="M24,-70 L42,-58 M22,-66 L36,-48" fill="none" stroke="#9e5a1d" stroke-width="4.5"/>
+          <path d="M24,-70 L42,-58 M22,-66 L36,-48" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+        </g>
+
+        <!-- Stamped Wheat Emblem on Sack -->
+        <g id="sack-wheat-emblem" transform="translate(0, 6) rotate(22)" stroke="#3b220d" stroke-width="1.8" fill="#e69e24">
+          <line x1="0" y1="26" x2="0" y2="-24" stroke-width="2.2"/>
+          <ellipse cx="-5" cy="4" rx="3.5" ry="6" transform="rotate(-25 -5 4)"/>
+          <ellipse cx="5" cy="0" rx="3.5" ry="6" transform="rotate(25 5 0)"/>
+          <ellipse cx="-5" cy="-8" rx="3.5" ry="6" transform="rotate(-25 -5 -8)"/>
+          <ellipse cx="5" cy="-12" rx="3.5" ry="6" transform="rotate(25 5 -12)"/>
+          <ellipse cx="0" cy="-22" rx="3.2" ry="5.5"/>
+        </g>
+      </g>
+    </g>
+</svg>
