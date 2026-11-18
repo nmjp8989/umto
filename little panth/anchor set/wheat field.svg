@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#47b4f5"/>
+      <stop offset="100%" stop-color="#87d4fa"/>
+    </linearGradient>
+
+    <linearGradient id="wheatSeaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffeb66"/>
+      <stop offset="45%" stop-color="#ffd22b"/>
+      <stop offset="100%" stop-color="#f0ae14"/>
+    </linearGradient>
+
+    <!-- Small Bold Cartoon Wheat Stalk (kept compact to emphasize vast scale) -->
+    <g id="wheatSmall" stroke="#17120e" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0,62 Q-1,32 2,0" fill="none" stroke-width="2.2"/>
+      <path d="M-1,56 Q-10,38 -9,20 Q-4,36 -1,50 Z" fill="#f2b216" stroke-width="1.8"/>
+      <path d="M1,48 Q9,32 11,16 Q5,32 1,44 Z" fill="#ffcf2e" stroke-width="1.8"/>
+      <g fill="#ffcf2e" stroke-width="1.8">
+        <ellipse cx="-3.5" cy="-1" rx="3" ry="5" transform="rotate(-24 -3.5 -1)"/>
+        <ellipse cx="4" cy="-4" rx="3" ry="5" transform="rotate(24 4 -4)"/>
+        <ellipse cx="-2.5" cy="-9" rx="3" ry="4.8" transform="rotate(-20 -2.5 -9)"/>
+        <ellipse cx="4.5" cy="-12" rx="3" ry="4.8" transform="rotate(20 4.5 -12)"/>
+        <ellipse cx="-1" cy="-17" rx="2.8" ry="4.5" transform="rotate(-14 -1 -17)"/>
+        <ellipse cx="5" cy="-19" rx="2.8" ry="4.5" transform="rotate(14 5 -19)"/>
+        <ellipse cx="2.5" cy="-25" rx="2.5" ry="4.2" transform="rotate(6 2.5 -25)"/>
+      </g>
+      <path d="M2.5,-29 L5,-38 M-2.5,-18 L-6.5,-27 M5.5,-18 L10,-26" fill="none" stroke-width="1.4"/>
+    </g>
+
+    <!-- Distant Tiny Wheat Ear Cluster -->
+    <g id="wheatTiny" stroke="#17120e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0,22 L1,0" fill="none"/>
+      <ellipse cx="-1.5" cy="-2" rx="2" ry="3.5" fill="#ffd22b" transform="rotate(-18 -1.5 -2)"/>
+      <ellipse cx="2.5" cy="-4" rx="2" ry="3.5" fill="#ffd22b" transform="rotate(18 2.5 -4)"/>
+      <ellipse cx="1" cy="-9" rx="1.8" ry="3.2" fill="#ffdf4d"/>
+    </g>
+
+    <!-- Grass Tuft -->
+    <g id="grassTuft" fill="#6dbf2c" stroke="#17120e" stroke-width="2" stroke-linejoin="round">
+      <path d="M-14,0 L-18,-13 L-8,-4 L-3,-18 L2,-4 L11,-14 L9,0 Z"/>
+    </g>
+  </defs>
+
+  <!-- 1. SKY & BOLD-OUTLINED CLOUDS -->
+  <rect width="1280" height="245" fill="url(#skyGrad)"/>
+  <g fill="#fffcf5" stroke="#17120e" stroke-width="3.5" stroke-linejoin="round">
+    <path d="M88,112 C48,112 32,90 42,72 C52,56 76,54 92,60 C98,38 120,32 136,38 C146,10 184,6 208,18 C228,28 234,48 246,50 C268,52 278,68 294,70 C318,72 326,92 310,102 C294,112 260,110 232,108 C198,120 140,122 112,112 Z"/>
+    <path d="M604,132 C576,132 564,118 574,106 C582,96 598,96 608,100 C614,82 638,80 652,88 C662,94 664,102 676,104 C692,106 696,120 684,126 C670,134 630,134 604,132 Z"/>
+    <path d="M1076,112 C1036,112 1018,98 1028,82 C1038,68 1060,66 1076,72 C1084,50 1110,44 1126,50 C1138,28 1172,24 1194,36 C1210,46 1216,60 1232,62 C1256,64 1260,86 1244,98 C1228,110 1192,108 1166,108 C1138,116 1098,116 1076,112 Z"/>
+  </g>
+
+  <!-- 2. LOW DISTANT HORIZON TREELINE (NO HOUSES OR GURDWARA) -->
+  <g stroke="#17120e" stroke-width="2" stroke-linejoin="round">
+    <path d="M0,236 L0,224 Q20,214 40,222 Q62,212 85,222 Q110,216 132,223 Q158,210 184,222 Q212,216 238,223 Q266,214 292,222 Q324,218 354,224 Q382,212 412,222 Q442,218 470,224 Q498,214 528,223 Q560,218 590,224 Q620,212 648,222 Q680,218 712,224 Q744,212 774,222 Q806,218 836,224 Q868,214 898,222 Q928,218 960,224 Q992,212 1022,222 Q1054,216 1084,224 Q1114,212 1144,222 Q1176,218 1206,224 Q1236,214 1264,222 L1280,224 L1280,236 Z" fill="#5ea832"/>
+    <!-- A few subtle distant low trees for horizon scale -->
+    <path d="M162,226 Q168,204 186,204 Q204,204 210,226 Z" fill="#6ec23a"/>
+    <path d="M518,226 Q526,202 544,202 Q562,202 568,226 Z" fill="#6ec23a"/>
+    <path d="M982,226 Q988,204 1006,204 Q1022,204 1028,226 Z" fill="#6ec23a"/>
+  </g>
+
+  <!-- 3. ENORMOUS UNINTERRUPTED WHEAT FIELD (NO PATH) -->
+  <rect x="0" y="232" width="1280" height="302" fill="url(#wheatSeaGrad)" stroke="#17120e" stroke-width="2.4"/>
+
+  <!-- Sweeping Horizon Perspective Ripples -->
+  <g fill="none" stroke="#d9970f" stroke-width="1.8" opacity="0.75">
+    <path d="M0,248 Q320,244 640,248 Q960,252 1280,248"/>
+    <path d="M0,264 Q360,268 720,262 Q1020,258 1280,264"/>
+    <path d="M0,284 Q280,280 580,286 Q920,290 1280,284"/>
+    <path d="M0,310 Q340,316 680,308 Q980,302 1280,310"/>
+    <path d="M0,342 Q320,336 640,344 Q960,350 1280,342"/>
+    <path d="M0,382 Q360,388 720,380 Q1000,374 1280,382"/>
+  </g>
+  <!-- Wind-Swept Golden Shadows -->
+  <g fill="#e3a012" opacity="0.28">
+    <ellipse cx="240" cy="296" rx="190" ry="7"/>
+    <ellipse cx="780" cy="276" rx="220" ry="6"/>
+    <ellipse cx="1050" cy="328" rx="180" ry="8"/>
+    <ellipse cx="480" cy="364" rx="210" ry="9"/>
+    <ellipse cx="920" cy="404" rx="230" ry="10"/>
+    <ellipse cx="220" cy="418" rx="170" ry="9"/>
+  </g>
+
+  <!-- Far-Midground Tiny Wheat Clusters (gives huge depth) -->
+  <g>
+    <use href="#wheatTiny" transform="translate(42, 272) scale(0.75)"/>
+    <use href="#wheatTiny" transform="translate(118, 268) scale(0.72) rotate(5)"/>
+    <use href="#wheatTiny" transform="translate(205, 274) scale(0.78) rotate(-4)"/>
+    <use href="#wheatTiny" transform="translate(292, 270) scale(0.74)"/>
+    <use href="#wheatTiny" transform="translate(384, 275) scale(0.76) rotate(6)"/>
+    <use href="#wheatTiny" transform="translate(476, 269) scale(0.72) rotate(-5)"/>
+    <use href="#wheatTiny" transform="translate(566, 274) scale(0.78)"/>
+    <use href="#wheatTiny" transform="translate(658, 270) scale(0.74) rotate(4)"/>
+    <use href="#wheatTiny" transform="translate(748, 275) scale(0.76) rotate(-6)"/>
+    <use href="#wheatTiny" transform="translate(840, 269) scale(0.72)"/>
+    <use href="#wheatTiny" transform="translate(932, 274) scale(0.78) rotate(5)"/>
+    <use href="#wheatTiny" transform="translate(1024, 270) scale(0.74) rotate(-4)"/>
+    <use href="#wheatTiny" transform="translate(1118, 275) scale(0.76)"/>
+    <use href="#wheatTiny" transform="translate(1210, 270) scale(0.74) rotate(4)"/>
+
+    <use href="#wheatTiny" transform="translate(75, 316) scale(0.95) rotate(-5)"/>
+    <use href="#wheatTiny" transform="translate(162, 320) scale(0.98) rotate(4)"/>
+    <use href="#wheatTiny" transform="translate(254, 314) scale(0.95)"/>
+    <use href="#wheatTiny" transform="translate(342, 322) scale(1.0) rotate(-6)"/>
+    <use href="#wheatTiny" transform="translate(432, 316) scale(0.96) rotate(5)"/>
+    <use href="#wheatTiny" transform="translate(524, 320) scale(0.98)"/>
+    <use href="#wheatTiny" transform="translate(614, 315) scale(0.95) rotate(-4)"/>
+    <use href="#wheatTiny" transform="translate(706, 322) scale(1.0) rotate(6)"/>
+    <use href="#wheatTiny" transform="translate(796, 316) scale(0.96)"/>
+    <use href="#wheatTiny" transform="translate(888, 320) scale(0.98) rotate(-5)"/>
+    <use href="#wheatTiny" transform="translate(978, 315) scale(0.95) rotate(4)"/>
+    <use href="#wheatTiny" transform="translate(1070, 322) scale(1.0)"/>
+    <use href="#wheatTiny" transform="translate(1162, 316) scale(0.96) rotate(-4)"/>
+    <use href="#wheatTiny" transform="translate(1248, 320) scale(0.98) rotate(5)"/>
+  </g>
+
+  <!-- Midground Small Wheat Row -->
+  <g>
+    <use href="#wheatSmall" transform="translate(24, 366) scale(0.66) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(88, 372) scale(0.68) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(154, 365) scale(0.65) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(220, 370) scale(0.68) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(286, 366) scale(0.66) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(352, 372) scale(0.68) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(418, 365) scale(0.65) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(484, 370) scale(0.68) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(550, 366) scale(0.66) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(616, 372) scale(0.68) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(682, 365) scale(0.65) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(748, 370) scale(0.68) rotate(-6)"/>
+    <use href="#wheatSmall" transform="translate(814, 366) scale(0.66) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(880, 372) scale(0.68) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(946, 365) scale(0.65) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(1012, 370) scale(0.68) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(1078, 366) scale(0.66) rotate(3)"/>
+    <use href="#wheatSmall" transform="translate(1144, 372) scale(0.68) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(1210, 366) scale(0.66) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(1264, 370) scale(0.68) rotate(-3)"/>
+  </g>
+
+  <!-- Near-Midground Small Wheat Row -->
+  <g>
+    <use href="#wheatSmall" transform="translate(52, 424) scale(0.82) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(120, 428) scale(0.84) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(188, 422) scale(0.80) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(256, 428) scale(0.84) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(324, 424) scale(0.82) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(392, 428) scale(0.84) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(460, 422) scale(0.80) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(528, 428) scale(0.84) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(596, 424) scale(0.82) rotate(-6)"/>
+    <use href="#wheatSmall" transform="translate(664, 428) scale(0.84) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(732, 422) scale(0.80) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(800, 428) scale(0.84) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(868, 424) scale(0.82) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(936, 428) scale(0.84) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(1004, 422) scale(0.80) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(1072, 428) scale(0.84) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(1140, 424) scale(0.82) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(1208, 428) scale(0.84) rotate(4)"/>
+  </g>
+
+  <!-- 4. FOREGROUND DIRT GROUND & GRASSY FIELD BORDER -->
+  <rect x="0" y="528" width="1280" height="192" fill="#e69e62"/>
+  <path d="M0,528 L1280,528 L1280,552 Q960,558 640,550 Q320,544 0,552 Z" fill="#cf8348" opacity="0.55"/>
+
+  <!-- Grass Strip along Front Edge of Wheat Field -->
+  <path d="M0,516 Q320,510 640,516 Q960,522 1280,516 L1280,534 Q960,540 640,534 Q320,528 0,534 Z" fill="#6dbf2c" stroke="#17120e" stroke-width="2.4"/>
+
+  <!-- Front Edge Small Wheat Stalks (Compact & Dense across Full Width) -->
+  <g>
+    <use href="#wheatSmall" transform="translate(18, 466) scale(0.95) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(62, 470) scale(0.92) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(106, 464) scale(0.96) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(150, 470) scale(0.92) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(194, 465) scale(0.95) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(238, 470) scale(0.92) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(282, 464) scale(0.96) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(326, 469) scale(0.93) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(370, 465) scale(0.95) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(414, 470) scale(0.92) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(458, 464) scale(0.96) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(502, 470) scale(0.92) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(546, 465) scale(0.95) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(590, 469) scale(0.93) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(634, 464) scale(0.96) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(678, 470) scale(0.92) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(722, 465) scale(0.95) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(766, 470) scale(0.92) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(810, 464) scale(0.96) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(854, 469) scale(0.93) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(898, 465) scale(0.95) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(942, 470) scale(0.92) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(986, 464) scale(0.96) rotate(5)"/>
+    <use href="#wheatSmall" transform="translate(1030, 470) scale(0.92) rotate(-5)"/>
+    <use href="#wheatSmall" transform="translate(1074, 465) scale(0.95) rotate(4)"/>
+    <use href="#wheatSmall" transform="translate(1118, 469) scale(0.93) rotate(-4)"/>
+    <use href="#wheatSmall" transform="translate(1162, 464) scale(0.96) rotate(6)"/>
+    <use href="#wheatSmall" transform="translate(1206, 470) scale(0.92) rotate(-3)"/>
+    <use href="#wheatSmall" transform="translate(1250, 465) scale(0.95) rotate(5)"/>
+  </g>
+
+  <!-- 5. CLEAN FOREGROUND GROUND DETAILS -->
+  <g id="foreground-details">
+    <use href="#grassTuft" transform="translate(160, 645) scale(0.95)"/>
+    <use href="#grassTuft" transform="translate(1180, 665) scale(1.15)"/>
+    <use href="#grassTuft" transform="translate(740, 540) scale(0.8)"/>
+
+    <g fill="#aeb4ba" stroke="#17120e" stroke-width="2.2" stroke-linejoin="round">
+      <path d="M312,596 Q322,584 334,590 Q340,596 332,600 L312,598 Z"/>
+      <path d="M336,598 Q346,590 356,596 Q358,600 350,602 L336,600 Z"/>
+      <path d="M884,678 Q898,662 914,668 Q922,676 912,682 L884,680 Z"/>
+      <ellipse cx="620" cy="612" rx="7" ry="3.5"/>
+    </g>
+
+    <g fill="none" stroke="#593518" stroke-width="2" stroke-linecap="round" opacity="0.7">
+      <path d="M240,658 Q300,648 375,658"/>
+      <path d="M510,636 Q550,630 590,636"/>
+      <path d="M790,602 Q835,594 880,602"/>
+      <path d="M1010,648 Q1060,640 1110,648"/>
+    </g>
+  </g>
+</svg>
