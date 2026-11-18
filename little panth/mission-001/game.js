@@ -33,7 +33,7 @@ function setLabel(objective,counter='',instruction=''){
  $('objective').textContent=objective;$('counter').textContent=counter;$('instruction').textContent=instruction||objective;
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
-function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
+function background(id){locationId=id;delete stage.dataset.light;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
 function clearStage(){hideWatchHand(true);crashPending=false;reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
@@ -71,6 +71,17 @@ async function oneLine(id,token,autoRead) {
    voiceResolver=done;$('nextLine').onclick=done;
    function startReadingTimer(){
      if(autoRead||watchMode){clearTimeout(readTimer);readTimer=setTimeout(done,Math.max(line.sacred?6500:3800,line.en.split(/\s+/).length*325));}
+   }
+   if(line.audio===false){
+     captionRequired=true;updateCaptions();
+     const voice=window.speechSynthesis?.getVoices().find(v=>/^pa(-|_)/i.test(v.lang));
+     if(voiceEnabled&&voice){
+       utterance=new SpeechSynthesisUtterance(line.pa);
+       utterance.voice=voice;utterance.lang=voice.lang;utterance.rate=.94;
+       utterance.onend=done;utterance.onerror=startReadingTimer;
+       speechSynthesis.speak(utterance);
+     }
+     startReadingTimer();return;
    }
    if(!voiceEnabled){if(id==='lp017')cueTimer=setTimeout(fireCue,3300);startReadingTimer();return}
    let failed=false;
@@ -275,8 +286,8 @@ function cart(x=465,y=330,scale=.63){
  props.appendChild(host);updateCart();return host;
 }
 // Enter from the right, oxen leading the cart towards the field loading position.
-async function rollFieldCartIn(token){
- const x=365,y=278,scale=.80,startX=1305,distance=startX-x,host=cart(startX,y,scale);
+async function rollFieldCartIn(token,x=365,y=278,scale=.80,durationMs=3650){
+ const startX=1305,distance=startX-x,host=cart(startX,y,scale);
  host.dataset.arrival='rolling';host.querySelectorAll('#cart-shadow use').forEach(e=>e.remove());
  const wheels=[['#left-wheel-spin',72],['#right-wheel-spin',90]].map(([sel,radius])=>({el:host.querySelector(sel),radius}));
  // Split the existing leg artwork into individual limbs without changing their drawing.
@@ -293,7 +304,7 @@ async function rollFieldCartIn(token){
   }
  }
  const heads=['#ox-near-head','#ox-far-head'].map(sel=>host.querySelector(sel)).filter(Boolean).map(el=>({el,base:el.getAttribute('transform')||''}));
- const duration=reducedMotion.matches?0:3650,start=performance.now();let dustAt=-500;
+ const duration=reducedMotion.matches?0:durationMs,start=performance.now();let dustAt=-500;
  await new Promise(resolve=>{function step(now){
   if(token!==epoch){resolve();return}
   const q=duration?Math.min(1,(now-start)/duration):1;
@@ -465,7 +476,7 @@ async function harvest(){
 }
 function harvestTarget(id,path,x,y,w,h,label,fn){
  const item=img(path,x,y,w,h,'harvest-target tap-target',label);item.dataset.harvest=id;item.style.pointerEvents='all';
- const activate=()=>{if(stageBusy||item.dataset.done)return;item.dataset.done='1';item.style.pointerEvents='none';item.setAttribute('opacity','.25');item.removeAttribute('tabindex');fn()};
+ const activate=()=>{if(stageBusy||item.dataset.done)return;item.dataset.done='1';item.style.pointerEvents='none';item.setAttribute('opacity','.25');item.removeAttribute('tabindex');fn(item)};
  item.addEventListener('click',activate);item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}});props.append(item);return item;
 }
 async function collectHarvest(){
@@ -512,16 +523,48 @@ function drawFieldSacks(){looseSacks(3-loaded,async(im,from)=>{
  else{drawFieldSacks();stageBusy=false;}
 })}
 function storage(){
- setPhase('storage');scene('storage',3,'JUST ONE MORE!');sound.setMood('storage');loaded=3;eighthAttempts=0;arrangeCast('storage');
- cart(300,261,.84);setLabel('Add two sacks to reach five','3 / 5','Tap or drag another wheat sack into the cart');
- (async()=>{await speak('storageIntro');drawStorageSacks()})();
+ scene('storage',3,'THE FIRST DELIVERY');loaded=3;setPhase('storage');
+ sound.setMood('storage');arrangeCast('storage');
+ setLabel('Deliver the first three sacks','0 / 3','The cart is arriving at the storage courtyard.');
+ const token=epoch;stageBusy=true;
+ rollFieldCartIn(token,300,261,.84,2400).then(()=>{
+   if(token!==epoch)return;
+   stageBusy=false;offerUnload();
+ });
 }
-function drawStorageSacks(){
- if(window.lpPhase!=='storage')return;
- let count=loaded>=7?1:Math.min(2,7-loaded);
- looseSacks(count,loadStorageSack);
- setLabel(loaded<5?'Fill Baldev\u2019s cart to five':loaded<7?'Baldev now wants SEVEN sacks':'Can one more sack fit?',loaded+' / '+(loaded<5?5:loaded<7?7:8),
-   loaded<7?'Tap or drag the sacks. Watch the wheels!':'Try placing the last enormous sack.');
+function offerUnload(){
+ const stored=3-loaded;
+ setLabel('Unload the sacks in the storage courtyard',stored+' / 3','Tap a sack on the cart to stack it in the courtyard.');
+ const slot=cartSlot(loaded);
+ harvestTarget('unload',asset.sack,slot.x,slot.y,slot.w,slot.h,'Unload sack '+(stored+1)+' of 3',async item=>{
+   stageBusy=true;
+   const token=epoch;
+   item.remove();
+   loaded--;updateCart();
+   const drop={x:320+stored*99,y:535-(stored%2)*12,w:100,h:127};
+   await sackFlight(slot,drop,watchMode?360:560,80);
+   if(token!==epoch)return;
+   props.append(img(asset.sack,drop.x,drop.y,drop.w,drop.h));sound.load();
+   if(loaded){stageBusy=false;offerUnload();return}
+   setLabel('First delivery complete','3 / 3');
+   sound.cheer();banner('Three sacks safely stored!');
+   button('Take the empty cart back to the fields →',returnToField);
+ });
+}
+async function returnToField(){
+ scene('field',3,'THE LAST TRIP');loaded=0;eighthAttempts=0;setPhase('returnField');
+ stage.dataset.light='sunset';sound.setMood('field');arrangeCast('load');
+ setLabel('Return to the wheat field at sunset');
+ const token=epoch;stageBusy=true;
+ await rollFieldCartIn(token,365,278,.80,2600);
+ if(token!==epoch||!await speak('lastTrip'))return;
+ drawReturnSacks();
+}
+function drawReturnSacks(){
+ const target=loaded<5?5:loaded<7?7:8;
+ looseSacks(Math.min(3,target-loaded),loadReturnSack);
+ setLabel(loaded<5?'Load the second harvest':loaded<7?'Baldev asks for two more':'Baldev insists on one last sack',loaded+' / '+target,
+   loaded<7?'Tap or drag the sacks onto the cart.':'Watch the wheel as you load the last sack.');
 }
 let crashPending=false;
 function detachWheel(host,animate=true){
@@ -543,7 +586,7 @@ function detachWheel(host,animate=true){
  const start=performance.now(),token=epoch;function step(now){if(token!==epoch)return;const q=Math.min(1,(now-start)/850);draw(q);if(q<1)requestAnimationFrame(step);else dust(to.x,to.y+30)}requestAnimationFrame(step);
 }
 function triggerCartBreak(){
- if(!crashPending)return;crashPending=false;
+ if(!crashPending||window.lpPhase!=='returnField')return;crashPending=false;
  const host=$('cartHost');if(!host)return;
  const falling=[5,6,7,8].map(cartSlot);
  detachWheel(host);sound.crash();host.classList.add('cart-crash');host.dataset.broken='true';
@@ -556,24 +599,27 @@ function triggerCartBreak(){
  for(const actor of actors)actor.action='alarm';
  dialoguePose='alarm';updateTalking();banner('CRAAACK! THE WHEEL BROKE!',2500);
 }
-async function loadStorageSack(im,from){
+async function loadReturnSack(im,from){
  if(stageBusy)return;stageBusy=true;im.remove();
- await sackFlight(from,cartSlot(loaded+1),watchMode?490:720);
+ const token=epoch;
+ await sackFlight(from,cartSlot(loaded+1),watchMode?360:630);
+ if(token!==epoch)return;
  if(loaded===7){
    if(++eighthAttempts===1){
      sound.wobble();const host=$('cartHost');host?.classList.add('cart-wobble');
      const drop={x:390,y:555,w:108,h:140};await sackFlight(cartSlot(8),drop,850,15,true);dust(drop.x+54,drop.y+135);sound.load();
      banner('Oh no! The sack slides off!',1600);for(const actor of actors)actor.action='alarm';
-     await speak('failedEighth');host?.classList.remove('cart-wobble');fx.replaceChildren();for(const actor of actors)actor.action='idle';drawStorageSacks();stageBusy=false;return;
+     await speak('failedEighth');host?.classList.remove('cart-wobble');fx.replaceChildren();for(const actor of actors)actor.action='idle';drawReturnSacks();stageBusy=false;return;
    }
    loaded=8;updateCart();$('looseSacks')?.replaceChildren();crashPending=true;
    await speak('crash');triggerCartBreak();sound.setMood('reflection');for(const actor of actors)actor.action=actor.id==='baldev'?'reflect':'concern';
-   await speak('reflection');button('Return to the village →',()=>requests());return;
+   if(!await speak('reflection')||!await speak('recoverHarvest'))return;
+   button('Return to the village →',requests);return;
  }
  loaded++;sound.load();updateCart();
- if(loaded===5){sound.cheer();await speak('five')}
- else if(loaded===7){sound.wobble();$('cartHost')?.classList.add('cart-wobble');await speak('seven');$('cartHost')?.classList.remove('cart-wobble')}
- drawStorageSacks();stageBusy=false;
+ if(loaded===5){stage.dataset.light='dusk';sound.wobble();await speak('five')}
+ else if(loaded===7){stage.dataset.light='night';sound.wobble();$('cartHost')?.classList.add('cart-wobble');await speak('seven');$('cartHost')?.classList.remove('cart-wobble')}
+ drawReturnSacks();stageBusy=false;
 }
 async function requests(){
  setPhase('requests');scene('village',4,'THE REAL HUNGER');sound.setMood('reflection');arrangeCast('requests');
@@ -684,6 +730,7 @@ async function begin(resume=false){
   // Restart at the nearest safe milestone; always restore gameplay, never mid-dialogue.
   if(saved?.phase==='fieldLoad'){scene('field',2,'HARVEST FRENZY');loaded=0;arrangeCast('load');cart(365,278,.80);fieldLoad();return}
   if(saved?.phase==='storage'){storage();return}
+  if(saved?.phase==='returnField'){returnToField();return}
   if(saved?.phase==='requests'){requests();return}
   if(saved?.phase==='lesson'){lesson();return}
   if(saved?.phase==='share'){share();return}
@@ -757,7 +804,7 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=4'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
+   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=5'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
    if(!d.ok)throw Error('Mission dialogue not available');
    story=await d.json();cartSource=c.ok?await c.text():null;chickenSource=ch?.ok?await ch.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}

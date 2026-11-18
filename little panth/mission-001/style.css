@@ -34,3 +34,15 @@
 
 /* Keep the animation canvas free of floating instructional text. */
 #missionStatus{width:min(100%,1440px);min-height:30px;display:flex;justify-content:center;align-items:center;gap:14px;color:#e4eee8;padding:5px 8px}#missionStatus #objectiveBar,#missionStatus #activity{position:static;transform:none;padding:0;border:0;border-radius:0;box-shadow:none;background:none;color:inherit;font-size:12px;max-width:none}#missionStatus #counter{color:#aee6ce}#missionStatus .diamond{font-size:14px}body.episode-mode #missionStatus,body.episode-mode #speech,body.episode-mode #verse,body.episode-mode #sceneAction,body.episode-mode #quiz,body.episode-mode #finish,body.episode-mode .bottombar{display:none!important}body.episode-mode #stageWrap{width:min(100%,calc((100dvh - 85px) * 16 / 9),1920px);border:0;border-radius:0;box-shadow:none}body.episode-mode #stage [tabindex]{outline:none!important}body.episode-mode #stage .tap-target,body.episode-mode #stage .harvest-target{cursor:default;filter:none}body.episode-mode #stageWrap{background:#93c5d1}#fallenWheel{pointer-events:none}
+
+/* The same field from sunset to night, with the loading targets kept readable. */
+#background { transition: filter 1.4s ease; }
+#stage[data-light="sunset"] #background { filter: sepia(.38) saturate(1.35) brightness(.89); }
+#stage[data-light="dusk"] #background { filter: sepia(.25) hue-rotate(322deg) saturate(.8) brightness(.67); }
+#stage[data-light="night"] #background { filter: saturate(.58) hue-rotate(165deg) brightness(.43); }
+#stage[data-light="night"] #cartHost,
+#stage[data-light="night"] #characters { filter: brightness(.84) saturate(.76); }
+#stage[data-light="night"] + #screenTint { box-shadow: inset 0 0 100px #17173469; }
+@media (prefers-reduced-motion: reduce) {
+  #background { transition: none; }
+}
