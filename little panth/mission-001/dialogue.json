@@ -1,0 +1,349 @@
+{
+  "id": "lp-001",
+  "title": "The Cart That Was Never Full",
+  "language": "pa-IN",
+  "speakerDisplay": {
+    "baldev": "Chacha Baldev",
+    "mehar": "Mehar",
+    "farmer": "Elderly Farmer",
+    "baba": "Baba Ji"
+  },
+  "version": 1,
+  "beats": {
+    "intro": [
+      "lp001",
+      "lp002",
+      "lp003",
+      "lp004",
+      "lp005",
+      "lp006"
+    ],
+    "fieldIntro": [
+      "lp007"
+    ],
+    "harvestDone": [
+      "lp008",
+      "lp009"
+    ],
+    "loadThree": [
+      "lp010",
+      "lp011"
+    ],
+    "storageIntro": [
+      "lp012"
+    ],
+    "five": [
+      "lp013"
+    ],
+    "seven": [
+      "lp014",
+      "lp015"
+    ],
+    "failedEighth": [
+      "lp016"
+    ],
+    "crash": [
+      "lp017",
+      "lp018"
+    ],
+    "reflection": [
+      "lp019",
+      "lp020"
+    ],
+    "requests": [
+      "lp021",
+      "lp022",
+      "lp023",
+      "lp024",
+      "lp025"
+    ],
+    "lessonIntro": [
+      "lp026"
+    ],
+    "gurbani": [
+      "lp027"
+    ],
+    "lessonExplain": [
+      "lp028",
+      "lp029",
+      "lp030",
+      "lp031"
+    ],
+    "shareIntro": [
+      "lp032"
+    ],
+    "shareDone": [
+      "lp033",
+      "lp034",
+      "lp035",
+      "lp036"
+    ],
+    "finale": [
+      "lp037",
+      "lp038"
+    ]
+  },
+  "lines": {
+    "lp001": {
+      "speaker": "baldev",
+      "pa": "ਓਏ ਮੇਹਰ! ਜਲਦੀ ਆ! ਬਹੁਤ ਵੱਡਾ ਸੰਕਟ ਆ ਗਿਆ!",
+      "roman": "Oye Mehar! Jaldi aa! Bahut vadda sankat aa gaya!",
+      "en": "Mehar! Come quick! There's a huge emergency!"
+    },
+    "lp002": {
+      "speaker": "mehar",
+      "pa": "ਕੀ ਹੋਇਆ ਚਾਚਾ ਜੀ? ਤੂਫ਼ਾਨ ਆ ਗਿਆ?",
+      "roman": "Ki hoya Chacha Ji? Tufaan aa gaya?",
+      "en": "What happened, Chacha Ji? A storm?"
+    },
+    "lp003": {
+      "speaker": "baldev",
+      "pa": "ਉਸ ਤੋਂ ਵੀ ਬੁਰਾ! ਮੇਰੀ ਕਣਕ ਦੀ ਗੱਡੀ ਹਾਲੇ ਵੀ ਖਾਲੀ ਆ!",
+      "roman": "Us ton vi bura! Meri kanak di gaddi hale vi khaali aa!",
+      "en": "Worse! My wheat cart is still empty!"
+    },
+    "lp004": {
+      "speaker": "mehar",
+      "pa": "ਪਰ ਚਾਚਾ ਜੀ, ਤੁਹਾਡੇ ਕੋਲ ਤਾਂ ਪਹਿਲਾਂ ਹੀ ਬੋਰੀਆਂ ਨੇ!",
+      "roman": "Par Chacha Ji, tuhade kol taan pehlan hi boriyaan ne!",
+      "en": "But you already have sacks of wheat!"
+    },
+    "lp005": {
+      "speaker": "baldev",
+      "pa": "ਹਾਂ, ਪਰ ਜਿੰਨੀ ਜ਼ਿਆਦਾ ਕਣਕ, ਓਨੀ ਜ਼ਿਆਦਾ ਖੁਸ਼ੀ!",
+      "roman": "Haan, par jinni zyada kanak, onni zyada khushi!",
+      "en": "Yes, but more wheat means more happiness!"
+    },
+    "lp006": {
+      "speaker": "baldev",
+      "pa": "ਅੱਜ ਆਪਾਂ ਦੁਨੀਆ ਦੀ ਸਭ ਤੋਂ ਵੱਡੀ ਗੱਡੀ ਭਰਾਂਗੇ! ਚਲੋ!",
+      "roman": "Ajj aapan duniya di sab ton vaddi gaddi bharange! Chalo!",
+      "en": "Today we'll fill the biggest cart in the world!"
+    },
+    "lp007": {
+      "speaker": "baldev",
+      "pa": "ਵਾਹ! ਸੋਨਾ ਹੀ ਸੋਨਾ! ਚਲੋ, ਕਣਕ ਕੱਟਣੀ ਸ਼ੁਰੂ ਕਰੋ!",
+      "roman": "Waah! Sona hi sona! Chalo, kanak kattni shuru karo!",
+      "en": "Wow, fields of gold! Let's harvest!"
+    },
+    "lp008": {
+      "speaker": "baldev",
+      "pa": "ਸ਼ਾਬਾਸ਼! ਤਿੰਨ ਗੱਠੜੀਆਂ ਤਿਆਰ! ਹੁਣ ਕਣਕ ਦੀਆਂ ਬੋਰੀਆਂ ਬਣ ਗਈਆਂ!",
+      "roman": "Shabash! Tinn gatthriyan tayaar! Hun kanak diyan boriyaan ban gaiyan!",
+      "en": "Great! Three bundles! Now they're wheat sacks!"
+    },
+    "lp009": {
+      "speaker": "baldev",
+      "pa": "ਲੋ ਜੀ, ਮੇਰੀ ਗੱਡੀ ਆ ਗਈ! ਲੋਡ ਇਟ! ਲੋਡ ਇਟ!",
+      "roman": "Lo ji, meri gaddi aa gayi! Load it! Load it!",
+      "en": "Here's my cart! Load it, load it!"
+    },
+    "lp010": {
+      "speaker": "mehar",
+      "pa": "ਹੋ ਗਿਆ ਚਾਚਾ ਜੀ! ਹੁਣ ਘਰ ਚੱਲੀਏ?",
+      "roman": "Ho gaya Chacha Ji! Hun ghar chaliye?",
+      "en": "All done! Shall we go home?"
+    },
+    "lp011": {
+      "speaker": "baldev",
+      "pa": "ਤਿੰਨ ਚੰਗੀਆਂ ਨੇ... ਪਰ ਪੰਜ ਨਾਲ ਦਿਲ ਖੁਸ਼ ਹੋਊਗਾ!",
+      "roman": "Tinn changiyan ne... par panj naal dil khush houga!",
+      "en": "Three are good... but five would make me happier!"
+    },
+    "lp012": {
+      "speaker": "baldev",
+      "pa": "ਵਾਹ ਜੀ ਵਾਹ! ਚਲੋ, ਬਾਕੀ ਬੋਰੀਆਂ ਵੀ ਗੱਡੀ ਵਿਚ ਪਾ ਦਿਓ!",
+      "roman": "Waah ji waah! Chalo, baaki boriyaan vi gaddi vich paa deo!",
+      "en": "Wonderful! Load the remaining sacks into the cart!"
+    },
+    "lp013": {
+      "speaker": "baldev",
+      "pa": "ਵਾਹ! ਪੰਜ ਬੋਰੀਆਂ! ਪਰ ਉੱਥੇ ਖਾਲੀ ਥਾਂ ਵੇਖੀ? ਬੱਸ ਦੋ ਹੋਰ!",
+      "roman": "Waah! Panj boriyaan! Par othe khaali thaan vekhi? Bas do hor!",
+      "en": "Five sacks! But see that gap? Just two more!"
+    },
+    "lp014": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ! ਗੱਡੀ ਟੁੱਟਣ ਵਾਲੀ ਆ!",
+      "roman": "Chacha Ji! Gaddi tuttan waali aa!",
+      "en": "Chacha Ji! The cart is going to break!"
+    },
+    "lp015": {
+      "speaker": "baldev",
+      "pa": "ਨਹੀਂ ਟੁੱਟਦੀ! ਬੱਸ... ਇੱਕ ਆਖਰੀ ਬੋਰੀ!",
+      "roman": "Nahi tuttdi! Bas... ik aakhri bori!",
+      "en": "It won't break! Just one last sack!"
+    },
+    "lp016": {
+      "speaker": "baldev",
+      "pa": "ਓਹੋ! ਬੋਰੀ ਡਿੱਗ ਗਈ! ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ!",
+      "roman": "Oho! Bori digg gai! Dobaara koshish karo!",
+      "en": "Oh no! The sack fell off. Try again!"
+    },
+    "lp017": {
+      "speaker": "baldev",
+      "pa": "ਹੋ ਗਿਆ! ਹੋ ਗਿਆ! ਮੈਂ ਦੁਨੀਆ ਦੀ ਸਭ ਤੋਂ ਵੱਡੀ... ਓਏ!",
+      "roman": "Ho gaya! Ho gaya! Main duniya di sab ton vaddi... OYE!",
+      "en": "I've done it! The biggest cart in the—OH NO!"
+    },
+    "lp018": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ! ਪਹੀਆ ਟੁੱਟ ਗਿਆ!",
+      "roman": "Chacha Ji! Pahiya tutt gaya!",
+      "en": "Chacha Ji! The wheel broke!"
+    },
+    "lp019": {
+      "speaker": "baldev",
+      "pa": "ਮੈਂ ਇੰਨੀ ਮਿਹਨਤ ਕੀਤੀ... ਇੰਨੀਆਂ ਬੋਰੀਆਂ ਇਕੱਠੀਆਂ ਕੀਤੀਆਂ...",
+      "roman": "Main inni mehnat kiti... inniyan boriyaan ikatthiyan kitiyan...",
+      "en": "I worked so hard and collected so many sacks..."
+    },
+    "lp020": {
+      "speaker": "baldev",
+      "pa": "ਫੇਰ ਵੀ ਮੈਨੂੰ ਹੋਰ ਕਿਉਂ ਚਾਹੀਦਾ ਸੀ?",
+      "roman": "Fer vi mainu hor kyon chahida si?",
+      "en": "Then why did I still want more?"
+    },
+    "lp021": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ, ਸਾਡੇ ਘਰ ਆਟਾ ਮੁੱਕ ਗਿਆ ਆ। ਥੋੜ੍ਹੀ ਕਣਕ ਮਿਲ ਸਕਦੀ ਆ?",
+      "roman": "Chacha Ji, sade ghar atta mukk gaya aa. Thodi kanak mil sakdi aa?",
+      "en": "We've run out of flour at home. Could we have some wheat?"
+    },
+    "lp022": {
+      "speaker": "farmer",
+      "pa": "ਬਲਦੇਵ ਜੀ, ਅਗਲੀ ਫ਼ਸਲ ਲਈ ਥੋੜ੍ਹਾ ਬੀਜ ਵੀ ਚਾਹੀਦਾ ਸੀ।",
+      "roman": "Baldev Ji, agli fasal layi thoda beej vi chahida si.",
+      "en": "Baldev Ji, I need some seed for the next crop."
+    },
+    "lp023": {
+      "speaker": "baldev",
+      "pa": "ਪਰ ਜੇ ਮੈਂ ਦੇ ਦਿੱਤੀ... ਮੇਰੇ ਕੋਲ ਘੱਟ ਹੋ ਜਾਵੇਗੀ!",
+      "roman": "Par je main de ditti... mere kol ghatt ho jaavegi!",
+      "en": "But if I give it away... I'll have less!"
+    },
+    "lp024": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੀ ਗੱਡੀ ਤਾਂ ਪੂਰੀ ਭਰ ਗਈ ਸੀ। ਫੇਰ ਵੀ ਤੁਸੀਂ ਖੁਸ਼ ਕਿਉਂ ਨਹੀਂ ਹੋਏ?",
+      "roman": "Chacha Ji, tuhadi gaddi taan poori bhar gai si. Fer vi tusi khush kyon nahi hoye?",
+      "en": "Your cart was full. So why weren't you happy?"
+    },
+    "lp025": {
+      "speaker": "baba",
+      "pa": "ਆਓ ਪੁੱਤਰ, ਗੁਰਦੁਆਰਾ ਸਾਹਿਬ ਦੇ ਵਿਹੜੇ ਵਿਚ ਬੈਠ ਕੇ ਗੱਲ ਕਰਦੇ ਹਾਂ।",
+      "roman": "Aao puttar, Gurudwara Sahib de vehre vich baith ke gall karde haan.",
+      "en": "Come, let's talk in the Gurdwara courtyard."
+    },
+    "lp026": {
+      "speaker": "baba",
+      "pa": "ਗੁਰੂ ਨਾਨਕ ਦੇਵ ਜੀ ਨੇ ਜਪੁਜੀ ਸਾਹਿਬ ਵਿਚ ਇਸ ਸਵਾਲ ਦਾ ਜਵਾਬ ਦਿੱਤਾ ਹੈ।",
+      "roman": "Guru Nanak Dev Ji ne Japji Sahib vich is sawaal da jawaab ditta hai.",
+      "en": "Guru Nanak Dev Ji answered this in Japji Sahib."
+    },
+    "lp027": {
+      "speaker": "baba",
+      "pa": "ਭੁਖਿਆ ਭੁਖ ਨ ਉਤਰੀ ਜੇ ਬੰਨਾ ਪੁਰੀਆ ਭਾਰ ॥",
+      "roman": "Bhukhiya bhukh na utari je banna puriya bhaar.",
+      "en": "Endless desire is not satisfied even by piling up riches.",
+      "sacred": true
+    },
+    "lp028": {
+      "speaker": "baba",
+      "pa": "ਜੇ ਇਨਸਾਨ ਦੁਨੀਆ ਭਰ ਦੀਆਂ ਚੀਜ਼ਾਂ ਇਕੱਠੀਆਂ ਕਰ ਲਵੇ, ਪਰ ਮਨ ਹੋਰ ਮੰਗਦਾ ਰਹੇ, ਤਾਂ ਇਹ ਭੁੱਖ ਕਦੇ ਨਹੀਂ ਮੁੱਕਦੀ।",
+      "roman": "Je insaan duniya bhar diyan cheezan ikatthiyan kar lave, par mann hor mangda rahe, tan eh bhukh kade nahi mukdi.",
+      "en": "Even gathering all the world's riches cannot satisfy endless wanting."
+    },
+    "lp029": {
+      "speaker": "mehar",
+      "pa": "ਜਿਵੇਂ ਚਾਚਾ ਜੀ ਦੀ ਗੱਡੀ!",
+      "roman": "Jiven Chacha Ji di gaddi!",
+      "en": "Just like Chacha Ji's cart!"
+    },
+    "lp030": {
+      "speaker": "baba",
+      "pa": "ਰੋਟੀ ਪੇਟ ਭਰਦੀ ਆ, ਪਰ ਸੰਤੋਖ ਮਨ ਭਰਦਾ ਆ। ਜੋ ਵਾਹਿਗੁਰੂ ਨੇ ਦਿੱਤਾ, ਉਸ ਦਾ ਸ਼ੁਕਰਾਨਾ ਕਰੋ, ਤੇ ਵੰਡ ਕੇ ਛਕੋ।",
+      "roman": "Roti pet bhardi aa, par santokh mann bharda aa. Jo Waheguru ne ditta, usda shukrana karo, te vand ke chhako.",
+      "en": "Food fills the stomach, but contentment fills the heart. Be thankful and share."
+    },
+    "lp031": {
+      "speaker": "baldev",
+      "pa": "ਮੈਂ ਸਾਰਾ ਦਿਨ ਗੱਡੀ ਭਰਦਾ ਰਿਹਾ, ਪਰ ਦਿਲ ਖਾਲੀ ਰੱਖਿਆ! ਚਲੋ, ਹੁਣ ਅਸਲ ਖੁਸ਼ੀ ਵੇਖੀਏ!",
+      "roman": "Main saara din gaddi bharda reha, par dil khaali rakhya! Chalo hun asal khushi vekhiye!",
+      "en": "I filled my cart all day, but left my heart empty. Let's discover real happiness!"
+    },
+    "lp032": {
+      "speaker": "baldev",
+      "pa": "ਆਪਣੇ ਘਰ ਲਈ ਤਿੰਨ, ਬੀਜ ਲਈ ਦੋ, ਤੇ ਵੰਡਣ ਅਤੇ ਲੰਗਰ ਲਈ ਤਿੰਨ ਬੋਰੀਆਂ!",
+      "roman": "Apne ghar layi tinn, beej layi do, te vandan ate langar layi tinn boriyaan!",
+      "en": "Three for home, two for seeds, and three for sharing and langar!"
+    },
+    "lp033": {
+      "speaker": "farmer",
+      "pa": "ਧੰਨਵਾਦ ਬਲਦੇਵ ਜੀ! ਹੁਣ ਅਗਲੀ ਫ਼ਸਲ ਬੀਜ ਸਕਾਂਗੇ!",
+      "roman": "Dhanvaad Baldev Ji! Hun agli fasal beej sakaange!",
+      "en": "Thank you! Now we can plant the next crop!"
+    },
+    "lp034": {
+      "speaker": "mehar",
+      "pa": "ਵਾਹ! ਹੁਣ ਸਾਰਿਆਂ ਦੇ ਘਰ ਰੋਟੀ ਪੱਕੇਗੀ!",
+      "roman": "Waah! Hun saareyan de ghar roti pakkegi!",
+      "en": "Wonderful! Now everyone can eat!"
+    },
+    "lp035": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੇ ਕੋਲ ਘੱਟ ਬੋਰੀਆਂ ਨੇ, ਪਰ ਤੁਸੀਂ ਹੁਣ ਸਭ ਤੋਂ ਜ਼ਿਆਦਾ ਖੁਸ਼ ਲੱਗਦੇ ਹੋ!",
+      "roman": "Chacha Ji, tuhade kol ghatt boriyaan ne, par tusi hun sab ton zyada khush lagde ho!",
+      "en": "You have fewer sacks, but now you look happier than ever!"
+    },
+    "lp036": {
+      "speaker": "baldev",
+      "pa": "ਕਿਉਂਕਿ ਅੱਜ ਮੇਰੀ ਗੱਡੀ ਨਹੀਂ, ਮੇਰਾ ਦਿਲ ਭਰ ਗਿਆ!",
+      "roman": "Kyunki ajj meri gaddi nahi, mera dil bhar gaya!",
+      "en": "Because today, it isn't my cart—my heart is full!"
+    },
+    "lp037": {
+      "speaker": "mehar",
+      "pa": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੀ ਗੱਡੀ ਫੇਰ ਖਾਲੀ ਆ! ਹੋਰ ਬੋਰੀਆਂ ਲਿਆਈਏ?",
+      "roman": "Chacha Ji, tuhadi gaddi fer khaali aa! Hor boriyaan liaaiye?",
+      "en": "Your cart is empty again! Shall we bring more sacks?"
+    },
+    "lp038": {
+      "speaker": "baldev",
+      "pa": "ਨਹੀਂ ਪੁੱਤਰ! ਹੁਣ ਤਾਂ ਪਹਿਲਾਂ ਗੱਡੀ ਦਾ ਪਹੀਆ ਠੀਕ ਕਰਨਾ ਆ!",
+      "roman": "Nahi puttar! Hun taan pehlan gaddi da pahiya theek karna aa!",
+      "en": "NO! First we have to fix the wheel!"
+    }
+  },
+  "questions": [
+    {
+      "q": "Why wasn't Baldev happy when his cart was full?",
+      "options": [
+        "The cart was too small.",
+        "He always wanted just one more.",
+        "He didn't like wheat."
+      ],
+      "answer": 1,
+      "explain": "Baldev's desire kept growing."
+    },
+    {
+      "q": "What does Santokh mean?",
+      "options": [
+        "Always wanting more.",
+        "Being grateful and knowing when enough is enough.",
+        "Keeping everything for yourself."
+      ],
+      "answer": 1,
+      "explain": "Santokh means contentment and gratitude."
+    },
+    {
+      "q": "What brought Baldev true happiness?",
+      "options": [
+        "Keeping every sack.",
+        "Breaking the cart.",
+        "Keeping what he needed and sharing the rest."
+      ],
+      "answer": 2,
+      "explain": "Sharing and gratitude made his heart feel full."
+    }
+  ]
+}
