@@ -41,6 +41,8 @@ jobs:
       - name: Generate Punjabi dialogue via Gemini API secret
         id: generation
         env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MAX_NEW_LINES: ${{ inputs.max_new_lines || '100' }}
         run: |
