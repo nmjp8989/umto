@@ -1,0 +1,405 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#76c5f0"/>
+      <stop offset="100%" stop-color="#b5e4fa"/>
+    </linearGradient>
+
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ebb47c"/>
+      <stop offset="55%" stop-color="#e3a265"/>
+      <stop offset="100%" stop-color="#d48e4f"/>
+    </linearGradient>
+
+    <!-- Reddish Folk-Art Floral Motif (Geru Paint) -->
+    <g id="flowerMotif" fill="#b83825" opacity="0.92">
+      <circle cx="0" cy="0" r="4.8"/>
+      <ellipse cx="0" cy="-12" rx="3.3" ry="6.8"/>
+      <ellipse cx="0" cy="12" rx="3.3" ry="6.8"/>
+      <ellipse cx="-12" cy="0" rx="6.8" ry="3.3"/>
+      <ellipse cx="12" cy="0" rx="6.8" ry="3.3"/>
+      <ellipse cx="-8.5" cy="-8.5" rx="3.2" ry="6" transform="rotate(-45 -8.5 -8.5)"/>
+      <ellipse cx="8.5" cy="-8.5" rx="3.2" ry="6" transform="rotate(45 8.5 -8.5)"/>
+      <ellipse cx="-8.5" cy="8.5" rx="3.2" ry="6" transform="rotate(45 -8.5 8.5)"/>
+      <ellipse cx="8.5" cy="8.5" rx="3.2" ry="6" transform="rotate(-45 8.5 8.5)"/>
+    </g>
+
+    <!-- Reddish Folk-Art Leaf Sprig -->
+    <g id="leafSprig" fill="#b83825" opacity="0.9">
+      <line x1="0" y1="14" x2="0" y2="-15" stroke="#b83825" stroke-width="1.8"/>
+      <ellipse cx="0" cy="-16" rx="2.4" ry="4.8"/>
+      <ellipse cx="-5.5" cy="-7" rx="2.2" ry="4.5" transform="rotate(-38 -5.5 -7)"/>
+      <ellipse cx="5.5" cy="-7" rx="2.2" ry="4.5" transform="rotate(38 5.5 -7)"/>
+      <ellipse cx="-6.5" cy="2" rx="2.2" ry="4.5" transform="rotate(-45 -6.5 2)"/>
+      <ellipse cx="6.5" cy="2" rx="2.2" ry="4.5" transform="rotate(45 6.5 2)"/>
+    </g>
+
+    <!-- Pink Bougainvillea Blossom -->
+    <g id="pinkFlower">
+      <circle cx="0" cy="-4.5" r="4" fill="#f52f70" stroke="#231811" stroke-width="1"/>
+      <circle cx="-4.5" cy="1" r="4" fill="#ff4d8a" stroke="#231811" stroke-width="1"/>
+      <circle cx="4.5" cy="1" r="4" fill="#f52f70" stroke="#231811" stroke-width="1"/>
+      <circle cx="0" cy="4.5" r="4" fill="#ff4d8a" stroke="#231811" stroke-width="1"/>
+      <circle cx="0" cy="0" r="2" fill="#ffd952"/>
+    </g>
+  </defs>
+
+  <!-- 1. SKY & CRISP OUTLINED CLOUDS -->
+  <rect width="1280" height="430" fill="url(#skyGrad)"/>
+  <g fill="#ffffff" stroke="#231811" stroke-width="1.7">
+    <path d="M235,96 C255,96 264,78 286,78 C298,58 326,54 344,64 C358,34 396,24 422,36 C442,44 446,60 466,62 C488,64 496,84 520,88 C532,90 536,96 526,96 Z"/>
+    <path d="M812,150 C826,150 834,136 850,136 C860,116 886,108 906,120 C918,120 928,128 938,134 C950,136 956,150 946,150 Z"/>
+    <path d="M998,74 C1016,74 1026,60 1044,60 C1054,38 1082,30 1104,40 C1118,46 1126,58 1142,60 C1156,62 1164,74 1154,74 Z"/>
+  </g>
+
+  <!-- 2. DISTANT TREES, ELABORATE GURDWARA & UTILITY POLE -->
+  <g stroke="#231811" stroke-width="1.7">
+    <!-- Lush trees behind houses -->
+    <path d="M180,175 Q175,132 210,122 Q232,98 268,112 Q302,106 322,135 Q352,146 344,182 Z" fill="#88c240"/>
+    <path d="M1070,128 C1065,78 1106,48 1146,58 C1168,24 1218,18 1250,46 C1268,40 1280,50 1280,72 L1280,154 L1090,150 Z" fill="#8ec746"/>
+
+    <!-- Wooden Utility Pole & High Power Lines (clear of Gurdwara spires) -->
+    <rect x="930" y="64" width="11" height="155" fill="#8f5c38"/>
+    <rect x="912" y="78" width="46" height="6" fill="#704425"/>
+    <rect x="927" y="126" width="16" height="22" fill="#c7d1d6"/>
+    <path d="M168,78 Q540,128 916,78" fill="none" stroke="#231811" stroke-width="1.4"/>
+    <path d="M168,88 Q540,140 954,78" fill="none" stroke="#231811" stroke-width="1.4"/>
+    <path d="M916,78 Q1100,122 1280,132" fill="none" stroke="#231811" stroke-width="1.4"/>
+
+    <!-- ELABORATE GURDWARA -->
+    <g id="elaborate-gurdwara" transform="translate(718, 224)">
+      <!-- Corner Minarets / Towers -->
+      <rect x="-76" y="-8" width="14" height="72" fill="#f2f7fa"/>
+      <rect x="-79" y="-12" width="20" height="5" fill="#e6b03c"/>
+      <path d="M-76,-12 C-77,-20 -72,-23 -69,-26 C-66,-23 -61,-20 -62,-12 Z" fill="#ffffff"/>
+      <line x1="-69" y1="-26" x2="-69" y2="-33" stroke="#d99b26" stroke-width="1.5"/>
+
+      <rect x="62" y="-8" width="14" height="72" fill="#f2f7fa"/>
+      <rect x="59" y="-12" width="20" height="5" fill="#e6b03c"/>
+      <path d="M62,-12 C61,-20 66,-23 69,-26 C72,-23 77,-20 76,-12 Z" fill="#ffffff"/>
+      <line x1="69" y1="-26" x2="69" y2="-33" stroke="#d99b26" stroke-width="1.5"/>
+
+      <!-- Main Two-Tiered Marble Facade -->
+      <rect x="-64" y="16" width="128" height="48" fill="#ffffff"/>
+      <!-- Shaded Side Wings -->
+      <rect x="-64" y="16" width="22" height="48" fill="#ebf2f7"/>
+      <rect x="42" y="16" width="22" height="48" fill="#ebf2f7"/>
+      <!-- Decorative Parapet & Saffron/Gold Cornice -->
+      <rect x="-67" y="12" width="134" height="6" fill="#f5c042"/>
+      <path d="M-64,12 L-64,5 L-56,5 L-56,12 M-48,12 L-48,5 L-40,5 L-40,12 M-32,12 L-32,5 L-24,5 L-24,12 M24,12 L24,5 L32,5 L32,12 M40,12 L40,5 L48,5 L48,12 M56,12 L56,5 L64,5 L64,12" fill="#ffffff"/>
+
+      <!-- Upper Central Pavilion (Darshani Tier) -->
+      <rect x="-32" y="-12" width="64" height="26" fill="#ffffff"/>
+      <rect x="-35" y="-15" width="70" height="4" fill="#f5c042"/>
+      <!-- Upper Arched Windows -->
+      <path d="M-22,12 L-22,-2 Q-17,-8 -12,-2 L-12,12 Z" fill="#7d9cb3"/>
+      <path d="M-6,12 L-6,-4 Q0,-10 6,-4 L6,12 Z" fill="#7d9cb3"/>
+      <path d="M12,12 L12,-2 Q17,-8 22,-2 L22,12 Z" fill="#7d9cb3"/>
+
+      <!-- Flanking Roof Chhatris (Domes) -->
+      <rect x="-54" y="-4" width="18" height="16" fill="#ffffff"/>
+      <path d="M-56,-4 C-58,-15 -49,-20 -45,-24 C-41,-20 -32,-15 -34,-4 Z" fill="#ffffff"/>
+      <line x1="-45" y1="-24" x2="-45" y2="-32" stroke="#d99b26" stroke-width="1.6"/>
+      <circle cx="-45" cy="-26" r="1.8" fill="#f5c042"/>
+
+      <rect x="36" y="-4" width="18" height="16" fill="#ffffff"/>
+      <path d="M34,-4 C32,-15 41,-20 45,-24 C49,-20 58,-15 56,-4 Z" fill="#ffffff"/>
+      <line x1="45" y1="-24" x2="45" y2="-32" stroke="#d99b26" stroke-width="1.6"/>
+      <circle cx="45" cy="-26" r="1.8" fill="#f5c042"/>
+
+      <!-- Grand Central Lotus Onion Dome (Gumbad) -->
+      <rect x="-24" y="-22" width="48" height="8" fill="#e6b03c"/>
+      <!-- Lotus Petal Collar -->
+      <path d="M-22,-22 Q-16,-28 -11,-22 Q-5,-28 0,-22 Q5,-28 11,-22 Q16,-28 22,-22 Z" fill="#f7c852"/>
+      <!-- Main Ribbed Dome -->
+      <path d="M-22,-22 C-28,-44 -10,-56 0,-64 C10,-56 28,-44 22,-22 Z" fill="#ffffff"/>
+      <!-- Subtle Fluted Dome Ribs -->
+      <path d="M-11,-22 C-14,-40 -6,-52 0,-64 M11,-22 C14,-40 6,-52 0,-64 M0,-22 L0,-64" fill="none" stroke="#c7d8e6" stroke-width="1.1"/>
+      <!-- Golden Kalash Spire -->
+      <line x1="0" y1="-64" x2="0" y2="-82" stroke="#c98e20" stroke-width="2"/>
+      <circle cx="0" cy="-67" r="3" fill="#f5c042"/>
+      <circle cx="0" cy="-73" r="2.2" fill="#f5c042"/>
+
+      <!-- Lower Cusped Arches & Central Entrance -->
+      <path d="M-56,64 L-56,42 Q-50,34 -44,42 L-44,64 Z" fill="#7d9cb3"/>
+      <path d="M-36,64 L-36,42 Q-30,34 -24,42 L-24,64 Z" fill="#7d9cb3"/>
+      <!-- Grand Central Arch -->
+      <path d="M-16,64 L-16,36 Q-8,28 0,24 Q8,28 16,36 L16,64 Z" fill="#5e7f96"/>
+      <path d="M-10,64 L-10,40 Q0,32 10,40 L10,64 Z" fill="#3a5569"/>
+      <path d="M24,64 L24,42 Q30,34 36,42 L36,64 Z" fill="#7d9cb3"/>
+      <path d="M44,64 L44,42 Q50,34 56,42 L56,64 Z" fill="#7d9cb3"/>
+
+      <!-- Tall Nishan Sahib with Stepped Pedestal & Khanda -->
+      <rect x="80" y="52" width="16" height="12" fill="#f2f7fa"/>
+      <rect x="83" y="45" width="10" height="7" fill="#f5c042"/>
+      <line x1="88" y1="45" x2="88" y2="-48" stroke="#c98e20" stroke-width="2.4"/>
+      <polygon points="88,-46 122,-32 116,-18 88,-18" fill="#f7941d"/>
+      <!-- Khanda Symbol on Flag -->
+      <circle cx="101" cy="-31" r="4" fill="none" stroke="#231811" stroke-width="1.1"/>
+      <line x1="101" y1="-37" x2="101" y2="-25" stroke="#231811" stroke-width="1.2"/>
+    </g>
+
+    <!-- Treeline in front of Gurdwara Base -->
+    <path d="M540,286 Q560,262 582,276 Q604,258 626,278 Q646,268 666,282 L788,282 Q808,262 830,276 Q854,262 876,278 Q900,260 924,286 Z" fill="#74b042"/>
+  </g>
+
+  <!-- 3. GOLDEN WHEAT FIELDS & WINDING PATH -->
+  <g id="wheat-fields" stroke="#231811" stroke-width="1.4">
+    <rect x="550" y="286" width="375" height="138" fill="#7bb545"/>
+    <path d="M550,295 Q690,288 920,296 L920,318 Q730,308 550,318 Z" fill="#f7d154"/>
+    <path d="M550,318 Q690,312 920,322 L920,348 Q710,336 550,345 Z" fill="#e8b83a"/>
+    <path d="M550,326 L732,326 Q725,360 660,372 L550,372 Z" fill="#f5cc49"/>
+    <path d="M775,326 L920,326 L920,372 L788,372 Q772,350 775,326 Z" fill="#f5cc49"/>
+    <path d="M550,364 Q650,364 720,340 L720,388 L550,388 Z" fill="#6da638" stroke="none"/>
+    <path d="M778,342 Q840,364 920,364 L920,388 L778,388 Z" fill="#6da638" stroke="none"/>
+    <path d="M735,322 Q746,338 712,358 Q670,382 652,424 L768,424 Q748,386 748,360 Q762,338 756,322 Z" fill="#e6b680"/>
+  </g>
+
+  <!-- 4. SPACIOUS FOREGROUND COURTYARD -->
+  <rect x="0" y="422" width="1280" height="298" fill="url(#groundGrad)"/>
+  <g fill="#c27a3d" opacity="0.32">
+    <ellipse cx="260" cy="545" rx="130" ry="12"/>
+    <ellipse cx="640" cy="595" rx="175" ry="15"/>
+    <ellipse cx="980" cy="535" rx="145" ry="12"/>
+    <ellipse cx="420" cy="665" rx="140" ry="11"/>
+    <ellipse cx="920" cy="655" rx="150" ry="12"/>
+  </g>
+  <g fill="#c9854a" stroke="#231811" stroke-width="1.2">
+    <ellipse cx="145" cy="676" rx="9" ry="3.2"/>
+    <ellipse cx="320" cy="645" rx="7" ry="2.5"/>
+    <ellipse cx="520" cy="555" rx="6" ry="2.2"/>
+    <ellipse cx="815" cy="610" rx="8" ry="2.8"/>
+    <ellipse cx="1145" cy="568" rx="9" ry="3"/>
+    <ellipse cx="1010" cy="662" rx="6" ry="2.2"/>
+  </g>
+
+  <!-- 5. LOW COURTYARD WALLS & CENTRAL GATE (REDDISH PAINT MOTIFS) -->
+  <g id="courtyard-walls" stroke="#231811" stroke-width="1.8">
+    <!-- Left Low Wall -->
+    <rect x="392" y="346" width="226" height="78" fill="#f0c389"/>
+    <rect x="392" y="342" width="226" height="8" fill="#fae0b9"/>
+    <rect x="578" y="346" width="40" height="78" fill="#e0ae72"/>
+    <g fill="#d67856" stroke-width="1.3">
+      <rect x="440" y="402" width="24" height="10"/>
+      <rect x="464" y="402" width="22" height="10"/>
+      <rect x="452" y="412" width="24" height="12"/>
+    </g>
+    <!-- Reddish Paint Folk Art -->
+    <use href="#flowerMotif" x="492" y="376" stroke="none"/>
+    <use href="#leafSprig" x="446" y="380" stroke="none"/>
+    <use href="#leafSprig" x="538" y="380" stroke="none"/>
+    <use href="#leafSprig" x="598" y="392" stroke="none"/>
+    <path d="M422,402 Q456,396 492,402 Q528,396 562,402" fill="none" stroke="#b83825" stroke-width="2" opacity="0.9"/>
+
+    <!-- Right Low Wall -->
+    <rect x="766" y="346" width="240" height="78" fill="#f0c389"/>
+    <rect x="766" y="342" width="240" height="8" fill="#fae0b9"/>
+    <rect x="766" y="346" width="46" height="78" fill="#e0ae72"/>
+    <!-- Reddish Paint Folk Art -->
+    <use href="#flowerMotif" x="898" y="376" stroke="none"/>
+    <use href="#leafSprig" x="854" y="380" stroke="none"/>
+    <use href="#leafSprig" x="942" y="380" stroke="none"/>
+    <use href="#leafSprig" x="789" y="392" stroke="none"/>
+    <path d="M826,404 Q862,398 898,404 Q934,398 970,404" fill="none" stroke="#b83825" stroke-width="2" opacity="0.9"/>
+
+    <!-- Grass Tufts at Gate Posts -->
+    <path d="M610,424 L616,412 L620,420 L626,410 L628,424 Z" fill="#63a839" stroke-width="1.3"/>
+    <path d="M758,424 L762,411 L767,419 L772,412 L776,424 Z" fill="#63a839" stroke-width="1.3"/>
+  </g>
+
+  <!-- 6. LEFT MUD HOUSE -->
+  <g id="left-house" stroke="#231811" stroke-width="1.8">
+    <!-- Rear Attached Room -->
+    <rect x="392" y="242" width="178" height="104" fill="#f2c488"/>
+    <path d="M392,232 L572,232 L572,248 Q560,255 548,248 Q536,255 524,248 Q512,255 500,248 Q488,255 476,248 Q464,255 452,248 Q440,255 428,248 Q416,255 404,248 L392,248 Z" fill="#e07455"/>
+    <rect x="456" y="288" width="50" height="58" fill="#704832"/>
+    <rect x="456" y="288" width="40" height="58" fill="#4f3120"/>
+
+    <!-- Upper Parapet -->
+    <polygon points="0,92 172,112 172,175 0,165" fill="#f5c98e"/>
+    <polygon points="0,92 172,112 172,124 0,104" fill="#e07455"/>
+    <g fill="#734d30">
+      <path d="M10,138 L10,122 Q15,114 20,122 L20,138 Z"/>
+      <path d="M36,141 L36,125 Q41,117 46,125 L46,141 Z"/>
+      <path d="M62,144 L62,128 Q67,120 72,128 L72,144 Z"/>
+      <path d="M88,146 L88,131 Q93,123 98,131 L98,146 Z"/>
+      <path d="M114,148 L114,134 Q119,126 124,134 L124,148 Z"/>
+      <path d="M138,151 L138,137 Q143,129 148,137 L148,151 Z"/>
+    </g>
+
+    <!-- Main Front Wall -->
+    <polygon points="0,175 392,196 392,438 0,455" fill="#f7c683"/>
+    <polygon points="0,418 402,404 402,434 0,456" fill="#de7354"/>
+
+    <!-- Exposed Brick Accent -->
+    <g fill="#d66c49" stroke-width="1.2">
+      <rect x="352" y="328" width="24" height="10"/>
+      <rect x="364" y="338" width="26" height="10"/>
+      <rect x="348" y="348" width="24" height="10"/>
+    </g>
+
+    <!-- Scalloped Eaves & Roof Trim -->
+    <path d="M0,178 Q15,192 32,180 Q49,194 66,182 Q83,196 100,184 Q118,198 136,186 Q154,200 172,188 Q190,202 208,190 Q226,204 244,192 Q262,206 280,194 Q298,208 316,196 Q334,208 352,198 Q370,210 388,200 L398,200 L398,184 L0,156 Z" fill="#b8543d"/>
+    <polygon points="0,156 410,184 410,202 0,175" fill="#e07455"/>
+
+    <!-- Large Arched Entrance & Charpai -->
+    <path d="M14,426 L14,296 C14,220 148,220 148,296 L148,414 Z" fill="#d9a26c"/>
+    <path d="M14,426 L14,296 C14,234 128,232 128,296 L128,414 Z" fill="#704630"/>
+    <g stroke="#231811" stroke-width="1.5">
+      <rect x="20" y="366" width="104" height="12" fill="#8f5c38"/>
+      <polygon points="20,366 42,356 124,356 124,366" fill="#e6c47e"/>
+      <rect x="28" y="366" width="8" height="42" fill="#6e4426"/>
+      <rect x="114" y="366" width="8" height="36" fill="#6e4426"/>
+      <rect x="14" y="362" width="10" height="40" fill="#6e4426"/>
+    </g>
+
+    <!-- Steps -->
+    <polygon points="14,414 164,410 188,424 38,430" fill="#fae0be"/>
+    <polygon points="38,430 188,424 188,442 38,448" fill="#e3b686"/>
+    <polygon points="14,414 38,430 38,448 14,432" fill="#cca070"/>
+    <polygon points="38,442 188,436 188,454 38,464" fill="#d6a572"/>
+
+    <!-- Wall Niche & Lantern -->
+    <path d="M186,336 L186,298 C186,268 232,268 232,298 L232,336 Z" fill="#a8764f"/>
+    <rect x="180" y="334" width="58" height="8" fill="#fae0be"/>
+    <g transform="translate(208, 314)">
+      <ellipse cx="0" cy="14" rx="10" ry="3.5" fill="#2d404a"/>
+      <path d="M-8,12 L-10,-4 L10,-4 L8,12 Z" fill="#ffe169"/>
+      <ellipse cx="0" cy="4" rx="3" ry="5" fill="#fff9cc" stroke="none"/>
+      <path d="M-11,-4 L0,-14 L11,-4 Z" fill="#2d404a"/>
+      <circle cx="0" cy="-18" r="4" fill="none"/>
+    </g>
+
+    <!-- Teal-Blue Shuttered Window -->
+    <g transform="translate(268, 266)">
+      <rect x="0" y="0" width="74" height="92" fill="#236a82"/>
+      <rect x="8" y="8" width="27" height="76" fill="#3293b3"/>
+      <rect x="39" y="8" width="27" height="76" fill="#3293b3"/>
+      <rect x="29" y="8" width="16" height="76" fill="#174454"/>
+      <line x1="37" y1="8" x2="37" y2="84" stroke="#3293b3" stroke-width="2.5"/>
+      <line x1="29" y1="34" x2="45" y2="34" stroke="#3293b3" stroke-width="2.5"/>
+      <line x1="29" y1="58" x2="45" y2="58" stroke="#3293b3" stroke-width="2.5"/>
+    </g>
+
+    <!-- Hanging Chilies & Garlic -->
+    <g transform="translate(362, 272)" stroke-width="1.4">
+      <line x1="0" y1="-6" x2="0" y2="42" stroke="#5c3a21"/>
+      <path d="M-3,6 Q-8,13 -2,18 Q2,11 -3,6 Z M3,12 Q8,19 2,24 Q-2,17 3,12 Z M-3,20 Q-8,27 -2,32 Q2,25 -3,20 Z M3,28 Q8,35 2,40 Q-2,33 3,28 Z" fill="#e62929"/>
+    </g>
+    <g transform="translate(380, 272)" stroke-width="1.4">
+      <line x1="0" y1="-6" x2="0" y2="36" stroke="#5c3a21"/>
+      <circle cx="-3" cy="8" r="3.8" fill="#fff7e6"/>
+      <circle cx="3" cy="12" r="3.8" fill="#fff7e6"/>
+      <circle cx="-3" cy="18" r="3.8" fill="#fff7e6"/>
+      <circle cx="3" cy="22" r="3.8" fill="#fff7e6"/>
+      <circle cx="0" cy="30" r="3.8" fill="#fff7e6"/>
+    </g>
+
+    <!-- Reddish Paint Folk Sprigs -->
+    <use href="#leafSprig" x="172" y="392" stroke="none"/>
+    <use href="#leafSprig" x="276" y="388" stroke="none"/>
+    <use href="#leafSprig" x="308" y="386" stroke="none"/>
+    <use href="#leafSprig" x="342" y="385" stroke="none"/>
+
+    <!-- Clay Pot (Matka) -->
+    <ellipse cx="228" cy="452" rx="34" ry="7" fill="#9c5a2d" opacity="0.4" stroke="none"/>
+    <g transform="translate(228, 422)">
+      <path d="M-20,-26 L20,-26 C20,-20 14,-18 18,-14 C38,-2 36,30 0,32 C-36,30 -38,-2 -18,-14 C-14,-18 -20,-20 -20,-26 Z" fill="#cf6732"/>
+      <ellipse cx="0" cy="-26" rx="20" ry="4.5" fill="#732e0f"/>
+      <path d="M-26,-6 Q-18,0 -10,-6 Q-2,0 6,-6 Q14,0 22,-6 Q26,-3 28,-6" fill="none" stroke="#fff2de" stroke-width="1.6"/>
+    </g>
+  </g>
+
+  <!-- 7. RIGHT MUD HOUSE WITH THATCHED PORCH -->
+  <g id="right-house" stroke="#231811" stroke-width="1.8">
+    <rect x="906" y="204" width="140" height="145" fill="#f0c389"/>
+    <polygon points="904,202 1046,194 1046,214 904,222" fill="#e07455"/>
+
+    <path d="M1038,195 L1038,142 C1038,124 1068,124 1072,140 C1078,122 1106,122 1112,138 C1118,120 1146,120 1152,136 C1158,118 1188,118 1194,134 C1200,116 1230,116 1236,132 C1242,114 1272,114 1280,128 L1280,195 Z" fill="#f7ca8b"/>
+    <g fill="#734d30">
+      <path d="M1076,174 L1076,154 Q1084,144 1092,154 L1092,174 Z"/>
+      <path d="M1114,172 L1114,152 Q1122,142 1130,152 L1130,172 Z"/>
+      <path d="M1152,170 L1152,150 Q1160,140 1168,150 L1168,170 Z"/>
+      <path d="M1190,168 L1190,148 Q1198,138 1206,148 L1206,168 Z"/>
+      <path d="M1228,166 L1228,146 Q1236,136 1244,146 L1244,166 Z"/>
+    </g>
+    <polygon points="1024,186 1280,170 1280,190 1024,202" fill="#cf654c"/>
+
+    <!-- Porch Wall & Terracotta Band -->
+    <polygon points="1006,278 1280,278 1280,442 1006,432" fill="#ebbc82"/>
+    <polygon points="1006,386 1280,394 1280,442 1006,432" fill="#e07455"/>
+
+    <!-- Reddish Paint Folk Sprigs (clearly visible above plinth band) -->
+    <use href="#leafSprig" x="1058" y="368" stroke="none"/>
+    <use href="#leafSprig" x="1090" y="369" stroke="none"/>
+    <use href="#leafSprig" x="1120" y="370" stroke="none"/>
+    <use href="#leafSprig" x="1158" y="371" stroke="none"/>
+
+    <!-- Barred Window -->
+    <g transform="translate(1042, 294)">
+      <rect x="0" y="0" width="68" height="58" fill="#8f5c38"/>
+      <rect x="8" y="6" width="52" height="46" fill="#4f331f"/>
+      <line x1="20" y1="6" x2="20" y2="52" stroke="#8f5c38" stroke-width="4"/>
+      <line x1="34" y1="6" x2="34" y2="52" stroke="#8f5c38" stroke-width="4"/>
+      <line x1="48" y1="6" x2="48" y2="52" stroke="#8f5c38" stroke-width="4"/>
+    </g>
+
+    <!-- Porch Doorway -->
+    <rect x="1182" y="290" width="76" height="146" fill="#704832"/>
+    <rect x="1194" y="298" width="60" height="136" fill="#422819"/>
+
+    <!-- Climbing Bougainvillea Accent -->
+    <g id="right-vine">
+      <path d="M982,346 Q994,300 986,258 Q998,225 1028,212" fill="none" stroke="#5c3a21" stroke-width="2.5"/>
+      <g fill="#63a839" stroke="#231811" stroke-width="1">
+        <ellipse cx="984" cy="312" rx="7" ry="4" transform="rotate(-30 984 312)"/>
+        <ellipse cx="994" cy="278" rx="7" ry="4" transform="rotate(25 994 278)"/>
+        <ellipse cx="984" cy="246" rx="8" ry="4.5" transform="rotate(-20 984 246)"/>
+      </g>
+      <use href="#pinkFlower" x="984" y="290"/>
+      <use href="#pinkFlower" x="992" y="262"/>
+      <use href="#pinkFlower" x="976" y="242"/>
+      <use href="#pinkFlower" x="1008" y="228"/>
+      <use href="#pinkFlower" x="1026" y="216"/>
+    </g>
+
+    <!-- Wooden Porch Pillars -->
+    <rect x="966" y="280" width="12" height="154" fill="#825030"/>
+    <rect x="1136" y="276" width="14" height="170" fill="#825030"/>
+
+    <!-- Thatched Roof -->
+    <g id="thatched-roof">
+      <polygon points="1032,202 1280,186 1280,278 930,282" fill="#f7ca57"/>
+      <path d="M930,282 L940,290 L952,278 L964,290 L976,278 L988,288 L1000,277 L1012,289 L1024,277 L1036,288 L1048,277 L1060,288 L1072,277 L1084,289 L1096,277 L1108,288 L1120,276 L1132,288 L1144,276 L1156,287 L1168,275 L1180,286 L1192,275 L1204,286 L1216,274 L1228,285 L1240,273 L1252,284 L1264,272 L1280,282 L1280,264 L936,268 Z" fill="#db9e2a"/>
+      <g stroke="#b87d1a" stroke-width="1.5" opacity="0.65">
+        <line x1="1040" y1="210" x2="965" y2="274"/>
+        <line x1="1075" y1="208" x2="1005" y2="274"/>
+        <line x1="1110" y1="205" x2="1048" y2="273"/>
+        <line x1="1145" y1="203" x2="1090" y2="272"/>
+        <line x1="1180" y1="200" x2="1132" y2="271"/>
+        <line x1="1215" y1="198" x2="1175" y2="270"/>
+        <line x1="1250" y1="195" x2="1218" y2="269"/>
+      </g>
+    </g>
+
+    <!-- Clay Pots & Basket Under Porch -->
+    <ellipse cx="1020" cy="436" rx="32" ry="6" fill="#7d431e" opacity="0.4" stroke="none"/>
+    <g transform="translate(1020, 405)">
+      <path d="M-20,-28 L20,-28 C20,-22 14,-19 19,-14 C39,-2 37,30 0,32 C-37,30 -39,-2 -19,-14 C-14,-19 -20,-22 -20,-28 Z" fill="#cf6732"/>
+      <ellipse cx="0" cy="-28" rx="20" ry="4.5" fill="#732e0f"/>
+      <path d="M-26,-6 Q-18,0 -10,-6 Q-2,0 6,-6 Q14,0 22,-6 Q26,-3 28,-6" fill="none" stroke="#fff2de" stroke-width="1.6"/>
+    </g>
+
+    <ellipse cx="1068" cy="438" rx="22" ry="5" fill="#7d431e" opacity="0.4" stroke="none"/>
+    <g transform="translate(1068, 417)">
+      <path d="M-13,-18 L13,-18 C13,-14 9,-12 12,-9 C25,-1 24,20 0,22 C-24,20 -25,-1 -12,-9 C-9,-12 -13,-14 -13,-18 Z" fill="#cf6732"/>
+      <ellipse cx="0" cy="-18" rx="13" ry="3.2" fill="#732e0f"/>
+    </g>
+
+    <g transform="translate(1252, 428)">
+      <path d="M-28,-18 L28,-18 L24,18 C14,24 -14,24 -24,18 Z" fill="#e6b057"/>
+      <ellipse cx="0" cy="-18" rx="28" ry="6" fill="#c48a33"/>
+      <path d="M-26,-8 Q0,-2 26,-8 M-25,2 Q0,8 25,2 M-24,11 Q0,17 24,11" fill="none" stroke="#231811" stroke-width="1.2" opacity="0.55"/>
+    </g>
+  </g>
+</svg>
