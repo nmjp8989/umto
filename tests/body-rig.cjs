@@ -19,25 +19,43 @@ const result=await p.evaluate(()=>{
  for(const hair of Object.keys(indianLongHair))for(const view of ['front','left','right']){state.hair=hair;cameraView=view;render();if(!document.querySelector('#frontHair path'))throw Error('Missing long hair');}
  if(premadeCharacters.filter(p=>p.id.startsWith('india-')).length!==8)throw Error('Indian presets missing');
  feature='hair';for(const section of ['girls','boys','all']){hairSection=section;drawDesigns();if(!document.querySelector('[data-hair-section="'+section+'"][aria-pressed="true"]'))throw Error('Hair filter broken');}
+ // The same filled skin path must contain the wrist, the hand and a point
+ // well up the forearm, including when the hand rolls independently.
+ state.shirt='linenTunic';state.framing='full';
+ for(const view of ['front','left','right']){
+  cameraView=view;render();
+  const arms=[...document.querySelectorAll('#torso [data-rig-arm]')];
+  for(const pose of ['relaxed','wave','open','point','fist'])for(const bend of [-48,0,52]){
+   const spec={pose,view:pose==='relaxed'?'edge':'palm'};
+   setBodyArmPose({left:[-12,-87,bend],right:[8,-35,-bend]},{left:spec,right:spec});
+   for(const arm of arms){
+    const skin=arm.querySelector('[data-arm-skin]'),elbow=arm.querySelector('[data-rig-elbow]'),wrist=arm.querySelector('[data-rig-wrist]');
+    const contains=(joint,x,y)=>skin.isPointInFill(new DOMPoint(x,y).matrixTransform(joint.getCTM()).matrixTransform(skin.getCTM().inverse()));
+    if(!contains(elbow,0,48)||!contains(wrist,0,26))throw Error('Forearm or palm disconnected '+pose);
+    for(const y of [-8,0,8])for(const x of [-10,0,10])if(!contains(wrist,x,y))throw Error('Wrist gap '+pose+' '+bend);
+   }
+  }
+ }
  const styles=Object.keys(WARDROBE);let checks=0;
  for(const shirt of styles)for(const view of ['front','left','right'])for(const framing of ['head','full']){
   state.shirt=shirt;cameraView=view;state.framing=framing;render();
+  const legSurfaces=[...document.querySelectorAll('#torso [data-leg-surface]')];
   const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].filter(n=>!n.closest('[data-hand-action]')).map(n=>n.getAttribute('d')));
   const original=geometry();const nodes=[...document.querySelectorAll('#torso [data-rig-arm]')];
   for(const time of [0,.2,1,2.8,3.5]){poseHeadshotArms(reactionPose('wave',time));socketCheck();if(geometry()!==original)throw Error('Geometry changed '+shirt);if(nodes.some(n=>!n.isConnected))throw Error('Rig replaced mid-animation');checks++;}
   if(framing==='full'){for(const time of Array.from({length:24},(_,i)=>i*.05)){poseWalking(time);socketCheck();if(document.getElementById('torso').innerHTML.includes('NaN'))throw Error('Invalid gait');
    for(const leg of document.querySelectorAll('#torso [data-rig-leg]')){
-    const side=+leg.dataset.rigLeg,g=walkingStep(time,side),turn=cameraDirections[view],x=100+(state.pose==='wide'?70:state.pose==='straight'?-15:12),cloth=leg.querySelector('[data-walk-trouser]');
-    const knee=new DOMPoint(x+turn*side*.72*g.kneeForward,g.kneeDown-(turn?.12:.28)*g.kneeForward);
-    if(cloth.getAttribute('visibility')!=='visible'||!cloth.isPointInFill(knee))throw Error('Uncovered knee '+shirt+' '+view);
-    if(leg.querySelector('[data-rest-shin]').getAttribute('display')!=='none')throw Error('Duplicate trouser segment');
+    const side=+leg.dataset.rigLeg,g=walkingStep(time,side),turn=cameraDirections[view],x=standingKneeX(bodyBottomProfile(),bodyAnkleX()),cloth=leg.querySelector('[data-leg-surface]');
+    const knee=new DOMPoint(x+turn*side*.72*g.kneeForward,g.kneeDown);
+    if(!legSurfaces.includes(cloth)||!cloth.isPointInFill(knee))throw Error('Uncovered knee '+shirt+' '+view);
+    if(leg.querySelectorAll('[data-leg-surface]').length!==1)throw Error('Duplicate trouser segment');
    }
-   const rig=document.querySelector('#torso [data-body-rig]'),fills=[...document.querySelectorAll('#torso [data-walk-trouser],#torso [data-rig-pelvis] path')].filter(p=>p.getAttribute('fill')===state.trouserColour);
+   const rig=document.querySelector('#torso [data-body-rig]'),fills=[...document.querySelectorAll('#torso [data-leg-surface],#torso [data-rig-pelvis] path')].filter(p=>p.getAttribute('fill')===state.trouserColour);
    for(const dx of [-90,-45,0,45,90])for(const y of [1450,1500,1550]){
     const point=new DOMPoint(bodyCameraX(627+dx,cameraDirections[view]),y).matrixTransform(rig.getCTM());
     if(!fills.some(path=>path.isPointInFill(point.matrixTransform(path.getCTM().inverse()))))throw Error('Hip coverage gap '+view+' '+time+' '+dx+' '+y);
    }
-   for(const hand of document.querySelectorAll('#torso [data-hand-open]'))if(hand.getAttribute('display')!=='none')throw Error('Walking shows open palm');}render();if(document.querySelector('#torso [data-rig-hip]').hasAttribute('transform'))throw Error('Gait reset failed');}
+   for(const arm of nodes)if(arm.querySelector('[data-action-hand]').dataset.actionHand!=='relaxed')throw Error('Walking lost relaxed hand');}render();if(document.querySelector('#torso [data-rig-hip]').hasAttribute('transform'))throw Error('Gait reset failed');}
   if(nodes.length!==2)throw Error('Expected exactly two arms');
   if(framing==='full'&&document.querySelectorAll('#torso [data-rig-knee]').length!==2)throw Error('Leg joint missing');
  }

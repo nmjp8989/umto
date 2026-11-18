@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Umto · Character Studio v96</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Umto · Character Studio v97</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Umto · Character Studio v96</h1><p>v96 · articulated hands, continuous hips and three-quarter hair</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Umto · Character Studio v97</h1><p>v97 · continuous arm and hand contours</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -126,7 +126,7 @@
 <label class="motion-label" for="audioFile">Optional: use your own audio (MP3, WAV, M4A)</label><input class="motion-file" id="audioFile" type="file" accept="audio/*"><div class="motion-note" id="audioStatus">No audio selected · animated cue demo only. With audio, cues are stretched uniformly to its duration; this is manual timing, not automatic speech recognition.</div>
 </section><h3>Same character · four mouth positions</h3><div id="fourup" class="fourup"></div><h3>Expression mouths</h3><div id="focus" class="focus-grid"></div><p class="hint">For regular talking, the default library is smaller on purpose: <strong>Closed</strong>, <strong>M/B/P</strong>, <strong>EE/teeth</strong>, <strong>A</strong>, <strong>O</strong>, <strong>U/pucker</strong>, and <strong>F/V</strong>. Separate expressive mouths are available for <strong>Smile</strong>, <strong>Sad</strong>, and <strong>Laugh</strong>.</p><p class="hint">Every mouth uses the same face and mouth anchor. All parts are SVG paths, so the hairstyle, ears, head, face, clothing and mouth can be independently changed without generating a new portrait.</p></section>
 <section class="card"><div class="row"><h2>Character parts</h2><span class="tag">ILLUSTRATION REFINEMENT</span></div><div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-tab="mouth">Mouth</button><button class="tab" role="tab" aria-selected="false" data-tab="eyes">Eyes</button><button class="tab" role="tab" aria-selected="false" data-tab="brows">Brows</button><button class="tab" role="tab" aria-selected="false" data-tab="nose">Nose</button><button class="tab" role="tab" aria-selected="false" data-tab="hair">Hair</button><button class="tab" role="tab" aria-selected="false" data-tab="ears">Ears</button><button class="tab" role="tab" aria-selected="false" data-tab="mood">Moods</button></div><h3 id="category">Mouth shapes</h3><div id="choices" class="choices"></div><div class="sliders"><label>Mouth width <input id="width" type="range" min="75" max="135" value="110"></label><label>Mouth position <input id="position" type="range" min="-22" max="22" value="5"></label></div><div class="toolbar"><button class="btn" id="reset">Reset mouth</button><button class="btn" id="exportPart">Save selected part SVG</button><button class="btn" id="saveJson">Save rig JSON</button></div><div class="notes"><b>v20 simplified mouth system:</b> The main talking set is intentionally reduced to seven practical speech visemes: Closed, M/B/P, EE/teeth, A, O, U/pucker, and F/V. Extra emotional shapes are provided separately for Smile, Sad, and Laugh. <b>Drawing goal:</b> professional cartoon features, strong line weight, no raster face or image overlays. Consistent eyes, eyebrows, mouth and hair are individual SVG layers, not separately generated full portraits. Speech-motion playback uses hand-set cues; imported audio is not automatically transcribed or analyzed. Timing is scaled to the audio duration for preview.</div></section>
-</main><div class="footer">Umto prototype v96 · Local/offline · No uploads or external requests</div>
+</main><div class="footer">Umto prototype v97 · Local/offline · No uploads or external requests</div>
 <script src="scenes/catalog.js"></script><script>
 'use strict';
 
@@ -980,7 +980,7 @@ function bottomDetailsSvg(p=bottomProfile()){
  if(p.crease)art+=rigDetail('M104 40 L108 312',2);
  return art;
 }
-const BODY_RIG=Object.freeze({shoulderX:280,shoulderY:1020,upperArm:230,forearm:210,hipY:1450,kneeY:1830,ankleY:2190});
+const BODY_RIG=Object.freeze({shoulderX:270,shoulderY:1028,upperArm:230,forearm:228,hipY:1450,kneeY:1830,ankleY:2190});
 function garmentDesign(id=state.shirt){return WARDROBE[id]||WARDROBE.crew;}
 function garmentTemplate(id=state.shirt){const d=garmentDesign(id);return {...GARMENT_TEMPLATES[d.template],...d};}
 const topNames=Object.fromEntries(Object.entries(WARDROBE).filter(([,v])=>v.template!=='dress').map(([k,v])=>[k,v.label]));
@@ -998,9 +998,18 @@ function rigDetail(d,w=4){return `<path d="${d}" fill="none" stroke="#161011" st
 function garmentBodiceSvg(){
  const d=garmentDesign(),t=garmentTemplate(),hem=t.hem,half=218+t.flare;
  const opening=d.neck==='wrap'?'L627 1130 L542 1005':d.neck==='v'?'L627 1120 L542 1005':d.neck==='scoop'?'Q627 1140 542 1005':'Q627 1080 542 1005';
- const body=`M542 1005 C463 979 382 980 335 1028 Q354 1130 399 1210 L${627-half} ${hem} Q627 ${hem+20} ${627+half} ${hem} L855 1210 Q900 1130 919 1028 C872 980 791 979 712 1005 ${opening}Z`;
+ // The shoulder slopes out from the neck. Each side passes through an
+ // underarm and waist before flaring into the garment-specific hem.
+ const waist=t.template==='tunic'||t.template==='dress'?192:t.template==='jacket'?212:204;
+ const side=(sign,reverse=false)=>{
+  const x=width=>627+sign*width,waistY=1210+(hem-1210)*.39;
+  if(reverse)return `C${x(half)} ${hem-50} ${x(waist)} ${waistY+64} ${x(waist)} ${waistY} C${x(waist)} ${waistY-36} ${x(195)} 1236 ${x(201)} 1194`;
+  return `C${x(195)} 1236 ${x(waist)} ${waistY-36} ${x(waist)} ${waistY} C${x(waist)} ${waistY+64} ${x(half)} ${hem-50} ${x(half)} ${hem}`;
+ };
+ const left=side(-1),right=side(1,true);
+ const body=`M542 1005 C499 1012 434 1017 381 1027 Q347 1032 330 1061 Q326 1069 325 1080 Q370 1142 426 1194 ${left} Q627 ${hem+28} ${627+half} ${hem} ${right} Q884 1142 929 1080 Q928 1069 924 1061 Q907 1032 873 1027 C820 1017 755 1012 712 1005 ${opening}Z`;
  if(d.layeredVest)return punjabiVestKurtaSvg(hem,half);
- let a=rigFill('M535 830 H715 V952 Q721 986 739 1000 L718 1142 H536 L515 1000 Q535 980 535 952Z','url(#skinFill)')+rigFill(body);
+ let a=rigFill('M551 823 H703 C699 888 695 939 699 966 Q701 990 724 1008 L710 1128 H544 L530 1008 Q553 989 555 966 C559 938 555 886 551 823Z','url(#skinFill)')+rigFill(body);
  if(d.pattern==='stripe'){
   a+=`<defs><clipPath id="rigGarmentClip"><path d="${body}"/></clipPath></defs><g clip-path="url(#rigGarmentClip)">`;
   for(let y=1110;y<hem;y+=75)a+=`<path d="M300 ${y} H950" stroke="#fffdfa" stroke-width="21" opacity=".65"/>`;a+='</g>';
@@ -1060,7 +1069,7 @@ function garmentBodiceSvg(){
  }
  if(d.bow)a+=rigFill('M616 1060 L574 1038 V1088 L616 1076 H638 L680 1088 V1038 L638 1060Z','#161011');
  if(t.hem<1500)a+=rigFill(`M${627-half} ${hem-18} Q627 ${hem-3} ${627+half} ${hem-18} L${627+half} ${hem} Q627 ${hem+20} ${627-half} ${hem}Z`,bodyShade(rigCloth(),.09));
- return a+rigDetail(`M${627-half+8} ${hem-16} Q627 ${hem+2} ${627+half-8} ${hem-16}`,3);
+ return a+rigDetail(`M426 1194 ${left} Q627 ${hem+28} ${627+half} ${hem} ${right}`,4)+rigDetail(`M${627-half+5} ${hem-15} Q627 ${hem+11} ${627+half-5} ${hem-15}`,3);
 }
 // Separate kurta and waistcoat hems retain the silhouette during cloth motion.
 function punjabiVestKurtaSvg(hem,half){
@@ -1077,20 +1086,41 @@ function juttiSvg(turn){
  rigDetail('M-42 35 Q-8 78 37 43 M-54 92 Q29 112 119 92',3);
 }
 function rigArmSvg(side,view=cameraView){
- const turn=cameraDirections[view]||0,armX=bodyCameraX(bodyShapeX(627+side*BODY_RIG.shoulderX,1020),turn),depth=turn?(side===turn?.82:1):1;
- const t=garmentTemplate(),skin='url(#skinFill)',cloth=t.sleeveColour||rigCloth();
- const upper='M-61 44 C-60 13 -30 -6 0 -6 C30 -6 60 13 61 44 C65 87 57 158 49 230 Q0 274 -49 230 C-57 158 -65 87 -61 44Z';
- const fore='M-49 -18 Q0 -42 49 -18 C53 47 47 117 38 181 Q36 200 35 218 H-35 Q-36 200 -38 181 C-47 117 -53 47 -49 -18Z';
- let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth*bodyShapeProfile().arm} 1)">`+`<ellipse data-shoulder-socket cx="0" cy="48" rx="62" ry="55" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
- if(t.sleeve>0&&t.sleeve<1){const end=t.sleeve*230,w=61-end*.027;a+=`<defs><clipPath id="sleeveCloth-${side}"><path d="M-90 -30 H90 V${end} Q0 ${end+18} -90 ${end}Z"/></clipPath></defs><g clip-path="url(#sleeveCloth-${side})">${rigFill(upper,cloth)}</g>`+rigDetail(`M${-w} ${end+3} Q0 ${end+15} ${w} ${end+3}`,3);}
-
- if(t.rolled){const end=t.sleeve*230;a+=rigFill(`M-56 ${end-17} Q0 ${end-7} 56 ${end-17} L55 ${end+5} Q0 ${end+17} -55 ${end+5}Z`,bodyShade(cloth,.12))+rigDetail(`M-55 ${end+5} Q0 ${end+17} 55 ${end+5}`,3);}
-
- a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><ellipse data-elbow-bridge cx="0" cy="0" rx="49" ry="47" fill="${t.sleeve===1?cloth:skin}"/><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none">${actionHandSvg('open','palm')}</g><g data-hand-point display="none">${actionHandSvg('point','palm')}</g><g data-hand-palm display="none">${actionHandSvg('relaxed','palm')}</g><g data-hand-relaxed>${actionHandSvg('relaxed',turn?'edge':'back')}</g><g data-hand-action display="none"></g>`+
- // Cuff is drawn on top of the hand to hide the wrist/sleeve seam.
- (t.sleeve===1?`<g data-hand-cuff>${rigFill('M-36 -15 Q0 -11 36 -15 L35 11 Q0 18 -35 11Z',bodyShade(cloth,.09))}${rigDetail('M-35 11 Q0 18 35 11',3)}</g>`:'')+
- ' </g></g></g></g></g></g>';
- return a;
+ const turn=cameraDirections[view]||0,far=turn&&side===turn;
+ const x=bodyCameraX(bodyShapeX(627+side*BODY_RIG.shoulderX,BODY_RIG.shoulderY),turn);
+ const t=garmentTemplate(),cloth=t.sleeveColour||rigCloth();
+ const upper=BODY_RIG.upperArm,fore=BODY_RIG.forearm;
+ const socket='M-57 48 C-54 19 -32 0 -7 1 C25 2 47 24 54 56 C60 108 49 175 44 222 Q42 258 0 262 Q-42 252 -44 225 C-46 174 -59 100 -57 48Z';
+ // The skin is inked as one silhouette. The elbow bones also carry prop anchors.
+ const hand=handSurface('relaxed',turn?'edge':'back',0,1,t.sleeve===1);
+ const sleeveBase=t.sleeve*upper-12;
+ const upperSkin=t.sleeve===0?socket:`M-45 ${sleeveBase} Q0 ${sleeveBase-15} 48 ${sleeveBase} C51 ${sleeveBase+14} 46 209 44 222 Q40 260 0 262 Q-42 252 -44 225Z`;
+ const skin=`<g filter="url(#armInk)">${t.sleeve===1?'':rigFill(upperSkin,'url(#skinFill)')}
+  <g transform="translate(0 ${upper})"><g data-rig-elbow><g transform="translate(0 ${fore})"><g data-rig-wrist>
+  <g data-hand-action display="inline"><g data-action-hand="relaxed" data-hand-surface="${hand.view}" transform="scale(${hand.width} 1)">
+  <path data-arm-skin d="${hand.d}" fill="url(#skinFill)" fill-rule="evenodd"/>
+  <path data-hand-lines d="${hand.lines}" fill="none" stroke="#261d19" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g></g></g></g></g></g></g>`;
+ let sleeve='';
+ if(t.sleeve>0){
+  const long=t.sleeve===1,end=long?upper:t.sleeve*upper;
+  const inside=long?48:60-end*.045,outside=long?50:66-end*.043;
+  const crown='M-63 54 C-61 21 -33 -1 -6 2 C28 6 53 30 60 64';
+  const sides=`C${outside+5} ${end*.62+30} ${outside+3} ${end-20} ${outside} ${end} `;
+  const hem=long?`Q0 ${end+86} ${-inside} ${end}`:`Q3 ${end+20} ${-inside} ${end-1}`;
+  sleeve=rigFill(crown+' '+sides+hem+` C${-inside-1} ${end-25} -64 90 -63 54Z`,cloth);
+  if(long){
+   // Sleeve and cuff follow the forearm. The wrist can turn freely underneath.
+   sleeve+=`<g transform="translate(0 ${upper})"><g data-sleeve-elbow>`+
+    rigFill(`M-47 -15 Q0 -70 48 -15 C54 39 44 ${fore-76} 36 ${fore-7} Q0 ${fore+2} -34 ${fore-7} C-37 ${fore-77} -54 56 -47 -15Z`,cloth)+
+    rigFill(`M-35 ${fore-29} Q0 ${fore-21} 38 ${fore-29} L36 ${fore-3} Q1 ${fore+7} -34 ${fore-3}Z`,bodyShade(cloth,.09))+
+    rigDetail(`M-34 ${fore-3} Q1 ${fore+7} 36 ${fore-3}`,4)+'</g></g>';
+  }else{
+   if(t.rolled)sleeve+=rigFill(`M${-inside} ${end-19} Q3 ${end+1} ${outside+1} ${end-18} L${outside} ${end} Q3 ${end+20} ${-inside} ${end-1}Z`,bodyShade(cloth,.12));
+   sleeve+=rigDetail(`M${-inside} ${end-1} Q3 ${end+20} ${outside} ${end}`,4.2);
+  }
+ }
+ return `<g data-rig-arm="${side}"${t.sleeve===1?' data-long-sleeve=""':''} transform="translate(${x} ${BODY_RIG.shoulderY+(far?-9:0)}) scale(${side*(far?.82:1)*bodyShapeProfile().arm} 1)"><g data-rig-shoulder>${skin}${sleeve}</g></g>`;
 }
 function bodyCameraX(x,turn){
  const u=x-627;return turn?627+turn*52+.84*u-turn*.20*(Math.sqrt(u*u+6400)-80):x;
@@ -1112,25 +1142,52 @@ function bodySurfaceSvg(art,turn){
  }).replace(/<(?:circle|ellipse)\b[^>]*>/g,tag=>{const cx=tag.match(/ cx="([\d.-]+)"/),cy=tag.match(/ cy="([\d.-]+)"/);return cx&&cy?tag.replace(cx[0],` cx="${project(+cx[1],+cy[1])}"`):tag;});
 }
 
-function relaxedHandSvg(view='back'){return actionHandSvg('relaxed',view);}
-
 // Match each hip to its own side of the turned garment. A single average
 // depth left a step on the near side and a protrusion on the far side.
+// A trouser or bare leg has one outside edge from hip to ankle. Standing and
+// walking move the same knee and cuff landmarks on that contour.
+function legOutline(p,knee,foot){
+ const thighSlope=(knee.x-p.hip*.52)/(knee.y+50),shinSlope=(foot.x-knee.x)/(foot.y-knee.y);
+ const normalY=-Math.sin(Math.atan((thighSlope+shinSlope)*.5));
+ const lower=foot.y-knee.y,calf=p.gathered?1.12:1.02;
+ const inner=knee.x-p.knee,outer=knee.x+p.knee,iy=knee.y-normalY*p.knee,oy=knee.y+normalY*p.knee;
+ const left=foot.x-p.cuff,right=foot.x+p.cuff;
+ return `M0 -50 H${p.hip}
+ C${p.hip+5} 75 ${outer-thighSlope*76} ${oy-76} ${outer} ${oy}
+ C${outer+shinSlope*58+5} ${oy+58} ${foot.x+p.knee*calf} ${foot.y-lower*.33} ${right} ${foot.y}
+ Q${foot.x} ${foot.y+(p.gathered?15:5)} ${left} ${foot.y}
+ C${foot.x-p.knee*calf} ${foot.y-lower*.33} ${inner+shinSlope*52-3} ${iy+52} ${inner} ${iy}
+ C${inner-thighSlope*70} ${iy-70} 6 181 0 140Z`;
+}
+function shortsOutline(p,knee){
+ const u=p.length/400,x=p.hip*.52+(knee.x-p.hip*.52)*u,y=knee.y*u,w=p.knee+12;
+ return `M0 -50 H${p.hip} Q${p.hip+4} ${y*.5} ${x+w} ${y} Q${x} ${y+8} ${x-w} ${y} Q4 ${y*.5} 0 140Z`;
+}
+function standingKneeX(profile,ankle){return profile.hip*.52+(ankle-profile.hip*.52)*.57;}
 function rigLegSvg(side,pose,view){
- const p=bodyBottomProfile(),spread=pose==='wide'?70:pose==='straight'?-15:12,ankle=bodyAnkleX(pose),turn=cameraDirections[view]||0;
- const bare=!!p.length||p.skirt,skin='url(#skinFill)',c=state.trouserColour;
- const thigh=`M0 -50 H${p.hip} C${p.hip+5} 85 ${p.hip+1} 252 ${ankle+p.knee} 388 H${ankle-p.knee} L8 180Z`;
- let thighArt=rigFill(thigh,bare?skin:c);
- if(p.length)thighArt+=`<defs><clipPath id="shortLeg-${side}"><rect x="-100" y="-80" width="500" height="${p.length+80}"/></clipPath></defs><g clip-path="url(#shortLeg-${side})">${rigFill(thigh,c)}</g>`+rigDetail(`M32 ${p.length-8} H${p.hip-6}`,3);
- const shin=p.gathered?`M${-p.knee-1} -18 Q0 -30 ${p.knee-1} -18 C${p.knee+5} 140 ${p.knee-12} 292 ${p.cuff} 352 Q0 370 ${-p.cuff} 352 C${-p.knee+12} 292 ${-p.knee-5} 140 ${-p.knee-1} -18Z`:`M${-p.knee-1} -18 Q0 -30 ${p.knee-1} -18 L${p.cuff} 360 H${-p.cuff} L${-p.knee+6} 180Z`;
+ const p=bodyBottomProfile(),ankle=bodyAnkleX(pose),turn=cameraDirections[view]||0;
+ const knee={x:standingKneeX(p,ankle),y:380},foot={x:ankle,y:740};
+ const bare=!!p.length||p.skirt,colour=bare?'url(#skinFill)':state.trouserColour;
+ const folds=p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):'';
  return `<g data-rig-leg="${side}" transform="translate(${bodyCameraX(627,turn)} 1450) scale(${(bodyCameraX(627+side*p.hip,turn)-bodyCameraX(627,turn))/p.hip} 1)"><g data-rig-hip>`+
- `<path data-walk-trouser fill="${bare?skin:c}" visibility="hidden"/><path data-walk-shorts fill="${c}" visibility="hidden"/><g data-rig-thigh>${thighArt}</g><g data-moving-leg-details>${bottomDetailsSvg(p)}</g>`+
- `<g data-rig-knee transform="translate(${ankle} 380)"><g data-rest-shin>${rigFill(shin,bare?skin:c)}${!bare?(p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):rigDetail('M-40 6 Q0 -9 39 6',2.5)):''}</g>`+
- `<g data-moving-shin-details display="none">${p.gathered?rigDetail('M-64 70 Q-62 174 -24 205 M60 90 Q56 213 22 251 M-25 286 Q-8 310 14 311',3):''}</g>`+
- `<g data-rig-ankle transform="translate(0 360) scale(${turn&&side!==turn?-1:1} 1)">`+
+ `<path data-leg-surface fill="${colour}" d="${legOutline(p,knee,foot)}"/>`+
+ (p.length?`<path data-shorts fill="${state.trouserColour}" d="${shortsOutline(p,knee)}"/>`:'')+
+ `<g data-moving-leg-details>${bottomDetailsSvg(p)}</g><g data-rig-knee transform="translate(${knee.x} 380)">${folds}`+
+ `<g data-rig-ankle transform="translate(${ankle-knee.x} 360) scale(${turn&&side!==turn?-1:1} 1)">`+
  `<g data-rig-foot transform="translate(0 111) scale(${bodyShapeProfile().foot} ${Math.max(1,bodyShapeProfile().foot/bodyHeight())}) translate(0 -111)">`+
- (p.cuffed?rigFill(`M${-p.cuff} -18 H${p.cuff} V5 H${-p.cuff}Z`,bodyShade(c,.2)):'' )+
- (garmentDesign().jutti?juttiSvg(turn):rigFill(turn?'M-43 -8 H40 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z':'M-49 -8 H47 L53 32 Q66 53 102 69 Q122 79 116 100 Q95 116 29 112 L-55 107 Q-66 92 -58 65Z',state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56':'M-59 91 Q24 112 117 91 M-26 35 Q3 33 28 48 M-30 49 Q0 47 21 60',3))+'</g></g></g></g></g>';
+ (p.cuffed?rigFill(`M${-p.cuff} -18 H${p.cuff} V5 H${-p.cuff}Z`,bodyShade(state.trouserColour,.2)):'')+
+ (garmentDesign().jutti?juttiSvg(turn):sneakerSvg(turn))+'</g></g></g></g></g>';
+}
+function sneakerSvg(turn){
+ const quarter='M-43 -8 Q0 -15 40 -8 L48 26 Q64 44 101 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z';
+ const front='M-43 -8 Q-2 -15 43 -8 C45 11 49 34 62 49 C76 64 87 77 85 94 Q84 110 35 112 Q-24 116 -59 105 C-64 87 -58 68 -53 47Z';
+ return rigFill(turn?quarter:front,state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M20 28 Q40 29 58 42 M13 44 Q33 44 50 55':'M-58 88 Q9 107 84 89 M-30 28 Q-7 23 17 31 M-33 43 Q-10 37 16 47 M-36 59 Q-12 52 12 62',4);
+}
+function silhouetteInk(id,edge){
+ return `<filter id="${id}" x="-30%" y="-30%" width="160%" height="160%">
+  ${edge}
+  <feFlood flood-color="#201917"/><feComposite in2="edge" operator="in"/>
+  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
 }
 function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
  const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
@@ -1142,7 +1199,8 @@ function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full')
  const pelvis=`M${px(-hip)} 1380 H${px(hip)} L${px(hip-8)} 1470 Q${px(hip-12)} 1530 ${px(hip*.65)} 1570 Q${px(hip*.32)} 1570 ${px(0)} 1620 Q${px(-hip*.32)} 1570 ${px(-hip*.65)} 1570 Q${px(-hip+12)} 1530 ${px(-hip+8)} 1470Z`;
  // Follow the curved garment edge and keep a generous hidden underlap.
  const lower='translate(0 1450) scale(1 .92) translate(0 -1450)';
- const filter='<defs><filter id="sharedBodyInk" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius="4.4" result="edge"/><feFlood flood-color="#161011"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+ const filter='<defs>'+silhouetteInk('sharedBodyInk','<feMorphology in="SourceAlpha" operator="dilate" radius="4" result="edge"/>')+
+  silhouetteInk('armInk','<feGaussianBlur in="SourceAlpha" stdDeviation="1.8"/><feComponentTransfer result="edge"><feFuncA type="linear" slope="16" intercept="-.7"/></feComponentTransfer>')+'</defs>';
  return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2239.36" rx="300" ry="24" fill="#102b42" opacity=".14"/>':'')+`<g data-body-shape="${state.bodyType||'classic'}" transform="translate(0 2239.36) scale(1 ${bodyHeight(full)}) translate(0 -2239.36)"><g filter="url(#sharedBodyInk)">`+(full?`<defs><clipPath id="garmentLegClip"><path data-leg-occlusion d="${garmentLegClipPath(0,view)}"/></clipPath></defs><g clip-path="url(#garmentLegClip)"><g data-lower-body transform="${lower}">${rigLegSvg(far,pose,view)+rigLegSvg(near,pose,view)}</g>`:'')+(full?`<g data-rig-pelvis transform="${lower}">`+(rigFill(pelvis,state.trouserColour)+rigDetail(`M${centre} 1450 V1515`,3))+'</g></g>':'')+(full&&bottomProfile().skirt?`<g data-moving-garment data-cloth-hem="${bottomProfile().hem}">${bodySurfaceSvg(bottomSkirtSvg(),turn)}</g>`:'')+rigArmSvg(far,view)+`<g data-moving-garment data-cloth-hem="${garmentTemplate().hem}">${bodySurfaceSvg(garmentBodiceSvg(),turn)}</g>`+rigArmSvg(near,view)+'</g></g></g>';
 }
 function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
@@ -1167,26 +1225,35 @@ function bodySizeTile(key){
  }finally{state.bodyType=old;state.framing=frame;}
 }
 function topTile(key){return clothingTile(key);}
+function poseRigArm(arm,angles,spec,turn){
+ const side=+arm.dataset.rigArm,view=spec.view||'palm',roll=angles[2]+(spec.roll||0);
+ arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${angles[0]} 0 48)`);
+ const elbow=`rotate(${angles[1]})`;
+ arm.querySelector('[data-rig-elbow]').setAttribute('transform',elbow);
+ arm.querySelector('[data-sleeve-elbow]')?.setAttribute('transform',elbow);
+ arm.querySelector('[data-rig-wrist]').setAttribute('transform',`rotate(${roll})`);
+ const hand=arm.querySelector('[data-action-hand]'),depth=turn?(side===turn?.86:.96):1;
+ const signature=[spec.pose,view,roll,depth].join(':');
+ if(hand.dataset.signature===signature)return;
+ const shape=handSurface(spec.pose==='palm'?'relaxed':spec.pose,view,roll,depth,arm.hasAttribute('data-long-sleeve'));
+ hand.dataset.signature=signature;hand.dataset.actionHand=shape.key;hand.dataset.handSurface=view;
+ hand.setAttribute('transform',`scale(${shape.width} 1)`);
+ hand.querySelector('[data-arm-skin]').setAttribute('d',shape.d);
+ hand.querySelector('[data-hand-lines]').setAttribute('d',shape.lines);
+}
 function setBodyArmPose(poses,hands={},root=document){
+ const turn=cameraDirections[cameraView]||0;
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,which=side===-1?'left':'right',angles=poses[which]||[0,0,0];
   const gesture=Math.abs(angles[1])>40;
-  const selected=hands[which]||(gesture?{pose:'open',view:'palm'}:{pose:'relaxed',view:cameraView==='front'?'back':side===cameraDirections[cameraView]?'edge':'back'});
-  const spec=typeof selected==='string'?{pose:selected,view:'palm'}:selected;
-  const pose=spec.pose==='palm'?'relaxed':spec.pose;
-  for(const kind of ['open','point','palm','relaxed'])arm.querySelector('[data-hand-'+kind+']').setAttribute('display','none');
-  const target=arm.querySelector('[data-hand-action]'),signature=pose+':'+spec.view;
-  target.setAttribute('display','inline');
-  if(target.dataset.signature!==signature){target.innerHTML=actionHandSvg(pose,spec.view||'palm');target.dataset.signature=signature;}
-  const turn=cameraDirections[cameraView]||0,depth=turn&&spec.view!=='edge'?(side===turn?.84:.96):1;
-  target.setAttribute('transform',`rotate(${spec.roll||0}) scale(${depth} 1)`);
-  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]} ${j==='shoulder'?'0 48':'0 0'})`);
+  const selected=hands[which]||(gesture?{pose:'open',view:'palm'}:{pose:'relaxed',view:turn&&side===turn?'edge':'back'});
+  poseRigArm(arm,angles,typeof selected==='string'?{pose:selected,view:'palm'}:selected,turn);
  }
 }
 function restingBodyPose(){
  const poses={left:[-3,0,0],right:[-3,0,0]};
  if(state.pose==='hip')poses.right=[-18,95,15];
- const p={rest:[-3,0,0],explain:[-12,-120,-12],present:[-15,-110,-15],point:[-12,-118,0],wave:[-18,-145,10]};
+ const p={rest:[-3,0,0],explain:[-12,-120,-12],present:[-15,-110,-15],point:[-14,-85,9],wave:[-18,-145,10]};
  if(state.armPose!=='rest')poses[state.gestureSide===1?'right':'left']=p[state.armPose]||p.rest;
  return poses;
 }
@@ -1195,39 +1262,47 @@ function poseTalkingArms(ms=0,duration=0){
  const p=restingBodyPose();
  if(duration>0&&state.talkGestures&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const a=p[state.gestureSide===1?'right':'left'];a[1]=-110+10*Math.sin(ms/350);a[2]=8*Math.sin(ms/280);}
  const which=state.gestureSide===1?'right':'left';
- const hands=state.handPose!=='auto'?{[which]:{pose:state.handPose,view:state.handSurface==='auto'?'palm':state.handSurface}}:state.armPose==='point'?{[which]:{pose:'point',view:'back'}}:(duration>0&&state.talkGestures||['explain','present'].includes(state.armPose))?{[which]:{pose:'palmUp',view:'up',roll:-5}}:{};
+ const hands=state.handPose!=='auto'?{[which]:{pose:state.handPose,view:state.handSurface==='auto'?'palm':state.handSurface}}:state.armPose==='point'?{[which]:{pose:'point',view:'palm'}}:state.armPose==='wave'?{[which]:{pose:'wave',view:'palm'}}:(duration>0&&state.talkGestures||['explain','present'].includes(state.armPose))?{[which]:{pose:'palmUp',view:'up',roll:-5}}:{};
  setBodyArmPose(p,hands);
 }
-function armRigSnapshot(){return {version:3,proportions:bodyShapeProfile(),coordinateSpace:'nested local joint coordinates',body:BODY_RIG,garment:garmentDesign(),pose:restingBodyPose()};}
+function armRigSnapshot(){return {version:4,proportions:bodyShapeProfile(),coordinateSpace:'nested local joint coordinates',body:BODY_RIG,garment:garmentDesign(),pose:restingBodyPose()};}
 
-// Anatomical hand drawings in one wrist-local coordinate system. All poses use
-// the same palm, wrist and digit widths; only articulation changes.
-// Silhouettes run from the thumb side of the wrist around the fingertips.
+// Wrist-local contours start at (-26,0), travel around the digits and end at
+// (26,0). Their open bases continue directly up the two edges of the forearm.
 const HAND_POSES={
- relaxed:{label:'Relaxed',d:'M-22 -12 C-21 10 -28 24 -31 39 L-39 60 Q-43 72 -37 74 Q-31 76 -26 65 L-20 53 L-21 90 Q-22 108 -17 108 Q-12 109 -10 97 L-8 79 L-7 111 Q-6 123 0 120 Q5 119 6 107 L8 82 L10 106 Q11 115 16 113 Q21 110 21 97 L21 76 L25 91 Q29 100 33 96 Q37 92 33 77 L30 50 Q30 29 22 12 L21 -12Z'},
- open:{label:'Open fingers',d:'M-23 -12 Q-22 11 -33 30 L-54 52 Q-61 61 -54 65 Q-48 69 -39 60 L-26 49 L-34 99 Q-37 111 -30 113 Q-23 115 -20 102 L-9 65 L-11 112 Q-11 125 -4 126 Q3 127 5 113 L9 66 L14 105 Q16 117 22 116 Q29 114 27 101 L23 61 L34 87 Q38 98 44 95 Q50 92 45 80 L31 43 Q27 27 22 12 L22 -12Z'},
- palmUp:{label:'Offering palm',d:'M-22 -12 Q-23 11 -31 26 L-48 43 Q-54 50 -48 54 Q-42 58 -32 52 L-23 46 Q-15 65 3 74 L32 88 Q42 92 45 86 L45 83 Q52 85 54 79 Q57 75 52 70 Q58 69 58 64 Q58 60 50 56 L33 44 Q40 45 43 40 Q46 35 37 30 L16 19 Q20 4 22 -12Z',crease:'M10 52 Q27 68 45 76 M3 61 Q23 77 39 82'},
- point:{label:'One finger',d:'M-22 -12 Q-22 12 -28 28 Q-35 40 -30 54 L-29 111 Q-29 123 -22 124 Q-15 124 -14 112 L-10 67 Q-4 79 4 75 Q11 83 19 74 Q29 77 33 64 L34 44 Q34 30 23 18 L21 -12Z',crease:'M-25 38 Q-11 32 5 46 Q11 53 5 57 Q0 60 -12 53 M4 62 L4 73 M18 59 L18 69'},
- victory:{label:'Victory',d:'M-22 -12 L-26 27 Q-33 40 -29 57 L-45 107 Q-48 119 -41 121 Q-34 122 -30 111 L-10 68 L2 115 Q5 128 12 125 Q18 122 15 110 L9 68 Q18 78 25 68 Q34 66 34 53 Q39 32 22 18 L21 -12Z',crease:'M-24 36 Q-12 32 3 47 Q8 56 -1 56 L-13 49'},
- fist:{label:'Fist',d:'M-22 -12 L-24 19 Q-36 29 -33 44 L-26 62 Q-23 71 -14 69 Q-8 78 2 72 Q10 79 18 70 Q28 72 32 61 Q40 37 24 19 L21 -12Z',crease:'M-28 32 Q-19 26 2 44 Q8 53 1 55 L-16 47 M-11 57 L-12 66 M3 58 L2 69 M17 55 L16 65'},
- thumbsUp:{label:'Thumbs up',d:'M-22 -12 L-25 18 Q-36 30 -35 48 L-36 92 Q-35 105 -28 103 Q-22 100 -20 89 L-12 66 Q-5 73 3 69 Q12 76 20 66 Q30 68 33 57 Q39 32 23 16 L21 -12Z',crease:'M-13 44 Q4 35 23 42 M-10 53 Q3 47 20 52'},
- okay:{label:'OK',d:'M-22 -12 L-27 22 Q-56 37 -53 59 Q-50 79 -34 79 Q-18 81 -12 61 L-6 104 Q-5 117 1 116 Q8 115 8 102 L8 62 L17 98 Q20 110 26 107 Q32 105 29 93 L24 56 L34 76 Q39 86 44 83 Q49 80 44 68 L29 33 Q23 18 21 -12Z M-27 42 Q-33 41 -40 50 Q-46 64 -36 66 Q-26 66 -23 50Z'},
- pinch:{label:'Pinch',d:'M-22 -12 L-25 21 Q-39 33 -44 55 L-43 78 Q-42 89 -36 88 Q-31 87 -31 77 L-31 61 L-23 48 L-23 70 Q-25 82 -32 83 Q-30 92 -22 88 Q-13 83 -11 69 Q-3 78 4 71 Q14 77 20 68 Q29 69 33 56 Q37 32 23 18 L21 -12Z',crease:'M4 54 L2 67 M17 51 L16 63'}
+ relaxed:{label:'Relaxed',edge:'C-27 15 -38 29 -40 48 C-43 64 -44 81 -37 85 C-29 89 -25 80 -23 68 L-20 50 C-15 70 -16 82 -26 103 C-36 122 -33 131 -26 132 Q-19 133 -12 124 C-11 133 -3 135 6 127 C30 106 40 83 39 59 C39 36 29 15 26 0',lines:'M1 62 C4 83 -2 104 -13 124 M18 64 Q22 91 8 112'},
+ open:{label:'Open palm',edge:'C-28 20 -43 31 -58 48 C-68 60 -65 72 -57 74 C-48 76 -38 65 -27 56 C-27 80 -36 111 -35 127 C-34 138 -24 141 -19 132 C-13 121 -7 92 -5 77 L-7 137 C-7 153 7 155 11 142 C15 123 14 91 15 78 L23 128 C26 144 39 141 40 128 C40 112 34 85 32 70 L46 104 C52 118 64 113 62 101 C57 80 47 55 42 40 C37 24 28 14 26 0',palm:'M-21 53 Q-5 31 13 27 M-2 67 Q12 73 31 66'},
+ wave:{label:'Gentle wave',edge:'C-28 14 -44 27 -51 43 C-59 57 -58 71 -50 74 C-41 77 -35 66 -26 59 C-31 82 -43 110 -44 126 C-44 137 -34 140 -28 131 C-18 115 -10 92 -6 79 C-10 103 -20 130 -19 141 C-17 154 -5 155 1 141 C9 124 14 98 16 81 C16 97 10 126 13 135 C17 147 27 145 32 131 C38 115 39 92 37 74 C41 88 38 104 43 113 C48 123 57 118 59 107 C64 82 52 52 42 36 C34 22 29 13 26 0',palm:'M-21 57 Q-13 37 2 29 M-6 69 Q14 76 33 69'},
+ palmUp:{label:'Offering palm',edge:'C-28 17 -42 26 -48 39 C-54 51 -45 59 -35 54 L-22 47 C-16 62 0 73 23 83 L36 89 Q48 94 51 85 Q63 86 63 76 Q72 74 68 65 C61 55 41 47 29 39 Q42 44 47 38 Q51 32 41 25 L21 15 L26 0',lines:'M5 56 Q26 73 51 82 M18 50 Q39 64 61 74'},
+ point:{label:'Pointing',edge:'C-28 12 -48 27 -53 47 C-58 62 -54 84 -55 102 L-56 135 C-57 150 -44 153 -39 140 C-35 128 -35 109 -33 96 Q-24 107 -13 99 Q0 106 9 97 Q23 101 30 86 Q42 85 42 68 C42 45 29 20 26 0',lines:'M-39 42 C-30 56 -25 73 -14 78 Q0 84 -4 68 L-14 48 Q1 52 6 41 M-32 96 Q-24 87 -25 76 M-12 99 Q-4 91 -8 77 M9 97 Q19 83 12 66'},
+ victory:{label:'Victory',edge:'C-28 16 -38 27 -36 48 L-52 112 C-56 129 -44 134 -37 121 L-12 68 L0 126 C4 143 18 141 18 126 L11 73 Q24 83 30 69 Q43 70 44 54 C45 33 31 18 26 0',lines:'M-32 38 Q-20 30 -1 49 Q7 57 -1 61 Q-9 64 -22 52 M15 67 Q22 60 23 52'},
+ fist:{label:'Fist',edge:'C-29 15 -37 24 -40 37 Q-45 55 -31 65 Q-28 80 -13 78 Q-4 90 8 81 Q23 87 30 73 Q43 72 44 58 C47 35 32 17 26 0',lines:'M-33 40 Q-28 29 -18 33 L4 49 C13 55 10 64 2 64 Q-9 64 -21 52 M-12 74 Q-1 75 9 63 M5 80 Q19 78 26 64 M23 73 Q34 69 37 57'},
+ thumbsUp:{label:'Thumbs up',edge:'C-28 14 -38 27 -40 45 L-43 88 C-44 103 -33 110 -26 97 L-12 68 Q-4 77 7 71 Q20 79 29 66 Q40 66 42 51 C44 29 31 15 26 0',lines:'M-15 39 Q4 30 23 40 M-10 52 Q7 44 25 50 M0 63 Q11 58 21 61'},
+ okay:{label:'OK',edge:'C-28 15 -47 24 -54 42 C-65 64 -52 83 -35 84 Q-15 84 -9 62 L-3 112 C0 126 13 125 14 111 L12 68 L22 109 C26 123 39 119 38 106 L29 64 L44 88 C51 101 62 93 57 81 L40 42 Q29 23 26 0',hole:'M-27 42 Q-37 40 -43 53 Q-48 66 -37 69 Q-25 70 -22 52Z'},
+ pinch:{label:'Pinch',edge:'C-28 15 -42 26 -47 47 L-48 70 Q-47 83 -39 84 Q-33 84 -32 72 L-31 57 L-23 48 Q-19 66 -33 78 Q-39 91 -28 92 Q-14 91 -8 70 Q0 80 10 72 Q22 79 29 65 Q42 66 44 51 C45 33 32 15 26 0',lines:'M3 56 Q5 63 1 69 M18 52 Q22 58 16 66'}
 };
 state.handPose='auto';state.handSurface='auto';
 catalogs.handPose={auto:'Automatic',...Object.fromEntries(Object.entries(HAND_POSES).map(([k,v])=>[k,v.label]))};catalogs.handSurface={auto:'Automatic',palm:'Palm',back:'Back',edge:'Side',up:'Palm up'};
-function actionHandSvg(pose='relaxed',view='palm'){
+function handSurface(pose,view,bend,depth=1,sleeved=false){
  const key=Object.hasOwn(HAND_POSES,pose)?pose:'relaxed',drawing=HAND_POSES[key];
- // Arm transforms mirror left and right once. Turning the palm towards the
- // viewer reverses the visible thumb side independently of the arm rotation.
- const palm=view==='palm'||view==='up',width=view==='edge'?.76:1;
- const crease=drawing.crease||(palm&&key==='open'?'M-20 32 Q-9 35 -6 48 M0 43 Q9 40 19 42':'');
- return `<g data-action-hand="${key}" data-hand-surface="${view}" transform="scale(${palm?-width:width} 1)"><path d="${drawing.d}" fill="url(#skinFill)" fill-rule="evenodd" stroke="#161011" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>${crease?rigDetail(crease,2.2):''}</g>`;
-}
-function proportionalHandSvg(x=0,y=0,scale=1,pose='open'){
- return `<g data-proportional-hand="${pose}" transform="translate(${x} ${y}) scale(${scale})">${actionHandSvg(pose,'palm')}</g>`;
-}
+ const palm=view==='palm'||view==='up';
+ const width=(palm?-1:1)*(view==='edge'?.78:depth);
+ const angle=bend*Math.PI/180,cos=Math.cos(angle),sin=Math.sin(angle),length=BODY_RIG.forearm;
+ // Express the fixed elbow in the turned hand's coordinates. The wrist
+ // tangents turn with the hand, but the proximal forearm stays on the elbow.
+ const fore=(x,y)=>{
+  x*=Math.sign(width);y-=length;
+  return ((cos*x+sin*y)/width).toFixed(2)+' '+(-sin*x+cos*y).toFixed(2);
+ };
 
+ const arm=sleeved?`C26 -12 ${fore(27,length-30)} ${fore(26,length-45)} Q${fore(0,length-53)} ${fore(-26,length-45)} C${fore(-27,length-30)} -26 -12 -26 0Z`:`C26 -14 ${fore(33,length*.79)} ${fore(39,length*.61)}
+  C${fore(46,length*.39)} ${fore(51,24)} ${fore(44,-12)}
+  C${fore(39,-48)} ${fore(-39,-48)} ${fore(-44,-12)}
+  C${fore(-49,28)} ${fore(-44,length*.41)} ${fore(-37,length*.62)}
+  C${fore(-32,length*.81)} -26 -15 -26 0Z`;
+ const d='M-26 0 '+drawing.edge+' '+arm+(drawing.hole||'');
+ return {key,view,width,d,lines:drawing.lines||(palm?drawing.palm:'')||''};
+}
 function applyFraming(){
  const mode=svg.dataset.animationFrame||'',full=state.framing==='full';
  const h=bodyHeight(),top=h>1?-220:0,upperTop=Math.max(0,(1-h)*1000),upperBottom=2239.36+(1780-2239.36)*h;
@@ -1988,14 +2063,14 @@ function extendAnimationPose(key,t,w,p){
  if(key==='nod')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'neutral',y:10*Math.sin(t*5)*w,angle:2*Math.sin(t*5)*w});
  if(key==='shake')Object.assign(p,{mouth:'sad',brows:'raised',x:11*Math.sin(t*5)*w,angle:5*Math.sin(t*5)*w});
  if(key==='wave')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'raised',angle:-2*w,arms:{left:[-18*w,-145*w,12*Math.sin(t*9)*w],right:[0,0,0]}});
- if(key==='explain')Object.assign(p,{mouth:['closed','EE','A','O'][Math.floor(t*6)%4],brows:'raised',angle:beat*w,arms:{left:[-8*w,(-128+5*beat)*w,(35+4*beat)*w],right:[-8*w,(-130+6*beat)*w,0]},hands:w>.35?{left:{pose:'palmUp',view:'up'},right:{pose:'point',view:'back'}}:null});
+ if(key==='explain')Object.assign(p,{mouth:['closed','EE','A','O'][Math.floor(t*6)%4],brows:'raised',angle:beat*w,arms:{left:[-8*w,(-128+5*beat)*w,(35+4*beat)*w],right:[-8*w,(-130+6*beat)*w,0]},hands:w>.35?{left:{pose:'palmUp',view:'up'},right:{pose:'point',view:'palm'}}:null});
  if(key==='shrug')Object.assign(p,{mouth:'U',eyes:'open',brows:'raised',y:-5*w,angle:3*w,arms:{left:[-15*w,-120*w,-27*w],right:[-15*w,-120*w,-27*w]}});
  if(key==='celebrate')Object.assign(p,{mouth:'laugh',eyes:'happy',brows:'raised',y:-8*pulse*w,arms:{left:[-22*w,-140*w,8*beat*w],right:[-22*w,-140*w,-8*beat*w]}});
  const hand=(pose,view='palm',roll=0)=>({pose,view,roll});
- if(key==='wave')p.hands={left:hand('open','palm'),right:hand('relaxed','back')};
+ if(key==='wave')p.hands={left:hand('wave','palm'),right:hand('relaxed','back')};
  if(key==='shrug')p.hands={left:hand('palmUp','up',-12),right:hand('palmUp','up',-12)};
  if(key==='celebrate')p.hands={left:hand('open','palm'),right:hand('open','palm')};
- if(key==='point')Object.assign(p,{mouth:'smile',arms:{left:[-12*w,-95*w,-5*w],right:[-3,0,0]},hands:{left:hand('point','back',-15*w)}});
+ if(key==='point')Object.assign(p,{mouth:'smile',arms:{left:[-14*w,-85*w,9*w],right:[-3,0,0]},hands:{left:hand('point','palm')}});
  if(key==='victory')Object.assign(p,{mouth:'smile',eyes:'happy',arms:{left:[-12*w,-145*w,8*beat*w],right:[-3,0,0]},hands:{left:hand('victory','palm')}});
  if(key==='thumbsUp')Object.assign(p,{mouth:'smile',arms:{left:[-9*w,-105*w,-12*w],right:[-3,0,0]},hands:{left:hand('thumbsUp','palm',-95*w)}});
  if(key==='stop')Object.assign(p,{mouth:'closed',brows:'raised',arms:{left:[-9*w,-145*w,0],right:[-3,0,0]},hands:{left:hand('open','palm')}});
@@ -2070,29 +2145,17 @@ function poseWalking(seconds,root=document){
  const turn=cameraDirections[cameraView]||0,profile=bodyBottomProfile();
  for(const leg of root.querySelectorAll('#torso [data-rig-leg]')){
   const side=+leg.dataset.rigLeg,g=walkingStep(seconds,side);
-  const x=bodyAnkleX();
-  const project=(f,y)=>({x:turn*side*.72*f,y:y});
-  const k=project(g.kneeForward,g.kneeDown),f=project(g.forward,g.down);
-  // Each segment aims at the projected joint; width stays constant. No lateral knee bend.
+  const ankle=bodyAnkleX(),restKnee=standingKneeX(profile,ankle);
+  const knee={x:restKnee+turn*side*.72*g.kneeForward,y:g.kneeDown};
+  const foot={x:ankle+turn*side*.72*g.forward,y:g.down};
+  leg.querySelector('[data-leg-surface]').setAttribute('d',legOutline(profile,knee,foot));
+  if(profile.length)leg.querySelector('[data-shorts]').setAttribute('d',shortsOutline(profile,knee));
   const segment=(dx,dy,length,ox,oy)=>{const d=Math.hypot(dx,dy);return [dy/d,-dx/d,dx/length,dy/length,ox,oy];};
-  const upper=segment(k.x,k.y,380,x,0);upper[4]-=upper[0]*x;upper[5]-=upper[1]*x;
-  leg.querySelector('[data-rig-thigh]').setAttribute('transform',`matrix(${upper.join(' ')})`);
-  // A single continuous cloth contour spans hip, knee and cuff: no split joint to expose.
-  const normal=(dx,dy)=>{const l=Math.hypot(dx,dy);return {x:dy/l,y:-dx/l};};
-  const n1=normal(k.x,k.y),n2=normal(f.x-k.x,f.y-k.y);
-  const n=normal((k.x/k.y+(f.x-k.x)/(f.y-k.y))/2,1);
-  const K={x:x+k.x,y:k.y},F={x:x+f.x,y:f.y+2};
-  const edge=(sign)=>({hx:sign<0?0:profile.hip,hy:-50,kx:K.x+sign*n.x*profile.knee,ky:K.y+sign*n.y*profile.knee,fx:F.x+sign*profile.cuff,fy:F.y});
-  const l=edge(-1),r=edge(1),fullness=profile.gathered?1:.35;
-  const lowerEdge=(a,b)=>`C${a.kx} ${a.ky+(b.fy-a.ky)*.48} ${b.fx+(a.kx-b.fx)*fullness} ${b.fy-64} ${b.fx} ${b.fy}`;
-  const clothPath=`M${l.hx} ${l.hy} L${r.hx} ${r.hy} Q${r.hx+n1.x*12} ${K.y*.5} ${r.kx} ${r.ky-24} Q${r.kx+n2.x*3} ${r.ky} ${r.kx} ${r.ky+24} ${lowerEdge(r,r)} L${l.fx} ${l.fy} C${l.fx+(l.kx-l.fx)*fullness} ${l.fy-64} ${l.kx} ${l.ky+(l.fy-l.ky)*.48} ${l.kx} ${l.ky+24} Q${l.kx-n2.x*3} ${l.ky} ${l.kx} ${l.ky-24} Q${l.hx-n1.x*12} ${K.y*.5} ${l.hx} ${l.hy}Z`;
-  const cloth=leg.querySelector('[data-walk-trouser]');cloth.setAttribute('d',clothPath);cloth.setAttribute('visibility','visible');
-  const details=leg.querySelector('[data-moving-leg-details]');details.setAttribute('transform',`matrix(${upper.join(' ')})`);
-  const shorts=leg.querySelector('[data-walk-shorts]');if(profile.length){const u=profile.length/400,ex=x+k.x*u,ey=k.y*u,w=profile.knee+12;shorts.setAttribute('d',`M0 -50 H${profile.hip} Q${profile.hip} ${ey*.5} ${ex+n1.x*w} ${ey+n1.y*w} L${ex-n1.x*w} ${ey-n1.y*w} Q0 ${ey*.5} 0 -50Z`);shorts.setAttribute('visibility','visible');}
-  leg.querySelector('[data-rig-thigh]').setAttribute('display','none');leg.querySelector('[data-rest-shin]').setAttribute('display','none');
-  const shin=segment(f.x-k.x,f.y-k.y,360,x+k.x,k.y);
+  const upper=segment(knee.x-restKnee,knee.y,380,restKnee,0);
+  upper[4]-=upper[0]*restKnee;upper[5]-=upper[1]*restKnee;
+  leg.querySelector('[data-moving-leg-details]').setAttribute('transform',`matrix(${upper.join(' ')})`);
+  const shin=segment(foot.x-knee.x,foot.y-knee.y,360,knee.x,knee.y);
   leg.querySelector('[data-rig-knee]').setAttribute('transform',`matrix(${shin.join(' ')})`);
-  leg.querySelector('[data-moving-shin-details]').setAttribute('display',profile.gathered?'inline':'none');
   // Undo shin rotation and foreshortening so the shoe does not shear or tilt sideways.
   const [a,b,c,d]=shin,det=a*d-b*c,flip=turn&&side!==turn?-1:1;
   leg.querySelector('[data-rig-ankle]').setAttribute('transform',`translate(0 360) matrix(${d/det} ${-b/det} ${-c/det} ${a/det} 0 0) scale(${flip} 1)`);
@@ -2103,10 +2166,8 @@ function poseWalking(seconds,root=document){
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/105;
-  arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display','none');arm.querySelector('[data-hand-relaxed]').setAttribute('display','inline');
-  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-(turn?turn*side*11:4)*swing} 0 48)`);
-  arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
-  arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
+  const angles=[-3-(turn?turn*side*11:4)*swing,-8-turn*side*6*Math.max(0,swing),0];
+  poseRigArm(arm,angles,{pose:'relaxed',view:turn&&turn===side?'edge':'back'},turn);
  }
 }
 

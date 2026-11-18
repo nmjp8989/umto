@@ -2,16 +2,19 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
 const code=html.slice(html.indexOf('const HAND_POSES='),html.indexOf('function applyFraming()'));
-const ctx={state:{},catalogs:{},rigDetail:()=>''};
-vm.runInNewContext(code+';globalThis.draw=actionHandSvg;globalThis.poses=HAND_POSES',ctx);
-assert.equal(new Set(Object.values(ctx.poses).map(p=>p.d)).size,9);
+const ctx={state:{},catalogs:{},BODY_RIG:{forearm:228}};
+vm.runInNewContext(code+';globalThis.draw=handSurface;globalThis.poses=HAND_POSES',ctx);
+assert.equal(new Set(Object.values(ctx.poses).map(p=>p.edge)).size,Object.keys(ctx.poses).length);
 for(const pose of Object.keys(ctx.poses)){
- for(const [surface,width] of Object.entries({back:1,palm:-1,up:-1,edge:.76})){
-  const svg=ctx.draw(pose,surface);
-  assert(svg.includes('scale('+width+' 1)'));
-  assert(svg.includes(ctx.poses[pose].d));
-  assert(!/NaN|undefined/.test(svg));
+ for(const [surface,width] of Object.entries({back:1,palm:-1,up:-1,edge:.78})){
+  for(const bend of [-85,0,60]){
+   const hand=ctx.draw(pose,surface,bend);
+   assert.equal(hand.width,width);
+   assert(hand.d.startsWith('M-26 0 '+ctx.poses[pose].edge));
+   assert(!/NaN|undefined|Infinity/.test(hand.d));
+   assert.equal((hand.d.match(/M/g)||[]).length,pose==='okay'?2:1,'Only the OK sign has an interior hole');
+  }
  }
 }
-assert.equal(ctx.draw('unknown'),ctx.draw('relaxed'));
-console.log('PASS: nine distinct hand outlines with side-correct palm and back orientation');
+assert.deepEqual(ctx.draw('unknown','back',0),ctx.draw('relaxed','back',0));
+console.log('PASS: wrist-to-fingertip contours and handedness for every gesture');
