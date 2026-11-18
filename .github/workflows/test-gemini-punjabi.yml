@@ -1,0 +1,53 @@
+name: Test Gemini Punjabi voice for Little Panth
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/test_gemini_punjabi_tts.py'
+      - '.github/workflows/test-gemini-punjabi.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  punjabi-voice-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check secret configured
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Missing repository Actions secret GEMINI_API_KEY"
+            exit 1
+          fi
+      - name: Generate test voice (one short Gemini TTS request)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python tools/test_gemini_punjabi_tts.py
+      - name: Upload WAV and MP3
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-punjabi-voice-test
+          path: |
+            little panth/audio/test-baldev-punjabi.wav
+            little panth/audio/test-baldev-punjabi.mp3
+          if-no-files-found: error
+      - name: Commit MP3 for easy playback
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "little panth/audio/test-baldev-punjabi.mp3"
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Little Panth Gemini Punjabi TTS test clip"
+          git pull --rebase origin main
+          git push origin HEAD:main
