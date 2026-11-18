@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 24 525 428" width="525" height="428">
+<defs>
+    <!-- Shared Gradients Matching bullock-cart.svg -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcfaff"/>
+      <stop offset="100%" stop-color="#f2ecfa"/>
+    </linearGradient>
+
+    <linearGradient id="wheatGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe761"/>
+      <stop offset="60%" stop-color="#f5be2e"/>
+      <stop offset="100%" stop-color="#cc8b14"/>
+    </linearGradient>
+
+    <linearGradient id="sackGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe18c"/>
+      <stop offset="55%" stop-color="#f2be57"/>
+      <stop offset="100%" stop-color="#cc8d2b"/>
+    </linearGradient>
+
+    <linearGradient id="woodHandle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e38d3b"/>
+      <stop offset="100%" stop-color="#8c4514"/>
+    </linearGradient>
+
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cfd8de"/>
+      <stop offset="100%" stop-color="#8b99a3"/>
+    </linearGradient>
+
+    <linearGradient id="oxGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="65%" stop-color="#f7ead4"/>
+      <stop offset="100%" stop-color="#e3c8a1"/>
+    </linearGradient>
+
+    <linearGradient id="hornGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e6642"/>
+      <stop offset="100%" stop-color="#59331d"/>
+    </linearGradient>
+
+    <linearGradient id="bellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffea61"/>
+      <stop offset="55%" stop-color="#f5b81d"/>
+      <stop offset="100%" stop-color="#c47e0e"/>
+    </linearGradient>
+
+    <linearGradient id="chickenGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="55%" stop-color="#f7b754"/>
+      <stop offset="100%" stop-color="#cf7129"/>
+    </linearGradient>
+
+    <linearGradient id="basketGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0b654"/>
+      <stop offset="55%" stop-color="#d48e32"/>
+      <stop offset="100%" stop-color="#9e6019"/>
+    </linearGradient>
+
+    <!-- Reusable Wheat Stalk for Patch -->
+    <g id="patchStalk" stroke="#1f140d" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#c98912" stroke-width="3.2"/>
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+      <path d="M-1,-22 Q-18,-50 -14,-78 Q-6,-54 0,-32 Z" fill="#e6a81c" stroke-width="2"/>
+      <path d="M1,-36 Q16,-62 18,-86 Q7,-62 1,-44 Z" fill="#ffd238" stroke-width="2"/>
+      <g fill="#ffd238" stroke-width="2">
+        <ellipse cx="-2" cy="-112" rx="4.2" ry="7" transform="rotate(-22 -2 -112)"/>
+        <ellipse cx="8" cy="-116" rx="4.2" ry="7" transform="rotate(22 8 -116)"/>
+        <ellipse cx="-1" cy="-124" rx="4.2" ry="7" transform="rotate(-20 -1 -124)"/>
+        <ellipse cx="9" cy="-128" rx="4.2" ry="7" transform="rotate(20 9 -128)"/>
+        <ellipse cx="1" cy="-136" rx="3.8" ry="6.5" transform="rotate(-14 1 -136)"/>
+        <ellipse cx="10" cy="-138" rx="3.8" ry="6.5" transform="rotate(14 10 -138)"/>
+        <ellipse cx="6" cy="-147" rx="3.5" ry="6" transform="rotate(6 6 -147)"/>
+      </g>
+      <path d="M6,-153 L10,-168 M-1,-138 L-8,-152 M11,-138 L18,-150" fill="none" stroke-width="1.5"/>
+    </g>
+  </defs>
+<g id="asset-oxen" transform="translate(105, 86) scale(1.18)" stroke="#1f140d" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse id="ox-shadow" cx="170" cy="284" rx="118" ry="15" fill="#b38c68" opacity="0.32" stroke="none"/>
+
+      <!-- Tail -->
+      <g id="ox-tail" transform="translate(262, 128)">
+        <path d="M0,0 Q14,20 10,66" fill="none" stroke="#1f140d" stroke-width="3"/>
+        <path d="M10,62 Q3,78 12,88 Q21,78 10,62 Z" fill="#4f3622"/>
+      </g>
+
+      <!-- Back Legs -->
+      <g id="ox-legs-back">
+        <path d="M202,190 Q206,230 204,274 L218,274 Q222,236 224,190 Z" fill="#dec29c"/>
+        <path d="M202,270 L220,270 L222,280 L200,280 Z" fill="#4f3726"/>
+        <path d="M224,180 Q244,204 242,226 Q238,250 240,280 L256,280 Q258,250 262,224 Q266,196 254,176 Z" fill="url(#oxGrad)"/>
+        <path d="M238,274 L258,274 L260,286 L236,286 Z" fill="#4f3726"/>
+      </g>
+
+      <!-- Front Legs -->
+      <g id="ox-legs-front">
+        <path d="M90,190 Q88,230 86,274 L100,274 Q104,236 110,190 Z" fill="#dec29c"/>
+        <path d="M84,270 L102,270 L102,280 L82,280 Z" fill="#4f3726"/>
+        <path d="M112,184 Q110,230 110,280 L126,280 Q130,234 140,184 Z" fill="url(#oxGrad)"/>
+        <path d="M108,274 L128,274 L128,286 L106,286 Z" fill="#4f3726"/>
+      </g>
+
+      <!-- Torso & Zebu Hump -->
+      <path d="M74,124 Q92,76 130,72 Q150,70 162,84 Q174,56 196,64 Q210,70 216,90 Q242,94 260,106 Q276,120 270,166 Q264,208 218,212 L110,212 Q72,208 74,124 Z" fill="url(#oxGrad)"/>
+      <path d="M84,180 Q140,202 222,194 Q252,190 262,162 Q256,204 216,210 L110,210 Q84,206 84,180 Z" fill="#dec29c" stroke="none" opacity="0.7"/>
+
+      <!-- Neck Collar & Gold Bell -->
+      <path d="M78,130 Q106,164 152,132" fill="none" stroke="#c96f1e" stroke-width="7"/>
+      <path d="M78,130 Q106,164 152,132" fill="none" stroke="#ffd530" stroke-width="2" stroke-dasharray="5,5"/>
+      <g transform="translate(94, 172)">
+        <circle cx="0" cy="-14" r="3.5" fill="#d97f24"/>
+        <path d="M-9,-10 Q0,-14 9,-10 L14,8 Q0,13 -14,8 Z" fill="url(#bellGrad)"/>
+        <circle cx="0" cy="11" r="4" fill="#c47e0e"/>
+      </g>
+
+      <!-- Ox Head (Origin at 84, 108 for turning/nodding) -->
+      <g id="ox-head" transform="translate(84, 108)">
+        <path d="M-18,-10 Q-44,-18 -50,-4 Q-38,6 -16,3 Z" fill="#ebd3b0"/>
+        <path d="M14,-8 Q38,-14 44,-2 Q32,8 12,4 Z" fill="#f7ead4"/>
+        <path d="M-16,-18 Q-32,-48 -24,-66 Q-12,-46 -6,-20 Z" fill="url(#hornGrad)"/>
+        <path d="M10,-18 Q28,-48 24,-66 Q12,-46 2,-20 Z" fill="url(#hornGrad)"/>
+        <path d="M-18,-20 Q0,-28 16,-16 Q28,-2 24,18 Q18,34 4,46 Q-12,56 -32,50 Q-48,44 -48,28 Q-48,14 -34,2 Q-30,-12 -18,-20 Z" fill="url(#oxGrad)"/>
+        <path d="M-14,-21 Q-8,-33 -1,-22 Q6,-31 10,-19 Q2,-16 -6,-18 Z" fill="#fffdf8" stroke-width="1.6"/>
+        <path d="M-47,26 Q-34,19 -18,28 Q-12,38 -20,48 Q-34,54 -45,44 Q-51,36 -47,26 Z" fill="#f5b798"/>
+        <circle cx="-41" cy="34" r="2.4" fill="#4f2720" stroke="none"/>
+        <circle cx="-27" cy="36" r="2.6" fill="#4f2720" stroke="none"/>
+        <path d="M-46,24 Q-31,14 -14,24" fill="none" stroke="#c96f1e" stroke-width="3"/>
+
+        <!-- Normal Eyes -->
+        <g id="ox-eyes-normal">
+          <ellipse cx="-32" cy="4" rx="4" ry="5.2" fill="#1f140d" stroke="none"/>
+          <circle cx="-33" cy="2.2" r="1.5" fill="#ffffff" stroke="none"/>
+          <ellipse cx="-4" cy="8" rx="6" ry="7.2" fill="#1f140d" stroke="none"/>
+          <circle cx="-6" cy="5.2" r="2.4" fill="#ffffff" stroke="none"/>
+        </g>
+
+        <!-- Nervous Sweat FX (toggle opacity="1") -->
+        <g id="ox-nervous-fx" opacity="0.9">
+          <path d="M26,-16 Q32,-26 28,-34 Q20,-26 26,-16 Z" fill="#78d4ff" stroke="#1d5f82" stroke-width="1.3"/>
+          <path d="M36,2 Q42,-6 38,-14 Q30,-6 36,2 Z" fill="#78d4ff" stroke="#1d5f82" stroke-width="1.3"/>
+        </g>
+      </g>
+    </g>
+</svg>
