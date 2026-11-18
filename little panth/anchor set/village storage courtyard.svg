@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2bb6ff"/>
+      <stop offset="100%" stop-color="#7cd9ff"/>
+    </linearGradient>
+
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7b97c"/>
+      <stop offset="55%" stop-color="#f0aa69"/>
+      <stop offset="100%" stop-color="#e39754"/>
+    </linearGradient>
+
+    <linearGradient id="archInteriorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4d321f"/>
+      <stop offset="100%" stop-color="#704d33"/>
+    </linearGradient>
+
+    <!-- Repeating White Geometric Triangle Folk Border -->
+    <pattern id="whiteTriPattern" width="22" height="14" patternUnits="userSpaceOnUse">
+      <polygon points="1,13 7,2 13,13" fill="none" stroke="#fff9f0" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="12,13 17,4 22,13" fill="#fff9f0"/>
+      <circle cx="7" cy="10" r="1.4" fill="#fff9f0"/>
+      <circle cx="17" cy="2.5" r="1.2" fill="#fff9f0"/>
+    </pattern>
+
+    <!-- Reddish 8-Petal Floral Wall Motif -->
+    <g id="redFlowerMotif" fill="#b81c14">
+      <circle cx="0" cy="0" r="3.5"/>
+      <path d="M0,-5 Q-5,-16 0,-26 Q5,-16 0,-5 Z"/>
+      <path d="M0,5 Q-5,16 0,26 Q5,16 0,5 Z"/>
+      <path d="M-5,0 Q-16,-5 -26,0 Q-16,5 -5,0 Z"/>
+      <path d="M5,0 Q16,-5 26,0 Q16,5 5,0 Z"/>
+      <path d="M-3.5,-3.5 Q-14,-8 -18,-18 Q-8,-14 -3.5,-3.5 Z"/>
+      <path d="M3.5,-3.5 Q14,-8 18,-18 Q8,-14 3.5,-3.5 Z"/>
+      <path d="M-3.5,3.5 Q-14,8 -18,18 Q-8,14 -3.5,3.5 Z"/>
+      <path d="M3.5,3.5 Q14,8 18,18 Q8,14 3.5,3.5 Z"/>
+    </g>
+  </defs>
+
+  <!-- 1. SKY & OUTLINED CLOUDS -->
+  <rect width="1280" height="310" fill="url(#skyGrad)"/>
+  <g fill="#ffffff" stroke="#17120e" stroke-width="2.4" stroke-linejoin="round">
+    <path d="M478,76 C466,76 468,66 484,62 C494,54 510,54 522,56 C530,36 556,30 576,38 C590,44 594,56 608,60 C624,64 628,74 614,76 C580,82 515,82 478,76 Z"/>
+    <path d="M1112,60 C1098,60 1102,48 1120,44 C1128,36 1144,36 1154,38 C1164,18 1192,14 1212,24 C1224,30 1228,42 1242,46 C1256,50 1258,58 1246,60 C1212,64 1148,64 1112,60 Z"/>
+  </g>
+
+  <!-- 2. DISTANT HILLS & BACKGROUND TREES -->
+  <g stroke="#17120e" stroke-width="2.2" stroke-linejoin="round">
+    <!-- Distant Bushes along Left Hill -->
+    <path d="M0,260 Q28,224 58,242 Q88,236 114,252 Q142,226 174,234 Q198,226 218,248 Q242,228 272,228 Q290,210 318,220 Q346,218 364,238 Q390,226 418,244 L575,244 L575,275 L0,275 Z" fill="#63ba2c"/>
+    <!-- Rolling Bright Green Field -->
+    <path d="M0,262 Q240,242 575,236 L575,295 L0,295 Z" fill="#9de034"/>
+    <path d="M0,276 Q260,258 575,254" fill="none" stroke="#85c724" stroke-width="3"/>
+
+    <!-- Small Distant Tree on Hill -->
+    <rect x="466" y="232" width="6" height="16" fill="#7a4622"/>
+    <path d="M442,228 Q438,208 456,204 Q466,192 482,198 Q496,202 496,218 Q492,234 468,234 Q448,236 442,228 Z" fill="#68bf2c"/>
+
+    <!-- Tree Peeking Left of Central Building -->
+    <path d="M518,204 Q514,174 538,162 Q546,138 574,138 Q588,116 616,122 Q636,128 644,154 L644,218 L556,218 Z" fill="#7acc29"/>
+
+    <!-- Lush Tree Behind Central Parapet -->
+    <path d="M812,102 Q806,74 832,64 Q836,42 864,42 Q878,24 908,30 Q926,18 952,26 Q972,18 994,38 Q1016,44 1024,68 Q1036,86 1028,112 L812,112 Z" fill="#88d128"/>
+
+    <!-- Tree Behind Right Wall -->
+    <path d="M1132,192 Q1128,154 1158,144 Q1166,116 1196,116 Q1212,92 1244,98 Q1264,104 1280,124 L1280,210 L1132,210 Z" fill="#7acc29"/>
+    <path d="M1196,212 L1202,164 L1182,140 L1194,138 L1208,158 L1224,136 L1234,142 L1214,168 L1214,212 Z" fill="#8f552b"/>
+  </g>
+
+  <!-- 3. SPACIOUS FOREGROUND COURTYARD GROUND -->
+  <rect x="0" y="440" width="1280" height="280" fill="url(#groundGrad)"/>
+  <!-- Subtle Flat Ground Shading Patches & Highlights -->
+  <g fill="#de9252" opacity="0.45">
+    <ellipse cx="180" cy="520" rx="45" ry="5"/>
+    <ellipse cx="420" cy="560" rx="52" ry="6"/>
+    <ellipse cx="780" cy="535" rx="60" ry="6"/>
+    <ellipse cx="1060" cy="575" rx="48" ry="5"/>
+    <ellipse cx="290" cy="640" rx="55" ry="6"/>
+    <ellipse cx="640" cy="665" rx="62" ry="7"/>
+    <ellipse cx="950" cy="645" rx="50" ry="5"/>
+    <ellipse cx="1180" cy="685" rx="44" ry="5"/>
+  </g>
+  <g fill="#ffd096" opacity="0.5">
+    <ellipse cx="110" cy="595" rx="22" ry="3.5"/>
+    <ellipse cx="510" cy="610" rx="26" ry="4"/>
+    <ellipse cx="890" cy="590" rx="24" ry="3.5"/>
+    <ellipse cx="460" cy="690" rx="28" ry="4"/>
+  </g>
+
+  <!-- 4. BACK-LEFT CONNECTING WALL WITH DIAMOND VENTS -->
+  <g id="back-left-wall" stroke="#17120e" stroke-width="2.2" stroke-linejoin="round">
+    <rect x="244" y="284" width="326" height="172" fill="#fbc482"/>
+    <!-- Diagonal Shadow from Left Wall -->
+    <polygon points="244,284 316,456 244,456" fill="#de9b68" stroke="none"/>
+    <!-- Terracotta Plinth -->
+    <rect x="244" y="418" width="326" height="38" fill="#eb6e4e"/>
+    <!-- White Triangle Folk Border -->
+    <rect x="244" y="405" width="326" height="13" fill="url(#whiteTriPattern)" stroke="none"/>
+    <!-- 5 Green Diamond Lattice Vents -->
+    <g fill="#7fd12c" stroke="#17120e" stroke-width="2">
+      <polygon points="350,316 362,326 350,336 338,326"/>
+      <polygon points="382,316 394,326 382,336 370,326"/>
+      <polygon points="414,316 426,326 414,336 402,326"/>
+      <polygon points="446,316 458,326 446,336 434,326"/>
+      <polygon points="478,316 490,326 478,336 466,326"/>
+    </g>
+    <!-- Re-stroke wall edges cleanly -->
+    <rect x="244" y="284" width="326" height="172" fill="none"/>
+  </g>
+
+  <!-- 5. LEFT ANGLED COURTYARD WALL -->
+  <g id="left-wall" stroke="#17120e" stroke-width="2.4" stroke-linejoin="round">
+    <polygon points="0,236 244,284 244,456 0,492" fill="#eda870"/>
+    <!-- Terracotta Plinth -->
+    <polygon points="0,456 244,418 244,456 0,492" fill="#e66a4b"/>
+    <!-- Perspective White Triangle Folk Border -->
+    <g transform="translate(0, 443) skewY(-8.8)">
+      <rect x="0" y="0" width="244" height="13" fill="url(#whiteTriPattern)" stroke="none"/>
+    </g>
+    <polygon points="0,236 244,284 244,456 0,492" fill="none"/>
+  </g>
+
+  <!-- 6. CENTRAL ARCHED GATEHOUSE -->
+  <g id="central-gatehouse" stroke="#17120e" stroke-width="2.4" stroke-linejoin="round">
+    <!-- Upper Parapet with 9 Arched Niches (left 4 show sky, right 5 show foliage) -->
+    <path d="M642,148 L642,96 Q642,90 650,90 L1044,84 Q1054,84 1054,94 L1054,144 Z" fill="#fbc482"/>
+    <polygon points="1044,84 1054,94 1054,144 1042,144" fill="#e3a068"/>
+
+    <!-- Niches 1-4 (Blue Sky) -->
+    <g fill="#57c4f7" stroke="#17120e" stroke-width="2">
+      <path d="M662,142 L662,122 Q668,112 674,122 L674,142 Z"/>
+      <path d="M704,141 L704,121 Q710,111 716,121 L716,141 Z"/>
+      <path d="M746,140 L746,120 Q752,110 758,120 L758,140 Z"/>
+      <path d="M788,139 L788,119 Q794,109 800,119 L800,139 Z"/>
+    </g>
+    <!-- Niches 5-9 (Green Tree Foliage behind) -->
+    <g fill="#428a1d" stroke="#17120e" stroke-width="2">
+      <path d="M832,138 L832,118 Q838,108 844,118 L844,138 Z"/>
+      <path d="M874,137 L874,117 Q880,107 886,117 L886,137 Z"/>
+      <path d="M916,136 L916,116 Q922,106 928,116 L928,136 Z"/>
+      <path d="M958,135 L958,115 Q964,105 970,115 L970,135 Z"/>
+      <path d="M1000,134 L1000,114 Q1006,104 1012,114 L1012,134 Z"/>
+    </g>
+
+    <!-- Right Perspective Side Return Wall -->
+    <polygon points="1104,144 1156,184 1156,220 1104,218" fill="#d98b5b"/>
+    <polygon points="1104,144 1156,184 1156,198 1104,160" fill="#cf573c"/>
+
+    <!-- Main Gatehouse Front Wall -->
+    <polygon points="568,164 1104,158 1104,464 568,458" fill="#fbc482"/>
+    <!-- Terracotta Roof Cornice -->
+    <polygon points="562,148 1112,140 1112,158 562,166" fill="#eb6e4e"/>
+    <!-- Terracotta Plinth (Left & Right of Arch) -->
+    <polygon points="568,414 702,416 702,459 568,458" fill="#eb6e4e"/>
+    <polygon points="928,418 1104,420 1104,464 928,462" fill="#eb6e4e"/>
+
+    <!-- White Triangle Folk Borders (Top & Plinths) -->
+    <rect x="568" y="168" width="536" height="14" fill="url(#whiteTriPattern)" stroke="none"/>
+    <rect x="568" y="401" width="134" height="13" fill="url(#whiteTriPattern)" stroke="none"/>
+    <rect x="928" y="405" width="176" height="13" fill="url(#whiteTriPattern)" stroke="none"/>
+
+    <!-- Pointed Mughal/Punjabi Archway -->
+    <!-- Cream Outer Frame -->
+    <path d="M698,460 L698,256 Q750,224 814,200 Q878,224 930,256 L930,462 L914,462 L914,264 Q868,236 814,216 Q760,236 714,264 L714,460 Z" fill="#fff0d4"/>
+    <!-- Shaded Interior -->
+    <path d="M714,442 L714,264 Q760,236 814,216 Q868,236 914,264 L914,442 Z" fill="url(#archInteriorGrad)"/>
+    <!-- Interior Dirt Floor Strip -->
+    <polygon points="714,442 914,442 914,462 714,460" fill="#c9844b" stroke="none"/>
+
+    <!-- Two Reddish Floral Wall Motifs -->
+    <use href="#redFlowerMotif" x="630" y="318" stroke="none"/>
+    <use href="#redFlowerMotif" x="1008" y="236" stroke="none"/>
+
+    <!-- Wooden Barred Window -->
+    <g transform="translate(974, 276)">
+      <rect x="0" y="0" width="76" height="76" fill="#b36d3e"/>
+      <rect x="8" y="8" width="60" height="60" fill="#4f301d"/>
+      <rect x="18" y="8" width="8" height="60" fill="#8f552e"/>
+      <rect x="34" y="8" width="8" height="60" fill="#8f552e"/>
+      <rect x="50" y="8" width="8" height="60" fill="#8f552e"/>
+    </g>
+  </g>
+
+  <!-- 7. RIGHT ANGLED COURTYARD WALL -->
+  <g id="right-wall" stroke="#17120e" stroke-width="2.4" stroke-linejoin="round">
+    <polygon points="1104,218 1280,174 1280,524 1104,464" fill="#fbc482"/>
+    <!-- Terracotta Plinth -->
+    <polygon points="1104,420 1280,480 1280,524 1104,464" fill="#e66a4b"/>
+    <!-- Perspective White Triangle Folk Border -->
+    <g transform="translate(1104, 407) skewY(18.8)">
+      <rect x="0" y="0" width="186" height="13" fill="url(#whiteTriPattern)" stroke="none"/>
+    </g>
+    <polygon points="1104,218 1280,174 1280,524 1104,464" fill="none"/>
+  </g>
+
+  <!-- 8. FOREGROUND OVERHANGING TREE (TOP-LEFT) -->
+  <g id="overhanging-tree" stroke="#17120e" stroke-width="2.6" stroke-linejoin="round">
+    <!-- Trunk & Branches -->
+    <path d="M0,192 Q54,78 134,12 L192,0 L122,44 L176,34 L164,52 L98,74 Q48,124 0,204 Z" fill="#94562a"/>
+    <path d="M12,126 Q56,64 112,24" fill="none" stroke="#693a19" stroke-width="2"/>
+    <!-- Leafy Canopy Clusters -->
+    <g fill="#8fd41c">
+      <path d="M0,0 L476,0 C478,18 460,28 440,22 C438,44 416,56 398,42 C388,68 362,72 348,54 C336,78 308,82 294,64 C284,88 256,88 242,66 C228,82 204,78 194,58 Z"/>
+      <!-- Lower Hanging Leaf Clusters -->
+      <path d="M138,76 C126,96 146,116 164,100 C168,122 194,128 206,106 C220,124 244,116 242,92 C264,104 284,84 268,66 C252,52 154,54 138,76 Z"/>
+      <path d="M276,46 C270,68 292,84 310,68 C318,88 344,92 354,70 C370,84 394,72 386,50 C366,34 292,28 276,46 Z"/>
+      <path d="M0,48 C18,62 42,56 48,36 C68,48 92,38 92,16 L0,16 Z" fill="#a5e32b"/>
+    </g>
+    <!-- Leaf Vein Details -->
+    <g fill="none" stroke="#17120e" stroke-width="1.6" stroke-linecap="round">
+      <path d="M188,64 L182,92 M212,62 L218,88 M316,44 L318,66 M346,42 L352,66"/>
+    </g>
+  </g>
+</svg>
