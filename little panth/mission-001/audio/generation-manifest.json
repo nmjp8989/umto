@@ -52,5 +52,83 @@
     "voice": "Puck",
     "text": "ਲੋ ਜੀ, ਮੇਰੀ ਗੱਡੀ ਆ ਗਈ! ਲੋਡ ਇਟ! ਲੋਡ ਇਟ!",
     "speaker": "baldev"
+  },
+  "lp010": {
+    "hash": "de56046608fa21866ac10a55907940fea0e465fa58050b58fff49067273d1f2e",
+    "voice": "Kore",
+    "text": "ਹੋ ਗਿਆ ਚਾਚਾ ਜੀ! ਹੁਣ ਘਰ ਚੱਲੀਏ?",
+    "speaker": "mehar"
+  },
+  "lp011": {
+    "hash": "0f51e813dd634a922c97d900c5448e7e529da90aa55af182d58a54aaf92c9ada",
+    "voice": "Puck",
+    "text": "ਤਿੰਨ ਚੰਗੀਆਂ ਨੇ... ਪਰ ਪੰਜ ਨਾਲ ਦਿਲ ਖੁਸ਼ ਹੋਊਗਾ!",
+    "speaker": "baldev"
+  },
+  "lp012": {
+    "hash": "84aa48b37a21c9eadc78ca67fd3712dca3f86f0347368bf0855c809775084a0a",
+    "voice": "Puck",
+    "text": "ਵਾਹ ਜੀ ਵਾਹ! ਚਲੋ, ਬਾਕੀ ਬੋਰੀਆਂ ਵੀ ਗੱਡੀ ਵਿਚ ਪਾ ਦਿਓ!",
+    "speaker": "baldev"
+  },
+  "lp013": {
+    "hash": "02f3c98cb192bbf605696bad9300f9d111de40289b9d99cf299db9b762406c70",
+    "voice": "Puck",
+    "text": "ਵਾਹ! ਪੰਜ ਬੋਰੀਆਂ! ਪਰ ਉੱਥੇ ਖਾਲੀ ਥਾਂ ਵੇਖੀ? ਬੱਸ ਦੋ ਹੋਰ!",
+    "speaker": "baldev"
+  },
+  "lp014": {
+    "hash": "c300d0d41ea1d4616de3e8db441d8e0f3c6c0d6fa5c59041183738e187652b71",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ! ਗੱਡੀ ਟੁੱਟਣ ਵਾਲੀ ਆ!",
+    "speaker": "mehar"
+  },
+  "lp015": {
+    "hash": "111786daf9e8f9fe448a5dad198952c2f8ac2f5d1e247f54bacf2737e3a3e50b",
+    "voice": "Puck",
+    "text": "ਨਹੀਂ ਟੁੱਟਦੀ! ਬੱਸ... ਇੱਕ ਆਖਰੀ ਬੋਰੀ!",
+    "speaker": "baldev"
+  },
+  "lp016": {
+    "hash": "1a9b26125f330faab19352aff60ea977e1d19bb797b4e7753bc60e793ce6db4d",
+    "voice": "Puck",
+    "text": "ਓਹੋ! ਬੋਰੀ ਡਿੱਗ ਗਈ! ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ!",
+    "speaker": "baldev"
+  },
+  "lp017": {
+    "hash": "7e0e94c6593c4b029b8ef360c9335d63321679128fcbb54dd6a7d21815b5f543",
+    "voice": "Puck",
+    "text": "ਹੋ ਗਿਆ! ਹੋ ਗਿਆ! ਮੈਂ ਦੁਨੀਆ ਦੀ ਸਭ ਤੋਂ ਵੱਡੀ... ਓਏ!",
+    "speaker": "baldev"
+  },
+  "lp018": {
+    "hash": "4bfb35d8d09c9ea5c68d34d2c239e74b0542ffbba81a79ad5558e97614063266",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ! ਪਹੀਆ ਟੁੱਟ ਗਿਆ!",
+    "speaker": "mehar"
+  },
+  "lp019": {
+    "hash": "77020e98f08394f31e127698956a862ce0411af40cd987537487a325e761ee7e",
+    "voice": "Puck",
+    "text": "ਮੈਂ ਇੰਨੀ ਮਿਹਨਤ ਕੀਤੀ... ਇੰਨੀਆਂ ਬੋਰੀਆਂ ਇਕੱਠੀਆਂ ਕੀਤੀਆਂ...",
+    "speaker": "baldev"
+  },
+  "lp020": {
+    "hash": "b07920d2ce3bf13bd23f2507b4d73b31785c020f45ba6ca73a08d65f1752b3d7",
+    "voice": "Puck",
+    "text": "ਫੇਰ ਵੀ ਮੈਨੂੰ ਹੋਰ ਕਿਉਂ ਚਾਹੀਦਾ ਸੀ?",
+    "speaker": "baldev"
+  },
+  "lp021": {
+    "hash": "bd62a2572a7edf5cde7b70c04a77fded7b0ad2d1754b9c2191efbac43b95bec4",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ, ਸਾਡੇ ਘਰ ਆਟਾ ਮੁੱਕ ਗਿਆ ਆ। ਥੋੜ੍ਹੀ ਕਣਕ ਮਿਲ ਸਕਦੀ ਆ?",
+    "speaker": "mehar"
+  },
+  "lp022": {
+    "hash": "49b309a84cc0c469a2448f0e7bec29b31d9dd61f93652fa626ba3cd7db9da92f",
+    "voice": "Fenrir",
+    "text": "ਬਲਦੇਵ ਜੀ, ਅਗਲੀ ਫ਼ਸਲ ਲਈ ਥੋੜ੍ਹਾ ਬੀਜ ਵੀ ਚਾਹੀਦਾ ਸੀ।",
+    "speaker": "farmer"
   }
 }
