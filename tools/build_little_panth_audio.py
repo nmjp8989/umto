@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate and cache Little Panth Punjabi voices through Gemini TTS.
 
-GitHub Actions secret GEMINI_API_KEY is used server-side only.
+GitHub Actions secrets GEMINI_API_KEY2, GEMINI_API_KEY3 and GEMINI_API_KEY are used server-side only.
 Outputs reusable MP3 files under little panth/mission-001/audio/.
 Skip unchanged clips based on text, voice, model and speaker style.
 The sacred Gurbani line is intentionally reserved for a verified human-checked recitation.
@@ -56,8 +56,13 @@ def main():
  print(f"Little Panth voice cache: {len(lines)} lines, {len(pending)} pending; model={MODEL}.",flush=True)
  print("Gurbani audio: not generated automatically; use a reviewed recording.",flush=True)
  if args.dry_run:return 0
- key=os.environ.get("GEMINI_API_KEY","").strip()
- if not key:raise SystemExit("Missing GEMINI_API_KEY secret (Settings > Secrets and variables > Actions)")
+ # Priority order requested for this mission; each key is provided by Actions as a secret.
+ # Multiple keys may share one Google project quota. Never print or persist API key values.
+ key_names=("GEMINI_API_KEY2","GEMINI_API_KEY3","GEMINI_API_KEY")
+ keys=[(name,os.environ[name].strip()) for name in key_names if os.environ.get(name,"").strip()]
+ if not keys:raise SystemExit("No Gemini key configured. Add GEMINI_API_KEY2, GEMINI_API_KEY3 or GEMINI_API_KEY in repository Actions secrets.")
+ print("Gemini credential priority: "+", ".join(name for name,_ in keys),flush=True)
+ active_key=0
  AUDIO.mkdir(parents=True,exist_ok=True)
  # Keep previous valid entries even if a later generation fails.
  state=old.copy()
@@ -68,18 +73,43 @@ def main():
    "generationConfig":{"responseModalities":["AUDIO"],"speechConfig":{"voiceConfig":{"voice":voice}}},
   }
   url=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
-  req=urllib.request.Request(url,data=json.dumps(request_json,ensure_ascii=False).encode("utf-8"),
-      headers={"Content-Type":"application/json","x-goog-api-key":key},method="POST")
+  request_bytes=json.dumps(request_json,ensure_ascii=False).encode("utf-8")
   result=None
-  for attempt in range(3):
-   try:
-    with urllib.request.urlopen(req,timeout=120) as r: result=json.load(r)
+  # Move to the next user-provided credential only when the active one is unavailable,
+  # unauthorised or rate-limited. Do not re-bill cached MP3 clips.
+  for index in range(active_key,len(keys)):
+   name,key=keys[index]
+   rotate=False
+   for attempt in range(2):
+    req=urllib.request.Request(url,data=request_bytes,
+        headers={"Content-Type":"application/json","x-goog-api-key":key},method="POST")
+    try:
+     with urllib.request.urlopen(req,timeout=120) as response:result=json.load(response)
+     active_key=index
+     break
+    except urllib.error.HTTPError as error:
+     status=error.code
+     # Avoid logging exception bodies: diagnostic text might contain sensitive details.
+     if status in (401,403,429):
+      print(f"{id}: {name} returned HTTP {status}; trying the next configured credential.",flush=True)
+      rotate=True
+      break
+     if status in (500,502,503,504) and attempt==0:
+      print(f"{id}: temporary HTTP {status} from {name}; one retry.",flush=True)
+      time.sleep(3)
+      continue
+     raise RuntimeError(f"{id}: Gemini TTS returned HTTP {status} using {name}.") from None
+    except urllib.error.URLError as error:
+     if attempt==0:
+      print(f"{id}: transient network error using {name}; one retry.",flush=True)
+      time.sleep(3)
+      continue
+     raise RuntimeError(f"{id}: network error while generating Gemini audio.") from None
+   if result is not None:
     break
-   except urllib.error.HTTPError as error:
-    safe=error.read().decode("utf-8","replace")[:360]
-    if error.code in (429,500,502,503,504) and attempt<2:
-     print(f"Transient HTTP {error.code} for {id}, retrying.",flush=True);time.sleep(3*(attempt+1));continue
-    raise RuntimeError(f"{id}: Gemini TTS failed HTTP {error.code}: {safe}") from None
+   if rotate:active_key=index+1
+  if result is None:
+   raise RuntimeError(f"{id}: no usable Gemini key remains; check quota and permissions on GEMINI_API_KEY2, GEMINI_API_KEY3 and GEMINI_API_KEY.")
   parts=result.get("candidates",[{}])[0].get("content",{}).get("parts",[])
   inline=next((a.get("inlineData") for a in parts if a.get("inlineData",{}).get("data")),None)
   if not inline:raise RuntimeError(f"{id}: Gemini returned no audio for this line.")
