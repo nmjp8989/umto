@@ -30,6 +30,8 @@ jobs:
             echo "::error::Missing repository Actions secret GEMINI_API_KEY"
             exit 1
           fi
+      - name: Install MP3 encoder
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Generate test voice (one short Gemini TTS request)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
