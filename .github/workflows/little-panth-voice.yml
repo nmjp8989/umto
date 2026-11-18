@@ -21,7 +21,7 @@ permissions:
 
 concurrency:
   group: little-panth-voice
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   generate:
@@ -36,8 +36,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install MP3 encoder
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Prepare MP3 encoder
+        run: python -m pip install --disable-pip-version-check imageio-ffmpeg
       - name: Generate Punjabi dialogue via Gemini API secret
         id: generation
         env:
