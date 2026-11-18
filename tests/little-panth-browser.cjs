@@ -19,7 +19,8 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  async function shot(name){await page.screenshot({path:path.join(shots,name+'.png')});console.log('Screenshot:',name)}
  async function advance(count){for(let i=0;i<count;i++){await page.locator('#speech:not([hidden])').waitFor({timeout:15000});await page.locator('#nextLine').click();}}
  async function action(){await page.locator('#sceneAction:not([hidden])').click({timeout:10000});}
- async function load(){await page.locator('#looseSacks image').first().click({timeout:10000,force:true})}
+ async function ready(){await page.waitForFunction(()=>document.querySelector('#stage').dataset.busy==='false')}
+ async function load(){await ready();await page.locator('#looseSacks image').first().click({timeout:10000,force:true})}
  await page.locator('#voiceToggle').click();await page.locator('#start').click();
  await page.locator('#speech:not([hidden])').waitFor();
  for(const width of [1380,390]){
@@ -36,8 +37,10 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  assert.equal(await page.locator('#english').isVisible(),true,'Muted lines remain readable with CC off');
  await page.locator('#captionToggle').click();
  await shot('01-opening');
- await advance(7);await action();await advance(1);await shot('02-harvest');
- for(let p=0;p<3;p++)for(let i=0;i<5;i++)await page.locator('[data-patch="'+p+'"]').click({force:true});
+ await advance(6);await page.locator('#narratorFigure.visible').waitFor();await advance(1);await action();await advance(1);await action();await advance(2);await ready();await shot('02-harvest');
+ for(let p=0;p<6;p++)for(let i=0;i<3;i++)await page.locator('[data-patch="'+p+'"]').press('Enter');
+ await advance(1);await ready();for(let j=0;j<6;j++)await page.locator('[data-harvest="collect"]:not([data-done])').first().press('Enter');
+ await advance(1);await ready();for(let j=0;j<3;j++)await page.locator('[data-harvest="pack"]:not([data-done])').first().press('Enter');
  await advance(2);await shot('03-cart-load');
  for(let i=0;i<3;i++)await load();
  await advance(2);await action();await advance(1);await shot('04-storage');
@@ -46,11 +49,11 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  for(let i=0;i<2;i++)await load();
  await advance(2);await shot('05-overloaded');
  await load();await advance(1);
- await load();await advance(4);await action();
+ await load();await advance(5);await action();
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
  await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});
- await advance(5);await action();await advance(1);await shot('07-sharing');
+ await advance(5);await action();await advance(1);await ready();await shot('07-sharing');
  assert.equal(await page.locator('#actor-baldev').getAttribute('transform'),'translate(96 665)');
  assert.equal(await page.locator('#actor-mehar').getAttribute('transform'),'translate(1180 665)');
  for(const [key,count] of [['home',3],['seeds',2],['sharing',3]]){
@@ -65,9 +68,9 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
   await page.locator('#quizChoices button').nth(i===2?2:1).click();
   await page.waitForTimeout(1300);
  }
- await page.locator('#actor-mehar').evaluate(el=>el.dataset.facing==='left').then(v=>assert.ok(v,'Mehar should face Baldev in finale'));
+ await page.locator('#speech:not([hidden])').waitFor();await page.locator('#actor-mehar').evaluate(el=>el.dataset.facing==='left').then(v=>assert.ok(v,'Mehar should face Baldev in finale'));
  await page.waitForTimeout(1000);assert.ok(Number((await page.locator('#stage').getAttribute('viewBox')).split(' ')[2])<1280,'Dialogue camera should push in');
- await advance(2);await page.locator('#finish:not([hidden])').waitFor({timeout:15000});
+ await advance(3);await page.locator('#finish:not([hidden])').waitFor({timeout:15000});
  await shot('08-complete');
  assert.equal(errors.length,0,'Browser errors: '+errors.join('\n'));
  console.log('PASS: Complete LP-001 game from intro → harvesting → cart → crash → lesson → sharing → quiz → completion.');

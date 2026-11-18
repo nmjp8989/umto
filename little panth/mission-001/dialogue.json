@@ -9,7 +9,7 @@
     "baba": "Baba Ji",
     "narrator": "Narrator"
   },
-  "version": 2,
+  "version": 3,
   "beats": {
     "intro": [
       "lp001",
@@ -21,7 +21,8 @@
       "lp039"
     ],
     "fieldIntro": [
-      "lp007"
+      "lp007",
+      "lp043"
     ],
     "harvestDone": [
       "lp008",
@@ -50,7 +51,8 @@
     ],
     "reflection": [
       "lp019",
-      "lp020"
+      "lp020",
+      "lp046"
     ],
     "requests": [
       "lp021",
@@ -84,7 +86,17 @@
     ],
     "finale": [
       "lp037",
-      "lp038"
+      "lp038",
+      "lp047"
+    ],
+    "courtyardInspect": [
+      "lp042"
+    ],
+    "collectIntro": [
+      "lp044"
+    ],
+    "packIntro": [
+      "lp045"
     ]
   },
   "lines": {
@@ -360,6 +372,43 @@
       "pa": "ਜਿਵੇਂ ਬਲਦੇਵ ਚਾਚਾ ਜੀ ਨੇ ਕਣਕ ਵੰਡੀ, ਅਸੀਂ ਵੀ ਆਪਣਾ ਸਮਾਂ, ਖਾਣਾ ਜਾਂ ਖਿਡੌਣੇ ਲੋੜਵੰਦਾਂ ਨਾਲ ਸਾਂਝੇ ਕਰ ਸਕਦੇ ਹਾਂ। ਇਹ ਹੈ ਵੰਡ ਛਕਣ ਦੀ ਸਿੱਖਿਆ।",
       "roman": "Jiven Baldev Chacha Ji ne kanak vandi, asin vi apna samaa, khana jaan khidaune lorvandaan naal sanjhe kar sakde haan. Eh hai vand chhakan di sikhia.",
       "en": "Just as Baldev shared his wheat, we can share our time, food or toys with those in need. That is the teaching of Vand Chhakna."
+    },
+    "lp042": {
+      "speaker": "mehar",
+      "to": "baldev",
+      "pa": "ਚਾਚਾ ਜੀ, ਇੱਥੇ ਤਾਂ ਤਿੰਨ ਬੋਰੀਆਂ ਪਹਿਲਾਂ ਹੀ ਪਈਆਂ ਨੇ! ਕੀ ਇਹ ਕਾਫ਼ੀ ਨਹੀਂ?",
+      "roman": "Chacha Ji, ithe taan tinn boriyaan pehlan hi paiyaan ne! Ki eh kaafi nahi?",
+      "en": "Chacha Ji, there are already three sacks here! Isn't that enough?"
+    },
+    "lp043": {
+      "speaker": "narrator",
+      "pa": "ਕਿਸਾਨ ਬੜੀ ਮਿਹਨਤ ਨਾਲ ਕਣਕ ਉਗਾਉਂਦੇ ਹਨ। ਪਹਿਲਾਂ ਪੱਕੀ ਸੁਨਹਿਰੀ ਕਣਕ ਕੱਟੀਏ, ਹਰੀ ਕਣਕ ਨੂੰ ਹਾਲੇ ਵਧਣ ਦੇਈਏ।",
+      "roman": "Kisaan bari mehnat naal kanak ugaaunde han. Pehlan pakki sunehri kanak kattiye, hari kanak nu hale vadhan deyiye.",
+      "en": "Farmers work hard to grow wheat. Cut the ripe golden wheat first, and let the green wheat keep growing."
+    },
+    "lp044": {
+      "speaker": "narrator",
+      "pa": "ਹੁਣ ਕੱਟੀ ਹੋਈ ਕਣਕ ਦੀਆਂ ਗੱਠੜੀਆਂ ਇਕੱਠੀਆਂ ਕਰੋ। ਦੋ ਛੋਟੀਆਂ ਢੇਰੀਆਂ ਤੋਂ ਇੱਕ ਵੱਡੀ ਗੱਠੜੀ ਬਣੇਗੀ।",
+      "roman": "Hun katti hoi kanak diyan gatthriyan ikatthiyan karo. Do chhotiyan dheriyan ton ikk vaddi gatthri banegi.",
+      "en": "Now gather the cut wheat. Two small piles make one big bundle."
+    },
+    "lp045": {
+      "speaker": "narrator",
+      "pa": "ਕਣਕ ਦੇ ਦਾਣੇ ਵੱਖ ਕਰਨ ਅਤੇ ਸਾਫ਼ ਕਰਨ ਤੋਂ ਬਾਅਦ ਉਨ੍ਹਾਂ ਨੂੰ ਬੋਰੀਆਂ ਵਿਚ ਪਾਇਆ ਜਾਂਦਾ ਹੈ। ਆਓ ਤਿੰਨ ਬੋਰੀਆਂ ਤਿਆਰ ਕਰੀਏ।",
+      "roman": "Kanak de daane vakh karan ate saaf karan ton baad unha nu boriyaan vich paaia jaanda hai. Aao tinn boriyaan tayaar kariye.",
+      "en": "After the wheat grains are separated and cleaned, they are packed into sacks. Let's prepare three sacks."
+    },
+    "lp046": {
+      "speaker": "narrator",
+      "pa": "ਬਲਦੇਵ ਚਾਚਾ ਜੀ ਨੇ ਪੂਰੀ ਗੱਡੀ ਭਰ ਲਈ, ਪਰ ਉਨ੍ਹਾਂ ਦਾ ਮਨ ਫਿਰ ਵੀ ਹੋਰ ਮੰਗਦਾ ਰਿਹਾ। ਕੀ ਚੀਜ਼ਾਂ ਇਕੱਠੀਆਂ ਕਰਨ ਨਾਲ ਹੀ ਖੁਸ਼ੀ ਮਿਲਦੀ ਹੈ?",
+      "roman": "Baldev Chacha Ji ne poori gaddi bhar layi, par unha da mann fer vi hor mangda reha. Ki cheezan ikatthiyan karan naal hi khushi mildi hai?",
+      "en": "Baldev filled the whole cart, but still wanted more. Does collecting things alone bring happiness?"
+    },
+    "lp047": {
+      "speaker": "narrator",
+      "pa": "ਅੱਜ ਅਸੀਂ ਸਿੱਖਿਆ ਕਿ ਸੰਤੋਖ ਅਤੇ ਵੰਡ ਛਕਣ ਨਾਲ ਮਨ ਖੁਸ਼ ਹੁੰਦਾ ਹੈ। ਘਰ ਜਾ ਕੇ ਸੋਚੋ ਕਿ ਤੁਸੀਂ ਕਿਸ ਦੀ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ।",
+      "roman": "Ajj asin sikhia ki santokh ate vand chhakan naal mann khush hunda hai. Ghar ja ke socho ki tusi kis di madad kar sakde ho.",
+      "en": "Today we learned that contentment and sharing bring joy. Think of someone you can help at home."
     }
   },
   "questions": [

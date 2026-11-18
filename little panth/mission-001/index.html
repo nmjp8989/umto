@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#142b42">
 <title>Little Panth · The Cart That Was Never Full</title>
 <meta name="description" content="An interactive Punjabi Sikh children's mission about santokh, gratitude and sharing.">
-<link rel="stylesheet" href="style.css?v=3"></head>
+<link rel="stylesheet" href="style.css?v=4"></head>
 <body>
 <div id="app">
   <header class="topbar">
@@ -11,7 +11,7 @@
     <div class="header-controls">
       <button id="musicToggle" title="Toggle music" aria-label="Toggle music">♫ Music on</button>
       <button id="voiceToggle" title="Toggle narration" aria-label="Toggle narration">◉ Voice on</button>
-      <button id="helpBtn" title="Instructions">? Help</button>
+      <button id="watchStop" hidden>Play mode</button><button id="helpBtn" title="Instructions">? Help</button>
     </div>
   </header>
   <main>
@@ -22,7 +22,7 @@
         <g id="characters"></g>
         <g id="fx" pointer-events="none"></g>
       </svg>
-      <div id="screenTint" aria-hidden="true"></div>
+      <div id="screenTint" aria-hidden="true"></div><div id="narratorFigure" aria-hidden="true"><svg viewBox="0 0 120 180"><g id="narratorArt" transform="translate(60 176)"></g></svg></div>
       <div id="objectiveBar"><span class="diamond">✦</span><span id="objective">Follow the story</span><strong id="counter"></strong></div>
       <div id="activity" hidden aria-live="polite"></div>
       <button id="sceneAction" hidden>Continue →</button>
@@ -42,8 +42,8 @@
           <div class="tag">LITTLE PANTH · A PUNJABI VILLAGE ADVENTURE</div>
           <h1>The Cart That<br><em>Was Never Full</em></h1>
           <p>Help Chacha Baldev harvest wheat, load his bullock cart, and learn why having more isn't always happiness.</p>
-          <div class="cover-actions"><button id="start" class="main-button">▶ Begin adventure</button><button id="restart" hidden>Start from beginning</button></div>
-          <small>Five acts · harvest • load • share · Punjabi voices with English subtitles</small>
+          <div class="cover-actions"><button id="start" class="main-button">▶ Begin adventure</button><button id="watch" class="main-button" disabled>▶ Watch episode</button><button id="restart" hidden>Start from beginning</button></div>
+          <small>Five acts · cut • collect • pack • share · Punjabi voices with English subtitles</small>
         </div>
       </div>
       <div id="help" hidden><div class="help-card"><button id="closeHelp" aria-label="Close">×</button><h2>How to play</h2><p>🌾 <b>Harvest:</b> swipe across or tap the golden wheat five times.</p><p>🐂 <b>Load:</b> drag or tap a wheat sack to put it in Baldev’s cart.</p><p>💛 <b>Share:</b> select a sack, then choose HOME, SEEDS or SHARING. You can also drag directly to a zone.</p><p>💬 <b>Story:</b> listen to the Punjabi voice and read captions below the scene. Use CC to show Punjabi and English, or hide captions. Use Continue or Enter to skip ahead.</p><p>🔈 Music and voice can be switched off independently. The mission never sends your voice or text to an API while playing.</p></div></div>
@@ -65,5 +65,5 @@
   </main>
   <footer class="bottombar"><span id="actBadge">ACT 1 / 5</span><span id="instruction">Tap Continue to hear the story</span><a href="../../">UMTO Studio ↗</a></footer>
 </div>
-<iframe id="rigBridge" title="UMTO character renderer" src="../../index.html?missionBridge=delivery&amp;cast=little-panth&amp;rev=4" hidden></iframe>
-<script src="game.js?v=4"></script></body></html>
+<iframe id="rigBridge" title="UMTO character renderer" src="../../index.html?missionBridge=delivery&amp;cast=little-panth&amp;rev=5" hidden></iframe>
+<script src="game.js?v=5"></script></body></html>
