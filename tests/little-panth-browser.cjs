@@ -40,7 +40,15 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await advance(3);await page.locator('#sceneAction:not([hidden])').waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Narrator must wait for Mehar to inspect the sacks');await action();await page.locator('#english').filter({hasText:'there are already three sacks here'}).waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Mehar speaks first');await advance(1);await page.locator('#narratorFigure.visible').waitFor();await shot('01b-narrator-after-inspection');await advance(1);await advance(2);await action();await advance(2);await ready();await shot('02-harvest');
  for(let p=0;p<6;p++)for(let i=0;i<3;i++)await page.locator('[data-patch="'+p+'"]').press('Enter');
  await advance(1);await ready();for(let j=0;j<6;j++)await page.locator('[data-harvest="collect"]:not([data-done])').first().press('Enter');
- await advance(1);await ready();for(let j=0;j<3;j++)await page.locator('[data-harvest="pack"]:not([data-done])').first().press('Enter');
+ await advance(1);await ready();await page.locator('[data-pack-sack]').first().waitFor();
+ for(let j=0;j<3;j++){
+  await page.locator('[data-harvest="pack"]:not([data-done])').first().press('Enter');
+  assert.equal(await page.locator('[data-pack-sack]').count(),3,'Only three sack sprites may exist during packing');
+  assert.equal(await page.locator('[data-pack-sack][data-filled="true"]').count(),j+1);
+  assert.equal(await page.locator('[data-harvest="pack"]').count(),2-j,'Used wheat bundle should disappear');
+  if(j<2)assert.equal(await page.locator('#worldProps image[href*="wheat-sack.svg"]').count(),3,'No sack artwork may be duplicated');
+ }
+
  await advance(2);await shot('03-cart-load');
  for(let i=0;i<3;i++)await load();
  await advance(2);await action();await advance(1);await shot('04-storage');

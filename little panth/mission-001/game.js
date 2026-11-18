@@ -336,9 +336,15 @@ async function collectHarvest(){
 async function packHarvest(){
  props.replaceChildren();setLabel('Prepare three sacks of grain','0 / 3');await speak('packIntro');let packed=0;
  for(let j=0;j<3;j++){
-  const x=330+j*210;props.append(img(asset.sack,x+75,500,95,130));
-  harvestTarget('pack',asset.bundle,x,420,108,160,'Separate grain and pack sack '+(j+1),()=>{
-   packed++;sound.load();props.append(img(asset.sack,x+60,451,120,160));setLabel('Prepare three sacks of grain',packed+' / 3');banner('Sack filled!',800);
+  const x=330+j*210;
+  const sack=img(asset.sack,x+75,500,95,130);
+  sack.dataset.packSack=String(j);sack.dataset.filled='false';props.append(sack);
+  const bundle=harvestTarget('pack',asset.bundle,x,420,108,160,'Separate grain and pack sack '+(j+1),()=>{
+   packed++;sound.load();
+   // Enlarge the same sack about its bottom centre, never paint a second sack over it.
+   for(const [key,value] of Object.entries({x:x+62.5,y:470,width:120,height:160}))sack.setAttribute(key,value);
+   sack.dataset.filled='true';bundle.remove();
+   setLabel('Prepare three sacks of grain',packed+' / 3');banner('Sack filled!',800);
    if(packed===3){stageBusy=true;setTimeout(finishHarvest,750)}
   });
  }
