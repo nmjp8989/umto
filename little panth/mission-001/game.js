@@ -93,7 +93,7 @@ async function oneLine(id,token,autoRead) {
  if(token!==epoch)return;
  if(lastFocus&&typeof lastFocus.focus==='function'&&lastFocus!==$('nextLine'))try{lastFocus.focus({preventScroll:true})}catch{}
 }
-async function speak(beat){const token=epoch;const ids=story.beats[beat]||[];stageBusy=true;for(const id of ids){if(token!==epoch)break;await oneLine(id,token,beat==='gurbani'||beat==='lessonExplain'||story.lines[id]?.speaker==='narrator');}if(token===epoch){$('speech').hidden=true;activeSpeaker='';activeListener='';resetCamera();updateTalking();stageBusy=false;}return token===epoch}
+async function speak(beat){const token=epoch;const ids=story.beats[beat]||[];stageBusy=true;for(const id of ids){if(token!==epoch)break;await oneLine(id,token,beat==='gurbani'||beat==='lessonExplain'||story.lines[id]?.speaker==='narrator');}if(token===epoch){$('speech').hidden=true;activeSpeaker='';activeListener='';updateTalking();if(!reducedMotion.matches&&camera.w<1279)await wait(600);if(token!==epoch)return false;resetCamera();stageBusy=false;}return token===epoch}
 const sounds={
   ctx:null,gain:null,timer:null,tick:0,mood:'village',
   start(){try{if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.gain=this.ctx.createGain();this.gain.gain.value=.2;this.gain.connect(this.ctx.destination);}this.ctx.resume();if(!this.timer)this.timer=setInterval(()=>this.musicTick(),300)}catch{}},
@@ -122,7 +122,7 @@ function arrangeCast(type){
  share:[['baldev',245,660,390],['mehar',1100,655,285,'left']],
  sharingGame:[['baldev',96,665,310],['mehar',1180,665,265,'left']],
  shareDone:[['baldev',290,660,365],['mehar',665,655,280],['farmer',1040,655,345,'left']],
- finale:[['baldev',440,670,365],['mehar',825,670,320,'left']],
+ finale:[['baldev',270,670,365],['mehar',1050,670,320,'left']],
  };
  actors=(layouts[type]||layouts.intro).map(([id,x,y,height,view='right'])=>({id,x,y,height,view,homeView:view,frame:'',action:'idle',node:null}));
  renderCast();
@@ -167,7 +167,8 @@ const camera={x:0,y:0,w:1280,h:720};
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 function resetCamera(){Object.assign(camera,{x:0,y:0,w:1280,h:720});stage.setAttribute('viewBox','0 0 1280 720')}
 function animateCamera(now){
- if(reducedMotion.matches||!activeSpeaker||!stageBusy){if(camera.w!==1280)resetCamera();return}
+ if(reducedMotion.matches||!stageBusy){if(camera.w!==1280)resetCamera();return}
+ if(!activeSpeaker){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
  const actor=actors.find(a=>a.id===activeSpeaker);
  const elapsed=Math.max(0,now-dialogueStart);
  const zoom=actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
@@ -427,7 +428,7 @@ function showQuestion(){
  }
 }
 async function finishQuiz(){
- setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(570,320,.55);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
+ setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(405,320,.55);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
  await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=false;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
 }
 async function begin(resume=false){
