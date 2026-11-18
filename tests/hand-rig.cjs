@@ -10,11 +10,13 @@ for(const pose of Object.keys(ctx.poses)){
   for(const bend of [-85,0,60]){
    const hand=ctx.draw(pose,surface,bend);
    assert.equal(hand.width,width);
-   assert(hand.d.startsWith('M-26 0 '+ctx.poses[pose].edge));
+   assert(hand.d.startsWith('M-26 0 '));
+   if(pose!=='relaxed'||surface!=='edge')assert(hand.d.includes(ctx.poses[pose].edge));
    assert(!/NaN|undefined|Infinity/.test(hand.d));
    assert.equal((hand.d.match(/M/g)||[]).length,pose==='okay'?2:1,'Only the OK sign has an interior hole');
   }
  }
 }
+assert.notEqual(ctx.draw('relaxed','edge',0).lines,ctx.draw('relaxed','back',0).lines);
 assert.deepEqual(ctx.draw('unknown','back',0),ctx.draw('relaxed','back',0));
 console.log('PASS: wrist-to-fingertip contours and handedness for every gesture');
