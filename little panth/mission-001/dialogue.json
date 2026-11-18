@@ -9,16 +9,12 @@
     "baba": "Baba Ji",
     "narrator": "Narrator"
   },
-  "version": 3,
+  "version": 4,
   "beats": {
     "intro": [
       "lp001",
       "lp002",
-      "lp003",
-      "lp004",
-      "lp005",
-      "lp006",
-      "lp039"
+      "lp003"
     ],
     "fieldIntro": [
       "lp007",
@@ -97,6 +93,13 @@
     ],
     "packIntro": [
       "lp045"
+    ],
+    "courtyardNarrator": [
+      "lp039"
+    ],
+    "courtyardDeparture": [
+      "lp005",
+      "lp006"
     ]
   },
   "lines": {

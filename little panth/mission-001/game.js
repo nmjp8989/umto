@@ -34,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -147,7 +147,7 @@ function showNarrator(){$('narratorFigure').classList.add('visible');renderActor
 function hideNarrator(){$('narratorFigure').classList.remove('visible')}
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const storyPoses={
- lp005:'explain',lp010:'wonder',lp011:'point',lp012:'beckon',lp015:'point',lp028:'explain',
+ lp042:'point',lp005:'explain',lp010:'wonder',lp011:'point',lp012:'beckon',lp015:'point',lp028:'explain',
  lp001:'beckon',lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
  lp007:'wonder',lp008:'celebrate',lp009:'point',lp013:'point',lp014:'alarm',
  lp016:'alarm',lp017:'alarm',lp018:'alarm',lp019:'reflect',lp020:'reflect',
@@ -168,15 +168,15 @@ function directAttention(){
   actor.node.dataset.facing=actor.view;
  }
 }
-const camera={x:0,y:0,w:1280,h:720};
+let reactionFocus='',walkingFocus='';const camera={x:0,y:0,w:1280,h:720};
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 function resetCamera(){Object.assign(camera,{x:0,y:0,w:1280,h:720});stage.setAttribute('viewBox','0 0 1280 720')}
 function animateCamera(now){
  if(reducedMotion.matches||!stageBusy){if(camera.w!==1280)resetCamera();return}
- if(!activeSpeaker){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
- const actor=actors.find(a=>a.id===activeSpeaker);
+ if(!activeSpeaker&&!reactionFocus&&!walkingFocus){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
+ const actor=actors.find(a=>a.id===(reactionFocus||walkingFocus||activeSpeaker));
  const elapsed=Math.max(0,now-dialogueStart);
- const zoom=actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
+ const zoom=walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
  const w=1280/zoom,h=720/zoom;
  const x=clamp((actor?.x??640)-w/2,0,1280-w);
  const focusY=actor?actor.y-actor.height*.64:360;
@@ -287,13 +287,15 @@ async function intro(){
 async function walkTo(id,x,duration=1800){
  const actor=actors.find(a=>a.id===id),token=epoch;if(!actor)return;
  const view=x<actor.x?'left':'right';if(view!==actor.view){actor.view=view;actor.frame='';actor.art._sprite=null;actor.art.replaceChildren()}
- const from=actor.x,start=performance.now();actor.walkStart=start;actor.walking=true;
+ const from=actor.x,start=performance.now();if(id==='mehar')walkingFocus=id;actor.walkStart=start;actor.walking=true;
  await new Promise(resolve=>{function step(now){if(token!==epoch){resolve();return}const q=reducedMotion.matches?1:Math.min(1,(now-start)/duration);actor.x=from+(x-from)*q;actor.node.setAttribute('transform','translate('+actor.x+' '+actor.y+')');if(q<1)requestAnimationFrame(step);else resolve()}requestAnimationFrame(step)});
- actor.walking=false;actor.walkStart=-Infinity;actor.frame='';renderActor(actor);
+ if(walkingFocus===id)walkingFocus='';actor.walking=false;actor.walkStart=-Infinity;actor.frame='';renderActor(actor);
 }
 async function inspectCourtyard(){
  stageBusy=true;for(const sack of props.querySelectorAll('[data-inspect]')){sack.style.pointerEvents='none';sack.removeAttribute('tabindex')}
  setLabel('Mehar inspects the wheat sacks');await walkTo('mehar',730,2100);await walkTo('baldev',365,950);await speak('courtyardInspect');
+ stageBusy=true;const baldev=actors.find(a=>a.id==='baldev');if(baldev)baldev.action='reflect';reactionFocus='baldev';await wait(reducedMotion.matches?250:2400);reactionFocus='';if(baldev)baldev.action='idle';
+ await speak('courtyardNarrator');await speak('courtyardDeparture');
  button('Follow Baldev to the fields →',async()=>{stageBusy=true;await Promise.all([walkTo('mehar',1180,1800),walkTo('baldev',1010,2600)]);harvest()});
 }
 async function harvest(){
@@ -522,7 +524,7 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c]=await Promise.all([fetch('dialogue.json?v=3'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);
+   const [d,c]=await Promise.all([fetch('dialogue.json?v=4'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);
    if(!d.ok)throw Error('Mission dialogue not available');
    story=await d.json();cartSource=c.ok?await c.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}
