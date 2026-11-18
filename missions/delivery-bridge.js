@@ -14,6 +14,16 @@
    baldev:{preset:'elder-baldev',colours:{bodyType:'classic'}}
   });
  }
+ const littlePanth=new URLSearchParams(location.search).get('cast')==='little-panth';
+ if(littlePanth){
+  for(const key of Object.keys(cast))delete cast[key];
+  Object.assign(cast,{
+   baldev:{preset:'adult-harpreet',colours:{headwear:'dastaar',headwearColour:'#d78031',shirt:'kurta',shirtColour:'#dca94b',trouserColour:'#675f52',facialHair:'beard_tied',beard:'tied',beardColour:'#34312d',moustache:'thick',moustacheColour:'#34312d',bodyType:'classic'}},
+   mehar:{preset:'kid-meher',colours:{headwear:'patka',headwearColour:'#e58a57',shirt:'kurti',shirtColour:'#edbe58',trouserColour:'#667f95',bodyType:'short'}},
+   baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#85aaa6',trouserColour:'#e8e1cd',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
+   farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#ad8357',shirt:'kurta',shirtColour:'#8c9a70',trouserColour:'#d6c6a4',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
+  });
+ }
  const bank={};let serial=300;
  function rider(node){
     node.svg.querySelectorAll('[data-rig-arm]').forEach(e=>e.remove());
@@ -26,13 +36,13 @@
  try{
  for(const [id,def] of Object.entries(cast)){
   bank[id]={};
-  for(const view of ['left','right']){
+  for(const view of (littlePanth?['right']:['left','right'])){
    const actor=newSceneActor(def.preset,0);actor.view=view;actor.appearance={...actor.appearance,...def.colours,framing:'full',pose:'relaxed'};
    const base=createSceneActor(actor,serial++);
    base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
-   const keys=['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
+   const keys=littlePanth?['idle','blink','talkA','talkEE','talkO','reach','gesture','walk0','walk3','walk6','walk9','greet0','greet1']:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
    for(const key of keys){
     const copy=base.svg.cloneNode(true);
     const node={svg:copy,prefix:base.prefix,layers:Object.fromEntries([...copy.querySelectorAll('[data-scene-layer]')].map(e=>[e.dataset.sceneLayer,e]))};
