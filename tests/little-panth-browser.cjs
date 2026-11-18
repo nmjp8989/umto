@@ -52,5 +52,17 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await shot('08-complete');
  assert.equal(errors.length,0,'Browser errors: '+errors.join('\n'));
  console.log('PASS: Complete LP-001 game from intro → harvesting → cart → crash → lesson → sharing → quiz → completion.');
+ // Also confirm the mission can use the real UMTO Studio character rig.
+ const rigPage=await browser.newPage({viewport:{width:1380,height:880}});
+ const rigErrors=[];rigPage.on('pageerror',e=>rigErrors.push(String(e)));
+ await rigPage.goto('http://127.0.0.1:8765/little%20panth/mission-001/',{waitUntil:'domcontentloaded'});
+ await rigPage.locator('#start:not([disabled])').waitFor({timeout:12000});
+ await rigPage.locator('#voiceToggle').click();await rigPage.locator('#start').click();
+ await rigPage.waitForFunction(()=>!!document.querySelector('#actor-baldev [data-scene-layer]')&&!!document.querySelector('#actor-mehar [data-scene-layer]'),{timeout:30000});
+ await rigPage.waitForTimeout(1000);
+ await rigPage.screenshot({path:path.join(shots,'09-umto-studio-characters.png')});
+ assert.equal(rigErrors.length,0,'Studio rig browser errors: '+rigErrors.join('\\n'));
+ console.log('PASS: UMTO Studio rig rendered Baldev and Mehar with actual SVG character layers.');
+ await rigPage.close();
  await browser.close();
 })().catch(error=>{console.error(error);process.exit(1)});
