@@ -1,0 +1,350 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="920" height="440">
+  <defs>
+    <linearGradient id="oxLightGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="65%" stop-color="#f7ead4"/>
+      <stop offset="100%" stop-color="#e3c8a1"/>
+    </linearGradient>
+
+    <linearGradient id="oxFarGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#f7ebd6"/>
+      <stop offset="70%" stop-color="#e8d3b3"/>
+      <stop offset="100%" stop-color="#cfb188"/>
+    </linearGradient>
+
+    <linearGradient id="hornGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e6642"/>
+      <stop offset="100%" stop-color="#59331d"/>
+    </linearGradient>
+
+    <linearGradient id="bellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffea61"/>
+      <stop offset="55%" stop-color="#f5b81d"/>
+      <stop offset="100%" stop-color="#c47e0e"/>
+    </linearGradient>
+
+    <linearGradient id="woodLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2a246"/>
+      <stop offset="100%" stop-color="#c97124"/>
+    </linearGradient>
+
+    <linearGradient id="woodMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9802e"/>
+      <stop offset="100%" stop-color="#9c4e14"/>
+    </linearGradient>
+
+    <linearGradient id="sackGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe18c"/>
+      <stop offset="55%" stop-color="#f2be57"/>
+      <stop offset="100%" stop-color="#cc8d2b"/>
+    </linearGradient>
+
+    <!-- Reusable Fine-Tuned Ox Head (3/4 View Facing Left, Origin at Neck Pivot 0,0) -->
+    <g id="oxHeadArt" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-18,-10 Q-44,-18 -50,-4 Q-38,6 -16,3 Z" fill="#ebd3b0"/>
+      <path d="M-22,-5 Q-38,-9 -42,-2 Q-34,3 -20,1 Z" fill="#f0a694" stroke="none"/>
+      <path d="M14,-8 Q38,-14 44,-2 Q32,8 12,4 Z" fill="#f7ead4"/>
+      <path d="M18,-4 Q32,-7 37,-1 Q28,4 16,2 Z" fill="#f0a694" stroke="none"/>
+
+      <path d="M-16,-18 Q-32,-48 -24,-66 Q-12,-46 -6,-20 Z" fill="url(#hornGrad)"/>
+      <path d="M10,-18 Q28,-48 24,-66 Q12,-46 2,-20 Z" fill="url(#hornGrad)"/>
+
+      <path d="M-18,-20 Q0,-28 16,-16 Q28,-2 24,18 Q18,34 4,46 Q-12,56 -32,50 Q-48,44 -48,28 Q-48,14 -34,2 Q-30,-12 -18,-20 Z" fill="url(#oxLightGrad)"/>
+      <path d="M16,-12 Q26,4 18,24 Q10,36 -2,44 Q10,24 10,4 Z" fill="#e6cfa8" stroke="none" opacity="0.65"/>
+
+      <path d="M-14,-21 Q-8,-33 -1,-22 Q6,-31 10,-19 Q2,-16 -6,-18 Z" fill="#fffdf8" stroke-width="1.8"/>
+
+      <path d="M-47,26 Q-34,19 -18,28 Q-12,38 -20,48 Q-34,54 -45,44 Q-51,36 -47,26 Z" fill="#f5b798"/>
+      <circle cx="-41" cy="34" r="2.6" fill="#4f2720" stroke="none"/>
+      <circle cx="-27" cy="36" r="2.8" fill="#4f2720" stroke="none"/>
+      <path d="M-40,44 Q-32,48 -24,44" fill="none" stroke="#69342a" stroke-width="1.8"/>
+
+      <path d="M-46,24 Q-31,14 -14,24" fill="none" stroke="#c96f1e" stroke-width="3.2"/>
+      <path d="M-14,24 Q4,18 18,4" fill="none" stroke="#c96f1e" stroke-width="2.6"/>
+
+      <ellipse cx="-32" cy="4" rx="4.2" ry="5.5" fill="#1f140d" stroke="none"/>
+      <circle cx="-33" cy="2.2" r="1.6" fill="#ffffff" stroke="none"/>
+      <path d="M-12,-4 Q-3,-9 5,-2" fill="none" stroke="#b5926b" stroke-width="2"/>
+      <ellipse cx="-4" cy="8" rx="6.2" ry="7.4" fill="#1f140d" stroke="none"/>
+      <circle cx="-6" cy="5.2" r="2.5" fill="#ffffff" stroke="none"/>
+      <circle cx="-2" cy="10.2" r="1.1" fill="#ffffff" stroke="none"/>
+    </g>
+
+    <g id="goldBell" stroke="#1f140d" stroke-width="2" stroke-linejoin="round">
+      <circle cx="0" cy="-14" r="3.5" fill="#d97f24"/>
+      <path d="M-9,-10 Q0,-14 9,-10 L14,8 Q0,13 -14,8 Z" fill="url(#bellGrad)"/>
+      <circle cx="0" cy="11" r="4" fill="#c47e0e"/>
+      <path d="M-5,-6 L-7,5" fill="none" stroke="#fff7b0" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <g id="wheatSack" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-24,-54 Q-16,-70 -4,-62 Q4,-72 14,-64 Q22,-70 26,-54 Q14,-44 0,-44 Q-14,-44 -24,-54 Z" fill="#f5c764"/>
+      <path d="M-22,-46 C-48,-32 -56,12 -38,34 C-24,48 24,48 38,34 C56,12 48,-32 22,-46 Z" fill="url(#sackGrad)"/>
+      <path d="M-22,-46 Q0,-40 22,-46" fill="none" stroke="#9e5a1d" stroke-width="5"/>
+      <path d="M-22,-46 Q0,-40 22,-46" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+      <path d="M-18,-36 Q-26,-16 -22,12 M18,-36 Q26,-12 22,14 M-10,24 Q0,30 12,24" fill="none" stroke="#b5771f" stroke-width="1.8"/>
+    </g>
+
+    <g id="grassTuft" fill="#7bc92a" stroke="#1f140d" stroke-width="1.8" stroke-linejoin="round">
+      <path d="M-14,0 L-18,-12 L-8,-4 L-3,-16 L2,-4 L11,-13 L8,0 Z"/>
+    </g>
+  </defs>
+
+  <g id="bullock-cart">
+
+    <!-- Ground Contact Shadow & Grass Accents -->
+    <g id="cart-shadow">
+      <ellipse cx="480" cy="408" rx="345" ry="20" fill="#b38c68" opacity="0.35"/>
+      <use href="#grassTuft" transform="translate(86, 400) scale(0.9)"/>
+      <use href="#grassTuft" transform="translate(490, 412) scale(1.0)"/>
+      <use href="#grassTuft" transform="translate(795, 406) scale(0.95)"/>
+    </g>
+
+    <!-- 1. FAR-SIDE OX (Behind Far Shaft & Near Ox) -->
+    <g id="ox-far" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <g id="ox-far-legs-back">
+        <path d="M214,284 Q218,322 216,374 L232,374 Q236,332 238,284 Z" fill="#cfb188"/>
+        <path d="M214,370 L234,370 L236,382 L212,382 Z" fill="#4f3726"/>
+      </g>
+      <g id="ox-far-legs-front">
+        <path d="M104,282 Q100,322 98,376 L114,376 Q118,330 124,282 Z" fill="#d9be98"/>
+        <path d="M96,372 L116,372 L116,384 L94,384 Z" fill="#4f3726"/>
+        <path d="M126,286 Q126,326 126,380 L142,380 Q146,334 150,286 Z" fill="url(#oxFarGrad)"/>
+        <path d="M124,376 L144,376 L144,388 L122,388 Z" fill="#4f3726"/>
+      </g>
+      <path d="M90,214 Q108,168 144,164 Q168,162 182,190 L264,192 Q290,206 286,254 Q282,296 232,300 L118,300 Q84,292 90,214 Z" fill="url(#oxFarGrad)"/>
+      <path d="M92,222 Q112,254 148,236" fill="none" stroke="#c96f1e" stroke-width="6.5"/>
+      <path d="M92,222 Q112,254 148,236" fill="none" stroke="#ffd530" stroke-width="2" stroke-dasharray="4,5"/>
+      <use href="#goldBell" transform="translate(106, 264) scale(0.9)"/>
+
+      <g id="ox-far-head" transform="translate(86, 198) scale(0.95)">
+        <use href="#oxHeadArt"/>
+      </g>
+    </g>
+
+    <!-- 2. FAR-SIDE CONNECTING SHAFT (Tucked between the two oxen into cart front-left) -->
+    <g id="far-shaft" stroke="#1f140d" stroke-width="2.2" stroke-linejoin="round">
+      <path d="M180,174 Q280,234 426,256 L426,270 Q274,248 174,186 Z" fill="#a85719"/>
+    </g>
+
+    <!-- 3. NEAR-SIDE OX BODY & LEGS -->
+    <g id="ox-near" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <g id="ox-near-tail" transform="translate(362, 224)">
+        <path d="M0,0 Q14,24 10,74" fill="none" stroke="#1f140d" stroke-width="3.2"/>
+        <path d="M10,70 Q2,88 12,98 Q22,88 10,70 Z" fill="#4f3622"/>
+      </g>
+
+      <g id="ox-near-legs-back">
+        <path d="M300,296 Q304,338 302,388 L318,388 Q322,344 324,296 Z" fill="#dec29c"/>
+        <path d="M300,384 L320,384 L322,396 L298,396 Z" fill="#4f3726"/>
+        <path d="M322,284 Q344,310 342,334 Q338,360 340,394 L358,394 Q360,360 364,332 Q368,302 356,280 Z" fill="url(#oxLightGrad)"/>
+        <path d="M338,388 L360,388 L362,402 L336,402 Z" fill="#4f3726"/>
+        <line x1="349" y1="396" x2="349" y2="402" stroke="#1f140d" stroke-width="1.6"/>
+      </g>
+
+      <g id="ox-near-legs-front">
+        <path d="M180,296 Q178,340 176,388 L192,388 Q196,344 202,296 Z" fill="#dec29c"/>
+        <path d="M174,384 L194,384 L194,396 L172,396 Z" fill="#4f3726"/>
+        <path d="M204,288 Q202,338 202,394 L220,394 Q224,344 234,288 Z" fill="url(#oxLightGrad)"/>
+        <path d="M200,388 L222,388 L222,402 L198,402 Z" fill="#4f3726"/>
+        <line x1="210" y1="396" x2="210" y2="402" stroke="#1f140d" stroke-width="1.6"/>
+      </g>
+
+      <!-- Near-Ox Torso & Hump -->
+      <path d="M164,224 Q182,174 222,170 Q242,168 254,182 Q266,154 288,162 Q302,168 308,188 Q336,192 356,204 Q374,218 368,268 Q362,312 314,316 L202,316 Q162,312 164,224 Z" fill="url(#oxLightGrad)"/>
+      <path d="M174,282 Q232,306 318,298 Q350,294 360,264 Q354,308 312,314 L202,314 Q174,310 174,282 Z" fill="#dec29c" stroke="none" opacity="0.7"/>
+      <path d="M176,262 Q176,302 206,312" fill="none" stroke="#c7a57b" stroke-width="2.6"/>
+
+      <!-- Neck Collar & Gold Bell -->
+      <path d="M168,230 Q196,266 244,232" fill="none" stroke="#c96f1e" stroke-width="7.5"/>
+      <path d="M168,230 Q196,266 244,232" fill="none" stroke="#ffd530" stroke-width="2.2" stroke-dasharray="5,5"/>
+      <use href="#goldBell" transform="translate(184, 274) scale(1.05)"/>
+    </g>
+
+    <!-- 4. WOODEN YOKE (Rests cleanly across both neck-dips in front of humps, behind near ox head) -->
+    <g id="yoke" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round">
+      <!-- Yoke Cylinder from Far Ox Neck (136,166) to Near Ox Neck (242,188) -->
+      <polygon points="138,158 246,178 242,200 134,178" fill="url(#woodLight)"/>
+      <!-- Wooden Yoke End-Cap & Pegs -->
+      <ellipse cx="244" cy="189" rx="9" ry="11" fill="#e6943c"/>
+      <ellipse cx="136" cy="168" rx="7" ry="10" fill="#b86522"/>
+      <!-- Neck Bow Strap wrapping from yoke down onto collar -->
+      <path d="M224,195 Q220,218 206,244" fill="none" stroke="#c96f1e" stroke-width="4.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- 5. NEAR-OX HEAD (Layered cleanly IN FRONT of the yoke!) -->
+    <g id="ox-near-head" transform="translate(168, 206)">
+      <use href="#oxHeadArt"/>
+      <g id="ox-nervous-fx" opacity="0">
+        <path d="M32,-16 Q38,-26 34,-34 Q26,-26 32,-16 Z" fill="#78d4ff" stroke="#1d5f82" stroke-width="1.4"/>
+        <path d="M42,2 Q48,-6 44,-14 Q36,-6 42,2 Z" fill="#78d4ff" stroke="#1d5f82" stroke-width="1.4"/>
+      </g>
+    </g>
+
+    <!-- 6. CART CHASSIS (Includes Wheels, Axle, Near Drawbar Shaft, Bed & Sacks) -->
+    <g id="cart-chassis">
+
+      <!-- Far-Side 10-Spoke Wheel (Centered at 0,0 via translate 475, 326) -->
+      <g id="left-wheel" transform="translate(475, 326)" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round">
+        <g id="left-wheel-spin">
+          <g id="left-wheel-piece-a">
+            <g fill="#a65419">
+              <rect x="-4" y="-66" width="8" height="52" transform="rotate(-72)"/>
+              <rect x="-4" y="-66" width="8" height="52" transform="rotate(-36)"/>
+              <rect x="-4" y="-66" width="8" height="52"/>
+              <rect x="-4" y="-66" width="8" height="52" transform="rotate(36)"/>
+              <rect x="-4" y="-66" width="8" height="52" transform="rotate(72)"/>
+            </g>
+            <path d="M-74,0 A74,74 0 0,1 74,0 L58,0 A58,58 0 0,0 -58,0 Z" fill="#b8601d"/>
+            <path d="M-74,0 A74,74 0 0,1 74,0" fill="none" stroke="#2e2722" stroke-width="4.5"/>
+          </g>
+          <g id="left-wheel-piece-b">
+            <g fill="#a65419">
+              <rect x="-4" y="14" width="8" height="52" transform="rotate(-72)"/>
+              <rect x="-4" y="14" width="8" height="52" transform="rotate(-36)"/>
+              <rect x="-4" y="14" width="8" height="52"/>
+              <rect x="-4" y="14" width="8" height="52" transform="rotate(36)"/>
+              <rect x="-4" y="14" width="8" height="52" transform="rotate(72)"/>
+            </g>
+            <path d="M74,0 A74,74 0 0,1 -74,0 L-58,0 A58,58 0 0,0 58,0 Z" fill="#b8601d"/>
+            <path d="M74,0 A74,74 0 0,1 -74,0" fill="none" stroke="#2e2722" stroke-width="4.5"/>
+          </g>
+          <g id="left-wheel-hub">
+            <circle cx="0" cy="0" r="16" fill="#c76e24"/>
+            <circle cx="0" cy="0" r="7" fill="#453a33"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Cross Axle Under Bed -->
+      <g id="axle" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round">
+        <polygon points="472,318 680,328 676,346 468,334" fill="#6b3711"/>
+      </g>
+
+      <!-- NEAR-SIDE CURVED CONNECTING SHAFT & SUPPORT STRAP (Cleanly joins Yoke 242,189 -> Cart Front 422,268) -->
+      <g id="near-shaft" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round">
+        <!-- Curved Wooden Shaft -->
+        <path d="M236,184 Q316,244 426,258 L426,276 Q308,262 228,198 Z" fill="url(#woodLight)"/>
+        <!-- Wooden Yoke Peg & Rope Lashing -->
+        <rect x="234" y="172" width="7" height="28" rx="2" fill="#9c4e14" transform="rotate(10 237 186)"/>
+        <path d="M244,184 Q248,194 242,202" fill="none" stroke="#ffd238" stroke-width="3"/>
+        <!-- Back-Band Harness Strap looping over ox's back & cradling the shaft -->
+        <path d="M306,189 L302,248" fill="none" stroke="#b86522" stroke-width="5"/>
+        <rect x="296" y="230" width="12" height="20" rx="2" fill="#d98a36"/>
+        <polygon points="298,250 306,250 308,268 296,268" fill="#e6a139"/>
+      </g>
+
+      <!-- Wooden Supports & Undercarriage -->
+      <g id="wooden-supports" stroke="#1f140d" stroke-width="2.3" stroke-linejoin="round">
+        <!-- Front Shaft Mounting Bracket -->
+        <rect x="412" y="254" width="38" height="28" rx="3" fill="#c97124"/>
+        <circle cx="430" cy="268" r="4.5" fill="#ffd238"/>
+        <polygon points="444,282 786,282 786,300 444,296" fill="#824112"/>
+        <rect x="444" y="156" width="18" height="128" rx="2" fill="url(#woodLight)"/>
+        <rect x="554" y="160" width="16" height="126" rx="2" fill="url(#woodLight)"/>
+        <rect x="668" y="164" width="16" height="124" rx="2" fill="url(#woodLight)"/>
+        <rect x="780" y="166" width="18" height="122" rx="2" fill="url(#woodLight)"/>
+      </g>
+
+      <!-- Cart Body & Festive Punjabi Bunting -->
+      <g id="cart-body" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round">
+        <polygon points="446,162 768,170 784,256 456,252" fill="#8f4816"/>
+        <rect x="446" y="158" width="332" height="14" fill="#ba6822"/>
+
+        <g id="sack-loading-positions">
+          <g id="sack-pos-1" transform="translate(515, 160)"><use href="#wheatSack" transform="scale(1.12) rotate(-6)"/></g>
+          <g id="sack-pos-2" transform="translate(612, 148)"><use href="#wheatSack" transform="scale(1.05)"/></g>
+          <g id="sack-pos-3" transform="translate(722, 166)"><use href="#wheatSack" transform="scale(1.04) rotate(6)"/></g>
+          <g id="sack-pos-4" transform="translate(648, 162)"><use href="#wheatSack" transform="scale(1.16)"/></g>
+          <g id="sack-pos-5" transform="translate(568, 128)" opacity="0"><use href="#wheatSack" transform="scale(0.98) rotate(-4)"/></g>
+          <g id="sack-pos-6" transform="translate(682, 130)" opacity="0"><use href="#wheatSack" transform="scale(0.98) rotate(5)"/></g>
+          <g id="sack-pos-7" transform="translate(524, 122)" opacity="0"><use href="#wheatSack" transform="scale(0.92) rotate(-8)"/></g>
+          <g id="sack-pos-8" transform="translate(624, 96)" opacity="0"><use href="#wheatSack" transform="scale(1.02)"/></g>
+        </g>
+
+        <polygon points="444,160 460,164 460,282 444,278" fill="#a85518"/>
+        <polygon points="460,174 794,180 794,196 460,192" fill="url(#woodLight)"/>
+        <polygon points="460,206 794,212 794,228 460,224" fill="url(#woodMid)"/>
+        <polygon points="460,240 794,244 794,284 460,280" fill="url(#woodMid)"/>
+
+        <rect x="444" y="156" width="18" height="128" rx="2" fill="url(#woodLight)"/>
+        <rect x="554" y="160" width="16" height="126" rx="2" fill="url(#woodLight)"/>
+        <rect x="668" y="164" width="16" height="124" rx="2" fill="url(#woodLight)"/>
+        <rect x="780" y="166" width="18" height="122" rx="2" fill="url(#woodLight)"/>
+
+        <g id="cart-bunting">
+          <path d="M466,184 Q492,238 518,185 Q544,240 570,186 Q596,242 622,187 Q648,244 674,188 Q700,246 726,189 Q752,248 778,190 L778,180 L466,174 Z" fill="#0f47a8"/>
+          <g fill="#ffd238" stroke="none">
+            <circle cx="492" cy="212" r="2.2"/><circle cx="544" cy="214" r="2.2"/><circle cx="596" cy="216" r="2.2"/>
+            <circle cx="648" cy="218" r="2.2"/><circle cx="700" cy="220" r="2.2"/><circle cx="752" cy="222" r="2.2"/>
+          </g>
+          <polygon points="466,174 516,176 490,222" fill="#e62b25"/>
+          <polygon points="516,176 568,177 542,224" fill="#ffd22b"/>
+          <polygon points="568,177 620,178 594,226" fill="#e62b25"/>
+          <polygon points="620,178 672,179 646,228" fill="#ffd22b"/>
+          <polygon points="672,179 724,180 698,230" fill="#e62b25"/>
+          <polygon points="724,180 778,181 750,232" fill="#ffd22b"/>
+          <g fill="#ffd22b" stroke="none">
+            <circle cx="491" cy="193" r="4"/><circle cx="595" cy="195" r="4"/><circle cx="699" cy="197" r="4"/>
+          </g>
+          <g fill="#e62b25" stroke="none">
+            <circle cx="543" cy="194" r="4.5"/><circle cx="647" cy="196" r="4.5"/><circle cx="751" cy="198" r="4.5"/>
+          </g>
+          <path d="M454,174 Q620,180 798,182" fill="none" stroke="#ffd238" stroke-width="5"/>
+          <path d="M798,182 L804,218 L792,218 Z" fill="#f59e24"/>
+          <path d="M454,174 L448,204 L460,204 Z" fill="#f59e24"/>
+        </g>
+      </g>
+
+      <!-- Near-Side Hero 10-Spoke Wheel (Centered at 0,0 via translate 674, 336) -->
+      <g id="right-wheel" transform="translate(674, 336)" stroke="#1f140d" stroke-width="2.5" stroke-linejoin="round">
+        <g id="right-wheel-spin">
+          <g id="right-wheel-piece-a">
+            <g fill="#d17526">
+              <rect x="-5" y="-82" width="10" height="64" transform="rotate(-72)"/>
+              <rect x="-5" y="-82" width="10" height="64" transform="rotate(-36)"/>
+              <rect x="-5" y="-82" width="10" height="64"/>
+              <rect x="-5" y="-82" width="10" height="64" transform="rotate(36)"/>
+              <rect x="-5" y="-82" width="10" height="64" transform="rotate(72)"/>
+            </g>
+            <path d="M-90,0 A90,90 0 0,1 90,0 L70,0 A70,70 0 0,0 -70,0 Z" fill="#f09835"/>
+            <path d="M-90,0 A90,90 0 0,1 90,0" fill="none" stroke="#2e2722" stroke-width="5.5"/>
+          </g>
+
+          <g id="right-wheel-piece-b">
+            <g fill="#d17526">
+              <rect x="-5" y="18" width="10" height="64" transform="rotate(-72)"/>
+              <rect x="-5" y="18" width="10" height="64" transform="rotate(-36)"/>
+              <rect x="-5" y="18" width="10" height="64"/>
+              <rect x="-5" y="18" width="10" height="64" transform="rotate(36)"/>
+              <rect x="-5" y="18" width="10" height="64" transform="rotate(72)"/>
+            </g>
+            <path d="M90,0 A90,90 0 0,1 -90,0 L-70,0 A70,70 0 0,0 70,0 Z" fill="#f09835"/>
+            <path d="M90,0 A90,90 0 0,1 -90,0" fill="none" stroke="#2e2722" stroke-width="5.5"/>
+          </g>
+
+          <g id="right-wheel-hub">
+            <circle cx="0" cy="0" r="22" fill="#e68c2e"/>
+            <circle cx="0" cy="0" r="11" fill="#4f4239"/>
+            <circle cx="0" cy="0" r="4" fill="#d9802e"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- ANIMATION FX LAYERS (Hidden by default; toggle opacity="1") -->
+      <g id="wobble-fx" opacity="0" fill="none" stroke="#2b1b12" stroke-width="2.6" stroke-linecap="round">
+        <path d="M416,184 Q404,216 416,248"/>
+        <path d="M402,194 Q392,216 402,238"/>
+        <path d="M824,186 Q836,218 824,250"/>
+        <path d="M838,196 Q848,218 838,240"/>
+      </g>
+
+      <g id="wheel-crack-fx" opacity="0" stroke="#1f140d" stroke-width="2" stroke-linejoin="round">
+        <polygon points="445,382 470,368 462,386 488,376 474,394 498,396 474,404 484,416 462,402 448,414 452,398 432,392" fill="#ffe62b"/>
+        <polygon points="824,332 872,306 864,332" fill="#ffe62b"/>
+        <polygon points="824,344 878,342 874,358" fill="#ffe62b"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
