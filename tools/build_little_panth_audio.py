@@ -4,7 +4,7 @@
 GitHub Actions secrets GEMINI_API_KEY2, GEMINI_API_KEY3 and GEMINI_API_KEY are used server-side only.
 Outputs reusable MP3 files under little panth/mission-001/audio/.
 Skip unchanged clips based on text, voice, model and speaker style.
-The sacred Gurbani line is intentionally reserved for a verified human-checked recitation.
+The optional Gurbani clip is a synthetic recitation.
 """
 from __future__ import annotations
 import argparse
@@ -36,7 +36,7 @@ def main():
  p=argparse.ArgumentParser()
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
- p.add_argument("--include-sacred-draft",action="store_true",help="Opt-in only: AI recitation draft requires human pronunciation review; never enabled by automation.")
+ p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")
  args=p.parse_args()
  if not (1<=args.max_new_lines<=100):p.error("--max-new-lines must be between 1 and 100")
  doc=json.loads(DIALOGUE.read_text(encoding="utf-8"))
@@ -47,6 +47,8 @@ def main():
  for id,line in lines.items():
   if line.get("sacred") and not args.include_sacred_draft:continue
   voice,style=VOICES[line["speaker"]]
+  if line.get("sacred"):
+   style+=" Recite this exact Japji Sahib line slowly in Gurmukhi, with a short pause after ਉਤਰੀ. Say only the quoted line."
   payload_key=json.dumps([MODEL,voice,style,line["pa"]],ensure_ascii=False)
   digest=hashlib.sha256(payload_key.encode("utf-8")).hexdigest()
   output=AUDIO/(id+".mp3")
@@ -54,7 +56,7 @@ def main():
   if output.is_file() and output.stat().st_size>2048 and old.get(id,{}).get("hash")==digest:continue
   pending.append((id,line,voice,style))
  print(f"Little Panth voice cache: {len(lines)} lines, {len(pending)} pending; model={MODEL}.",flush=True)
- print("Gurbani audio: not generated automatically; use a reviewed recording.",flush=True)
+ print(f"Synthetic Gurbani recitation enabled: {args.include_sacred_draft}.",flush=True)
  if args.dry_run:return 0
  # Priority order requested for this mission; each key is provided by Actions as a secret.
  # Multiple keys may share one Google project quota. Never print or persist API key values.

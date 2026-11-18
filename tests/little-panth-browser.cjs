@@ -49,7 +49,10 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await load();await advance(4);await action();
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
- await advance(5);await action();await advance(1);await shot('07-sharing');
+ await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});
+ await advance(4);await action();await advance(1);await shot('07-sharing');
+ assert.equal(await page.locator('#actor-baldev').getAttribute('transform'),'translate(96 665)');
+ assert.equal(await page.locator('#actor-mehar').getAttribute('transform'),'translate(1180 665)');
  for(const [key,count] of [['home',3],['seeds',2],['sharing',3]]){
   for(let i=0;i<count;i++){
    await page.locator('#sharingSacks image').first().click({force:true});

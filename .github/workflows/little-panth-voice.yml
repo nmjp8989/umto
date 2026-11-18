@@ -46,8 +46,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MAX_NEW_LINES: ${{ inputs.max_new_lines || '100' }}
         run: |
-          python tools/build_little_panth_audio.py --dry-run --max-new-lines "$MAX_NEW_LINES"
-          python tools/build_little_panth_audio.py --max-new-lines "$MAX_NEW_LINES"
+          python tools/build_little_panth_audio.py --dry-run --include-sacred-draft --max-new-lines "$MAX_NEW_LINES"
+          python tools/build_little_panth_audio.py --include-sacred-draft --max-new-lines "$MAX_NEW_LINES"
       - name: Preserve completed clips as downloadable artifact
         if: always()
         uses: actions/upload-artifact@v4
