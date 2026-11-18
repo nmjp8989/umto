@@ -130,5 +130,71 @@
     "voice": "Fenrir",
     "text": "ਬਲਦੇਵ ਜੀ, ਅਗਲੀ ਫ਼ਸਲ ਲਈ ਥੋੜ੍ਹਾ ਬੀਜ ਵੀ ਚਾਹੀਦਾ ਸੀ।",
     "speaker": "farmer"
+  },
+  "lp023": {
+    "hash": "845d907661501f8cdcbc447744a509c2f99e2fe9d1e3f712c923ed2d240f38d4",
+    "voice": "Puck",
+    "text": "ਪਰ ਜੇ ਮੈਂ ਦੇ ਦਿੱਤੀ... ਮੇਰੇ ਕੋਲ ਘੱਟ ਹੋ ਜਾਵੇਗੀ!",
+    "speaker": "baldev"
+  },
+  "lp024": {
+    "hash": "5f1601b9d762f41fce4f3cfd75f41c158f329117a4dad67039609854d2e92a2c",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੀ ਗੱਡੀ ਤਾਂ ਪੂਰੀ ਭਰ ਗਈ ਸੀ। ਫੇਰ ਵੀ ਤੁਸੀਂ ਖੁਸ਼ ਕਿਉਂ ਨਹੀਂ ਹੋਏ?",
+    "speaker": "mehar"
+  },
+  "lp025": {
+    "hash": "bc6a586bda0d292005e52a2f5e42f0c3adfe0e88804d319b862ee2ad2d8e8544",
+    "voice": "Charon",
+    "text": "ਆਓ ਪੁੱਤਰ, ਗੁਰਦੁਆਰਾ ਸਾਹਿਬ ਦੇ ਵਿਹੜੇ ਵਿਚ ਬੈਠ ਕੇ ਗੱਲ ਕਰਦੇ ਹਾਂ।",
+    "speaker": "baba"
+  },
+  "lp026": {
+    "hash": "de4dc4825d694b26867b8130b91a140a2bcae65e35d7309bd5c6683ea1c0a6cf",
+    "voice": "Charon",
+    "text": "ਗੁਰੂ ਨਾਨਕ ਦੇਵ ਜੀ ਨੇ ਜਪੁਜੀ ਸਾਹਿਬ ਵਿਚ ਇਸ ਸਵਾਲ ਦਾ ਜਵਾਬ ਦਿੱਤਾ ਹੈ।",
+    "speaker": "baba"
+  },
+  "lp028": {
+    "hash": "42db39e0bc99d2ed903ce21c12a6c5899677b0bb084017411e6e80cc511b7869",
+    "voice": "Charon",
+    "text": "ਜੇ ਇਨਸਾਨ ਦੁਨੀਆ ਭਰ ਦੀਆਂ ਚੀਜ਼ਾਂ ਇਕੱਠੀਆਂ ਕਰ ਲਵੇ, ਪਰ ਮਨ ਹੋਰ ਮੰਗਦਾ ਰਹੇ, ਤਾਂ ਇਹ ਭੁੱਖ ਕਦੇ ਨਹੀਂ ਮੁੱਕਦੀ।",
+    "speaker": "baba"
+  },
+  "lp029": {
+    "hash": "a2d2cafd37a31e5d999a98e10c462f8b6073badd20bc382f1848b6c0d282852b",
+    "voice": "Kore",
+    "text": "ਜਿਵੇਂ ਚਾਚਾ ਜੀ ਦੀ ਗੱਡੀ!",
+    "speaker": "mehar"
+  },
+  "lp030": {
+    "hash": "4303113953694560200a78b81296ded8c032f89340b320e9c603cd399130fa77",
+    "voice": "Charon",
+    "text": "ਰੋਟੀ ਪੇਟ ਭਰਦੀ ਆ, ਪਰ ਸੰਤੋਖ ਮਨ ਭਰਦਾ ਆ। ਜੋ ਵਾਹਿਗੁਰੂ ਨੇ ਦਿੱਤਾ, ਉਸ ਦਾ ਸ਼ੁਕਰਾਨਾ ਕਰੋ, ਤੇ ਵੰਡ ਕੇ ਛਕੋ।",
+    "speaker": "baba"
+  },
+  "lp031": {
+    "hash": "47003f578933ad84794c9571fa7cf3f86ba0ca0edcb0ba931071d52c38ea6df8",
+    "voice": "Puck",
+    "text": "ਮੈਂ ਸਾਰਾ ਦਿਨ ਗੱਡੀ ਭਰਦਾ ਰਿਹਾ, ਪਰ ਦਿਲ ਖਾਲੀ ਰੱਖਿਆ! ਚਲੋ, ਹੁਣ ਅਸਲ ਖੁਸ਼ੀ ਵੇਖੀਏ!",
+    "speaker": "baldev"
+  },
+  "lp032": {
+    "hash": "990bd9d30fd72f7f3280d06a96a6bc065ee27fb350d1048beb04b50ef6d603ca",
+    "voice": "Puck",
+    "text": "ਆਪਣੇ ਘਰ ਲਈ ਤਿੰਨ, ਬੀਜ ਲਈ ਦੋ, ਤੇ ਵੰਡਣ ਅਤੇ ਲੰਗਰ ਲਈ ਤਿੰਨ ਬੋਰੀਆਂ!",
+    "speaker": "baldev"
+  },
+  "lp033": {
+    "hash": "e6b9ae2352114cb94b5fdaf7b31cb93ac5c37aa51f896e102a69f2906c16cad7",
+    "voice": "Fenrir",
+    "text": "ਧੰਨਵਾਦ ਬਲਦੇਵ ਜੀ! ਹੁਣ ਅਗਲੀ ਫ਼ਸਲ ਬੀਜ ਸਕਾਂਗੇ!",
+    "speaker": "farmer"
+  },
+  "lp034": {
+    "hash": "026258b4ac112b192c19919580e55ca143a1ea2faed6ad7abbda5011c6c88476",
+    "voice": "Kore",
+    "text": "ਵਾਹ! ਹੁਣ ਸਾਰਿਆਂ ਦੇ ਘਰ ਰੋਟੀ ਪੱਕੇਗੀ!",
+    "speaker": "mehar"
   }
 }
