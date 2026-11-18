@@ -69,8 +69,8 @@ async function oneLine(id,token,autoRead) {
    if(!voiceEnabled){startReadingTimer();return}
    let failed=false;
    const audio=new Audio('audio/'+id+'.mp3');currentVoice=audio;audio.volume=.94;
-   if(autoRead)audio.addEventListener('pause',()=>{if(!voiceEnabled&&!settled)startReadingTimer()});
-   audio.onended=()=>setTimeout(done,watchMode?Math.max(350,6200-(performance.now()-dialogueStart)):250);
+   if(autoRead||watchMode)audio.addEventListener('pause',()=>{if(!voiceEnabled&&!settled)startReadingTimer()});
+   audio.onended=()=>setTimeout(done,watchMode?Math.max(350,4600-(performance.now()-dialogueStart)):250);
    audio.onerror=()=>{
      if(settled||failed)return;
      failed=true;
@@ -495,7 +495,7 @@ setInterval(()=>{
  if(!watchMode||!runStarted||document.hidden||performance.now()<watchDue)return;
  if(!$('finish').hidden){setWatch(false);return}
  if(!$('help').hidden)return;
- if(!$('speech').hidden){if(!voiceEnabled&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
+ if(!$('speech').hidden){if((!voiceEnabled||(!currentVoice&&$('soundHint').textContent))&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
  if(stageBusy)return;
  if(!$('sceneAction').hidden){$('sceneAction').click();watchDue=performance.now()+2500;return}
  if(!$('quiz').hidden){const q=story.questions[quizIndex];if(q&&$('quiz').dataset.answering!=='true')$('quizChoices').children[q.answer]?.click();watchDue=performance.now()+5000;return}
@@ -504,7 +504,7 @@ setInterval(()=>{
  const sack=props.querySelector('#looseSacks image');
  const shareItem=props.querySelector('#sharingSacks image');
  if(patch){autoActivate(patch);watchDue=performance.now()+1400}
- else if(task){autoActivate(task);watchDue=performance.now()+2700}
+ else if(task){autoActivate(task);watchDue=performance.now()+2100}
  else if(sack){autoActivate(sack);watchDue=performance.now()+2400}
  else if(shareItem){if(selectedSack===null)autoActivate(shareItem);else{const dest=shareTargets.find(([key,,cap])=>shareCounts[key]<cap);if(dest)putSack(dest[0])}watchDue=performance.now()+1400}
 },200);
