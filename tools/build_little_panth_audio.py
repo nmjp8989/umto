@@ -120,7 +120,9 @@ def main():
   out=AUDIO/(id+".mp3")
   raw.write_bytes(pcm)
   try:
-   subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-nostdin","-y","-i",str(raw),
+   import imageio_ffmpeg
+   encoder=imageio_ffmpeg.get_ffmpeg_exe()
+   subprocess.run([encoder,"-hide_banner","-loglevel","error","-nostdin","-y","-i",str(raw),
     "-codec:a","libmp3lame","-qscale:a","4",str(out)],check=True)
   finally:
    raw.unlink(missing_ok=True)
