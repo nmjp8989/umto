@@ -34,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;delete stage.dataset.light;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){hideWatchHand(true);crashPending=false;reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){sharingIntro=false;hideWatchHand(true);crashPending=false;reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -398,9 +398,9 @@ async function intro(){
  setPhase('intro');scene('field',1,'THE CART THAT WAS NEVER FULL');sound.setMood('opening');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
  setLabel('The Cart That Was Never Full');const token=epoch;await openingFlyover();if(token!==epoch)return;
  scene('village',1,'THE EMERGENCY');sound.setMood('village');
- arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);for(const sack of Array.from(props.children).slice(-3)){sack.dataset.inspect='1';sack.classList.add('tap-target');sack.setAttribute('role','button');sack.setAttribute('tabindex','0');sack.setAttribute('aria-label','Inspect wheat sack');sack.addEventListener('click',()=>{if(!$('sceneAction').hidden)$('sceneAction').click()});sack.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('sceneAction').hidden)$('sceneAction').click()})}setLabel('What is Chacha Baldev so worried about?');
- await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
- for(const sack of props.querySelectorAll('image[data-inspect]'))sack.style.pointerEvents='all';
+ arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);
+ setLabel('What is Chacha Baldev so worried about?');
+ if(await speak('intro'))await inspectCourtyard();
 }
 async function walkTo(id,x,duration=1800){
  const actor=actors.find(a=>a.id===id),token=epoch;if(!actor)return;
@@ -410,7 +410,7 @@ async function walkTo(id,x,duration=1800){
  if(walkingFocus===id)walkingFocus='';actor.walking=false;actor.walkStart=-Infinity;actor.frame='';renderActor(actor);
 }
 async function inspectCourtyard(){
- stageBusy=true;for(const sack of props.querySelectorAll('[data-inspect]')){sack.style.pointerEvents='none';sack.removeAttribute('tabindex')}
+ stageBusy=true;
  setLabel('Mehar inspects the wheat sacks');await walkTo('mehar',730,2100);await walkTo('baldev',365,950);await speak('courtyardInspect');
  stageBusy=true;const baldev=actors.find(a=>a.id==='baldev');if(baldev)baldev.action='reflect';reactionFocus='baldev';await wait(reducedMotion.matches?250:2400);reactionFocus='';if(baldev)baldev.action='idle';
  await speak('courtyardNarrator');await speak('courtyardDeparture');
@@ -623,11 +623,17 @@ async function lesson(){
  $('verse').hidden=false;await speak('gurbani');await speak('lessonExplain');$('verse').hidden=true;
  button('Return and share the harvest →',()=>share());
 }
-function share(){
- setPhase('share');scene('village',5,'THE JOY OF SHARING');sound.setMood('village');arrangeCast('share');
- shareCounts={home:0,seeds:0,sharing:0};selectedSack=null;
- (async()=>{arrangeCast('sharingGame');showSharing(true);await speak('shareIntro');setLabel('Share the eight sacks wisely','0 / 8');showSharing()})();
+let sharingIntro=false;
+async function share(){
+ setPhase('share');scene('village',5,'THE JOY OF SHARING');sound.setMood('village');arrangeCast('sharingGame');
+ shareCounts={home:0,seeds:0,sharing:0};selectedSack=null;sharingIntro=true;
+ showSharing();
+ if(!await speak('shareIntro'))return;
+ sharingIntro=false;
+ if(sharingTotal()===8)finishSharing();
 }
+const sharingTotal=()=>shareCounts.home+shareCounts.seeds+shareCounts.sharing;
+const canPlaceSharingSack=()=>window.lpPhase==='share'&&(!stageBusy||sharingIntro&&!watchMode);
 const shareZone={x:192,y:509,spacing:302,width:292,height:130};
 const shareTargets=[['home','HOME',3,'For Baldev\u2019s family','#8ccfb3'],['seeds','SEEDS',2,'For the next crop','#f6ca81'],['sharing','SHARING & LANGAR',3,'For those in need','#b7b6ef']];
 function sharingSymbol(key,x,y){
@@ -637,7 +643,7 @@ function sharingSymbol(key,x,y){
  else icon.innerHTML='<path d="M-15 0H15Q12 12 0 12Q-12 12-15 0Z" fill="#f9e9c7"/><path d="M-7-3Q-11-8-6-12M3-3Q-1-8 4-12" fill="none" stroke-linecap="round"/>';
  return icon;
 }
-function showSharing(explaining=false){
+function showSharing(){
  props.replaceChildren();
  let stageTitle=n('g',{'id':'shareTargets'}),selected=selectedSack;
  for(let j=0;j<shareTargets.length;j++){
@@ -659,30 +665,43 @@ function showSharing(explaining=false){
    stageTitle.append(zone);
  }
  props.append(stageTitle);
- const remaining=8-(shareCounts.home+shareCounts.seeds+shareCounts.sharing);
+ const remaining=8-sharingTotal();
  const row=n('g',{id:'sharingSacks'});
  for(let j=0;j<remaining;j++){
    const x=194+j*110,y=359;
    const item=img(asset.sack,x,y,108,140,'sack-draggable tap-target','Choose sack '+(j+1));
    item.style.pointerEvents='all';item.setAttribute('tabindex','0');
    if(selected===j&&!watchMode){item.setAttribute('stroke','#ffe884');item.setAttribute('filter','drop-shadow(0px 0px 12px gold)')}
-   item.addEventListener('pointerdown',e=>{if(stageBusy)return;item.setPointerCapture(e.pointerId);item._drag={x:e.clientX,y:e.clientY};e.preventDefault()});
+   item.addEventListener('pointerdown',e=>{if(!canPlaceSharingSack())return;item.setPointerCapture(e.pointerId);item._drag={x:e.clientX,y:e.clientY};e.preventDefault()});
    item.addEventListener('pointermove',e=>{if(!item._drag)return;const p=getXY(e);item.setAttribute('transform',`translate(${p.x-x-54} ${p.y-y-70})`)});
    item.addEventListener('pointerup',e=>{if(!item._drag)return;item._drag=null;item.removeAttribute('transform');const p=getXY(e);const target=shareTargets.find(([,_,__,___],idx)=>p.y>=shareZone.y&&p.y<=shareZone.y+shareZone.height&&p.x>=shareZone.x+idx*shareZone.spacing&&p.x<=shareZone.x+idx*shareZone.spacing+shareZone.width);selectedSack=j;if(target)putSack(target[0]);else{sound.ping();showSharing()}e.preventDefault()});
-   item.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!stageBusy){e.preventDefault();selectedSack=j;showSharing()}});if(explaining){item.style.pointerEvents='none';item.removeAttribute('tabindex')}
+   item.addEventListener('pointercancel',()=>{item._drag=null;item.removeAttribute('transform')});
+   item.addEventListener('keydown',e=>{
+     if((e.key==='Enter'||e.key===' ')&&canPlaceSharingSack()){
+       e.preventDefault();selectedSack=j;showSharing();
+       $('shareTargets').querySelector('[data-target]').focus();
+     }
+   });
    row.append(item);
  }
  props.append(row);
- setLabel(explaining?'Listen to Baldev explain the eight sacks':'Share the eight sacks wisely',(8-remaining)+' / 8','Select a sack, then choose Home, Seeds, or Sharing. Drag also works.');
+ setLabel('Share the eight sacks wisely',(8-remaining)+' / 8','Select a sack, then choose Home, Seeds, or Sharing. Drag also works.');
 }
 async function putSack(key){
- if(stageBusy)return;
+ if(!canPlaceSharingSack())return;
  if(selectedSack===null){banner('First tap a wheat sack, then choose a destination');return}
  const t=shareTargets.find(v=>v[0]===key);
  if(shareCounts[key]>=t[2]){banner(titleFor(key)+' is already full!');sound.wobble();return}
  if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+34,w:96,h:110},480,45)}stageBusy=false;}
  shareCounts[key]++;selectedSack=null;sound.load();banner('Thank you for sharing!',900);showSharing();save();
- if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{props.replaceChildren();arrangeCast('shareDone');await speak('shareDone');quiz()},900)}
+ if(sharingTotal()===8&&!sharingIntro)finishSharing();
+}
+async function finishSharing(){
+ const token=epoch;stageBusy=true;sound.cheer();
+ await wait(900);
+ if(token!==epoch)return;
+ props.replaceChildren();arrangeCast('shareDone');
+ if(await speak('shareDone'))quiz();
 }
 function titleFor(key){return shareTargets.find(t=>t[0]===key)[1]}
 function quiz(){
@@ -729,7 +748,7 @@ async function begin(resume=false){
  intro()
 }
 let watchMode=false,watchDue=0,watchActing=false,handPos=null,handRevision=0;
-function setWatch(enabled){watchMode=enabled;if(!enabled)hideWatchHand(true);document.body.classList.toggle('episode-mode',enabled);watchDue=performance.now()+650;$('watchStop').hidden=!enabled;if(window.lpPhase==='share'&&!stageBusy&&runStarted&&$('sharingSacks'))showSharing()}
+function setWatch(enabled){watchMode=enabled;if(!enabled)hideWatchHand(true);document.body.classList.toggle('episode-mode',enabled);watchDue=performance.now()+650;$('watchStop').hidden=!enabled;if(canPlaceSharingSack()&&runStarted&&$('sharingSacks'))showSharing()}
 $('watch').onclick=()=>{setWatch(true);begin(false)};
 $('watchStop').onclick=()=>{setWatch(false);if(window.lpPhase==='complete')$('finish').hidden=false};
 function autoActivate(el){if(!el)return;el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}))}
@@ -769,7 +788,7 @@ setInterval(()=>{
  if(!$('help').hidden)return;
  if(!$('speech').hidden){if((!voiceEnabled||(!currentVoice&&$('soundHint').textContent))&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
  if(stageBusy)return;
- if(!$('sceneAction').hidden){const inspect=props.querySelector('image[data-inspect]');if(inspect&&window.lpPhase==='intro'&&$('sceneAction').textContent.includes('Inspect')){watchTap(handTarget(inspect),()=>$('sceneAction').click(),1000)}else{$('sceneAction').click();watchDue=performance.now()+1000}return}
+ if(!$('sceneAction').hidden){$('sceneAction').click();watchDue=performance.now()+1000;return}
  if(!$('quiz').hidden){const q=story.questions[quizIndex];if(q&&$('quiz').dataset.answering!=='true')$('quizChoices').children[q.answer]?.click();watchDue=performance.now()+5000;return}
  const patch=props.querySelector('[data-patch]:not([data-done])');
  const task=props.querySelector('[data-harvest]:not([data-done])');
@@ -789,7 +808,7 @@ $('helpBtn').onclick=()=>{$('help').hidden=false};
 $('closeHelp').onclick=()=>{$('help').hidden=true};
 document.addEventListener('keydown',e=>{
  if(e.key==='Escape'){$('help').hidden=true;if(watchMode){setWatch(false);if(window.lpPhase==='complete')$('finish').hidden=false}return}
- if((e.key==='Enter'||e.key===' ')&&!$('speech').hidden&&!e.target.closest('button')){e.preventDefault();$('nextLine').click()}
+ if(!e.defaultPrevented&&(e.key==='Enter'||e.key===' ')&&!$('speech').hidden&&!e.target.closest('button')){e.preventDefault();$('nextLine').click()}
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
