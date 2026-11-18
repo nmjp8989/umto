@@ -20,7 +20,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  async function advance(count){for(let i=0;i<count;i++){await page.locator('#speech:not([hidden])').waitFor({timeout:15000});await page.locator('#nextLine').click();}}
  async function action(){await page.locator('#sceneAction:not([hidden])').click({timeout:10000});}
  async function ready(){await page.waitForFunction(()=>document.querySelector('#stage').dataset.busy==='false')}
- async function load(){await ready();await page.locator('#looseSacks image').first().click({timeout:10000,force:true})}
+ async function load(){await ready();const sack=page.locator('#looseSacks image').first();await sack.waitFor({timeout:10000});await sack.press('Enter');await page.waitForTimeout(120)}
  await page.locator('#voiceToggle').click();await page.locator('#start').click();
  await page.locator('#speech:not([hidden])').waitFor();
  for(const width of [1380,390]){
@@ -36,7 +36,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await page.locator('#captionToggle').click();
  assert.equal(await page.locator('#english').isVisible(),true,'Muted lines remain readable with CC off');
  await page.locator('#captionToggle').click();
- await shot('01-opening');
+ assert.equal(await page.locator('#stageWrap #objectiveBar').count(),0,'Game prompts must be outside artwork');await shot('01-opening');
  await advance(3);await page.locator('#sceneAction:not([hidden])').waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Narrator must wait for Mehar to inspect the sacks');await action();await page.locator('#english').filter({hasText:'there are already three sacks here'}).waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Mehar speaks first');await advance(1);await page.locator('#narratorFigure.visible').waitFor();await shot('01b-narrator-after-inspection');await advance(1);await advance(2);await action();await advance(2);await ready();await shot('02-harvest');
  for(let p=0;p<6;p++)for(let i=0;i<3;i++)await page.locator('[data-patch="'+p+'"]').press('Enter');
  await advance(1);await ready();for(let j=0;j<6;j++)await page.locator('[data-harvest="collect"]:not([data-done])').first().press('Enter');
@@ -57,7 +57,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  for(let i=0;i<2;i++)await load();
  await advance(2);await shot('05-overloaded');
  await load();await page.locator('#fx .sack-flight').waitFor();await advance(1);
- await load();await page.locator('#english').filter({hasText:"I've done it!"}).waitFor();assert.equal(await page.locator('#cartHost.cart-crash').count(),0,'Cart must not break before Baldev speaks');await advance(1);await page.locator('#cartHost.cart-crash').waitFor();await advance(4);await action();
+ await load();await page.locator('#english').filter({hasText:"I've done it!"}).waitFor();assert.equal(await page.locator('#cartHost.cart-crash').count(),0,'Cart must not break before Baldev speaks');await advance(1);await page.locator('#cartHost.cart-crash').waitFor();assert.equal(await page.locator('#fallenWheel').count(),1,'A detached wheel must remain visible');assert.equal(await page.locator('#right-wheel').getAttribute('visibility'),'hidden');await advance(4);await action();
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
  await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});

@@ -34,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){crashPending=false;reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -324,7 +324,7 @@ async function openingFlyover(){
 }
 async function intro(){
  setPhase('intro');scene('village',1,'THE EMERGENCY');sound.setMood('village');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
- arrangeCast('intro');cart(622,320,.55);decoratePile(3,430,558);for(const sack of Array.from(props.children).slice(-3)){sack.dataset.inspect='1';sack.classList.add('tap-target');sack.setAttribute('role','button');sack.setAttribute('tabindex','0');sack.setAttribute('aria-label','Inspect wheat sack');sack.addEventListener('click',()=>{if(!$('sceneAction').hidden)$('sceneAction').click()});sack.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('sceneAction').hidden)$('sceneAction').click()})}setLabel('What is Chacha Baldev so worried about?');
+ arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);for(const sack of Array.from(props.children).slice(-3)){sack.dataset.inspect='1';sack.classList.add('tap-target');sack.setAttribute('role','button');sack.setAttribute('tabindex','0');sack.setAttribute('aria-label','Inspect wheat sack');sack.addEventListener('click',()=>{if(!$('sceneAction').hidden)$('sceneAction').click()});sack.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('sceneAction').hidden)$('sceneAction').click()})}setLabel('What is Chacha Baldev so worried about?');
  await openingFlyover();await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
  for(const sack of props.querySelectorAll('image[data-inspect]'))sack.style.pointerEvents='all';
 }
@@ -400,7 +400,7 @@ async function finishHarvest(){
  await speak('harvestDone');fieldLoad();
 }
 function fieldLoad(){
- setPhase('fieldLoad');loaded=0;stageBusy=false;props.replaceChildren();cart(435,320,.63);arrangeCast('load');
+ setPhase('fieldLoad');loaded=0;stageBusy=false;props.replaceChildren();cart(365,278,.80);arrangeCast('load');
  setLabel('Load three sacks into the cart','0 / 3','Tap or drag the sacks onto the cart');
  drawFieldSacks();
 }
@@ -411,7 +411,7 @@ function drawFieldSacks(){looseSacks(3-loaded,async(im,from)=>{
 })}
 function storage(){
  setPhase('storage');scene('storage',3,'JUST ONE MORE!');sound.setMood('storage');loaded=3;eighthAttempts=0;arrangeCast('storage');
- cart(360,293,.68);setLabel('Add two sacks to reach five','3 / 5','Tap or drag another wheat sack into the cart');
+ cart(300,261,.84);setLabel('Add two sacks to reach five','3 / 5','Tap or drag another wheat sack into the cart');
  (async()=>{await speak('storageIntro');drawStorageSacks()})();
 }
 function drawStorageSacks(){
@@ -422,11 +422,29 @@ function drawStorageSacks(){
    loaded<7?'Tap or drag the sacks. Watch the wheels!':'Try placing the last enormous sack.');
 }
 let crashPending=false;
+function detachWheel(host,animate=true){
+ if(!host||$('fallenWheel'))return;
+ const original=host.querySelector('#right-wheel'), source=original?.querySelector('#right-wheel-spin');
+ if(!source)return;
+ const matrix=stage.getScreenCTM().inverse().multiply(original.getScreenCTM());
+ const from={x:matrix.e,y:matrix.f,scale:Math.hypot(matrix.a,matrix.b)};
+ const to={x:1020,y:613};
+ const fallen=n('g',{id:'fallenWheel','aria-label':'Detached broken wooden cart wheel','pointer-events':'none'});
+ const shadow=n('ellipse',{cx:0,cy:28,rx:78,ry:14,fill:'#4c3025',opacity:.19});
+ const wheel=n('g',{stroke:'#1f140d','stroke-width':2.5,'stroke-linejoin':'round'});
+ const copy=source.cloneNode(true);copy.removeAttribute('id');for(const node of copy.querySelectorAll('[id]')){const id=node.id;node.removeAttribute('id');if(id==='right-wheel-piece-a')node.setAttribute('transform','translate(-5 -5) rotate(-5)');if(id==='right-wheel-piece-b')node.setAttribute('transform','translate(6 6) rotate(5)')}
+ wheel.append(copy,n('path',{d:'M-83 -13L-70 -3L-78 5L-66 15 M79 -13L65 -3L75 5L64 15',stroke:'#3a2014','stroke-width':5,fill:'none','stroke-linecap':'round'}));
+ fallen.append(shadow,wheel);front.append(fallen);original.setAttribute('visibility','hidden');
+ function draw(q){const e=q*q*(3-2*q),x=from.x+(to.x-from.x)*e,y=from.y+(to.y-from.y)*e-Math.sin(Math.PI*q)*55;
+  fallen.setAttribute('transform','translate('+x+' '+y+')');wheel.setAttribute('transform','scale('+from.scale+' '+(from.scale*(1-.48*e))+') rotate('+(q*155)+')');shadow.setAttribute('opacity',String(.19*q));}
+ if(!animate||reducedMotion.matches){draw(1);return}
+ const start=performance.now(),token=epoch;function step(now){if(token!==epoch)return;const q=Math.min(1,(now-start)/850);draw(q);if(q<1)requestAnimationFrame(step);else dust(to.x,to.y+30)}requestAnimationFrame(step);
+}
 function triggerCartBreak(){
  if(!crashPending)return;crashPending=false;
  const host=$('cartHost');if(!host)return;
  const falling=[5,6,7,8].map(cartSlot);
- sound.crash();host.classList.add('cart-crash');host.dataset.broken='true';
+ detachWheel(host);sound.crash();host.classList.add('cart-crash');host.dataset.broken='true';
  loaded=4;updateCart();host.querySelector('#ox-nervous-fx')?.setAttribute('opacity','1');
  props.append(img(asset.chicken,1000,528,110,115,'chicken-run'));
  for(let j=0;j<falling.length;j++){
@@ -448,7 +466,7 @@ async function loadStorageSack(im,from){
    }
    loaded=8;updateCart();$('looseSacks')?.replaceChildren();crashPending=true;
    await speak('crash');triggerCartBreak();sound.setMood('reflection');for(const actor of actors)actor.action=actor.id==='baldev'?'reflect':'concern';
-   props.append(img(asset.basket,215,554,130,87));await speak('reflection');button('Return to the village →',()=>requests());return;
+   await speak('reflection');button('Return to the village →',()=>requests());return;
  }
  loaded++;sound.load();updateCart();
  if(loaded===5){sound.cheer();await speak('five')}
@@ -480,10 +498,15 @@ function showSharing(explaining=false){
  for(let j=0;j<shareTargets.length;j++){
    const [key,title,cap,sub,color]=shareTargets[j],x=shareZone.x+j*shareZone.spacing,y=shareZone.y;
    const zone=n('g',{role:'button',tabindex:0,'aria-label':title+' '+shareCounts[key]+' of '+cap,'data-target':key});
+   if(watchMode){
+     // Real piles of wheat, no game panels or screen text in the cartoon.
+     for(let k=0;k<shareCounts[key];k++)zone.append(img(asset.sack,x+25+k*83,y+10,102,125));
+   }else{
    zone.append(n('rect',{x,y,width:shareZone.width,height:shareZone.height,rx:21,fill:color,stroke:'#44676c','stroke-dasharray':'9 6','stroke-width':4,'class':'goal-zone'}));
    zone.append(labelText(title,x+shareZone.width/2,y+43,title.length>12?20:27,'#263941'));
    zone.append(labelText(shareCounts[key]+' / '+cap,x+shareZone.width/2,y+81,30,'#385c46'));
    zone.append(labelText(sub,x+shareZone.width/2,y+112,16,'#455956'));
+   }
    zone.addEventListener('pointerup',()=>putSack(key));
    zone.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();putSack(key)}});
    stageTitle.append(zone);
@@ -495,7 +518,7 @@ function showSharing(explaining=false){
    const x=194+j*110,y=359;
    const item=img(asset.sack,x,y,108,140,'sack-draggable tap-target','Choose sack '+(j+1));
    item.style.pointerEvents='all';item.setAttribute('tabindex','0');
-   if(selected===j){item.setAttribute('stroke','#ffe884');item.setAttribute('filter','drop-shadow(0px 0px 12px gold)')}
+   if(selected===j&&!watchMode){item.setAttribute('stroke','#ffe884');item.setAttribute('filter','drop-shadow(0px 0px 12px gold)')}
    item.addEventListener('pointerdown',e=>{if(stageBusy)return;item.setPointerCapture(e.pointerId);item._drag={x:e.clientX,y:e.clientY};e.preventDefault()});
    item.addEventListener('pointermove',e=>{if(!item._drag)return;const p=getXY(e);item.setAttribute('transform',`translate(${p.x-x-54} ${p.y-y-70})`)});
    item.addEventListener('pointerup',e=>{if(!item._drag)return;item._drag=null;item.removeAttribute('transform');const p=getXY(e);const target=shareTargets.find(([,_,__,___],idx)=>p.y>=shareZone.y&&p.y<=shareZone.y+shareZone.height&&p.x>=shareZone.x+idx*shareZone.spacing&&p.x<=shareZone.x+idx*shareZone.spacing+shareZone.width);selectedSack=j;if(target)putSack(target[0]);else{sound.ping();showSharing()}e.preventDefault()});
@@ -505,16 +528,18 @@ function showSharing(explaining=false){
  props.append(row);
  setLabel(explaining?'Listen to Baldev explain the eight sacks':'Share the eight sacks wisely',(8-remaining)+' / 8','Select a sack, then choose Home, Seeds, or Sharing. Drag also works.');
 }
-function putSack(key){
+async function putSack(key){
  if(stageBusy)return;
  if(selectedSack===null){banner('First tap a wheat sack, then choose a destination');return}
  const t=shareTargets.find(v=>v[0]===key);
  if(shareCounts[key]>=t[2]){banner(titleFor(key)+' is already full!');sound.wobble();return}
+ if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+10,w:102,h:125},700,45)}stageBusy=false;}
  shareCounts[key]++;selectedSack=null;sound.load();banner('Thank you for sharing!',900);showSharing();save();
  if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{props.replaceChildren();arrangeCast('shareDone');await speak('shareDone');quiz()},900)}
 }
 function titleFor(key){return shareTargets.find(t=>t[0]===key)[1]}
 function quiz(){
+ if(watchMode){finishQuiz();return}
  setPhase('quiz');quizIndex=0;$('speech').hidden=true;stageBusy=false;
  $('quiz').hidden=false;setLabel('Three quick questions about Santokh');
  showQuestion();
@@ -537,8 +562,8 @@ function showQuestion(){
  }
 }
 async function finishQuiz(){
- setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(405,320,.55);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
- await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=false;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
+ setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(340,275,.80);detachWheel($('cartHost'),false);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
+ await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=watchMode;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
 }
 async function begin(resume=false){
  if(!story)return;
@@ -546,7 +571,7 @@ async function begin(resume=false){
  if(resume){
   let saved;try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null')}catch{}
   // Restart at the nearest safe milestone; always restore gameplay, never mid-dialogue.
-  if(saved?.phase==='fieldLoad'){scene('field',2,'HARVEST FRENZY');loaded=0;arrangeCast('load');cart(435,320,.63);fieldLoad();return}
+  if(saved?.phase==='fieldLoad'){scene('field',2,'HARVEST FRENZY');loaded=0;arrangeCast('load');cart(365,278,.80);fieldLoad();return}
   if(saved?.phase==='storage'){storage();return}
   if(saved?.phase==='requests'){requests();return}
   if(saved?.phase==='lesson'){lesson();return}
@@ -556,13 +581,13 @@ async function begin(resume=false){
  intro()
 }
 let watchMode=false,watchDue=0;
-function setWatch(enabled){watchMode=enabled;watchDue=performance.now()+1300;$('watchStop').hidden=!enabled}
+function setWatch(enabled){watchMode=enabled;document.body.classList.toggle('episode-mode',enabled);watchDue=performance.now()+1300;$('watchStop').hidden=!enabled;if(window.lpPhase==='share'&&!stageBusy&&runStarted&&$('sharingSacks'))showSharing()}
 $('watch').onclick=()=>{setWatch(true);begin(false)};
-$('watchStop').onclick=()=>setWatch(false);
+$('watchStop').onclick=()=>{setWatch(false);if(window.lpPhase==='complete')$('finish').hidden=false};
 function autoActivate(el){if(!el)return;el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}))}
 setInterval(()=>{
  if(!watchMode||!runStarted||document.hidden||performance.now()<watchDue)return;
- if(!$('finish').hidden){setWatch(false);return}
+ if(!$('finish').hidden||window.lpPhase==='complete')return;
  if(!$('help').hidden)return;
  if(!$('speech').hidden){if((!voiceEnabled||(!currentVoice&&$('soundHint').textContent))&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
  if(stageBusy)return;
@@ -585,7 +610,7 @@ $('voiceToggle').onclick=()=>{voiceEnabled=!voiceEnabled;$('voiceToggle').textCo
 $('helpBtn').onclick=()=>{$('help').hidden=false};
 $('closeHelp').onclick=()=>{$('help').hidden=true};
 document.addEventListener('keydown',e=>{
- if(e.key==='Escape'){$('help').hidden=true;return}
+ if(e.key==='Escape'){$('help').hidden=true;if(watchMode){setWatch(false);if(window.lpPhase==='complete')$('finish').hidden=false}return}
  if((e.key==='Enter'||e.key===' ')&&!$('speech').hidden&&!e.target.closest('button')){e.preventDefault();$('nextLine').click()}
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
