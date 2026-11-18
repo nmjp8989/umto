@@ -43,7 +43,7 @@
    base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
- const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod'};
+ const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod',concern:'sad',happy:'smile',proud:'celebrate',angry:'angry'};
    const keys=littlePanth?['idle','blink','talkA','talkEE','talkO',...Object.keys(storyReactions),...(id==='narrator'?[]:Array.from({length:12},(_,i)=>'walk'+i))]:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
    for(const key of keys){
     const copy=base.svg.cloneNode(true);
@@ -55,6 +55,9 @@
      const p=reactionPose(key==='gesture'?'explain':greet?(id==='kabir'?'wave':'nod'):idle?'breathe':'smile',t);
      const storyReaction=littlePanth?storyReactions[key]:null;
      if(storyReaction)Object.assign(p,reactionPose(storyReaction,.72));
+     if(littlePanth&&key==='concern')Object.assign(p,{mouth:'sad',eyes:'open',brows:'sad'});
+     if(littlePanth&&key==='proud')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'raised'});
+     if(littlePanth&&key==='happy')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'raised'});
      if(littlePanth&&key==='alarm')Object.assign(p,{mouth:'O',eyes:'surprised',brows:'raised',y:-8,angle:-4});
      if(!storyReaction)p.mouth=key.startsWith('talk')?key.slice(4):key.startsWith('ride')&&key!=='ride'?key.slice(4):'closed';
      if(!storyReaction){p.eyes=key==='blink'?'closed':'open';p.gazeX=idle?Math.round(Math.sin(t*1.4)*24):0;}

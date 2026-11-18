@@ -56,12 +56,12 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await advance(1);
  for(let i=0;i<2;i++)await load();
  await advance(2);await shot('05-overloaded');
- await load();await advance(1);
- await load();await advance(5);await action();
+ await load();await page.locator('#fx .sack-flight').waitFor();await advance(1);
+ await load();await page.locator('#english').filter({hasText:"I've done it!"}).waitFor();assert.equal(await page.locator('#cartHost.cart-crash').count(),0,'Cart must not break before Baldev speaks');await advance(1);await page.locator('#cartHost.cart-crash').waitFor();await advance(4);await action();
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
  await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});
- await advance(5);await action();await advance(1);await ready();await shot('07-sharing');
+ await advance(5);await action();await page.locator('#english').filter({hasText:'Three for home'}).waitFor();assert.equal(await page.locator('#sharingSacks image').count(),8,'All sacks must be visible during explanation');await advance(1);await ready();await shot('07-sharing');
  assert.equal(await page.locator('#actor-baldev').getAttribute('transform'),'translate(96 665)');
  assert.equal(await page.locator('#actor-mehar').getAttribute('transform'),'translate(1180 665)');
  for(const [key,count] of [['home',3],['seeds',2],['sharing',3]]){

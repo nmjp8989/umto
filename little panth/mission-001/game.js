@@ -7,7 +7,7 @@ const imageOf=path=>new URL(BASE+path,location.href).href;
 const backgrounds={village:'anchor set/village courtyard.svg',field:'anchor set/wheat field.svg',storage:'anchor set/village storage courtyard.svg',gurdwara:'anchor set/gurudwara courtyard.svg'};
 const asset={patch:'assets/wheat/wheat-patch.svg',bundle:'assets/wheat/wheat-bundle.svg',sack:'assets/wheat/wheat-sack.svg',chicken:'assets/props/chicken.svg',basket:'assets/props/basket.svg',sickle:'assets/tools/sickle.svg'};
 const n=(name,attrs={})=>{const el=document.createElementNS(NS,name);for(const [k,v]of Object.entries(attrs))el.setAttribute(k,String(v));return el};
-const stage=$('stage'),props=$('worldProps'),cast=$('characters'),fx=$('fx');
+const stage=$('stage'),props=$('worldProps'),cast=$('characters'),front=$('foreground'),fx=$('fx');
 const captionModes=['English','Full','Off'];
 let captionMode=0, captionRequired=false;
 try { captionMode=Math.max(0,captionModes.indexOf(localStorage.getItem('little-panth-captions'))); } catch {}
@@ -34,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){reactionFocus='';walkingFocus='';hideNarrator();resetCamera();activeListener='';actors=[];clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();front.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -61,14 +61,16 @@ async function oneLine(id,token,autoRead) {
  const lastFocus=document.activeElement;
  await new Promise(resolve=>{
    let settled=false;let utterance=null;let readTimer;
-   const done=()=>{if(settled)return;settled=true;clearTimeout(readTimer);voiceResolver=null;if(currentVoice){currentVoice.onended=null;currentVoice.onerror=null;currentVoice.pause();currentVoice=null}if(utterance&&'speechSynthesis'in window)try{speechSynthesis.cancel()}catch{};resolve()};
+   let cueTimer;const fireCue=()=>{if(id==='lp017'&&token===epoch)triggerCartBreak()};
+   const done=()=>{if(settled)return;settled=true;clearTimeout(readTimer);clearTimeout(cueTimer);fireCue();voiceResolver=null;if(currentVoice){currentVoice.onended=null;currentVoice.onerror=null;currentVoice.pause();currentVoice=null}if(utterance&&'speechSynthesis'in window)try{speechSynthesis.cancel()}catch{};resolve()};
    voiceResolver=done;$('nextLine').onclick=done;
    function startReadingTimer(){
      if(autoRead||watchMode){clearTimeout(readTimer);readTimer=setTimeout(done,Math.max(line.sacred?6500:3800,line.en.split(/\s+/).length*325));}
    }
-   if(!voiceEnabled){startReadingTimer();return}
+   if(!voiceEnabled){if(id==='lp017')cueTimer=setTimeout(fireCue,3300);startReadingTimer();return}
    let failed=false;
    const audio=new Audio('audio/'+id+'.mp3');currentVoice=audio;audio.volume=.94;
+   if(id==='lp017')audio.addEventListener('timeupdate',()=>{if(Number.isFinite(audio.duration)&&audio.currentTime>=audio.duration*.82)fireCue()});
    if(autoRead||watchMode)audio.addEventListener('pause',()=>{if(!voiceEnabled&&!settled)startReadingTimer()});
    audio.onended=()=>setTimeout(done,watchMode?Math.max(350,4600-(performance.now()-dialogueStart)):250);
    audio.onerror=()=>{
@@ -84,6 +86,7 @@ async function oneLine(id,token,autoRead) {
      }else showUnavailable();
    };
    function showUnavailable(){
+     if(id==='lp017')cueTimer=setTimeout(fireCue,3300);
      captionRequired=true;
      updateCaptions();
      $('soundHint').textContent='Narration unavailable for this line';
@@ -143,18 +146,19 @@ function fallback(actor){
  return `<svg x="${-actor.height*.28}" y="${-actor.height}" width="${actor.height*.56}" height="${actor.height}" viewBox="-115 -200 230 390" overflow="visible"><g class="fallback-body"><path d="M-40 58L-44 151H-9L-4 69 9 151H45L41 56Z" fill="#524b53" stroke="#302b29" stroke-width="6"/><path d="M-56-19Q0-32 56-19L74 100H-69Z" fill="${c[2]}" stroke="#402f29" stroke-width="6"/><path d="M-52-9l-27 81 20 8 28-56M53-9l27 81-20 8-28-56" fill="${c[0]}" stroke="#493126" stroke-width="6"/><circle cy="-102" r="48" fill="${c[0]}" stroke="#493126" stroke-width="5"/>${turban}<circle cx="${actor.view==='left'?-23:-11}" cy="-106" r="4" fill="#282321"/><circle cx="${actor.view==='left'?12:24}" cy="-106" r="4" fill="#282321"/><path d="M-12-84Q3-72 16-86" stroke="#733725" fill="none" stroke-width="3"/>${actor.id!=='mehar'?`<path d="${actor.id==='baba'?'M-35-83Q0-58 35-83Q40-36 0 1Q-40-36-35-83Z':actor.id==='farmer'?'M-35-83Q0-58 35-83Q32-36 0-24Q-32-36-35-83Z':'M-35-83Q0-58 35-83Q39-38 0-30Q-39-38-35-83Z'}" fill="${actor.id==='baba'?'#e0e1e1':actor.id==='farmer'?'#a8a8a2':'#34312d'}"/>`:''}</g></svg>`;
 }
 const narratorActor={id:'narrator',x:60,y:176,height:174,view:'right',frame:'',action:'idle',art:$('narratorArt')};
-function showNarrator(){$('narratorFigure').classList.add('visible');renderActor(narratorActor)}
-function hideNarrator(){$('narratorFigure').classList.remove('visible')}
+function showNarrator(){const el=$('narratorFigure');if(!el.classList.contains('visible')){el.classList.remove('glow-out');el.classList.add('visible','glow-in')}renderActor(narratorActor)}
+function hideNarrator(){const el=$('narratorFigure');if(el.classList.contains('visible')){el.classList.remove('visible','glow-in');el.classList.add('glow-out')}}
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const storyPoses={
+ lp001:'concern',lp017:'proud',lp033:'happy',lp034:'happy',lp035:'happy',lp036:'happy',lp038:'happy',
  lp042:'point',lp005:'explain',lp010:'wonder',lp011:'point',lp012:'beckon',lp015:'point',lp028:'explain',
- lp001:'beckon',lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
+ lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
  lp007:'wonder',lp008:'celebrate',lp009:'point',lp013:'point',lp014:'alarm',
- lp016:'alarm',lp017:'alarm',lp018:'alarm',lp019:'reflect',lp020:'reflect',
+ lp016:'alarm',lp018:'alarm',lp019:'reflect',lp020:'reflect',
  lp021:'offer',lp022:'offer',lp023:'reflect',lp024:'wonder',lp025:'beckon',
  lp026:'offer',lp027:'reflect',lp029:'point',lp030:'offer',lp031:'reflect',
- lp032:'point',lp033:'offer',lp034:'celebrate',lp035:'wonder',lp036:'offer',
- lp037:'wonder',lp038:'alarm'
+ lp032:'point',
+ lp037:'wonder'
 };
 let dialoguePose='idle', dialogueStart=0;
 function directAttention(){
@@ -176,7 +180,7 @@ function animateCamera(now){
  if(!activeSpeaker&&!reactionFocus&&!walkingFocus){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
  const actor=actors.find(a=>a.id===(reactionFocus||walkingFocus||activeSpeaker));
  const elapsed=Math.max(0,now-dialogueStart);
- const zoom=walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
+ const zoom=window.lpPhase==='share'&&activeSpeaker==='baldev'?1:walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
  const w=1280/zoom,h=720/zoom;
  const x=clamp((actor?.x??640)-w/2,0,1280-w);
  const focusY=actor?actor.y-actor.height*.64:360;
@@ -196,6 +200,12 @@ function renderCast(){
    renderActor(actor);
  }
 }
+function listenEmotion(actor){
+ if(!activeSpeaker||actor.id==='narrator')return 'idle';
+ if(['alarm','concern','reflect'].includes(dialoguePose))return dialoguePose==='alarm'?'alarm':'concern';
+ if(['happy','celebrate'].includes(dialoguePose))return 'happy';
+ return 'idle';
+}
 function renderActor(actor,now=performance.now()){
  const art=actor.art;
  const slot=rig[actor.id]?.[actor.view];
@@ -205,9 +215,9 @@ function renderActor(actor,now=performance.now()){
  const speakingTime=clipPlaying?currentVoice.currentTime*1000:elapsed;
  const mouth=!reducedMotion.matches&&speaking&&clipPlaying?['talkA','talkEE','idle','talkO','talkEE'][Math.floor(speakingTime/118)%5]:'idle';
  const blink=!reducedMotion.matches&&(now+actor.x*3)%4300<135;
- const reaction=speaking?dialoguePose:actor.action;
+ const reaction=speaking?dialoguePose:actor.action!=='idle'?actor.action:listenEmotion(actor);
  const listener=Boolean(activeSpeaker&&activeSpeaker!=='narrator'&&!speaking);
-  const gesture=reducedMotion.matches?'idle':speaking?(elapsed%3000<1900?reaction:(reaction==='explain'?'offer':'explain')):listener&&actor.action==='idle'&&(elapsed+actor.x)%3500<650?'nod':reaction;
+  const gesture=reducedMotion.matches?reaction:speaking?(elapsed%3000<1900?reaction:(['alarm','reflect','concern','happy','proud','angry'].includes(reaction)?reaction:reaction==='explain'?'offer':'explain')):listener&&actor.action==='idle'&&(elapsed+actor.x)%3500<650?'nod':reaction;
  const walkTime=now-(actor.walkStart??-Infinity);
  const walk=!reducedMotion.matches&&walkTime>=0&&(actor.walking||walkTime<760);
  const pose=walk?'walk'+Math.floor((walkTime%760)/760*12):gesture;
@@ -232,7 +242,7 @@ function renderActor(actor,now=performance.now()){
  for(const [part,original] of Object.entries(frame.parts)){
    let markup=original;
    if(blink&&part==='eyeGroup')markup=slot.frames.blink.parts[part];
-   if(mouth!=='idle'&&['mouthGroup','beardGroup'].includes(part))markup=face.parts[part];
+   if(mouth!=='idle'&&['mouthGroup','beardGroup'].includes(part)&&reaction!=='alarm')markup=face.parts[part];
    if(art._layers[part]&&art._parts[part]!==markup){
      art._layers[part].innerHTML=markup;
      art._parts[part]=markup;
@@ -264,24 +274,58 @@ function updateCart(){
  for(let i=1;i<=8;i++){const g=host.querySelector('#sack-pos-'+i);if(g)g.setAttribute('opacity',i<=loaded?'1':'0')}
  host.querySelector('#ox-nervous-fx')?.setAttribute('opacity',loaded>=7?'1':'0');
 }
-function decoratePile(count=5,x=350,y=555){for(let j=0;j<count;j++)props.appendChild(img(asset.sack,x+j*87,y-((j%2)*18),76,95))}
+function decoratePile(count=5,x=350,y=555){for(let j=0;j<count;j++)props.appendChild(img(asset.sack,x+j*96,y-14-((j%2)*12),98,119))}
 function looseSacks(count,onCollect){
- let container=$('looseSacks');if(!container){container=n('g',{id:'looseSacks'});props.append(container)}
+ let container=$('looseSacks');if(!container){container=n('g',{id:'looseSacks'});front.append(container)}
  container.replaceChildren();
  for(let j=0;j<count;j++){
-   const im=img(asset.sack,125+j*107,522,86,119,'sack-draggable tap-target','Load a wheat sack');
+   const x=247+j*110,y=530,w=108,h=140;
+   const im=img(asset.sack,x,y,w,h,'sack-draggable tap-target','Load a wheat sack');
    im.style.pointerEvents='all';im.dataset.index=j;
    im.addEventListener('pointerdown',e=>{if(stageBusy)return;im.setPointerCapture(e.pointerId);im._drag={sx:e.clientX,sy:e.clientY};e.preventDefault()});
-   im.addEventListener('pointermove',e=>{if(!im._drag)return;const p=getXY(e);im.setAttribute('transform',`translate(${p.x-(125+j*107)-43} ${p.y-582})`)});
-   im.addEventListener('pointerup',e=>{if(!im._drag)return;im._drag=null;im.removeAttribute('transform');onCollect();e.preventDefault()});
-   im.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!stageBusy){e.preventDefault();onCollect()}});
+   im.addEventListener('pointermove',e=>{if(!im._drag)return;const p=getXY(e);im._moved={x:p.x-w/2,y:p.y-h/2};im.setAttribute('transform','translate('+(im._moved.x-x)+' '+(im._moved.y-y)+')')});
+   const collect=()=>{if(stageBusy)return;const from=im._moved||{x,y};im._moved=null;im._drag=null;im.removeAttribute('transform');onCollect(im,{...from,w,h})};
+   im.addEventListener('pointerup',e=>{if(!im._drag)return;collect();e.preventDefault()});
+   im.addEventListener('pointercancel',()=>{im._drag=null;im._moved=null;im.removeAttribute('transform')});
+   im.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();collect()}});
    container.appendChild(im)
  }
+}
+function cartSlot(index){
+ const slot=$('cartHost')?.querySelector('#sack-pos-'+index);
+ if(!slot)return {x:820,y:380,w:65,h:86};
+ const box=slot.getBBox(),m=stage.getScreenCTM().inverse().multiply(slot.getScreenCTM());
+ const pt=stage.createSVGPoint();pt.x=box.x;pt.y=box.y;const p=pt.matrixTransform(m);pt.x=box.x+box.width;pt.y=box.y+box.height;const q=pt.matrixTransform(m);
+ return {x:Math.min(p.x,q.x),y:Math.min(p.y,q.y),w:Math.max(35,Math.abs(q.x-p.x)),h:Math.max(48,Math.abs(q.y-p.y))};
+}
+function sackFlight(from,to,ms=720,arc=130,keep=false){
+ const token=epoch,item=img(asset.sack,from.x,from.y,from.w,from.h,'sack-flight');fx.append(item);
+ const start=performance.now();return new Promise(resolve=>{function step(now){
+  if(token!==epoch){item.remove();resolve(null);return}
+  const q=reducedMotion.matches?1:Math.min(1,(now-start)/ms),e=q*q*(3-2*q);
+  const p={x:from.x+(to.x-from.x)*e,y:from.y+(to.y-from.y)*e-Math.sin(Math.PI*q)*arc,w:from.w+(to.w-from.w)*e,h:from.h+(to.h-from.h)*e};
+  for(const [k,v] of Object.entries({x:p.x,y:p.y,width:p.w,height:p.h}))item.setAttribute(k,v);
+  if(q<1)requestAnimationFrame(step);else{if(!keep)item.remove();resolve(item)}
+ }requestAnimationFrame(step)});
+}
+function dust(x,y){
+ const puff=n('g',{class:'dust-puff'});for(let j=0;j<5;j++)puff.append(n('ellipse',{cx:x+(j-2)*15,cy:y-5-(j%2)*9,rx:15,ry:7,fill:'#d4ad79',opacity:.8}));fx.append(puff);puff.animate([{opacity:1},{opacity:0}],{duration:500});setTimeout(()=>puff.remove(),500);
+}
+async function openingFlyover(){
+ if(reducedMotion.matches)return;
+ stageBusy=true;const group=n('g',{id:'openingBirds'});fx.append(group);
+ const title=labelText('The Cart That Was Never Full',640,170,40,'#fff2ce');title.setAttribute('class','intro-title');group.append(title);
+ for(let j=0;j<4;j++){
+  const bird=n('g',{stroke:'#34424b','stroke-width':3,'stroke-linecap':'round',fill:'none'});const wing=n('path',{d:'M-13 0Q-7 -11 0 0Q7 -11 13 0'});bird.append(wing);group.append(bird);
+  bird.animate([{transform:'translate('+(-60-j*65)+'px,'+(60+j*22)+'px)'},{transform:'translate('+(1420-j*65)+'px,'+(106+j*22)+'px)'}],{duration:4200,fill:'both',easing:'linear'});
+  wing.animate([{transform:'scaleY(1)'},{transform:'scaleY(-.4)'},{transform:'scaleY(1)'}],{duration:480,iterations:9});
+ }
+ await wait(4400);group.remove();stageBusy=false;
 }
 async function intro(){
  setPhase('intro');scene('village',1,'THE EMERGENCY');sound.setMood('village');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
  arrangeCast('intro');cart(622,320,.55);decoratePile(3,430,558);for(const sack of Array.from(props.children).slice(-3)){sack.dataset.inspect='1';sack.classList.add('tap-target');sack.setAttribute('role','button');sack.setAttribute('tabindex','0');sack.setAttribute('aria-label','Inspect wheat sack');sack.addEventListener('click',()=>{if(!$('sceneAction').hidden)$('sceneAction').click()});sack.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('sceneAction').hidden)$('sceneAction').click()})}setLabel('What is Chacha Baldev so worried about?');
- await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
+ await openingFlyover();await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
  for(const sack of props.querySelectorAll('image[data-inspect]'))sack.style.pointerEvents='all';
 }
 async function walkTo(id,x,duration=1800){
@@ -360,10 +404,10 @@ function fieldLoad(){
  setLabel('Load three sacks into the cart','0 / 3','Tap or drag the sacks onto the cart');
  drawFieldSacks();
 }
-function drawFieldSacks(){looseSacks(3-loaded,async()=>{
- if(stageBusy)return;loaded++;sound.load();updateCart();setLabel('Load three sacks into the cart',loaded+' / 3');
- if(loaded>=3){stageBusy=true;props.querySelector('#looseSacks')?.replaceChildren();sound.cheer();await speak('loadThree');button('Head to the storage courtyard →',()=>storage())}
- else drawFieldSacks();
+function drawFieldSacks(){looseSacks(3-loaded,async(im,from)=>{
+ if(stageBusy)return;stageBusy=true;im.remove();await sackFlight(from,cartSlot(loaded+1));loaded++;sound.load();updateCart();setLabel('Load three sacks into the cart',loaded+' / 3');
+ if(loaded>=3){stageBusy=true;$('looseSacks')?.replaceChildren();sound.cheer();await speak('loadThree');button('Head to the storage courtyard →',()=>storage())}
+ else{drawFieldSacks();stageBusy=false;}
 })}
 function storage(){
  setPhase('storage');scene('storage',3,'JUST ONE MORE!');sound.setMood('storage');loaded=3;eighthAttempts=0;arrangeCast('storage');
@@ -377,22 +421,39 @@ function drawStorageSacks(){
  setLabel(loaded<5?'Fill Baldev\u2019s cart to five':loaded<7?'Baldev now wants SEVEN sacks':'Can one more sack fit?',loaded+' / '+(loaded<5?5:loaded<7?7:8),
    loaded<7?'Tap or drag the sacks. Watch the wheels!':'Try placing the last enormous sack.');
 }
-async function loadStorageSack(){
- if(stageBusy)return;
+let crashPending=false;
+function triggerCartBreak(){
+ if(!crashPending)return;crashPending=false;
+ const host=$('cartHost');if(!host)return;
+ const falling=[5,6,7,8].map(cartSlot);
+ sound.crash();host.classList.add('cart-crash');host.dataset.broken='true';
+ loaded=4;updateCart();host.querySelector('#ox-nervous-fx')?.setAttribute('opacity','1');
+ props.append(img(asset.chicken,1000,528,110,115,'chicken-run'));
+ for(let j=0;j<falling.length;j++){
+   const to={x:510+j*103,y:559+(j%2)*14,w:100,h:128};
+   sackFlight(falling[j],to,700+j*100,45,true).then(()=>dust(to.x+50,to.y+124));
+ }
+ for(const actor of actors)actor.action='alarm';
+ dialoguePose='alarm';updateTalking();banner('CRAAACK! THE WHEEL BROKE!',2500);
+}
+async function loadStorageSack(im,from){
+ if(stageBusy)return;stageBusy=true;im.remove();
+ await sackFlight(from,cartSlot(loaded+1));
  if(loaded===7){
-   if(++eighthAttempts===1){stageBusy=true;sound.wobble();$('cartHost')?.classList.add('cart-wobble');banner('Oh no! The sack slides off!',1600);await speak('failedEighth');$('cartHost')?.classList.remove('cart-wobble');stageBusy=false;drawStorageSacks();return}
-   stageBusy=true;loaded=8;updateCart();props.querySelector('#looseSacks')?.replaceChildren();sound.crash();$('cartHost')?.classList.add('cart-crash');
-   props.append(img(asset.chicken,1000,528,110,115,'chicken-run'));
-   for(let j=0;j<4;j++)props.append(img(asset.sack,555+j*91,568+(j%2)*20,80,107));
-   for(const actor of actors)actor.action='alarm';
-   banner('CRAAACK! THE WHEEL BROKE!',2500);
-   await wait(1250);await speak('crash');sound.setMood('reflection');for(const actor of actors)actor.action=actor.id==='baldev'?'reflect':'idle';
+   if(++eighthAttempts===1){
+     sound.wobble();const host=$('cartHost');host?.classList.add('cart-wobble');
+     const drop={x:390,y:555,w:108,h:140};await sackFlight(cartSlot(8),drop,850,15,true);dust(drop.x+54,drop.y+135);sound.load();
+     banner('Oh no! The sack slides off!',1600);for(const actor of actors)actor.action='alarm';
+     await speak('failedEighth');host?.classList.remove('cart-wobble');fx.replaceChildren();for(const actor of actors)actor.action='idle';drawStorageSacks();stageBusy=false;return;
+   }
+   loaded=8;updateCart();$('looseSacks')?.replaceChildren();crashPending=true;
+   await speak('crash');triggerCartBreak();sound.setMood('reflection');for(const actor of actors)actor.action=actor.id==='baldev'?'reflect':'concern';
    props.append(img(asset.basket,215,554,130,87));await speak('reflection');button('Return to the village →',()=>requests());return;
  }
- stageBusy=true;loaded++;sound.load();updateCart();drawStorageSacks();
- if(loaded===5){sound.cheer();await speak('five');drawStorageSacks()}
- else if(loaded===7){sound.wobble();$('cartHost')?.classList.add('cart-wobble');await speak('seven');$('cartHost')?.classList.remove('cart-wobble');drawStorageSacks()}
- stageBusy=false;
+ loaded++;sound.load();updateCart();
+ if(loaded===5){sound.cheer();await speak('five')}
+ else if(loaded===7){sound.wobble();$('cartHost')?.classList.add('cart-wobble');await speak('seven');$('cartHost')?.classList.remove('cart-wobble')}
+ drawStorageSacks();stageBusy=false;
 }
 async function requests(){
  setPhase('requests');scene('village',4,'THE REAL HUNGER');sound.setMood('reflection');arrangeCast('requests');
@@ -409,11 +470,11 @@ async function lesson(){
 function share(){
  setPhase('share');scene('village',5,'THE JOY OF SHARING');sound.setMood('village');arrangeCast('share');
  shareCounts={home:0,seeds:0,sharing:0};selectedSack=null;
- (async()=>{await speak('shareIntro');arrangeCast('sharingGame');showSharing()})();
+ (async()=>{arrangeCast('sharingGame');showSharing(true);await speak('shareIntro');setLabel('Share the eight sacks wisely','0 / 8');showSharing()})();
 }
 const shareZone={x:192,y:509,spacing:302,width:292,height:130};
 const shareTargets=[['home','HOME',3,'For Baldev\u2019s family','#8ccfb3'],['seeds','SEEDS',2,'For the next crop','#f6ca81'],['sharing','SHARING & LANGAR',3,'For those in need','#b7b6ef']];
-function showSharing(){
+function showSharing(explaining=false){
  props.replaceChildren();
  let stageTitle=n('g',{'id':'shareTargets'}),selected=selectedSack;
  for(let j=0;j<shareTargets.length;j++){
@@ -431,18 +492,18 @@ function showSharing(){
  const remaining=8-(shareCounts.home+shareCounts.seeds+shareCounts.sharing);
  const row=n('g',{id:'sharingSacks'});
  for(let j=0;j<remaining;j++){
-   const x=219+j*105,y=389;
-   const item=img(asset.sack,x,y,84,110,'sack-draggable tap-target','Choose sack '+(j+1));
+   const x=194+j*110,y=359;
+   const item=img(asset.sack,x,y,108,140,'sack-draggable tap-target','Choose sack '+(j+1));
    item.style.pointerEvents='all';item.setAttribute('tabindex','0');
    if(selected===j){item.setAttribute('stroke','#ffe884');item.setAttribute('filter','drop-shadow(0px 0px 12px gold)')}
    item.addEventListener('pointerdown',e=>{if(stageBusy)return;item.setPointerCapture(e.pointerId);item._drag={x:e.clientX,y:e.clientY};e.preventDefault()});
-   item.addEventListener('pointermove',e=>{if(!item._drag)return;const p=getXY(e);item.setAttribute('transform',`translate(${p.x-x-42} ${p.y-y-55})`)});
+   item.addEventListener('pointermove',e=>{if(!item._drag)return;const p=getXY(e);item.setAttribute('transform',`translate(${p.x-x-54} ${p.y-y-70})`)});
    item.addEventListener('pointerup',e=>{if(!item._drag)return;item._drag=null;item.removeAttribute('transform');const p=getXY(e);const target=shareTargets.find(([,_,__,___],idx)=>p.y>=shareZone.y&&p.y<=shareZone.y+shareZone.height&&p.x>=shareZone.x+idx*shareZone.spacing&&p.x<=shareZone.x+idx*shareZone.spacing+shareZone.width);selectedSack=j;if(target)putSack(target[0]);else{sound.ping();showSharing()}e.preventDefault()});
-   item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectedSack=j;showSharing()}});
+   item.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!stageBusy){e.preventDefault();selectedSack=j;showSharing()}});if(explaining){item.style.pointerEvents='none';item.removeAttribute('tabindex')}
    row.append(item);
  }
  props.append(row);
- setLabel('Share the eight sacks wisely',(8-remaining)+' / 8','Select a sack, then choose Home, Seeds, or Sharing. Drag also works.');
+ setLabel(explaining?'Listen to Baldev explain the eight sacks':'Share the eight sacks wisely',(8-remaining)+' / 8','Select a sack, then choose Home, Seeds, or Sharing. Drag also works.');
 }
 function putSack(key){
  if(stageBusy)return;
@@ -509,7 +570,7 @@ setInterval(()=>{
  if(!$('quiz').hidden){const q=story.questions[quizIndex];if(q&&$('quiz').dataset.answering!=='true')$('quizChoices').children[q.answer]?.click();watchDue=performance.now()+5000;return}
  const patch=props.querySelector('[data-patch]:not([data-done])');
  const task=props.querySelector('[data-harvest]:not([data-done])');
- const sack=props.querySelector('#looseSacks image');
+ const sack=front.querySelector('#looseSacks image');
  const shareItem=props.querySelector('#sharingSacks image');
  if(patch){autoActivate(patch);watchDue=performance.now()+1400}
  else if(task){autoActivate(task);watchDue=performance.now()+2100}
