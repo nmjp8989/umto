@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 55 253 280" width="253" height="280">
+<defs>
+    <!-- Shared Gradients Matching bullock-cart.svg -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcfaff"/>
+      <stop offset="100%" stop-color="#f2ecfa"/>
+    </linearGradient>
+
+    <linearGradient id="wheatGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe761"/>
+      <stop offset="60%" stop-color="#f5be2e"/>
+      <stop offset="100%" stop-color="#cc8b14"/>
+    </linearGradient>
+
+    <linearGradient id="sackGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe18c"/>
+      <stop offset="55%" stop-color="#f2be57"/>
+      <stop offset="100%" stop-color="#cc8d2b"/>
+    </linearGradient>
+
+    <linearGradient id="woodHandle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e38d3b"/>
+      <stop offset="100%" stop-color="#8c4514"/>
+    </linearGradient>
+
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cfd8de"/>
+      <stop offset="100%" stop-color="#8b99a3"/>
+    </linearGradient>
+
+    <linearGradient id="oxGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="65%" stop-color="#f7ead4"/>
+      <stop offset="100%" stop-color="#e3c8a1"/>
+    </linearGradient>
+
+    <linearGradient id="hornGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e6642"/>
+      <stop offset="100%" stop-color="#59331d"/>
+    </linearGradient>
+
+    <linearGradient id="bellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffea61"/>
+      <stop offset="55%" stop-color="#f5b81d"/>
+      <stop offset="100%" stop-color="#c47e0e"/>
+    </linearGradient>
+
+    <linearGradient id="chickenGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="55%" stop-color="#f7b754"/>
+      <stop offset="100%" stop-color="#cf7129"/>
+    </linearGradient>
+
+    <linearGradient id="basketGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0b654"/>
+      <stop offset="55%" stop-color="#d48e32"/>
+      <stop offset="100%" stop-color="#9e6019"/>
+    </linearGradient>
+
+    <!-- Reusable Wheat Stalk for Patch -->
+    <g id="patchStalk" stroke="#1f140d" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#c98912" stroke-width="3.2"/>
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+      <path d="M-1,-22 Q-18,-50 -14,-78 Q-6,-54 0,-32 Z" fill="#e6a81c" stroke-width="2"/>
+      <path d="M1,-36 Q16,-62 18,-86 Q7,-62 1,-44 Z" fill="#ffd238" stroke-width="2"/>
+      <g fill="#ffd238" stroke-width="2">
+        <ellipse cx="-2" cy="-112" rx="4.2" ry="7" transform="rotate(-22 -2 -112)"/>
+        <ellipse cx="8" cy="-116" rx="4.2" ry="7" transform="rotate(22 8 -116)"/>
+        <ellipse cx="-1" cy="-124" rx="4.2" ry="7" transform="rotate(-20 -1 -124)"/>
+        <ellipse cx="9" cy="-128" rx="4.2" ry="7" transform="rotate(20 9 -128)"/>
+        <ellipse cx="1" cy="-136" rx="3.8" ry="6.5" transform="rotate(-14 1 -136)"/>
+        <ellipse cx="10" cy="-138" rx="3.8" ry="6.5" transform="rotate(14 10 -138)"/>
+        <ellipse cx="6" cy="-147" rx="3.5" ry="6" transform="rotate(6 6 -147)"/>
+      </g>
+      <path d="M6,-153 L10,-168 M-1,-138 L-8,-152 M11,-138 L18,-150" fill="none" stroke-width="1.5"/>
+    </g>
+  </defs>
+<g id="asset-sickle" transform="translate(132, 290) rotate(-18)">
+      <!-- Swing Trail Arc (toggle opacity="1" during swipe) -->
+      <path id="sickle-slash-arc" d="M-80,-125 C-60,-185 45,-195 95,-115 C55,-165 -35,-160 -70,-115 Z" fill="#ffffff" stroke="#ffe14d" stroke-width="2" opacity="0.85"/>
+
+      <g id="sickle-tool" stroke="#1f140d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Curved Steel Blade -->
+        <path id="sickle-blade" d="M-6,-58 C-48,-105 -54,-175 18,-202 C46,-212 72,-196 86,-178 C54,-186 24,-184 4,-164 C-18,-142 -12,-96 6,-62 Z" fill="url(#bladeGrad)"/>
+        <!-- Sharp Bevel Edge Highlight -->
+        <path d="M18,-194 C44,-202 64,-192 78,-178" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+        <!-- Metal Tang & Brass Ferrule -->
+        <rect x="-8" y="-64" width="16" height="14" rx="2" fill="#e6a825"/>
+        <!-- Turned Wooden Handle -->
+        <path id="sickle-handle" d="M-10,-50 Q-14,-20 -11,16 Q-8,26 0,26 Q8,26 11,16 Q14,-20 10,-50 Z" fill="url(#woodHandle)"/>
+        <path d="M-5,-38 L-5,10" fill="none" stroke="#f7be74" stroke-width="2.2" opacity="0.7"/>
+      </g>
+    </g>
+</svg>
