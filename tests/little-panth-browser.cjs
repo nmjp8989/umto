@@ -49,7 +49,10 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
   if(j<2)assert.equal(await page.locator('#worldProps image[href*="wheat-sack.svg"]').count(),3,'No sack artwork may be duplicated');
  }
 
- await advance(2);await shot('03-cart-load');
+ await advance(1);await page.locator('#cartHost[data-arrival="rolling"]').waitFor({timeout:10000});
+ await page.locator('#cartHost[data-arrival="arrived"]').waitFor({timeout:12000});
+ await page.locator('#english').filter({hasText:"Here's my cart!"}).waitFor();
+ await shot('03-cart-arrival');await advance(1);await shot('03-cart-load');
  for(let i=0;i<3;i++)await load();
  await advance(2);await action();await advance(1);await shot('04-storage');
  for(let i=0;i<2;i++)await load();

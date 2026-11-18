@@ -44,6 +44,10 @@ async function oneLine(id,token,autoRead) {
  if(token!==epoch)return;
  hideWatchHand(true);
  const line=story.lines[id];if(!line)return;
+ if(id==='lp009'&&window.lpPhase==='harvest'&&!$('cartHost')){
+  activeSpeaker='';activeListener='';$('speech').hidden=true;resetCamera();updateTalking();
+  await rollFieldCartIn(token);if(token!==epoch)return;
+ }
  activeSpeaker=line.speaker;
  activeListener=line.to||'';
  if(line.speaker==='narrator')showNarrator();else hideNarrator();
@@ -270,6 +274,45 @@ function cart(x=465,y=330,scale=.63){
  if(!host.firstElementChild)host.append(img('assets/cart/bullock-cart.svg',0,0,920,440));
  props.appendChild(host);updateCart();return host;
 }
+// Enter from the right, oxen leading the cart towards the field loading position.
+async function rollFieldCartIn(token){
+ const x=365,y=278,scale=.80,startX=1305,distance=startX-x,host=cart(startX,y,scale);
+ host.dataset.arrival='rolling';host.querySelectorAll('#cart-shadow use').forEach(e=>e.remove());
+ const wheels=[['#left-wheel-spin',72],['#right-wheel-spin',90]].map(([sel,radius])=>({el:host.querySelector(sel),radius}));
+ // Split the existing leg artwork into individual limbs without changing their drawing.
+ const legs=[];
+ for(const [sel,pivots] of [
+  ['#ox-far-legs-back',[[224,284]]],['#ox-far-legs-front',[[112,282],[138,286]]],
+  ['#ox-near-legs-back',[[312,296],[342,284]]],['#ox-near-legs-front',[[190,296],[218,288]]]
+ ]){
+  const layer=host.querySelector(sel);if(!layer)continue;
+  let limb=null,k=-1;
+  for(const child of [...layer.children]){
+   if(child.localName==='path'&&(!limb||k+1<pivots.length&&limb.children.length>=2)){limb=n('g');layer.append(limb);k++;legs.push({el:limb,pivot:pivots[k],offset:(k+(sel.includes('far')?1:0)+(sel.includes('back')?1:0))*Math.PI})}
+   limb?.append(child);
+  }
+ }
+ const heads=['#ox-near-head','#ox-far-head'].map(sel=>host.querySelector(sel)).filter(Boolean).map(el=>({el,base:el.getAttribute('transform')||''}));
+ const duration=reducedMotion.matches?0:4300,start=performance.now();let dustAt=-500;
+ await new Promise(resolve=>{function step(now){
+  if(token!==epoch){resolve();return}
+  const q=duration?Math.min(1,(now-start)/duration):1;
+  const travel=q<.82?q/.91: (1-(1-q)*(1-q)/(.18*.91*2)); // steady approach; gentle stop
+  const progress=q===1?1:Math.max(0,Math.min(1,travel)),moved=distance*progress,px=startX-moved;
+  host.setAttribute('transform','translate('+px+' '+y+') scale('+scale+')');
+  for(const {el,radius} of wheels)el?.setAttribute('transform','rotate('+(-moved/(scale*radius)*180/Math.PI)+')');
+  const phase=moved/25,weight=Math.min(1,(1-q)*9);
+  for(const {el,pivot,offset} of legs){const angle=Math.sin(phase+offset)*12*weight;el.setAttribute('transform','rotate('+angle+' '+pivot[0]+' '+pivot[1]+')')}
+  for(const {el,base} of heads)el.setAttribute('transform',base+' rotate('+(Math.sin(phase)*2.5*weight)+')');
+  if(duration&&q<.97&&now-start-dustAt>390){dustAt=now-start;const dx=px+scale*675;if(dx>30&&dx<1240)dust(dx,y+scale*421)}
+  if(q<1)requestAnimationFrame(step);else resolve();
+ }requestAnimationFrame(step)});
+ if(token!==epoch)return;
+ host.setAttribute('transform','translate('+x+' '+y+') scale('+scale+')');
+ for(const {el} of legs)el.removeAttribute('transform');
+ for(const {el,base} of heads)el.setAttribute('transform',base);
+ host.dataset.arrival='arrived';sound.ping();
+}
 function updateCart(){
  const host=$('cartHost');if(!host)return;
  for(let i=1;i<=8;i++){const g=host.querySelector('#sack-pos-'+i);if(g)g.setAttribute('opacity',i<=loaded?'1':'0')}
@@ -396,9 +439,11 @@ async function packHarvest(){
 }
 async function finishHarvest(){
  if(window.lpPhase!=='harvest')return;
- sound.cheer();banner('3 bundles → 3 sacks!');props.replaceChildren();arrangeCast('load');
+ sound.cheer();banner('3 bundles → 3 sacks!');props.replaceChildren();arrangeCast('load');loaded=0;drawFieldSacks();
  setLabel('Three sacks are ready!','3 / 3','Time to load the cart');
- await speak('harvestDone');fieldLoad();
+ const token=epoch;if(!await speak('harvestDone')||token!==epoch)return;
+ if(!$('cartHost'))cart(365,278,.80);
+ setPhase('fieldLoad');setLabel('Load three sacks into the cart','0 / 3','Tap or drag the sacks onto the cart');
 }
 function fieldLoad(){
  setPhase('fieldLoad');loaded=0;stageBusy=false;props.replaceChildren();cart(365,278,.80);arrangeCast('load');
@@ -500,8 +545,10 @@ function showSharing(explaining=false){
    const [key,title,cap,sub,color]=shareTargets[j],x=shareZone.x+j*shareZone.spacing,y=shareZone.y;
    const zone=n('g',{role:'button',tabindex:0,'aria-label':title+' '+shareCounts[key]+' of '+cap,'data-target':key});
    if(watchMode){
-     // Real piles of wheat, no game panels or screen text in the cartoon.
-     for(let k=0;k<shareCounts[key];k++)zone.append(img(asset.sack,x+25+k*83,y+10,102,125));
+     // Restore the three educational destinations as part of the artwork, not a floating HUD.
+     zone.append(n('rect',{x,y,width:shareZone.width,height:146,rx:19,fill:color,'fill-opacity':.83,stroke:'#44676c','stroke-width':3,'stroke-dasharray':'10 6',class:'watch-share-division'}));
+     zone.append(labelText(title+' · '+shareCounts[key]+'/'+cap,x+shareZone.width/2,y+25,title.length>12?19:23,'#263941'));
+     for(let k=0;k<shareCounts[key];k++)zone.append(img(asset.sack,x+25+k*83,y+34,96,110));
    }else{
    zone.append(n('rect',{x,y,width:shareZone.width,height:shareZone.height,rx:21,fill:color,stroke:'#44676c','stroke-dasharray':'9 6','stroke-width':4,'class':'goal-zone'}));
    zone.append(labelText(title,x+shareZone.width/2,y+43,title.length>12?20:27,'#263941'));
@@ -534,7 +581,7 @@ async function putSack(key){
  if(selectedSack===null){banner('First tap a wheat sack, then choose a destination');return}
  const t=shareTargets.find(v=>v[0]===key);
  if(shareCounts[key]>=t[2]){banner(titleFor(key)+' is already full!');sound.wobble();return}
- if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+10,w:102,h:125},700,45)}stageBusy=false;}
+ if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+34,w:96,h:110},700,45)}stageBusy=false;}
  shareCounts[key]++;selectedSack=null;sound.load();banner('Thank you for sharing!',900);showSharing();save();
  if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{props.replaceChildren();arrangeCast('shareDone');await speak('shareDone');quiz()},900)}
 }
