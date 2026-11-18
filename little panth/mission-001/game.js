@@ -24,7 +24,7 @@ $('captionToggle').onclick=()=>{
  updateCaptions();
 };
 const STORAGE_KEY='little-panth-lp001-v1';
-let story,cartSource,rig={},actors=[],currentVoice=null,voiceResolver=null,voiceEnabled=true,musicEnabled=true,
+let story,cartSource,chickenSource,rig={},actors=[],currentVoice=null,voiceResolver=null,voiceEnabled=true,musicEnabled=true,
     epoch=0,activeSpeaker='',activeListener='',stageBusy=false,loaded=0,harvested=0,selectedSack=null,shareCounts={home:0,seeds:0,sharing:0},quizIndex=0,
     eighthAttempts=0,locationId='village',act=1,runStarted=false,firstLoad=true;
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -107,7 +107,7 @@ const sounds={
   ctx:null,gain:null,timer:null,tick:0,mood:'village',
   start(){try{if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.gain=this.ctx.createGain();this.gain.gain.value=.2;this.gain.connect(this.ctx.destination);}this.ctx.resume();if(!this.timer)this.timer=setInterval(()=>this.musicTick(),300)}catch{}},
   tone(hz,d=.2,vol=.09,type='sine',delay=0){if(!this.ctx)return;const t=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.setValueAtTime(hz,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(vol,.00015),t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(this.gain);o.start(t);o.stop(t+d+.025)},
-  musicTick(){if(!musicEnabled||!runStarted)return;this.tick++;const m=this.mood;if(m==='quiet')return;const notes=m==='storage'?[196,220,247,294,330]:m==='field'?[220,247,294,330,392]:[196,247,294,330,392];const i=this.tick;const rate=m==='reflection'?5:2;if(i%rate===0)this.tone(notes[Math.floor(i/rate)%notes.length],.43,m==='reflection'?.035:.061,'sine');if(i%8===0)this.tone(notes[0]/2,.94,.04,'triangle');if(m==='storage'&&i%4===3)this.tone(125,.08,.022,'triangle')},
+  musicTick(){if(!musicEnabled||!runStarted)return;this.tick++;const m=this.mood;if(m==='quiet')return;if(m==='opening'){const tune=[392,440,494,587,494,440,392,330,392,494,587,659,587,494,440,392];const j=this.tick%tune.length;this.tone(tune[j],.28,.10,'triangle');if(j%4===0)this.tone(196,.65,.045,'sine');if(j%2===1)this.tone(132,.09,.045,'triangle');return}const notes=m==='storage'?[196,220,247,294,330]:m==='field'?[220,247,294,330,392]:[196,247,294,330,392];const i=this.tick;const rate=m==='reflection'?5:2;if(i%rate===0)this.tone(notes[Math.floor(i/rate)%notes.length],.43,m==='reflection'?.035:.061,'sine');if(i%8===0)this.tone(notes[0]/2,.94,.04,'triangle');if(m==='storage'&&i%4===3)this.tone(125,.08,.022,'triangle')},
   setMood(m){this.mood=m},
   ping(){this.tone(640,.16,.11);this.tone(880,.24,.055,'sine',.09)},
   cut(){this.tone(740,.08,.065,'sawtooth');this.tone(1080,.10,.03,'triangle',.03)},
@@ -293,7 +293,7 @@ async function rollFieldCartIn(token){
   }
  }
  const heads=['#ox-near-head','#ox-far-head'].map(sel=>host.querySelector(sel)).filter(Boolean).map(el=>({el,base:el.getAttribute('transform')||''}));
- const duration=reducedMotion.matches?0:4300,start=performance.now();let dustAt=-500;
+ const duration=reducedMotion.matches?0:3650,start=performance.now();let dustAt=-500;
  await new Promise(resolve=>{function step(now){
   if(token!==epoch){resolve();return}
   const q=duration?Math.min(1,(now-start)/duration):1;
@@ -301,17 +301,17 @@ async function rollFieldCartIn(token){
   const progress=q===1?1:Math.max(0,Math.min(1,travel)),moved=distance*progress,px=startX-moved;
   host.setAttribute('transform','translate('+px+' '+y+') scale('+scale+')');
   for(const {el,radius} of wheels)el?.setAttribute('transform','rotate('+(-moved/(scale*radius)*180/Math.PI)+')');
-  const phase=moved/25,weight=Math.min(1,(1-q)*9);
+  const phase=moved/20,weight=Math.min(1,(1-q)*9);
   for(const {el,pivot,offset} of legs){const angle=Math.sin(phase+offset)*12*weight;el.setAttribute('transform','rotate('+angle+' '+pivot[0]+' '+pivot[1]+')')}
   for(const {el,base} of heads)el.setAttribute('transform',base+' rotate('+(Math.sin(phase)*2.5*weight)+')');
-  if(duration&&q<.97&&now-start-dustAt>390){dustAt=now-start;const dx=px+scale*675;if(dx>30&&dx<1240)dust(dx,y+scale*421)}
+  if(duration&&q<.97&&now-start-dustAt>280){dustAt=now-start;const dx=px+scale*675;if(dx>30&&dx<1240)dust(dx,y+scale*421)}
   if(q<1)requestAnimationFrame(step);else resolve();
  }requestAnimationFrame(step)});
  if(token!==epoch)return;
  host.setAttribute('transform','translate('+x+' '+y+') scale('+scale+')');
  for(const {el} of legs)el.removeAttribute('transform');
  for(const {el,base} of heads)el.setAttribute('transform',base);
- host.dataset.arrival='arrived';sound.ping();
+ host.dataset.arrival='arrived';if(musicEnabled)sound.tone(720,.16,.04,'triangle');
 }
 function updateCart(){
  const host=$('cartHost');if(!host)return;
@@ -355,21 +355,51 @@ function sackFlight(from,to,ms=720,arc=130,keep=false){
 function dust(x,y){
  const puff=n('g',{class:'dust-puff'});for(let j=0;j<5;j++)puff.append(n('ellipse',{cx:x+(j-2)*15,cy:y-5-(j%2)*9,rx:15,ry:7,fill:'#d4ad79',opacity:.8}));fx.append(puff);puff.animate([{opacity:1},{opacity:0}],{duration:500});setTimeout(()=>puff.remove(),500);
 }
+function runningChicken(group){
+ const chicken=n('g',{id:'introChicken','pointer-events':'none'});group.append(chicken);
+ let legs=[],wing=null,head=null;
+ if(chickenSource){
+  const parsed=new DOMParser().parseFromString(chickenSource,'image/svg+xml');
+  if(!parsed.querySelector('parsererror')){
+   const root=document.importNode(parsed.documentElement,true);root.setAttribute('x','-90');root.setAttribute('y','-128');root.setAttribute('width','180');root.setAttribute('height','134');chicken.append(root);
+   // Animate each outlined leg together with its matching colored path.
+   const layer=root.querySelector('#chicken-legs');
+   if(layer){const paths=[...layer.children];for(let j=0;j<2;j++){const limb=n('g');layer.append(limb);for(const path of paths.slice(j*2,j*2+2))limb.append(path);legs.push(limb)}}
+   wing=root.querySelector('#chicken-wing');head=root.querySelector('#chicken-head');
+  }
+ }
+ if(!chicken.firstElementChild)chicken.append(img(asset.chicken,-90,-128,180,134));
+ return {chicken,legs,wing,head};
+}
 async function openingFlyover(){
  if(reducedMotion.matches)return;
- stageBusy=true;const group=n('g',{id:'openingBirds'});fx.append(group);
- const title=labelText('The Cart That Was Never Full',640,170,40,'#fff2ce');title.setAttribute('class','intro-title');group.append(title);
+ stageBusy=true;const token=epoch;const group=n('g',{id:'openingBirds'});fx.append(group);
+ const title=labelText('The Cart That Was Never Full',640,145,40,'#fff2ce');title.setAttribute('class','intro-title');group.append(title);
+ title.animate([{opacity:0},{opacity:1,offset:.22},{opacity:1,offset:.72},{opacity:0}],{duration:5100,fill:'both'});
  for(let j=0;j<4;j++){
   const bird=n('g',{stroke:'#34424b','stroke-width':3,'stroke-linecap':'round',fill:'none'});const wing=n('path',{d:'M-13 0Q-7 -11 0 0Q7 -11 13 0'});bird.append(wing);group.append(bird);
-  bird.animate([{transform:'translate('+(-60-j*65)+'px,'+(60+j*22)+'px)'},{transform:'translate('+(1420-j*65)+'px,'+(106+j*22)+'px)'}],{duration:4200,fill:'both',easing:'linear'});
-  wing.animate([{transform:'scaleY(1)'},{transform:'scaleY(-.4)'},{transform:'scaleY(1)'}],{duration:480,iterations:9});
+  bird.animate([{transform:'translate('+(-60-j*65)+'px,'+(60+j*22)+'px)'},{transform:'translate('+(1420-j*65)+'px,'+(106+j*22)+'px)'}],{duration:4700,fill:'both',easing:'linear'});
+  wing.animate([{transform:'scaleY(1)'},{transform:'scaleY(-.4)'},{transform:'scaleY(1)'}],{duration:480,iterations:10});
  }
- await wait(4400);group.remove();stageBusy=false;
+ const {chicken,legs,wing,head}=runningChicken(group);const start=performance.now();
+ await new Promise(resolve=>{function frame(now){
+  if(token!==epoch){resolve();return}
+  const q=Math.min(1,(now-start)/5500),p=Math.max(0,Math.min(1,(q-.13)/.75)),step=p*Math.PI*24;
+  const x=1370-1490*p,y=654;
+  chicken.setAttribute('transform','translate('+x+' '+y+')');
+  for(let j=0;j<legs.length;j++)legs[j].setAttribute('transform','rotate('+(Math.sin(step+j*Math.PI)*27)+' '+(j?16:-8)+' 28)');
+  wing?.setAttribute('transform','rotate('+(Math.sin(step)*9)+' -10 -4)');
+  head?.setAttribute('transform','translate(-38 -24) rotate('+(Math.sin(step)*5)+')');
+  if(q<1)requestAnimationFrame(frame);else resolve();
+ }requestAnimationFrame(frame)});
+ group.remove();stageBusy=false;
 }
 async function intro(){
- setPhase('intro');scene('village',1,'THE EMERGENCY');sound.setMood('village');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
+ setPhase('intro');scene('field',1,'THE CART THAT WAS NEVER FULL');sound.setMood('opening');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
+ setLabel('The Cart That Was Never Full');const token=epoch;await openingFlyover();if(token!==epoch)return;
+ scene('village',1,'THE EMERGENCY');sound.setMood('village');
  arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);for(const sack of Array.from(props.children).slice(-3)){sack.dataset.inspect='1';sack.classList.add('tap-target');sack.setAttribute('role','button');sack.setAttribute('tabindex','0');sack.setAttribute('aria-label','Inspect wheat sack');sack.addEventListener('click',()=>{if(!$('sceneAction').hidden)$('sceneAction').click()});sack.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('sceneAction').hidden)$('sceneAction').click()})}setLabel('What is Chacha Baldev so worried about?');
- await openingFlyover();await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
+ await speak('intro');button('Inspect the wheat sacks →',inspectCourtyard);
  for(const sack of props.querySelectorAll('image[data-inspect]'))sack.style.pointerEvents='all';
 }
 async function walkTo(id,x,duration=1800){
@@ -386,6 +416,32 @@ async function inspectCourtyard(){
  await speak('courtyardNarrator');await speak('courtyardDeparture');
  button('Follow Baldev to the fields →',async()=>{stageBusy=true;await Promise.all([walkTo('mehar',1180,1800),walkTo('baldev',1010,2600)]);harvest()});
 }
+function harvestSpark(x,y,kind='grain'){
+ const group=n('g',{'pointer-events':'none',class:'harvest-spark'});fx.append(group);
+ const colors=kind==='green'?['#a7db48','#76b93d','#d9f6a0']:['#ffdc72','#efaa36','#fff0ae'];
+ for(let j=0;j<9;j++){
+  const p=n('ellipse',{cx:x,cy:y,rx:3.4+(j%2),ry:1.9,fill:colors[j%3],stroke:'#a27435','stroke-width':.4});group.append(p);
+  if(!reducedMotion.matches){const angle=j*2.4,dx=Math.cos(angle)*(20+j*4),dy=-20-Math.sin(angle)*30;p.animate([{transform:'translate(0px,0px)',opacity:1},{transform:'translate('+dx+'px,'+dy+'px)',opacity:0}],{duration:360,fill:'both'})}
+ }
+ setTimeout(()=>group.remove(),400);
+}
+function showSickle(x,y){
+ const tool=img(asset.sickle,x-43,y-55,100,88,'sickle-swipe');fx.append(tool);
+ if(!reducedMotion.matches)tool.animate([{transform:'translate(-24px,-16px) rotate(-6deg)'},{transform:'translate(36px,10px)',opacity:1},{transform:'translate(52px,20px)',opacity:0}],{duration:270,fill:'both'});
+ setTimeout(()=>tool.remove(),300);harvestSpark(x,y);
+}
+function bundleFlight(item,x,y){
+ const fromX=+item.getAttribute('x'),fromY=+item.getAttribute('y'),w=+item.getAttribute('width'),h=+item.getAttribute('height');
+ const copy=img(asset.bundle,fromX,fromY,w,h);fx.append(copy);item.remove();
+ if(!reducedMotion.matches)copy.animate([{transform:'translate(0px,0px)',opacity:1},{transform:'translate('+(x-fromX)+'px,'+(y-fromY)+'px) scale(.65)',opacity:1,offset:.75},{transform:'translate('+(x-fromX)+'px,'+(y-fromY)+'px) scale(.5)',opacity:0}],{duration:310,fill:'both'});
+ setTimeout(()=>{copy.remove();harvestSpark(x+30,y+60)},320);
+}
+function grainPour(bundle,sack){
+ const x=+bundle.getAttribute('x')+54,y=+bundle.getAttribute('y')+52,tx=+sack.getAttribute('x')+60,ty=+sack.getAttribute('y')+18;
+ const group=n('g',{'pointer-events':'none',class:'grain-pour'});fx.append(group);
+ for(let j=0;j<13;j++){const seed=n('ellipse',{cx:x+(j%4)*5,cy:y+(j%3)*4,rx:3,ry:6,fill:j%2?'#e7a937':'#ffdc7b',stroke:'#aa7728','stroke-width':.8});group.append(seed);if(!reducedMotion.matches)seed.animate([{opacity:1,transform:'translate(0px,0px)'},{opacity:1,transform:'translate('+(tx-x)+'px,'+(ty-y)+'px)',offset:.8},{opacity:0}],{duration:300+j*15,fill:'both'})}
+ setTimeout(()=>{group.remove();harvestSpark(tx,ty)},550);
+}
 async function harvest(){
  setPhase('harvest');scene('field',2,'HARVEST FRENZY');sound.setMood('field');harvested=0;arrangeCast('harvest');
  await speak('fieldIntro');setLabel('Cut the six golden wheat patches','0 / 6','Tap or swipe each golden patch three times. Leave the green wheat.');
@@ -396,9 +452,9 @@ async function harvest(){
    const picture=img(asset.patch,x,y,205,139);picture.style.pointerEvents='all';holder.append(picture);holder.dataset.cuts='0';
    const cut=()=>{
      if(stageBusy||holder.dataset.done)return;
-     const count=Number(holder.dataset.cuts)+1;holder.dataset.cuts=String(count);sound.cut();
-     picture.setAttribute('transform','translate(0 '+(count%2?4:-3)+')');picture.setAttribute('opacity',String(1-count*.20));banner('Wheat cut! '+count+' / 3',550);
-     if(count>=3){holder.dataset.done='1';holder.style.pointerEvents='none';picture.style.pointerEvents='none';harvested++;holder.append(img(asset.bundle,x+75,y+25,58,90));sound.ping();setLabel('Cut six golden wheat patches',harvested+' / 6');
+     const count=Number(holder.dataset.cuts)+1;holder.dataset.cuts=String(count);sound.cut();showSickle(x+105,y+86);
+     picture.setAttribute('transform','translate(0 '+(count%2?4:-3)+')');picture.setAttribute('opacity',String(1-count*.27));banner('Wheat cut! '+count+' / 3',550);
+     if(count>=3){holder.dataset.done='1';holder.style.pointerEvents='none';picture.remove();harvested++;holder.append(img(asset.bundle,x+75,y+25,58,90));sound.ping();setLabel('Cut six golden wheat patches',harvested+' / 6');
        if(harvested===6){stageBusy=true;setTimeout(collectHarvest,650)}}
    };
    holder.addEventListener('pointerdown',e=>{holder._start={x:e.clientX,y:e.clientY};holder.setPointerCapture(e.pointerId)});
@@ -415,11 +471,11 @@ function harvestTarget(id,path,x,y,w,h,label,fn){
 async function collectHarvest(){
  if(window.lpPhase!=='harvest')return;
  props.replaceChildren();setLabel('Gather the six cut wheat piles','0 / 6');await speak('collectIntro');let collected=0;
- for(let j=0;j<6;j++)harvestTarget('collect',asset.bundle,270+j*117,448,92,162,'Collect wheat pile '+(j+1),()=>{
-  collected++;sound.ping();setLabel('Gather the six cut wheat piles',collected+' / 6');
+ for(let j=0;j<6;j++){const item=harvestTarget('collect',asset.bundle,270+j*117,448,92,162,'Collect wheat pile '+(j+1),()=>{
+  collected++;bundleFlight(item,475+Math.ceil(collected/2)*90,310);sound.ping();setLabel('Gather the six cut wheat piles',collected+' / 6');
   if(collected%2===0){props.append(img(asset.bundle,475+collected/2*90,310,66,105));banner('One bundle ready!',900)}
   if(collected===6){stageBusy=true;setTimeout(packHarvest,750)}
- });
+ });}
 }
 async function packHarvest(){
  props.replaceChildren();setLabel('Prepare three sacks of grain','0 / 3');await speak('packIntro');let packed=0;
@@ -428,10 +484,10 @@ async function packHarvest(){
   const sack=img(asset.sack,x+75,500,95,130);
   sack.dataset.packSack=String(j);sack.dataset.filled='false';props.append(sack);
   const bundle=harvestTarget('pack',asset.bundle,x,420,108,160,'Separate grain and pack sack '+(j+1),()=>{
-   packed++;sound.load();
+   packed++;sound.load();grainPour(bundle,sack);
    // Enlarge the same sack about its bottom centre, never paint a second sack over it.
    for(const [key,value] of Object.entries({x:x+62.5,y:470,width:120,height:160}))sack.setAttribute(key,value);
-   sack.dataset.filled='true';bundle.remove();
+   sack.dataset.filled='true';bundle.remove();if(!reducedMotion.matches)sack.animate([{opacity:.6},{opacity:1}],{duration:350});
    setLabel('Prepare three sacks of grain',packed+' / 3');banner('Sack filled!',800);
    if(packed===3){stageBusy=true;setTimeout(finishHarvest,750)}
   });
@@ -451,7 +507,7 @@ function fieldLoad(){
  drawFieldSacks();
 }
 function drawFieldSacks(){looseSacks(3-loaded,async(im,from)=>{
- if(stageBusy)return;stageBusy=true;im.remove();await sackFlight(from,cartSlot(loaded+1));loaded++;sound.load();updateCart();setLabel('Load three sacks into the cart',loaded+' / 3');
+ if(stageBusy)return;stageBusy=true;im.remove();await sackFlight(from,cartSlot(loaded+1),watchMode?490:720);loaded++;sound.load();updateCart();setLabel('Load three sacks into the cart',loaded+' / 3');
  if(loaded>=3){stageBusy=true;$('looseSacks')?.replaceChildren();sound.cheer();await speak('loadThree');button('Head to the storage courtyard →',()=>storage())}
  else{drawFieldSacks();stageBusy=false;}
 })}
@@ -474,13 +530,13 @@ function detachWheel(host,animate=true){
  if(!source)return;
  const matrix=stage.getScreenCTM().inverse().multiply(original.getScreenCTM());
  const from={x:matrix.e,y:matrix.f,scale:Math.hypot(matrix.a,matrix.b)};
- const to={x:1020,y:613};
+ const finale=window.lpPhase==='finale';const to=finale?{x:970,y:603}:{x:1020,y:613};
  const fallen=n('g',{id:'fallenWheel','aria-label':'Detached broken wooden cart wheel','pointer-events':'none'});
  const shadow=n('ellipse',{cx:0,cy:28,rx:78,ry:14,fill:'#4c3025',opacity:.19});
  const wheel=n('g',{stroke:'#1f140d','stroke-width':2.5,'stroke-linejoin':'round'});
  const copy=source.cloneNode(true);copy.removeAttribute('id');for(const node of copy.querySelectorAll('[id]')){const id=node.id;node.removeAttribute('id');if(id==='right-wheel-piece-a')node.setAttribute('transform','translate(-5 -5) rotate(-5)');if(id==='right-wheel-piece-b')node.setAttribute('transform','translate(6 6) rotate(5)')}
  wheel.append(copy,n('path',{d:'M-83 -13L-70 -3L-78 5L-66 15 M79 -13L65 -3L75 5L64 15',stroke:'#3a2014','stroke-width':5,fill:'none','stroke-linecap':'round'}));
- fallen.append(shadow,wheel);front.append(fallen);original.setAttribute('visibility','hidden');
+ fallen.append(shadow,wheel);(finale?props:front).append(fallen);original.setAttribute('visibility','hidden');
  function draw(q){const e=q*q*(3-2*q),x=from.x+(to.x-from.x)*e,y=from.y+(to.y-from.y)*e-Math.sin(Math.PI*q)*55;
   fallen.setAttribute('transform','translate('+x+' '+y+')');wheel.setAttribute('transform','scale('+from.scale+' '+(from.scale*(1-.48*e))+') rotate('+(q*155)+')');shadow.setAttribute('opacity',String(.19*q));}
  if(!animate||reducedMotion.matches){draw(1);return}
@@ -502,7 +558,7 @@ function triggerCartBreak(){
 }
 async function loadStorageSack(im,from){
  if(stageBusy)return;stageBusy=true;im.remove();
- await sackFlight(from,cartSlot(loaded+1));
+ await sackFlight(from,cartSlot(loaded+1),watchMode?490:720);
  if(loaded===7){
    if(++eighthAttempts===1){
      sound.wobble();const host=$('cartHost');host?.classList.add('cart-wobble');
@@ -538,6 +594,13 @@ function share(){
 }
 const shareZone={x:192,y:509,spacing:302,width:292,height:130};
 const shareTargets=[['home','HOME',3,'For Baldev\u2019s family','#8ccfb3'],['seeds','SEEDS',2,'For the next crop','#f6ca81'],['sharing','SHARING & LANGAR',3,'For those in need','#b7b6ef']];
+function sharingSymbol(key,x,y){
+ const icon=n('g',{transform:'translate('+x+' '+y+')','pointer-events':'none',stroke:'#385c46','stroke-width':2,'stroke-linejoin':'round'});
+ if(key==='home')icon.innerHTML='<path d="M-12 0L0-11 12 0V12H-12Z" fill="#fff5d6"/><path d="M-4 12V3H4V12" fill="#b98653"/><path d="M-15 1L0-13 15 1" fill="none"/>';
+ else if(key==='seeds')icon.innerHTML='<path d="M-13 11H13M0 11V-6M0 2Q-14 0-13-8Q-3-10 0-2M0-3Q2-14 12-11Q13-3 0 0" fill="#7fba64" stroke-linecap="round"/>';
+ else icon.innerHTML='<path d="M-15 0H15Q12 12 0 12Q-12 12-15 0Z" fill="#f9e9c7"/><path d="M-7-3Q-11-8-6-12M3-3Q-1-8 4-12" fill="none" stroke-linecap="round"/>';
+ return icon;
+}
 function showSharing(explaining=false){
  props.replaceChildren();
  let stageTitle=n('g',{'id':'shareTargets'}),selected=selectedSack;
@@ -547,7 +610,7 @@ function showSharing(explaining=false){
    if(watchMode){
      // Restore the three educational destinations as part of the artwork, not a floating HUD.
      zone.append(n('rect',{x,y,width:shareZone.width,height:146,rx:19,fill:color,'fill-opacity':.83,stroke:'#44676c','stroke-width':3,'stroke-dasharray':'10 6',class:'watch-share-division'}));
-     zone.append(labelText(title+' · '+shareCounts[key]+'/'+cap,x+shareZone.width/2,y+25,title.length>12?19:23,'#263941'));
+     zone.append(sharingSymbol(key,x+22,y+19));zone.append(labelText(title+' · '+shareCounts[key]+'/'+cap,x+shareZone.width/2+11,y+25,title.length>12?18:22,'#263941'));
      for(let k=0;k<shareCounts[key];k++)zone.append(img(asset.sack,x+25+k*83,y+34,96,110));
    }else{
    zone.append(n('rect',{x,y,width:shareZone.width,height:shareZone.height,rx:21,fill:color,stroke:'#44676c','stroke-dasharray':'9 6','stroke-width':4,'class':'goal-zone'}));
@@ -581,7 +644,7 @@ async function putSack(key){
  if(selectedSack===null){banner('First tap a wheat sack, then choose a destination');return}
  const t=shareTargets.find(v=>v[0]===key);
  if(shareCounts[key]>=t[2]){banner(titleFor(key)+' is already full!');sound.wobble();return}
- if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+34,w:96,h:110},700,45)}stageBusy=false;}
+ if(watchMode){stageBusy=true;const item=$('sharingSacks')?.children[selectedSack];const j=shareTargets.findIndex(v=>v[0]===key);if(item){const from={x:+item.getAttribute('x'),y:+item.getAttribute('y'),w:108,h:140};item.remove();await sackFlight(from,{x:shareZone.x+j*shareZone.spacing+25+shareCounts[key]*83,y:shareZone.y+34,w:96,h:110},480,45)}stageBusy=false;}
  shareCounts[key]++;selectedSack=null;sound.load();banner('Thank you for sharing!',900);showSharing();save();
  if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{props.replaceChildren();arrangeCast('shareDone');await speak('shareDone');quiz()},900)}
 }
@@ -629,7 +692,7 @@ async function begin(resume=false){
  intro()
 }
 let watchMode=false,watchDue=0,watchActing=false,handPos=null,handRevision=0;
-function setWatch(enabled){watchMode=enabled;if(!enabled)hideWatchHand(true);document.body.classList.toggle('episode-mode',enabled);watchDue=performance.now()+1300;$('watchStop').hidden=!enabled;if(window.lpPhase==='share'&&!stageBusy&&runStarted&&$('sharingSacks'))showSharing()}
+function setWatch(enabled){watchMode=enabled;if(!enabled)hideWatchHand(true);document.body.classList.toggle('episode-mode',enabled);watchDue=performance.now()+650;$('watchStop').hidden=!enabled;if(window.lpPhase==='share'&&!stageBusy&&runStarted&&$('sharingSacks'))showSharing()}
 $('watch').onclick=()=>{setWatch(true);begin(false)};
 $('watchStop').onclick=()=>{setWatch(false);if(window.lpPhase==='complete')$('finish').hidden=false};
 function autoActivate(el){if(!el)return;el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}))}
@@ -653,13 +716,13 @@ async function watchTap(target,action,cadence){
  const valid=()=>watchMode&&token===epoch&&revision===handRevision&&!document.hidden;
  try{
   const reached=await new Promise(resolve=>{function step(now){
-   if(!valid()){resolve(false);return}const q=reducedMotion.matches?1:Math.min(1,(now-start)/380),e=q*q*(3-2*q);
+   if(!valid()){resolve(false);return}const q=reducedMotion.matches?1:Math.min(1,(now-start)/190),e=q*q*(3-2*q);
    placeHand({x:from.x+(target.x-from.x)*e,y:from.y+(target.y-from.y)*e});if(q<1)requestAnimationFrame(step);else resolve(true)
   }requestAnimationFrame(step)});
   if(!reached||!valid())return;
   if(!reducedMotion.matches)handPulse.animate([{opacity:.95,transform:'scale(.7)'},{opacity:0,transform:'scale(2.8)'}],{duration:380});
-  await wait(100);if(!valid())return;action();await wait(260);if(valid())hideWatchHand();
- }finally{watchActing=false;watchDue=Math.max(performance.now()+100,start+cadence)}
+  await wait(45);if(!valid())return;action();await wait(100);if(valid())hideWatchHand();
+ }finally{watchActing=false;watchDue=Math.max(performance.now()+45,start+cadence)}
 }
 function watchElement(el,cadence){const p=handTarget(el);if(p)watchTap(p,()=>{if(el.isConnected&&!stageBusy)autoActivate(el)},cadence)}
 
@@ -669,17 +732,17 @@ setInterval(()=>{
  if(!$('help').hidden)return;
  if(!$('speech').hidden){if((!voiceEnabled||(!currentVoice&&$('soundHint').textContent))&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
  if(stageBusy)return;
- if(!$('sceneAction').hidden){const inspect=props.querySelector('image[data-inspect]');if(inspect&&window.lpPhase==='intro'&&$('sceneAction').textContent.includes('Inspect')){watchTap(handTarget(inspect),()=>$('sceneAction').click(),2500)}else{$('sceneAction').click();watchDue=performance.now()+2500}return}
+ if(!$('sceneAction').hidden){const inspect=props.querySelector('image[data-inspect]');if(inspect&&window.lpPhase==='intro'&&$('sceneAction').textContent.includes('Inspect')){watchTap(handTarget(inspect),()=>$('sceneAction').click(),1000)}else{$('sceneAction').click();watchDue=performance.now()+1000}return}
  if(!$('quiz').hidden){const q=story.questions[quizIndex];if(q&&$('quiz').dataset.answering!=='true')$('quizChoices').children[q.answer]?.click();watchDue=performance.now()+5000;return}
  const patch=props.querySelector('[data-patch]:not([data-done])');
  const task=props.querySelector('[data-harvest]:not([data-done])');
  const sack=front.querySelector('#looseSacks image');
  const shareItem=props.querySelector('#sharingSacks image');
- if(patch)watchElement(patch,1400);
- else if(task)watchElement(task,2100);
- else if(sack)watchElement(sack,2400);
- else if(shareItem){if(selectedSack===null)watchElement(shareItem,1400);else{const j=shareTargets.findIndex(([key,,cap])=>shareCounts[key]<cap);if(j>=0){const key=shareTargets[j][0];watchTap({x:shareZone.x+j*shareZone.spacing+76+shareCounts[key]*83,y:shareZone.y+65},()=>putSack(key),1400)}}}
-},200);
+ if(patch)watchElement(patch,570);
+ else if(task)watchElement(task,850);
+ else if(sack)watchElement(sack,950);
+ else if(shareItem){if(selectedSack===null)watchElement(shareItem,600);else{const j=shareTargets.findIndex(([key,,cap])=>shareCounts[key]<cap);if(j>=0){const key=shareTargets[j][0];watchTap({x:shareZone.x+j*shareZone.spacing+76+shareCounts[key]*83,y:shareZone.y+65},()=>putSack(key),650)}}}
+},80);
 $('start').onclick=()=>{setWatch(false);begin(Boolean($('start').dataset.resume))};
 $('restart').onclick=()=>{setWatch(false);begin(false)};
 $('playAgain').onclick=()=>{setWatch(false);clipStop();begin(false)};
@@ -694,9 +757,9 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c]=await Promise.all([fetch('dialogue.json?v=4'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);
+   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=4'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
    if(!d.ok)throw Error('Mission dialogue not available');
-   story=await d.json();cartSource=c.ok?await c.text():null;background('village');
+   story=await d.json();cartSource=c.ok?await c.text():null;chickenSource=ch?.ok?await ch.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}
    $('start').disabled=false;$('watch').disabled=false;
  }catch(err){$('start').textContent='Unable to load mission';$('start').disabled=true;banner(String(err),15000)}

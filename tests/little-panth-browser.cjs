@@ -22,6 +22,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  async function ready(){await page.waitForFunction(()=>document.querySelector('#stage').dataset.busy==='false')}
  async function load(){await ready();const sack=page.locator('#looseSacks image').first();await sack.waitFor({timeout:10000});await sack.press('Enter');await page.waitForTimeout(120)}
  await page.locator('#voiceToggle').click();await page.locator('#start').click();
+ await page.locator('#introChicken').waitFor();assert.match(await page.locator('#background').getAttribute('href'),/wheat%20field\.svg/);await shot('00-musical-field-opening');
  await page.locator('#speech:not([hidden])').waitFor();
  for(const width of [1380,390]){
   await page.setViewportSize({width,height:880});
@@ -81,6 +82,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  }
  await page.locator('#speech:not([hidden])').waitFor();await page.locator('#actor-mehar').evaluate(el=>el.dataset.facing==='left').then(v=>assert.ok(v,'Mehar should face Baldev in finale'));
  await page.waitForTimeout(1000);assert.ok(Number((await page.locator('#stage').getAttribute('viewBox')).split(' ')[2])<1280,'Dialogue camera should push in');
+ assert.equal(await page.locator('#worldProps #fallenWheel').count(),1,'Finale wheel must be behind the characters');
  await advance(3);await page.locator('#finish:not([hidden])').waitFor({timeout:15000});
  await shot('08-complete');
  assert.equal(errors.length,0,'Browser errors: '+errors.join('\n'));
