@@ -422,7 +422,6 @@
       "pa": "ਹਾਂ ਪੁੱਤਰ, ਪਹਿਲਾਂ ਇਹ ਤਿੰਨ ਬੋਰੀਆਂ ਵਿਹੜੇ ਵਿੱਚ ਲਾਹ ਦਈਏ।",
       "roman": "Haan puttar, pehlan eh tinn boriyaan vehre vich laah daiye.",
       "en": "Yes, puttar. Let’s unload these three sacks in the storage courtyard first.",
-      "audio": false,
       "to": "mehar"
     },
     "lpSunset": {
@@ -430,7 +429,6 @@
       "pa": "ਚਾਚਾ ਜੀ, ਸੂਰਜ ਡੁੱਬਣ ਵਾਲਾ ਹੈ। ਬਲਦ ਵੀ ਥੱਕ ਗਏ ਨੇ।",
       "roman": "Chacha Ji, sooraj dubban waala hai. Bald vi thakk gaye ne.",
       "en": "Chacha Ji, the sun’s going down. The bullocks are tired too.",
-      "audio": false,
       "to": "baldev"
     },
     "lpLastTrip": {
@@ -438,15 +436,13 @@
       "pa": "ਹਨੇਰਾ ਹੋਣ ਵਾਲਾ ਹੈ। ਅੱਜ ਫੇਰ ਨਹੀਂ ਆ ਸਕਾਂਗੇ। ਹੋਰ ਬੋਰੀਆਂ ਪਾਓ, ਕੱਲ੍ਹ ਮੰਡੀ ਵਿੱਚ ਵੱਧ ਕਣਕ ਵੇਚਾਂਗੇ!",
       "roman": "Hanera hon waala hai. Ajj pher nahi aa sakaange. Hor boriyaan paao, kallh mandi vich vadh kanak vechaange!",
       "en": "It’ll be dark soon. We can’t come back again today. Pile on more sacks. I’ll sell more wheat at the market tomorrow!",
-      "audio": false,
       "to": "mehar"
     },
     "lpRecover": {
       "speaker": "narrator",
       "pa": "ਪਿੰਡ ਵਾਲਿਆਂ ਨੇ ਖੇਤ ਵਿੱਚੋਂ ਅੱਠ ਬੋਰੀਆਂ ਚੁੱਕਣ ਵਿੱਚ ਮਦਦ ਕੀਤੀ। ਪਹਿਲੀਆਂ ਤਿੰਨ ਬੋਰੀਆਂ ਵਿਹੜੇ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਸਨ।",
       "roman": "Pind waaleyan ne khet vichon atth boriyaan chukkan vich madad kiti. Pehliyaan tinn boriyaan vehre vich surakhiyat san.",
-      "en": "The villagers helped bring all eight sacks back from the field. The first three were already safe in the storage courtyard.",
-      "audio": false
+      "en": "The villagers helped bring all eight sacks back from the field. The first three were already safe in the storage courtyard."
     }
   },
   "questions": [

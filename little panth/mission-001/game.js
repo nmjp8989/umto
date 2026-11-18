@@ -72,17 +72,6 @@ async function oneLine(id,token,autoRead) {
    function startReadingTimer(){
      if(autoRead||watchMode){clearTimeout(readTimer);readTimer=setTimeout(done,Math.max(line.sacred?6500:3800,line.en.split(/\s+/).length*325));}
    }
-   if(line.audio===false){
-     captionRequired=true;updateCaptions();
-     const voice=window.speechSynthesis?.getVoices().find(v=>/^pa(-|_)/i.test(v.lang));
-     if(voiceEnabled&&voice){
-       utterance=new SpeechSynthesisUtterance(line.pa);
-       utterance.voice=voice;utterance.lang=voice.lang;utterance.rate=.94;
-       utterance.onend=done;utterance.onerror=startReadingTimer;
-       speechSynthesis.speak(utterance);
-     }
-     startReadingTimer();return;
-   }
    if(!voiceEnabled){if(id==='lp017')cueTimer=setTimeout(fireCue,3300);startReadingTimer();return}
    let failed=false;
    const audio=new Audio('audio/'+id+'.mp3');currentVoice=audio;audio.volume=.94;
@@ -545,7 +534,8 @@ function offerUnload(){
    await sackFlight(slot,drop,watchMode?360:560,80);
    if(token!==epoch)return;
    props.append(img(asset.sack,drop.x,drop.y,drop.w,drop.h));sound.load();
-   if(loaded){stageBusy=false;offerUnload();return}
+   stageBusy=false;
+   if(loaded){offerUnload();return}
    setLabel('First delivery complete','3 / 3');
    sound.cheer();banner('Three sacks safely stored!');
    button('Take the empty cart back to the fields →',returnToField);
@@ -804,7 +794,7 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=5'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
+   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=6'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
    if(!d.ok)throw Error('Mission dialogue not available');
    story=await d.json();cartSource=c.ok?await c.text():null;chickenSource=ch?.ok?await ch.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}

@@ -55,13 +55,29 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  await page.locator('#english').filter({hasText:"Here's my cart!"}).waitFor();
  await shot('03-cart-arrival');await advance(1);await shot('03-cart-load');
  for(let i=0;i<3;i++)await load();
- await advance(2);await action();await advance(1);await shot('04-storage');
- for(let i=0;i<2;i++)await load();
+ await advance(2);await action();
+ assert.match(await page.locator('#background').getAttribute('href'),/village%20storage%20courtyard\.svg/);
+ await page.locator('[data-harvest="unload"]').waitFor();await shot('04-storage');
+ for(let i=0;i<3;i++){
+  const sack=page.locator('[data-harvest="unload"]');
+  await sack.waitFor();assert.equal(await sack.getAttribute('aria-label'),'Unload sack '+(i+1)+' of 3');
+  await sack.press('Enter');
+ }
+ await page.getByText('First delivery complete').waitFor();await ready();
+ assert.equal(await page.locator('#worldProps > image[href*="wheat-sack.svg"]').count(),3);
+ await action();await page.locator('#stage[data-light="sunset"]').waitFor();
+ assert.match(await page.locator('#background').getAttribute('href'),/wheat%20field\.svg/);
+ await page.locator('#english').filter({hasText:'the sun’s going down'}).waitFor();
+ await advance(1);await page.locator('#english').filter({hasText:'sell more wheat at the market'}).waitFor();
+ await advance(1);await ready();
+ assert.equal(await page.locator('#sack-pos-1').getAttribute('opacity'),'0','The returning cart must be empty');
+ for(let i=0;i<5;i++)await load();
+ await page.locator('#stage[data-light="dusk"]').waitFor();
  await advance(1);
  for(let i=0;i<2;i++)await load();
- await advance(2);await shot('05-overloaded');
+ await advance(2);await page.locator('#stage[data-light="night"]').waitFor();await shot('05-overloaded');
  await load();await page.locator('#fx .sack-flight').waitFor();await advance(1);
- await load();await page.locator('#english').filter({hasText:"I've done it!"}).waitFor();assert.equal(await page.locator('#cartHost.cart-crash').count(),0,'Cart must not break before Baldev speaks');await advance(1);await page.locator('#cartHost.cart-crash').waitFor();assert.equal(await page.locator('#fallenWheel').count(),1,'A detached wheel must remain visible');assert.equal(await page.locator('#right-wheel').getAttribute('visibility'),'hidden');await advance(4);await action();
+ await load();await page.locator('#english').filter({hasText:"I've done it!"}).waitFor();assert.equal(await page.locator('#cartHost.cart-crash').count(),0,'Cart must not break before Baldev speaks');await advance(1);await page.locator('#cartHost.cart-crash').waitFor();assert.equal(await page.locator('#fallenWheel').count(),1,'A detached wheel must remain visible');assert.equal(await page.locator('#right-wheel').getAttribute('visibility'),'hidden');await shot('05b-field-crash');await advance(5);await action();
  await advance(5);await action();await advance(1);
  await page.locator('#verse:not([hidden])').waitFor();await shot('06-gurbani');
  await page.locator('#english').filter({hasText:"Even gathering all the world's riches"}).waitFor({timeout:10000});
