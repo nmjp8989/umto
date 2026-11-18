@@ -1,0 +1,45 @@
+name: Little Panth complete browser smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-001/*.js'
+      - 'little panth/mission-001/*.html'
+      - 'little panth/mission-001/*.css'
+      - 'little panth/mission-001/dialogue.json'
+      - 'tests/little-panth-browser.cjs'
+      - '.github/workflows/little-panth-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JS and Python syntax
+        run: |
+          node --check "little panth/mission-001/game.js"
+          node --check missions/delivery-bridge.js
+          python -m py_compile tools/build_little_panth_audio.py
+          python -m json.tool "little panth/mission-001/dialogue.json" > /dev/null
+      - name: Install Playwright (uses preinstalled Google Chrome)
+        run: npm install --no-save playwright-core@1.56.1
+      - name: Start static site
+        run: python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp-http.log 2>&1 &
+      - name: Complete mission in Chromium
+        run: node tests/little-panth-browser.cjs
+      - name: Upload game screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-browser-screenshots
+          path: screenshots/little-panth/
+          if-no-files-found: ignore
