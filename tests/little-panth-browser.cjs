@@ -63,7 +63,7 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
   await sack.waitFor();assert.equal(await sack.getAttribute('aria-label'),'Unload sack '+(i+1)+' of 3');
   await sack.press('Enter');
  }
- await page.getByText('First delivery complete').waitFor();await ready();
+ await page.locator('#objective').filter({hasText:'First delivery complete'}).waitFor();await ready();
  assert.equal(await page.locator('#worldProps > image[href*="wheat-sack.svg"]').count(),3);
  await action();await page.locator('#stage[data-light="sunset"]').waitFor();
  assert.match(await page.locator('#background').getAttribute('href'),/wheat%20field\.svg/);
