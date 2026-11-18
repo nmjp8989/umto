@@ -280,5 +280,29 @@
     "voice": "Aoede",
     "text": "ਅੱਜ ਅਸੀਂ ਸਿੱਖਿਆ ਕਿ ਸੰਤੋਖ ਅਤੇ ਵੰਡ ਛਕਣ ਨਾਲ ਮਨ ਖੁਸ਼ ਹੁੰਦਾ ਹੈ। ਘਰ ਜਾ ਕੇ ਸੋਚੋ ਕਿ ਤੁਸੀਂ ਕਿਸ ਦੀ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ।",
     "speaker": "narrator"
+  },
+  "lpFirstTrip": {
+    "hash": "21f2badbf21803b44b74aa6a3973bbf2eda210ad94fbced46081dd94100254cb",
+    "voice": "Puck",
+    "text": "ਹਾਂ ਪੁੱਤਰ, ਪਹਿਲਾਂ ਇਹ ਤਿੰਨ ਬੋਰੀਆਂ ਵਿਹੜੇ ਵਿੱਚ ਲਾਹ ਦਈਏ।",
+    "speaker": "baldev"
+  },
+  "lpSunset": {
+    "hash": "be5f9b0db0ec8536e64adb9df3030ac2a87a35e04a2aa571b4b19f4aef09af1d",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ, ਸੂਰਜ ਡੁੱਬਣ ਵਾਲਾ ਹੈ। ਬਲਦ ਵੀ ਥੱਕ ਗਏ ਨੇ।",
+    "speaker": "mehar"
+  },
+  "lpLastTrip": {
+    "hash": "b3a355f169c78e63e909eaba35f097db27fbe5f15bb41c092afa7bcf78be058a",
+    "voice": "Puck",
+    "text": "ਹਨੇਰਾ ਹੋਣ ਵਾਲਾ ਹੈ। ਅੱਜ ਫੇਰ ਨਹੀਂ ਆ ਸਕਾਂਗੇ। ਹੋਰ ਬੋਰੀਆਂ ਪਾਓ, ਕੱਲ੍ਹ ਮੰਡੀ ਵਿੱਚ ਵੱਧ ਕਣਕ ਵੇਚਾਂਗੇ!",
+    "speaker": "baldev"
+  },
+  "lpRecover": {
+    "hash": "867ab0fee319133a4d2a18d6021f8eb82b4d0a9f37282d0fcbd2a1fc576b069b",
+    "voice": "Aoede",
+    "text": "ਪਿੰਡ ਵਾਲਿਆਂ ਨੇ ਖੇਤ ਵਿੱਚੋਂ ਅੱਠ ਬੋਰੀਆਂ ਚੁੱਕਣ ਵਿੱਚ ਮਦਦ ਕੀਤੀ। ਪਹਿਲੀਆਂ ਤਿੰਨ ਬੋਰੀਆਂ ਵਿਹੜੇ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਸਨ।",
+    "speaker": "narrator"
   }
 }
