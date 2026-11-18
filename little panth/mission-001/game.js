@@ -8,8 +8,23 @@ const backgrounds={village:'anchor set/village courtyard.svg',field:'anchor set/
 const asset={patch:'assets/wheat/wheat-patch.svg',bundle:'assets/wheat/wheat-bundle.svg',sack:'assets/wheat/wheat-sack.svg',chicken:'assets/props/chicken.svg',basket:'assets/props/basket.svg',sickle:'assets/tools/sickle.svg'};
 const n=(name,attrs={})=>{const el=document.createElementNS(NS,name);for(const [k,v]of Object.entries(attrs))el.setAttribute(k,String(v));return el};
 const stage=$('stage'),props=$('worldProps'),cast=$('characters'),fx=$('fx');
+const captionModes=['English','Full','Off'];
+let captionMode=0, captionRequired=false;
+try { captionMode=Math.max(0,captionModes.indexOf(localStorage.getItem('little-panth-captions'))); } catch {}
+function updateCaptions(){
+ const mode=captionModes[captionMode];
+ $('spoken').hidden=mode!=='Full'&&!(mode==='Off'&&captionRequired);
+ $('roman').hidden=mode!=='Full';
+ $('english').hidden=mode==='Off'&&!captionRequired;
+ $('captionToggle').textContent='CC · '+mode;
+}
+$('captionToggle').onclick=()=>{
+ captionMode=(captionMode+1)%captionModes.length;
+ try { localStorage.setItem('little-panth-captions',captionModes[captionMode]); } catch {}
+ updateCaptions();
+};
 const STORAGE_KEY='little-panth-lp001-v1';
-let story,cartSource,rig={},actorNodes=new Map(),actors=[],currentVoice=null,voiceResolver=null,voiceEnabled=true,musicEnabled=true,
+let story,cartSource,rig={},actors=[],currentVoice=null,voiceResolver=null,voiceEnabled=true,musicEnabled=true,
     epoch=0,activeSpeaker='',stageBusy=false,loaded=0,harvested=0,selectedSack=null,shareCounts={home:0,seeds:0,sharing:0},quizIndex=0,
     eighthAttempts=0,locationId='village',act=1,runStarted=false,firstLoad=true;
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -19,7 +34,7 @@ function setLabel(objective,counter='',instruction=''){
 }
 function banner(text,ms=1500){const b=$('activity');b.textContent=text;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>b.hidden=true,ms)}
 function background(id){locationId=id;$('background').setAttribute('href',imageOf(backgrounds[id]));$('location').textContent={village:'Village courtyard',field:'Golden wheat field',storage:'Baldev\u2019s storage yard',gurdwara:'Gurudwara Sahib'}[id];}
-function clearStage(){clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;actorNodes.clear();cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
+function clearStage(){clearTimeout($('activity')._t);$('activity').hidden=true;props.replaceChildren();fx.replaceChildren();$('verse').hidden=true;$('speech').hidden=true;$('sceneAction').hidden=true;$('quiz').hidden=true;$('finish').hidden=true;cast.replaceChildren();activeSpeaker='';selectedSack=null;stageBusy=false}
 function scene(id,number,title){epoch++;clearStage();act=number;$('actBadge').textContent='ACT '+number+' / 5';$('chapter').textContent=title;background(id);save();}
 function save(){if(!runStarted)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify({phase:window.lpPhase||'intro',loaded,harvested,shareCounts,quizIndex,ts:Date.now()}))}catch{}}
 function setPhase(id){window.lpPhase=id;save()}
@@ -28,32 +43,44 @@ function clipStop(){if(currentVoice){currentVoice.onended=null;currentVoice.oner
 async function oneLine(id,token) {
  if(token!==epoch)return;
  const line=story.lines[id];if(!line)return;
- activeSpeaker=line.speaker;updateTalking();
+ activeSpeaker=line.speaker;
+ dialoguePose=storyPoses[id]||'idle';
+ dialogueStart=performance.now();
+ captionRequired=!voiceEnabled||Boolean(line.sacred);
+ updateCaptions();
+ updateTalking();
  $('speech').hidden=false;
  $('speaker').textContent=story.speakerDisplay[line.speaker]||line.speaker;
  $('spoken').textContent=line.pa;
  $('roman').textContent=line.roman;
  $('english').textContent=line.en;
- $('lineNo').textContent='PUNJABI • ENGLISH';
- $('soundHint').textContent=line.sacred?'🙏 Gurbani — review recorded pronunciation before final release':voiceEnabled?'🔊 Punjabi narration':'🔇 Narration muted';
+ $('soundHint').textContent='';
  const lastFocus=document.activeElement;
  await new Promise(resolve=>{
    let settled=false;let utterance=null;
    const done=()=>{if(settled)return;settled=true;voiceResolver=null;if(currentVoice){currentVoice.onended=null;currentVoice.onerror=null;currentVoice.pause();currentVoice=null}if(utterance&&'speechSynthesis'in window)try{speechSynthesis.cancel()}catch{};resolve()};
    voiceResolver=done;$('nextLine').onclick=done;
    if(!voiceEnabled||line.sacred){return}
+   let failed=false;
    const audio=new Audio('audio/'+id+'.mp3');currentVoice=audio;audio.volume=.94;
    audio.onended=()=>setTimeout(done,250);
    audio.onerror=()=>{
+     if(settled||failed)return;
+     failed=true;
      currentVoice=null;
      // On a first deploy or offline run, keep text interactive instead of failing.
      if('speechSynthesis'in window && speechSynthesis.getVoices().some(v=>/^pa(-|_)/i.test(v.lang))) {
        utterance=new SpeechSynthesisUtterance(line.pa);
        utterance.lang='pa-IN';utterance.rate=.94;
-       utterance.onend=()=>setTimeout(done,200);utterance.onerror=()=>{};
+       utterance.onend=()=>setTimeout(done,200);utterance.onerror=showUnavailable;
        speechSynthesis.speak(utterance);
-     }else $('soundHint').textContent='Audio not yet generated — tap Continue';
+     }else showUnavailable();
    };
+   function showUnavailable(){
+     captionRequired=true;
+     updateCaptions();
+     $('soundHint').textContent='Narration unavailable for this line';
+   }
    audio.play().catch(()=>{audio.onerror?.()});
  });
  if(token!==epoch)return;
@@ -77,19 +104,28 @@ const sound=sounds; // melody and all effects synthesized locally, no audio depe
 function img(path,x,y,w,h,clazz='',label=''){const el=n('image',{x,y,width:w,height:h,href:imageOf(path),'class':clazz,preserveAspectRatio:'xMidYMid meet'});if(label){el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label',label)}return el}
 function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-anchor':'middle','font-family':'Nunito,system-ui,sans-serif','font-size':size,'font-weight':'900',fill,stroke:'#23454d','stroke-width':.5});el.textContent=text;return el}
 function arrangeCast(type){
- cast.replaceChildren();actorNodes.clear();
+ cast.replaceChildren();
  const layouts={
- intro:[['baldev',260,665,420],['mehar',1180,675,300]],
- harvest:[['baldev',160,657,320],['mehar',1130,666,260]],
- load:[['baldev',180,656,310],['mehar',1115,666,260]],
- storage:[['baldev',145,647,340],['mehar',1153,660,265]],
- requests:[['baldev',235,660,360],['mehar',510,660,275],['farmer',975,656,335],['baba',1140,660,325]],
- lesson:[['baldev',230,665,350],['mehar',450,665,250],['baba',1030,665,360]],
- share:[['baldev',120,650,300],['mehar',1120,650,250]],
- finale:[['baldev',300,670,365],['mehar',985,670,290]],
+ intro:[['baldev',265,660,430],['mehar',1110,675,320,'left']],
+ harvest:[['baldev',160,657,320],['mehar',1100,666,290,'left']],
+ load:[['baldev',180,656,310],['mehar',1115,666,280,'left']],
+ storage:[['baldev',145,647,340],['mehar',1125,660,290,'left']],
+ requests:[['baldev',235,660,360],['mehar',510,660,275],['farmer',910,656,365,'left'],['baba',1130,660,350,'left']],
+ lesson:[['baldev',230,665,350],['mehar',450,665,250],['baba',1020,665,415,'left']],
+ share:[['baldev',245,660,390],['mehar',1100,655,285,'left']],
+ sharingGame:[['baldev',320,340,245],['mehar',945,340,205,'left']],
+ shareDone:[['baldev',290,660,365],['mehar',665,655,280],['farmer',1040,655,345,'left']],
+ finale:[['baldev',300,670,365],['mehar',1035,670,320,'left']],
  };
- actors=(layouts[type]||layouts.intro).map(([id,x,y,height])=>({id,x,y,height,frame:'',action:'idle',node:null}));
+ actors=(layouts[type]||layouts.intro).map(([id,x,y,height,view='right'])=>({id,x,y,height,view,frame:'',action:'idle',node:null}));
  renderCast();
+ if(type==='requests'&&!reducedMotion.matches){
+   for(const actor of actors.filter(a=>a.view==='left')){
+     actor.walkStart=performance.now();
+     actor.art.animate([{translate:'100px 0'},{translate:'0 0'}],{duration:760,easing:'linear'});
+     actor.node.firstElementChild.animate([{translate:'100px 0'},{translate:'0 0'}],{duration:760,easing:'linear'});
+   }
+ }
 }
 function fallback(actor){
  const size=actor.id==='mehar'?0.76:1;
@@ -97,25 +133,79 @@ function fallback(actor){
  const turban=actor.id==='mehar'?'<path d="M-44-122q35-50 90-4v24h-90Z" fill="#e28d49" stroke="#573323" stroke-width="4"/>':'<path d="M-51-129q0-43 51-52q51 11 51 52v25h-102Z" fill="'+c[1]+'" stroke="#4c3125" stroke-width="4"/><path d="M-48-139q46 11 96-6M-45-122q40 10 89-9" fill="none" stroke="#faf2d3" stroke-width="4"/>';
  return `<svg x="${-actor.height*.28}" y="${-actor.height}" width="${actor.height*.56}" height="${actor.height}" viewBox="-115 -200 230 390" overflow="visible"><g class="fallback-body"><path d="M-40 58L-44 151H-9L-4 69 9 151H45L41 56Z" fill="#524b53" stroke="#302b29" stroke-width="6"/><path d="M-56-19Q0-32 56-19L74 100H-69Z" fill="${c[2]}" stroke="#402f29" stroke-width="6"/><path d="M-52-9l-27 81 20 8 28-56M53-9l27 81-20 8-28-56" fill="${c[0]}" stroke="#493126" stroke-width="6"/><circle cy="-102" r="48" fill="${c[0]}" stroke="#493126" stroke-width="5"/>${turban}<circle cx="-17" cy="-106" r="4" fill="#282321"/><circle cx="18" cy="-106" r="4" fill="#282321"/><path d="M-12-84Q3-72 16-86" stroke="#733725" fill="none" stroke-width="3"/>${actor.id!=='mehar'?'<path d="M-24-69Q0-52 24-69L14-50H-12Z" fill="#5d4537"/>':''}</g></svg>`;
 }
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+const storyPoses={
+ lp001:'beckon',lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
+ lp007:'wonder',lp008:'celebrate',lp009:'point',lp013:'point',lp014:'alarm',
+ lp016:'alarm',lp017:'alarm',lp018:'alarm',lp019:'reflect',lp020:'reflect',
+ lp021:'offer',lp022:'offer',lp023:'reflect',lp024:'wonder',lp025:'beckon',
+ lp026:'offer',lp027:'reflect',lp029:'point',lp030:'offer',lp031:'reflect',
+ lp032:'point',lp033:'offer',lp034:'celebrate',lp035:'wonder',lp036:'offer',
+ lp037:'wonder',lp038:'alarm'
+};
+let dialoguePose='idle', dialogueStart=0;
 function renderCast(){
- for(const actor of actors){let node=n('g',{'class':'actor',id:'actor-'+actor.id,transform:`translate(${actor.x} ${actor.y})`});actor.node=node;actorNodes.set(actor.id,node);cast.appendChild(node);renderActor(actor,true)}
-}
-function renderActor(actor,force=false){
- const node=actor.node;if(!node)return;
- const slot=rig[actor.id]?.right;
- const frame=activeSpeaker===actor.id?'talk'+(['A','EE','O'][Math.floor(performance.now()/210)%3]):actor.action==='walk'?'walk'+([0,3,6,9][Math.floor(performance.now()/180)%4]):actor.action==='gesture'?'gesture':actor.action==='panic'?'blink':actor.action==='happy'?'greet0':Math.floor(performance.now()/1000)%13===0?'blink':'idle';
- node.classList.toggle('talking',activeSpeaker===actor.id);node.classList.toggle('panicking',actor.action==='panic');node.classList.toggle('happy',actor.action==='happy');node.classList.toggle('walk',actor.action==='walk');
- if(!slot){if(force||!node.firstChild)node.innerHTML=fallback(actor);return}
- const pose=slot.frames[frame]||slot.frames.idle;
- if(force||!node._sprite){node.innerHTML=`<svg x="${-actor.height*.265}" y="${-actor.height}" width="${actor.height*.53}" height="${actor.height}" overflow="visible">${slot.base}</svg>`;node._sprite=node.firstElementChild;node._layers=Object.fromEntries([...node.querySelectorAll('[data-scene-layer]')].map(e=>[e.dataset.sceneLayer,e]));actor.frame='';node._parts={}}
- if(pose&&frame!==actor.frame){actor.frame=frame;for(const [key,markup]of Object.entries(pose.parts||{})){if(node._layers[key]&&node._parts[key]!==markup){node._layers[key].innerHTML=markup;node._parts[key]=markup;}}
-   for(const name of slot.headLayers||[])node._layers[name]?.setAttribute('transform',pose.head||'');
+ for(const actor of actors){
+   const node=n('g',{class:'actor',id:'actor-'+actor.id,transform:`translate(${actor.x} ${actor.y})`});
+   node.append(n('ellipse',{class:'actor-shadow',cy:-4,rx:actor.height*.14,ry:actor.height*.028}));
+   actor.art=n('g',{class:'actor-art'});
+   node.append(actor.art);
+   actor.node=node;
+   cast.appendChild(node);
+   renderActor(actor);
  }
 }
-function updateTalking(){for(const actor of actors)renderActor(actor,true)}
-let last=0;function animate(now){if(now-last>180){last=now;for(const actor of actors)renderActor(actor)}requestAnimationFrame(animate)}requestAnimationFrame(animate);
+function renderActor(actor,now=performance.now()){
+ const art=actor.art;
+ const slot=rig[actor.id]?.[actor.view];
+ const speaking=activeSpeaker===actor.id;
+ const elapsed=now-dialogueStart;
+ const clipPlaying=currentVoice&&!currentVoice.paused;
+ const speakingTime=clipPlaying?currentVoice.currentTime*1000:elapsed;
+ const mouth=!reducedMotion.matches&&speaking&&clipPlaying?['talkA','talkEE','idle','talkO','talkEE'][Math.floor(speakingTime/118)%5]:'idle';
+ const blink=!reducedMotion.matches&&(now+actor.x*3)%4300<135;
+ const reaction=speaking?dialoguePose:actor.action;
+ const gesture=speaking&&!reducedMotion.matches&&elapsed>1450&&elapsed%2400>1450?'idle':reaction;
+ const walkTime=now-(actor.walkStart??-Infinity);
+ const walk=walkTime>=0&&walkTime<760;
+ const pose=walk?'walk'+Math.floor(walkTime/760*12):gesture;
+ art.classList.toggle('alarm',reaction==='alarm');
+ art.classList.toggle('celebrate',reaction==='celebrate');
+ const frame=slot?.frames[pose]??slot?.frames.idle;
+ if(!slot){
+   if(!art.firstChild)art.innerHTML=fallback(actor);
+   return;
+ }
+ if(!art._sprite){
+   art.innerHTML=`<svg x="${-actor.height*.30}" y="${-actor.height}" width="${actor.height*.60}" height="${actor.height}" overflow="visible">${slot.base}</svg>`;
+   art._sprite=art.firstElementChild;
+   art._layers=Object.fromEntries([...art.querySelectorAll('[data-scene-layer]')].map(e=>[e.dataset.sceneLayer,e]));
+   art._parts={};
+ }
+ const face=slot.frames[mouth];
+ const key=[pose,mouth,blink].join(':');
+ if(key===actor.frame)return;
+ actor.frame=key;
+ for(const [part,original] of Object.entries(frame.parts)){
+   let markup=original;
+   if(blink&&part==='eyeGroup')markup=slot.frames.blink.parts[part];
+   if(mouth!=='idle'&&['mouthGroup','beardGroup'].includes(part))markup=face.parts[part];
+   if(art._layers[part]&&art._parts[part]!==markup){
+     art._layers[part].innerHTML=markup;
+     art._parts[part]=markup;
+   }
+ }
+ for(const name of slot.headLayers)art._layers[name]?.setAttribute('transform',frame.head||'');
+}
+function updateTalking(){for(const actor of actors)renderActor(actor)}
+let last=0;
+function animate(now){
+ if(now-last>55){last=now;for(const actor of actors)renderActor(actor,now)}
+ requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
 window.addEventListener('message',e=>{if(e.source!==$('rigBridge').contentWindow||e.origin!==location.origin)return;
- if(e.data?.type==='anitoons-delivery-cast'&&e.data.version===2){rig=e.data.bank||{};for(const actor of actors){actor.node._sprite=null;renderActor(actor,true)}}
+ if(e.data?.type==='anitoons-delivery-cast'&&e.data.version===2){rig=e.data.bank||{};for(const actor of actors){actor.art._sprite=null;actor.frame='';renderActor(actor)}}
 });
 const requestRig=()=>{try{$('rigBridge').contentWindow.postMessage({type:'anitoons-delivery-request'},location.origin)}catch{}};
 $('rigBridge').addEventListener('load',requestRig);setTimeout(requestRig,2500);
@@ -207,8 +297,9 @@ async function loadStorageSack(){
    stageBusy=true;loaded=8;updateCart();props.querySelector('#looseSacks')?.replaceChildren();sound.crash();$('cartHost')?.classList.add('cart-crash');
    props.append(img(asset.chicken,1000,528,110,115,'chicken-run'));
    for(let j=0;j<4;j++)props.append(img(asset.sack,555+j*91,568+(j%2)*20,80,107));
+   for(const actor of actors)actor.action='alarm';
    banner('CRAAACK! THE WHEEL BROKE!',2500);
-   await wait(1250);await speak('crash');sound.setMood('reflection');actors.find(a=>a.id==='baldev').action='idle';
+   await wait(1250);await speak('crash');sound.setMood('reflection');for(const actor of actors)actor.action=actor.id==='baldev'?'reflect':'idle';
    props.append(img(asset.basket,215,554,130,87));await speak('reflection');button('Return to the village →',()=>requests());return;
  }
  stageBusy=true;loaded++;sound.load();updateCart();drawStorageSacks();
@@ -231,7 +322,7 @@ async function lesson(){
 function share(){
  setPhase('share');scene('village',5,'THE JOY OF SHARING');sound.setMood('village');arrangeCast('share');
  shareCounts={home:0,seeds:0,sharing:0};selectedSack=null;
- (async()=>{await speak('shareIntro');showSharing()})();
+ (async()=>{await speak('shareIntro');arrangeCast('sharingGame');showSharing()})();
 }
 const shareTargets=[['home','HOME',3,'For Baldev\u2019s family','#8ccfb3'],['seeds','SEEDS',2,'For the next crop','#f6ca81'],['sharing','SHARING & LANGAR',3,'For those in need','#b7b6ef']];
 function showSharing(){
@@ -271,7 +362,7 @@ function putSack(key){
  const t=shareTargets.find(v=>v[0]===key);
  if(shareCounts[key]>=t[2]){banner(titleFor(key)+' is already full!');sound.wobble();return}
  shareCounts[key]++;selectedSack=null;sound.load();banner('Thank you for sharing!',900);showSharing();save();
- if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{await speak('shareDone');quiz()},900)}
+ if(Object.values(shareCounts).reduce((a,b)=>a+b,0)===8){stageBusy=true;sound.cheer();setTimeout(async()=>{props.replaceChildren();arrangeCast('shareDone');await speak('shareDone');quiz()},900)}
 }
 function titleFor(key){return shareTargets.find(t=>t[0]===key)[1]}
 function quiz(){
@@ -319,14 +410,14 @@ $('start').onclick=()=>begin(Boolean($('start').dataset.resume));
 $('restart').onclick=()=>begin(false);
 $('playAgain').onclick=()=>{clipStop();begin(false)};
 $('musicToggle').onclick=()=>{musicEnabled=!musicEnabled;$('musicToggle').textContent=musicEnabled?'♫ Music on':'♫ Music off';$('musicToggle').setAttribute('aria-pressed',String(musicEnabled));if(musicEnabled)sound.start()};
-$('voiceToggle').onclick=()=>{voiceEnabled=!voiceEnabled;$('voiceToggle').textContent=voiceEnabled?'◉ Voice on':'◌ Voice off';$('voiceToggle').setAttribute('aria-pressed',String(voiceEnabled));if(!voiceEnabled&&currentVoice)currentVoice.pause()};
+$('voiceToggle').onclick=()=>{voiceEnabled=!voiceEnabled;$('voiceToggle').textContent=voiceEnabled?'◉ Voice on':'◌ Voice off';$('voiceToggle').setAttribute('aria-pressed',String(voiceEnabled));if(!voiceEnabled){currentVoice?.pause();if('speechSynthesis'in window)speechSynthesis.cancel();captionRequired=true;updateCaptions()}else currentVoice?.play().catch(()=>{})};
 $('helpBtn').onclick=()=>{$('help').hidden=false};
 $('closeHelp').onclick=()=>{$('help').hidden=true};
 document.addEventListener('keydown',e=>{
  if(e.key==='Escape'){$('help').hidden=true;return}
  if((e.key==='Enter'||e.key===' ')&&!$('speech').hidden&&!e.target.closest('button')){e.preventDefault();$('nextLine').click()}
 });
-document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
    const [d,c]=await Promise.all([fetch('dialogue.json?v=1'),fetch(imageOf('assets/cart/bullock-cart.svg'))]);

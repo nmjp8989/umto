@@ -18,10 +18,10 @@
  if(littlePanth){
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
-   baldev:{preset:'adult-harpreet',colours:{headwear:'dastaar',headwearColour:'#d78031',shirt:'kurta',shirtColour:'#dca94b',trouserColour:'#675f52',facialHair:'beard_tied',beard:'tied',beardColour:'#34312d',moustache:'thick',moustacheColour:'#34312d',bodyType:'classic'}},
-   mehar:{preset:'kid-meher',colours:{headwear:'patka',headwearColour:'#e58a57',shirt:'kurti',shirtColour:'#edbe58',trouserColour:'#667f95',bodyType:'short'}},
-   baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#85aaa6',trouserColour:'#e8e1cd',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
-   farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#ad8357',shirt:'kurta',shirtColour:'#8c9a70',trouserColour:'#d6c6a4',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
+   baldev:{preset:'adult-harpreet',colours:{headwear:'dastaar',headwearColour:'#bb5729',shirt:'kurta',shirtColour:'#e7ad43',trouserColour:'#675f52',facialHair:'beard_tied',beard:'tied',beardColour:'#34312d',moustache:'thick',moustacheColour:'#34312d',bodyType:'classic'}},
+   mehar:{preset:'kid-meher',colours:{headwear:'patka',headwearColour:'#be5378',shirt:'kurtaChunni',shirtColour:'#397e92',bottom:'salwar',trouserColour:'#e6a870',bodyType:'short'}},
+   baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#477d76',trouserColour:'#e8e1cd',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
+   farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#78658f',shirt:'kurta',shirtColour:'#84935e',trouserColour:'#d6c6a4',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
   });
  }
  const bank={};let serial=300;
@@ -36,13 +36,14 @@
  try{
  for(const [id,def] of Object.entries(cast)){
   bank[id]={};
-  for(const view of (littlePanth?['right']:['left','right'])){
+  for(const view of ['left','right']){
    const actor=newSceneActor(def.preset,0);actor.view=view;actor.appearance={...actor.appearance,...def.colours,framing:'full',pose:'relaxed'};
    const base=createSceneActor(actor,serial++);
    base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
-   const keys=littlePanth?['idle','blink','talkA','talkEE','talkO','reach','gesture','walk0','walk3','walk6','walk9','greet0','greet1']:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
+ const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome'};
+   const keys=littlePanth?['idle','blink','talkA','talkEE','talkO',...Object.keys(storyReactions),...Array.from({length:12},(_,i)=>'walk'+i)]:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
    for(const key of keys){
     const copy=base.svg.cloneNode(true);
     const node={svg:copy,prefix:base.prefix,layers:Object.fromEntries([...copy.querySelectorAll('[data-scene-layer]')].map(e=>[e.dataset.sceneLayer,e]))};
@@ -51,22 +52,29 @@
     sceneWithState(actor,()=>{
      const idle=/^idle[0-7]$/.test(key),greet=key.startsWith('greet'),t=idle?Number(key.slice(4))*.45:greet?Number(key.slice(5))*.25:.65;
      const p=reactionPose(key==='gesture'?'explain':greet?(id==='kabir'?'wave':'nod'):idle?'breathe':'smile',t);
-     p.mouth=key.startsWith('talk')?key.slice(4):key.startsWith('ride')&&key!=='ride'?key.slice(4):'closed';
-     p.eyes=key==='blink'?'closed':'open';p.gazeX=idle?Math.round(Math.sin(t*1.4)*24):0;
+     const storyReaction=littlePanth?storyReactions[key]:null;
+     if(storyReaction)Object.assign(p,reactionPose(storyReaction,.72));
+     if(littlePanth&&key==='alarm')Object.assign(p,{mouth:'O',eyes:'surprised',brows:'raised',y:-8,angle:-4});
+     if(!storyReaction)p.mouth=key.startsWith('talk')?key.slice(4):key.startsWith('ride')&&key!=='ride'?key.slice(4):'closed';
+     if(!storyReaction){p.eyes=key==='blink'?'closed':'open';p.gazeX=idle?Math.round(Math.sin(t*1.4)*24):0;}
      if(idle){p.angle=Math.sin(t*1.7)*.65;p.y=Math.sin(t*1.75)*-4;}
      if(key.startsWith('walk'))poseWalking(Number(key.slice(4))*.1,node.scope);
      else if(key==='reach')setBodyArmPose({left:[-8,-70,0],right:[-12,-75,0]},{left:{pose:'palm',view:'palm'},right:{pose:'palm',view:'palm'}},node.scope);
-     else if(greet||key==='gesture')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},node.scope);
+     else if(p.arms||greet||key==='gesture')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},node.scope);
      else if(key.startsWith('ride'))setBodyArmPose({left:[-15,-70,0],right:[-15,-70,0]},{left:{pose:'fist',view:'edge'},right:{pose:'fist',view:'edge'}},node.scope);
      else setBodyArmPose({left:[-3+(idle?Math.sin(t)*1.3:0),0,0],right:[-3,0,0]}, {},node.scope);
      for(const [part,art] of Object.entries({eyeGroup:animationEyesSvg(p),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`,beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache)})){
       node.layers[part].innerHTML=cameraMarkup(part,art);remapSceneRefs(node.layers[part],node.prefix);
      }
+     if(littlePanth){
+      node.layers.eyebrowGroup.innerHTML=cameraMarkup('eyebrowGroup',browSvg(p.brows));
+      remapSceneRefs(node.layers.eyebrowGroup,node.prefix);
+     }
      for(const el of copy.querySelectorAll('[data-hand-action]'))remapSceneRefs(el,node.prefix);
      head=`translate(${p.x||0} ${p.y||0}) rotate(${p.angle||0} 627 ${bodyHeadPivot()})`;
     });
     if(key.startsWith('ride')){rider(node);slot.frames[key]={svg:copy.outerHTML};}
-    else slot.frames[key]={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup'].map(part=>[part,node.layers[part].innerHTML])),head};
+    else slot.frames[key]={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup',...(littlePanth?['eyebrowGroup']:[])].map(part=>[part,node.layers[part].innerHTML])),head};
    }
    await new Promise(resolve=>setTimeout(resolve,0));
   }

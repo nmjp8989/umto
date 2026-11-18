@@ -21,6 +21,20 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  async function action(){await page.locator('#sceneAction:not([hidden])').click({timeout:10000});}
  async function load(){await page.locator('#looseSacks image').first().click({timeout:10000,force:true})}
  await page.locator('#voiceToggle').click();await page.locator('#start').click();
+ await page.locator('#speech:not([hidden])').waitFor();
+ for(const width of [1380,390]){
+  await page.setViewportSize({width,height:880});
+  const stage=await page.locator('#stageWrap').boundingBox(), speech=await page.locator('#speech').boundingBox();
+  assert.ok(speech.y>=stage.y+stage.height,'Dialogue must stay below the artwork');
+ }
+ await page.setViewportSize({width:1380,height:880});
+ assert.equal(await page.locator('#spoken').isVisible(),false);
+ await page.locator('#captionToggle').click();
+ assert.equal(await page.locator('#spoken').isVisible(),true);
+ assert.equal(await page.locator('#roman').isVisible(),true);
+ await page.locator('#captionToggle').click();
+ assert.equal(await page.locator('#english').isVisible(),true,'Muted lines remain readable with CC off');
+ await page.locator('#captionToggle').click();
  await shot('01-opening');
  await advance(6);await action();await advance(1);await shot('02-harvest');
  for(let p=0;p<3;p++)for(let i=0;i<5;i++)await page.locator('[data-patch="'+p+'"]').click({force:true});
