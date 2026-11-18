@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="38 102 215 247" width="215" height="247">
+<defs>
+    <!-- Shared Gradients Matching bullock-cart.svg -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcfaff"/>
+      <stop offset="100%" stop-color="#f2ecfa"/>
+    </linearGradient>
+
+    <linearGradient id="wheatGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe761"/>
+      <stop offset="60%" stop-color="#f5be2e"/>
+      <stop offset="100%" stop-color="#cc8b14"/>
+    </linearGradient>
+
+    <linearGradient id="sackGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe18c"/>
+      <stop offset="55%" stop-color="#f2be57"/>
+      <stop offset="100%" stop-color="#cc8d2b"/>
+    </linearGradient>
+
+    <linearGradient id="woodHandle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e38d3b"/>
+      <stop offset="100%" stop-color="#8c4514"/>
+    </linearGradient>
+
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cfd8de"/>
+      <stop offset="100%" stop-color="#8b99a3"/>
+    </linearGradient>
+
+    <linearGradient id="oxGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="65%" stop-color="#f7ead4"/>
+      <stop offset="100%" stop-color="#e3c8a1"/>
+    </linearGradient>
+
+    <linearGradient id="hornGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e6642"/>
+      <stop offset="100%" stop-color="#59331d"/>
+    </linearGradient>
+
+    <linearGradient id="bellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffea61"/>
+      <stop offset="55%" stop-color="#f5b81d"/>
+      <stop offset="100%" stop-color="#c47e0e"/>
+    </linearGradient>
+
+    <linearGradient id="chickenGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fff3d6"/>
+      <stop offset="55%" stop-color="#f7b754"/>
+      <stop offset="100%" stop-color="#cf7129"/>
+    </linearGradient>
+
+    <linearGradient id="basketGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f0b654"/>
+      <stop offset="55%" stop-color="#d48e32"/>
+      <stop offset="100%" stop-color="#9e6019"/>
+    </linearGradient>
+
+    <!-- Reusable Wheat Stalk for Patch -->
+    <g id="patchStalk" stroke="#1f140d" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#c98912" stroke-width="3.2"/>
+      <path d="M0,0 Q-3,-55 4,-112" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+      <path d="M-1,-22 Q-18,-50 -14,-78 Q-6,-54 0,-32 Z" fill="#e6a81c" stroke-width="2"/>
+      <path d="M1,-36 Q16,-62 18,-86 Q7,-62 1,-44 Z" fill="#ffd238" stroke-width="2"/>
+      <g fill="#ffd238" stroke-width="2">
+        <ellipse cx="-2" cy="-112" rx="4.2" ry="7" transform="rotate(-22 -2 -112)"/>
+        <ellipse cx="8" cy="-116" rx="4.2" ry="7" transform="rotate(22 8 -116)"/>
+        <ellipse cx="-1" cy="-124" rx="4.2" ry="7" transform="rotate(-20 -1 -124)"/>
+        <ellipse cx="9" cy="-128" rx="4.2" ry="7" transform="rotate(20 9 -128)"/>
+        <ellipse cx="1" cy="-136" rx="3.8" ry="6.5" transform="rotate(-14 1 -136)"/>
+        <ellipse cx="10" cy="-138" rx="3.8" ry="6.5" transform="rotate(14 10 -138)"/>
+        <ellipse cx="6" cy="-147" rx="3.5" ry="6" transform="rotate(6 6 -147)"/>
+      </g>
+      <path d="M6,-153 L10,-168 M-1,-138 L-8,-152 M11,-138 L18,-150" fill="none" stroke-width="1.5"/>
+    </g>
+  </defs>
+<g id="asset-wheat-bundle" transform="translate(145, 275)">
+      <ellipse id="bundle-shadow" cx="0" cy="48" rx="68" ry="12" fill="#b38c68" opacity="0.35"/>
+
+      <g id="bundle-sheaf" stroke="#1f140d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Flared Base Stems -->
+        <path d="M-22,-18 L-58,44 Q0,54 58,44 L22,-18 Z" fill="#e6a825"/>
+        <path d="M-14,-12 L-34,46 M-4,-12 L-10,48 M6,-12 L12,48 M16,-12 L38,46" fill="none" stroke="#a6690d" stroke-width="1.8"/>
+
+        <!-- Top Fan of Wheat Ears -->
+        <path d="M-22,-18 Q-54,-82 -74,-120 Q-38,-140 -12,-128 Q0,-148 16,-128 Q42,-140 74,-120 Q54,-82 22,-18 Z" fill="url(#wheatGold)"/>
+        <!-- Individual Front Wheat Heads -->
+        <g fill="#ffe159" stroke-width="2">
+          <ellipse cx="-46" cy="-102" rx="7" ry="13" transform="rotate(-26 -46 -102)"/>
+          <ellipse cx="-24" cy="-114" rx="7" ry="13" transform="rotate(-12 -24 -114)"/>
+          <ellipse cx="0" cy="-118" rx="7.5" ry="14"/>
+          <ellipse cx="24" cy="-114" rx="7" ry="13" transform="rotate(12 24 -114)"/>
+          <ellipse cx="46" cy="-102" rx="7" ry="13" transform="rotate(26 46 -102)"/>
+          <ellipse cx="-32" cy="-84" rx="6.5" ry="11" transform="rotate(-20 -32 -84)"/>
+          <ellipse cx="0" cy="-88" rx="7" ry="12"/>
+          <ellipse cx="32" cy="-84" rx="6.5" ry="11" transform="rotate(20 32 -84)"/>
+        </g>
+        <!-- Whiskers -->
+        <path d="M-56,-120 L-68,-142 M-28,-132 L-34,-154 M0,-138 L0,-160 M28,-132 L34,-154 M56,-120 L68,-142" fill="none" stroke-width="1.6"/>
+
+        <!-- Tightly Wrapped Rope Waist Tie -->
+        <g id="bundle-rope-tie">
+          <rect x="-26" y="-22" width="52" height="14" rx="5" fill="#b8651e"/>
+          <line x1="-10" y1="-22" x2="-14" y2="-8" stroke="#6e3609" stroke-width="1.8"/>
+          <line x1="6" y1="-22" x2="2" y2="-8" stroke="#6e3609" stroke-width="1.8"/>
+          <path d="M16,-14 L34,-2 M14,-10 L26,6" fill="none" stroke="#b8651e" stroke-width="4"/>
+          <path d="M16,-14 L34,-2 M14,-10 L26,6" fill="none" stroke="#1f140d" stroke-width="1.6"/>
+        </g>
+      </g>
+
+      <!-- Collect Sparkles FX -->
+      <g id="bundle-sparkles" fill="#ffe74c" stroke="#1f140d" stroke-width="1.4">
+        <polygon points="-74,-66 -70,-78 -66,-66 -54,-62 -66,-58 -70,-46 -74,-58 -86,-62"/>
+        <polygon points="72,-54 75,-64 78,-54 88,-51 78,-48 75,-38 72,-48 62,-51"/>
+        <circle cx="-58" cy="-136" r="4"/>
+        <circle cx="62" cy="-132" r="3.5"/>
+      </g>
+    </g>
+</svg>
