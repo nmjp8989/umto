@@ -196,5 +196,35 @@
     "voice": "Kore",
     "text": "ਵਾਹ! ਹੁਣ ਸਾਰਿਆਂ ਦੇ ਘਰ ਰੋਟੀ ਪੱਕੇਗੀ!",
     "speaker": "mehar"
+  },
+  "lp027": {
+    "hash": "4f366f71a3a1d38a8a5f0508a11ecd8b83f16488b477bf2adc92b448e9024f3a",
+    "voice": "Charon",
+    "text": "ਭੁਖਿਆ ਭੁਖ ਨ ਉਤਰੀ ਜੇ ਬੰਨਾ ਪੁਰੀਆ ਭਾਰ ॥",
+    "speaker": "baba"
+  },
+  "lp035": {
+    "hash": "67458e46159323566847a8ea67cb3a1f1d3d7cfb239d1999f40722320526e241",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੇ ਕੋਲ ਘੱਟ ਬੋਰੀਆਂ ਨੇ, ਪਰ ਤੁਸੀਂ ਹੁਣ ਸਭ ਤੋਂ ਜ਼ਿਆਦਾ ਖੁਸ਼ ਲੱਗਦੇ ਹੋ!",
+    "speaker": "mehar"
+  },
+  "lp036": {
+    "hash": "2c6d5e6db3b86509519596048220cf27c1d5c968a43ff4d014e4b2e2cb90b872",
+    "voice": "Puck",
+    "text": "ਕਿਉਂਕਿ ਅੱਜ ਮੇਰੀ ਗੱਡੀ ਨਹੀਂ, ਮੇਰਾ ਦਿਲ ਭਰ ਗਿਆ!",
+    "speaker": "baldev"
+  },
+  "lp037": {
+    "hash": "ef59254610e32330b3189b86d17cf901bc6a6abf3b98e5414e2d212d497ec92f",
+    "voice": "Kore",
+    "text": "ਚਾਚਾ ਜੀ, ਤੁਹਾਡੀ ਗੱਡੀ ਫੇਰ ਖਾਲੀ ਆ! ਹੋਰ ਬੋਰੀਆਂ ਲਿਆਈਏ?",
+    "speaker": "mehar"
+  },
+  "lp038": {
+    "hash": "b076b5b07c3bf18edf5c606fa28b09bdb620081c258183321ad09f2cdf63c3d1",
+    "voice": "Puck",
+    "text": "ਨਹੀਂ ਪੁੱਤਰ! ਹੁਣ ਤਾਂ ਪਹਿਲਾਂ ਗੱਡੀ ਦਾ ਪਹੀਆ ਠੀਕ ਕਰਨਾ ਆ!",
+    "speaker": "baldev"
   }
 }
