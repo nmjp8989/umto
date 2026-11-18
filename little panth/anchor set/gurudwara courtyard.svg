@@ -1,0 +1,404 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <!-- Atmospheric Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#48a9f0"/>
+      <stop offset="60%" stop-color="#94d8fc"/>
+      <stop offset="100%" stop-color="#d9f3ff"/>
+    </linearGradient>
+
+    <!-- Soft Marble Dome Shading -->
+    <radialGradient id="domeGrad" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#f7f2eb"/>
+      <stop offset="100%" stop-color="#dcd2c6"/>
+    </radialGradient>
+
+    <!-- Warm Stone Courtyard Floor -->
+    <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7d6b0"/>
+      <stop offset="50%" stop-color="#eec191"/>
+      <stop offset="100%" stop-color="#dfa770"/>
+    </linearGradient>
+
+    <!-- Rich Natural Wood Veranda -->
+    <linearGradient id="woodPillarGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8c4516"/>
+      <stop offset="35%" stop-color="#c97128"/>
+      <stop offset="70%" stop-color="#e38f39"/>
+      <stop offset="100%" stop-color="#7a3a11"/>
+    </linearGradient>
+
+    <linearGradient id="ceilingGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#783912"/>
+      <stop offset="100%" stop-color="#bd6822"/>
+    </linearGradient>
+
+    <linearGradient id="flagGrad" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0%" stop-color="#ffa91f"/>
+      <stop offset="60%" stop-color="#f5860a"/>
+      <stop offset="100%" stop-color="#d96b00"/>
+    </linearGradient>
+
+    <!-- Golden Khanda Emblem -->
+    <g id="khandaGold" fill="none" stroke="#ffd24c" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="9.5"/>
+      <line x1="0" y1="-16" x2="0" y2="16"/>
+      <path d="M-11,-9 C-17,0 -13,11 -3,14"/>
+      <path d="M11,-9 C17,0 13,11 3,14"/>
+    </g>
+
+    <!-- Hanging Iron Lantern (Foreground) -->
+    <g id="lantern" stroke="#26180e" stroke-width="1.8" stroke-linejoin="round">
+      <line x1="0" y1="-70" x2="0" y2="-28" stroke="#26180e" stroke-width="3" stroke-dasharray="5,3"/>
+      <circle cx="0" cy="-28" r="4.5" fill="#2c353b"/>
+      <path d="M-13,-18 L0,-28 L13,-18 Z" fill="#2c353b"/>
+      <rect x="-17" y="-18" width="34" height="6" rx="2" fill="#2c353b"/>
+      <polygon points="-22,-12 22,-12 26,15 -26,15" fill="#ffec5c"/>
+      <polygon points="-12,-12 12,-12 14,15 -14,15" fill="#fff9b8" stroke="none"/>
+      <line x1="-9" y1="-12" x2="-11" y2="15" stroke-width="1.8"/>
+      <line x1="9" y1="-12" x2="11" y2="15" stroke-width="1.8"/>
+      <polygon points="-24,15 24,15 16,28 -16,28" fill="#2c353b"/>
+      <rect x="-13" y="28" width="26" height="5" rx="2" fill="#2c353b"/>
+    </g>
+
+    <!-- Natural Potted Courtyard Plant -->
+    <g id="pottedPlant">
+      <polygon points="-15,0 15,0 11,25 -11,25" fill="#c9622a" stroke="#6b3416" stroke-width="1.3"/>
+      <rect x="-17" y="-5" width="34" height="6" rx="2" fill="#db7439" stroke="#6b3416" stroke-width="1.2"/>
+      <path d="M0,-5 Q-2,-20 0,-34" stroke="#593a1e" stroke-width="2.6" fill="none"/>
+      <path d="M-18,-20 Q-26,-34 -10,-38 Q-14,-53 0,-51 Q14,-53 10,-38 Q26,-34 18,-20 Q8,-13 0,-17 Q-8,-13 -18,-20 Z" fill="#5aa133" stroke="#3c6e21" stroke-width="1.2"/>
+      <path d="M-11,-34 Q-2,-47 10,-34 Q0,-23 -11,-34 Z" fill="#88cc4b"/>
+      <ellipse cx="4" cy="-41" rx="5" ry="3.5" fill="#a8e063"/>
+    </g>
+
+    <g id="smallPot">
+      <polygon points="-10,0 10,0 7,17 -7,17" fill="#c9622a" stroke="#6b3416" stroke-width="1.2"/>
+      <rect x="-12" y="-4" width="24" height="4.5" rx="1.5" fill="#db7439" stroke="#6b3416" stroke-width="1.1"/>
+      <path d="M-13,-11 Q-20,-21 -9,-24 Q-7,-34 0,-32 Q7,-34 9,-24 Q20,-21 13,-11 Q0,-5 -13,-11 Z" fill="#5aa133" stroke="#3c6e21" stroke-width="1.1"/>
+      <ellipse cx="-2" cy="-23" rx="6" ry="4" fill="#88cc4b"/>
+    </g>
+  </defs>
+
+  <!-- 1. NATURAL SKY & SOFT UN-OUTLINED CLOUDS -->
+  <rect width="1280" height="440" fill="url(#skyGrad)"/>
+  <g id="soft-clouds">
+    <!-- Left-Center Cloud -->
+    <path d="M340,158 C358,158 366,144 382,144 C394,122 422,116 438,126 C452,98 488,96 504,118 C518,120 524,138 542,142 C558,146 562,158 544,158 Z" fill="#ffffff" opacity="0.92"/>
+    <path d="M356,158 C388,144 434,142 478,148 C504,152 526,148 542,158 Z" fill="#d9efff" opacity="0.85"/>
+    <!-- Mid-Right Cloud -->
+    <path d="M792,174 C808,174 816,162 830,162 C840,140 868,136 884,148 C898,148 906,158 918,162 C930,165 934,174 920,174 Z" fill="#ffffff" opacity="0.88"/>
+    <path d="M806,174 C832,165 872,165 918,174 Z" fill="#d9efff" opacity="0.8"/>
+    <!-- Far-Right Cloud -->
+    <path d="M982,238 C1000,238 1008,224 1026,224 C1038,200 1070,192 1090,206 C1106,206 1116,216 1130,222 C1144,225 1148,238 1132,238 Z" fill="#ffffff" opacity="0.9"/>
+    <path d="M998,238 C1034,228 1084,226 1130,238 Z" fill="#d9efff" opacity="0.8"/>
+  </g>
+
+  <!-- 2. DISTANT NATURAL TREELINE (AERIAL PERSPECTIVE) -->
+  <g id="distant-horizon" opacity="0.85">
+    <path d="M0,335 Q45,295 95,315 Q145,280 205,305 Q265,275 325,302 Q370,282 415,310 L865,310 Q915,276 970,302 Q1030,275 1095,305 Q1160,278 1220,304 L1280,295 L1280,385 L0,385 Z" fill="#82b87a"/>
+    <path d="M0,348 Q60,318 120,334 Q180,308 245,328 Q305,304 375,328 L910,328 Q975,302 1045,326 Q1115,306 1185,330 L1280,320 L1280,390 L0,390 Z" fill="#6ca362"/>
+  </g>
+
+  <!-- 3. ORGANIC COURTYARD TREES (SOFT LAYERED FOLIAGE) -->
+  <!-- Trees peeking behind Gurdwara side wings -->
+  <g id="wing-trees">
+    <path d="M294,324 Q290,298 314,292 Q324,274 348,280 Q366,272 382,288 Q402,294 398,324 Z" fill="#5e9c38"/>
+    <path d="M306,314 Q314,290 338,288 Q354,278 372,292 Q386,298 384,314 Z" fill="#88c74a"/>
+
+    <path d="M876,324 Q872,296 898,290 Q912,272 934,278 Q954,274 968,294 Q986,300 982,324 Z" fill="#5e9c38"/>
+    <path d="M888,314 Q898,290 922,288 Q938,278 956,294 Q968,300 964,314 Z" fill="#88c74a"/>
+  </g>
+
+  <!-- Left Courtyard Organic Tree -->
+  <g id="left-tree">
+    <!-- Deep shadow foliage -->
+    <path d="M0,226 Q34,158 92,126 Q128,84 182,94 Q224,74 260,104 Q306,102 330,136 Q374,148 370,188 Q384,224 354,248 Q334,278 296,268 Q264,294 230,270 Q198,274 178,248 L0,254 Z" fill="#4f8c2a"/>
+    <!-- Trunk & Natural Branches -->
+    <path d="M16,452 Q40,362 30,275 L0,234 L0,202 L42,248 Q74,218 114,206 L192,186 L198,198 L124,222 Q144,238 164,252 L156,262 L104,230 Q74,258 68,314 Q64,378 72,450 Z" fill="#7d4a26"/>
+    <path d="M26,450 Q46,365 38,282 Q52,244 96,216 L176,192 L138,210 Q78,236 58,308 Q52,374 60,450 Z" fill="#9c6136" opacity="0.8"/>
+    <!-- Mid-tone Leaf Clusters -->
+    <path d="M14,202 Q36,154 88,134 Q126,96 176,108 Q220,90 254,118 Q296,114 316,148 Q352,164 342,198 Q314,228 278,212 Q242,244 202,222 Q168,234 142,210 Q96,226 60,206 Z" fill="#72b538"/>
+    <!-- Sunlit Top Canopy Highlights -->
+    <path d="M112,146 Q152,102 204,116 Q248,104 282,138 Q322,148 312,182 Q278,194 246,178 Q208,202 172,184 Q138,192 122,170 Z" fill="#a2db51"/>
+    <ellipse cx="182" cy="144" rx="28" ry="15" fill="#bce86b" opacity="0.85"/>
+    <ellipse cx="256" cy="152" rx="24" ry="13" fill="#bce86b" opacity="0.85"/>
+    <ellipse cx="82" cy="176" rx="22" ry="12" fill="#a2db51" opacity="0.9"/>
+  </g>
+
+  <!-- Right Courtyard Organic Tree -->
+  <g id="right-tree">
+    <path d="M1018,320 Q1010,282 1040,266 Q1046,238 1078,234 Q1100,208 1138,218 Q1152,182 1196,180 Q1226,164 1260,182 L1280,192 L1280,320 Z" fill="#4f8c2a"/>
+    <path d="M1236,448 Q1228,365 1236,302 L1194,266 L1204,256 L1244,288 Q1254,264 1280,246 L1280,280 Q1266,302 1264,354 L1264,448 Z" fill="#7d4a26"/>
+    <path d="M1044,282 Q1058,242 1094,242 Q1128,210 1172,222 Q1212,186 1262,202 L1280,214 L1280,286 Q1218,298 1152,286 Q1098,302 1044,282 Z" fill="#72b538"/>
+    <path d="M1086,246 Q1132,216 1184,226 Q1226,198 1272,216 L1272,258 Q1218,268 1164,258 Q1122,268 1086,246 Z" fill="#a2db51"/>
+    <ellipse cx="1210" cy="224" rx="30" ry="14" fill="#bce86b" opacity="0.85"/>
+  </g>
+
+  <!-- 4. SOFTLY STROKED PERIMETER WALLS & NATURAL GARDEN HEDGES -->
+  <g stroke="#8c735b" stroke-width="1.2" stroke-linejoin="round">
+    <polygon points="0,356 320,378 320,492 0,512" fill="#faeedc"/>
+    <g fill="#d1a884" stroke="#a68160" stroke-width="1">
+      <path d="M124,422 L124,402 Q132,390 140,402 L140,422 Z"/>
+      <path d="M174,422 L174,402 Q182,390 190,402 L190,422 Z"/>
+      <path d="M224,422 L224,402 Q232,390 240,402 L240,422 Z"/>
+      <path d="M266,422 L266,404 Q273,393 280,404 L280,422 Z"/>
+    </g>
+
+    <polygon points="960,378 1280,356 1280,512 960,492" fill="#faeedc"/>
+    <g fill="#d1a884" stroke="#a68160" stroke-width="1">
+      <path d="M998,422 L998,404 Q1005,393 1012,404 L1012,422 Z"/>
+      <path d="M1040,422 L1040,402 Q1048,390 1056,402 L1056,422 Z"/>
+      <path d="M1090,422 L1090,402 Q1098,390 1106,402 L1106,422 Z"/>
+      <path d="M1140,422 L1140,402 Q1148,390 1156,402 L1156,422 Z"/>
+      <path d="M1196,422 L1196,402 Q1204,390 1212,402 L1212,422 Z"/>
+    </g>
+
+    <polygon points="0,494 320,484 320,496 0,512" fill="#e6cbb0"/>
+    <polygon points="960,484 1280,494 1280,512 960,496" fill="#e6cbb0"/>
+  </g>
+
+  <!-- Continuous Organic Garden Hedges & Wildflowers -->
+  <g id="natural-garden-hedges">
+    <!-- Left Hedge -->
+    <path d="M0,498 L0,430 Q18,412 38,428 Q60,418 76,442 Q108,448 136,466 Q160,446 184,458 Q206,440 232,456 Q254,442 278,454 Q304,458 314,488 Z" fill="#4e8c29"/>
+    <path d="M0,484 Q24,438 56,456 Q88,452 114,474 Q146,456 178,468 Q208,448 238,466 Q268,450 298,476 L298,488 L0,498 Z" fill="#6fb33b"/>
+    <path d="M12,462 Q34,442 52,460 M162,464 Q184,448 206,466 M248,460 Q268,446 286,468" fill="none" stroke="#98d656" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Right Hedge -->
+    <path d="M966,488 Q976,456 1002,452 Q1026,438 1052,454 Q1080,436 1110,454 Q1138,444 1166,464 Q1196,436 1224,444 Q1248,418 1280,432 L1280,498 Z" fill="#4e8c29"/>
+    <path d="M976,488 Q992,458 1022,466 Q1054,448 1084,466 Q1116,448 1146,472 Q1178,452 1212,464 Q1242,438 1278,462 L1278,498 L976,488 Z" fill="#6fb33b"/>
+    <path d="M998,468 Q1020,452 1042,468 M1088,462 Q1112,446 1134,464 M1218,460 Q1242,442 1266,460" fill="none" stroke="#98d656" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Scattered Garden Blossoms (Pink, Coral, Soft Yellow) -->
+    <g>
+      <circle cx="26" cy="452" r="3.6" fill="#f77a6b"/><circle cx="48" cy="472" r="3.2" fill="#ffd966"/>
+      <circle cx="78" cy="468" r="3.8" fill="#f77a6b"/><circle cx="172" cy="470" r="3.4" fill="#f77a6b"/>
+      <circle cx="196" cy="462" r="3.8" fill="#ff9e8f"/><circle cx="222" cy="474" r="3.2" fill="#ffd966"/>
+      <circle cx="256" cy="464" r="3.6" fill="#f77a6b"/><circle cx="282" cy="474" r="3.4" fill="#ff9e8f"/>
+
+      <circle cx="998" cy="472" r="3.4" fill="#f77a6b"/><circle cx="1028" cy="464" r="3.8" fill="#ff9e8f"/>
+      <circle cx="1062" cy="474" r="3.2" fill="#ffd966"/><circle cx="1096" cy="462" r="3.8" fill="#f77a6b"/>
+      <circle cx="1126" cy="472" r="3.4" fill="#ff9e8f"/><circle cx="1202" cy="466" r="3.6" fill="#f77a6b"/>
+      <circle cx="1238" cy="458" r="4" fill="#ff9e8f"/><circle cx="1256" cy="474" r="3.4" fill="#ffd966"/>
+    </g>
+  </g>
+
+  <!-- 5. NISHAN SAHIB -->
+  <g id="nishan-sahib" stroke="#785828" stroke-width="1.2" stroke-linejoin="round">
+    <rect x="932" y="102" width="11" height="222" fill="#ebb038"/>
+    <circle cx="937.5" cy="96" r="7.5" fill="#ffd24c"/>
+    <line x1="937.5" y1="88" x2="937.5" y2="79" stroke-width="1.8"/>
+    <polygon points="943,108 1058,144 1024,154 943,174" fill="url(#flagGrad)"/>
+    <!-- Gentle Cloth Shadow Fold -->
+    <path d="M943,136 Q982,130 1018,144 L943,154 Z" fill="#d96a00" opacity="0.35" stroke="none"/>
+    <g transform="translate(968, 142) scale(0.85)" fill="none" stroke="#103478" stroke-width="2.6" stroke-linecap="round">
+      <circle cx="0" cy="0" r="10"/>
+      <line x1="0" y1="-16" x2="0" y2="16"/>
+      <path d="M-11,-9 C-16,0 -12,11 -3,14"/>
+      <path d="M11,-9 C16,0 12,11 3,14"/>
+    </g>
+  </g>
+
+  <!-- 6. GURDWARA SAHIB (SOFT NATURAL WARM-STONE STROKES & SHADED DOMES) -->
+  <g id="gurdwara-building" stroke="#7a6855" stroke-width="1.2" stroke-linejoin="round">
+    <!-- Left & Right Side Wings -->
+    <rect x="280" y="318" width="126" height="172" fill="#fcf8f2"/>
+    <rect x="278" y="312" width="132" height="10" fill="#f5e9d8"/>
+    <rect x="874" y="318" width="126" height="172" fill="#fcf8f2"/>
+    <rect x="870" y="312" width="132" height="10" fill="#f5e9d8"/>
+
+    <!-- Side Wing Archways -->
+    <path d="M318,488 L318,392 Q334,366 358,354 Q382,366 398,392 L398,488 Z" fill="#ded7ce"/>
+    <path d="M318,488 L318,392 Q334,366 358,354 Q382,366 398,392 L398,402 Q382,376 358,364 Q334,376 318,402 Z" fill="#f5b832"/>
+    <path d="M348,452 L348,412 Q358,398 368,412 L368,452 Z" fill="#637078"/>
+    <rect x="318" y="476" width="80" height="12" fill="#ede2d4"/>
+
+    <path d="M882,488 L882,392 Q898,366 922,354 Q946,366 962,392 L962,488 Z" fill="#ded7ce"/>
+    <path d="M882,488 L882,392 Q898,366 922,354 Q946,366 962,392 L962,402 Q946,376 922,364 Q898,376 882,402 Z" fill="#f5b832"/>
+    <path d="M912,452 L912,412 Q922,398 932,412 L932,452 Z" fill="#637078"/>
+    <rect x="882" y="476" width="80" height="12" fill="#ede2d4"/>
+
+    <!-- Three Shaded Marble Domes -->
+    <g transform="translate(492, 224)">
+      <rect x="-36" y="-8" width="72" height="30" fill="#faf6f0"/>
+      <path d="M-24,22 L-24,6 Q-18,-2 -12,6 L-12,22 Z" fill="#637d8f"/>
+      <path d="M-6,22 L-6,4 Q0,-4 6,4 L6,22 Z" fill="#637d8f"/>
+      <path d="M12,22 L12,6 Q18,-2 24,6 L24,22 Z" fill="#637d8f"/>
+      <path d="M-34,-8 C-40,-34 -14,-46 0,-54 C14,-46 40,-34 34,-8 Z" fill="url(#domeGrad)"/>
+      <path d="M-16,-8 C-20,-30 -8,-44 0,-54 M16,-8 C20,-30 8,-44 0,-54" fill="none" stroke="#d9cfc3" stroke-width="1.1"/>
+      <circle cx="0" cy="-60" r="4.8" fill="#f5b832"/>
+      <circle cx="0" cy="-68" r="2.8" fill="#ffd24c"/>
+      <line x1="0" y1="-71" x2="0" y2="-79" stroke="#785828" stroke-width="1.5"/>
+    </g>
+
+    <g transform="translate(788, 224)">
+      <rect x="-36" y="-8" width="72" height="30" fill="#faf6f0"/>
+      <path d="M-24,22 L-24,6 Q-18,-2 -12,6 L-12,22 Z" fill="#637d8f"/>
+      <path d="M-6,22 L-6,4 Q0,-4 6,4 L6,22 Z" fill="#637d8f"/>
+      <path d="M12,22 L12,6 Q18,-2 24,6 L24,22 Z" fill="#637d8f"/>
+      <path d="M-34,-8 C-40,-34 -14,-46 0,-54 C14,-46 40,-34 34,-8 Z" fill="url(#domeGrad)"/>
+      <path d="M-16,-8 C-20,-30 -8,-44 0,-54 M16,-8 C20,-30 8,-44 0,-54" fill="none" stroke="#d9cfc3" stroke-width="1.1"/>
+      <circle cx="0" cy="-60" r="4.8" fill="#f5b832"/>
+      <circle cx="0" cy="-68" r="2.8" fill="#ffd24c"/>
+      <line x1="0" y1="-71" x2="0" y2="-79" stroke="#785828" stroke-width="1.5"/>
+    </g>
+
+    <g transform="translate(640, 198)">
+      <rect x="-74" y="6" width="148" height="44" fill="#faf6f0"/>
+      <path d="M-48,46 L-48,26 Q-38,14 -28,26 L-28,46 Z" fill="#f5b832"/>
+      <path d="M-44,46 L-44,28 Q-38,20 -32,28 L-32,46 Z" fill="#637d8f"/>
+      <path d="M-14,46 L-14,22 Q0,8 14,22 L14,46 Z" fill="#f5b832"/>
+      <path d="M-10,46 L-10,25 Q0,14 10,25 L10,46 Z" fill="#637d8f"/>
+      <path d="M28,46 L28,26 Q38,14 48,26 L48,46 Z" fill="#f5b832"/>
+      <path d="M32,46 L32,28 Q38,20 44,28 L44,46 Z" fill="#637d8f"/>
+      <rect x="-66" y="0" width="132" height="8" rx="3" fill="#f2e8dc"/>
+      <path d="M-64,0 C-82,-48 -28,-74 0,-92 C28,-74 82,-48 64,0 Z" fill="url(#domeGrad)"/>
+      <path d="M-34,0 C-44,-42 -16,-70 0,-92 M34,0 C44,-42 16,-70 0,-92 M0,0 L0,-92" fill="none" stroke="#d9cfc3" stroke-width="1.4"/>
+      <path d="M-12,0 Q-6,-8 0,-4 Q6,-8 12,0 Z" transform="translate(0,-92)" fill="#f5b832"/>
+      <circle cx="0" cy="-102" r="7.5" fill="#f5b832"/>
+      <circle cx="0" cy="-114" r="4.8" fill="#ffd24c"/>
+      <line x1="0" y1="-119" x2="0" y2="-130" stroke="#785828" stroke-width="1.8"/>
+    </g>
+
+    <!-- Main Central Marble Facade -->
+    <polygon points="402,262 640,224 878,262 878,494 402,494" fill="#fcf8f2"/>
+    <polygon points="396,256 640,218 884,256 884,268 640,230 396,268" fill="#f5e9d8"/>
+    <circle cx="428" cy="248" r="3.8" fill="#f5b832"/>
+    <circle cx="552" cy="228" r="3.8" fill="#f5b832"/>
+    <circle cx="728" cy="228" r="3.8" fill="#f5b832"/>
+    <circle cx="852" cy="248" r="3.8" fill="#f5b832"/>
+
+    <!-- Royal Blue Signboard -->
+    <g transform="translate(640, 306)">
+      <path d="M-192,-24 Q-175,-24 -165,-34 L165,-34 Q175,-24 192,-24 L212,0 L192,24 Q175,24 165,34 L-165,34 Q-175,24 -192,24 L-212,0 Z" fill="#f5b832"/>
+      <path d="M-188,-20 Q-172,-20 -162,-30 L162,-30 Q172,-20 188,-20 L205,0 L188,20 Q172,20 162,30 L-162,30 Q-172,20 -188,20 L-205,0 Z" fill="#0f3e96"/>
+      <use href="#khandaGold" x="-162" y="0" stroke="#ffd24c"/>
+      <use href="#khandaGold" x="162" y="0" stroke="#ffd24c"/>
+      <text x="0" y="10" text-anchor="middle" font-family="'Noto Sans Gurmukhi', 'Raavi', 'Gurmukhi MN', sans-serif" font-size="33" font-weight="bold" fill="#ffffff" stroke="none">ਗੁਰਦੁਆਰਾ ਸਾਹਿਬ</text>
+    </g>
+
+    <!-- Flanking Arched Windows & Balustrades -->
+    <g>
+      <path d="M432,492 L432,402 Q434,376 456,368 Q466,356 480,350 Q494,356 504,368 Q526,376 528,402 L528,492 Z" fill="#ede0cf"/>
+      <path d="M428,412 Q430,378 456,368 Q468,354 480,346 Q492,354 504,368 Q530,378 532,412 L524,412 Q522,384 500,376 Q490,362 480,356 Q470,362 460,376 Q438,384 436,412 Z" fill="#f5b832"/>
+      <path d="M464,458 L464,412 Q480,392 496,412 L496,458 Z" fill="#8c4b22"/>
+      <path d="M468,458 L468,414 Q480,398 492,414 L492,458 Z" fill="#452d1d"/>
+      <line x1="480" y1="404" x2="480" y2="458" stroke="#8c4b22" stroke-width="2.2"/>
+      <line x1="468" y1="432" x2="492" y2="432" stroke="#8c4b22" stroke-width="2.2"/>
+      <rect x="438" y="458" width="84" height="6" fill="#f7efe4"/>
+      <rect x="438" y="478" width="84" height="14" fill="#ede0cf"/>
+      <g fill="#f7efe4">
+        <rect x="444" y="464" width="6" height="14"/><rect x="458" y="464" width="6" height="14"/><rect x="472" y="464" width="6" height="14"/><rect x="486" y="464" width="6" height="14"/><rect x="500" y="464" width="6" height="14"/><rect x="512" y="464" width="6" height="14"/>
+      </g>
+
+      <path d="M752,492 L752,402 Q754,376 776,368 Q786,356 800,350 Q814,356 824,368 Q846,376 848,402 L848,492 Z" fill="#ede0cf"/>
+      <path d="M748,412 Q750,378 776,368 Q788,354 800,346 Q812,354 824,368 Q850,378 852,412 L844,412 Q842,384 820,376 Q810,362 800,356 Q790,362 780,376 Q758,384 756,412 Z" fill="#f5b832"/>
+      <path d="M784,458 L784,412 Q800,392 816,412 L816,458 Z" fill="#8c4b22"/>
+      <path d="M788,458 L788,414 Q800,398 812,414 L812,458 Z" fill="#452d1d"/>
+      <line x1="800" y1="404" x2="800" y2="458" stroke="#8c4b22" stroke-width="2.2"/>
+      <line x1="788" y1="432" x2="812" y2="432" stroke="#8c4b22" stroke-width="2.2"/>
+      <rect x="758" y="458" width="84" height="6" fill="#f7efe4"/>
+      <rect x="758" y="478" width="84" height="14" fill="#ede0cf"/>
+      <g fill="#f7efe4">
+        <rect x="762" y="464" width="6" height="14"/><rect x="774" y="464" width="6" height="14"/><rect x="788" y="464" width="6" height="14"/><rect x="802" y="464" width="6" height="14"/><rect x="816" y="464" width="6" height="14"/><rect x="830" y="464" width="6" height="14"/>
+      </g>
+    </g>
+
+    <!-- Central Entrance & Wooden Doors -->
+    <g>
+      <path d="M558,492 L558,402 Q566,374 598,366 Q618,354 640,342 Q662,354 682,366 Q714,374 722,402 L722,492 Z" fill="#f5b832"/>
+      <path d="M568,492 L568,404 Q576,380 604,372 Q622,362 640,352 Q658,362 676,372 Q704,380 712,404 L712,492 Z" fill="#995224"/>
+      <path d="M578,492 L578,406 Q586,386 610,378 Q625,368 640,360 Q655,368 670,378 Q694,386 702,406 L702,492 Z" fill="#b0622d"/>
+      <line x1="640" y1="360" x2="640" y2="492" stroke="#592e12" stroke-width="2"/>
+      <rect x="590" y="418" width="18" height="58" fill="#8f4a1d" stroke="#592e12" stroke-width="1.1"/>
+      <rect x="614" y="418" width="18" height="58" fill="#8f4a1d" stroke="#592e12" stroke-width="1.1"/>
+      <rect x="648" y="418" width="18" height="58" fill="#8f4a1d" stroke="#592e12" stroke-width="1.1"/>
+      <rect x="672" y="418" width="18" height="58" fill="#8f4a1d" stroke="#592e12" stroke-width="1.1"/>
+      <circle cx="631" cy="446" r="5" fill="none" stroke="#ffd24c" stroke-width="2.2"/>
+      <circle cx="649" cy="446" r="5" fill="none" stroke="#ffd24c" stroke-width="2.2"/>
+      <rect x="530" y="490" width="220" height="8" fill="#ffffff"/>
+      <rect x="520" y="498" width="240" height="10" fill="#ede0cf"/>
+    </g>
+  </g>
+
+  <use href="#pottedPlant" x="418" y="482"/>
+  <use href="#smallPot" x="510" y="488"/>
+  <use href="#smallPot" x="770" y="488"/>
+  <use href="#pottedPlant" x="862" y="482"/>
+
+  <!-- 7. STONE-TILED COURTYARD FLOOR WITH NATURAL DAPPLED TREE SHADOWS -->
+  <polygon points="0,506 320,496 520,498 520,508 760,508 760,498 960,496 1280,506 1280,720 0,720" fill="url(#floorGrad)"/>
+  <g stroke="#b8845a" stroke-width="1.2" opacity="0.55">
+    <line x1="0" y1="518" x2="1280" y2="518"/>
+    <line x1="0" y1="536" x2="1280" y2="536"/>
+    <line x1="0" y1="560" x2="1280" y2="560"/>
+    <line x1="0" y1="590" x2="1280" y2="590"/>
+    <line x1="0" y1="628" x2="1280" y2="628"/>
+    <line x1="0" y1="674" x2="1280" y2="674"/>
+    <line x1="20" y1="720" x2="340" y2="496"/>
+    <line x1="150" y1="720" x2="400" y2="497"/>
+    <line x1="280" y1="720" x2="460" y2="498"/>
+    <line x1="410" y1="720" x2="520" y2="508"/>
+    <line x1="530" y1="720" x2="580" y2="508"/>
+    <line x1="640" y1="720" x2="640" y2="508"/>
+    <line x1="750" y1="720" x2="700" y2="508"/>
+    <line x1="870" y1="720" x2="760" y2="508"/>
+    <line x1="1000" y1="720" x2="820" y2="498"/>
+    <line x1="1130" y1="720" x2="880" y2="497"/>
+    <line x1="1260" y1="720" x2="940" y2="496"/>
+  </g>
+  <!-- Natural Dappled Leaf & Pillar Shadows -->
+  <g fill="#9e6d50" opacity="0.22">
+    <path d="M0,560 Q90,545 160,570 Q230,555 290,585 Q240,610 150,605 Q70,625 0,605 Z"/>
+    <path d="M0,655 Q110,640 210,675 Q140,715 0,710 Z"/>
+    <path d="M980,580 Q1060,555 1140,575 Q1215,550 1280,575 L1280,620 Q1170,625 1070,605 Z"/>
+    <path d="M1040,675 Q1140,645 1280,665 L1280,718 L1010,718 Z"/>
+  </g>
+
+  <!-- 8. FOREGROUND WOODEN VERANDA FRAME & LANTERNS -->
+  <g id="foreground-veranda" stroke="#361f0f" stroke-width="1.8" stroke-linejoin="round">
+    <g id="left-pillar">
+      <polygon points="74,548 154,548 156,574 72,574" fill="#c76e22"/>
+      <polygon points="80,536 148,536 154,548 74,548" fill="#e69137"/>
+      <rect x="84" y="190" width="60" height="346" fill="url(#woodPillarGrad)"/>
+      <line x1="102" y1="190" x2="102" y2="536" stroke="#75360b" stroke-width="1.2" opacity="0.5"/>
+      <line x1="128" y1="190" x2="128" y2="536" stroke="#75360b" stroke-width="1.2" opacity="0.5"/>
+      <rect x="78" y="176" width="72" height="14" rx="2" fill="#d97f26"/>
+      <rect x="82" y="160" width="64" height="16" fill="#bf641b"/>
+      <rect x="82" y="54" width="64" height="106" fill="url(#woodPillarGrad)"/>
+      <path d="M146,162 C154,122 190,94 240,86 L240,68 L146,68 Z" fill="#d97f26"/>
+      <path d="M146,144 C156,112 184,90 222,82 L222,74 L146,74 Z" fill="#eb9b3b" stroke-width="1.2"/>
+    </g>
+
+    <g id="right-pillar">
+      <polygon points="1126,548 1206,548 1208,574 1124,574" fill="#c76e22"/>
+      <polygon points="1132,536 1200,536 1206,548 1126,548" fill="#e69137"/>
+      <rect x="1136" y="190" width="60" height="346" fill="url(#woodPillarGrad)"/>
+      <line x1="1154" y1="190" x2="1154" y2="536" stroke="#75360b" stroke-width="1.2" opacity="0.5"/>
+      <line x1="1180" y1="190" x2="1180" y2="536" stroke="#75360b" stroke-width="1.2" opacity="0.5"/>
+      <rect x="1130" y="176" width="72" height="14" rx="2" fill="#d97f26"/>
+      <rect x="1134" y="160" width="64" height="16" fill="#bf641b"/>
+      <rect x="1134" y="54" width="64" height="106" fill="url(#woodPillarGrad)"/>
+      <path d="M1134,162 C1126,122 1090,94 1040,86 L1040,68 L1134,68 Z" fill="#d97f26"/>
+      <path d="M1134,144 C1124,112 1096,90 1058,82 L1058,74 L1134,74 Z" fill="#eb9b3b" stroke-width="1.2"/>
+    </g>
+
+    <rect x="0" y="0" width="1280" height="62" fill="url(#ceilingGrad)"/>
+    <rect x="144" y="56" width="992" height="16" fill="#d97f26"/>
+    <polygon points="0,48 84,68 84,84 0,68" fill="#bf641b"/>
+    <polygon points="1280,48 1196,68 1196,84 1280,68" fill="#bf641b"/>
+
+    <polygon points="40,0 78,0 130,56 96,56" fill="#d97f26"/>
+    <polygon points="200,0 232,0 264,56 236,56" fill="#d97f26"/>
+    <polygon points="366,0 396,0 416,56 388,56" fill="#d97f26"/>
+    <polygon points="534,0 562,0 572,56 544,56" fill="#d97f26"/>
+    <polygon points="718,0 746,0 736,56 708,56" fill="#d97f26"/>
+    <polygon points="884,0 914,0 892,56 864,56" fill="#d97f26"/>
+    <polygon points="1048,0 1080,0 1044,56 1016,56" fill="#d97f26"/>
+    <polygon points="1202,0 1240,0 1184,56 1150,56" fill="#d97f26"/>
+
+    <use href="#lantern" x="42" y="114"/>
+    <use href="#lantern" x="1238" y="114"/>
+  </g>
+</svg>
