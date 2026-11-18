@@ -115,7 +115,7 @@
       </g>
 
       <!-- Panic Feathers & Squawk FX (toggle opacity="1" on crash) -->
-      <g id="chicken-panic-fx" opacity="0.9">
+      <g id="chicken-panic-fx" opacity="0">
         <path d="M-84,-68 L-98,-78 M-88,-54 L-106,-58 M-82,-40 L-96,-34" stroke="#e62b25" stroke-width="2.8" stroke-linecap="round"/>
         <path d="M58,-64 Q72,-74 78,-60 Q68,-54 58,-64 Z" fill="#fff3d6" stroke="#1f140d" stroke-width="1.6"/>
         <path d="M88,-38 Q104,-42 104,-28 Q94,-26 88,-38 Z" fill="#f7b754" stroke="#1f140d" stroke-width="1.6"/>
