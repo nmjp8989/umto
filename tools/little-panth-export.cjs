@@ -1,109 +1,162 @@
 #!/usr/bin/env node
 const { chromium } = require('playwright-core');
 const { spawn, spawnSync } = require('node:child_process');
-const { mkdir, mkdtemp, rm, writeFile } = require('node:fs/promises');
-const { tmpdir } = require('node:os');
+const { mkdir, rm, writeFile } = require('node:fs/promises');
+const { once } = require('node:events');
 const path = require('node:path');
 
 const episode = process.argv[2] || 'mission-001';
 const section = process.argv[3];
 const out = path.resolve(process.argv[4] || 'little-panth-renders', section || 'assembled');
 const sections = ['intro', 'harvest', 'storage', 'requests', 'share'];
+const width = 1920;
+const height = 1080;
+const fps = 30;
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function ffmpeg(args) {
-  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args], { stdio: 'inherit' });
-  if (result.error || result.status !== 0) throw result.error || Error('FFmpeg exited with ' + result.status);
+function encoder(args) {
+  const child = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args], {
+    stdio: ['pipe', 'pipe', 'pipe']
+  });
+  let errors = '';
+  child.stderr.on('data', chunk => { errors = (errors + chunk).slice(-6000); });
+  // A failed encoder can close its input before the producer sees the exit.
+  child.stdin.on('error', () => {});
+  const done = new Promise((resolve, reject) => {
+    child.once('error', reject);
+    child.once('close', code => code === 0 ? resolve() : reject(Error('FFmpeg exited ' + code + ': ' + errors)));
+  });
+  done.catch(() => {});
+  return { child, done };
 }
 
-function capture(file) {
-  let offset;
+function beginAudio(file) {
+  const audio = encoder([
+    '-stats_period', '0.1', '-progress', 'pipe:1', '-f', 'pulse', '-fragment_size', '1920',
+    '-i', 'lp_export.monitor', '-c:a', 'pcm_s16le', '-ar', '48000', '-ac', '2', file
+  ]);
+  let resolveStart;
+  const firstSample = new Promise(resolve => { resolveStart = resolve; });
   let output = '';
-  let errors = '';
-  const processHandle = spawn('ffmpeg', [
-    '-hide_banner', '-loglevel', 'warning', '-y', '-stats_period', '0.1', '-progress', 'pipe:1',
-    '-thread_queue_size', '16', '-probesize', '32768', '-analyzeduration', '0',
-    '-f', 'x11grab', '-draw_mouse', '0', '-framerate', '30', '-video_size', '1920x1080',
-    '-i', process.env.DISPLAY + '+0,0',
-    '-thread_queue_size', '256', '-f', 'pulse', '-fragment_size', '1920', '-i', 'lp_export.monitor',
-    '-c:v', 'libx264', '-preset', 'ultrafast', '-threads', '3', '-crf', '18', '-pix_fmt', 'yuv420p',
-    '-c:a', 'pcm_s16le', '-ar', '48000', '-ac', '2', file
-  ], { stdio: ['pipe', 'pipe', 'pipe'] });
-  const closed = new Promise((resolve, reject) => {
-    processHandle.once('error', reject);
-    processHandle.once('close', code => {
-      if (code === 0) resolve();
-      else reject(Error('Capture stopped (' + code + '): ' + errors));
-    });
-  });
-  closed.catch(() => {});
-  let ready;
-  const started = new Promise(resolve => { ready = resolve; });
-  processHandle.stdout.on('data', chunk => {
+  audio.child.stdout.on('data', chunk => {
     output += chunk;
     const lines = output.split('\n');
     output = lines.pop();
     for (const line of lines) {
       const match = /^out_time_us=(\d+)$/.exec(line.trim());
-      if (match && +match[1] > 0 && offset === undefined) {
-        offset = Date.now() - Math.round(+match[1] / 1000);
-        ready(offset);
-      }
+      if (match && +match[1] > 0) resolveStart(Date.now() - Math.round(+match[1] / 1000));
     }
   });
-  processHandle.stderr.on('data', chunk => { errors = (errors + chunk).slice(-6000); });
-  const timeout = setTimeout(() => processHandle.kill(), 25_000);
+  const timeout = setTimeout(() => audio.child.kill(), 20_000);
   return {
-    ready: Promise.race([started, closed.then(() => { throw Error('Capture ended before its first frame'); })])
+    ...audio,
+    ready: Promise.race([firstSample, audio.done.then(() => { throw Error('Audio capture ended before playback'); })])
       .finally(() => clearTimeout(timeout)),
     async stop() {
-      if (processHandle.exitCode === null && processHandle.signalCode === null) processHandle.stdin.end('q\n');
-      await closed;
+      if (audio.child.exitCode === null && audio.child.signalCode === null) audio.child.stdin.end('q\n');
+      await audio.done;
     }
   };
+}
+
+async function beginFrames(page, file) {
+  const cdp = await page.context().newCDPSession(page);
+  let latest;
+  let received = 0;
+  cdp.on('Page.screencastFrame', frame => {
+    latest = Buffer.from(frame.data, 'base64');
+    received++;
+    cdp.send('Page.screencastFrameAck', { sessionId: frame.sessionId }).catch(() => {});
+  });
+  await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 95, maxWidth: width, maxHeight: height });
+  for (let attempt = 0; !latest && attempt < 50; attempt++) await delay(100);
+  if (!latest) throw Error('Chromium provided no frames');
+
+  const video = encoder([
+    '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', 'pipe:0',
+    '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+    '-threads', '2', '-pix_fmt', 'yuv420p', file
+  ]);
+  let timer;
+  let written = 0;
+  let blocked = false;
+  const input = video.child.stdin;
+  input.on('drain', () => { blocked = false; });
+  function writeUntil(total) {
+    while (!blocked && written < total) {
+      if (input.destroyed) throw Error('Video encoder closed before the end of the section');
+      blocked = !input.write(latest);
+      written++;
+    }
+  }
+  return {
+    start(started) {
+      timer = setInterval(() => {
+        if (!input.destroyed) writeUntil(Math.floor((Date.now() - started) * fps / 1000));
+      }, 12);
+    },
+    async stop(frameCount) {
+      clearInterval(timer);
+      if (frameCount) {
+        // Finish any frames still waiting on FFmpeg input backpressure.
+        while (written < frameCount) {
+          if (blocked) await Promise.race([once(input, 'drain'), video.done.then(() => { throw Error('Video encoder exited early'); })]);
+          writeUntil(frameCount);
+        }
+      }
+      input.end();
+      await cdp.send('Page.stopScreencast').catch(() => {});
+      await video.done;
+      console.log('Captured browser updates: ' + received + '; encoded frames: ' + written);
+    },
+    abort() {
+      clearInterval(timer);
+      video.child.kill();
+    }
+  };
+}
+
+function finalize(video, audio, trimStart) {
+  const result = spawnSync('ffmpeg', [
+    '-hide_banner', '-loglevel', 'info', '-y', '-i', video, '-ss', trimStart.toFixed(3), '-i', audio,
+    '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-af', 'volumedetect,apad',
+    '-c:a', 'aac', '-b:a', '192k', '-shortest', path.join(out, 'section.mp4')
+  ], { encoding: 'utf8' });
+  if (result.error || result.status !== 0) throw result.error || Error(result.stderr);
+  const level = /mean_volume:\s*(-?[\d.]+) dB/.exec(result.stderr);
+  if (!level || Number(level[1]) < -55) throw Error('The browser audio recording is silent or too quiet');
+  console.log('Audio mean level: ' + level[1] + ' dB');
 }
 
 async function render() {
   if (!/^mission-\d{3}$/.test(episode) || !sections.includes(section)) {
     throw Error('Usage: node tools/little-panth-export.cjs mission-001 <section> [output directory]');
   }
-  if (!process.env.DISPLAY) throw Error('An X display and the lp_export PulseAudio sink are required');
   await mkdir(out, { recursive: true });
-  const profile = await mkdtemp(path.join(tmpdir(), 'little-panth-chrome-'));
-  let browser;
-  const recording = path.join(out, 'capture.mkv');
-  let recorder;
+  const videoFile = path.join(out, 'picture.mp4');
+  const audioFile = path.join(out, 'browser.wav');
+  const browser = await chromium.launch({
+    channel: 'chrome', headless: true,
+    ignoreDefaultArgs: ['--mute-audio'],
+    args: ['--no-sandbox', '--autoplay-policy=no-user-gesture-required']
+  });
+  let audio;
+  let frames;
   let status;
   let trimStart;
+  let finishedFrames = false;
   try {
-    browser = await chromium.launchPersistentContext(profile, {
-      viewport: null, channel: 'chrome', headless: false, ignoreDefaultArgs: ['--mute-audio'],
-      args: ['--no-sandbox', '--app=about:blank', '--autoplay-policy=no-user-gesture-required',
-        '--window-position=0,0', '--window-size=1920,1080', '--force-device-scale-factor=1']
-    });
-    const page = browser.pages()[0] || await browser.newPage();
+    const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
     const pageErrors = [];
     page.on('pageerror', error => pageErrors.push(error.message));
     await page.goto('http://127.0.0.1:8765/little%20panth/' + episode + '/?export=1');
     await page.waitForFunction(() => window.lpExport?.ready(), null, { timeout: 60_000 });
-    await page.evaluate(() => {
-      document.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        document.documentElement.requestFullscreen().catch(error => { window.lpFullscreenError = error.message; });
-      }, { once: true, capture: true });
-    });
-    await page.mouse.click(8, 8);
-    try {
-      await page.waitForFunction(() => document.fullscreenElement && innerWidth === 1920 && innerHeight === 1080, null, { timeout: 10_000 });
-    } catch {
-      throw Error('Expected a 1920×1080 fullscreen viewport, got ' + await page.evaluate(() => innerWidth + '×' + innerHeight + (window.lpFullscreenError ? ': ' + window.lpFullscreenError : '')));
-    }
-    await delay(2100); // Let Chrome's temporary fullscreen notice leave the capture area.
-    recorder = capture(recording);
-    const captureStart = await recorder.ready;
+    frames = await beginFrames(page, videoFile);
+    audio = beginAudio(audioFile);
+    const audioStart = await audio.ready;
     const started = await page.evaluate(name => window.lpExport.start(name), section);
-    trimStart = Math.max(0, (started - captureStart) / 1000);
+    trimStart = Math.max(0, (started - audioStart) / 1000);
+    frames.start(started);
 
     let thumbnail;
     if (section === 'storage') {
@@ -117,27 +170,21 @@ async function render() {
       status = await page.evaluate(() => window.lpExport.status());
       if (status.error) throw Error(status.error);
       if (status.finished) break;
-      await delay(200);
+      await delay(80);
     } while (Date.now() < deadline);
     if (!status.finished) throw Error('Watch mode stalled in ' + status.phase);
     if (!status.captions.length) throw Error('No captions recorded in ' + section);
+    await frames.stop(Math.round((status.finished - status.started) * fps / 1000));
+    finishedFrames = true;
     await thumbnail;
-    await delay(500);
   } finally {
-    try {
-      if (recorder) await recorder.stop();
-    } finally {
-      try { await browser?.close(); } finally { await rm(profile, { recursive: true, force: true }); }
-    }
+    if (frames && !finishedFrames) frames.abort();
+    try { if (audio) await audio.stop(); } finally { await browser.close(); }
   }
-  const seconds = (status.finished - status.started) / 1000;
-  ffmpeg(['-ss', trimStart.toFixed(3), '-i', recording, '-t', seconds.toFixed(3),
-    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-threads', '3',
-    '-r', '30', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2',
-    path.join(out, 'section.mp4')]);
+  finalize(videoFile, audioFile, trimStart);
   await writeFile(path.join(out, 'captions.json'), JSON.stringify(status.captions));
-  await rm(recording);
-  console.log(section + ' rendered in ' + seconds.toFixed(1) + ' seconds of episode time');
+  await Promise.all([rm(videoFile), rm(audioFile)]);
+  console.log(section + ' rendered in ' + ((status.finished - status.started) / 1000).toFixed(1) + ' seconds of episode time');
 }
 
 render().catch(error => { console.error(error); process.exitCode = 1; });
