@@ -208,5 +208,35 @@
     "voice": "Kore",
     "text": "ਅੱਜ ਮੈਂ ਆਪ ਵੀ ਸੁਣ ਰਹੀ ਸੀ।",
     "speaker": "mehar"
+  },
+  "simranIntro": {
+    "hash": "9ed4ff10d4daef3d644bce74ba7565e70509690059be7039fb183f018f0bff2a",
+    "voice": "Aoede",
+    "text": "ਅਗਲੇ ਦਿਨਾਂ ਵਿੱਚ ਪਰਿਵਾਰ ਨੇ ਰਲ ਕੇ ਨਾਮ ਸਿਮਰਨ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ। ਔਖੇ ਦਿਨਾਂ ਵਿੱਚ ਵਾਹਿਗੁਰੂ ਨੂੰ ਯਾਦ ਕਰਦਿਆਂ ਉਨ੍ਹਾਂ ਨੂੰ ਹੌਸਲਾ ਮਿਲਦਾ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "simran": {
+    "hash": "f332aeafb833681c002ee709ca2045ba4e5f891b63dfc5d848596a4273a2d966",
+    "voice": "Orus",
+    "text": "ਵਾਹਿਗੁਰੂ … ਵਾਹਿਗੁਰੂ …",
+    "speaker": "boy"
+  },
+  "work": {
+    "hash": "03abb75b53b36417ccec9fec400f516baf3c9465725311cbdf567ad07d57a404",
+    "voice": "Aoede",
+    "text": "ਇਲਾਕੇ ਦੇ ਲੋਕਾਂ ਨੇ ਕੰਮ ਲੱਭਣ ਵਿੱਚ ਹੱਥ ਵਟਾਇਆ। ਪਾਪਾ ਨੂੰ ਪੱਕਾ ਕੰਮ ਮਿਲ ਗਿਆ ਤੇ ਮੰਮੀ ਨੇ ਸਿਲਾਈ ਦਾ ਕੰਮ ਸ਼ੁਰੂ ਕਰ ਲਿਆ। ਹੌਲੀ-ਹੌਲੀ ਘਰ ਦੇ ਹਾਲਾਤ ਸੁਧਰਨ ਲੱਗੇ।",
+    "speaker": "narrator"
+  },
+  "room": {
+    "hash": "a8e8ab059a72debcac4d545b023eb6f510f6af23e6185d89c99fd87779d5b08d",
+    "voice": "Leda",
+    "text": "ਆ ਜਾ। ਇੱਥੇ ਜਗ੍ਹਾ ਹੈ।",
+    "speaker": "girl"
+  },
+  "dadiLearns": {
+    "hash": "8353fefb572b47457d9a89ec2ba8fcfb13bd5aae5363ded510e034b8f168a710",
+    "voice": "Pulcherrima",
+    "text": "ਇਹ ਸਿਤਾਰ ਉਦੋਂ ਵੱਜਦਾ ਹੈ ਜਦੋਂ ਕੋਈ ਦਿਲੋਂ ਕੀਰਤਨ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਮਨ ਤਾਰੀਫ਼ ਸੁਣਨ ਦੀ ਥਾਂ ਸ਼ਬਦ ਵੱਲ ਲੱਗਦਾ ਹੈ, ਹਰ ਸੁਰ ਬਦਲਿਆ ਜਿਹਾ ਲੱਗਦਾ ਹੈ।",
+    "speaker": "dadi"
   }
 }
