@@ -44,7 +44,7 @@
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
    if(littlePanth&&(id==='mehar'||id==='narrator')){
-    const colour=id==='mehar'?'#66aebd':'#a679ad';
+    const colour=id==='mehar'?'#f4ce37':'#e8ba37';
     slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('chunni',colour)));
    }
  const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod',concern:'sad',happy:'smile',proud:'celebrate',angry:'angry'};
