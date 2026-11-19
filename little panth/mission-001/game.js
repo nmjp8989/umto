@@ -8,6 +8,8 @@ const backgrounds={village:'anchor set/village courtyard.svg',field:'anchor set/
 const asset={patch:'assets/wheat/wheat-patch.svg',bundle:'assets/wheat/wheat-bundle.svg',sack:'assets/wheat/wheat-sack.svg',chicken:'assets/props/chicken.svg',basket:'assets/props/basket.svg',sickle:'assets/tools/sickle.svg'};
 const n=(name,attrs={})=>{const el=document.createElementNS(NS,name);for(const [k,v]of Object.entries(attrs))el.setAttribute(k,String(v));return el};
 const stage=$('stage'),props=$('worldProps'),cast=$('characters'),front=$('foreground'),fx=$('fx');
+const exportMode=new URLSearchParams(location.search).get('export')==='1';
+if(exportMode)document.body.classList.add('video-export');
 const captionModes=['English','Full','Off'];
 let captionMode=0, captionRequired=false;
 try { captionMode=Math.max(0,captionModes.indexOf(localStorage.getItem('little-panth-captions'))); } catch {}
@@ -64,10 +66,11 @@ async function oneLine(id,token,autoRead) {
  $('english').textContent=line.en;
  $('soundHint').textContent='';
  const lastFocus=document.activeElement;
+ const caption=exportMode?{start:Date.now()-exportState.started,text:line.en}:null;
  await new Promise(resolve=>{
    let settled=false;let utterance=null;let readTimer;
    let cueTimer;const fireCue=()=>{if(id==='lp017'&&token===epoch)triggerCartBreak()};
-   const done=()=>{if(settled)return;settled=true;clearTimeout(readTimer);clearTimeout(cueTimer);fireCue();voiceResolver=null;if(currentVoice){currentVoice.onended=null;currentVoice.onerror=null;currentVoice.pause();currentVoice=null}if(utterance&&'speechSynthesis'in window)try{speechSynthesis.cancel()}catch{};resolve()};
+   const done=()=>{if(settled)return;settled=true;if(caption)exportState.captions.push({...caption,end:Date.now()-exportState.started});clearTimeout(readTimer);clearTimeout(cueTimer);fireCue();voiceResolver=null;if(currentVoice){currentVoice.onended=null;currentVoice.onerror=null;currentVoice.pause();currentVoice=null}if(utterance&&'speechSynthesis'in window)try{speechSynthesis.cancel()}catch{};resolve()};
    voiceResolver=done;$('nextLine').onclick=done;
    function startReadingTimer(){
      if(autoRead||watchMode){clearTimeout(readTimer);readTimer=setTimeout(done,Math.max(line.sacred?6500:3800,line.en.split(/\s+/).length*325));}
@@ -82,6 +85,7 @@ async function oneLine(id,token,autoRead) {
      if(settled||failed)return;
      failed=true;
      currentVoice=null;
+     if(exportMode){exportState.error='Could not play narration: '+id;done();return}
      // On a first deploy or offline run, keep text interactive instead of failing.
      if('speechSynthesis'in window && speechSynthesis.getVoices().some(v=>/^pa(-|_)/i.test(v.lang))) {
        utterance=new SpeechSynthesisUtterance(line.pa);
@@ -467,6 +471,7 @@ function grainPour(bundle,sack){
  setTimeout(()=>{group.remove();harvestSpark(tx,ty)},550);
 }
 async function harvest(){
+ if(stopExportAt('harvest'))return;
  setPhase('harvest');scene('field',2,'HARVEST FRENZY');sound.setMood('field');harvested=0;arrangeCast('harvest');
  await speak('fieldIntro');setLabel('Cut the six golden wheat patches','0 / 6','Tap or swipe each golden patch three times. Leave the green wheat.');
  const green=img(asset.patch,535,282,180,124,'tap-target','Unripe green wheat');green.style.filter='hue-rotate(53deg) saturate(.75)';green.style.pointerEvents='all';green.addEventListener('click',()=>{if(!stageBusy)banner('Not ready yet — let it grow!',1500)});props.append(green);
@@ -536,6 +541,7 @@ function drawFieldSacks(){looseSacks(3-loaded,async(im,from)=>{
  else{drawFieldSacks();stageBusy=false;}
 })}
 function storage(){
+ if(stopExportAt('storage'))return;
  scene('storage',3,'THE FIRST DELIVERY');loaded=3;setPhase('storage');
  sound.setMood('storage');arrangeCast('storage');
  setLabel('Deliver the first three sacks','0 / 3','The cart is arriving at the storage courtyard.');
@@ -636,6 +642,7 @@ async function loadReturnSack(im,from){
  drawReturnSacks();stageBusy=false;
 }
 async function requests(){
+ if(stopExportAt('requests'))return;
  setPhase('requests');scene('village',4,'THE REAL HUNGER');sound.setMood('reflection');arrangeCast('requests');
  decoratePile(6,270,550);setLabel('Can Baldev understand why others need wheat?');
  await speak('requests');button('Visit Gurudwara Sahib →',()=>lesson());
@@ -649,6 +656,7 @@ async function lesson(){
 }
 let sharingIntro=false;
 async function share(){
+ if(stopExportAt('share'))return;
  setPhase('share');scene('village',5,'THE JOY OF SHARING');sound.setMood('village');arrangeCast('sharingGame');
  shareCounts={home:0,seeds:0,sharing:0};selectedSack=null;sharingIntro=true;
  showSharing();
@@ -753,7 +761,8 @@ function showQuestion(){
 }
 async function finishQuiz(){
  setPhase('finale');scene('village',5,'A FULL HEART');sound.setMood('village');loaded=0;arrangeCast('finale');cart(340,275,.80);detachWheel($('cartHost'),false);$('cartHost')?.classList.add('cart-crash');setLabel('You helped Baldev discover Santokh');
- await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=watchMode;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
+ await speak('finale');sound.cheer();setPhase('complete');$('finish').hidden=watchMode&&!exportMode;setLabel('Mission complete!','★ ★ ★');try{localStorage.removeItem(STORAGE_KEY)}catch{}
+ if(exportMode){await wait(2200);exportState.finished=Date.now()}
 }
 async function begin(resume=false){
  if(!story)return;
@@ -807,7 +816,7 @@ async function watchTap(target,action,cadence){
 function watchElement(el,cadence){const p=handTarget(el);if(p)watchTap(p,()=>{if(el.isConnected&&!stageBusy)autoActivate(el)},cadence)}
 
 setInterval(()=>{
- if(!watchMode||!runStarted||document.hidden||watchActing||performance.now()<watchDue)return;
+ if((exportMode&&exportState.finished)||!watchMode||!runStarted||document.hidden||watchActing||performance.now()<watchDue)return;
  if(!$('finish').hidden||window.lpPhase==='complete')return;
  if(!$('help').hidden)return;
  if(!$('speech').hidden){if((!voiceEnabled||(!currentVoice&&$('soundHint').textContent))&&performance.now()-dialogueStart>9000)$('nextLine').click();return}
@@ -835,6 +844,27 @@ document.addEventListener('keydown',e=>{
  if(!e.defaultPrevented&&(e.key==='Enter'||e.key===' ')&&!$('speech').hidden&&!e.target.closest('button')){e.preventDefault();$('nextLine').click()}
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
+const exportState={started:0,finished:0,error:'',captions:[]};
+function stopExportAt(next){
+ if(!exportMode||exportState.stopAt!==next)return false;
+ exportState.finished=Date.now();
+ return true;
+}
+if(exportMode){
+ const sections={intro:[intro,'harvest'],harvest:[harvest,'storage'],storage:[storage,'requests'],requests:[requests,'share'],share:[share,null]};
+ window.lpExport={
+   ready:()=>Boolean(story&&cartSource&&rig.mehar&&rig.narrator),
+   status:()=>({...exportState,phase:window.lpPhase}),
+   start(section){
+     if(exportState.started||!this.ready()||!Object.hasOwn(sections,section))throw Error('Export section is unavailable: '+section);
+     const [play,stopAt]=sections[section];
+     exportState.stopAt=stopAt;exportState.started=Date.now();
+     $('opening').hidden=true;setWatch(true);runStarted=true;sound.start();
+     Promise.resolve(play()).catch(error=>{exportState.error=String(error)});
+     return exportState.started;
+   }
+ };
+}
 (async()=>{
  try{
    const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=7'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);

@@ -1,0 +1,98 @@
+name: Render Little Panth episode
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: Episode folder
+        required: true
+        default: mission-001
+        type: choice
+        options:
+          - mission-001
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/little-panth-export.yml'
+      - 'tools/little-panth-export.cjs'
+      - 'tools/little-panth-assemble.py'
+
+permissions:
+  contents: read
+
+env:
+  EPISODE: ${{ inputs.episode || 'mission-001' }}
+
+jobs:
+  render:
+    name: Render ${{ matrix.section }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        section: [intro, harvest, storage, requests, share]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install recording tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils xvfb xauth fonts-noto-core
+          npm install --no-save --package-lock=false playwright-core@1.56.1
+      - name: Capture Watch mode with desktop audio
+        env:
+          SECTION: ${{ matrix.section }}
+        run: |
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=lp_export rate=48000
+          pactl set-default-sink lp_export
+          paplay --device=lp_export --raw --format=s16le --rate=48000 --channels=2 /dev/zero &
+          silent_feed=$!
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp-export-http.log 2>&1 &
+          web_server=$!
+          trap 'kill "$silent_feed" "$web_server" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS --output /dev/null http://127.0.0.1:8765/; then break; fi
+            sleep 1
+          done
+          xvfb-run -a -s '-screen 0 1920x1080x24 -nolisten tcp' node tools/little-panth-export.cjs "$EPISODE" "$SECTION" little-panth-renders
+      - uses: actions/upload-artifact@v4
+        with:
+          name: section-${{ matrix.section }}
+          path: little-panth-renders/${{ matrix.section }}/
+          if-no-files-found: error
+          retention-days: 2
+          compression-level: 0
+
+  assemble:
+    name: Assemble YouTube package
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: section-*
+          path: little-panth-renders
+      - name: Join video and captions
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -q
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          for directory in little-panth-renders/section-*; do
+            mv "$directory" "little-panth-renders/${directory##*/section-}"
+          done
+          python3 tools/little-panth-assemble.py little-panth-renders release "$EPISODE"
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -of compact "release/$EPISODE.mp4"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-${{ env.EPISODE }}-youtube
+          path: release/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
