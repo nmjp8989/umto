@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const { chromium } = require('playwright-core');
 const { spawn, spawnSync } = require('node:child_process');
-const { mkdir, writeFile } = require('node:fs/promises');
+const { mkdir, mkdtemp, rm, writeFile } = require('node:fs/promises');
+const { tmpdir } = require('node:os');
 const path = require('node:path');
 
 const episode = process.argv[2] || 'mission-001';
@@ -68,23 +69,31 @@ async function render() {
   }
   if (!process.env.DISPLAY) throw Error('An X display and the lp_export PulseAudio sink are required');
   await mkdir(out, { recursive: true });
-  const browser = await chromium.launch({
-    channel: 'chrome', headless: false, ignoreDefaultArgs: ['--mute-audio'],
-    args: ['--no-sandbox', '--kiosk', '--autoplay-policy=no-user-gesture-required',
-      '--window-position=0,0', '--window-size=1920,1080', '--force-device-scale-factor=1']
-  });
+  const profile = await mkdtemp(path.join(tmpdir(), 'little-panth-chrome-'));
+  let browser;
   const recording = path.join(out, 'capture.mkv');
   let recorder;
   let status;
   let trimStart;
   try {
-    const page = await browser.newPage({ viewport: null });
+    browser = await chromium.launchPersistentContext(profile, {
+      viewport: null, channel: 'chrome', headless: false, ignoreDefaultArgs: ['--mute-audio'],
+    args: ['--no-sandbox', '--kiosk', '--autoplay-policy=no-user-gesture-required',
+      '--window-position=0,0', '--window-size=1920,1080', '--force-device-scale-factor=1']
+    });
+    const page = browser.pages()[0] || await browser.newPage();
+    const cdp = await browser.newCDPSession(page);
+    const { windowId } = await cdp.send('Browser.getWindowForTarget');
+    await cdp.send('Browser.setWindowBounds', { windowId, bounds: { windowState: 'fullscreen' } });
     const pageErrors = [];
     page.on('pageerror', error => pageErrors.push(error.message));
     await page.goto('http://127.0.0.1:8765/little%20panth/' + episode + '/?export=1');
     await page.waitForFunction(() => window.lpExport?.ready(), null, { timeout: 60_000 });
-    const size = await page.evaluate(() => [innerWidth, innerHeight]);
-    if (size.join('x') !== '1920x1080') throw Error('Expected a 1920×1080 kiosk viewport, got ' + size.join('×'));
+    try {
+      await page.waitForFunction(() => innerWidth === 1920 && innerHeight === 1080, null, { timeout: 10_000 });
+    } catch {
+      throw Error('Expected a 1920×1080 fullscreen viewport, got ' + await page.evaluate(() => innerWidth + '×' + innerHeight));
+    }
     recorder = capture(recording);
     const captureStart = await recorder.ready;
     const started = await page.evaluate(name => window.lpExport.start(name), section);
@@ -109,7 +118,11 @@ async function render() {
     await thumbnail;
     await delay(500);
   } finally {
-    try { if (recorder) await recorder.stop(); } finally { await browser.close(); }
+    try {
+      if (recorder) await recorder.stop();
+    } finally {
+      try { await browser?.close(); } finally { await rm(profile, { recursive: true, force: true }); }
+    }
   }
   const seconds = (status.finished - status.started) / 1000;
   ffmpeg(['-ss', trimStart.toFixed(3), '-i', recording, '-t', seconds.toFixed(3),
@@ -117,7 +130,7 @@ async function render() {
     '-r', '30', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2',
     path.join(out, 'section.mp4')]);
   await writeFile(path.join(out, 'captions.json'), JSON.stringify(status.captions));
-  await require('node:fs/promises').rm(recording);
+  await rm(recording);
   console.log(section + ' rendered in ' + seconds.toFixed(1) + ' seconds of episode time');
 }
 

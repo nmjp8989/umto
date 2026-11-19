@@ -40,7 +40,7 @@ jobs:
       - name: Install recording tools
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils xvfb xauth fonts-noto-core
+          sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils xvfb xauth openbox fonts-noto-core
           npm install --no-save --package-lock=false playwright-core@1.56.1
       - name: Capture Watch mode with desktop audio
         env:
@@ -58,7 +58,12 @@ jobs:
             if curl -fsS --output /dev/null http://127.0.0.1:8765/; then break; fi
             sleep 1
           done
-          xvfb-run -a -s '-screen 0 1920x1080x24 -nolisten tcp' node tools/little-panth-export.cjs "$EPISODE" "$SECTION" little-panth-renders
+          xvfb-run -a -s '-screen 0 1920x1080x24 -nolisten tcp' bash -c '
+            openbox --sm-disable >/tmp/lp-export-openbox.log 2>&1 &
+            window_manager=$!
+            trap "kill $window_manager 2>/dev/null || true" EXIT
+            node tools/little-panth-export.cjs "$EPISODE" "$SECTION" little-panth-renders
+          '
       - uses: actions/upload-artifact@v4
         with:
           name: section-${{ matrix.section }}
