@@ -43,6 +43,10 @@
    base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'}[id]);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
+   if(littlePanth&&(id==='mehar'||id==='narrator')){
+    const colour=id==='mehar'?'#66aebd':'#a679ad';
+    slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('chunni',colour)));
+   }
  const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod',concern:'sad',happy:'smile',proud:'celebrate',angry:'angry'};
    const keys=littlePanth?['idle','blink','talkA','talkEE','talkO',...Object.keys(storyReactions),...(id==='narrator'?[]:Array.from({length:12},(_,i)=>'walk'+i))]:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];
    for(const key of keys){

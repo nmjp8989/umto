@@ -479,7 +479,7 @@ for(const [key,label] of Object.entries(indianLongHair)){
 const hairSections={all:'All',girls:'Girls',boys:'Boys'};
 let hairSection='all';
 function hairSectionFor(key){return /crop|short|fade|quiff|buzz|mohawk|crew|slick|pompadour|bald|undercut|spik|bowl|flatTop|sidePart|mullet/i.test(key)?'boys':'girls';}
-const headwearNames={none:'No head covering',headband:'Fabric headband',kufi:'Kufi cap',keffiyeh:'Keffiyeh with agal',hijab:'Draped hijab',wrappedHijab:'Wrapped hijab',dastaar:'Sikh dastaar',punjabiTurban:'Pleated Punjabi turban',dumalla:'Sikh dumalla',patka:'Sikh patka'};
+const headwearNames={none:'No head covering',headband:'Fabric headband',chunni:'Chunni (headscarf)',kufi:'Kufi cap',keffiyeh:'Keffiyeh with agal',hijab:'Draped hijab',wrappedHijab:'Wrapped hijab',dastaar:'Sikh dastaar',punjabiTurban:'Pleated Punjabi turban',dumalla:'Sikh dumalla',patka:'Sikh patka'};
 catalogs.headwear=headwearNames;
 function coveringShape(d,colour,stroke=1.65){return `<path d="${d}" fill="${colour}" fill-rule="evenodd" stroke="#211d1d" stroke-width="${stroke}" stroke-linejoin="round"/>`}
 function coveringLines(d,stroke='#292525',width=1.05){return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round"/>`}
@@ -493,6 +493,11 @@ function headwearSvg(key,colour=state.headwearColour){
  if(key==='headband'){
   art=coveringShape('M7 62 C5 25 23 8 51 7 C80 7 98 27 96 62 L90 67 C91 35 76 17 51 17 C27 17 12 35 14 67Z',colour,1.4);
   art+=coveringLines('M10 52 C11 24 29 12 51 12 C74 12 91 28 93 52','#fff5ef',.7);
+ }
+ if(key==='chunni'){
+  const drape='M-7 121 C-12 87 -13 47 2 24 C14 5 35 -3 55 -2 C81 -2 101 11 109 34 C118 58 113 90 118 116 Q125 143 144 167 Q128 185 108 192 Q89 174 77 150 Q68 139 51 132 Q31 135 15 121 Q10 142 -3 160 L-25 153 Q-10 139 -7 121Z';
+  const opening='M24 39 Q52 25 80 40 C96 52 96 75 92 96 C87 116 73 132 51 136 C29 135 15 120 11 102 C5 79 10 54 24 39Z';
+  art=coveringShape(drape+' '+opening,colour)+coveringLines('M-3 43 Q-2 13 38 7 Q84 -1 102 33 M13 42 Q49 18 82 34 M3 103 Q5 132 -13 151 M107 84 Q109 129 132 165 Q122 177 110 182 M96 113 Q100 140 120 165','#fff5df',1.6);
  }
  if(key==='kufi')art=coveringShape('M12 55 C10 43 12 29 19 22 Q50 9 81 22 C89 28 94 41 93 55 Q53 47 12 55Z',colour)+coveringLines('M13 39 Q52 26 91 40 M12 49 Q52 38 93 50')+coveringLines('M24 37 l4 4 l-4 4 l-4 -4Z M39 34 l4 4 l-4 4 l-4 -4Z M54 33 l4 4 l-4 4 l-4 -4Z M69 35 l4 4 l-4 4 l-4 -4Z M83 38 l4 4 l-4 4 l-4 -4Z','#8c8376',.7);
  if(key==='keffiyeh')art=coveringShape('M-7 110 C-14 77 -10 37 8 18 C24 1 46 -5 66 -2 C96 1 116 25 118 55 L121 105 Q125 129 137 149 L116 163 L96 153 Q91 126 95 99 C98 76 94 53 82 39 Q55 27 28 39 C17 54 10 82 12 102 Q15 127 9 153 L-8 165 L-27 149 Q-11 127 -7 110Z',colour)+coveringLines('M9 20 Q53 1 98 22 M8 24 Q54 7 102 26','#211d1d',4.4)+coveringLines('M15 33 Q54 18 96 35 M-2 49 Q-7 81 0 106 M109 48 Q116 80 110 105 M4 113 Q3 135 -7 150 M103 114 Q107 137 119 151')+coveringLines('M-4 57 l10 8 l-9 9 l10 8 l-8 9 M107 58 l-9 8 l11 9 l-9 9 l11 9 M-1 112 l8 6 l-8 8 l8 7 M108 114 l-7 7 l9 7 l-6 7','#9c8e7e',.75);
@@ -2400,6 +2405,6 @@ document.getElementById('sceneSaveImage').onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseScene();});
 
-</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=98"></script></body></html>
+</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=99"></script></body></html>
 
 
