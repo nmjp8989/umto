@@ -122,7 +122,7 @@ function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-an
 function arrangeCast(type){
  cast.replaceChildren();
  const layouts={
- storytellerIntro:[['narrator',640,665,510]],
+ storytellerIntro:[['narrator',640,665,360]],
  intro:[['baldev',265,660,430],['mehar',1050,675,320,'left']],
  harvest:[['baldev',160,657,320],['mehar',1100,666,290,'left']],
  load:[['baldev',180,656,310],['mehar',1115,666,280,'left']],
@@ -191,7 +191,7 @@ function animateCamera(now){
  if(!activeSpeaker&&!reactionFocus&&!walkingFocus){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
  const actor=actors.find(a=>a.id===(reactionFocus||walkingFocus||activeSpeaker));
  const elapsed=Math.max(0,now-dialogueStart);
- const zoom=window.lpPhase==='share'&&activeSpeaker==='baldev'?1:walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
+ const zoom=actor?.id==='narrator'||(window.lpPhase==='share'&&activeSpeaker==='baldev')?1:walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
  const w=1280/zoom,h=720/zoom;
  const x=clamp((actor?.x??640)-w/2,0,1280-w);
  const focusY=actor?actor.y-actor.height*.64:360;
@@ -412,7 +412,15 @@ async function intro(){
  setPhase('intro');scene('field',1,'THE CART THAT WAS NEVER FULL');sound.setMood('opening');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
  setLabel('The Cart That Was Never Full');const token=epoch;await openingFlyover();if(token!==epoch)return;
  arrangeCast('storytellerIntro');sound.setMood('village');
- if(!await speak('storytellerIntro'))return;
+ if(!reducedMotion.matches){
+   const storyteller=actors[0];
+   stageBusy=true;
+   await storyteller.node.animate(
+     [{translate:'0 '+(storyteller.height+70)+'px'},{translate:'0 0'}],
+     {duration:700,easing:'cubic-bezier(.2,.8,.2,1)'}
+   ).finished;
+ }
+ if(token!==epoch||!await speak('storytellerIntro'))return;
  scene('village',1,'THE EMERGENCY');
  arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);
  setLabel('What is Chacha Baldev so worried about?');
