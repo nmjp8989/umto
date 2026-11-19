@@ -172,5 +172,41 @@
     "voice": "Kore",
     "text": "ਮੇਰੇ ਲਈ ਇੱਕ ਥਾਂ ਰੱਖੀਂ।",
     "speaker": "mehar"
+  },
+  "home": {
+    "hash": "8180eb94fc040833eb3d823464c1e25bb87090a5409ff1d7c180241b2eaa9fd2",
+    "voice": "Aoede",
+    "text": "ਘਰ ਪਹੁੰਚ ਕੇ ਮੇਹਰ ਆਪਣੀ ਚਟਾਈ ਉੱਤੇ ਬੈਠ ਗਈ। ਉਸ ਨੇ ਉਹੀ ਸ਼ਬਦ ਛੋਹਿਆ ਜਿਹੜਾ ਕੱਲ੍ਹ ਸਕੂਲ ਵਿੱਚ ਗਾਇਆ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "firstNote": {
+    "hash": "f2422cc800fafbf821813468ba0b81020b118a77b11d47481f21ce113ed53d85",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਤਾਰ ਵੱਜੀ। ਫਿਰ ਤਾਰਾਂ ਉੱਤੇ ਹੌਲੀ-ਹੌਲੀ ਸੁਨਹਿਰੀ ਚਾਨਣ ਫੈਲ ਗਿਆ। ਮੇਹਰ ਨੇ ਡੂੰਘਾ ਸਾਹ ਲਿਆ ਤੇ ਗਾਉਂਦੀ ਰਹੀ।",
+    "speaker": "narrator"
+  },
+  "different": {
+    "hash": "ac3af630e63cab67df0290a4b06cc344b650e174c68c13f72019bf239ee1b11f",
+    "voice": "Pulcherrima",
+    "text": "ਕੱਲ੍ਹ ਵੀ ਇਹੀ ਸ਼ਬਦ ਸੀ। ਅੱਜ ਕੀ ਵੱਖਰਾ ਲੱਗਿਆ?",
+    "speaker": "dadi"
+  },
+  "yesterday": {
+    "hash": "101b8f1b0eec635295424273fe1b5e6cc196bf9ab00dcc8c4f5fcff8f7ed355a",
+    "voice": "Kore",
+    "text": "ਕੱਲ੍ਹ ਮੈਂ ਵਾਰ-ਵਾਰ ਵੇਖਦੀ ਸੀ ਕਿ ਕੌਣ ਮੈਨੂੰ ਸੁਣ ਰਿਹਾ ਹੈ।",
+    "speaker": "mehar"
+  },
+  "andToday": {
+    "hash": "2a52212330bb14d1591e0c86ae9b8a4d6b08d50ab4ea9580b4c067181e6a0fd4",
+    "voice": "Pulcherrima",
+    "text": "ਤੇ ਅੱਜ?",
+    "speaker": "dadi"
+  },
+  "listening": {
+    "hash": "b9bb49be98f781f6d3009a078a5f7f0fe0f0c9aa7112e6d68db6934b0f0673cf",
+    "voice": "Kore",
+    "text": "ਅੱਜ ਮੈਂ ਆਪ ਵੀ ਸੁਣ ਰਹੀ ਸੀ।",
+    "speaker": "mehar"
   }
 }
