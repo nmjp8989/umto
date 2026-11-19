@@ -14,7 +14,8 @@
    baldev:{preset:'elder-baldev',colours:{bodyType:'classic'}}
   });
  }
- const littlePanth=new URLSearchParams(location.search).get('cast')==='little-panth';
+ const missionTwo=new URLSearchParams(location.search).get('cast')==='little-panth-002';
+ const littlePanth=missionTwo||new URLSearchParams(location.search).get('cast')==='little-panth';
  if(littlePanth){
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
@@ -23,6 +24,19 @@
    baba:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#e6dbbc',shirt:'kurta',shirtColour:'#477d76',trouserColour:'#e8e1cd',facialHair:'beard_flowing',beard:'flowing',beardColour:'#e0e1e1',moustacheColour:'#e0e1e1',bodyType:'classic'}},
    narrator:{preset:'elder-kaur',colours:{headwear:'none',hair:'bun',hairColour:'#aaa5aa',shirt:'kurtaChunni',shirtColour:'#865b86',bottom:'salwar',trouserColour:'#e2bf8b',bodyType:'classic',beard:'none',moustache:'none',facialHair:'none'}},
    farmer:{preset:'elder-baldev',colours:{headwear:'dastaar',headwearColour:'#78658f',shirt:'kurta',shirtColour:'#84935e',trouserColour:'#d6c6a4',facialHair:'beard_wavy',beard:'wavy',beardColour:'#a8a8a2',moustacheColour:'#a8a8a2',bodyType:'classic'}}
+  });
+ }
+ if(missionTwo){
+  const {mehar,narrator,baba}=cast;
+  for(const key of Object.keys(cast))delete cast[key];
+  Object.assign(cast,{
+   mehar,dadi:narrator,
+   friend:{preset:'kid-rohan',colours:{shirtColour:'#4c735a',bodyType:'short'}},
+   girl:{preset:'kid-meher',colours:{hair:'sideBraid',shirt:'kurtaChunni',shirtColour:'#b45f55',trouserColour:'#6a5379',bodyType:'short'}},
+   boy:{preset:'kid-amir',colours:{shirt:'hoodie',shirtColour:'#bc8b3d',bodyType:'short'}},
+   teacher:{preset:'adult-priya',colours:{shirt:'kurtaChunni',shirtColour:'#45698a'}},
+   mother:{preset:'adult-priya',colours:{shirt:'kurtaChunni',shirtColour:'#ad7443',hair:'bun'}},
+   father:{...baba,preset:'adult-harpreet',colours:{...baba.colours,headwearColour:'#34406b',beardColour:'#302826',beard:'round',facialHair:'beard_round'}}
   });
  }
  const bank={};let serial=300;
@@ -40,10 +54,10 @@
   for(const view of id==='narrator'?['right']:['left','right']){
    const actor=newSceneActor(def.preset,0);actor.view=view;actor.appearance={...actor.appearance,...def.colours,framing:'full',pose:'relaxed'};
    const base=createSceneActor(actor,serial++);
-   base.svg.setAttribute('aria-label',{harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'}[id]);
+   base.svg.setAttribute('aria-label',({harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'})[id]||id);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
-   if(littlePanth&&(id==='mehar'||id==='narrator')){
+   if(littlePanth&&(id==='mehar'||id==='narrator'||(missionTwo&&['girl','boy','mother','teacher'].includes(id)))){
     const colour=id==='mehar'?'#f4ce37':'#e8ba37';
     slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('chunni',colour)));
    }

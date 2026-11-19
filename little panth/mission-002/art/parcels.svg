@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 160">
+<defs><linearGradient id="paper" x2="0" y2="1"><stop stop-color="#f7daa2"/><stop offset="1" stop-color="#b3794f"/></linearGradient></defs>
+<ellipse cx="168" cy="140" rx="152" ry="13" fill="#472f28" opacity=".33"/>
+<g stroke="#87583a" stroke-width="4" stroke-linejoin="round">
+<path d="M15 90l84-34 78 17 7 54-103 17-61-18Z" fill="url(#paper)"/>
+<path d="M16 91l73 17 88-35m-88 35-8 36M47 78l71 18-3 43" fill="none"/>
+<path d="M151 65l72-33 86 26 3 57-80 15-71-20Z" fill="url(#paper)"/>
+<path d="M151 65l81 26 77-33m-77 33v39m-50-80 81 28 1 46" fill="none"/>
+</g>
+<path d="M55 82l42 13m78-35 45 14m25-31 37 12" stroke="#ffe6b6" stroke-width="3" opacity=".8"/>
+</svg>

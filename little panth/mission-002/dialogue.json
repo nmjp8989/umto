@@ -1,0 +1,694 @@
+{
+  "lines": {
+    "tomorrow": {
+      "speaker": "boy",
+      "pa": "ਦੀਦੀ, ਇੱਕ ਕੱਲ੍ਹ ਲਈ ਰੱਖ ਲਈਏ?",
+      "en": "Didi, can we save one for tomorrow?",
+      "pose": "concern"
+    },
+    "schoolIntro": {
+      "speaker": "narrator",
+      "pa": "ਉਸ ਸਵੇਰ ਸਕੂਲ ਵਿੱਚ ਲੰਗਰ ਲੱਗਣਾ ਸੀ। ਲੰਗਰ ਤੋਂ ਪਹਿਲਾਂ ਮੇਹਰ ਨੇ ਸ਼ਬਦ ਗਾਇਆ। ਉਹ ਹਰ ਰੋਜ਼ ਰਿਆਜ਼ ਕਰਦੀ ਸੀ, ਤੇ ਬੱਚੇ ਚੁੱਪ ਕਰਕੇ ਉਸ ਦੀ ਆਵਾਜ਼ ਸੁਣ ਰਹੇ ਸਨ।",
+      "en": "That morning the school was serving langar. Mehar sang a shabad before the meal. She practised every day, and the children listened quietly.",
+      "pose": "idle"
+    },
+    "shabad": {
+      "speaker": "mehar",
+      "pa": "ਤੂ ਠਾਕੁਰੁ ਤੁਮ ਪਹਿ ਅਰਦਾਸਿ ॥ ਜੀਉ ਪਿੰਡੁ ਸਭੁ ਤੇਰੀ ਰਾਸਿ ॥",
+      "en": "You are our Master. To You we offer our prayer. Our body and soul are Your gifts.",
+      "pose": "reflect",
+      "sacred": true
+    },
+    "notice": {
+      "speaker": "friend",
+      "pa": "ਮੇਹਰ, ਤੈਨੂੰ ਪਤਾ? ਤਿੰਨ ਦਿਨਾਂ ਤੋਂ ਲੰਗਰ ਦੇ ਬੰਨ੍ਹੇ ਹੋਏ ਪੈਕਟ ਘੱਟ ਰਹੇ ਨੇ। ਅੱਜ ਵੀ—",
+      "en": "Mehar, did you hear? Packed langar meals have gone missing three days in a row. Today, too—",
+      "pose": "explain"
+    },
+    "praise": {
+      "speaker": "mehar",
+      "pa": "ਪਰ ਪਹਿਲਾਂ ਇਹ ਦੱਸ, ਤੂੰ ਮੇਰਾ ਕੀਰਤਨ ਸੁਣਿਆ?",
+      "en": "But tell me first. Did you hear me sing?",
+      "pose": "proud"
+    },
+    "heard": {
+      "speaker": "friend",
+      "pa": "ਹਾਂ, ਮੈਂ ਸੁਣਿਆ। ਤੂੰ ਮੇਰੀ ਗੱਲ ਸੁਣੀ?",
+      "en": "I did. Did you hear what I just said?",
+      "pose": "happy"
+    },
+    "boast": {
+      "speaker": "mehar",
+      "pa": "ਤੂੰ ਵੇਖੀਂ, ਮੈਂ ਪਤਾ ਲਾ ਲਵਾਂਗੀ। ਫਿਰ ਸਾਰੀ ਜਮਾਤ ਨੂੰ ਦੱਸਾਂਗੀ ਕਿ ਮੈਂ ਇਹ ਭੇਤ ਕਿਵੇਂ ਸੁਲਝਾਇਆ!",
+      "en": "Just watch. I’ll solve it and tell the whole class how I did it!",
+      "pose": "proud"
+    },
+    "forest": {
+      "speaker": "narrator",
+      "pa": "ਘਰ ਮੁੜਦਿਆਂ ਮੇਹਰ ਜੰਗਲ ਵਾਲੀ ਪਗਡੰਡੀ ਤੋਂ ਲੰਘੀ। ਪੁਰਾਣੇ ਰੁੱਖ ਦੀਆਂ ਜੜ੍ਹਾਂ ਕੋਲ ਕੁਝ ਚਮਕਿਆ। ਉਸ ਨੇ ਪੱਤੇ ਹਟਾਏ। ਹੇਠਾਂ ਇੱਕ ਸੁਨਹਿਰੀ ਸਿਤਾਰ ਪਿਆ ਸੀ।",
+      "en": "On her way home, Mehar saw something shine by the roots of an old tree. She brushed the leaves away and found a golden sitar.",
+      "pose": "idle"
+    },
+    "silent": {
+      "speaker": "mehar",
+      "pa": "ਇਹ ਵੱਜਦਾ ਕਿਉਂ ਨਹੀਂ? ਮੈਂ ਤਾਂ ਤਾਰ ਵੀ ਛੇੜੀ ਸੀ!",
+      "en": "Why won't it play? I plucked a string!",
+      "pose": "wonder"
+    },
+    "squirrel": {
+      "speaker": "narrator",
+      "pa": "ਪਿੱਛੇ ਗਿਲਹਰੀ ਰੁੱਖ ਉੱਤੇ ਚੜ੍ਹੀ ਤਾਂ ਉਸ ਦੇ ਨਹੁੰਆਂ ਦੀ ਖੁਰਚ ਵੀ ਸੁਣਾਈ ਦਿੱਤੀ। ਪਰ ਸਿਤਾਰ ਦੀ ਇੱਕ ਵੀ ਤਾਰ ਨਾ ਵੱਜੀ।",
+      "en": "She could even hear a squirrel scratching its way up the tree. The sitar stayed silent.",
+      "pose": "idle"
+    },
+    "dadiAsk": {
+      "speaker": "mehar",
+      "pa": "ਦਾਦੀ ਜੀ, ਇਹ ਸਿਤਾਰ ਠੀਕ ਕਰ ਦਿਓਗੇ?",
+      "en": "Dadi Ji, can you fix this sitar?",
+      "pose": "offer"
+    },
+    "dadiTime": {
+      "speaker": "dadi",
+      "pa": "ਜਦੋਂ ਸਮਾਂ ਆਵੇਗਾ, ਇਹ ਵੱਜੇਗਾ।",
+      "en": "It’ll play when the time comes.",
+      "pose": "happy"
+    },
+    "how": {
+      "speaker": "mehar",
+      "pa": "ਮੈਨੂੰ ਕਿਵੇਂ ਪਤਾ ਲੱਗੂ?",
+      "en": "How will I know?",
+      "pose": "wonder"
+    },
+    "hear": {
+      "speaker": "dadi",
+      "pa": "ਤੈਨੂੰ ਆਪੇ ਸੁਣ ਜਾਏਗਾ।",
+      "en": "You’ll hear it.",
+      "pose": "happy"
+    },
+    "nextDay": {
+      "speaker": "narrator",
+      "pa": "ਅਗਲੇ ਦਿਨ ਮੇਹਰ ਤੇ ਉਸ ਦੇ ਦੋਸਤ ਇੱਕ-ਇੱਕ ਸੁਰਾਗ ਜੋੜਨ ਲੱਗੇ।",
+      "en": "The next day, Mehar and her friends put the clues together.",
+      "pose": "idle"
+    },
+    "bell": {
+      "speaker": "friend",
+      "pa": "ਖਾਣਾ ਦੁਪਹਿਰ ਦੀ ਘੰਟੀ ਵੱਜਣ ਤੋਂ ਬਾਅਦ ਗਾਇਬ ਹੁੰਦਾ ਹੈ।",
+      "en": "The food goes missing after the lunch bell.",
+      "pose": "explain"
+    },
+    "wrapped": {
+      "speaker": "teacher",
+      "pa": "ਸਿਰਫ਼ ਉਹ ਖਾਣਾ ਘੱਟਦਾ ਹੈ ਜਿਹੜਾ ਘਰ ਲਿਜਾਣ ਲਈ ਬੰਨ੍ਹਿਆ ਹੁੰਦਾ ਹੈ।",
+      "en": "Only the meals packed to take home go missing.",
+      "pose": "explain"
+    },
+    "gate": {
+      "speaker": "friend",
+      "pa": "ਮੈਂ ਕਿਸੇ ਬੱਚੇ ਨੂੰ ਪੈਕਟ ਲੈ ਕੇ ਸਕੂਲ ਦੇ ਫਾਟਕ ਵੱਲ ਜਾਂਦਿਆਂ ਵੇਖਿਆ ਸੀ।",
+      "en": "I saw a child carrying parcels toward the school gate.",
+      "pose": "point"
+    },
+    "plan": {
+      "speaker": "mehar",
+      "pa": "ਘੰਟੀ ਤੋਂ ਬਾਅਦ ਫਾਟਕ ਕੋਲ ਵੇਖਦੇ ਹਾਂ। ਮੇਰਾ ਭਾਸ਼ਣ ਵੀ ਤਿਆਰ ਪਿਆ ਹੈ!",
+      "en": "Let’s look by the gate after the bell. My announcement is ready, too!",
+      "pose": "proud"
+    },
+    "sees": {
+      "speaker": "narrator",
+      "pa": "ਘੰਟੀ ਵੱਜੀ। ਮੇਹਰ ਨੇ ਆਪਣੀ ਜਮਾਤ ਦੀ ਇੱਕ ਕੁੜੀ ਨੂੰ ਦੋ ਪੈਕਟ ਬਸਤੇ ਵਿੱਚ ਪਾਉਂਦਿਆਂ ਵੇਖਿਆ। ਮੇਹਰ ਨੇ ਆਵਾਜ਼ ਮਾਰੀ। ਕੁੜੀ ਨੇ ਬਸਤੇ ਨੂੰ ਘੁੱਟ ਕੇ ਫੜ ਲਿਆ।",
+      "en": "The bell rang. Mehar saw a classmate put two parcels into her bag. When Mehar called out, the girl clutched her bag.",
+      "pose": "idle"
+    },
+    "quiet": {
+      "speaker": "mehar",
+      "pa": "ਆਪਾਂ ਉੱਥੇ ਬੈਠ ਕੇ ਗੱਲ ਕਰੀਏ? ਉੱਥੇ ਰੌਲਾ ਘੱਟ ਹੈ।",
+      "en": "Shall we sit over there? It’s quieter.",
+      "pose": "offer"
+    },
+    "family": {
+      "speaker": "girl",
+      "pa": "ਮੰਮੀ ਤੇ ਪਾਪਾ ਦੋਵੇਂ ਕੰਮ ਲੱਭ ਰਹੇ ਨੇ। ਕੱਲ੍ਹ ਮੇਰੇ ਛੋਟੇ ਭਰਾ ਨੇ ਪੁੱਛਿਆ ਸੀ ਕਿ ਕੁਝ ਖਾਣਾ ਅੱਜ ਵਾਸਤੇ ਵੀ ਰੱਖ ਲਈਏ।",
+      "en": "Mum and Dad are both looking for work. Yesterday my little brother asked if we could save some food for today.",
+      "pose": "concern"
+    },
+    "didYou": {
+      "speaker": "mehar",
+      "pa": "ਫਿਰ ਤੂੰ ਰੱਖਿਆ?",
+      "en": "Did you?",
+      "pose": "concern"
+    },
+    "hungry": {
+      "speaker": "girl",
+      "pa": "ਮੈਂ ਉਹਨੂੰ ਖਾ ਲੈਣ ਦਿੱਤਾ। ਉਹਨੂੰ ਬਹੁਤ ਭੁੱਖ ਲੱਗੀ ਸੀ।",
+      "en": "I told him to eat it. He was really hungry.",
+      "pose": "reflect"
+    },
+    "fold": {
+      "speaker": "narrator",
+      "pa": "ਮੇਹਰ ਨੇ ਆਪਣੇ ਹੱਥ ਵਿੱਚ ਫੜਿਆ ਭਾਸ਼ਣ ਵੇਖਿਆ। ਉਸ ਨੇ ਕਾਗਜ਼ ਮੋੜਿਆ ਤੇ ਜੇਬ ਵਿੱਚ ਪਾ ਲਿਆ। ਫਿਰ ਉਹ ਕੁੜੀ ਦੇ ਕੋਲ ਬੈਠ ਗਈ।",
+      "en": "Mehar looked at the announcement in her hand. She folded it into her pocket and sat beside the girl.",
+      "pose": "idle"
+    },
+    "come": {
+      "speaker": "mehar",
+      "pa": "ਕੀ ਮੈਂ ਤੇਰੇ ਨਾਲ ਆਵਾਂ?",
+      "en": "Would you like me to come with you?",
+      "pose": "offer"
+    },
+    "stay": {
+      "speaker": "girl",
+      "pa": "ਹਾਂ। ਜਦੋਂ ਮੈਂ ਮੈਡਮ ਨਾਲ ਗੱਲ ਕਰਾਂ, ਤੂੰ ਮੇਰੇ ਕੋਲ ਹੀ ਰਹੀਂ।",
+      "en": "Yes. When I talk to our teacher, please stay beside me.",
+      "pose": "concern"
+    },
+    "teacher": {
+      "speaker": "teacher",
+      "pa": "ਅੱਜ ਘਰ ਲਈ ਖਾਣਾ ਮੈਂ ਰਖਵਾ ਦਿੰਦੀ ਹਾਂ। ਜੇ ਤੂੰ ਚਾਹੇਂ, ਮੈਂ ਤੇਰੇ ਮੰਮੀ ਪਾਪਾ ਨਾਲ ਵੀ ਇਕੱਲਿਆਂ ਗੱਲ ਕਰ ਲਵਾਂਗੀ।",
+      "en": "I’ll set aside meals for your family today. If you’d like, I can also speak privately with your parents.",
+      "pose": "offer"
+    },
+    "permission": {
+      "speaker": "girl",
+      "pa": "ਹਾਂ ਜੀ। ਤੇ ਮੇਹਰ, ਕੱਲ੍ਹ ਲੰਗਰ ਵੇਲੇ ਤੂੰ ਮੇਰੇ ਕੋਲ ਬੈਠੇਂਗੀ?",
+      "en": "Yes, please. And Mehar, will you sit with me at langar tomorrow?",
+      "pose": "happy"
+    },
+    "spot": {
+      "speaker": "mehar",
+      "pa": "ਮੇਰੇ ਲਈ ਇੱਕ ਥਾਂ ਰੱਖੀਂ।",
+      "en": "Save me a spot.",
+      "pose": "happy"
+    },
+    "home": {
+      "speaker": "narrator",
+      "pa": "ਘਰ ਪਹੁੰਚ ਕੇ ਮੇਹਰ ਆਪਣੀ ਚਟਾਈ ਉੱਤੇ ਬੈਠ ਗਈ। ਉਸ ਨੇ ਉਹੀ ਸ਼ਬਦ ਛੋਹਿਆ ਜਿਹੜਾ ਕੱਲ੍ਹ ਸਕੂਲ ਵਿੱਚ ਗਾਇਆ ਸੀ।",
+      "en": "At home, Mehar sat on her music mat and began the same shabad she had sung at school.",
+      "pose": "idle"
+    },
+    "firstNote": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਤਾਰ ਵੱਜੀ। ਫਿਰ ਤਾਰਾਂ ਉੱਤੇ ਹੌਲੀ-ਹੌਲੀ ਸੁਨਹਿਰੀ ਚਾਨਣ ਫੈਲ ਗਿਆ। ਮੇਹਰ ਨੇ ਡੂੰਘਾ ਸਾਹ ਲਿਆ ਤੇ ਗਾਉਂਦੀ ਰਹੀ।",
+      "en": "One string rang. A golden glow spread across the strings. Mehar took a breath and kept singing.",
+      "pose": "idle"
+    },
+    "different": {
+      "speaker": "dadi",
+      "pa": "ਕੱਲ੍ਹ ਵੀ ਇਹੀ ਸ਼ਬਦ ਸੀ। ਅੱਜ ਕੀ ਵੱਖਰਾ ਲੱਗਿਆ?",
+      "en": "You sang the same shabad yesterday. What felt different today?",
+      "pose": "explain"
+    },
+    "yesterday": {
+      "speaker": "mehar",
+      "pa": "ਕੱਲ੍ਹ ਮੈਂ ਵਾਰ-ਵਾਰ ਵੇਖਦੀ ਸੀ ਕਿ ਕੌਣ ਮੈਨੂੰ ਸੁਣ ਰਿਹਾ ਹੈ।",
+      "en": "Yesterday I kept looking up to see who was listening.",
+      "pose": "reflect"
+    },
+    "andToday": {
+      "speaker": "dadi",
+      "pa": "ਤੇ ਅੱਜ?",
+      "en": "And today?",
+      "pose": "happy"
+    },
+    "listening": {
+      "speaker": "mehar",
+      "pa": "ਅੱਜ ਮੈਂ ਆਪ ਵੀ ਸੁਣ ਰਹੀ ਸੀ।",
+      "en": "Today I was listening, too.",
+      "pose": "happy"
+    },
+    "simranIntro": {
+      "speaker": "narrator",
+      "pa": "ਅਗਲੇ ਦਿਨਾਂ ਵਿੱਚ ਪਰਿਵਾਰ ਨੇ ਰਲ ਕੇ ਨਾਮ ਸਿਮਰਨ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ। ਔਖੇ ਦਿਨਾਂ ਵਿੱਚ ਵਾਹਿਗੁਰੂ ਨੂੰ ਯਾਦ ਕਰਦਿਆਂ ਉਨ੍ਹਾਂ ਨੂੰ ਹੌਸਲਾ ਮਿਲਦਾ ਸੀ।",
+      "en": "In the weeks that followed, the family began doing Naam Simran together. Remembering Waheguru gave them courage on hard days.",
+      "pose": "idle"
+    },
+    "simran": {
+      "speaker": "boy",
+      "pa": "ਵਾਹਿਗੁਰੂ … ਵਾਹਿਗੁਰੂ …",
+      "en": "Waheguru … Waheguru …",
+      "pose": "reflect"
+    },
+    "work": {
+      "speaker": "narrator",
+      "pa": "ਇਲਾਕੇ ਦੇ ਲੋਕਾਂ ਨੇ ਕੰਮ ਲੱਭਣ ਵਿੱਚ ਹੱਥ ਵਟਾਇਆ। ਪਾਪਾ ਨੂੰ ਪੱਕਾ ਕੰਮ ਮਿਲ ਗਿਆ ਤੇ ਮੰਮੀ ਨੇ ਸਿਲਾਈ ਦਾ ਕੰਮ ਸ਼ੁਰੂ ਕਰ ਲਿਆ। ਹੌਲੀ-ਹੌਲੀ ਘਰ ਦੇ ਹਾਲਾਤ ਸੁਧਰਨ ਲੱਗੇ।",
+      "en": "People in their community helped them find work. Their father found a steady job, and their mother started taking sewing orders. Little by little, things got easier.",
+      "pose": "idle"
+    },
+    "room": {
+      "speaker": "girl",
+      "pa": "ਆ ਜਾ। ਇੱਥੇ ਜਗ੍ਹਾ ਹੈ।",
+      "en": "Come sit with us. There’s room here.",
+      "pose": "offer"
+    }
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "title": "",
+      "shots": [
+        {
+          "background": "langar",
+          "cast": [],
+          "props": "snatch",
+          "beats": [
+            {
+              "effect": "bell",
+              "ms": 2600
+            }
+          ]
+        },
+        {
+          "background": "home",
+          "cast": [
+            [
+              "boy",
+              665,
+              635,
+              365
+            ]
+          ],
+          "props": "table",
+          "beats": [
+            "tomorrow"
+          ]
+        },
+        {
+          "background": "forest",
+          "cast": [],
+          "props": "closeSitar",
+          "beats": [
+            {
+              "effect": "silence",
+              "ms": 3200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "title": "ਉਸੇ ਦਿਨ ਸਵੇਰੇ",
+      "shots": [
+        {
+          "background": "langar",
+          "cast": [
+            [
+              "mehar",
+              570,
+              666,
+              385,
+              "right",
+              true
+            ],
+            [
+              "friend",
+              930,
+              650,
+              290
+            ]
+          ],
+          "props": "music",
+          "beats": [
+            "schoolIntro",
+            "shabad"
+          ]
+        },
+        {
+          "background": "langar",
+          "cast": [
+            [
+              "mehar",
+              510,
+              653,
+              355
+            ],
+            [
+              "friend",
+              825,
+              648,
+              340,
+              "left"
+            ]
+          ],
+          "props": "noticePaper",
+          "beats": [
+            "notice",
+            "praise",
+            "heard",
+            "boast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest",
+      "title": "ਪੁਰਾਣੇ ਰੁੱਖ ਹੇਠਾਂ",
+      "shots": [
+        {
+          "background": "forest",
+          "cast": [
+            [
+              "mehar",
+              725,
+              660,
+              332
+            ]
+          ],
+          "props": "leaves",
+          "beats": [
+            "forest",
+            {
+              "activity": "uncover"
+            },
+            "silent",
+            "squirrel"
+          ]
+        },
+        {
+          "background": "home",
+          "cast": [
+            [
+              "mehar",
+              460,
+              659,
+              328
+            ],
+            [
+              "dadi",
+              800,
+              655,
+              420,
+              "left"
+            ]
+          ],
+          "props": "sitar",
+          "beats": [
+            "dadiAsk",
+            "dadiTime",
+            "how",
+            "hear"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clues",
+      "title": "ਤਿੰਨ ਸੁਰਾਗ",
+      "shots": [
+        {
+          "background": "langar",
+          "cast": [
+            [
+              "friend",
+              355,
+              652,
+              323
+            ],
+            [
+              "teacher",
+              934,
+              650,
+              413,
+              "left"
+            ],
+            [
+              "mehar",
+              690,
+              665,
+              319,
+              "left"
+            ]
+          ],
+          "props": "table",
+          "beats": [
+            "nextDay",
+            "bell",
+            "wrapped",
+            "gate",
+            {
+              "activity": "clues"
+            },
+            "plan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reveal",
+      "title": "ਦੂਜਾ ਪੈਕਟ",
+      "shots": [
+        {
+          "background": "courtyard",
+          "cast": [
+            [
+              "girl",
+              790,
+              665,
+              340,
+              "left"
+            ],
+            [
+              "mehar",
+              375,
+              656,
+              322
+            ]
+          ],
+          "props": "snatch",
+          "beats": [
+            {
+              "effect": "bell",
+              "ms": 1400
+            },
+            "sees",
+            {
+              "activity": "kindness"
+            },
+            "quiet"
+          ]
+        },
+        {
+          "background": "courtyard",
+          "cast": [
+            [
+              "mehar",
+              542,
+              680,
+              420
+            ],
+            [
+              "girl",
+              795,
+              680,
+              420,
+              "left"
+            ]
+          ],
+          "props": "noticePaper",
+          "beats": [
+            "family",
+            "didYou",
+            "hungry",
+            "tomorrow",
+            "fold",
+            "come",
+            "stay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "help",
+      "title": "ਮੇਰੇ ਲਈ ਇੱਕ ਥਾਂ ਰੱਖੀਂ",
+      "shots": [
+        {
+          "background": "langar",
+          "cast": [
+            [
+              "mehar",
+              445,
+              660,
+              320
+            ],
+            [
+              "girl",
+              650,
+              658,
+              330
+            ],
+            [
+              "teacher",
+              873,
+              654,
+              420,
+              "left"
+            ]
+          ],
+          "props": "table",
+          "beats": [
+            "teacher",
+            "permission",
+            "spot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "title": "ਪਹਿਲਾ ਸੁਰ",
+      "shots": [
+        {
+          "background": "home",
+          "cast": [
+            [
+              "mehar",
+              620,
+              657,
+              344,
+              "right",
+              true
+            ],
+            [
+              "dadi",
+              1050,
+              645,
+              375,
+              "left"
+            ]
+          ],
+          "props": "sitar",
+          "beats": [
+            "home",
+            "shabad",
+            {
+              "effect": "glow",
+              "ms": 2400
+            },
+            "firstNote",
+            "different",
+            "yesterday",
+            "andToday",
+            "listening",
+            {
+              "activity": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epilogue",
+      "title": "ਕੁਝ ਮਹੀਨਿਆਂ ਬਾਅਦ",
+      "shots": [
+        {
+          "background": "home",
+          "cast": [
+            [
+              "girl",
+              340,
+              660,
+              310,
+              "right",
+              true
+            ],
+            [
+              "boy",
+              545,
+              665,
+              260,
+              "right",
+              true
+            ],
+            [
+              "mother",
+              757,
+              660,
+              406,
+              "left",
+              true
+            ],
+            [
+              "father",
+              949,
+              660,
+              410,
+              "left"
+            ]
+          ],
+          "props": "",
+          "beats": [
+            "simranIntro",
+            "simran"
+          ]
+        },
+        {
+          "background": "courtyard",
+          "cast": [
+            [
+              "father",
+              475,
+              658,
+              420
+            ],
+            [
+              "mother",
+              870,
+              660,
+              410,
+              "left"
+            ]
+          ],
+          "props": "work",
+          "beats": [
+            "work"
+          ]
+        },
+        {
+          "background": "langar",
+          "cast": [
+            [
+              "girl",
+              430,
+              650,
+              340,
+              "right",
+              true
+            ],
+            [
+              "mehar",
+              595,
+              653,
+              325,
+              "right",
+              true
+            ],
+            [
+              "boy",
+              774,
+              659,
+              260,
+              "left",
+              true
+            ],
+            [
+              "friend",
+              1000,
+              653,
+              300,
+              "left"
+            ]
+          ],
+          "props": "table",
+          "beats": [
+            "room",
+            {
+              "effect": "note",
+              "ms": 4600
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

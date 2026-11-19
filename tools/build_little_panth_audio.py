@@ -21,32 +21,37 @@ import urllib.request
 import wave
 
 ROOT=Path(__file__).resolve().parents[1]
-MISSION=ROOT/"little panth"/"mission-001"
-DIALOGUE=MISSION/"dialogue.json"
-AUDIO=MISSION/"audio"
-STATE=AUDIO/"generation-manifest.json"
 MODEL="gemini-3.8-flash-tts"
 VOICES={
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
  "mehar":("Kore","Bright gentle young Punjabi girl's voice with warmth, natural child-friendly surprise, clear conversational Punjabi."),
  "baba":("Charon","Calm, dignified, warm older Punjabi Sikh grandfather voice with careful pronunciation, patient respectful delivery."),
+ "dadi":("Pulcherrima","Warm Punjabi grandmother, affectionate and quietly amused. Speak natural conversational Punjabi."),
+ "friend":("Iapetus","Playful young Punjabi school friend, quick but clear natural delivery."),
+ "girl":("Leda","Punjabi schoolgirl speaking softly and honestly, with restraint. Let the short pauses feel natural."),
+ "boy":("Orus","Gentle young Punjabi boy asking his older sister a quiet question. Avoid exaggerated emotion."),
+ "teacher":("Vindemiatrix","Calm, reassuring Punjabi teacher. Clear, conversational delivery."),
  "farmer":("Fenrir","Kind, slightly weathered older Punjabi farmer male voice, thankful and natural, clear Punjabi."),
 }
 def main():
  p=argparse.ArgumentParser()
+ p.add_argument("--mission", choices=("mission-001", "mission-002"), default="mission-001")
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
  p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")
  args=p.parse_args()
  if not (1<=args.max_new_lines<=100):p.error("--max-new-lines must be between 1 and 100")
- doc=json.loads(DIALOGUE.read_text(encoding="utf-8"))
+ mission=ROOT/"little panth"/args.mission
+ AUDIO=mission/"audio"
+ STATE=AUDIO/"generation-manifest.json"
+ doc=json.loads((mission/"dialogue.json").read_text(encoding="utf-8"))
  lines=doc["lines"]
  old=json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
  current={}
  pending=[]
  for id,line in lines.items():
-  if line.get("sacred") and not args.include_sacred_draft:continue
+  if line.get("sacred") and (args.mission=="mission-002" or not args.include_sacred_draft):continue
   voice,style=VOICES[line["speaker"]]
   if line.get("sacred"):
    style+=" Recite this exact Japji Sahib line slowly in Gurmukhi, with a short pause after ਉਤਰੀ. Say only the quoted line."
