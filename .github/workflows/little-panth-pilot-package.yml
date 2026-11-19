@@ -1,0 +1,64 @@
+name: Assemble the Little Panth Mission 1 pilot
+on:
+  push:
+    branches: [export/lp001-pilot-package]
+permissions:
+  actions: read
+  contents: read
+jobs:
+  assemble:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44452366336
+          name: section-intro
+          path: little-panth-renders/intro
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44452899801
+          name: section-harvest
+          path: little-panth-renders/harvest
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44452899801
+          name: section-storage
+          path: little-panth-renders/storage
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44452366336
+          name: section-requests
+          path: little-panth-renders/requests
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44452899801
+          name: section-share
+          path: little-panth-renders/share
+      - name: Assemble the YouTube package
+        run: |
+          apt_options=(-o Dir::Etc::sourcelist=/etc/apt/sources.list.d/ubuntu.sources -o Dir::Etc::sourceparts=- -o Acquire::Retries=1 -o Acquire::http::Timeout=12 -o Acquire::https::Timeout=12)
+          if ! command -v ffmpeg >/dev/null; then
+            if ! (timeout 45 sudo apt-get "${apt_options[@]}" update -q && timeout 60 sudo DEBIAN_FRONTEND=noninteractive apt-get "${apt_options[@]}" install -y --no-install-recommends ffmpeg); then
+              npm install --no-save --package-lock=false ffmpeg-static@5.2.0 ffprobe-static@3.1.0
+              mkdir -p /tmp/lp-export-bin
+              ln -s "$PWD/node_modules/ffmpeg-static/ffmpeg" /tmp/lp-export-bin/ffmpeg
+              ln -s "$(node -p 'require("ffprobe-static").path')" /tmp/lp-export-bin/ffprobe
+              export PATH="/tmp/lp-export-bin:$PATH"
+            fi
+          fi
+          python3 tools/little-panth-assemble.py little-panth-renders release mission-001
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration -of compact release/mission-001.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-mission-001-youtube
+          path: release/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
