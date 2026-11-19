@@ -104,6 +104,10 @@
     ],
     "recoverHarvest": [
       "lpRecover"
+    ],
+    "storytellerIntro": [
+      "lpStoryWelcome",
+      "lpStoryQuestion"
     ]
   },
   "lines": {
@@ -443,6 +447,18 @@
       "pa": "ਪਿੰਡ ਵਾਲਿਆਂ ਨੇ ਖੇਤ ਵਿੱਚੋਂ ਅੱਠ ਬੋਰੀਆਂ ਚੁੱਕਣ ਵਿੱਚ ਮਦਦ ਕੀਤੀ। ਪਹਿਲੀਆਂ ਤਿੰਨ ਬੋਰੀਆਂ ਵਿਹੜੇ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਸਨ।",
       "roman": "Pind waaleyan ne khet vichon atth boriyaan chukkan vich madad kiti. Pehliyaan tinn boriyaan vehre vich surakhiyat san.",
       "en": "The villagers helped bring all eight sacks back from the field. The first three were already safe in the storage courtyard."
+    },
+    "lpStoryWelcome": {
+      "speaker": "narrator",
+      "pa": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਬੱਚਿਓ! ਅੱਜ ਆਪਾਂ ਮੇਹਰ ਤੇ ਚਾਚਾ ਬਲਦੇਵ ਨਾਲ ਕਣਕ ਦੇ ਖੇਤਾਂ ਵਿੱਚ ਚੱਲਾਂਗੇ।",
+      "roman": "Sat Sri Akaal, bachchio! Ajj aapan Mehar te Chacha Baldev naal kanak de khetaan vich challaange.",
+      "en": "Sat Sri Akaal, kids! Today we’re going to the wheat fields with Mehar and Chacha Baldev."
+    },
+    "lpStoryQuestion": {
+      "speaker": "narrator",
+      "pa": "ਚਾਚਾ ਜੀ ਆਪਣੀ ਬਲਦ ਗੱਡੀ ਕਣਕ ਦੀਆਂ ਬੋਰੀਆਂ ਨਾਲ ਭਰਨਾ ਚਾਹੁੰਦੇ ਨੇ। ਪਰ ਜੇ ਗੱਡੀ ਵਿੱਚ ਇੱਕ ਬੋਰੀ ਹੋਰ ਪਾ ਦੇਈਏ, ਤਾਂ ਕੀ ਹੋਵੇਗਾ? ਆਓ, ਵੇਖੀਏ!",
+      "roman": "Chacha Ji aapni bald gaddi kanak diyaan boriyaan naal bharna chahunde ne. Par je gaddi vich ikk bori hor paa deyiye, taan ki hovega? Aao, vekhiye!",
+      "en": "Chacha Ji wants to fill his bullock cart with sacks of wheat. What happens if he adds just one more? Let’s find out!"
     }
   },
   "questions": [

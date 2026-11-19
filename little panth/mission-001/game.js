@@ -50,7 +50,7 @@ async function oneLine(id,token,autoRead) {
  }
  activeSpeaker=line.speaker;
  activeListener=line.to||'';
- if(line.speaker==='narrator')showNarrator();else hideNarrator();
+ if(line.speaker==='narrator'&&!actors.some(actor=>actor.id==='narrator'))showNarrator();else hideNarrator();
  dialoguePose=storyPoses[id]||'explain';
  dialogueStart=performance.now();
  directAttention();
@@ -122,6 +122,7 @@ function labelText(text,x,y,size=26,fill='#fff'){const el=n('text',{x,y,'text-an
 function arrangeCast(type){
  cast.replaceChildren();
  const layouts={
+ storytellerIntro:[['narrator',640,665,510]],
  intro:[['baldev',265,660,430],['mehar',1050,675,320,'left']],
  harvest:[['baldev',160,657,320],['mehar',1100,666,290,'left']],
  load:[['baldev',180,656,310],['mehar',1115,666,280,'left']],
@@ -148,7 +149,7 @@ function wearsGurudwaraScarf(actor){
 }
 function fallback(actor){
  const scarf=wearsGurudwaraScarf(actor);
- if(actor.id==='narrator')return `<svg x="-50" y="-174" width="100" height="174" viewBox="0 0 100 174"><g stroke="#593c42" stroke-width="2" stroke-linejoin="round"><ellipse cx="50" cy="168" rx="29" ry="4" fill="#302b3b" opacity=".2"/><path d="M29 112L24 153 42 159 50 132 57 159 77 153 70 112Z" fill="#e8c89d"/><path d="M24 151Q16 164 38 164H43L42 153M76 151Q84 164 63 164H57L58 153" fill="#754d46"/><path d="M32 59Q50 51 68 59L80 126Q50 140 20 126Z" fill="#865b86"/><path d="M33 62Q26 84 17 92L8 84Q4 77 10 73L18 77 23 65Z" fill="#bb8969"/><path d="M68 62Q77 82 84 97L77 104Q69 105 67 97L59 75Z" fill="#bb8969"/><path d="M30 61Q42 77 70 64L69 77Q43 92 26 76Z" fill="#e6bf8e"/><circle cx="50" cy="34" r="27" fill="#c89975"/>${scarf?'<g fill="#edc438"><path d="M26 36C18 32 19 14 29 8C42-1 64 0 74 12Q80 19 78 28Q52 20 26 36Z"/><path d="M25 31Q18 32 17 39L9 47Q19 47 23 43L21 55Q29 48 30 39Z"/><path d="M24 33Q22 16 38 10M25 35Q35 25 50 23" fill="none" stroke="#ffe987"/></g>':'<path d="M24 38Q15 5 50 5Q80 6 77 37L66 17Q50 29 30 23Z" fill="#a5a1a5"/><circle cx="75" cy="12" r="10" fill="#a5a1a5"/>'}<g fill="none"><rect x="29" y="32" width="18" height="12" rx="5"/><rect x="53" y="32" width="18" height="12" rx="5"/><path d="M47 36H53"/></g><circle cx="39" cy="38" r="2" fill="#38272a"/><circle cx="61" cy="38" r="2" fill="#38272a"/><path d="M43 50Q50 56 57 50" fill="none"/></g></svg>`;
+ if(actor.id==='narrator')return `<svg x="${-actor.height*50/174}" y="${-actor.height}" width="${actor.height*100/174}" height="${actor.height}" viewBox="0 0 100 174"><g stroke="#593c42" stroke-width="2" stroke-linejoin="round"><ellipse cx="50" cy="168" rx="29" ry="4" fill="#302b3b" opacity=".2"/><path d="M29 112L24 153 42 159 50 132 57 159 77 153 70 112Z" fill="#e8c89d"/><path d="M24 151Q16 164 38 164H43L42 153M76 151Q84 164 63 164H57L58 153" fill="#754d46"/><path d="M32 59Q50 51 68 59L80 126Q50 140 20 126Z" fill="#865b86"/><path d="M33 62Q26 84 17 92L8 84Q4 77 10 73L18 77 23 65Z" fill="#bb8969"/><path d="M68 62Q77 82 84 97L77 104Q69 105 67 97L59 75Z" fill="#bb8969"/><path d="M30 61Q42 77 70 64L69 77Q43 92 26 76Z" fill="#e6bf8e"/><circle cx="50" cy="34" r="27" fill="#c89975"/>${scarf?'<g fill="#edc438"><path d="M26 36C18 32 19 14 29 8C42-1 64 0 74 12Q80 19 78 28Q52 20 26 36Z"/><path d="M25 31Q18 32 17 39L9 47Q19 47 23 43L21 55Q29 48 30 39Z"/><path d="M24 33Q22 16 38 10M25 35Q35 25 50 23" fill="none" stroke="#ffe987"/></g>':'<path d="M24 38Q15 5 50 5Q80 6 77 37L66 17Q50 29 30 23Z" fill="#a5a1a5"/><circle cx="75" cy="12" r="10" fill="#a5a1a5"/>'}<g fill="none"><rect x="29" y="32" width="18" height="12" rx="5"/><rect x="53" y="32" width="18" height="12" rx="5"/><path d="M47 36H53"/></g><circle cx="39" cy="38" r="2" fill="#38272a"/><circle cx="61" cy="38" r="2" fill="#38272a"/><path d="M43 50Q50 56 57 50" fill="none"/></g></svg>`;
  const size=actor.id==='mehar'?0.76:1;
  const c={baldev:['#bc7641','#df873d','#f1c165'],mehar:['#c17f49','#e9b450','#fd6f69'],baba:['#c19565','#d3c4a3','#7bb2ad'],farmer:['#b88256','#ad7c51','#9cb87d']}[actor.id];
  const turban=scarf?'<g'+(actor.view==='left'?' transform="scale(-1 1)"':'')+' fill="#edc438" stroke="#825d29" stroke-width="4" stroke-linejoin="round"><path d="M-48-117Q-62-117-62-105L-77-90Q-62-88-54-95L-59-73Q-42-84-42-103Z"/><path d="M-52-111C-62-126-43-160-6-162C20-164 46-148 49-128Q9-134-33-114L-46-104Z"/><path d="M-47-113Q-43-141-21-149M-43-111Q-27-125-7-128" fill="none" stroke="#ffe987" stroke-width="2.5"/></g>':actor.id==='mehar'?'<path d="M-49-98Q-58-159 0-158Q51-158 49-103L25-131Q-10-126-38-101Z" fill="#30252c"/><path d="M-43-92Q-56-70-45-39L-37-23" stroke="#30252c" stroke-width="16" stroke-linecap="round"/><path d="M44-92Q58-70 46-39L39-23" stroke="#30252c" stroke-width="16" stroke-linecap="round"/>':'<path d="M-51-129q0-43 51-52q51 11 51 52v25h-102Z" fill="'+c[1]+'" stroke="#4c3125" stroke-width="4"/><path d="M-48-139q46 11 96-6M-45-122q40 10 89-9" fill="none" stroke="#faf2d3" stroke-width="4"/>';
@@ -159,6 +160,7 @@ function showNarrator(){const el=$('narratorFigure');if(!el.classList.contains('
 function hideNarrator(){const el=$('narratorFigure');if(el.classList.contains('visible')){el.classList.remove('visible','glow-in');el.classList.add('glow-out')}}
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const storyPoses={
+ lpStoryWelcome:'beckon',lpStoryQuestion:'wonder',
  lp001:'concern',lp017:'proud',lp033:'happy',lp034:'happy',lp035:'happy',lp036:'happy',lp038:'happy',
  lp042:'point',lp005:'explain',lp010:'wonder',lp011:'point',lp012:'beckon',lp015:'point',lp028:'explain',
  lp002:'wonder',lp003:'point',lp004:'point',lp006:'celebrate',
@@ -409,7 +411,9 @@ async function openingFlyover(){
 async function intro(){
  setPhase('intro');scene('field',1,'THE CART THAT WAS NEVER FULL');sound.setMood('opening');loaded=0;harvested=0;shareCounts={home:0,seeds:0,sharing:0};quizIndex=0;
  setLabel('The Cart That Was Never Full');const token=epoch;await openingFlyover();if(token!==epoch)return;
- scene('village',1,'THE EMERGENCY');sound.setMood('village');
+ arrangeCast('storytellerIntro');sound.setMood('village');
+ if(!await speak('storytellerIntro'))return;
+ scene('village',1,'THE EMERGENCY');
  arrangeCast('intro');cart(520,269,.78);decoratePile(3,430,558);
  setLabel('What is Chacha Baldev so worried about?');
  if(await speak('intro'))await inspectCourtyard();
@@ -825,7 +829,7 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('visibilitychange',()=>{if(document.hidden){currentVoice?.pause();if(sound.ctx)sound.ctx.suspend()}else{if(voiceEnabled)currentVoice?.play().catch(()=>{});if(sound.ctx&&musicEnabled)sound.ctx.resume()}});
 (async()=>{
  try{
-   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=6'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
+   const [d,c,ch]=await Promise.all([fetch('dialogue.json?v=7'),fetch(imageOf('assets/cart/bullock-cart.svg')),fetch(imageOf(asset.chicken)).catch(()=>null)]);
    if(!d.ok)throw Error('Mission dialogue not available');
    story=await d.json();cartSource=c.ok?await c.text():null;chickenSource=ch?.ok?await ch.text():null;background('village');
    const existing=localStorage.getItem(STORAGE_KEY);if(existing){$('start').textContent='▶ Resume adventure';$('start').dataset.resume='true';$('restart').hidden=false}
