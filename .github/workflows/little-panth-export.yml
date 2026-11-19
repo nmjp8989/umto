@@ -39,8 +39,10 @@ jobs:
           node-version: 22
       - name: Install recording tools
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils fonts-noto-core
+          # Use only the Ubuntu mirror needed by these packages and bound network retries.
+          apt_options=(-o Dir::Etc::sourcelist=/etc/apt/sources.list.d/ubuntu.sources -o Dir::Etc::sourceparts=- -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20)
+          sudo apt-get "${apt_options[@]}" update -q
+          sudo DEBIAN_FRONTEND=noninteractive apt-get "${apt_options[@]}" install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils fonts-noto-core
           npm install --no-save --package-lock=false playwright-core@1.56.1
       - name: Capture Watch mode with desktop audio
         env:
