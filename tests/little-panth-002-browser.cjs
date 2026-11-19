@@ -20,10 +20,12 @@ const { chromium } = require('playwright-core');
         prompts.add(prompt);
         const choices = page.locator('#choices button');
         if (await choices.count() > 1) {
-          await choices.nth(1).click();
+          await choices.first().click();
           assert.match(await page.locator('#feedback').textContent(), /ਹੋਰ/);
+          await choices.nth(1).click();
+        } else {
+          await choices.first().click();
         }
-        await choices.first().click();
       } else {
         await page.evaluate(() => document.getElementById('next').click());
         await page.clock.fastForward(800);

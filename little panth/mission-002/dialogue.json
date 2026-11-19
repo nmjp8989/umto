@@ -240,6 +240,12 @@
       "pa": "ਆ ਜਾ। ਇੱਥੇ ਜਗ੍ਹਾ ਹੈ।",
       "en": "Come sit with us. There’s room here.",
       "pose": "offer"
+    },
+    "dadiLearns": {
+      "speaker": "dadi",
+      "pa": "ਇਹ ਸਿਤਾਰ ਉਦੋਂ ਵੱਜਦਾ ਹੈ ਜਦੋਂ ਕੋਈ ਦਿਲੋਂ ਕੀਰਤਨ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਮਨ ਤਾਰੀਫ਼ ਸੁਣਨ ਦੀ ਥਾਂ ਸ਼ਬਦ ਵੱਲ ਲੱਗਦਾ ਹੈ, ਹਰ ਸੁਰ ਬਦਲਿਆ ਜਿਹਾ ਲੱਗਦਾ ਹੈ।",
+      "en": "This sitar answers when someone sings kirtan from the heart. When you listen to the shabad, every note feels different.",
+      "pose": "explain"
     }
   },
   "scenes": [
@@ -268,7 +274,7 @@
               365
             ]
           ],
-          "props": "table",
+          "props": "meal",
           "beats": [
             "tomorrow"
           ]
@@ -299,6 +305,7 @@
               666,
               385,
               "right",
+              true,
               true
             ],
             [
@@ -475,14 +482,19 @@
               "mehar",
               542,
               680,
-              420
+              420,
+              "right",
+              false,
+              true
             ],
             [
               "girl",
               795,
               680,
               420,
-              "left"
+              "left",
+              false,
+              true
             ]
           ],
           "props": "noticePaper",
@@ -547,6 +559,7 @@
               657,
               344,
               "right",
+              true,
               true
             ],
             [
@@ -570,6 +583,7 @@
             "yesterday",
             "andToday",
             "listening",
+            "dadiLearns",
             {
               "activity": "string"
             }
@@ -590,6 +604,7 @@
               660,
               310,
               "right",
+              true,
               true
             ],
             [
@@ -598,6 +613,7 @@
               665,
               260,
               "right",
+              true,
               true
             ],
             [
@@ -606,6 +622,7 @@
               660,
               406,
               "left",
+              true,
               true
             ],
             [
@@ -613,7 +630,9 @@
               949,
               660,
               410,
-              "left"
+              "left",
+              false,
+              true
             ]
           ],
           "props": "",

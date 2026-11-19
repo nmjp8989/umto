@@ -37,6 +37,10 @@
 
   window.addEventListener('message', event => {
     if (event.origin !== location.origin || event.source !== rig.contentWindow) return;
+    if (event.data?.type === 'anitoons-delivery-cast-error') {
+      $('status').textContent = 'ਤਸਵੀਰਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ। ਸਫ਼ਾ ਮੁੜ ਖੋਲ੍ਹੋ।';
+      exportState.error = 'Could not load UMTO character rig';
+    }
     if (event.data?.type !== 'anitoons-delivery-cast' || event.data.version !== 2) return;
     bank = event.data.bank;
     ready();
@@ -76,14 +80,26 @@
     exportState.error = error.message;
   });
 
-  function makeActor([id, x, y, height, view = 'right', covered = false]) {
+  function makeActor([id, x, y, height, view = 'right', covered = false, seated = false]) {
     const artSlot = bank[id]?.[view];
     if (!artSlot) throw Error('Missing UMTO pose bank for ' + id);
     const container = svg('g', {transform: 'translate(' + x + ' ' + y + ')'});
     container.append(svg('ellipse', {class: 'actor-shadow', rx: height * .18, ry: height * .03}));
-    const clip = svg('svg', {x: -height * .32, y: -height, width: height * .64, height, overflow: 'visible'});
+    const artTop = height * (seated ? -.74 : -.92);
+    const clip = svg('svg', {x: -height * .32, y: artTop, width: height * .64, height, overflow: 'visible'});
     clip.innerHTML = artSlot.base;
-    container.append(clip);
+    if (seated) {
+      const upper = svg('svg', {x: -height * .4, y: artTop, width: height * .8, height: height * .61, overflow: 'hidden'});
+      clip.setAttribute('x', height * .08);
+      clip.setAttribute('y', 0);
+      upper.append(clip);
+      const legs = svg('g', {transform: 'scale(' + height / 345 + ')'});
+      const fabric = {mehar: '#dda96d', girl: '#70577d', boy: '#454a62', mother: '#936c71', father: '#e8e1cd'}[id] || '#626b7b';
+      legs.innerHTML = '<path d="M-27-68H27q36 23 60 47 14 19-19 21H-64q-35-2-22-20 21-25 59-48Z" fill="' + fabric + '" stroke="#524137" stroke-width="4"/><path d="M-59-21q40 9 61-29m58 29q-41 11-63-8" fill="none" stroke="#553d38" stroke-opacity=".5" stroke-width="3"/>';
+      container.append(legs, upper);
+    } else {
+      container.append(clip);
+    }
     $('actors').append(container);
     const layers = Object.fromEntries([...clip.querySelectorAll('[data-scene-layer]')].map(node => [node.dataset.sceneLayer, node]));
     if (covered && artSlot.headScarf) {
@@ -128,15 +144,24 @@
 
   function dress(kind) {
     const props = $('props'), behind = $('behind');
-    if (['table', 'snatch'].includes(kind)) {
+    if (['table', 'snatch', 'meal'].includes(kind)) {
       const table = svg('g', {});
       table.innerHTML = '<path d="M475 603h22v82h-22zm271 0h22v82h-22z" fill="#72503b"/><path d="m446 575 324-4 54 45H400z" fill="#a97950" stroke="#694834" stroke-width="5"/><path d="M401 616h423v15H401z" fill="#634537"/>';
       props.append(table);
-      props.append(image(art('parcels'), 490, 521, 227, 108, kind === 'snatch' ? 'parcel' : ''));
+      const parcels = image(art('parcels'), 490, 521, 227, 108, kind === 'snatch' ? 'parcel' : '');
+      if (kind === 'meal') {
+        parcels.setAttribute('opacity', '.54');
+        props.append(svg('ellipse', {cx: 654, cy: 590, rx: 58, ry: 19, fill: '#eee4c2', stroke: '#8d7460', 'stroke-width': 5}));
+        props.append(svg('path', {d: 'M620 590q33-29 64-3-9 20-64 3z', fill: '#d3a766', stroke: '#a87537', 'stroke-width': 4}));
+      }
+      props.append(parcels);
       if (kind === 'snatch') {
         const bag = svg('g', {transform: 'translate(688 558)'});
         bag.innerHTML = '<path d="M29 33q0-45 37-45t38 45" fill="none" stroke="#352840" stroke-width="14"/><rect x="10" y="22" width="117" height="103" rx="24" fill="#67467b" stroke="#392843" stroke-width="6"/><rect x="26" y="62" width="85" height="43" rx="12" fill="#795990" stroke="#4c365c" stroke-width="4"/>';
         props.append(bag);
+        const hand = svg('g', {class: 'parcel-hand'});
+        hand.innerHTML = '<path d="M947 530 830 542 733 557 728 582 846 583 958 559Z" fill="#b45f55" stroke="#7a403b" stroke-width="5"/><path d="M739 555q-36-11-53 7l-19 15q-8 13 8 15l19-6q19 18 45-4Z" fill="#bd845e" stroke="#79513b" stroke-width="4"/>';
+        props.append(hand);
       }
       return;
     }
@@ -259,6 +284,11 @@
     $('english').textContent = line.en;
     activeSpeaker = line.speaker;
     activePose = line.pose;
+    if (id === 'squirrel') {
+      const squirrel = svg('g', {class: 'squirrel'});
+      squirrel.innerHTML = '<g stroke="#503c2f" stroke-width="4" stroke-linejoin="round"><path d="M1048 410q-38 1-40-33-1-37 31-31 21 5 6 27-10 16 13 21z" fill="#9a614b"/><path d="M1042 411q5-28 31-26l9-18 10 17q20 7 15 24-14 17-43 20z" fill="#ba8055"/><path d="m1053 425-10 11h26m19-19 12-9" fill="none" /><circle cx="1092" cy="393" r="2.7" fill="#342825"/></g>';
+      $('props').append(squirrel);
+    }
     if (id === 'fold' && !reduce) $('paper')?.animate([{opacity: 1}, {opacity: 0, transform: 'translate(-24px, 31px) scale(.8)'}], {duration: 1200, fill: 'forwards'});
     const start = Date.now() - exportState.started;
     await playClip(id, Math.max(2200, line.pa.split(/\s+/).length * 420));
@@ -279,13 +309,13 @@
     $('feedback').textContent = '';
     return new Promise(resolve => {
       advance = resolve;
-      function present(choices, done) {
+      function present(choices, done, correct = 0) {
         $('choices').replaceChildren();
         choices.forEach((label, index) => {
           const button = document.createElement('button');
           button.textContent = label;
           button.onclick = () => {
-            if (index !== 0) {
+            if (index !== correct) {
               $('feedback').textContent = 'ਇੱਕ ਵਾਰ ਹੋਰ ਸੋਚੋ।';
               return;
             }
@@ -307,11 +337,12 @@
           present([answers[1]], finish);
         });
       } else {
-        const choices = id === 'clues' || id === 'kindness' ? [answers[0], answers[1], answers[2]] : answers;
+        const shuffled = id === 'clues' || id === 'kindness';
+        const choices = shuffled ? [answers[1], answers[0], answers[2]] : answers;
         present(choices, () => {
           if (id === 'string') effect('note');
           finish();
-        });
+        }, shuffled ? 1 : 0);
       }
     });
   }

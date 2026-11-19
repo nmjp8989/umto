@@ -36,3 +36,7 @@ h1 { margin: .25em 0 .45em; font-size: clamp(1.45rem, 5.6vw, 4.5rem); }
 .title-card { justify-items: center !important; text-align: center; background: #102519b8 !important; }
 .export header, .export footer { display: none; }
 .export main { max-width: none; }
+.parcel-hand { animation: sneak 2.2s ease-out both; }
+.squirrel { animation: scamper 1.5s ease-in both; }
+@keyframes sneak { 0% { transform: translate(140px, 0); opacity: 0; } 40%, 63% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(130px, 25px); opacity: 0; } }
+@keyframes scamper { 0% { opacity: 0; transform: translate(30px, 41px); } 15%, 79% { opacity: 1; } 100% { opacity: 0; transform: translate(-30px, -190px) rotate(-5deg); } }
