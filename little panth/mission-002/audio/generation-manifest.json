@@ -100,5 +100,77 @@
     "voice": "Iapetus",
     "text": "ਮੈਂ ਕਿਸੇ ਬੱਚੇ ਨੂੰ ਪੈਕਟ ਲੈ ਕੇ ਸਕੂਲ ਦੇ ਫਾਟਕ ਵੱਲ ਜਾਂਦਿਆਂ ਵੇਖਿਆ ਸੀ।",
     "speaker": "friend"
+  },
+  "plan": {
+    "hash": "1cab3afbb06d5192b9114e29f95aa928827357d2ab085c92383db7efd1a9fe8f",
+    "voice": "Kore",
+    "text": "ਘੰਟੀ ਤੋਂ ਬਾਅਦ ਫਾਟਕ ਕੋਲ ਵੇਖਦੇ ਹਾਂ। ਮੇਰਾ ਭਾਸ਼ਣ ਵੀ ਤਿਆਰ ਪਿਆ ਹੈ!",
+    "speaker": "mehar"
+  },
+  "sees": {
+    "hash": "541bd6a99e2a8df9c07bab0af4c57948ad0245376f5141b1d988cf689780082a",
+    "voice": "Aoede",
+    "text": "ਘੰਟੀ ਵੱਜੀ। ਮੇਹਰ ਨੇ ਆਪਣੀ ਜਮਾਤ ਦੀ ਇੱਕ ਕੁੜੀ ਨੂੰ ਦੋ ਪੈਕਟ ਬਸਤੇ ਵਿੱਚ ਪਾਉਂਦਿਆਂ ਵੇਖਿਆ। ਮੇਹਰ ਨੇ ਆਵਾਜ਼ ਮਾਰੀ। ਕੁੜੀ ਨੇ ਬਸਤੇ ਨੂੰ ਘੁੱਟ ਕੇ ਫੜ ਲਿਆ।",
+    "speaker": "narrator"
+  },
+  "quiet": {
+    "hash": "2577cb7271de976807a9097717f364b284eb58301041bebbb0acf70ea5ae46da",
+    "voice": "Kore",
+    "text": "ਆਪਾਂ ਉੱਥੇ ਬੈਠ ਕੇ ਗੱਲ ਕਰੀਏ? ਉੱਥੇ ਰੌਲਾ ਘੱਟ ਹੈ।",
+    "speaker": "mehar"
+  },
+  "family": {
+    "hash": "e762d5ebbf06b358158ee70b9c3b45d7cae08e59507b318832cb89634b680e2c",
+    "voice": "Leda",
+    "text": "ਮੰਮੀ ਤੇ ਪਾਪਾ ਦੋਵੇਂ ਕੰਮ ਲੱਭ ਰਹੇ ਨੇ। ਕੱਲ੍ਹ ਮੇਰੇ ਛੋਟੇ ਭਰਾ ਨੇ ਪੁੱਛਿਆ ਸੀ ਕਿ ਕੁਝ ਖਾਣਾ ਅੱਜ ਵਾਸਤੇ ਵੀ ਰੱਖ ਲਈਏ।",
+    "speaker": "girl"
+  },
+  "didYou": {
+    "hash": "e763f3ffb2fb60143094fbe8adb6f49f107f7793920fe71aed009c68a9f484c1",
+    "voice": "Kore",
+    "text": "ਫਿਰ ਤੂੰ ਰੱਖਿਆ?",
+    "speaker": "mehar"
+  },
+  "hungry": {
+    "hash": "2c3fd2a3c829eae5782d3014b536087088fa33f364c9fee1bdfcbd44287088fd",
+    "voice": "Leda",
+    "text": "ਮੈਂ ਉਹਨੂੰ ਖਾ ਲੈਣ ਦਿੱਤਾ। ਉਹਨੂੰ ਬਹੁਤ ਭੁੱਖ ਲੱਗੀ ਸੀ।",
+    "speaker": "girl"
+  },
+  "fold": {
+    "hash": "35fd6ba7e8dc311c9981f5ae6c371548909ff2d0621c41be402e390aff88fc22",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਆਪਣੇ ਹੱਥ ਵਿੱਚ ਫੜਿਆ ਭਾਸ਼ਣ ਵੇਖਿਆ। ਉਸ ਨੇ ਕਾਗਜ਼ ਮੋੜਿਆ ਤੇ ਜੇਬ ਵਿੱਚ ਪਾ ਲਿਆ। ਫਿਰ ਉਹ ਕੁੜੀ ਦੇ ਕੋਲ ਬੈਠ ਗਈ।",
+    "speaker": "narrator"
+  },
+  "come": {
+    "hash": "f6fce00a267c41cbe7f6e92c75f63f9e17a93554377e4808ab3d30470c95abae",
+    "voice": "Kore",
+    "text": "ਕੀ ਮੈਂ ਤੇਰੇ ਨਾਲ ਆਵਾਂ?",
+    "speaker": "mehar"
+  },
+  "stay": {
+    "hash": "93309ae840782e1ea059eac87cd2ceae18c60fe222ff07e0354540dc42e5a79a",
+    "voice": "Leda",
+    "text": "ਹਾਂ। ਜਦੋਂ ਮੈਂ ਮੈਡਮ ਨਾਲ ਗੱਲ ਕਰਾਂ, ਤੂੰ ਮੇਰੇ ਕੋਲ ਹੀ ਰਹੀਂ।",
+    "speaker": "girl"
+  },
+  "teacher": {
+    "hash": "0622250a4ee116e44a782f9ba176b2355ff4675338ab3e3e597801df270f046a",
+    "voice": "Vindemiatrix",
+    "text": "ਅੱਜ ਘਰ ਲਈ ਖਾਣਾ ਮੈਂ ਰਖਵਾ ਦਿੰਦੀ ਹਾਂ। ਜੇ ਤੂੰ ਚਾਹੇਂ, ਮੈਂ ਤੇਰੇ ਮੰਮੀ ਪਾਪਾ ਨਾਲ ਵੀ ਇਕੱਲਿਆਂ ਗੱਲ ਕਰ ਲਵਾਂਗੀ।",
+    "speaker": "teacher"
+  },
+  "permission": {
+    "hash": "a6dad25ebdf21738b0db224f52df3efe40b21c953ba184656e0d67d801b53f55",
+    "voice": "Leda",
+    "text": "ਹਾਂ ਜੀ। ਤੇ ਮੇਹਰ, ਕੱਲ੍ਹ ਲੰਗਰ ਵੇਲੇ ਤੂੰ ਮੇਰੇ ਕੋਲ ਬੈਠੇਂਗੀ?",
+    "speaker": "girl"
+  },
+  "spot": {
+    "hash": "e599b003214a1c037af079c570b3ed7b7145bad29c9c375899f939b65f8207ca",
+    "voice": "Kore",
+    "text": "ਮੇਰੇ ਲਈ ਇੱਕ ਥਾਂ ਰੱਖੀਂ।",
+    "speaker": "mehar"
   }
 }
