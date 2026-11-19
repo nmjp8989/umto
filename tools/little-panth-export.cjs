@@ -78,22 +78,28 @@ async function render() {
   try {
     browser = await chromium.launchPersistentContext(profile, {
       viewport: null, channel: 'chrome', headless: false, ignoreDefaultArgs: ['--mute-audio'],
-    args: ['--no-sandbox', '--kiosk', '--autoplay-policy=no-user-gesture-required',
-      '--window-position=0,0', '--window-size=1920,1080', '--force-device-scale-factor=1']
+      args: ['--no-sandbox', '--app=about:blank', '--autoplay-policy=no-user-gesture-required',
+        '--window-position=0,0', '--window-size=1920,1080', '--force-device-scale-factor=1']
     });
     const page = browser.pages()[0] || await browser.newPage();
-    const cdp = await browser.newCDPSession(page);
-    const { windowId } = await cdp.send('Browser.getWindowForTarget');
-    await cdp.send('Browser.setWindowBounds', { windowId, bounds: { windowState: 'fullscreen' } });
     const pageErrors = [];
     page.on('pageerror', error => pageErrors.push(error.message));
     await page.goto('http://127.0.0.1:8765/little%20panth/' + episode + '/?export=1');
     await page.waitForFunction(() => window.lpExport?.ready(), null, { timeout: 60_000 });
+    await page.evaluate(() => {
+      document.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        document.documentElement.requestFullscreen().catch(error => { window.lpFullscreenError = error.message; });
+      }, { once: true, capture: true });
+    });
+    await page.mouse.click(8, 8);
     try {
-      await page.waitForFunction(() => innerWidth === 1920 && innerHeight === 1080, null, { timeout: 10_000 });
+      await page.waitForFunction(() => document.fullscreenElement && innerWidth === 1920 && innerHeight === 1080, null, { timeout: 10_000 });
     } catch {
-      throw Error('Expected a 1920×1080 fullscreen viewport, got ' + await page.evaluate(() => innerWidth + '×' + innerHeight));
+      throw Error('Expected a 1920×1080 fullscreen viewport, got ' + await page.evaluate(() => innerWidth + '×' + innerHeight + (window.lpFullscreenError ? ': ' + window.lpFullscreenError : '')));
     }
+    await delay(2100); // Let Chrome's temporary fullscreen notice leave the capture area.
     recorder = capture(recording);
     const captureStart = await recorder.ready;
     const started = await page.evaluate(name => window.lpExport.start(name), section);
