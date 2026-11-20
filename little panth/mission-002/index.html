@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ਮੇਹਰ ਅਤੇ ਚੁੱਪ ਸਿਤਾਰ · Little Panth</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="game.js"></script>
+</head>
+<body>
+<main>
+<header><a href="../">Little Panth</a><span>ਮਿਸ਼ਨ ੨</span><button id="captions" type="button">English CC</button></header>
+<section id="player" aria-label="ਮੇਹਰ ਅਤੇ ਚੁੱਪ ਸਿਤਾਰ">
+  <svg id="stage" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g id="camera"><image id="background" width="1280" height="720" preserveAspectRatio="xMidYMid slice"/><g id="behind"></g><g id="actors"></g><g id="props"></g></g>
+  </svg>
+  <div id="opening">
+    <p>ਲਿਟਲ ਪੰਥ</p>
+    <h1>ਮੇਹਰ ਅਤੇ ਚੁੱਪ ਸਿਤਾਰ</h1>
+    <div class="actions"><button id="watch" disabled>ਕਹਾਣੀ ਦੇਖੋ · Watch</button><button id="play" disabled>ਖੇਡੋ · Play</button></div>
+    <small id="status" role="status">ਕਹਾਣੀ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</small>
+  </div>
+  <div id="chapter" hidden></div>
+</section>
+<section id="reading" aria-live="polite" hidden><strong id="speaker"></strong><p id="punjabi"></p><p id="english" hidden></p></section>
+<section id="activity" hidden><p id="prompt"></p><div id="choices" class="actions"></div><p id="feedback" role="status"></p></section>
+<footer id="transport" hidden><button id="restart">ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ</button><button id="next">ਅੱਗੇ →</button></footer>
+</main>
+<iframe id="rig" hidden title="UMTO character renderer" src="../../index.html?missionBridge=delivery&amp;cast=little-panth-002"></iframe>
+</body>
+</html>

@@ -1,0 +1,242 @@
+{
+  "tomorrow": {
+    "hash": "ba1178a5d71b1eadd462edf840b82df2a6c5bbbd6187ddaafe3d832826fc1abd",
+    "voice": "Orus",
+    "text": "ਦੀਦੀ, ਇੱਕ ਕੱਲ੍ਹ ਲਈ ਰੱਖ ਲਈਏ?",
+    "speaker": "boy"
+  },
+  "schoolIntro": {
+    "hash": "3ebabde9e82709e439f0c1b58593f2e66f61b945eb258e21ac16f16f9a17c0bb",
+    "voice": "Aoede",
+    "text": "ਉਸ ਸਵੇਰ ਸਕੂਲ ਵਿੱਚ ਲੰਗਰ ਲੱਗਣਾ ਸੀ। ਲੰਗਰ ਤੋਂ ਪਹਿਲਾਂ ਮੇਹਰ ਨੇ ਸ਼ਬਦ ਗਾਇਆ। ਉਹ ਹਰ ਰੋਜ਼ ਰਿਆਜ਼ ਕਰਦੀ ਸੀ, ਤੇ ਬੱਚੇ ਚੁੱਪ ਕਰਕੇ ਉਸ ਦੀ ਆਵਾਜ਼ ਸੁਣ ਰਹੇ ਸਨ।",
+    "speaker": "narrator"
+  },
+  "notice": {
+    "hash": "c1d3ea9ade4e434254f337d258c0accdeea86da1ba5c6eb2099ed15ae3d59f60",
+    "voice": "Iapetus",
+    "text": "ਮੇਹਰ, ਤੈਨੂੰ ਪਤਾ? ਤਿੰਨ ਦਿਨਾਂ ਤੋਂ ਲੰਗਰ ਦੇ ਬੰਨ੍ਹੇ ਹੋਏ ਪੈਕਟ ਘੱਟ ਰਹੇ ਨੇ। ਅੱਜ ਵੀ—",
+    "speaker": "friend"
+  },
+  "praise": {
+    "hash": "3e7a7403d810b29c4a501cf18f13f437efe899ae3e76de7dc100e2c07b310c92",
+    "voice": "Kore",
+    "text": "ਪਰ ਪਹਿਲਾਂ ਇਹ ਦੱਸ, ਤੂੰ ਮੇਰਾ ਕੀਰਤਨ ਸੁਣਿਆ?",
+    "speaker": "mehar"
+  },
+  "heard": {
+    "hash": "25ff8fe63b1269002db6c4f2a93186b651ee02cf1343be19022b783ce778bafa",
+    "voice": "Iapetus",
+    "text": "ਹਾਂ, ਮੈਂ ਸੁਣਿਆ। ਤੂੰ ਮੇਰੀ ਗੱਲ ਸੁਣੀ?",
+    "speaker": "friend"
+  },
+  "boast": {
+    "hash": "442cf009652a0256460c3bbd327ac2f7a6fcd12bbdb5eafb341164de17e9eefa",
+    "voice": "Kore",
+    "text": "ਤੂੰ ਵੇਖੀਂ, ਮੈਂ ਪਤਾ ਲਾ ਲਵਾਂਗੀ। ਫਿਰ ਸਾਰੀ ਜਮਾਤ ਨੂੰ ਦੱਸਾਂਗੀ ਕਿ ਮੈਂ ਇਹ ਭੇਤ ਕਿਵੇਂ ਸੁਲਝਾਇਆ!",
+    "speaker": "mehar"
+  },
+  "forest": {
+    "hash": "f7c5e7c6398930edf3be45ef06050087261cbdad00151f91db1bf4ca4dcf5f66",
+    "voice": "Aoede",
+    "text": "ਘਰ ਮੁੜਦਿਆਂ ਮੇਹਰ ਜੰਗਲ ਵਾਲੀ ਪਗਡੰਡੀ ਤੋਂ ਲੰਘੀ। ਪੁਰਾਣੇ ਰੁੱਖ ਦੀਆਂ ਜੜ੍ਹਾਂ ਕੋਲ ਕੁਝ ਚਮਕਿਆ। ਉਸ ਨੇ ਪੱਤੇ ਹਟਾਏ। ਹੇਠਾਂ ਇੱਕ ਸੁਨਹਿਰੀ ਸਿਤਾਰ ਪਿਆ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "silent": {
+    "hash": "a94833aeb615237a1b0a651c4cb74aa42d201cf9bc4aad906f8c21da1dc39fb2",
+    "voice": "Kore",
+    "text": "ਇਹ ਵੱਜਦਾ ਕਿਉਂ ਨਹੀਂ? ਮੈਂ ਤਾਂ ਤਾਰ ਵੀ ਛੇੜੀ ਸੀ!",
+    "speaker": "mehar"
+  },
+  "squirrel": {
+    "hash": "19c08b7c44a32e39f4c9018153d54a188b120983509c6ed0f3982111a7f2fe8d",
+    "voice": "Aoede",
+    "text": "ਪਿੱਛੇ ਗਿਲਹਰੀ ਰੁੱਖ ਉੱਤੇ ਚੜ੍ਹੀ ਤਾਂ ਉਸ ਦੇ ਨਹੁੰਆਂ ਦੀ ਖੁਰਚ ਵੀ ਸੁਣਾਈ ਦਿੱਤੀ। ਪਰ ਸਿਤਾਰ ਦੀ ਇੱਕ ਵੀ ਤਾਰ ਨਾ ਵੱਜੀ।",
+    "speaker": "narrator"
+  },
+  "dadiAsk": {
+    "hash": "a0e6568edf35816953a925c72e0554ee3a1213f187e792f399968a157a58bf8f",
+    "voice": "Kore",
+    "text": "ਦਾਦੀ ਜੀ, ਇਹ ਸਿਤਾਰ ਠੀਕ ਕਰ ਦਿਓਗੇ?",
+    "speaker": "mehar"
+  },
+  "dadiTime": {
+    "hash": "296e41fd6fd39705d6fe659a4032ae7446735934536ea3b367c88feaad3df65d",
+    "voice": "Pulcherrima",
+    "text": "ਜਦੋਂ ਸਮਾਂ ਆਵੇਗਾ, ਇਹ ਵੱਜੇਗਾ।",
+    "speaker": "dadi"
+  },
+  "how": {
+    "hash": "ce6ba855d8954811b3aa075aa7a2b17205452cd13e52b4b5df747830452ef7fe",
+    "voice": "Kore",
+    "text": "ਮੈਨੂੰ ਕਿਵੇਂ ਪਤਾ ਲੱਗੂ?",
+    "speaker": "mehar"
+  },
+  "hear": {
+    "hash": "f0587b9ab8d017b023a78b84a492ac78ffc1142c7326e5d970c565a5df71b346",
+    "voice": "Pulcherrima",
+    "text": "ਤੈਨੂੰ ਆਪੇ ਸੁਣ ਜਾਏਗਾ।",
+    "speaker": "dadi"
+  },
+  "nextDay": {
+    "hash": "33991f6f9a805cb59e30851d048e0270aaf3e8cc993fcbd201ce2960ad7a5c48",
+    "voice": "Aoede",
+    "text": "ਅਗਲੇ ਦਿਨ ਮੇਹਰ ਤੇ ਉਸ ਦੇ ਦੋਸਤ ਇੱਕ-ਇੱਕ ਸੁਰਾਗ ਜੋੜਨ ਲੱਗੇ।",
+    "speaker": "narrator"
+  },
+  "bell": {
+    "hash": "8e173122014c111ecff4339036abb77b096256e7a03391d9ea338f154c434139",
+    "voice": "Iapetus",
+    "text": "ਖਾਣਾ ਦੁਪਹਿਰ ਦੀ ਘੰਟੀ ਵੱਜਣ ਤੋਂ ਬਾਅਦ ਗਾਇਬ ਹੁੰਦਾ ਹੈ।",
+    "speaker": "friend"
+  },
+  "wrapped": {
+    "hash": "dbc9b258889f257102995648c640562db9c3290488bf17d96b2d539f2d68284c",
+    "voice": "Vindemiatrix",
+    "text": "ਸਿਰਫ਼ ਉਹ ਖਾਣਾ ਘੱਟਦਾ ਹੈ ਜਿਹੜਾ ਘਰ ਲਿਜਾਣ ਲਈ ਬੰਨ੍ਹਿਆ ਹੁੰਦਾ ਹੈ।",
+    "speaker": "teacher"
+  },
+  "gate": {
+    "hash": "5b4fb98661106c1a713f31e6f4061e7a8479c65d4c3f13d95d1c08365e96a319",
+    "voice": "Iapetus",
+    "text": "ਮੈਂ ਕਿਸੇ ਬੱਚੇ ਨੂੰ ਪੈਕਟ ਲੈ ਕੇ ਸਕੂਲ ਦੇ ਫਾਟਕ ਵੱਲ ਜਾਂਦਿਆਂ ਵੇਖਿਆ ਸੀ।",
+    "speaker": "friend"
+  },
+  "plan": {
+    "hash": "1cab3afbb06d5192b9114e29f95aa928827357d2ab085c92383db7efd1a9fe8f",
+    "voice": "Kore",
+    "text": "ਘੰਟੀ ਤੋਂ ਬਾਅਦ ਫਾਟਕ ਕੋਲ ਵੇਖਦੇ ਹਾਂ। ਮੇਰਾ ਭਾਸ਼ਣ ਵੀ ਤਿਆਰ ਪਿਆ ਹੈ!",
+    "speaker": "mehar"
+  },
+  "sees": {
+    "hash": "541bd6a99e2a8df9c07bab0af4c57948ad0245376f5141b1d988cf689780082a",
+    "voice": "Aoede",
+    "text": "ਘੰਟੀ ਵੱਜੀ। ਮੇਹਰ ਨੇ ਆਪਣੀ ਜਮਾਤ ਦੀ ਇੱਕ ਕੁੜੀ ਨੂੰ ਦੋ ਪੈਕਟ ਬਸਤੇ ਵਿੱਚ ਪਾਉਂਦਿਆਂ ਵੇਖਿਆ। ਮੇਹਰ ਨੇ ਆਵਾਜ਼ ਮਾਰੀ। ਕੁੜੀ ਨੇ ਬਸਤੇ ਨੂੰ ਘੁੱਟ ਕੇ ਫੜ ਲਿਆ।",
+    "speaker": "narrator"
+  },
+  "quiet": {
+    "hash": "2577cb7271de976807a9097717f364b284eb58301041bebbb0acf70ea5ae46da",
+    "voice": "Kore",
+    "text": "ਆਪਾਂ ਉੱਥੇ ਬੈਠ ਕੇ ਗੱਲ ਕਰੀਏ? ਉੱਥੇ ਰੌਲਾ ਘੱਟ ਹੈ।",
+    "speaker": "mehar"
+  },
+  "family": {
+    "hash": "e762d5ebbf06b358158ee70b9c3b45d7cae08e59507b318832cb89634b680e2c",
+    "voice": "Leda",
+    "text": "ਮੰਮੀ ਤੇ ਪਾਪਾ ਦੋਵੇਂ ਕੰਮ ਲੱਭ ਰਹੇ ਨੇ। ਕੱਲ੍ਹ ਮੇਰੇ ਛੋਟੇ ਭਰਾ ਨੇ ਪੁੱਛਿਆ ਸੀ ਕਿ ਕੁਝ ਖਾਣਾ ਅੱਜ ਵਾਸਤੇ ਵੀ ਰੱਖ ਲਈਏ।",
+    "speaker": "girl"
+  },
+  "didYou": {
+    "hash": "e763f3ffb2fb60143094fbe8adb6f49f107f7793920fe71aed009c68a9f484c1",
+    "voice": "Kore",
+    "text": "ਫਿਰ ਤੂੰ ਰੱਖਿਆ?",
+    "speaker": "mehar"
+  },
+  "hungry": {
+    "hash": "2c3fd2a3c829eae5782d3014b536087088fa33f364c9fee1bdfcbd44287088fd",
+    "voice": "Leda",
+    "text": "ਮੈਂ ਉਹਨੂੰ ਖਾ ਲੈਣ ਦਿੱਤਾ। ਉਹਨੂੰ ਬਹੁਤ ਭੁੱਖ ਲੱਗੀ ਸੀ।",
+    "speaker": "girl"
+  },
+  "fold": {
+    "hash": "35fd6ba7e8dc311c9981f5ae6c371548909ff2d0621c41be402e390aff88fc22",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਆਪਣੇ ਹੱਥ ਵਿੱਚ ਫੜਿਆ ਭਾਸ਼ਣ ਵੇਖਿਆ। ਉਸ ਨੇ ਕਾਗਜ਼ ਮੋੜਿਆ ਤੇ ਜੇਬ ਵਿੱਚ ਪਾ ਲਿਆ। ਫਿਰ ਉਹ ਕੁੜੀ ਦੇ ਕੋਲ ਬੈਠ ਗਈ।",
+    "speaker": "narrator"
+  },
+  "come": {
+    "hash": "f6fce00a267c41cbe7f6e92c75f63f9e17a93554377e4808ab3d30470c95abae",
+    "voice": "Kore",
+    "text": "ਕੀ ਮੈਂ ਤੇਰੇ ਨਾਲ ਆਵਾਂ?",
+    "speaker": "mehar"
+  },
+  "stay": {
+    "hash": "93309ae840782e1ea059eac87cd2ceae18c60fe222ff07e0354540dc42e5a79a",
+    "voice": "Leda",
+    "text": "ਹਾਂ। ਜਦੋਂ ਮੈਂ ਮੈਡਮ ਨਾਲ ਗੱਲ ਕਰਾਂ, ਤੂੰ ਮੇਰੇ ਕੋਲ ਹੀ ਰਹੀਂ।",
+    "speaker": "girl"
+  },
+  "teacher": {
+    "hash": "0622250a4ee116e44a782f9ba176b2355ff4675338ab3e3e597801df270f046a",
+    "voice": "Vindemiatrix",
+    "text": "ਅੱਜ ਘਰ ਲਈ ਖਾਣਾ ਮੈਂ ਰਖਵਾ ਦਿੰਦੀ ਹਾਂ। ਜੇ ਤੂੰ ਚਾਹੇਂ, ਮੈਂ ਤੇਰੇ ਮੰਮੀ ਪਾਪਾ ਨਾਲ ਵੀ ਇਕੱਲਿਆਂ ਗੱਲ ਕਰ ਲਵਾਂਗੀ।",
+    "speaker": "teacher"
+  },
+  "permission": {
+    "hash": "a6dad25ebdf21738b0db224f52df3efe40b21c953ba184656e0d67d801b53f55",
+    "voice": "Leda",
+    "text": "ਹਾਂ ਜੀ। ਤੇ ਮੇਹਰ, ਕੱਲ੍ਹ ਲੰਗਰ ਵੇਲੇ ਤੂੰ ਮੇਰੇ ਕੋਲ ਬੈਠੇਂਗੀ?",
+    "speaker": "girl"
+  },
+  "spot": {
+    "hash": "e599b003214a1c037af079c570b3ed7b7145bad29c9c375899f939b65f8207ca",
+    "voice": "Kore",
+    "text": "ਮੇਰੇ ਲਈ ਇੱਕ ਥਾਂ ਰੱਖੀਂ।",
+    "speaker": "mehar"
+  },
+  "home": {
+    "hash": "8180eb94fc040833eb3d823464c1e25bb87090a5409ff1d7c180241b2eaa9fd2",
+    "voice": "Aoede",
+    "text": "ਘਰ ਪਹੁੰਚ ਕੇ ਮੇਹਰ ਆਪਣੀ ਚਟਾਈ ਉੱਤੇ ਬੈਠ ਗਈ। ਉਸ ਨੇ ਉਹੀ ਸ਼ਬਦ ਛੋਹਿਆ ਜਿਹੜਾ ਕੱਲ੍ਹ ਸਕੂਲ ਵਿੱਚ ਗਾਇਆ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "firstNote": {
+    "hash": "f2422cc800fafbf821813468ba0b81020b118a77b11d47481f21ce113ed53d85",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਤਾਰ ਵੱਜੀ। ਫਿਰ ਤਾਰਾਂ ਉੱਤੇ ਹੌਲੀ-ਹੌਲੀ ਸੁਨਹਿਰੀ ਚਾਨਣ ਫੈਲ ਗਿਆ। ਮੇਹਰ ਨੇ ਡੂੰਘਾ ਸਾਹ ਲਿਆ ਤੇ ਗਾਉਂਦੀ ਰਹੀ।",
+    "speaker": "narrator"
+  },
+  "different": {
+    "hash": "ac3af630e63cab67df0290a4b06cc344b650e174c68c13f72019bf239ee1b11f",
+    "voice": "Pulcherrima",
+    "text": "ਕੱਲ੍ਹ ਵੀ ਇਹੀ ਸ਼ਬਦ ਸੀ। ਅੱਜ ਕੀ ਵੱਖਰਾ ਲੱਗਿਆ?",
+    "speaker": "dadi"
+  },
+  "yesterday": {
+    "hash": "101b8f1b0eec635295424273fe1b5e6cc196bf9ab00dcc8c4f5fcff8f7ed355a",
+    "voice": "Kore",
+    "text": "ਕੱਲ੍ਹ ਮੈਂ ਵਾਰ-ਵਾਰ ਵੇਖਦੀ ਸੀ ਕਿ ਕੌਣ ਮੈਨੂੰ ਸੁਣ ਰਿਹਾ ਹੈ।",
+    "speaker": "mehar"
+  },
+  "andToday": {
+    "hash": "2a52212330bb14d1591e0c86ae9b8a4d6b08d50ab4ea9580b4c067181e6a0fd4",
+    "voice": "Pulcherrima",
+    "text": "ਤੇ ਅੱਜ?",
+    "speaker": "dadi"
+  },
+  "listening": {
+    "hash": "b9bb49be98f781f6d3009a078a5f7f0fe0f0c9aa7112e6d68db6934b0f0673cf",
+    "voice": "Kore",
+    "text": "ਅੱਜ ਮੈਂ ਆਪ ਵੀ ਸੁਣ ਰਹੀ ਸੀ।",
+    "speaker": "mehar"
+  },
+  "simranIntro": {
+    "hash": "9ed4ff10d4daef3d644bce74ba7565e70509690059be7039fb183f018f0bff2a",
+    "voice": "Aoede",
+    "text": "ਅਗਲੇ ਦਿਨਾਂ ਵਿੱਚ ਪਰਿਵਾਰ ਨੇ ਰਲ ਕੇ ਨਾਮ ਸਿਮਰਨ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ। ਔਖੇ ਦਿਨਾਂ ਵਿੱਚ ਵਾਹਿਗੁਰੂ ਨੂੰ ਯਾਦ ਕਰਦਿਆਂ ਉਨ੍ਹਾਂ ਨੂੰ ਹੌਸਲਾ ਮਿਲਦਾ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "simran": {
+    "hash": "f332aeafb833681c002ee709ca2045ba4e5f891b63dfc5d848596a4273a2d966",
+    "voice": "Orus",
+    "text": "ਵਾਹਿਗੁਰੂ … ਵਾਹਿਗੁਰੂ …",
+    "speaker": "boy"
+  },
+  "work": {
+    "hash": "03abb75b53b36417ccec9fec400f516baf3c9465725311cbdf567ad07d57a404",
+    "voice": "Aoede",
+    "text": "ਇਲਾਕੇ ਦੇ ਲੋਕਾਂ ਨੇ ਕੰਮ ਲੱਭਣ ਵਿੱਚ ਹੱਥ ਵਟਾਇਆ। ਪਾਪਾ ਨੂੰ ਪੱਕਾ ਕੰਮ ਮਿਲ ਗਿਆ ਤੇ ਮੰਮੀ ਨੇ ਸਿਲਾਈ ਦਾ ਕੰਮ ਸ਼ੁਰੂ ਕਰ ਲਿਆ। ਹੌਲੀ-ਹੌਲੀ ਘਰ ਦੇ ਹਾਲਾਤ ਸੁਧਰਨ ਲੱਗੇ।",
+    "speaker": "narrator"
+  },
+  "room": {
+    "hash": "a8e8ab059a72debcac4d545b023eb6f510f6af23e6185d89c99fd87779d5b08d",
+    "voice": "Leda",
+    "text": "ਆ ਜਾ। ਇੱਥੇ ਜਗ੍ਹਾ ਹੈ।",
+    "speaker": "girl"
+  },
+  "dadiLearns": {
+    "hash": "8353fefb572b47457d9a89ec2ba8fcfb13bd5aae5363ded510e034b8f168a710",
+    "voice": "Pulcherrima",
+    "text": "ਇਹ ਸਿਤਾਰ ਉਦੋਂ ਵੱਜਦਾ ਹੈ ਜਦੋਂ ਕੋਈ ਦਿਲੋਂ ਕੀਰਤਨ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਮਨ ਤਾਰੀਫ਼ ਸੁਣਨ ਦੀ ਥਾਂ ਸ਼ਬਦ ਵੱਲ ਲੱਗਦਾ ਹੈ, ਹਰ ਸੁਰ ਬਦਲਿਆ ਜਿਹਾ ਲੱਗਦਾ ਹੈ।",
+    "speaker": "dadi"
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<defs>
+ <linearGradient id="air" x2=".2" y2="1"><stop stop-color="#f9df9f"/><stop offset=".63" stop-color="#7b9c76"/><stop offset="1" stop-color="#395e4b"/></linearGradient>
+ <linearGradient id="floor" x2=".1" y2="1"><stop stop-color="#8c9b5c"/><stop offset="1" stop-color="#2d513d"/></linearGradient>
+ <linearGradient id="path" x2=".15" y2="1"><stop stop-color="#e1c788"/><stop offset="1" stop-color="#9d7757"/></linearGradient>
+ <linearGradient id="bark"><stop stop-color="#292d29"/><stop offset=".58" stop-color="#544236"/><stop offset=".83" stop-color="#795e43"/><stop offset="1" stop-color="#3d3d2e"/></linearGradient>
+ <pattern id="flecks" width="115" height="65" patternUnits="userSpaceOnUse"><path d="M15 14l8-1m30 36 12-3m28-20 5 2M4 54l6 2" fill="none" stroke="#f7e4b3" stroke-width="2" opacity=".37"/></pattern>
+ <g id="fern" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M0 0q-5-50-49-88m49 88q13-57 52-72M-9-34l-29-2m20-19-30-3m23-9-26-7M7-31l34-8M18-51l30-4"/></g>
+</defs>
+<path fill="url(#air)" d="M0 0h1280v720H0z"/>
+<circle cx="510" cy="164" r="78" fill="#fff0bc" opacity=".72"/>
+<path d="M0 355Q96 249 213 300T413 289 602 298 800 267t480 53v211H0Z" fill="#6d896b"/>
+<path d="M0 431Q176 304 309 373T532 373 762 345 997 346t283 25v196H0Z" fill="#52765c"/>
+<g fill="#365c50" opacity=".66"><path d="M117 429l17-362 15 4 3 356zm114-20-1-326 15-7 11 339zm169 8-15-391 18-3 11 382zm217-6 16-340 16 1-3 344zm153 6L735 69l22-5 38 355zm363 33 20-362 24 7-19 352z"/></g>
+<path d="M0 468q184-66 352-34t301 4q326-43 627 20v262H0Z" fill="url(#floor)"/>
+<path d="M583 441q90 22 36 56Q542 542 780 582q130 28 160 138H214q39-71 215-119 168-43 139-69-72-42 15-91Z" fill="url(#path)"/>
+<path d="M0 468q184-66 352-34t301 4q326-43 627 20v262H0Z" fill="url(#flecks)"/>
+<path d="M444 0h324L445 535l-168 36Z" fill="#fff4bc" opacity=".12"/>
+<path d="M935 11q-18 146 1 279 18 109-3 194-31 51-120 59 50 31 162-5 31-9 78-5 95 48 207 47-74-22-114-55 59 21 134 16v-35q-82-10-128-62-21-42-10-130 30-137 92-220l46-34V0h-115l-33 91-65 103-21-81 27-113H975q13 98-20 114l-24-41-22-73Z" fill="url(#bark)"/>
+<g fill="none" stroke-linecap="round"><path d="M1013 12q-22 178 23 281 37 105-15 213-57 25-94 28M1105 3q-43 179-33 287t30 219l58 29M952 225q45 119 8 245m162-255q-42 116-21 230" stroke="#2d3027" stroke-width="10" opacity=".66"/><path d="M1031 38q-14 125 23 235m36 55q-15 59 9 118m-97 5q-22 60-80 76" stroke="#ac8051" stroke-width="5" opacity=".61"/></g>
+<path d="M0 0h1280v63q-87 25-176 3-55 47-159 35-95 8-174-48-71 20-145-10-60 32-121 14-89 60-166 20-110 52-215 5Q37 100 0 60Z" fill="#274b3a"/>
+<path d="M0 0h1280v21q-86 36-177 19-100 56-220 13-113 18-216-33-108 40-224 35-82-25-159 1Q105 6 0 87Z" fill="#193b30"/>
+<g color="#50734c"><use href="#fern" transform="translate(90 601)"/><use href="#fern" transform="translate(205 539) scale(.7)"/><use href="#fern" transform="translate(851 526) scale(.54)"/><use href="#fern" transform="translate(1188 622) scale(1.2)"/></g>
+<g color="#234637"><use href="#fern" transform="translate(43 727) scale(1.8)"/><use href="#fern" transform="translate(227 730) scale(1.4)"/><use href="#fern" transform="translate(1108 735) scale(1.5)"/><use href="#fern" transform="translate(1260 719) scale(1.8)"/></g>
+</svg>
