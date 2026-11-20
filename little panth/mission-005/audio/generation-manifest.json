@@ -1,0 +1,38 @@
+{
+  "heat-sun": {
+    "hash": "6b5cb5b24f8d0a0c73a688b9de41673ca58f182ecdfd43c385ceb0a08c2fd28f",
+    "voice": "Aoede",
+    "text": "ਗਰਮੀ ਦੀ ਦੁਪਹਿਰ ਸੀ। ਇੱਕ ਕਾਂ ਨੂੰ ਬੜੀ ਪਿਆਸ ਲੱਗੀ।",
+    "speaker": "narrator"
+  },
+  "heat-thirst": {
+    "hash": "cab0bcf60da15770085ffcd5b2959291652a97c5911a622f800ed7a2d0650b61",
+    "voice": "Puck",
+    "text": "ਮੈਨੂੰ ਪਾਣੀ ਕਿੱਥੇ ਮਿਲੇਗਾ?",
+    "speaker": "crow"
+  },
+  "field-dry": {
+    "hash": "67c1e851ba851e1d0d79cb2f9ef6f329977b76305c80d04c72667fe07013a3cf",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਉੱਡਦਾ ਉੱਡਦਾ ਛੱਪੜ ਕੋਲ ਪਹੁੰਚਿਆ। ਛੱਪੜ ਸੁੱਕ ਚੁੱਕਾ ਸੀ।",
+    "speaker": "narrator"
+  },
+  "field-empty": {
+    "hash": "64431f6674fe95b6a97d91f3ad2a1cbd05f527483956279a5d5d2c75bc89da3a",
+    "voice": "Puck",
+    "text": "ਇੱਥੇ ਤਾਂ ਪਾਣੀ ਦੀ ਇੱਕ ਬੂੰਦ ਵੀ ਨਹੀਂ!",
+    "speaker": "crow"
+  },
+  "jar-found": {
+    "hash": "78c8e3b78da8a212fed9b750baf7d8ce5d46316306a2f03e393e4d0b6e8e8212",
+    "voice": "Aoede",
+    "text": "ਫਿਰ ਉਸ ਨੂੰ ਰੁੱਖ ਹੇਠਾਂ ਮਿੱਟੀ ਦਾ ਇੱਕ ਘੜਾ ਦਿੱਸਿਆ।",
+    "speaker": "narrator"
+  },
+  "jar-hope": {
+    "hash": "b44aa4d96f1201f4f0b9093c20bbd5d29a642d530f14de26c00e1b70425e35b0",
+    "voice": "Puck",
+    "text": "ਓਹ! ਇਸ ਵਿੱਚ ਸ਼ਾਇਦ ਪਾਣੀ ਹੋਵੇ!",
+    "speaker": "crow"
+  }
+}
