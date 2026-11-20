@@ -1,114 +1,72 @@
-/* Little Panth LP-004: read-along player using existing UMTO pose banks and backgrounds.
-   No API keys or external speech requests; optional narration uses a local browser Punjabi voice. */
+/* Little Panth LP-004 · control-free animated Gurmukhi reading book.
+   The existing UMTO rig supplies facial expressions, mouth poses and walking.
+   Dialogue is read from original story.js and recorded Gemini clips from audio/.
+   Browser autoplay can be blocked; clicking the illustration enables audio.
+   ?export=1 provides a deterministic, audio-backed YouTube export API. */
 (() => {
 'use strict';
 const $=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
-const story=window.LP004;
-const beats=story.beats;
-const chapters=story.chapters;
+const story=window.LP004,beats=story.beats,chapters=story.chapters;
 const stage=$('stage');
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 const camera=new UmtoCamera.DeliveryCamera(stage);
+const exportMode=new URLSearchParams(location.search).get('export')==='1';
+if(exportMode)document.body.classList.add('export');
 const speakerNames={narrator:'ਕਹਾਣੀਕਾਰ',mehar:'ਮੇਹਰ',baba:'ਬਾਬਾ ਜੀ',baldev:'ਚਾਚਾ ਬਲਦੇਵ',farmer:'ਬਜ਼ੁਰਗ ਕਿਸਾਨ'};
-const chapterNames=Object.fromEntries(chapters.map((item,index)=>[item.id,'ਭਾਗ '+(index+1)+' · '+item.pa]));
-const frameCount=beats.length;
 const beatElements=[];
-let bank=null,actors=[],index=0,playing=false,started=false,elapsed=0,frameAt=0,speed=1;
-let voiceOn=false,utterance=null,ttsActive=false,englishHints=false,shownBackground='';
-let rigFailed=false,rafId=0,transitionSerial=0;
-
+const chapterNames=Object.fromEntries(chapters.map((chapter,i)=>[chapter.id,'ਭਾਗ '+(i+1)]));
+let bank=null,actors=[],index=0,playing=false,elapsed=0,frameAt=0;
+let shownBackground='',gestureGranted=exportMode,ttsBlocked=false;
+let manifest={},recordedCount=0,finished=0,exportStarted=0,exportError='';
+let serial=0,clipActive=false,clipAudio=null,clipFinished=false,holdFinalUntil=0;
+let activeCaption=null,exportCaptions=[];
+const audio=new Audio();audio.preload='auto';
 function svg(name,attributes={},parent=null){
   const node=document.createElementNS(NS,name);
   for(const [key,value] of Object.entries(attributes))node.setAttribute(key,String(value));
   if(parent)parent.appendChild(node);
   return node;
 }
-function point(node,x,y,turn=0,scale=1){node.setAttribute('transform',`translate(${x} ${y}) rotate(${turn}) scale(${scale})`);}
+function point(node,x,y,turn=0,scale=1){
+  node.setAttribute('transform','translate('+x+' '+y+') rotate('+turn+') scale('+scale+')');
+}
 function path(parent,d,fill,stroke='none',width=1){return svg('path',{d,fill,stroke,'stroke-width':width,'stroke-linecap':'round','stroke-linejoin':'round'},parent);}
-function safePauseSpeech(){
-  if('speechSynthesis' in window)try{speechSynthesis.cancel()}catch{}
-  utterance=null;ttsActive=false;
-}
-function availableVoice(){
-  if(!('speechSynthesis' in window))return null;
-  return speechSynthesis.getVoices().find(v=>/^pa([-_]|$)/i.test(v.lang))||null;
-}
-function narrate(beat){
-  safePauseSpeech();
-  if(!voiceOn||!playing)return;
-  const voice=availableVoice();
-  if(!voice){voiceOn=false;updateVoice();$('player-hint').textContent='No Punjabi voice is installed in this browser. The animated Gurmukhi read-along still works.';return;}
-  const token=transitionSerial;
-  utterance=new SpeechSynthesisUtterance(beat.pa);
-  utterance.voice=voice;
-  utterance.lang=voice.lang||'pa-IN';
-  utterance.rate=Math.min(1.5,speed);
-  utterance.pitch=1;
-  utterance.onend=()=>{
-    if(token!==transitionSerial||!playing)return;
-    ttsActive=false;
-    next(true);
-  };
-  utterance.onerror=()=>{
-    if(token!==transitionSerial)return;
-    ttsActive=false;
-    $('player-hint').textContent='Voice playback stopped. Continuing with the readable Gurmukhi story.';
-  };
-  ttsActive=true;
-  try{speechSynthesis.speak(utterance)}catch{ttsActive=false}
-}
-function updateVoice(){
-  $('voice').textContent=voiceOn?'🔊 Punjabi voice: on':'🔇 Punjabi voice: off';
-  $('voice').setAttribute('aria-pressed',String(voiceOn));
-}
 function renderStory(){
-  const root=$('story-lines');
-  let lastChapter='';
-  beats.forEach((beat,i)=>{
-    if(beat.chapter!==lastChapter){
-      lastChapter=beat.chapter;
-      const chapter=chapters.find(item=>item.id===beat.chapter);
-      const divider=document.createElement('div');
-      divider.className='chapter-divider';
-      const kicker=document.createElement('span');
-      kicker.textContent='CHAPTER '+beat.chapter;
-      const title=document.createElement('strong');
-      title.lang='pa';title.textContent=chapter.pa;
-      divider.append(kicker,title);root.append(divider);
+  let last='';
+  for(const [i,beat] of beats.entries()){
+    if(beat.chapter!==last){
+      last=beat.chapter;
+      const divider=document.createElement('div');divider.className='chapter-divider';
+      divider.lang='pa';divider.textContent=chapters.find(c=>c.id===beat.chapter).pa;
+      $('story-lines').appendChild(divider);
     }
-    const block=document.createElement('article');
-    block.className='story-beat';
-    block.tabIndex=0;
-    block.setAttribute('role','button');
-    block.setAttribute('aria-label','Go to scene '+(i+1)+', '+speakerNames[beat.speaker]);
-    const name=document.createElement('span');name.className='speaker';name.textContent=speakerNames[beat.speaker];
-    const text=document.createElement('p');text.className='gurmukhi';text.lang='pa';text.textContent=beat.pa;
-    const translation=document.createElement('p');translation.className='english-note';translation.lang='en';translation.textContent=beat.en;
-    block.append(name,text,translation);
-    block.addEventListener('click',()=>jump(i,true));
-    block.addEventListener('keydown',event=>{
-      if(event.key==='Enter'||event.key===' '){event.preventDefault();jump(i,true)}
-    });
-    beatElements.push(block);root.append(block);
-  });
-  for(const chapter of chapters){
-    const button=document.createElement('button');
-    button.type='button';
-    button.textContent=chapter.id;
-    button.title=chapter.pa+' · '+chapter.en;
-    button.setAttribute('aria-label','Go to chapter '+chapter.id+': '+chapter.pa);
-    button.addEventListener('click',()=>jump(beats.findIndex(beat=>beat.chapter===chapter.id),true));
-    $('chapter-nav').append(button);
+    const block=document.createElement('article');block.className='story-beat';
+    block.dataset.scene=beat.id;
+    const speaker=document.createElement('span');speaker.className='speaker';speaker.lang='pa';speaker.textContent=speakerNames[beat.speaker];
+    const copy=document.createElement('p');copy.className='gurmukhi';copy.lang='pa';copy.textContent=beat.pa;
+    block.append(speaker,copy);$('story-lines').appendChild(block);beatElements.push(block);
   }
 }
 function scrollCurrent(){
-  const scroller=$('story-scroll'),item=beatElements[index];
-  if(!item)return;
-  const r=item.getBoundingClientRect(),outer=scroller.getBoundingClientRect();
-  if(r.top<outer.top+40||r.bottom>outer.bottom-40){
-    scroller.scrollTo({top:scroller.scrollTop+r.top-outer.top-45,behavior:'instant'});
+  const scroller=$('story-scroll'),block=beatElements[index];
+  if(!block)return;
+  const r=block.getBoundingClientRect(),bounds=scroller.getBoundingClientRect();
+  const desiredTop=bounds.top+33;
+  if(r.top<desiredTop||r.bottom>bounds.bottom-35){
+    scroller.scrollTop+=r.top-desiredTop;
   }
+}
+function markReading(){
+  for(let i=0;i<beatElements.length;i++){
+    const block=beatElements[i];
+    block.setAttribute('aria-current',i===index?'true':'false');
+    block.dataset.completed=i<index?'true':'false';
+  }
+  $('scene-heading').textContent=chapterNames[beats[index].chapter];
+  $('chapter-label').textContent=chapters.find(c=>c.id===beats[index].chapter).pa;
+  $('folio-number').textContent='FOLIO '+String(index+1).padStart(2,'0');
+  scrollCurrent();
 }
 function poseFor(id,beat){
   if(id===beat.speaker){
@@ -259,119 +217,116 @@ function animateScene(seconds){
   }else $('prop-layer').removeAttribute('transform');
 }
 function sceneDuration(beat){return Math.max(7,beat.pa.trim().split(/\s+/).length*.43);}
-function updateProgress(){
-  const pct=100*Math.min(frameCount,index+elapsed/sceneDuration(beats[index]))/frameCount;
-  $('progress-fill').style.width=pct+'%';
-  $('progress-track').setAttribute('aria-valuenow',String(Math.round(pct)));
+
+function recorded(id){
+  const item=manifest[id],beat=beats.find(b=>b.id===id);
+  return !!(item&&beat&&item.text===beat.pa);
 }
-function controls(){
-  $('back').disabled=!bank||index===0;
-  $('forward').disabled=!bank||index===frameCount-1&&!playing;
-  $('toggle').disabled=!bank;
-  $('restart').disabled=!bank;
-  $('toggle').textContent=playing?'Ⅱ Pause':'▶ Play';
-  $('scene-count').textContent='SCENE '+String(index+1).padStart(2,'0')+' / '+frameCount;
-  $('scene-location').textContent={village:'PUNJAB VILLAGE',gurdwara:'GURDWARA COURTYARD',langar:'LANGAR HALL'}[beats[index].location];
-  $('chapter-heading').textContent=chapterNames[beats[index].chapter];
-  $('page-folio').textContent='FOLIO '+String(index+1).padStart(2,'0');
-  $('chapter-nav').querySelectorAll('button').forEach((btn,i)=>{
-    btn.setAttribute('aria-current',chapters[i].id===beats[index].chapter?'step':'false');
-  });
+function closeCaption(){
+  if(!activeCaption)return;
+  activeCaption.end=Date.now()-exportStarted;
+  exportCaptions.push(activeCaption);
+  activeCaption=null;
 }
-function showActive(){
-  beatElements.forEach((node,i)=>{
-    node.setAttribute('aria-current',String(i===index));
-  });
-  scrollCurrent();
+function stopAudio(){
+  audio.onended=null;audio.onerror=null;
+  audio.pause();audio.removeAttribute('src');audio.load();
+  clipActive=false;
 }
-function jump(target,autoplay=false){
-  if(!bank){$('player-hint').textContent='UMTO character rigs are still loading; the Gurmukhi text is available to read.';return}
-  transitionSerial++;
-  safePauseSpeech();
-  index=Math.min(frameCount-1,Math.max(0,target));
-  elapsed=0;
-  started=true;$('cover').hidden=true;
-  if(autoplay)playing=true
+function showScene(newIndex){
+  serial++;
+  stopAudio();
+  if(exportStarted)closeCaption();
+  index=newIndex;elapsed=0;holdFinalUntil=0;
+  setupScene(beats[index]);updateCamera(beats[index]);markReading();
+  if(exportStarted){
+    activeCaption={start:Date.now()-exportStarted,text:beats[index].pa};
+  }
+  if(playing)playClip(serial);
+}
+function complete(){
+  if(finished)return;
+  playing=false;stopAudio();
+  if(exportStarted)closeCaption();
+  finished=Date.now();
+  $('chapter-label').textContent='ਸੇਵਾ · ਨਿਮਰਤਾ · ਪਿਆਰ';
+}
+function nextScene(){
+  if(index===beats.length-1){
+    // Hold the final page briefly as a calm reading-book ending.
+    holdFinalUntil=performance.now()+1800;
+    clipFinished=true;clipActive=false;
+  }else showScene(index+1);
+}
+function playClip(token){
+  if(!playing)return;
   const beat=beats[index];
-  setupScene(beat);
-  updateCamera(beat);
-  $('scene-speaker').textContent=speakerNames[beat.speaker];
-  $('scene-english').textContent=beat.en;
-  $('scene-caption').style.display='block';
-  $('reflection').hidden=true;
-  controls();showActive();updateProgress();
-  $('player-hint').textContent='Scene '+(index+1)+' of '+frameCount+' · '+beats[index].pa.trim().split(/\s+/).length+' Gurmukhi words';
-  if(playing)narrate(beat);
-}
-function next(auto=false){
-  if(index+1>=frameCount){
-    finish();
+  clipFinished=false;
+  if(!recorded(beat.id)||(!gestureGranted&&!exportMode)){
+    clipActive=false;
+    if(exportMode)exportError='Missing recorded Gemini Punjabi dialogue for '+beat.id;
     return;
   }
-  jump(index+1,auto||playing);
-}
-function finish(){
-  playing=false;
-  transitionSerial++;safePauseSpeech();
-  elapsed=sceneDuration(beats[index]);
-  $('reflection').hidden=false;
-  $('toggle').textContent='▶ Play again';
-  $('forward').disabled=true;
-  $('progress-fill').style.width='100%';
-  $('progress-track').setAttribute('aria-valuenow','100');
-  $('player-hint').textContent='Mission complete · Try the little reflection question on the right.';
-  const scroller=$('story-scroll');
-  scroller.scrollTo({top:scroller.scrollHeight,behavior:reduced.matches?'instant':'smooth'});
+  audio.src='audio/'+beat.id+'.mp3';
+  audio.playbackRate=1;
+  clipActive=true;
+  audio.onended=()=>{
+    if(token!==serial)return;
+    clipFinished=true;clipActive=false;
+    nextScene();
+  };
+  audio.onerror=()=>{
+    if(token!==serial)return;
+    clipActive=false;
+    if(exportMode)exportError='Could not play audio/'+beat.id+'.mp3';
+  };
+  audio.play().then(()=>{if(token===serial)gestureGranted=true}).catch(()=>{
+    if(token!==serial)return;
+    clipActive=false;gestureGranted=false;
+    if(exportMode)exportError='Autoplay audio blocked by headless Chrome for '+beat.id;
+  });
 }
 function start(){
   if(!bank)return;
-  const resumeIndex=index>=frameCount-1&&elapsed>=sceneDuration(beats[index])?0:index;
-  jump(resumeIndex,true);
+  playing=true;finished=0;
+  $('loading').hidden=true;
+  showScene(0);
 }
-function toggle(){
-  if(!started){start();return}
-  if(index>=frameCount-1&&elapsed>=sceneDuration(beats[index])){jump(0);start();return}
-  playing=!playing;controls();
-  if(!playing){
-    if(ttsActive&&'speechSynthesis'in window)try{speechSynthesis.pause()}catch{}
-  }else{
-    if(ttsActive&&'speechSynthesis'in window)try{speechSynthesis.resume()}catch{}
-    else narrate(beats[index]);
-  }
+function beginListening(){
+  if(!bank)return;
+  gestureGranted=true;
+  // A single natural tap on the illustration unlocks browser audio; no UI controls.
+  // Start from the first sentence so sound and its Gurmukhi highlight stay synchronized.
+  start();
 }
-function raf(now){
-  const delta=frameAt?Math.min(.12,(now-frameAt)/1000):0;frameAt=now;
+function tick(now){
+  const dt=frameAt?Math.min(.13,(now-frameAt)/1000):0;frameAt=now;
   if(bank&&playing&&!document.hidden){
-    elapsed+=delta*speed;
-    if(!ttsActive&&elapsed>=sceneDuration(beats[index]))next(true);
+    if(clipActive&&audio.readyState>=2)elapsed=audio.currentTime;
+    else elapsed+=dt;
+    if(holdFinalUntil&&now>=holdFinalUntil)complete();
+    else if(!clipActive&&!holdFinalUntil&&elapsed>=sceneDuration(beats[index]))nextScene();
   }
   if(bank){
     animateScene(elapsed);
     camera.update(now,actors.find(a=>a.id===camera.track),!playing);
-    updateProgress();
   }
-  rafId=requestAnimationFrame(raf);
+  requestAnimationFrame(tick);
 }
 function initializeRig(newBank){
   if(bank)return;
-  bank=newBank;
-  $('load-status').textContent='Characters ready · press play';
-  $('start').disabled=false;
-  $('cover').classList.add('ready');
-  controls();
-  setupScene(beats[0]);
-  updateCamera(beats[0]);
-  showActive();
-  $('player-hint').textContent='Ready: UMTO character poses, five chapters, Gurmukhi story. Press Watch.';
+  bank=newBank;$('loading').hidden=true;
+  start();
 }
 const rig=$('umto-rig');
 function requestRig(){
   try{rig.contentWindow?.postMessage({type:'anitoons-delivery-request'},location.origin)}catch{}
 }
 window.addEventListener('message',event=>{
-  if(event.origin!==location.origin||event.source!==rig.contentWindow)return;
+  if(event.source!==rig.contentWindow||event.origin!==location.origin)return;
   if(event.data?.type==='anitoons-delivery-cast-error'){
-    rigFailed=true;$('load-status').textContent='The UMTO character bank could not load.';return;
+    exportError='UMTO character pose bank could not load';
+    $('loading').textContent='The animation could not load';return;
   }
   if(event.data?.type==='anitoons-delivery-cast'&&event.data.version===2){
     const cast=event.data.bank;
@@ -380,37 +335,33 @@ window.addEventListener('message',event=>{
   }
 });
 rig.addEventListener('load',requestRig);
-requestRig();
+const manifestReady=fetch('audio/generation-manifest.json',{cache:'no-store'})
+  .then(r=>r.ok?r.json():{}).then(doc=>{
+    manifest=doc;
+    recordedCount=beats.filter(b=>recorded(b.id)).length;
+  }).catch(()=>{manifest={};recordedCount=0});
 renderStory();
-controls();updateVoice();
-$('start').addEventListener('click',start);
-$('toggle').addEventListener('click',toggle);
-$('back').addEventListener('click',()=>jump(index-1,playing));
-$('forward').addEventListener('click',()=>next(playing));
-$('restart').addEventListener('click',()=>{jump(0,false);playing=false;started=false;safePauseSpeech();$('cover').hidden=false;$('scene-caption').style.display='none';controls()});
-$('replay').addEventListener('click',()=>{jump(0,true)});
-$('speed').addEventListener('change',event=>{speed=Number(event.target.value)||1;});
-$('voice').addEventListener('click',()=>{
-  if(!voiceOn&&!availableVoice()){
-    $('player-hint').textContent='No Punjabi voice found in this browser. Install a Punjabi voice to enable narration; Gurmukhi text and animations still play.';
-    return;
-  }
-  voiceOn=!voiceOn;updateVoice();
-  safePauseSpeech();
-  if(playing&&voiceOn)narrate(beats[index]);
-});
-$('translation').addEventListener('click',()=>{
-  englishHints=!englishHints;document.body.classList.toggle('show-translation',englishHints);
-  $('translation').setAttribute('aria-pressed',String(englishHints));
-  $('translation').textContent='English hints: '+(englishHints?'on':'off');
-});
-document.querySelectorAll('[data-answer]').forEach(btn=>btn.addEventListener('click',()=>{
-  const yes=btn.dataset.answer==='right';
-  $('answer-feedback').textContent=yes?'Correct! Real seva means helping with love, not looking for praise.':'Try once more: Who needed Mehar’s kindness?';
-}));
+$('movie').addEventListener('click',beginListening);
+$('movie').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();beginListening()}});
 document.addEventListener('visibilitychange',()=>{
-  if(document.hidden&&playing){playing=false;controls();if(ttsActive&&'speechSynthesis'in window)try{speechSynthesis.pause()}catch{}}
+  if(document.hidden&&!exportMode){
+    stopAudio();playing=false;
+  }else if(!document.hidden&&!exportMode&&bank&&!playing&&!finished){
+    playing=true;showScene(index);
+  }
 });
-window.addEventListener('beforeunload',()=>{safePauseSpeech();cancelAnimationFrame(rafId)});
-requestAnimationFrame(raf);
+window.addEventListener('beforeunload',()=>stopAudio());
+window.lp004Export={
+  ready:()=>!!bank&&recordedCount===beats.length&&!exportError,
+  diagnostic:()=>({bankReady:!!bank,clipsAvailable:recordedCount,clipsNeeded:beats.length,error:exportError}),
+  start:()=>{
+    if(!bank||recordedCount!==beats.length)throw Error('Gemini audio not fully generated for Mission 04');
+    if(exportStarted)throw Error('Export already started');
+    gestureGranted=true;exportStarted=Date.now();exportCaptions=[];activeCaption=null;
+    start();return exportStarted;
+  },
+  status:()=>({started:exportStarted,finished,error:exportError,index,phase:beats[index].chapter,captions:finished?exportCaptions:[]})
+};
+Promise.resolve(manifestReady).then(()=>requestRig());
+requestAnimationFrame(tick);
 })();
