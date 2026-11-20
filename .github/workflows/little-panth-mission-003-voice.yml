@@ -1,10 +1,11 @@
-name: Little Panth Mission 3 Punjabi dialogue
+name: Little Panth Mission 3 production
 
 on:
   push:
     branches: [main, little-panth-mission-003]
     paths:
-      - 'little panth/mission-003/dialogue.json'
+      - 'little panth/mission-003/**'
+      - 'tests/little-panth-003-browser.cjs'
       - '.github/workflows/little-panth-mission-003-voice.yml'
   workflow_dispatch:
 
@@ -46,3 +47,33 @@ jobs:
           git commit -m 'Generate Mission 3 Punjabi dialogue'
           git pull --rebase origin "$TARGET_BRANCH"
           git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save --package-lock=false playwright-core@1.56.1
+          sudo apt-get install -y fonts-noto-core
+      - name: Verify Watch, Play, mobile, and export
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp-mission-003-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS --output /dev/null http://127.0.0.1:8765/; then break; fi
+            sleep 1
+          done
+          node tests/little-panth-003-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mission-003-previews
+          path: screenshots/mission-003/

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a2119">
+  <meta name="description" content="A Little Panth story about a runaway kite, a torn corner, and the courage to tell the truth. Watch or play in Punjabi.">
+  <title>The Kite in the Banyan · Little Panth</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../missions/delivery-camera.js?v=cinema1"></script>
+  <script defer src="story.js"></script>
+  <script defer src="art.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 27 12 16 23 5 12Z M16 2v21 M5 12h22 M16 23c4 2-4 5 1 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Little Panth</span></a>
+    <p class="mission-id"><span lang="pa">ਮਿਸ਼ਨ ੩</span><span aria-hidden="true"> / </span>Mission 03</p>
+    <div class="settings">
+      <button id="audio-toggle" class="control" type="button" aria-pressed="true"><span aria-hidden="true" class="speaker-icon">◖))</span> <span id="audio-label">Sound on</span></button>
+      <button id="caption-toggle" class="control" type="button" aria-pressed="true"><span aria-hidden="true" class="cc-icon">CC</span> English</button>
+    </div>
+  </header>
+  <main class="layout">
+    <section class="episode" aria-label="Mission player">
+      <div class="screen">
+        <svg id="stage" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A painted Punjabi village with a banyan tree and mustard fields">
+          <defs>
+            <filter id="gouache-grain" x="-11%" y="-9%" width="122%" height="118%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="7" result="paper"/>
+              <feColorMatrix in="paper" type="matrix" values=".22 .22 .22 0 .17 .20 .20 .20 0 .14 .17 .17 .17 0 .13 0 0 0 .23 0" result="tinted"/>
+              <feComposite in="tinted" in2="SourceGraphic" operator="in" result="grain"/>
+              <feBlend in="grain" in2="SourceGraphic" mode="soft-light"/>
+            </filter>
+            <linearGradient id="paper-blue" x1="0" x2="1" y1="0" y2=".65" gradientUnits="objectBoundingBox">
+              <stop stop-color="#739a9d"/><stop offset=".53" stop-color="#3b7291"/><stop offset="1" stop-color="#31556e"/>
+            </linearGradient>
+            <radialGradient id="edge-shade" cx=".52" cy=".42" r=".69">
+              <stop offset=".58" stop-color="#231c11" stop-opacity="0"/><stop offset="1" stop-color="#231c11" stop-opacity=".24"/>
+            </radialGradient>
+          </defs>
+          <g id="sky-layer" data-camera-depth="-.56">
+            <image id="background" href="art/banyan.webp" x="-145" y="-26" width="1570" height="772" preserveAspectRatio="xMidYMid slice"/>
+          </g>
+          <g id="depth-layer" data-camera-depth=".34"></g>
+          <g id="set"></g>
+          <g id="actors"></g>
+          <g id="props"></g>
+          <g id="foreground" data-camera-depth="1"></g>
+          <rect id="vignette" x="-120" y="-75" width="1520" height="870" fill="url(#edge-shade)" pointer-events="none"/>
+        </svg>
+        <div id="hotspots" class="hotspots" hidden></div>
+        <div id="opening" class="cover">
+          <div class="cover-copy">
+            <h1>The Kite in<br>the Banyan</h1>
+            <p class="punjabi-title" lang="pa">ਬਰਗਦ ਵਿੱਚ ਫਸੀ ਪਤੰਗ</p>
+            <div class="cover-actions">
+              <button class="primary" id="watch" type="button" disabled>Watch story</button>
+              <button class="secondary" id="play" type="button" disabled>Play mission</button>
+            </div>
+            <p id="loading" class="loading" role="status">Getting the story ready…</p>
+          </div>
+        </div>
+        <div id="ending" class="cover ending" hidden>
+          <div class="cover-copy">
+            <p class="eyebrow" lang="pa">ਸੱਚ · Sach</p>
+            <h2>Mission complete</h2>
+            <p>Mehar told the truth, apologized, and helped fix the kite.</p>
+            <button id="replay" class="primary" type="button">Start again</button>
+          </div>
+        </div>
+      </div>
+      <section id="reading" class="reading" aria-label="Dialogue" hidden>
+        <p id="speaker" class="eyebrow"></p>
+        <p id="punjabi" lang="pa"></p>
+        <p id="english"></p>
+      </section>
+      <section id="activity" class="activity" aria-labelledby="prompt" hidden>
+        <h2 id="prompt"></h2>
+        <div id="choices" class="choices"></div>
+        <p id="feedback" role="status"></p>
+      </section>
+      <div id="transport" class="transport" hidden>
+        <div class="transport-buttons">
+          <button id="restart" type="button" class="control">Restart</button>
+          <button id="previous" type="button" class="control">Back</button>
+          <button id="pause" type="button" class="control">Pause</button>
+        </div>
+        <span id="progress" class="progress" role="status"></span>
+        <button id="next" type="button" class="primary">Next scene</button>
+      </div>
+    </section>
+    <aside class="side">
+      <section class="chapters" aria-labelledby="chapters-title">
+        <h2 id="chapters-title">Story chapters</h2>
+        <ol id="chapters"></ol>
+      </section>
+      <details class="notes" id="notes">
+        <summary>Camera notes</summary>
+        <p id="note-technique"></p>
+        <p id="note-purpose"></p>
+      </details>
+    </aside>
+  </main>
+  <iframe id="rig" hidden tabindex="-1" title="UMTO character rig" src="../../index.html?missionBridge=delivery&amp;cast=little-panth-003"></iframe>
+</body>
+</html>

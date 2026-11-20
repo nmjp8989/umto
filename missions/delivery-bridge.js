@@ -14,8 +14,10 @@
    baldev:{preset:'elder-baldev',colours:{bodyType:'classic'}}
   });
  }
- const missionTwo=new URLSearchParams(location.search).get('cast')==='little-panth-002';
- const littlePanth=missionTwo||new URLSearchParams(location.search).get('cast')==='little-panth';
+ const castName=new URLSearchParams(location.search).get('cast');
+ const missionTwo=castName==='little-panth-002';
+ const missionThree=castName==='little-panth-003';
+ const littlePanth=missionTwo||missionThree||castName==='little-panth';
  if(littlePanth){
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
@@ -37,6 +39,15 @@
    teacher:{preset:'adult-priya',colours:{shirt:'kurtaChunni',shirtColour:'#45698a'}},
    mother:{preset:'adult-priya',colours:{shirt:'kurtaChunni',shirtColour:'#ad7443',hair:'bun'}},
    father:{...baba,preset:'adult-harpreet',colours:{...baba.colours,headwearColour:'#34406b',beardColour:'#302826',beard:'round',facialHair:'beard_round'}}
+  });
+ }
+ if(missionThree){
+  const {mehar}=cast;
+  for(const key of Object.keys(cast))delete cast[key];
+  Object.assign(cast,{
+   mehar:{...mehar,colours:{...mehar.colours,shirt:'kurtaChunni',shirtColour:'#ca903e',trouserColour:'#305e60',shoeColour:'#725036',hairColour:'#2b251d'}},
+   boy:{preset:'kid-sidak',colours:{}},
+   dadi:{preset:'elder-bibi-ji',colours:{}}
   });
  }
  const bank={};let serial=300;
