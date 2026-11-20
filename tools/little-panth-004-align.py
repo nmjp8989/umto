@@ -85,8 +85,10 @@ def main():
     parser.add_argument("model", type=Path)
     parser.add_argument("tokens", type=Path)
     args = parser.parse_args()
+    import imageio_ffmpeg
     import sherpa_onnx
 
+    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     audio = MISSION / "audio"
     dialogue = json.loads((MISSION / "dialogue.json").read_text(encoding="utf-8"))["lines"]
     manifest = json.loads((audio / "generation-manifest.json").read_text(encoding="utf-8"))
@@ -108,7 +110,7 @@ def main():
             continue
 
         pcm = subprocess.check_output([
-            "ffmpeg", "-v", "error", "-i", str(mp3), "-f", "f32le", "-ac", "1", "-ar", str(SAMPLE_RATE), "pipe:1",
+            ffmpeg, "-v", "error", "-i", str(mp3), "-f", "f32le", "-ac", "1", "-ar", str(SAMPLE_RATE), "pipe:1",
         ])
         samples = np.frombuffer(pcm, dtype="<f4")
         speech_start, speech_end = speech_bounds(samples)
