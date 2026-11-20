@@ -53,7 +53,7 @@
     toggle() {
       this.audible = !this.audible;
       if (this.master) this.master.gain.setTargetAtTime(this.audible ? .84 : 0, this.context.currentTime, .03);
-      else this.voice.muted = !this.audible;
+      this.voice.muted = !this.audible;
     }
 
     stopLine() {

@@ -33,9 +33,9 @@
     join.style.display = mended ? '' : 'none';
     const ribbon = svg('g', {}, node);
     ribbon.style.display = tail ? '' : 'none';
-    const tailLine = path(ribbon, 'M0 96 Q-21 127 6 149T-14 207', 'none', '#a64d38', 4);
+    path(ribbon, 'M0 96 Q-21 127 6 149T-14 207', 'none', '#a64d38', 4);
     path(ribbon, 'M-2 119Q-23 105-26 120-23 131-2 122Q16 107 23 120 18 131-2 123ZM6 154Q-9 140-18 148-14 159 5 156Q23 142 28 154 23 165 5 157ZM-9 190Q-26 175-31 187-30 199-9 193Q11 176 19 187 14 198-9 193Z', '#b6533f', '#863a30', 1.2);
-    return {node, patch, join, ribbon, tailLine};
+    return {node, patch, join, ribbon};
   }
 
   function reel(parent) {
@@ -98,11 +98,33 @@
     svg('circle', {cx:6,cy:25,r:4,fill:'#6e685e'}, scissors);
   }
 
+  function paintFabrics(defs) {
+    const pigments = {
+      '#ca903e':['#e5b762','#ca903e','#98612d'],
+      '#305e60':['#698584','#305e60','#274448'],
+      '#344a74':['#576f93','#344a74','#23324d'],
+      '#a9553d':['#cd805a','#a9553d','#70362c'],
+      '#ddc397':['#eddaa9','#ddc397','#ae8c66'],
+      '#856882':['#aa8d9e','#856882','#654d6a'],
+      '#bea185':['#e1c8a5','#bea185','#96795f'],
+      '#8d6b7b':['#aa8390','#8d6b7b','#694e65'],
+      '#b78453':['#d7a56a','#b78453','#8d5d3d']
+    };
+    const styles = [];
+    for (const [color,stops] of Object.entries(pigments)) {
+      const id = 'pigment-' + color.slice(1);
+      const gradient = svg('linearGradient',{id,x1:'0%',y1:'10%',x2:'97%',y2:'85%'},defs);
+      stops.forEach((value,i) => svg('stop',{offset:[0,.52,1][i],'stop-color':value},gradient));
+      styles.push(`.costume [fill="${color}"],#set [fill="${color}"] {fill:url(#${id})}`);
+    }
+    svg('style',{},defs).textContent = styles.join('\n');
+  }
+
   function makeActor(bank, [id, x, y, height, view, pose]) {
     const slot = bank[id]?.[view];
     if (!slot) throw Error('Missing UMTO rig pose for ' + id);
     const node = svg('g', {'data-actor':id}, $('actors'));
-    svg('ellipse', {cx:0,cy:0,rx:height*.23,ry:height*.028,fill:'#33291c','fill-opacity':.27}, node);
+    svg('ellipse', {cx:height*.035,cy:-height*.028,rx:height*.21,ry:height*.035,fill:'url(#contact-shadow)'}, node);
     const costume = svg('g', {class:'costume', filter:'url(#gouache-grain)'}, node);
     const frame = svg('svg', {x:-height*.32,y:-height*.96,width:height*.64,height,overflow:'visible'}, costume);
     frame.innerHTML = slot.base;
@@ -136,6 +158,8 @@
     constructor() {
       this.actors = [];
       this.background = '';
+      this.backdrops = [...$('sky-layer').querySelectorAll('[data-backdrop]')];
+      paintFabrics($('stage').querySelector('defs'));
     }
 
     show(shot, bank) {
@@ -144,9 +168,9 @@
       for (const id of ['actors','props','set','depth-layer']) $(id).replaceChildren();
       if (this.background !== shot.bg) {
         this.background = shot.bg;
-        const background = $('background');
-        background.style.display = shot.bg === 'workbench' ? 'none' : '';
-        if (shot.bg !== 'workbench') background.setAttribute('href', 'art/' + shot.bg + '.webp');
+        for (const background of this.backdrops) {
+          background.setAttribute('opacity', background.dataset.backdrop === shot.bg ? '1' : '0');
+        }
         plants($('foreground'), shot.bg);
       }
       if (shot.bg === 'workbench') workbench($('set'));

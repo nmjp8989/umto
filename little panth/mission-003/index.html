@@ -26,11 +26,18 @@
       <div class="screen">
         <svg id="stage" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A painted Punjabi village with a banyan tree and mustard fields">
           <defs>
+            <radialGradient id="contact-shadow">
+              <stop offset=".34" stop-color="#462a16" stop-opacity=".36"/><stop offset="1" stop-color="#462a16" stop-opacity="0"/>
+            </radialGradient>
             <filter id="gouache-grain" x="-11%" y="-9%" width="122%" height="118%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency=".075 .082" numOctaves="3" seed="11" result="brush"/>
+              <feColorMatrix in="brush" type="matrix" values=".31 .31 .31 0 .05 .28 .28 .28 0 .04 .24 .24 .24 0 .03 0 0 0 .42 0" result="matte"/>
+              <feComposite in="matte" in2="SourceGraphic" operator="in" result="stipple"/>
+              <feBlend in="stipple" in2="SourceGraphic" mode="soft-light" result="paint"/>
               <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="7" result="paper"/>
               <feColorMatrix in="paper" type="matrix" values=".22 .22 .22 0 .17 .20 .20 .20 0 .14 .17 .17 .17 0 .13 0 0 0 .23 0" result="tinted"/>
               <feComposite in="tinted" in2="SourceGraphic" operator="in" result="grain"/>
-              <feBlend in="grain" in2="SourceGraphic" mode="soft-light"/>
+              <feBlend in="grain" in2="paint" mode="soft-light"/>
             </filter>
             <linearGradient id="paper-blue" x1="0" x2="1" y1="0" y2=".65" gradientUnits="objectBoundingBox">
               <stop stop-color="#739a9d"/><stop offset=".53" stop-color="#3b7291"/><stop offset="1" stop-color="#31556e"/>
@@ -40,7 +47,10 @@
             </radialGradient>
           </defs>
           <g id="sky-layer" data-camera-depth="-.56">
-            <image id="background" href="art/banyan.webp" x="-145" y="-26" width="1570" height="772" preserveAspectRatio="xMidYMid slice"/>
+            <image data-backdrop="banyan" href="art/banyan.webp" x="-145" y="-26" width="1570" height="772" preserveAspectRatio="xMidYMid slice"/>
+            <image data-backdrop="courtyard" href="art/courtyard.webp" x="-145" y="-26" width="1570" height="772" opacity="0" preserveAspectRatio="xMidYMid slice"/>
+            <image data-backdrop="canopy" href="art/canopy.webp" x="-145" y="-26" width="1570" height="772" opacity="0" preserveAspectRatio="xMidYMid slice"/>
+            <image data-backdrop="sunset" href="art/sunset.webp" x="-145" y="-26" width="1570" height="772" opacity="0" preserveAspectRatio="xMidYMid slice"/>
           </g>
           <g id="depth-layer" data-camera-depth=".34"></g>
           <g id="set"></g>
