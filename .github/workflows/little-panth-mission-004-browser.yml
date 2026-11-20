@@ -21,6 +21,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install Gurmukhi font for accurate screenshots
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core
       - name: Static JavaScript syntax
         run: |
           node --check "little panth/mission-004/story.js"
