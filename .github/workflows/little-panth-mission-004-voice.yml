@@ -37,7 +37,19 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: |
           python tools/build_little_panth_audio.py --mission mission-004 --dry-run
-          python tools/build_little_panth_audio.py --mission mission-004 --max-new-lines 25
+          # Gemini's HTTP 429 is often a per-minute RPM throttle. The generator
+          # caches every successful MP3; retries never rebill completed clips.
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if python tools/build_little_panth_audio.py --mission mission-004 --max-new-lines 25; then
+              break
+            fi
+            if [ "$attempt" -eq 8 ]; then
+              echo "Gemini quota still exceeded after bounded cooldowns." >&2
+              exit 1
+            fi
+            echo "Gemini TTS temporarily unavailable; retrying only uncached dialogue after cooldown."
+            sleep 75
+          done
       - name: Save completed MP3 recordings
         if: always()
         uses: actions/upload-artifact@v4
