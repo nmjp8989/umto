@@ -1,0 +1,41 @@
+name: Little Panth Mission 04 browser smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-004/**'
+      - 'tests/little-panth-004-browser.cjs'
+      - '.github/workflows/little-panth-mission-004-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Static JavaScript syntax
+        run: |
+          node --check "little panth/mission-004/story.js"
+          node --check "little panth/mission-004/game.js"
+          node --check tests/little-panth-004-browser.cjs
+      - name: Install Playwright against the runner Chrome
+        run: npm install --no-save playwright-core@1.56.1
+      - name: Start local static site
+        run: python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp004-server.log 2>&1 &
+      - name: Test storybook, UMTO rig, and mobile layout
+        run: node tests/little-panth-004-browser.cjs
+      - name: Upload Mission 04 screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-004-screenshots
+          path: screenshots/little-panth-004/
+          if-no-files-found: ignore
