@@ -39,6 +39,10 @@ function chrome(){
   assert.equal(await page.locator('.story-beat .english-note').first().isVisible(),true);
   await page.locator('#chapter-nav button').nth(2).click();
   assert.match(await page.locator('#chapter-heading').innerText(),/ਭਾਗ 3/);
+  const active=page.locator('.story-beat[aria-current="true"]');
+  const scroller=await page.locator('#story-scroll').boundingBox();
+  const activeBox=await active.boundingBox();
+  assert.ok(activeBox.y>=scroller.y-5&&activeBox.y<scroller.y+scroller.height-20,'The active Gurmukhi paragraph must be visible after jumping chapters');
   const home=await page.locator('#backdrop-layer [data-background="gurdwara"]').getAttribute('opacity');
   assert.equal(home,'1','Gurdwara should be the visible painting in Chapter 3');
   const folder=path.join(process.cwd(),'screenshots','little-panth-004');
