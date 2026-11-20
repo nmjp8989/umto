@@ -2,7 +2,7 @@
 """Generate and cache Little Panth Punjabi voices through Gemini TTS.
 
 GitHub Actions secrets GEMINI_API_KEY2, GEMINI_API_KEY3 and GEMINI_API_KEY are used server-side only.
-Outputs reusable MP3 files under little panth/mission-001/audio/.
+Outputs reusable MP3 files under the selected Little Panth mission’s audio directory.
 Skip unchanged clips based on text, voice, model and speaker style.
 The optional Gurbani clip is a synthetic recitation.
 """
@@ -36,7 +36,7 @@ VOICES={
 }
 def main():
  p=argparse.ArgumentParser()
- p.add_argument("--mission", choices=("mission-001", "mission-002"), default="mission-001")
+ p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003"), default="mission-001")
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
  p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")

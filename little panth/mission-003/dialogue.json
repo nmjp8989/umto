@@ -1,0 +1,29 @@
+{
+  "lines": {
+    "village": {"speaker":"narrator","pa":"ਉਸ ਦੁਪਹਿਰ ਪੰਜਾਬ ਦੇ ਇੱਕ ਨਿੱਕੇ ਜਿਹੇ ਪਿੰਡ ਵਿੱਚ ਹਵਾ ਮੁੜ ਚੱਲ ਪਈ। ਸਰ੍ਹੋਂ ਦੇ ਖੇਤ ਹਿੱਲਣ ਲੱਗੇ, ਤੇ ਬਰਗਦ ਦੇ ਪੱਤੇ ਸਰਸਰ ਕਰਨ ਲੱਗੇ।","en":"That afternoon, the wind returned to a little village in Punjab. The mustard fields swayed, and the banyan leaves began to rustle."},
+    "water": {"speaker":"boy","pa":"ਮੇਹਰ, ਵੇਖ ਮੇਰੀ ਨੀਲੀ ਪਤੰਗ! ਮੈਂ ਪਾਣੀ ਪੀ ਕੇ ਆਇਆ। ਫਿਰ ਆਪਾਂ ਇਸ ਨੂੰ ਖੇਤ ਕੋਲ ਉਡਾਵਾਂਗੇ।","en":"Mehar, look at my blue kite! I'll get some water. Then we'll fly it by the field."},
+    "admire": {"speaker":"narrator","pa":"ਸਿਦਕ ਅੰਦਰ ਗਿਆ ਤਾਂ ਮੇਹਰ ਦੀ ਨਜ਼ਰ ਪਤੰਗ ਦੀ ਲਾਲ ਪੂਛ ਉੱਤੇ ਪਈ। ਹਵਾ ਉਸ ਨੂੰ ਹੌਲੀ ਹੌਲੀ ਹਿਲਾ ਰਹੀ ਸੀ।","en":"When Sidak went inside, Mehar noticed the kite's red tail. The wind was making it dance."},
+    "once": {"speaker":"mehar","pa":"ਜੇ ਮੈਂ ਇਸ ਨੂੰ ਸਿਰਫ਼ ਇੱਕ ਵਾਰੀ ਉਡਾਵਾਂ, ਤਾਂ ਕੀ ਹੋਵੇਗਾ? ਸਿਦਕ ਦੇ ਆਉਣ ਤੋਂ ਪਹਿਲਾਂ ਮੈਂ ਇਸ ਨੂੰ ਵਾਪਸ ਰੱਖ ਦਿਆਂਗੀ।","en":"What if I fly it just once? I'll put it back before Sidak comes out."},
+    "chase": {"speaker":"narrator","pa":"ਮੇਹਰ ਨੇ ਬਿਨਾਂ ਪੁੱਛੇ ਚਰਖੜੀ ਚੁੱਕ ਲਈ। ਇੱਕ ਤੇਜ਼ ਝੋਕੇ ਨਾਲ ਪਤੰਗ ਉੱਪਰ ਚੜ੍ਹੀ ਤੇ ਉਸ ਨੂੰ ਪਗਡੰਡੀ ਵੱਲ ਖਿੱਚ ਲੈ ਗਈ।","en":"Mehar picked up the reel without asking. A gust lifted the kite and pulled her toward the path."},
+    "stop": {"speaker":"mehar","pa":"ਓਹ ਹੋ! ਹੌਲੀ, ਪਤੰਗੇ! ਬਰਗਦ ਵੱਲ ਨਾ ਜਾ!","en":"Oh no! Slow down, kite! Stay away from the banyan!"},
+    "stuck": {"speaker":"narrator","pa":"ਟਾਹਣੀ ਨੇ ਡੋਰ ਫੜ ਲਈ। ਕਾਗਜ਼ ਫਟ ਗਿਆ, ਤੇ ਪਤੰਗ ਦਾ ਇੱਕ ਨੀਲਾ ਟੁਕੜਾ ਹੇਠਾਂ ਆ ਡਿੱਗਿਆ।","en":"A branch caught the line. The paper tore, and a blue scrap fluttered down."},
+    "branch": {"speaker":"dadi","pa":"ਉੱਪਰ ਚੜ੍ਹਨ ਦੀ ਲੋੜ ਨਹੀਂ, ਪੁੱਤ। ਤੂੰ ਜ਼ਮੀਨ ਉੱਤੇ ਹੀ ਰਹਿ। ਮੈਂ ਸੋਟੀ ਨਾਲ ਡੋਰ ਟਾਹਣੀ ਤੋਂ ਲਾਹ ਦਿੰਦੀ ਹਾਂ।","en":"Stay on the ground, dear. I'll lift the line off the branch with this stick."},
+    "scrap": {"speaker":"narrator","pa":"ਬੀਬੀ ਜੀ ਨੇ ਪਤੰਗ ਹੇਠਾਂ ਲਾਹ ਲਈ। ਮੇਹਰ ਨੇ ਸੁੱਕੇ ਪੱਤਿਆਂ ਵਿਚਕਾਰ ਨੀਲਾ ਕਾਗਜ਼ ਲੱਭਿਆ। ਉਹ ਬਿਲਕੁਲ ਉਸੇ ਪਤੰਗ ਦਾ ਟੁਕੜਾ ਸੀ।","en":"Bibi Ji brought the kite down. Mehar found blue paper among the dry leaves. It was the missing piece."},
+    "footsteps": {"speaker":"narrator","pa":"ਪਤੰਗ ਨੂੰ ਛਾਤੀ ਨਾਲ ਲਾ ਕੇ ਮੇਹਰ ਹੌਲੀ ਹੌਲੀ ਵਿਹੜੇ ਵੱਲ ਤੁਰ ਪਈ। ਹੁਣ ਉਸ ਨੂੰ ਹਵਾ ਨਾਲੋਂ ਆਪਣੇ ਕਦਮਾਂ ਦੀ ਆਵਾਜ਼ ਵੱਧ ਸੁਣਾਈ ਦੇ ਰਹੀ ਸੀ।","en":"Mehar held the kite close and walked back. Now her footsteps sounded louder than the wind."},
+    "ask": {"speaker":"boy","pa":"ਮੇਹਰ, ਮੇਰੀ ਪਤੰਗ ਤੇਰੇ ਕੋਲ ਹੈ? ਇਹ ਕਿਵੇਂ ਫਟ ਗਈ?","en":"Mehar, you have my kite? How did it tear?"},
+    "thought": {"speaker":"narrator","pa":"ਮੇਹਰ ਦੇ ਮਨ ਵਿੱਚ ਇੱਕ ਬਹਾਨਾ ਆਇਆ। ਉਹ ਕਹਿ ਸਕਦੀ ਸੀ ਕਿ ਸਾਰਾ ਕਸੂਰ ਹਵਾ ਦਾ ਸੀ। ਪਰ ਉਸ ਨੇ ਚਰਖੜੀ ਆਪਣੇ ਹੱਥ ਵਿੱਚ ਵੇਖੀ।","en":"Mehar thought of an excuse. She could blame the wind. Then she looked at the reel in her hand."},
+    "confess": {"speaker":"mehar","pa":"ਮੈਂ ਤੇਰੀ ਪਤੰਗ ਬਿਨਾਂ ਪੁੱਛੇ ਲੈ ਗਈ ਸੀ। ਇਹ ਬਰਗਦ ਵਿੱਚ ਫਸ ਗਈ। ਮੈਨੂੰ ਮਾਫ਼ ਕਰੀਂ, ਸਿਦਕ।","en":"I took your kite without asking. It got caught in the banyan. I'm sorry, Sidak."},
+    "hurt": {"speaker":"boy","pa":"ਮੈਂ ਇਹ ਪਤੰਗ ਆਪਣੇ ਪਾਪਾ ਨਾਲ ਬਣਾਈ ਸੀ। ਇਸ ਕਰਕੇ ਮੈਨੂੰ ਬੁਰਾ ਲੱਗਿਆ। ਪਰ ਚੰਗਾ ਹੋਇਆ ਤੂੰ ਮੈਨੂੰ ਦੱਸ ਦਿੱਤਾ।","en":"I made that kite with my dad. That's why I'm upset. I'm glad you told me what happened."},
+    "help": {"speaker":"mehar","pa":"ਮੈਂ ਫਟਿਆ ਹੋਇਆ ਟੁਕੜਾ ਲੱਭ ਲਿਆ ਹੈ। ਜੇ ਤੂੰ ਚਾਹੇਂ, ਮੈਂ ਤੇਰੇ ਨਾਲ ਪਤੰਗ ਠੀਕ ਕਰ ਸਕਦੀ ਹਾਂ।","en":"I found the torn piece. If you want, I can help fix the kite."},
+    "patience": {"speaker":"dadi","pa":"ਸੱਚ ਬੋਲਣ ਨਾਲ ਗੱਲ ਸ਼ੁਰੂ ਹੋ ਗਈ। ਹੁਣ ਹੌਲੀ ਹੌਲੀ ਕੰਮ ਕਰੀਏ। ਪਹਿਲਾਂ ਵੇਖੋ ਕਿ ਟੁਕੜਾ ਫਟੇ ਹੋਏ ਕੋਨੇ ਨਾਲ ਮਿਲਦਾ ਹੈ ਕਿ ਨਹੀਂ।","en":"Telling the truth got the conversation started. Now let's take our time. See if the piece fits the torn corner."},
+    "paper": {"speaker":"narrator","pa":"ਮੇਹਰ ਨੇ ਨੀਲੇ ਕਾਗਜ਼ ਦੇ ਕਿਨਾਰੇ ਮਿਲਾਏ। ਸਿਦਕ ਨੇ ਪਤੰਗ ਨੂੰ ਫੜਿਆ ਰੱਖਿਆ ਤਾਂ ਕਿ ਪਤਲਾ ਕਾਗਜ਼ ਹਿੱਲੇ ਨਾ।","en":"Mehar lined up the edges. Sidak held the kite steady so the thin paper wouldn't move."},
+    "smooth": {"speaker":"boy","pa":"ਹੁਣ ਇਸ ਉੱਤੇ ਹੌਲੀ ਜਿਹੀ ਉਂਗਲ ਫੇਰ। ਹਾਂ, ਇਸ ਤਰ੍ਹਾਂ। ਵੇਖ, ਸਲਵਟ ਵੀ ਨਿਕਲ ਗਈ!","en":"Run your finger over it gently. That's it. Look, the wrinkle's gone!"},
+    "tail": {"speaker":"mehar","pa":"ਹੁਣ ਲਾਲ ਪੂਛ ਵਾਪਸ ਬੰਨ੍ਹ ਦਿੰਦੀ ਹਾਂ। ਇਹ ਗੰਢ ਕਾਫ਼ੀ ਪੱਕੀ ਹੈ?","en":"Now I'll tie the red tail back on. Is this knot tight enough?"},
+    "ready": {"speaker":"boy","pa":"ਬਿਲਕੁਲ! ਜਦੋਂ ਇਹ ਉੱਡੇਗੀ ਤਾਂ ਨੀਲਾ ਟੁਕੜਾ ਵੀ ਧੁੱਪ ਵਿੱਚ ਚਮਕੇਗਾ। ਚੱਲ, ਖੇਤ ਕੋਲ ਚੱਲੀਏ।","en":"It is! That blue patch will shine in the sun. Come on, let's go back to the field."},
+    "askFirst": {"speaker":"mehar","pa":"ਸਿਦਕ, ਕੀ ਮੈਂ ਚਰਖੜੀ ਫੜ ਸਕਦੀ ਹਾਂ? ਇਸ ਵਾਰੀ ਮੈਂ ਪਹਿਲਾਂ ਪੁੱਛ ਰਹੀ ਹਾਂ।","en":"Sidak, may I hold the reel? This time I'm asking first."},
+    "together": {"speaker":"boy","pa":"ਹਾਂ। ਤੂੰ ਚਰਖੜੀ ਫੜ, ਮੈਂ ਪਤੰਗ ਚੁੱਕਦਾ ਹਾਂ। ਜਦੋਂ ਤੂੰ ਕਹੇਂਗੀ, ਮੈਂ ਛੱਡ ਦਿਆਂਗਾ।","en":"Yes. You hold the reel, and I'll lift the kite. I'll let go when you say."},
+    "lift": {"speaker":"narrator","pa":"ਮੇਹਰ ਨੇ ਡੋਰ ਢਿੱਲੀ ਛੱਡੀ ਤੇ ਸਿਦਕ ਨੇ ਪਤੰਗ ਛੱਡ ਦਿੱਤੀ। ਹਵਾ ਨੇ ਉਸ ਨੂੰ ਖੇਤ ਤੋਂ ਉੱਪਰ ਚੁੱਕ ਲਿਆ। ਲਾਲ ਪੂਛ ਫਿਰ ਨੱਚਣ ਲੱਗੀ।","en":"Mehar let out the line and Sidak let go. The wind lifted the kite above the field. Its red tail danced again."},
+    "meaning": {"speaker":"narrator","pa":"ਮੇਹਰ ਦੀ ਗ਼ਲਤੀ ਤਾਂ ਹੋ ਚੁੱਕੀ ਸੀ। ਪਰ ਉਹ ਸੱਚ ਬੋਲੀ, ਮਾਫ਼ੀ ਮੰਗੀ ਤੇ ਪਤੰਗ ਠੀਕ ਕਰਨ ਵਿੱਚ ਹੱਥ ਵਟਾਇਆ। ਫਿਰ ਦੋਹਾਂ ਨੇ ਮਿਲ ਕੇ ਪਤੰਗ ਉਡਾਈ।","en":"Mehar had already made a mistake. She told the truth, apologized, and helped put it right. Then they flew the kite together."},
+    "last": {"speaker":"mehar","pa":"ਸਿਦਕ, ਪਤੰਗ ਉੱਤੇ ਸਾਡਾ ਨੀਲਾ ਟੁਕੜਾ ਦਿੱਸ ਰਿਹਾ ਹੈ! ਹੁਣ ਤੇਰੀ ਵਾਰੀ।","en":"Sidak, I can see our blue patch from here! Your turn."}
+  }
+}

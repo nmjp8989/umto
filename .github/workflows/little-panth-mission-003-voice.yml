@@ -1,0 +1,46 @@
+name: Little Panth Mission 3 Punjabi dialogue
+
+on:
+  push:
+    branches: [main, little-panth-mission-003]
+    paths:
+      - 'little panth/mission-003/dialogue.json'
+      - '.github/workflows/little-panth-mission-003-voice.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: little-panth-mission-003-voice-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check imageio-ffmpeg
+      - name: Generate line-by-line Punjabi dialogue
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python tools/build_little_panth_audio.py --mission mission-003
+      - name: Commit available clips
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          test -f 'little panth/mission-003/audio/generation-manifest.json' || exit 0
+          git add 'little panth/mission-003/audio/'
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate Mission 3 Punjabi dialogue'
+          git pull --rebase origin "$TARGET_BRANCH"
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
