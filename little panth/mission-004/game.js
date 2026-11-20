@@ -362,6 +362,12 @@ window.lp004Export={
   },
   status:()=>({started:exportStarted,finished,error:exportError,index,phase:beats[index].chapter,captions:finished?exportCaptions:[]})
 };
+if(new URLSearchParams(location.search).get('test')==='1'){
+  window.lp004Test={
+    jump:(scene)=>{playing=false;showScene(scene)},
+    status:()=>({scene:index,playing,recordedCount,active:beatElements[index]?.textContent||''})
+  };
+}
 Promise.resolve(manifestReady).then(()=>requestRig());
 requestAnimationFrame(tick);
 })();
