@@ -290,7 +290,8 @@ function jump(target,autoplay=false){
   safePauseSpeech();
   index=Math.min(frameCount-1,Math.max(0,target));
   elapsed=0;
-  if(autoplay){playing=true;started=true;$('cover').hidden=true}
+  started=true;$('cover').hidden=true;
+  if(autoplay)playing=true
   const beat=beats[index];
   setupScene(beat);
   updateCamera(beat);
@@ -324,9 +325,8 @@ function finish(){
 }
 function start(){
   if(!bank)return;
-  if(index>=frameCount-1&&elapsed>=sceneDuration(beats[index]))jump(0);
-  playing=true;started=true;$('cover').hidden=true;
-  controls();narrate(beats[index]);
+  const resumeIndex=index>=frameCount-1&&elapsed>=sceneDuration(beats[index])?0:index;
+  jump(resumeIndex,true);
 }
 function toggle(){
   if(!started){start();return}
