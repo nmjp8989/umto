@@ -23,7 +23,12 @@
       "speaker": "friend",
       "pa": "ਮੇਹਰ, ਤੈਨੂੰ ਪਤਾ? ਤਿੰਨ ਦਿਨਾਂ ਤੋਂ ਲੰਗਰ ਦੇ ਬੰਨ੍ਹੇ ਹੋਏ ਪੈਕਟ ਘੱਟ ਰਹੇ ਨੇ। ਅੱਜ ਵੀ—",
       "en": "Mehar, did you hear? Packed langar meals have gone missing three days in a row. Today, too—",
-      "pose": "explain"
+      "pose": "explain",
+      "camera": {
+        "preset": "medium",
+        "duration": 750,
+        "motion": "pan"
+      }
     },
     "praise": {
       "speaker": "mehar",
@@ -47,13 +52,22 @@
       "speaker": "narrator",
       "pa": "ਘਰ ਮੁੜਦਿਆਂ ਮੇਹਰ ਜੰਗਲ ਵਾਲੀ ਪਗਡੰਡੀ ਤੋਂ ਲੰਘੀ। ਪੁਰਾਣੇ ਰੁੱਖ ਦੀਆਂ ਜੜ੍ਹਾਂ ਕੋਲ ਕੁਝ ਚਮਕਿਆ। ਉਸ ਨੇ ਪੱਤੇ ਹਟਾਏ। ਹੇਠਾਂ ਇੱਕ ਸੁਨਹਿਰੀ ਸਿਤਾਰ ਪਿਆ ਸੀ।",
       "en": "On her way home, Mehar saw something shine by the roots of an old tree. She brushed the leaves away and found a golden sitar.",
-      "pose": "idle"
+      "pose": "idle",
+      "camera": {
+        "preset": "wide",
+        "duration": 700
+      }
     },
     "silent": {
       "speaker": "mehar",
       "pa": "ਇਹ ਵੱਜਦਾ ਕਿਉਂ ਨਹੀਂ? ਮੈਂ ਤਾਂ ਤਾਰ ਵੀ ਛੇੜੀ ਸੀ!",
       "en": "Why won't it play? I plucked a string!",
-      "pose": "wonder"
+      "pose": "wonder",
+      "camera": {
+        "preset": "medium-close",
+        "duration": 1000,
+        "motion": "dolly-in"
+      }
     },
     "squirrel": {
       "speaker": "narrator",

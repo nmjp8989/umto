@@ -51,6 +51,7 @@ async function oneLine(id,token,autoRead) {
   await rollFieldCartIn(token);if(token!==epoch)return;
  }
  activeSpeaker=line.speaker;
+ lineCamera=line.camera||null;
  activeListener=line.to||'';
  if(line.speaker==='narrator'&&!actors.some(actor=>actor.id==='narrator'))showNarrator();else hideNarrator();
  dialoguePose=storyPoses[id]||'explain';
@@ -187,19 +188,20 @@ function directAttention(){
   actor.node.dataset.facing=actor.view;
  }
 }
-let reactionFocus='',walkingFocus='';const camera={x:0,y:0,w:1280,h:720};
+let reactionFocus='',walkingFocus='',lineCamera=null;const camera={x:0,y:0,w:1280,h:720};
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
-function resetCamera(){Object.assign(camera,{x:0,y:0,w:1280,h:720});stage.setAttribute('viewBox','0 0 1280 720')}
+function resetCamera(){lineCamera=null;stage.dataset.cameraPreset='wide';Object.assign(camera,{x:0,y:0,w:1280,h:720});stage.setAttribute('viewBox','0 0 1280 720')}
 function animateCamera(now){
  if(reducedMotion.matches||!stageBusy){if(camera.w!==1280)resetCamera();return}
  if(!activeSpeaker&&!reactionFocus&&!walkingFocus){for(const [k,v] of Object.entries({x:0,y:0,w:1280,h:720}))camera[k]+=(v-camera[k])*.105;stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));return}
  const actor=actors.find(a=>a.id===(reactionFocus||walkingFocus||activeSpeaker));
  const elapsed=Math.max(0,now-dialogueStart);
  const zoom=actor?.id==='narrator'||(window.lpPhase==='share'&&activeSpeaker==='baldev')?1:walkingFocus?1.14:reactionFocus?1.32:actor?1.27+.12*Math.min(1,elapsed/4000):1.06;
- const w=1280/zoom,h=720/zoom;
- const x=clamp((actor?.x??640)-w/2,0,1280-w);
  const focusY=actor?actor.y-actor.height*.64:360;
- const y=clamp(focusY-h*.40,0,720-h);
+ const cue=typeof lineCamera==='string'?{preset:lineCamera}:lineCamera;
+ const target=cue&&!walkingFocus&&!reactionFocus?UmtoCamera.framing(cue.preset||'medium',cue.focus||{x:actor?.x??640,y:focusY},cue):UmtoCamera.box(actor?.x??640,focusY+720/zoom*.10,1280/zoom);
+ const [x,y,w,h]=target;
+ stage.dataset.cameraPreset=cue?.preset||(walkingFocus?'follow':reactionFocus?'close-up':'conversation');
  for(const [k,v] of Object.entries({x,y,w,h}))camera[k]+=(v-camera[k])*.045;
  stage.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(v=>v.toFixed(2)).join(' '));
 }

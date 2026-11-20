@@ -28,7 +28,9 @@
   const time = ms => new Promise(resolve => setTimeout(resolve, ms));
   let bank, story, recorded = new Set(), sung = false, mode, currentAudio, context, actors = [];
   let activeSpeaker = '', activePose = 'idle', generation = 0, advance;
-  let english = false, cameraAnimation;
+  let english = false;
+  const cinema = new UmtoCamera.DeliveryCamera($('stage'));
+  cinema.reduceMotion = reduce;
   const rig = $('rig');
 
   function requestRig() {
@@ -107,10 +109,11 @@
       layers.frontHair?.replaceChildren();
       if (layers.headwearFront) layers.headwearFront.innerHTML = artSlot.headScarf;
     }
-    return {id, x, container, slot: artSlot, layers, frame: '', parts: {}, covered};
+    return {id, x, y, height, container, slot: artSlot, layers, frame: '', parts: {}, covered};
   }
 
   function drawActors(now) {
+    cinema.update(now, actors.find(a => a.id === cinema.track), document.hidden);
     for (const actor of actors) {
       const talking = actor.id === activeSpeaker;
       const speaking = talking && currentAudio && !currentAudio.paused;
@@ -192,9 +195,12 @@
     for (const layer of ['actors', 'behind', 'props']) $(layer).replaceChildren();
     actors = shot.cast.map(makeActor);
     dress(shot.props);
+    cinema.to('wide', null, true);
     if (reduce) return;
-    cameraAnimation?.cancel();
-    cameraAnimation = $('camera').animate([{transform: 'scale(1)'}, {transform: 'scale(1.055)'}], {duration: 9500, fill: 'forwards', easing: 'ease-out'});
+    if (mode === 'watch') {
+      const center = actors.length ? actors.reduce((sum,a)=>sum+a.x,0)/actors.length : 640;
+      cinema.cue(shot.camera || {preset:'wide',width:1210,motion:'dolly-in',duration:5500}, {x:center,y:360});
+    }
     if (shot.props === 'leaves' || shot.props === 'work') {
       for (const actor of actors.filter(item => ['mehar', 'father'].includes(item.id))) {
         actor.walkUntil = performance.now() + 1450;
@@ -284,6 +290,10 @@
     $('english').textContent = line.en;
     activeSpeaker = line.speaker;
     activePose = line.pose;
+    if (mode === 'watch' && line.camera) {
+      const actor = actors.find(a=>a.id===line.speaker);
+      cinema.cue(line.camera,actor?{x:actor.x,y:actor.y-actor.height*.55}:undefined);
+    }
     if (id === 'squirrel') {
       const squirrel = svg('g', {class: 'squirrel'});
       squirrel.innerHTML = '<g stroke="#503c2f" stroke-width="4" stroke-linejoin="round"><path d="M1048 410q-38 1-40-33-1-37 31-31 21 5 6 27-10 16 13 21z" fill="#9a614b"/><path d="M1042 411q5-28 31-26l9-18 10 17q20 7 15 24-14 17-43 20z" fill="#ba8055"/><path d="m1053 425-10 11h26m19-19 12-9" fill="none" /><circle cx="1092" cy="393" r="2.7" fill="#342825"/></g>';
@@ -297,6 +307,7 @@
   }
 
   function activity(id) {
+    cinema.to('wide',null,true);
     const [prompt, ...answers] = activities[id];
     const sweep = () => $('leaves')?.classList.add('swept');
     if (mode === 'watch') {
