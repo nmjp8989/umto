@@ -22,6 +22,7 @@ import wave
 
 ROOT=Path(__file__).resolve().parents[1]
 MODEL="gemini-3.8-flash-tts"
+TTS_MODELS=(MODEL,"gemini-3.8-flash-lite-tts")
 VOICES={
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
@@ -38,6 +39,7 @@ VOICES={
 def main():
  p=argparse.ArgumentParser()
  p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005"), default="mission-001")
+ p.add_argument("--model", choices=TTS_MODELS, default=MODEL)
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
  p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")
@@ -56,15 +58,20 @@ def main():
   voice,style=VOICES[line["speaker"]]
   if line.get("sacred"):
    style+=" Recite this exact Japji Sahib line slowly in Gurmukhi, with a short pause after ਉਤਰੀ. Say only the quoted line."
-  payload_key=json.dumps([MODEL,voice,style,line["pa"]],ensure_ascii=False)
+  payload_key=json.dumps([args.model,voice,style,line["pa"]],ensure_ascii=False)
   digest=hashlib.sha256(payload_key.encode("utf-8")).hexdigest()
   output=AUDIO/(id+".mp3")
-  current[id]={"hash":digest,"voice":voice,"text":line["pa"],"speaker":line["speaker"]}
-  if output.is_file() and output.stat().st_size>2048 and old.get(id,{}).get("hash")==digest:continue
+  current[id]={"hash":digest,"voice":voice,"text":line["pa"],"speaker":line["speaker"],"model":args.model}
+  previous=old.get(id,{})
+  previous_model=previous.get("model",MODEL)
+  previous_key=json.dumps([previous_model,voice,style,line["pa"]],ensure_ascii=False)
+  previous_hash=hashlib.sha256(previous_key.encode("utf-8")).hexdigest()
+  if output.is_file() and output.stat().st_size>2048 and previous_model in TTS_MODELS and previous.get("hash")==previous_hash:continue
   pending.append((id,line,voice,style))
- print(f"Little Panth voice cache: {len(lines)} lines, {len(pending)} pending; model={MODEL}.",flush=True)
+ print(f"Little Panth voice cache: {len(lines)} lines, {len(pending)} pending; model={args.model}.",flush=True)
  print(f"Synthetic Gurbani recitation enabled: {args.include_sacred_draft}.",flush=True)
  if args.dry_run:return 0
+ if not pending:return 0
  # Priority order requested for this mission; each key is provided by Actions as a secret.
  # Multiple keys may share one Google project quota. Never print or persist API key values.
  key_names=("GEMINI_API_KEY2","GEMINI_API_KEY3","GEMINI_API_KEY")
@@ -81,7 +88,7 @@ def main():
    "contents":[{"role":"user","parts":[{"text":line["pa"],"speech_metadata":{"style":style}}]}],
    "generationConfig":{"responseModalities":["AUDIO"],"speechConfig":{"voiceConfig":{"voice":voice}}},
   }
-  url=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+  url=f"https://generativelanguage.googleapis.com/v1beta/models/{args.model}:generateContent"
   request_bytes=json.dumps(request_json,ensure_ascii=False).encode("utf-8")
   result=None
   # Move to the next user-provided credential only when the active one is unavailable,

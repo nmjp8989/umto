@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'little panth/mission-005/dialogue.json'
+      - 'tools/build_little_panth_audio.py'
       - 'tools/little-panth-005-score.py'
       - '.github/workflows/little-panth-mission-005-audio.yml'
   workflow_dispatch:
@@ -39,6 +40,9 @@ jobs:
         run: |
           for attempt in 1 2 3 4 5 6 7 8; do
             if python tools/build_little_panth_audio.py --mission mission-005; then
+              exit 0
+            fi
+            if python tools/build_little_panth_audio.py --mission mission-005 --model gemini-3.8-flash-lite-tts; then
               exit 0
             fi
             if [ "$attempt" -lt 8 ]; then sleep 75; fi
