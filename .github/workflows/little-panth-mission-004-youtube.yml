@@ -2,6 +2,15 @@ name: Little Panth Mission 04 YouTube reading-book render
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-004/*.html'
+      - 'little panth/mission-004/*.js'
+      - 'little panth/mission-004/*.css'
+      - 'little panth/mission-004/*.ttf'
+      - 'tools/little-panth-004-export.cjs'
+      - '.github/workflows/little-panth-mission-004-youtube.yml'
   workflow_run:
     workflows:
       - Little Panth Mission 04 Gemini Punjabi dialogue
@@ -12,11 +21,11 @@ permissions:
 
 concurrency:
   group: little-panth-004-youtube
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   render:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     steps:
@@ -26,22 +35,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install Chrome video and audio capture tools
+      - name: Install rendering tools
         run: |
           sudo apt-get update -q
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils fonts-noto-core
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg
           npm install --no-save --package-lock=false playwright-core@1.56.1
           node --check tools/little-panth-004-export.cjs
-      - name: Make 1920x1080 two-page educational video
+      - name: Render the animated read-along and timed Gurmukhi captions
         run: |
-          pulseaudio --start --exit-idle-time=-1
-          pactl load-module module-null-sink sink_name=lp_export rate=48000
-          pactl set-default-sink lp_export
-          paplay --device=lp_export --raw --format=s16le --rate=48000 --channels=2 /dev/zero &
-          silent_feed=$!
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp004-video-http.log 2>&1 &
           server=$!
-          trap 'kill "$silent_feed" "$server" 2>/dev/null || true' EXIT
+          trap 'kill "$server" 2>/dev/null || true' EXIT
           for attempt in {1..25}; do
             if curl -fsS -o /dev/null http://127.0.0.1:8765/; then break; fi
             sleep 1

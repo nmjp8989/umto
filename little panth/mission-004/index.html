@@ -3,21 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f2ea">
+  <meta name="theme-color" content="#fff6e5">
   <meta name="description" content="Little Panth Mission 04 · An animated Gurmukhi read-along teaching humility and seva.">
   <title>Little Panth IV · ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ</title>
-  <link rel="stylesheet" href="style.css?v=readbook2">
+  <link rel="stylesheet" href="style.css?v=storybook">
   <script defer src="../../missions/delivery-camera.js"></script>
-  <script defer src="story.js"></script>
-  <script defer src="game.js?v=readbook2"></script>
+  <script defer src="story.js?v=storybook"></script>
+  <script defer src="reading.js"></script>
+  <script defer src="game.js?v=storybook"></script>
 </head>
 <body>
-<main class="book" id="book" aria-label="Little Panth Mission 04 · animated Gurmukhi storybook">
+<main class="book" id="book" data-layout="spread" aria-label="ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ">
   <section class="page art-page" aria-label="Animated episode">
-    <header class="folio-head"><span>LITTLE PANTH · BOOK IV</span><span>SEVA &amp; HUMILITY</span></header>
-    <div class="illustration-wrap">
-      <div class="art-frame">
-        <div id="movie" class="movie" aria-label="Animated story. Tap the illustration to enable recorded Punjabi narration." tabindex="0">
+    <div id="movie" class="movie" role="group" aria-label="ਕਹਾਣੀ ਸੁਣਨ ਲਈ ਤਸਵੀਰ ਉੱਤੇ ਟੈਪ ਕਰੋ" tabindex="0">
           <svg id="stage" viewBox="0 0 1280 720" role="img" aria-label="An animated Punjabi village and gurdwara with Little Panth characters">
             <defs>
               <radialGradient id="shadow"><stop stop-color="#392a1c" stop-opacity=".26"/><stop offset="1" stop-color="#392a1c" stop-opacity="0"/></radialGradient>
@@ -31,21 +29,11 @@
             <g id="set-layer"></g><g id="character-layer"></g><g id="prop-layer" data-camera-depth=".2"></g><g id="fx-layer"></g>
             <rect x="-130" y="-70" width="1540" height="860" fill="url(#vignette)" pointer-events="none"/>
           </svg>
-          <div class="story-loading" id="loading" aria-live="polite">Preparing the story…</div>
-        </div>
-      </div>
-      <div class="plate-caption"><span>PLATE IV</span><em>ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ</em></div>
-      <p class="image-description">The Smallest Seva, the Biggest Heart</p>
+          <div class="story-loading" id="loading" aria-live="polite">ਕਹਾਣੀ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</div>
     </div>
-    <footer class="folio-foot"><span>AN ANIMATED PUNJABI STORY</span><span>LOVE · HUMILITY · SERVICE</span></footer>
   </section>
   <section class="page reading-page" aria-label="Synchronized Gurmukhi text">
-    <header class="folio-head"><span>ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ</span><span>ਮਿਸ਼ਨ ੪</span></header>
-    <div class="narrator-line"><span>ਕਹਾਣੀਕਾਰ — <em>ਪੰਜਾਬੀ ਕਹਾਣੀ</em></span><span id="scene-heading">ਭਾਗ ੧</span></div>
-    <div class="reading-window" id="story-scroll">
-      <div id="story-lines" class="story-lines" lang="pa"></div>
-    </div>
-    <footer class="folio-foot"><span id="chapter-label">ਸੇਵਾ · ਨਿਮਰਤਾ</span><span id="folio-number">FOLIO 01</span></footer>
+    <p id="reading" class="gurmukhi" lang="pa"></p>
   </section>
 </main>
 <iframe id="umto-rig" title="UMTO animated character pose bank" hidden src="../../index.html?missionBridge=delivery&amp;cast=little-panth"></iframe>

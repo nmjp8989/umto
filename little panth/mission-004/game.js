@@ -1,26 +1,23 @@
-/* Little Panth LP-004 · control-free animated Gurmukhi reading book.
-   The existing UMTO rig supplies facial expressions, mouth poses and walking.
-   Dialogue is read from original story.js and recorded Gemini clips from audio/.
-   Browser autoplay can be blocked; clicking the illustration enables audio.
-   ?export=1 provides a deterministic, audio-backed YouTube export API. */
+/* Mission 04 uses the UMTO character rig and the recorded narration's reading clock. */
 (() => {
 'use strict';
 const $=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
-const story=window.LP004,beats=story.beats,chapters=story.chapters;
+const beats=window.LP004.beats;
+const {makeReading,readingAt}=window.LP004Reading;
 const stage=$('stage');
+const book=$('book');
+const readingLine=$('reading');
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 const camera=new UmtoCamera.DeliveryCamera(stage);
-const exportMode=new URLSearchParams(location.search).get('export')==='1';
-if(exportMode)document.body.classList.add('export');
-const speakerNames={narrator:'ਕਹਾਣੀਕਾਰ',mehar:'ਮੇਹਰ',baba:'ਬਾਬਾ ਜੀ',baldev:'ਚਾਚਾ ਬਲਦੇਵ',farmer:'ਬਜ਼ੁਰਗ ਕਿਸਾਨ'};
-const beatElements=[];
-const chapterNames=Object.fromEntries(chapters.map((chapter,i)=>[chapter.id,'ਭਾਗ '+(i+1)]));
+const params=new URLSearchParams(location.search);
+const exportMode=params.get('export')==='1';
 let bank=null,actors=[],index=0,playing=false,elapsed=0,frameAt=0;
-let shownBackground='',gestureGranted=exportMode,autoplayAttempted=false,ttsBlocked=false;
-let manifest={},recordedCount=0,finished=0,exportStarted=0,exportError='';
-let serial=0,clipActive=false,clipAudio=null,clipFinished=false,holdFinalUntil=0;
-let activeCaption=null,exportCaptions=[];
+let shownBackground='',gestureGranted=false,autoplayAttempted=false;
+let manifest={},wordTimings={},exportError='';
+let serial=0,clipActive=false,finished=false,holdUntil=0,cameraStart=0;
+let reading,renderedPhrase=-1,highlightedWord=-1,visibleWords=[];
+let sceneDurationMs=0,spillAt=0,props={};
 const audio=new Audio();audio.preload='auto';
 function svg(name,attributes={},parent=null){
   const node=document.createElementNS(NS,name);
@@ -32,41 +29,39 @@ function point(node,x,y,turn=0,scale=1){
   node.setAttribute('transform','translate('+x+' '+y+') rotate('+turn+') scale('+scale+')');
 }
 function path(parent,d,fill,stroke='none',width=1){return svg('path',{d,fill,stroke,'stroke-width':width,'stroke-linecap':'round','stroke-linejoin':'round'},parent);}
-function renderStory(){
-  let last='';
-  for(const [i,beat] of beats.entries()){
-    if(beat.chapter!==last){
-      last=beat.chapter;
-      const divider=document.createElement('div');divider.className='chapter-divider';
-      divider.lang='pa';divider.textContent=chapters.find(c=>c.id===beat.chapter).pa;
-      $('story-lines').appendChild(divider);
+function trackFor(beat){
+  const timeline=wordTimings[beat.id],voice=manifest[beat.id];
+  if(voice?.text===beat.pa&&timeline?.dialogueHash===voice.hash&&timeline.durationMs>0)return timeline;
+}
+function setReading(beat,durationMs){
+  const track=trackFor(beat);
+  sceneDurationMs=track?.durationMs||durationMs||Math.max(7000,beat.pa.trim().split(/\s+/u).length*430);
+  reading=makeReading(beat.pa,sceneDurationMs,track?.words);
+  renderedPhrase=-1;
+}
+function updateReading(ms){
+  const {word,phrase}=readingAt(reading,ms);
+  const {first,end}=reading.phrases[phrase];
+  if(phrase!==renderedPhrase){
+    const content=document.createDocumentFragment();
+    visibleWords=[];
+    for(let i=first;i<end;i++){
+      const span=document.createElement('span');
+      span.className='word';
+      span.textContent=reading.words[i];
+      if(i>first)content.append(' ');
+      content.append(span);
+      visibleWords.push(span);
     }
-    const block=document.createElement('article');block.className='story-beat';
-    block.dataset.scene=beat.id;
-    const speaker=document.createElement('span');speaker.className='speaker';speaker.lang='pa';speaker.textContent=speakerNames[beat.speaker];
-    const copy=document.createElement('p');copy.className='gurmukhi';copy.lang='pa';copy.textContent=beat.pa;
-    block.append(speaker,copy);$('story-lines').appendChild(block);beatElements.push(block);
+    readingLine.replaceChildren(content);
+    renderedPhrase=phrase;
+    highlightedWord=-1;
   }
-}
-function scrollCurrent(){
-  const scroller=$('story-scroll'),block=beatElements[index];
-  if(!block)return;
-  const r=block.getBoundingClientRect(),bounds=scroller.getBoundingClientRect();
-  const desiredTop=bounds.top+33;
-  if(r.top<desiredTop||r.bottom>bounds.bottom-35){
-    scroller.scrollTop+=r.top-desiredTop;
+  if(highlightedWord!==word){
+    visibleWords[highlightedWord-first]?.removeAttribute('aria-current');
+    visibleWords[word-first]?.setAttribute('aria-current','true');
+    highlightedWord=word;
   }
-}
-function markReading(){
-  for(let i=0;i<beatElements.length;i++){
-    const block=beatElements[i];
-    block.setAttribute('aria-current',i===index?'true':'false');
-    block.dataset.completed=i<index?'true':'false';
-  }
-  $('scene-heading').textContent=chapterNames[beats[index].chapter];
-  $('chapter-label').textContent=chapters.find(c=>c.id===beats[index].chapter).pa;
-  $('folio-number').textContent='FOLIO '+String(index+1).padStart(2,'0');
-  scrollCurrent();
 }
 function poseFor(id,beat){
   if(id===beat.speaker){
@@ -84,17 +79,17 @@ function poseFor(id,beat){
 function castFor(beat){
   let other;
   if(beat.location==='village')other='baldev';
-  else if(beat.chapter==='03')other=beat.action==='mop'?'baba':'farmer';
-  else if(beat.speaker==='farmer')other='farmer';
-  else if(beat.speaker==='baldev')other='baldev';
-  else if(beat.speaker==='baba')other='baba';
+  else if(['farmer','baba','baldev'].includes(beat.speaker))other=beat.speaker;
+  else if(beat.chapter==='03'||beat.action==='farmer-arrival')other='farmer';
   else if(beat.chapter==='04')other='baldev';
   else other='baba';
   const x2=other==='farmer'?866:857;
-  return [
+  const cast=[
     {id:'mehar',x:beat.action==='walk'?330:424,y:680,height:348,view:'right',pose:poseFor('mehar',beat)},
-    {id:other,x:x2,y:673,height:other==='baldev'?446:other==='farmer'?418:440,view:'left',pose:poseFor(other,beat)}
+    {id:other,x:beat.action==='mop'?654:x2,y:673,height:other==='baldev'?446:other==='farmer'?418:440,view:'left',pose:poseFor(other,beat)}
   ];
+  if(beat.action==='mop')cast.push({id:'farmer',x:908,y:676,height:418,view:'left',pose:'concern'});
+  return cast;
 }
 function createActor(item){
   const slot=bank[item.id]?.[item.view];
@@ -138,7 +133,7 @@ function setupScene(beat){
   $('character-layer').replaceChildren();
   actors=castFor(beat).map(createActor).filter(Boolean).map(a=>({...a,homeX:a.x}));
   decorate(beat);
-  if(bank)animateScene(0);
+  props=Object.fromEntries([...stage.querySelectorAll('[data-prop]')].map(node=>[node.dataset.prop,node]));
 }
 function decorate(beat){
   const props=$('prop-layer'),fx=$('fx-layer');
@@ -150,7 +145,7 @@ function decorate(beat){
     svg('circle',{cx:-9,cy:28,r:13,fill:'#ffecb5'},medal);
   }
   if(['arrival','intro','walk'].includes(mode)&&beat.location==='village'){
-    svg('image',{href:'../assets/props/chicken.svg',x:38,y:572,width:148,height:108},props);
+    svg('image',{'data-prop':'chicken',href:'../assets/props/chicken.svg',x:38,y:572,width:148,height:108},props);
     svg('image',{href:'../assets/props/basket.svg',x:1030,y:556,width:126,height:108},props);
   }
   if(['wash','serve','broom','explain','proud','point','happy','beckon'].includes(mode)&&beat.location==='langar'){
@@ -162,19 +157,24 @@ function decorate(beat){
     }
   }
   if(['offer','concern','alarm','mop','reflect','happy'].includes(mode)&&beat.chapter==='03'){
-    const puddle=svg('g',{},fx);
+    const puddle=svg('g',{'data-prop':'spill'},fx);
     svg('path',{d:'M552 660Q598 645 630 655T722 655Q754 667 700 677T566 681Q525 670 552 660Z',fill:'#7bb2b3',opacity:mode==='mop'?.35:.68},puddle);
     if(mode==='offer'||mode==='happy'){
-      const glass=svg('g',{},props);
+      const glass=svg('g',{'data-prop':'glass'},props);
       svg('path',{d:'M620 510L670 510 665 555Q645 567 625 555Z',fill:'#d5eef0','fill-opacity':'.8',stroke:'#7d9893','stroke-width':4},glass);
       svg('path',{d:'M626 539Q647 532 666 540L664 554Q644 562 628 555Z',fill:'#76a8bf','fill-opacity':'.54'},glass);
     }
   }
-  if(mode==='broom'||mode==='mop'){
+  if(mode==='broom'){
     const broom=svg('g',{},props);
     path(broom,'M742 326L729 597','none','#87613d',11);
     path(broom,'M705 584Q734 566 760 589L777 642Q739 657 694 639Z','#b99561','#765f3e',3);
     for(let i=0;i<7;i++)path(broom,`M${706+i*10} 602L${695+i*13} 646`,'none','#8b6a47',2);
+  }
+  if(mode==='mop'){
+    const cloth=svg('g',{'data-prop':'cloth'},props);
+    path(cloth,'M591 652q29-11 52-5l24 18q-29 12-58 8Z','#efd995','#b58d49',3);
+    path(cloth,'M610 650q19 3 34 17','none','#c49b5b',2);
   }
   if(mode==='serve'||mode==='offer'&&beat.location==='langar'){
     const jug=svg('g',{},props);
@@ -197,180 +197,176 @@ function focusFor(beat){
 }
 function updateCamera(beat){
   const move=beat.action==='walk';
-  camera.cue({preset:beat.framing,focus:focusFor(beat),cut:!['intro','complete','walk'].includes(beat.action),
-    motion:move?'tracking':beat.action==='intro'?'dolly-in':'static',track:move?'mehar':undefined,
-    duration:move?1200:2400,parallax:move||beat.action==='intro'});
+  const reveal=beat.action==='intro'||beat.layout==='cinema'&&['wide','establishing'].includes(beat.framing);
+  camera.cue({preset:beat.framing,focus:focusFor(beat),cut:true});
+  if(move||reveal){
+    camera.cue({preset:beat.framing,focus:focusFor(beat),width:move?1050:1170,
+      motion:move?'tracking':'dolly-in',track:move?'mehar':undefined,duration:move?1200:6800,parallax:true});
+  }
+  cameraStart=camera.started;
 }
 function animateScene(seconds){
   const beat=beats[index];
-  const duration=sceneDuration(beat);
   for(const actor of actors){
     let x=actor.homeX,y=actor.y;
-    const walking=beat.action==='walk'&&actor.id==='mehar'&&seconds<duration*.63;
-    if(walking)x+=Math.min(seconds/(duration*.63),1)*485;
+    let walking=false;
+    if(beat.action==='walk'&&actor.id==='mehar'){
+      const length=sceneDurationMs*.00063;
+      x+=Math.min(seconds/length,1)*375;
+      walking=seconds<length;
+    }
+    if(beat.action==='farmer-arrival'&&actor.id==='farmer'){
+      x+=320*Math.max(0,1-seconds/6);
+      walking=seconds<6;
+    }
     if(!reduced.matches)y+=Math.sin(seconds*2.3+actor.homeX*.01)*1.7;
     actor.x=x;
     point(actor.node,x,y);
-    const talking=playing&&actor.id===beat.speaker;
+    const talking=(playing||exportMode)&&highlightedWord>=0&&actor.id===beat.speaker;
     actorFrame(actor,seconds,talking,walking);
   }
-  if(beat.action==='mop'&&!reduced.matches){
-    $('prop-layer').setAttribute('transform',`translate(${Math.sin(seconds*2.5)*4} 0)`);
-  }else $('prop-layer').removeAttribute('transform');
+  if(reduced.matches)return;
+  if(props.chicken)point(props.chicken,Math.min(seconds*50,245),-Math.abs(Math.sin(seconds*9))*7);
+  if(props.cloth)point(props.cloth,Math.sin(seconds*3.3)*34,Math.cos(seconds*3.3)*2);
+  if(spillAt&&props.spill&&props.glass){
+    const fall=Math.max(0,Math.min(1,(seconds-spillAt)*3));
+    props.spill.setAttribute('opacity',String(fall));
+    props.glass.setAttribute('transform','translate('+Math.round(fall*18)+' '+Math.round(fall*124)+') rotate('+Math.round(fall*85)+' 645 540)');
+  }
 }
-function sceneDuration(beat){return Math.max(7,beat.pa.trim().split(/\s+/).length*.43);}
 
-function recorded(id){
-  const item=manifest[id],beat=beats.find(b=>b.id===id);
-  return !!(item&&beat&&item.text===beat.pa);
-}
-function closeCaption(){
-  if(!activeCaption)return;
-  activeCaption.end=Date.now()-exportStarted;
-  exportCaptions.push(activeCaption);
-  activeCaption=null;
+function renderFrame(seconds,now){
+  elapsed=seconds;
+  updateReading(elapsed*1000);
+  animateScene(elapsed);
+  camera.update(now,actors.find(actor=>actor.id===camera.track),false);
 }
 function stopAudio(){
-  audio.onended=null;audio.onerror=null;
+  audio.onended=null;audio.onerror=null;audio.onloadedmetadata=null;
   audio.pause();audio.removeAttribute('src');audio.load();
   clipActive=false;
+}
+function selectScene(newIndex){
+  index=newIndex;
+  const beat=beats[index];
+  book.dataset.layout=beat.layout||'spread';
+  book.dataset.scene=beat.id;
+  setReading(beat);
+  spillAt=(reading.timings[reading.words.indexOf('ਫਿਸਲ')]?.[0]||0)/1000;
+  setupScene(beat);
+  updateCamera(beat);
+  renderFrame(0,cameraStart);
 }
 function showScene(newIndex){
   serial++;
   stopAudio();
-  if(exportStarted)closeCaption();
-  index=newIndex;elapsed=0;holdFinalUntil=0;
-  setupScene(beats[index]);updateCamera(beats[index]);markReading();
-  if(exportStarted){
-    activeCaption={start:Date.now()-exportStarted,text:beats[index].pa};
-  }
+  holdUntil=0;
+  selectScene(newIndex);
   if(playing)playClip(serial);
 }
-function complete(){
-  if(finished)return;
-  playing=false;stopAudio();
-  if(exportStarted)closeCaption();
-  finished=Date.now();
-  $('chapter-label').textContent='ਸੇਵਾ · ਨਿਮਰਤਾ · ਪਿਆਰ';
+
+function finishScene(){
+  elapsed=Math.max(elapsed,sceneDurationMs/1000);
+  clipActive=false;
+  holdUntil=performance.now()+(index===beats.length-1?1800:180);
 }
-function nextScene(){
-  if(index===beats.length-1){
-    // Hold the final page briefly as a calm reading-book ending.
-    holdFinalUntil=performance.now()+1800;
-    clipFinished=true;clipActive=false;
-  }else showScene(index+1);
-}
+
 function playClip(token){
-  if(!playing)return;
   const beat=beats[index];
-  clipFinished=false;
-  if(!recorded(beat.id)||(!gestureGranted&&!exportMode&&autoplayAttempted)){
-    clipActive=false;
-    if(exportMode)exportError='Missing recorded Gemini Punjabi dialogue for '+beat.id;
-    return;
-  }
+  if(manifest[beat.id]?.text!==beat.pa||(!gestureGranted&&autoplayAttempted))return;
   autoplayAttempted=true;
   audio.src='audio/'+beat.id+'.mp3';
-  audio.playbackRate=1;
   clipActive=true;
-  audio.onended=()=>{
-    if(token!==serial)return;
-    clipFinished=true;clipActive=false;
-    nextScene();
-  };
-  audio.onerror=()=>{
-    if(token!==serial)return;
-    clipActive=false;
-    if(exportMode)exportError='Could not play audio/'+beat.id+'.mp3';
-  };
+  audio.onloadedmetadata=()=>{if(token===serial)setReading(beat,audio.duration*1000)};
+  audio.onended=()=>{if(token===serial)finishScene()};
+  audio.onerror=()=>{if(token===serial)clipActive=false};
   audio.play().then(()=>{if(token===serial)gestureGranted=true}).catch(()=>{
     if(token!==serial)return;
     clipActive=false;gestureGranted=false;
-    if(exportMode)exportError='Autoplay audio blocked by headless Chrome for '+beat.id;
   });
 }
 function start(){
   if(!bank)return;
-  playing=true;finished=0;
-  $('loading').hidden=true;
+  playing=true;finished=false;
   showScene(0);
 }
 function beginListening(){
-  if(!bank)return;
+  if(!bank||exportMode||playing&&clipActive)return;
   gestureGranted=true;
-  // A single natural tap on the illustration unlocks browser audio; no UI controls.
-  // Start from the first sentence so sound and its Gurmukhi highlight stay synchronized.
   start();
 }
 function tick(now){
-  const dt=frameAt?Math.min(.13,(now-frameAt)/1000):0;frameAt=now;
-  if(bank&&playing&&!document.hidden){
-    if(clipActive&&audio.readyState>=2)elapsed=audio.currentTime;
-    else elapsed+=dt;
-    if(holdFinalUntil&&now>=holdFinalUntil)complete();
-    else if(!clipActive&&!holdFinalUntil&&elapsed>=sceneDuration(beats[index]))nextScene();
-  }
-  if(bank){
-    animateScene(elapsed);
-    camera.update(now,actors.find(a=>a.id===camera.track),!playing);
+  const dt=frameAt?Math.min(.13,(now-frameAt)/1000):0;
+  frameAt=now;
+  if(playing&&!document.hidden){
+    if(clipActive)elapsed=audio.currentTime;
+    else if(!holdUntil)elapsed+=dt;
+    if(!clipActive&&!holdUntil&&elapsed*1000>=sceneDurationMs)finishScene();
+    if(holdUntil&&now>=holdUntil){
+      if(index===beats.length-1){
+        playing=false;finished=true;
+        stopAudio();
+      }else showScene(index+1);
+    }
+    renderFrame(elapsed,now);
   }
   requestAnimationFrame(tick);
 }
-function initializeRig(newBank){
-  if(bank)return;
-  bank=newBank;$('loading').hidden=true;
-  start();
+
+async function readJson(url){
+  const response=await fetch(url,{cache:'no-store'});
+  if(!response.ok)throw Error('Could not load '+url);
+  return response.json();
 }
+const assetsReady=Promise.all([
+  readJson('audio/generation-manifest.json').then(doc=>{manifest=doc}).catch(()=>{}),
+  readJson('audio/word-timings.json').then(doc=>{wordTimings=doc}).catch(()=>{}),
+  document.fonts.load('700 48px "Little Panth Gurmukhi"','ਪੰਜਾਬ').catch(()=>{})
+]);
 const rig=$('umto-rig');
 function requestRig(){
   try{rig.contentWindow?.postMessage({type:'anitoons-delivery-request'},location.origin)}catch{}
 }
-window.addEventListener('message',event=>{
+window.addEventListener('message',async event=>{
   if(event.source!==rig.contentWindow||event.origin!==location.origin)return;
   if(event.data?.type==='anitoons-delivery-cast-error'){
     exportError='UMTO character pose bank could not load';
-    $('loading').textContent='The animation could not load';return;
+    $('loading').textContent='ਤਸਵੀਰ ਤਿਆਰ ਨਹੀਂ ਹੋ ਸਕੀ।';return;
   }
   if(event.data?.type==='anitoons-delivery-cast'&&event.data.version===2){
     const cast=event.data.bank;
     if(!['mehar','baba','baldev','farmer'].every(id=>cast?.[id]?.left&&cast[id]?.right))return;
-    initializeRig(cast);
+    await assetsReady;
+    if(bank)return;
+    bank=cast;
+    $('loading').hidden=true;
+    if(exportMode)selectScene(0);
+    else start();
   }
 });
 rig.addEventListener('load',requestRig);
-const manifestReady=fetch('audio/generation-manifest.json',{cache:'no-store'})
-  .then(r=>r.ok?r.json():{}).then(doc=>{
-    manifest=doc;
-    recordedCount=beats.filter(b=>recorded(b.id)).length;
-  }).catch(()=>{manifest={};recordedCount=0});
-renderStory();
+assetsReady.then(requestRig);
 $('movie').addEventListener('click',beginListening);
 $('movie').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();beginListening()}});
 document.addEventListener('visibilitychange',()=>{
-  if(document.hidden&&!exportMode){
-    stopAudio();playing=false;
-  }else if(!document.hidden&&!exportMode&&bank&&!playing&&!finished){
-    playing=true;showScene(index);
-  }
+  if(!playing||!clipActive)return;
+  if(document.hidden)audio.pause();
+  else audio.play().catch(()=>{clipActive=false});
 });
 window.addEventListener('beforeunload',()=>stopAudio());
-window.lp004Export={
-  ready:()=>!!bank&&recordedCount===beats.length&&!exportError,
-  diagnostic:()=>({bankReady:!!bank,clipsAvailable:recordedCount,clipsNeeded:beats.length,error:exportError}),
-  start:()=>{
-    if(!bank||recordedCount!==beats.length)throw Error('Gemini audio not fully generated for Mission 04');
-    if(exportStarted)throw Error('Export already started');
-    gestureGranted=true;exportStarted=Date.now();exportCaptions=[];activeCaption=null;
-    start();return exportStarted;
-  },
-  status:()=>({started:exportStarted,finished,error:exportError,index,phase:beats[index].chapter,captions:finished?exportCaptions:[]})
-};
-if(new URLSearchParams(location.search).get('test')==='1'){
-  window.lp004Test={
-    jump:(scene)=>{playing=false;showScene(scene)},
-    status:()=>({scene:index,playing,recordedCount,active:beatElements[index]?.textContent||''})
-  };
+function renderAt(scene,ms){
+  if(index!==scene||ms<elapsed*1000)selectScene(scene);
+  renderFrame(ms/1000,cameraStart+ms);
 }
-Promise.resolve(manifestReady).then(()=>requestRig());
-requestAnimationFrame(tick);
+if(exportMode){
+  window.lp004Export={ready:()=>!!bank,error:()=>exportError,frame:renderAt};
+}else{
+  if(params.get('test')==='1'){
+    window.lp004Test={
+      jump:(scene,ms=0)=>{playing=false;showScene(scene);renderAt(scene,ms)},
+      status:()=>({scene:index,playing,finished,clipActive,elapsed,highlightedWord,aligned:!!trackFor(beats[index])})
+    };
+  }
+  requestAnimationFrame(tick);
+}
 })();

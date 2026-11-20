@@ -77,6 +77,7 @@ window.LP004 = {
       "location": "gurdwara",
       "action": "arrival",
       "framing": "establishing",
+      "layout": "cinema",
       "pa": "ਗੁਰਦੁਆਰਾ ਸਾਹਿਬ ਦਾ ਵਿਹੜਾ ਸੰਗਤ ਨਾਲ ਭਰਿਆ ਹੋਇਆ ਸੀ। ਦਰਵਾਜ਼ੇ ਦੇ ਨੇੜੇ ਜੁੱਤੇ ਸਲੀਕੇ ਨਾਲ ਰੱਖੇ ਜਾ ਰਹੇ ਸਨ। ਅੰਦਰੋਂ ਕੀਰਤਨ ਦੀ ਮਿੱਠੀ ਆਵਾਜ਼ ਆ ਰਹੀ ਸੀ। ਮੇਹਰ ਨੇ ਹੱਥ ਜੋੜ ਕੇ ਮੱਥਾ ਟੇਕਿਆ ਅਤੇ ਮਨ ਵਿੱਚ ਸੋਚਿਆ, “ਹੁਣ ਮੇਰੇ ਚੰਗੇ ਕੰਮ ਦੀ ਸ਼ੁਰੂਆਤ ਹੋਵੇਗੀ।”",
       "en": "The gurdwara courtyard welcomes everyone with kirtan and shared work."
     },
@@ -125,8 +126,9 @@ window.LP004 = {
       "chapter": "02",
       "speaker": "narrator",
       "location": "gurdwara",
-      "action": "arrival",
+      "action": "farmer-arrival",
       "framing": "wide",
+      "layout": "cinema",
       "pa": "ਇਸੇ ਵੇਲੇ ਪਿੰਡ ਦਾ ਇੱਕ ਬਜ਼ੁਰਗ ਕਿਸਾਨ ਹੌਲੀ ਹੌਲੀ ਵਿਹੜੇ ਵਿੱਚ ਆਇਆ। ਉਸ ਦੇ ਪੈਰ ਥੱਕੇ ਹੋਏ ਸਨ ਅਤੇ ਹੱਥ ਵਿੱਚ ਪੁਰਾਣੀ ਲਾਠੀ ਸੀ। ਉਹ ਦੂਰਲੇ ਖੇਤਾਂ ਤੋਂ ਤੁਰ ਕੇ ਆਇਆ ਸੀ। ਮੇਹਰ ਨੇ ਉਸ ਨੂੰ ਦੇਖਿਆ, ਪਰ ਉਹ ਆਪਣੇ ਬੈਜ ਬਾਰੇ ਸੋਚਦੀ ਰਹੀ ਅਤੇ ਅੱਗੇ ਲੰਘ ਗਈ।",
       "en": "A tired farmer arrives after a long walk."
     },
@@ -165,7 +167,7 @@ window.LP004 = {
       "chapter": "03",
       "speaker": "baba",
       "location": "gurdwara",
-      "action": "reflect",
+      "action": "mop",
       "framing": "two-shot",
       "pa": "ਬਾਬਾ ਜੀ ਨੇ ਨੇੜੇ ਆ ਕੇ ਨਾ ਕਿਸੇ ਨੂੰ ਡਾਂਟਿਆ, ਨਾ ਕੋਈ ਵੱਡਾ ਭਾਸ਼ਣ ਦਿੱਤਾ। ਉਨ੍ਹਾਂ ਨੇ ਇੱਕ ਕੱਪੜਾ ਚੁੱਕਿਆ, ਗੋਡਿਆਂ ਉੱਤੇ ਬੈਠੇ ਅਤੇ ਪਾਣੀ ਪੂੰਝਣ ਲੱਗ ਪਏ। ਫਿਰ ਉਨ੍ਹਾਂ ਨੇ ਮੇਹਰ ਨੂੰ ਦੇਖ ਕੇ ਕਿਹਾ, “ਪੁੱਤ, ਪਹਿਲਾਂ ਸਾਡੇ ਮਹਿਮਾਨ ਨੂੰ ਆਰਾਮ ਨਾਲ ਬਿਠਾਈਏ।”",
       "en": "Baba Ji responds with quiet help rather than blame."
@@ -187,6 +189,7 @@ window.LP004 = {
       "location": "langar",
       "action": "wash",
       "framing": "wide",
+      "layout": "cinema",
       "pa": "ਜਦੋਂ ਮੇਹਰ ਮੁੜ ਲੰਗਰ ਹਾਲ ਵਿੱਚ ਪਹੁੰਚੀ, ਥਾਲੀਆਂ ਦਾ ਢੇਰ ਪਹਿਲਾਂ ਨਾਲੋਂ ਵੱਡਾ ਹੋ ਚੁੱਕਾ ਸੀ। ਕੁਝ ਸੇਵਾਦਾਰ ਥੱਕ ਗਏ ਸਨ। ਮੇਹਰ ਨੇ ਕਿਸੇ ਦੇ ਆਖਣ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੀਆਂ ਬਾਂਹਾਂ ਚੜ੍ਹਾਈਆਂ, ਸਾਫ਼ ਪਾਣੀ ਭਰਿਆ ਅਤੇ ਧੋਤੀਆਂ ਥਾਲੀਆਂ ਸਹੀ ਥਾਂ ਰੱਖਣ ਲੱਗ ਪਈ। ਉਸ ਨੂੰ ਕੰਮ ਵਿੱਚ ਮਜ਼ਾ ਆਉਣ ਲੱਗਾ।",
       "en": "Mehar starts washing dishes without being asked."
     },
@@ -267,6 +270,7 @@ window.LP004 = {
       "location": "gurdwara",
       "action": "happy",
       "framing": "two-shot",
+      "layout": "cinema",
       "pa": "ਬਾਬਾ ਜੀ ਨੇ ਪੁੱਛਿਆ, “ਮੇਹਰ, ਅੱਜ ਕੀ ਸਿੱਖਿਆ?” ਉਸ ਨੇ ਹੱਥ ਜੋੜ ਕੇ ਜਵਾਬ ਦਿੱਤਾ, “ਸੇਵਾ ਛੋਟੀ ਜਾਂ ਵੱਡੀ ਨਹੀਂ ਹੁੰਦੀ। ਜੇ ਮੈਂ ਪਿਆਰ ਨਾਲ ਕਿਸੇ ਦੀ ਮਦਦ ਕਰਾਂ ਅਤੇ ਬਦਲੇ ਵਿੱਚ ਵਾਹ ਵਾਹ ਨਾ ਮੰਗਾਂ, ਤਾਂ ਮੇਰਾ ਦਿਲ ਵੱਡਾ ਹੋ ਜਾਂਦਾ ਹੈ।”",
       "en": "Mehar shares what humility and selfless service now mean to her."
     },

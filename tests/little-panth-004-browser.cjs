@@ -1,49 +1,111 @@
 #!/usr/bin/env node
-/* Validate control-free animated book and synchronized Gurmukhi read-along. */
 'use strict';
-const assert=require('node:assert/strict');
-const fs=require('node:fs'),path=require('node:path'),{execFileSync}=require('node:child_process');
-const vm=require('node:vm'),{chromium}=require('playwright-core');
-const scope={window:{}};
-vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','little panth','mission-004','story.js'),'utf8'),scope);
-const story=scope.window.LP004;
-const words=story.beats.reduce((sum,b)=>sum+b.pa.trim().split(/\s+/).length,0);
-assert.ok(words>=900&&words<=1250,'Approx. 1,000 Gurmukhi words: '+words);
-assert.equal(story.beats.length,25);
-const dialogues=JSON.parse(fs.readFileSync(path.join(__dirname,'..','little panth','mission-004','dialogue.json'),'utf8'));
-assert.ok(story.beats.every(b=>dialogues.lines[b.id]?.pa===b.pa),'Gemini dialogue and text must match verbatim');
-function chrome(){for(const b of ['google-chrome','google-chrome-stable','chromium','chromium-browser']){try{return execFileSync('which',[b],{encoding:'utf8'}).trim()}catch{}}throw Error('No Chrome binary')}
-(async()=>{
-  const browser=await chromium.launch({headless:true,executablePath:chrome(),args:['--no-sandbox','--disable-dev-shm-usage']});
-  const page=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
-  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
-  await page.goto('http://127.0.0.1:8765/little%20panth/mission-004/?test=1',{waitUntil:'domcontentloaded'});
-  await page.locator('#loading').waitFor({state:'hidden',timeout:40000});
-  assert.ok(await page.locator('#character-layer [data-actor="mehar"]').count(),'Use UMTO Mehar rig');
-  assert.ok(await page.locator('#character-layer [data-actor="baldev"]').count(),'Use UMTO Baldev rig');
-  assert.equal(await page.locator('.story-beat').count(),25);
-  assert.equal(await page.locator('button,select,input,nav,.player-controls,.progress-track').count(),0,'No visible or hidden controls');
-  const left=await page.locator('.art-page').boundingBox(),right=await page.locator('.reading-page').boundingBox();
-  assert.ok(Math.abs(left.width-right.width)<=2,'Exactly equal page widths');
-  assert.ok(Math.abs(left.height-right.height)<=2,'Exactly equal page heights');
-  assert.equal(await page.locator('.story-beat[aria-current="true"]').count(),1);
-  assert.ok((await page.evaluate(()=>window.lp004Test.status())).playing,'Animation should start without play button');
-  // Read-along highlight should move with the scene, and the camera artwork should change.
-  await page.evaluate(()=>window.lp004Test.jump(12));
-  const current=page.locator('.story-beat[aria-current="true"]');
-  assert.equal(await current.getAttribute('data-scene'),story.beats[12].id);
-  assert.equal(await page.locator('#backdrop-layer [data-background="'+story.beats[12].location+'"]').getAttribute('opacity'),'1');
-  const storyBounds=await page.locator('#story-scroll').boundingBox(),currentBounds=await current.boundingBox();
-  assert.ok(currentBounds.y>=storyBounds.y-5&&currentBounds.y<storyBounds.y+storyBounds.height,'Highlighted passage must be visible');
-  const folder=path.join(process.cwd(),'screenshots','little-panth-004');
-  fs.mkdirSync(folder,{recursive:true});
-  await page.screenshot({path:path.join(folder,'desktop-two-page-book.png'),fullPage:true});
-  await page.setViewportSize({width:390,height:844});
-  await page.waitForTimeout(350);
-  const artMobile=await page.locator('.art-page').boundingBox(),readMobile=await page.locator('.reading-page').boundingBox();
-  assert.ok(readMobile.y>=artMobile.y+artMobile.height-2,'On mobile reading page follows animation');
-  await page.screenshot({path:path.join(folder,'mobile-read-along.png'),fullPage:true});
-  assert.equal(errors.length,0,'Browser errors: '+errors.join('\n'));
-  console.log('PASS LP004: equal page sizes; no controls; 25 synchronized Gurmukhi scenes; UMTO poses; responsive illustration.');
-  await browser.close();
-})().catch(err=>{console.error(err);process.exitCode=1});
+
+const assert = require('node:assert/strict');
+const { execFileSync } = require('node:child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const { runInNewContext } = require('node:vm');
+const { chromium } = require('playwright-core');
+
+const mission = path.join(__dirname, '..', 'little panth', 'mission-004');
+const { makeReading } = require(path.join(mission, 'reading.js'));
+const scope = { window: {} };
+runInNewContext(fs.readFileSync(path.join(mission, 'story.js'), 'utf8'), scope);
+const beats = scope.window.LP004.beats;
+const dialogues = JSON.parse(fs.readFileSync(path.join(mission, 'dialogue.json'), 'utf8')).lines;
+const timings = JSON.parse(fs.readFileSync(path.join(mission, 'audio', 'word-timings.json'), 'utf8'));
+const wordCount = beats.reduce((sum, beat) => sum + beat.pa.trim().split(/\s+/u).length, 0);
+assert.equal(beats.length, 25);
+assert.ok(wordCount >= 900 && wordCount <= 1250);
+for (const beat of beats) {
+  assert.equal(dialogues[beat.id].pa, beat.pa, 'Gemini narration and text must match');
+  const track = timings[beat.id];
+  const reading = makeReading(beat.pa, track.durationMs, track.words);
+  assert.equal(reading.words.length, track.words.length);
+  assert.ok(reading.phrases.every(phrase => phrase.end - phrase.first <= 8));
+  assert.equal(reading.phrases.map(phrase => phrase.text).join(' '), beat.pa);
+}
+function executable() {
+  if (process.env.CHROME_BIN) return process.env.CHROME_BIN;
+  for (const name of ['google-chrome', 'google-chrome-stable', 'chromium']) {
+    try { return execFileSync('which', [name], { encoding: 'utf8' }).trim(); } catch {}
+  }
+  throw Error('No Chrome binary');
+}
+
+async function run() {
+  const browser = await chromium.launch({
+    executablePath: executable(),
+    headless: true,
+    args: ['--no-sandbox', '--disable-dev-shm-usage', '--autoplay-policy=no-user-gesture-required']
+  });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    const url = 'http://127.0.0.1:8765/little%20panth/mission-004/';
+    await page.goto(url + '?test=1', { waitUntil: 'domcontentloaded' });
+    await page.locator('#loading').waitFor({ state: 'hidden', timeout: 40000 });
+    await page.waitForFunction(() => window.lp004Test.status().clipActive && window.lp004Test.status().elapsed > 0.2);
+    assert.equal(await page.locator('#character-layer [data-actor="mehar"]').count(), 1);
+    assert.equal(await page.locator('#character-layer [data-actor="baldev"]').count(), 1);
+    assert.equal(await page.locator('button, video[controls], audio[controls], select, input, nav, header, footer').count(), 0);
+
+    const art = page.locator('.art-page');
+    const read = page.locator('.reading-page');
+    const line = page.locator('#reading');
+    const word = page.locator('.word[aria-current="true"]');
+    const left = await art.boundingBox();
+    const right = await read.boundingBox();
+    assert.equal(left.width, right.width);
+    assert.equal(left.height, right.height);
+    assert.ok(await line.evaluate(node => parseFloat(getComputedStyle(node).fontSize)) >= 65);
+    assert.ok(await page.evaluate(() => document.fonts.check('700 48px "Little Panth Gurmukhi"', 'ਪੰਜਾਬ')));
+
+    const folder = path.join(process.cwd(), 'screenshots', 'little-panth-004');
+    fs.mkdirSync(folder, { recursive: true });
+    for (const [i, beat] of beats.entries()) {
+      const track = timings[beat.id];
+      const reading = makeReading(beat.pa, track.durationMs, track.words);
+      const phrase = reading.phrases[Math.min(1, reading.phrases.length - 1)];
+      const [start, end] = track.words[phrase.first];
+      await page.evaluate(([scene, ms]) => window.lp004Test.jump(scene, ms), [i, (start + end) / 2]);
+      assert.equal(await page.locator('#book').getAttribute('data-layout'), beat.layout || 'spread');
+      assert.equal(await page.locator('[data-background="' + beat.location + '"]').getAttribute('opacity'), '1');
+      assert.equal(await line.textContent(), phrase.text);
+      assert.equal(await word.textContent(), reading.words[phrase.first]);
+      assert.ok((await page.evaluate(() => window.lp004Test.status())).aligned);
+      if (i === 0 || i === 4) {
+        await page.screenshot({ path: path.join(folder, (i ? 'desktop-cinema' : 'desktop-spread') + '.png') });
+      }
+      if (beat.layout === 'cinema') {
+        const screen = await page.locator('.movie').boundingBox();
+        const caption = await line.boundingBox();
+        assert.equal(screen.width, 1920);
+        assert.equal(screen.height, 1080);
+        assert.ok(caption.y > 540 && caption.y + caption.height < 1080);
+      }
+    }
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.evaluate(() => window.lp004Test.jump(0, 1300));
+    assert.ok((await read.boundingBox()).y >= (await art.boundingBox()).height);
+    assert.ok((await line.boundingBox()).width < 390);
+    await page.screenshot({ path: path.join(folder, 'mobile-spread.png') });
+    await page.evaluate(() => window.lp004Test.jump(4, 4500));
+    const mobileMovie = await page.locator('.movie').boundingBox();
+    const mobileCaption = await line.boundingBox();
+    assert.ok(mobileCaption.y > mobileMovie.y && mobileCaption.y + mobileCaption.height <= mobileMovie.y + mobileMovie.height);
+    await page.screenshot({ path: path.join(folder, 'mobile-cinema.png') });
+    assert.deepEqual(errors, []);
+    console.log('PASS Mission 04: 25 Gemini clips, word cues, 50/50 spread, four full-frame cuts, phone layout, and no controls.');
+  } finally {
+    await browser.close();
+  }
+}
+
+run().catch(error => {
+  console.error(error);
+  process.exitCode = 1;
+});
