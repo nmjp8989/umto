@@ -85,6 +85,7 @@ async function run() {
         assert.equal(screen.width, 1920);
         assert.equal(screen.height, 1080);
         assert.ok(caption.y > 540 && caption.y + caption.height < 1080);
+        assert.ok(Math.abs(caption.x + caption.width / 2 - screen.width / 2) < 2);
       }
     }
 
