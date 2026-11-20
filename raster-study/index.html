@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harpreet’s pointing gesture · UMTO</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="study.js"></script>
+</head>
+<body>
+<main>
+  <a class="back" href="../">UMTO</a>
+  <h1>Harpreet’s pointing gesture</h1>
+  <p class="intro">The same UMTO gesture drives the vector original and four painted raster layers.</p>
+  <section class="comparison" aria-label="Animation comparison">
+    <figure>
+      <figcaption>Vector original</figcaption>
+      <div class="stage" id="vector" aria-label="Harpreet drawn with SVG paths"></div>
+    </figure>
+    <figure>
+      <figcaption>Painted artwork</figcaption>
+      <div class="stage">
+        <svg id="painted" viewBox="0 0 540 460" role="img" aria-label="Harpreet assembled from separately animated painted head, torso, upper sleeve, and pointing forearm">
+          <g id="painted-head"><image id="head" href="head.webp"/></g>
+          <image id="torso" href="torso.webp"/>
+          <g id="shoulder">
+            <g id="elbow"><image id="forearm" href="forearm.webp"/></g>
+            <image id="upper" href="upper.webp"/>
+          </g>
+        </svg>
+      </div>
+    </figure>
+  </section>
+  <section class="controls" aria-label="Playback">
+    <button id="play" type="button" disabled>Play loop</button>
+    <label for="time">Gesture position</label>
+    <input id="time" type="range" min="0" max="3600" value="720" step="10" disabled>
+    <output id="position" for="time">0.72 s</output>
+  </section>
+  <p id="status" role="status">Loading the UMTO rig…</p>
+</main>
+<iframe id="studio" src="../index.html?raster-study=1" title="UMTO character studio renderer" hidden></iframe>
+</body>
+</html>

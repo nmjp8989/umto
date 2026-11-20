@@ -1,0 +1,10 @@
+{
+  "shoulder": [182, 225],
+  "upperLength": 86,
+  "images": {
+    "head": {"x": 204, "y": 20, "width": 130, "height": 175},
+    "torso": {"x": 149, "y": 161, "width": 196, "height": 270},
+    "upper": {"x": -22, "y": -39, "width": 126, "height": 90, "transform": "rotate(90)"},
+    "forearm": {"x": -18, "y": -29, "width": 198, "height": 59, "transform": "rotate(90)"}
+  }
+}
