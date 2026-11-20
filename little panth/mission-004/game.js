@@ -107,7 +107,7 @@ function scrollCurrent(){
   if(!item)return;
   const r=item.getBoundingClientRect(),outer=scroller.getBoundingClientRect();
   if(r.top<outer.top+40||r.bottom>outer.bottom-40){
-    scroller.scrollTo({top:scroller.scrollTop+r.top-outer.top-45,behavior:reduced.matches?'instant':'smooth'});
+    scroller.scrollTo({top:scroller.scrollTop+r.top-outer.top-45,behavior:'instant'});
   }
 }
 function poseFor(id,beat){
