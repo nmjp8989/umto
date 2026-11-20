@@ -36,7 +36,7 @@ VOICES={
 }
 def main():
  p=argparse.ArgumentParser()
- p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003"), default="mission-001")
+ p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004"), default="mission-001")
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
  p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")
