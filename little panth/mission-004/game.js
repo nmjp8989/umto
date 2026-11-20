@@ -187,11 +187,13 @@ function decorate(beat){
   }
 }
 function focusFor(beat){
+  // Actor faces are near y=510–560 in the 1280x720 UMTO artwork.
+  // Crop lower for dialogue so the face is central, never buried below the frame.
   if(['wide','establishing','full'].includes(beat.framing))return {x:635,y:385};
-  if(beat.framing==='detail')return {x:658,y:568};
-  if(beat.framing==='two-shot')return {x:647,y:455};
+  if(beat.framing==='detail')return {x:658,y:605};
+  if(beat.framing==='two-shot')return {x:647,y:570};
   const x=beat.speaker==='mehar'?434:beat.speaker==='narrator'?645:840;
-  return {x,y:beat.framing==='close-up'?385:442};
+  return {x,y:600};
 }
 function updateCamera(beat){
   const move=beat.action==='walk';
