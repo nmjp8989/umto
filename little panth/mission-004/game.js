@@ -17,7 +17,7 @@ const speakerNames={narrator:'ਕਹਾਣੀਕਾਰ',mehar:'ਮੇਹਰ',bab
 const beatElements=[];
 const chapterNames=Object.fromEntries(chapters.map((chapter,i)=>[chapter.id,'ਭਾਗ '+(i+1)]));
 let bank=null,actors=[],index=0,playing=false,elapsed=0,frameAt=0;
-let shownBackground='',gestureGranted=exportMode,ttsBlocked=false;
+let shownBackground='',gestureGranted=exportMode,autoplayAttempted=false,ttsBlocked=false;
 let manifest={},recordedCount=0,finished=0,exportStarted=0,exportError='';
 let serial=0,clipActive=false,clipAudio=null,clipFinished=false,holdFinalUntil=0;
 let activeCaption=null,exportCaptions=[];
@@ -264,11 +264,12 @@ function playClip(token){
   if(!playing)return;
   const beat=beats[index];
   clipFinished=false;
-  if(!recorded(beat.id)||(!gestureGranted&&!exportMode)){
+  if(!recorded(beat.id)||(!gestureGranted&&!exportMode&&autoplayAttempted)){
     clipActive=false;
     if(exportMode)exportError='Missing recorded Gemini Punjabi dialogue for '+beat.id;
     return;
   }
+  autoplayAttempted=true;
   audio.src='audio/'+beat.id+'.mp3';
   audio.playbackRate=1;
   clipActive=true;
