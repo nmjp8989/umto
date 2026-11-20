@@ -113,16 +113,6 @@ window.LP004 = {
     {
       "id": "s09",
       "chapter": "02",
-      "speaker": "narrator",
-      "location": "langar",
-      "action": "broom",
-      "framing": "full",
-      "pa": "ਮੇਹਰ ਨੇ ਥਾਲੀਆਂ ਤਾਂ ਚੁੱਕ ਦਿੱਤੀਆਂ, ਪਰ ਉਹ ਵਾਰ ਵਾਰ ਪਿੱਛੇ ਮੁੜ ਕੇ ਦੇਖਦੀ ਰਹੀ। ਦੂਜੇ ਸੇਵਾਦਾਰ ਚੁੱਪਚਾਪ ਫਰਸ਼ ਪੂੰਝ ਰਹੇ ਸਨ, ਰੋਟੀਆਂ ਪਕਾ ਰਹੇ ਸਨ ਅਤੇ ਪਾਣੀ ਭਰ ਰਹੇ ਸਨ। ਕਿਸੇ ਨੇ ਆਪਣੇ ਨਾਂ ਦਾ ਐਲਾਨ ਨਹੀਂ ਕੀਤਾ। ਇਹ ਗੱਲ ਮੇਹਰ ਨੂੰ ਬੜੀ ਅਜੀਬ ਲੱਗੀ।",
-      "en": "Others serve quietly without asking for attention."
-    },
-    {
-      "id": "s10",
-      "chapter": "02",
       "speaker": "baldev",
       "location": "langar",
       "action": "explain",
@@ -131,7 +121,7 @@ window.LP004 = {
       "en": "Baldev shows that no honest task is beneath anyone."
     },
     {
-      "id": "s11",
+      "id": "s10",
       "chapter": "02",
       "speaker": "narrator",
       "location": "gurdwara",
@@ -141,7 +131,7 @@ window.LP004 = {
       "en": "A tired farmer arrives after a long walk."
     },
     {
-      "id": "s12",
+      "id": "s11",
       "chapter": "03",
       "speaker": "farmer",
       "location": "gurdwara",
@@ -151,7 +141,7 @@ window.LP004 = {
       "en": "The farmer asks for water while Mehar worries about losing her place."
     },
     {
-      "id": "s13",
+      "id": "s12",
       "chapter": "03",
       "speaker": "mehar",
       "location": "gurdwara",
@@ -161,7 +151,7 @@ window.LP004 = {
       "en": "A glass slips, and water spills onto the floor and Mehar's scarf."
     },
     {
-      "id": "s14",
+      "id": "s13",
       "chapter": "03",
       "speaker": "mehar",
       "location": "gurdwara",
@@ -171,7 +161,7 @@ window.LP004 = {
       "en": "Mehar notices her wet scarf before she notices the farmer's embarrassment."
     },
     {
-      "id": "s15",
+      "id": "s14",
       "chapter": "03",
       "speaker": "baba",
       "location": "gurdwara",
@@ -181,17 +171,7 @@ window.LP004 = {
       "en": "Baba Ji responds with quiet help rather than blame."
     },
     {
-      "id": "s16",
-      "chapter": "03",
-      "speaker": "narrator",
-      "location": "gurdwara",
-      "action": "mop",
-      "framing": "detail",
-      "pa": "ਮੇਹਰ ਨੇ ਬਾਬਾ ਜੀ ਦੇ ਹੱਥਾਂ ਨੂੰ ਦੇਖਿਆ। ਉਨ੍ਹਾਂ ਦੇ ਸਾਫ਼ ਕੱਪੜੇ ਵੀ ਫਰਸ਼ ਦੇ ਪਾਣੀ ਨਾਲ ਗਿੱਲੇ ਹੋ ਰਹੇ ਸਨ, ਪਰ ਚਿਹਰੇ ਉੱਤੇ ਕੋਈ ਗੁੱਸਾ ਨਹੀਂ ਸੀ। ਮੇਹਰ ਨੂੰ ਅਚਾਨਕ ਚਾਚਾ ਜੀ ਦੀ ਸਵੇਰ ਵਾਲੀ ਗੱਲ ਯਾਦ ਆਈ। ਸੇਵਾ ਸੱਚਮੁੱਚ ਕੋਈ ਮੁਕਾਬਲਾ ਨਹੀਂ ਸੀ।",
-      "en": "She sees the beauty of seva that happens without an audience."
-    },
-    {
-      "id": "s17",
+      "id": "s15",
       "chapter": "03",
       "speaker": "mehar",
       "location": "gurdwara",
@@ -201,17 +181,7 @@ window.LP004 = {
       "en": "Mehar offers to clean up and help the farmer sit comfortably."
     },
     {
-      "id": "s18",
-      "chapter": "03",
-      "speaker": "farmer",
-      "location": "gurdwara",
-      "action": "happy",
-      "framing": "two-shot",
-      "pa": "ਕਿਸਾਨ ਬੋਲੇ, “ਧੰਨਵਾਦ, ਪੁੱਤ। ਮੈਨੂੰ ਬਸ ਥੋੜ੍ਹਾ ਪਾਣੀ ਅਤੇ ਆਰਾਮ ਚਾਹੀਦਾ ਸੀ।” ਮੇਹਰ ਇੱਕ ਨਵਾਂ ਗਲਾਸ ਲੈ ਆਈ। ਇਸ ਵਾਰੀ ਉਸ ਨੇ ਜੱਗ ਹੌਲੀ ਝੁਕਾਇਆ, ਗਲਾਸ ਦੋਹਾਂ ਹੱਥਾਂ ਨਾਲ ਫੜਿਆ ਅਤੇ ਕਿਸਾਨ ਦੇ ਹੱਥ ਵਿੱਚ ਧਿਆਨ ਨਾਲ ਦਿੱਤਾ। ਕਿਸਾਨ ਦਾ ਚਿਹਰਾ ਖਿੜ ਗਿਆ।",
-      "en": "She slows down and serves the water with care."
-    },
-    {
-      "id": "s19",
+      "id": "s16",
       "chapter": "04",
       "speaker": "narrator",
       "location": "langar",
@@ -221,27 +191,7 @@ window.LP004 = {
       "en": "Mehar starts washing dishes without being asked."
     },
     {
-      "id": "s20",
-      "chapter": "04",
-      "speaker": "baldev",
-      "location": "langar",
-      "action": "happy",
-      "framing": "two-shot",
-      "pa": "ਚਾਚਾ ਬਲਦੇਵ ਨੇ ਹੱਸ ਕੇ ਪੁੱਛਿਆ, “ਅੱਜ ਤਾਂ ਸਾਡੀ ਮੇਹਰ ਵੱਡੀ ਖੁਸ਼ ਦਿਸਦੀ ਹੈ। ਕੀ ਕਿਸੇ ਨੇ ਤੈਨੂੰ ਬੈਜ ਦੇ ਦਿੱਤਾ?” ਮੇਹਰ ਨੇ ਸਿਰ ਹਿਲਾਇਆ, “ਨਹੀਂ ਚਾਚਾ ਜੀ। ਮੈਂ ਇੱਕ ਪਿਆਸੇ ਬਾਬਾ ਜੀ ਨੂੰ ਪਾਣੀ ਦਿੱਤਾ। ਉਨ੍ਹਾਂ ਦੀ ਮੁਸਕਰਾਹਟ ਦੇਖ ਕੇ ਮੈਨੂੰ ਬਹੁਤ ਚੰਗਾ ਲੱਗਿਆ।”",
-      "en": "The farmer's smile means more to Mehar than a badge."
-    },
-    {
-      "id": "s21",
-      "chapter": "04",
-      "speaker": "narrator",
-      "location": "langar",
-      "action": "broom",
-      "framing": "full",
-      "pa": "ਦੁਪਹਿਰ ਹੋਣ ਤੱਕ ਮੇਹਰ ਨੇ ਕਈ ਛੋਟੇ ਕੰਮ ਕੀਤੇ। ਉਸ ਨੇ ਡਿੱਗੀ ਰੋਟੀ ਚੁੱਕ ਕੇ ਠੀਕ ਥਾਂ ਰੱਖੀ, ਖਾਲੀ ਜੱਗ ਮੁੜ ਭਰੇ, ਬੱਚਿਆਂ ਲਈ ਸਾਫ਼ ਗਲਾਸ ਲਿਆਏ ਅਤੇ ਫਰਸ਼ ਉੱਤੇ ਪਏ ਛਿਲਕੇ ਸਾਫ਼ ਕੀਤੇ। ਕੋਈ ਕੰਮ ਬਹੁਤ ਚਮਕਦਾਰ ਨਹੀਂ ਸੀ, ਪਰ ਹਰ ਕੰਮ ਨਾਲ ਕਿਸੇ ਦੀ ਔਖ ਘੱਟ ਹੋਈ।",
-      "en": "Small acts of care add up throughout the afternoon."
-    },
-    {
-      "id": "s22",
+      "id": "s17",
       "chapter": "04",
       "speaker": "mehar",
       "location": "langar",
@@ -251,7 +201,7 @@ window.LP004 = {
       "en": "Mehar helps a younger child discover the value of teamwork."
     },
     {
-      "id": "s23",
+      "id": "s18",
       "chapter": "04",
       "speaker": "baba",
       "location": "langar",
@@ -261,7 +211,7 @@ window.LP004 = {
       "en": "Baba Ji explains humility as respect without pride."
     },
     {
-      "id": "s24",
+      "id": "s19",
       "chapter": "04",
       "speaker": "narrator",
       "location": "langar",
@@ -271,7 +221,7 @@ window.LP004 = {
       "en": "In pangat, everyone is welcomed and served with equal care."
     },
     {
-      "id": "s25",
+      "id": "s20",
       "chapter": "05",
       "speaker": "baldev",
       "location": "langar",
@@ -281,7 +231,7 @@ window.LP004 = {
       "en": "At last Mehar is invited to the front, but she sees someone else needs rest."
     },
     {
-      "id": "s26",
+      "id": "s21",
       "chapter": "05",
       "speaker": "mehar",
       "location": "langar",
@@ -291,7 +241,7 @@ window.LP004 = {
       "en": "She chooses to give a tired helper a rest before taking the spotlight."
     },
     {
-      "id": "s27",
+      "id": "s22",
       "chapter": "05",
       "speaker": "narrator",
       "location": "langar",
@@ -301,7 +251,7 @@ window.LP004 = {
       "en": "Mehar serves gently, listening to each person's needs."
     },
     {
-      "id": "s28",
+      "id": "s23",
       "chapter": "05",
       "speaker": "farmer",
       "location": "langar",
@@ -311,17 +261,7 @@ window.LP004 = {
       "en": "The farmer thanks Mehar for making him feel welcome."
     },
     {
-      "id": "s29",
-      "chapter": "05",
-      "speaker": "mehar",
-      "location": "gurdwara",
-      "action": "reflect",
-      "framing": "close-up",
-      "pa": "ਸੇਵਾ ਮੁੱਕਣ ਤੋਂ ਬਾਅਦ ਮੇਹਰ ਵਿਹੜੇ ਵਿੱਚ ਬੈਠੀ। ਉਸ ਨੇ ਆਪਣੀ ਹਲਕੀ ਜਿਹੀ ਗਿੱਲੀ ਚੁੰਨੀ ਦੇਖੀ ਅਤੇ ਮੁਸਕਰਾਈ। ਸਵੇਰੇ ਉਹ ਚਾਹੁੰਦੀ ਸੀ ਕਿ ਹਰ ਕੋਈ ਉਸ ਨੂੰ ਦੇਖੇ। ਹੁਣ ਉਹ ਚਾਹੁੰਦੀ ਸੀ ਕਿ ਜਿੱਥੇ ਵੀ ਕੋਈ ਔਖ ਵਿੱਚ ਹੋਵੇ, ਉਸ ਦੀ ਮਦਦ ਕਰਨ ਲਈ ਉਹ ਤਿਆਰ ਰਹੇ।",
-      "en": "Mehar realizes that the greatest reward is a kinder heart."
-    },
-    {
-      "id": "s30",
+      "id": "s24",
       "chapter": "05",
       "speaker": "baba",
       "location": "gurdwara",
@@ -331,7 +271,7 @@ window.LP004 = {
       "en": "Mehar shares what humility and selfless service now mean to her."
     },
     {
-      "id": "s31",
+      "id": "s25",
       "chapter": "05",
       "speaker": "narrator",
       "location": "gurdwara",
