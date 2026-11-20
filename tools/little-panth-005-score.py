@@ -42,36 +42,38 @@ def main():
     if OUTPUT.is_file() and OUTPUT.stat().st_size > 4096:
         print("Reusing the cached instrumental score.")
         return
-    request_body = json.dumps({"model": "lyria-3-clip-preview", "input": PROMPT}).encode()
-    keys = dict.fromkeys(
+    keys = tuple(filter(None, dict.fromkeys(
         os.environ.get(name, "").strip()
         for name in ("GEMINI_API_KEY2", "GEMINI_API_KEY3", "GEMINI_API_KEY")
-    )
-    for key in filter(None, keys):
-        request = Request(URL, data=request_body, method="POST", headers={
-            "Content-Type": "application/json", "x-goog-api-key": key, "Api-Revision": "2026-05-20",
-        })
-        try:
-            with urlopen(request, timeout=100) as response:
-                data = audio_data(json.load(response))
-        except HTTPError as error:
-            print(f"Music generation returned HTTP {error.code}.")
-            continue
-        except (URLError, TimeoutError):
-            print("Music generation timed out.")
-            continue
-        if not data:
-            raise SystemExit("Lyria returned an interaction without inline audio.")
-        audio = base64.b64decode(data, validate=True)
-        subprocess.run([
-            get_ffmpeg_exe(), "-v", "error", "-i", "pipe:0", "-f", "null", "-",
-        ], input=audio, check=True)
-        OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-        temp = OUTPUT.with_suffix(".tmp")
-        temp.write_bytes(audio)
-        temp.replace(OUTPUT)
-        print("Saved the Lyria instrumental score.")
-        return
+    )))
+    for model in ("lyria-3-clip-preview", "lyria-3.5"):
+        request_body = json.dumps({"model": model, "input": PROMPT}).encode()
+        for key in keys:
+            request = Request(URL, data=request_body, method="POST", headers={
+                "Content-Type": "application/json", "x-goog-api-key": key, "Api-Revision": "2026-05-20",
+            })
+            try:
+                with urlopen(request, timeout=100) as response:
+                    data = audio_data(json.load(response))
+            except HTTPError as error:
+                print(f"{model} music generation returned HTTP {error.code}.")
+                continue
+            except (URLError, TimeoutError):
+                print(f"{model} music generation timed out.")
+                continue
+            if not data:
+                raise SystemExit(f"{model} returned an interaction without inline audio.")
+            audio = base64.b64decode(data, validate=True)
+            encoded = subprocess.run([
+                get_ffmpeg_exe(), "-v", "error", "-i", "pipe:0", "-t", "34",
+                "-codec:a", "libmp3lame", "-qscale:a", "4", "-f", "mp3", "pipe:1",
+            ], input=audio, capture_output=True, check=True).stdout
+            OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+            temp = OUTPUT.with_suffix(".tmp")
+            temp.write_bytes(encoded)
+            temp.replace(OUTPUT)
+            print(f"Saved the {model} instrumental score.")
+            return
     raise SystemExit("Lyria was unavailable with the configured credentials.")
 
 
