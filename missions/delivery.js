@@ -108,7 +108,7 @@ function paintActors(now){for(const actor of Object.values(actors)){
  node.classList.toggle('walking',actor.action==='walk');node.classList.toggle('talking',actor.action==='talk');node.classList.toggle('riding',actor.action==='ride');node.classList.toggle('idle',quiet);
  }}
 function animate(now){if(!lastAnimationTime)lastAnimationTime=now;if(!paused&&!document.hidden)animationTime+=Math.min(80,now-lastAnimationTime);lastAnimationTime=now;
- camera.update(now,actors.harpreet,paused||document.hidden);if(now-frameTime>40&&!paused&&!document.hidden){paintActors(animationTime);frameTime=now;}requestAnimationFrame(animate);
+ camera.update(now,actors[camera.track]||actors.harpreet,paused||document.hidden);if(now-frameTime>40&&!paused&&!document.hidden){paintActors(animationTime);frameTime=now;}requestAnimationFrame(animate);
 }
 async function walkTo(x){
  const hero=actors.harpreet;if(!hero)return;
@@ -129,7 +129,7 @@ function showDialogue(id,waitForEnd=false){
  stopLine();const d=mission.dialogues[id];if(!d)throw Error('Unknown dialogue '+id);
  const who=mission.cast[d.speaker]||mission.cast.harpreet;speakerId=d.speaker;
  $('dialogue').hidden=false;$('dialogue').classList.toggle('has-choices',!!d.choices?.length);
- const focus=actors[d.speaker]||actors.harpreet,hero=actors.harpreet;if(focus&&camera.mode==='auto'&&camera.name!=='detail'&&(waitForEnd||d.speaker!=='harpreet'||d.choices?.length))camera.to('conversation',{x:hero?(focus.x+hero.x)/2:focus.x,y:410});
+ const focus=actors[d.speaker]||actors.harpreet,hero=actors.harpreet;if(d.camera&&!d.choices?.length&&camera.mode==='auto')camera.cue(d.camera,focus?{x:focus.x,y:focus.y-focus.height*.55}:undefined);else if(focus&&camera.mode==='auto'&&camera.name!=='detail'&&(waitForEnd||d.speaker!=='harpreet'||d.choices?.length))camera.to('conversation',{x:hero?(focus.x+hero.x)/2:focus.x,y:410});
  $('dialogue').style.setProperty('--speaker-colour',who.colour);$('speaker').textContent=who.name;$('speakerRole').textContent=who.role;$('subtitle').textContent=d.text;$('choices').replaceChildren();
  if(actors[d.speaker]&&actors[d.speaker].action!=='ride')actors[d.speaker].action='talk';
  for(const [i,c] of (d.choices||[]).entries()){const b=document.createElement('button');b.setAttribute('aria-label',c.label);b.setAttribute('aria-keyshortcuts',String.fromCharCode(65+i));const key=document.createElement('span');key.className='choice-key';key.textContent=String.fromCharCode(65+i)+':';const text=document.createElement('span');text.className='choice-text';text.textContent=c.label;b.append(key,text);b.onclick=()=>{if(!busy&&!paused)dispatch(c.event);};$('choices').append(b);}
@@ -224,7 +224,7 @@ async function effect(kind){
 const sequence=new MissionSequenceRunner({
  prop:({actor,item})=>{heldProps[actor]=item;paintActors(animationTime);},
  walk:walkTo,pose,line:id=>showDialogue(id,true),sound:id=>sound.fx(id),wait:sleep,effect,
- event:event=>applyRule(event),message:id=>{showDialogue(id);},scene:scene=>changeScene(scene),camera:value=>{const cue=typeof value==='string'?{preset:value}:value,o=mission.scenes[S.scene]?.objects.find(o=>o.id===cue.target);camera.to(cue.preset,o?{x:o.x+o.w/2,y:o.y+o.h/2}:actors.harpreet?{x:actors.harpreet.x,y:410}:undefined);},ending:()=>finish()
+ event:event=>applyRule(event),message:id=>{showDialogue(id);},scene:scene=>changeScene(scene),camera:value=>{const cue=typeof value==='string'?{preset:value}:value,o=mission.scenes[S.scene]?.objects.find(o=>o.id===cue.target);const actor=actors[cue.target]||actors.harpreet;camera.cue(cue,o?{x:o.x+o.w/2,y:o.y+o.h/2}:actor?{x:actor.x,y:actor.y-actor.height*.55}:undefined);},ending:()=>finish()
 });
 async function applyRule(event){
  const result=engine.trigger(event);if(!result.ok){if(event.startsWith('drop:'))showDialogue('cantCombine');return false;}

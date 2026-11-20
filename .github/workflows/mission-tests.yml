@@ -25,6 +25,9 @@ jobs:
           node-version: '22'
       - name: Verify shared mission scripts
         run: |
+          node --check missions/delivery-camera.js
+          node tests/cinematic-camera.cjs
+          node tests/delivery-presentation.cjs
           node --check missions/delivery.js
           node --check missions/storm-beacon-art.js
           node --check missions/night-platform-art.js

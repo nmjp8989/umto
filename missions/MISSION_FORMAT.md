@@ -111,3 +111,14 @@ node --check missions/mission-props.js
 A JSON mission is **not** an executable script. Do not accept arbitrary JavaScript, inline SVG, or remote URLs as new action types; extend the vetted renderer and action catalogue instead.
 
 **Not in v2:** a visual mission editor, auto-generating JSON from prompts, user accounts, persistence, dynamically importing new artwork, or mobile packaging. The current mission remains a static, offline-capable web implementation (served via HTTP, with no external APIs).
+
+
+## Cinematic direction (shared camera)
+
+Future missions must plan a purposeful shot list: establishing wide shot, dialogue coverage, reaction close-ups, inserts of important objects, motivated tracking or dolly moves, and a closing wide shot. Use wide framing for puzzles and navigation; honor reduced-motion preferences. Avoid camera moves that distract from Gurbani or teaching.
+
+Delivery sequences accept a camera cue before a line or effect, e.g. `{"camera":{"preset":"close-up","target":"harpreet","duration":800,"motion":"dolly-in"}}`. Optional dialogue `camera` uses the same object or preset string. Focus is in 1280×720 coordinates. Set `focus:{"x":640,"y":360}`, `width` (180–1280), `cut:true`, `duration` in ms, or `angle:"dutch"` for roll. `motion:"tracking"` follows the specified actor (`track` id). Other motion labels describe the intended move; successive differently framed cues with durations produce pan/truck, tilt/crane, dolly/zoom or fly-through approximations. For dedicated noninteractive artwork wrappers with no existing transforms and adequate overscan, `data-camera-depth` (-1 to 1) and `parallax:true` enable differential horizontal shifts.
+
+Framing presets: extreme-wide, establishing, wide, full, medium, medium-close, close-up, extreme-close-up, two-shot, over-the-shoulder, pov, plus historical detail/conversation/follow/arrival/intro. Compose both subjects or foreground shoulder in artwork. SVG crops cannot generate genuine high/low/overhead or reverse perspective: supply alternate artwork and poses. The angle field records the intended perspective; Dutch renders actual roll. Extreme wide requires art composed with a distant subject.
+
+For new Three.js scenes, `UmtoCamera.spatialPose({target,distance,azimuth,angle,elevation,roll})` computes real y-up geometry for eye-level, high, low, birds-eye, worms-eye, Dutch, OTS and POV (compose actual subjects with target and azimuth). `new UmtoCamera.SpatialCamera(threeCamera)` applies/interpolates poses. Animate azimuth for orbit, translate position and target for tracking/truck/crane, change distance for dolly, animate FOV or orthographic zoom for optical zoom, and use authored waypoints for fly-throughs. This adapter does not convert existing SVG scenes to 3D.
