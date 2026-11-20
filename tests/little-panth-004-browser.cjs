@@ -18,7 +18,7 @@ function chrome(){for(const b of ['google-chrome','google-chrome-stable','chromi
   const page=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
   const errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await page.goto('http://127.0.0.1:8765/little%20panth/mission-004/?test=1',{waitUntil:'domcontentloaded'});
-  await page.locator('#loading[hidden]').waitFor({timeout:40000});
+  await page.locator('#loading').waitFor({state:'hidden',timeout:40000});
   assert.ok(await page.locator('#character-layer [data-actor="mehar"]').count(),'Use UMTO Mehar rig');
   assert.ok(await page.locator('#character-layer [data-actor="baldev"]').count(),'Use UMTO Baldev rig');
   assert.equal(await page.locator('.story-beat').count(),25);
