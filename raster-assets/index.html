@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raster asset editor · UMTO</title>
+  <link rel="stylesheet" href="editor.css">
+  <script defer src="editor.js"></script>
+</head>
+<body>
+  <header class="top"><a href="../">UMTO</a><span>Raster asset editor</span><span class="top-character">Harpreet · Front view</span></header>
+  <main>
+    <aside class="catalog" aria-label="Character asset slots">
+      <div class="panel-heading"><h1>Asset slots</h1><span id="progress"></span></div>
+      <label class="search"><span>Find an asset</span><input type="search" id="search" placeholder="Eye, finger, kurta…"></label>
+      <div class="catalog-actions"><button id="fill" type="button" disabled>Create missing rasters</button></div>
+      <nav id="slots" aria-label="Select an asset"></nav>
+    </aside>
+    <section class="preview" aria-labelledby="preview-title">
+      <div class="panel-heading"><h2 id="preview-title">Character preview</h2>
+        <label class="switch"><input type="checkbox" id="composite" checked> Show raster layers</label>
+      </div>
+      <div id="stage" class="stage" aria-label="Assembled character"></div>
+      <div class="stage-toolbar">
+        <button id="gesture" type="button" disabled>Try pointing</button>
+        <p id="app-status" role="status">Loading the UMTO rig…</p>
+      </div>
+    </section>
+    <section class="inspector" aria-labelledby="part-name">
+      <div class="panel-heading"><h2 id="part-name">Select an asset</h2><span id="part-status"></span></div>
+      <div class="samples">
+        <figure><figcaption>Vector reference</figcaption><div class="swatch"><img id="reference" alt="" hidden></div></figure>
+        <figure><figcaption>Raster artwork</figcaption><div class="swatch"><img id="raster" alt="" hidden><span id="empty">No raster yet</span></div></figure>
+      </div>
+      <p id="part-note" class="muted"></p>
+      <label id="drop-zone" class="upload">
+        <span>Choose or drop a raster image</span>
+        <small>Transparent PNG or WebP works best</small>
+        <input type="file" id="upload" accept="image/png,image/webp,image/jpeg,image/avif" disabled>
+      </label>
+      <div class="actions">
+        <button id="make" type="button" disabled>Rasterize reference</button>
+        <button id="download" type="button" disabled>Download raster</button>
+        <button id="remove" type="button" disabled>Clear slot</button>
+      </div>
+      <fieldset id="alignment" disabled>
+        <legend>Alignment</legend>
+        <div class="numbers">
+          <label>Horizontal<input id="x" type="number" min="-5000" max="5000" step="1"></label>
+          <label>Vertical<input id="y" type="number" min="-5000" max="5000" step="1"></label>
+          <label>Scale (%)<input id="scale" type="number" min="10" max="500" step="1"></label>
+          <label>Rotate (°)<input id="rotation" type="number" min="-180" max="180" step="1"></label>
+        </div>
+        <button id="reset" type="button">Reset alignment</button>
+      </fieldset>
+      <p id="edit-status" role="status" class="muted"></p>
+    </section>
+  </main>
+  <iframe src="../index.html?raster-assets=1" id="studio" title="UMTO character renderer" hidden></iframe>
+</body>
+</html>
