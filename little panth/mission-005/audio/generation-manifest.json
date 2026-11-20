@@ -34,5 +34,96 @@
     "voice": "Puck",
     "text": "ਓਹ! ਇਸ ਵਿੱਚ ਸ਼ਾਇਦ ਪਾਣੀ ਹੋਵੇ!",
     "speaker": "crow"
+  },
+  "jar-land": {
+    "hash": "e20785e296165173cf9bb146175083c06083dc3266d24f10f43548a55e3e0409",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਉੱਡ ਕੇ ਘੜੇ ਦੇ ਕੰਢੇ ਉੱਤੇ ਬੈਠ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "reach-low": {
+    "hash": "7cd5fa695cb21c6151ae262544115df3889f3381e02dc161e286164a29d488d4",
+    "voice": "Aoede",
+    "text": "ਪਾਣੀ ਘੜੇ ਦੇ ਤਲ ਕੋਲ ਸੀ। ਕਾਂ ਨੇ ਆਪਣੀ ਚੁੰਝ ਅੰਦਰ ਪਾਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "reach-short": {
+    "hash": "9618dd26444691a6ac04e1744ec97004d94c742812241960481ce5ed38c9e4d4",
+    "voice": "Puck",
+    "text": "ਮੇਰੀ ਚੁੰਝ ਪਾਣੀ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚਦੀ।",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "idea-stones": {
+    "hash": "f0fb2e4a33fe5dcc4c694fe034ca1fd72f76de196de84cc5efcf20494fa4e97f",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਨੇ ਆਲੇ ਦੁਆਲੇ ਵੇਖਿਆ। ਘੜੇ ਕੋਲ ਛੋਟੇ ਛੋਟੇ ਕੰਕਰ ਪਏ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "idea-plan": {
+    "hash": "d4590c395b038d5b55a5a4c4b116b8a03cfac252d0a203ca242a50ff7afe3cf5",
+    "voice": "Puck",
+    "text": "ਮੈਨੂੰ ਇੱਕ ਤਰਕੀਬ ਸੁੱਝੀ! ਮੈਂ ਕੰਕਰ ਘੜੇ ਵਿੱਚ ਪਾ ਕੇ ਵੇਖਦਾ ਹਾਂ।",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "drop-first": {
+    "hash": "af42b8a7ff61e9ae9c896461487de960ba566f5268ff8f0d4fde604286dfc464",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਨੇ ਇੱਕ ਕੰਕਰ ਚੁੱਕਿਆ ਤੇ ਘੜੇ ਵਿੱਚ ਸੁੱਟ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "drop-count": {
+    "hash": "a4c9d96993e54f3b547fbee83af48e3c2b07575c69327d3e63f343ea7a156b9f",
+    "voice": "Aoede",
+    "text": "ਪਾਣੀ ਥੋੜ੍ਹਾ ਉੱਪਰ ਆਇਆ। ਕਾਂ ਨੇ ਤਿੰਨ ਹੋਰ ਕੰਕਰ ਪਾਏ। ਇੱਕ, ਦੋ, ਤਿੰਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "drop-succeeds": {
+    "hash": "1d1ab395e49b340cda5383d076129598b4f5e8f78eb30892865b4db92d4b19b0",
+    "voice": "Puck",
+    "text": "ਵਾਹ! ਹੁਣ ਪਾਣੀ ਉੱਪਰ ਆ ਰਿਹਾ ਹੈ!",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sip-why": {
+    "hash": "24145c4eb0634047cf87a8fe7915dd74a84184b1d69fdbf2824d29c30404c921",
+    "voice": "Aoede",
+    "text": "ਕੰਕਰਾਂ ਨੇ ਘੜੇ ਵਿੱਚ ਥਾਂ ਘੇਰੀ, ਤੇ ਪਾਣੀ ਉੱਪਰ ਚੜ੍ਹ ਆਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sip-water": {
+    "hash": "3ae5d562636c18d5397a24450778ef6885067ba2635bda008f559496c10970ec",
+    "voice": "Aoede",
+    "text": "ਹੁਣ ਕਾਂ ਦੀ ਚੁੰਝ ਪਾਣੀ ਤੱਕ ਪਹੁੰਚ ਗਈ। ਉਸ ਨੇ ਰੱਜ ਕੇ ਪਾਣੀ ਪੀਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sip-relief": {
+    "hash": "9c868fa38110d1748b18bc8238647bfb572f9ab71b413acf15d7a1e0b10248fe",
+    "voice": "Puck",
+    "text": "ਆਹ! ਹੁਣ ਮੇਰੀ ਪਿਆਸ ਬੁੱਝ ਗਈ।",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "end-fly": {
+    "hash": "a895f08158a3d67ef2fcab65ffd608228bbf96de6bd8c399f5432e4a9573d643",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਖੁਸ਼ੀ ਨਾਲ ਉੱਡ ਗਿਆ। ਉਸ ਨੇ ਸੋਚਿਆ ਅਤੇ ਸਬਰ ਨਾਲ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "end-lesson": {
+    "hash": "20d6522451d586baf8750123da837fd2dc5dfe44a3236d43c68889db148ee50a",
+    "voice": "Aoede",
+    "text": "ਜਦੋਂ ਕੋਈ ਕੰਮ ਔਖਾ ਲੱਗੇ, ਤਾਂ ਸੋਚੋ ਤੇ ਇੱਕ ਵਾਰੀ ਹੋਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
   }
 }
