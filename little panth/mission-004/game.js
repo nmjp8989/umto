@@ -193,7 +193,7 @@ function focusFor(beat){
   if(beat.framing==='detail')return {x:658,y:605};
   if(beat.framing==='two-shot')return {x:647,y:570};
   const x=beat.speaker==='mehar'?434:beat.speaker==='narrator'?645:840;
-  return {x,y:600};
+  return {x,y:560};
 }
 function updateCamera(beat){
   const move=beat.action==='walk';
