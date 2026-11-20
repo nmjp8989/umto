@@ -1,0 +1,101 @@
+{
+  "title": "ਪਿਆਸਾ ਕਾਂ",
+  "englishTitle": "The Thirsty Crow",
+  "scenes": [
+    {
+      "id": "heat",
+      "title": "A hot afternoon",
+      "anchor": "fields",
+      "framing": "wide",
+      "focus": { "x": 538, "y": 393 },
+      "lines": ["heat-sun", "heat-thirst"],
+      "review": "Hold the wide long enough to establish the hot fields. The crow looks for water from its branch before it speaks."
+    },
+    {
+      "id": "search",
+      "title": "The dry pond",
+      "anchor": "fields",
+      "framing": "full",
+      "focus": { "x": 697, "y": 438 },
+      "lines": ["field-dry", "field-empty"],
+      "review": "Track the crow across the fields to the cracked pond. It lands before speaking and looks down at the dry ground."
+    },
+    {
+      "id": "find",
+      "title": "A pot in the shade",
+      "anchor": "courtyard",
+      "layout": "cinema",
+      "framing": "establishing",
+      "focus": { "x": 716, "y": 401 },
+      "lines": ["jar-found", "jar-hope", "jar-land"],
+      "review": "Reveal the courtyard and clay pot in one wide shot. Let the crow spot the pot before it flies over and lands on the rim."
+    },
+    {
+      "id": "reach",
+      "title": "The water is too low",
+      "anchor": "courtyard",
+      "framing": "medium-close",
+      "focus": { "x": 768, "y": 458 },
+      "lines": ["reach-low", "reach-short"],
+      "review": "Show the water line inside the pot, the beak dipping into the opening, and the visible gap between them."
+    },
+    {
+      "id": "idea",
+      "title": "The little pebbles",
+      "anchor": "courtyard",
+      "framing": "medium",
+      "focus": { "x": 669, "y": 474 },
+      "lines": ["idea-stones", "idea-plan"],
+      "review": "Follow the crow’s eyes to the pebbles by its feet. The expression changes from worried to curious before its idea."
+    },
+    {
+      "id": "drops",
+      "title": "One pebble at a time",
+      "anchor": "courtyard",
+      "layout": "cinema",
+      "framing": "medium-close",
+      "focus": { "x": 771, "y": 467 },
+      "lines": ["drop-first", "drop-count", "drop-succeeds"],
+      "review": "Count the first pebble and three more. The water rises one step per landing. The pebble and splash appear together."
+    },
+    {
+      "id": "drink",
+      "title": "A long drink",
+      "anchor": "courtyard",
+      "framing": "medium-close",
+      "focus": { "x": 782, "y": 443 },
+      "lines": ["sip-why", "sip-water", "sip-relief"],
+      "review": "Keep the four stones visible in the cutaway. The beak reaches the higher water and the crow swallows before its final line."
+    },
+    {
+      "id": "ending",
+      "title": "Off into the sky",
+      "anchor": "courtyard",
+      "framing": "wide",
+      "focus": { "x": 755, "y": 410 },
+      "lines": ["end-fly", "end-lesson"],
+      "review": "Give the crow room to fly out across the frame. Hold the quiet courtyard and the last phrase for young readers."
+    }
+  ],
+  "lines": {
+    "heat-sun": { "speaker": "narrator", "pa": "ਗਰਮੀ ਦੀ ਦੁਪਹਿਰ ਸੀ। ਇੱਕ ਕਾਂ ਨੂੰ ਬੜੀ ਪਿਆਸ ਲੱਗੀ।" },
+    "heat-thirst": { "speaker": "crow", "pa": "ਮੈਨੂੰ ਪਾਣੀ ਕਿੱਥੇ ਮਿਲੇਗਾ?" },
+    "field-dry": { "speaker": "narrator", "pa": "ਕਾਂ ਉੱਡਦਾ ਉੱਡਦਾ ਛੱਪੜ ਕੋਲ ਪਹੁੰਚਿਆ। ਛੱਪੜ ਸੁੱਕ ਚੁੱਕਾ ਸੀ।" },
+    "field-empty": { "speaker": "crow", "pa": "ਇੱਥੇ ਤਾਂ ਪਾਣੀ ਦੀ ਇੱਕ ਬੂੰਦ ਵੀ ਨਹੀਂ!" },
+    "jar-found": { "speaker": "narrator", "pa": "ਫਿਰ ਉਸ ਨੂੰ ਰੁੱਖ ਹੇਠਾਂ ਮਿੱਟੀ ਦਾ ਇੱਕ ਘੜਾ ਦਿੱਸਿਆ।" },
+    "jar-hope": { "speaker": "crow", "pa": "ਓਹ! ਇਸ ਵਿੱਚ ਸ਼ਾਇਦ ਪਾਣੀ ਹੋਵੇ!" },
+    "jar-land": { "speaker": "narrator", "pa": "ਕਾਂ ਉੱਡ ਕੇ ਘੜੇ ਦੇ ਕੰਢੇ ਉੱਤੇ ਬੈਠ ਗਿਆ।" },
+    "reach-low": { "speaker": "narrator", "pa": "ਪਾਣੀ ਘੜੇ ਦੇ ਤਲ ਕੋਲ ਸੀ। ਕਾਂ ਨੇ ਆਪਣੀ ਚੁੰਝ ਅੰਦਰ ਪਾਈ।" },
+    "reach-short": { "speaker": "crow", "pa": "ਮੇਰੀ ਚੁੰਝ ਪਾਣੀ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚਦੀ।" },
+    "idea-stones": { "speaker": "narrator", "pa": "ਕਾਂ ਨੇ ਆਲੇ ਦੁਆਲੇ ਵੇਖਿਆ। ਘੜੇ ਕੋਲ ਛੋਟੇ ਛੋਟੇ ਕੰਕਰ ਪਏ ਸਨ।" },
+    "idea-plan": { "speaker": "crow", "pa": "ਮੈਨੂੰ ਇੱਕ ਤਰਕੀਬ ਸੁੱਝੀ! ਮੈਂ ਕੰਕਰ ਘੜੇ ਵਿੱਚ ਪਾ ਕੇ ਵੇਖਦਾ ਹਾਂ।" },
+    "drop-first": { "speaker": "narrator", "pa": "ਕਾਂ ਨੇ ਇੱਕ ਕੰਕਰ ਚੁੱਕਿਆ ਤੇ ਘੜੇ ਵਿੱਚ ਸੁੱਟ ਦਿੱਤਾ।" },
+    "drop-count": { "speaker": "narrator", "pa": "ਪਾਣੀ ਥੋੜ੍ਹਾ ਉੱਪਰ ਆਇਆ। ਕਾਂ ਨੇ ਤਿੰਨ ਹੋਰ ਕੰਕਰ ਪਾਏ। ਇੱਕ, ਦੋ, ਤਿੰਨ।" },
+    "drop-succeeds": { "speaker": "crow", "pa": "ਵਾਹ! ਹੁਣ ਪਾਣੀ ਉੱਪਰ ਆ ਰਿਹਾ ਹੈ!" },
+    "sip-why": { "speaker": "narrator", "pa": "ਕੰਕਰਾਂ ਨੇ ਘੜੇ ਵਿੱਚ ਥਾਂ ਘੇਰੀ, ਤੇ ਪਾਣੀ ਉੱਪਰ ਚੜ੍ਹ ਆਇਆ।" },
+    "sip-water": { "speaker": "narrator", "pa": "ਹੁਣ ਕਾਂ ਦੀ ਚੁੰਝ ਪਾਣੀ ਤੱਕ ਪਹੁੰਚ ਗਈ। ਉਸ ਨੇ ਰੱਜ ਕੇ ਪਾਣੀ ਪੀਤਾ।" },
+    "sip-relief": { "speaker": "crow", "pa": "ਆਹ! ਹੁਣ ਮੇਰੀ ਪਿਆਸ ਬੁੱਝ ਗਈ।" },
+    "end-fly": { "speaker": "narrator", "pa": "ਕਾਂ ਖੁਸ਼ੀ ਨਾਲ ਉੱਡ ਗਿਆ। ਉਸ ਨੇ ਸੋਚਿਆ ਅਤੇ ਸਬਰ ਨਾਲ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ।" },
+    "end-lesson": { "speaker": "narrator", "pa": "ਜਦੋਂ ਕੋਈ ਕੰਮ ਔਖਾ ਲੱਗੇ, ਤਾਂ ਸੋਚੋ ਤੇ ਇੱਕ ਵਾਰੀ ਹੋਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।" }
+  }
+}

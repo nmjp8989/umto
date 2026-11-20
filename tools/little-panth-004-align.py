@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Align Mission 04's written Gurmukhi to the recorded Punjabi dialogue."""
+"""Align a Little Panth storybook's Gurmukhi to its recorded Punjabi dialogue."""
 
 import argparse
 from difflib import SequenceMatcher
@@ -12,7 +12,7 @@ import unicodedata
 import numpy as np
 
 
-MISSION = Path(__file__).resolve().parents[1] / "little panth" / "mission-004"
+ROOT = Path(__file__).resolve().parents[1] / "little panth"
 SAMPLE_RATE = 16000
 
 
@@ -84,13 +84,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("model", type=Path)
     parser.add_argument("tokens", type=Path)
+    parser.add_argument("--mission", choices=("mission-004", "mission-005"), default="mission-004")
     args = parser.parse_args()
     import imageio_ffmpeg
     import sherpa_onnx
 
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-    audio = MISSION / "audio"
-    dialogue = json.loads((MISSION / "dialogue.json").read_text(encoding="utf-8"))["lines"]
+    mission = ROOT / args.mission
+    audio = mission / "audio"
+    dialogue = json.loads((mission / "dialogue.json").read_text(encoding="utf-8"))["lines"]
     manifest = json.loads((audio / "generation-manifest.json").read_text(encoding="utf-8"))
     output = audio / "word-timings.json"
     previous = json.loads(output.read_text(encoding="utf-8")) if output.exists() else {}
