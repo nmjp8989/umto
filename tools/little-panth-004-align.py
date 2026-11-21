@@ -84,7 +84,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("model", type=Path)
     parser.add_argument("tokens", type=Path)
-    parser.add_argument("--mission", choices=("mission-004", "mission-005"), default="mission-004")
+    parser.add_argument("--mission", choices=("mission-004", "mission-005", "mission-007"), default="mission-004")
     args = parser.parse_args()
     import imageio_ffmpeg
     import sherpa_onnx

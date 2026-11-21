@@ -1,0 +1,92 @@
+{
+  "mission": 7,
+  "title": "ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼",
+  "englishTitle": "The Tortoise and the Hare",
+  "speakers": { "narrator": "Narrator", "tortoise": "Tortoise", "hare": "Hare" },
+  "scenes": [
+    {
+      "id": "meet",
+      "title": "A race through the fields",
+      "anchor": "sunny",
+      "framing": "wide",
+      "focus": { "x": 618, "y": 396 },
+      "lines": ["meet-path", "meet-hare", "meet-tortoise"],
+      "review": "Establish both friends and the path. Use a two-shot for the invitation and the tortoise’s reply."
+    },
+    {
+      "id": "start",
+      "title": "The race begins",
+      "anchor": "sunny",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 620, "y": 407 },
+      "lines": ["start-race", "start-steps"],
+      "review": "Hold the start until the narrator says the race begins. The hare bounds ahead and the tortoise keeps a steady rhythm."
+    },
+    {
+      "id": "nap",
+      "title": "A shady place to rest",
+      "anchor": "shady",
+      "framing": "medium",
+      "focus": { "x": 647, "y": 475 },
+      "lines": ["nap-hare", "nap-sleep"],
+      "review": "See the hare settle fully on the ground and close its eyes after speaking."
+    },
+    {
+      "id": "pass",
+      "title": "One step at a time",
+      "anchor": "shady",
+      "framing": "conversation",
+      "focus": { "x": 640, "y": 472 },
+      "lines": ["pass-sleeper", "pass-tortoise"],
+      "review": "Show the tortoise pass in the foreground. The hare stays asleep throughout the tortoise’s line."
+    },
+    {
+      "id": "wake",
+      "title": "The hare wakes up",
+      "anchor": "shady",
+      "framing": "medium",
+      "focus": { "x": 659, "y": 466 },
+      "lines": ["wake-eyes", "wake-hare"],
+      "review": "Open the hare’s eyes as it wakes. Cut to a wider view once it spots the finish and bounds after the tortoise."
+    },
+    {
+      "id": "finish",
+      "title": "Across the finish line",
+      "anchor": "sunny",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "conversation",
+      "focus": { "x": 747, "y": 430 },
+      "lines": ["finish-cross", "finish-hare"],
+      "review": "Follow the tortoise through the ribbon first. The hare slows to a stop, then congratulates its friend."
+    },
+    {
+      "id": "friends",
+      "title": "The walk home",
+      "anchor": "sunny",
+      "framing": "wide",
+      "focus": { "x": 668, "y": 415 },
+      "lines": ["friends-tortoise", "friends-home"],
+      "review": "Hold both friends for the invitation, then let them walk together at the tortoise’s pace."
+    }
+  ],
+  "lines": {
+    "meet-path": { "speaker": "narrator", "pa": "ਇੱਕ ਦਿਨ ਖ਼ਰਗੋਸ਼ ਨੇ ਕੱਛੂਏ ਨੂੰ ਰਾਹ ਉੱਤੇ ਤੁਰਦਿਆਂ ਵੇਖਿਆ।" },
+    "meet-hare": { "speaker": "hare", "pa": "ਮੈਂ ਬਹੁਤ ਤੇਜ਼ ਭੱਜਦਾ ਹਾਂ। ਆ, ਅੱਜ ਦੌੜ ਲਾਈਏ!" },
+    "meet-tortoise": { "speaker": "tortoise", "pa": "ਠੀਕ ਹੈ। ਮੈਂ ਆਪਣੇ ਕਦਮਾਂ ਨਾਲ ਦੌੜ ਪੂਰੀ ਕਰਾਂਗਾ।" },
+    "start-race": { "speaker": "narrator", "pa": "ਦੌੜ ਸ਼ੁਰੂ ਹੋਈ। ਖ਼ਰਗੋਸ਼ ਛਾਲਾਂ ਮਾਰਦਾ ਅੱਗੇ ਨਿਕਲ ਗਿਆ।" },
+    "start-steps": { "speaker": "narrator", "pa": "ਕੱਛੂਆ ਨਿੱਕੇ ਨਿੱਕੇ ਕਦਮਾਂ ਨਾਲ ਤੁਰਦਾ ਰਿਹਾ।" },
+    "nap-hare": { "speaker": "hare", "pa": "ਕੱਛੂਆ ਹਾਲੇ ਬਹੁਤ ਪਿੱਛੇ ਹੈ। ਮੈਂ ਥੋੜ੍ਹਾ ਆਰਾਮ ਕਰ ਲਵਾਂ।" },
+    "nap-sleep": { "speaker": "narrator", "pa": "ਖ਼ਰਗੋਸ਼ ਰੁੱਖ ਦੀ ਛਾਂ ਹੇਠ ਲੇਟਿਆ ਤੇ ਸੌਂ ਗਿਆ।" },
+    "pass-sleeper": { "speaker": "narrator", "pa": "ਕੱਛੂਆ ਸੁੱਤੇ ਖ਼ਰਗੋਸ਼ ਕੋਲੋਂ ਹੌਲੀ ਹੌਲੀ ਲੰਘ ਗਿਆ।" },
+    "pass-tortoise": { "speaker": "tortoise", "pa": "ਇੱਕ ਕਦਮ, ਫਿਰ ਇੱਕ ਕਦਮ।" },
+    "wake-eyes": { "speaker": "narrator", "pa": "ਖ਼ਰਗੋਸ਼ ਜਾਗਿਆ ਤੇ ਉਸ ਨੇ ਕੱਛੂਏ ਨੂੰ ਅੱਗੇ ਦੇਖਿਆ।" },
+    "wake-hare": { "speaker": "hare", "pa": "ਓਹ! ਕੱਛੂਆ ਤਾਂ ਫੀਤੇ ਕੋਲ ਪਹੁੰਚਣ ਵਾਲਾ ਹੈ!" },
+    "finish-cross": { "speaker": "narrator", "pa": "ਕੱਛੂਆ ਫੀਤੇ ਦੇ ਪਾਰ ਲੰਘ ਗਿਆ। ਉਹ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਪਹੁੰਚਿਆ।" },
+    "finish-hare": { "speaker": "hare", "pa": "ਸ਼ਾਬਾਸ਼, ਕੱਛੂਏ! ਤੂੰ ਤੁਰਦਾ ਰਿਹਾ ਤੇ ਜਿੱਤ ਗਿਆ।" },
+    "friends-tortoise": { "speaker": "tortoise", "pa": "ਆ, ਹੁਣ ਆਪਾਂ ਇਕੱਠੇ ਘਰ ਚੱਲੀਏ।" },
+    "friends-home": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਮੁਸਕਰਾਏ ਤੇ ਇਕੱਠੇ ਘਰ ਵੱਲ ਤੁਰ ਪਏ। ਕੱਛੂਏ ਦੇ ਨਿੱਕੇ ਕਦਮਾਂ ਨੇ ਵੱਡਾ ਕੰਮ ਕਰ ਦਿੱਤਾ।" }
+  }
+}

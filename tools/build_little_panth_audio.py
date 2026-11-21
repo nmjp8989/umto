@@ -25,6 +25,8 @@ MODEL="gemini-3.8-flash-tts"
 TTS_MODELS=(MODEL,"gemini-3.8-flash-lite-tts")
 VOICES={
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),
+ "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
+ "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
  "mehar":("Kore","Bright gentle young Punjabi girl's voice with warmth, natural child-friendly surprise, clear conversational Punjabi."),
  "baba":("Charon","Calm, dignified, warm older Punjabi Sikh grandfather voice with careful pronunciation, patient respectful delivery."),
@@ -40,7 +42,7 @@ VOICES={
 }
 def main():
  p=argparse.ArgumentParser()
- p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005", "mission-006"), default="mission-001")
+ p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005", "mission-006", "mission-007"), default="mission-001")
  p.add_argument("--model", choices=TTS_MODELS, default=MODEL)
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
