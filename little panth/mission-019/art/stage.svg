@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">A crow with paneer on a branch above a fox in a Punjabi orchard</title>
+  <defs>
+    <linearGradient id="branch" x2=".33" y2="1">
+      <stop stop-color="#c19963"/><stop offset=".38" stop-color="#a77e50"/><stop offset="1" stop-color="#72573d"/>
+    </linearGradient>
+    <linearGradient id="leaf" x2=".35" y2="1">
+      <stop stop-color="#beae60"/><stop offset=".49" stop-color="#8f9952"/><stop offset="1" stop-color="#626d43"/>
+    </linearGradient>
+    <linearGradient id="paneer-color" x2=".26" y2="1">
+      <stop stop-color="#fff4d5"/><stop offset=".61" stop-color="#f1dba7"/><stop offset="1" stop-color="#cfad77"/>
+    </linearGradient>
+    <radialGradient id="shade">
+      <stop stop-color="#4a3526" stop-opacity=".50"/><stop offset="1" stop-color="#4a3526" stop-opacity="0"/>
+    </radialGradient>
+    <g id="leaf-spray" stroke-linecap="round">
+      <path d="M-3 3Q20 37 16 84" fill="none" stroke="#7d7950" stroke-width="3.5"/>
+      <path d="M6 21q-18 5-31-12 21-4 31 12Zm7 9q14-16 29-10-5 15-29 10Zm3 16q-23 0-34-19 23 0 34 19Zm2 16q7-23 32-29-2 21-32 29Zm0 13q-20 0-28-19 21 4 28 19Z"
+        fill="url(#leaf)" stroke="#74784a" stroke-width="1.7"/>
+      <path d="M4 20l-16-6m30 13 16-6m-19 25-23-12m26 26 24-21m-24 34L-1 61"
+        stroke="#d9c67a" stroke-width="1.5" fill="none" opacity=".70"/>
+    </g>
+    <g id="orchard-grass">
+      <path d="M-2 8Q-17-12-36-12-30-23-6-3-24-30-18-47-4-33 0-6q9-24 35-31-9 17-28 33 19-12 34-8Q21 3-2 8Z"
+        fill="#8c9759" stroke="#7c8752" stroke-width="1.5"/>
+      <path d="M-1 2q-4-17-11-26m17 25q13-15 20-17" fill="none" stroke="#bcb972" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <g id="paneer-piece" stroke-linejoin="round">
+      <path d="M-19-7l9-8 22 1 9 8-2 17-25 4-13-7Z" fill="url(#paneer-color)" stroke="#a18058" stroke-width="2.2"/>
+      <path d="M-18-7l22 5 16-4-8-8-22-1Z" fill="#fff3d2"/>
+      <path d="M3-2l-1 14 18-3 1-15Z" fill="#e5c390"/>
+      <path d="M-12-5l7 2m-6 7 3 2m21-4 3-1" stroke="#d2b381" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <g data-camera-depth="-.18">
+    <rect x="-89" y="-50" width="1458" height="813" fill="#e3c386"/>
+    <image href="../mission-003/art/banyan.webp" x="-58" y="-35" width="1396" height="786" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <g id="live-branch" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M540 307q31-18 83-16 87 0 133-12 110-25 224-113 55-45 115-41l-7 26q-37 2-95 48-89 80-198 110-104 29-253 15Z"
+      fill="url(#branch)" stroke="#7b5c3d" stroke-width="4"/>
+    <path d="M551 311q74 12 182-7 140-23 243-114m-359 122 52-1m116-18 43-15m81-32 30-27"
+      fill="none" stroke="#dfb67b" stroke-width="3.7" opacity=".79"/>
+    <path d="M828 285q11-51 58-92m-171 108q-42-34-99-32"
+      fill="none" stroke="#9e7b50" stroke-width="10"/>
+    <path d="M836 267q17-35 45-61m-212 79q-22-11-47-11" fill="none" stroke="#d2a76e" stroke-width="3.8"/>
+    <use href="#leaf-spray" transform="translate(611 267) rotate(32) scale(.84)"/>
+    <use href="#leaf-spray" transform="translate(577 294) rotate(23) scale(.66)"/>
+    <use href="#leaf-spray" transform="translate(829 262) rotate(-14) scale(.87)"/>
+    <use href="#leaf-spray" transform="translate(879 201) rotate(-23) scale(.78)"/>
+    <use href="#leaf-spray" transform="translate(968 216) scale(1.19)"/>
+  </g>
+  <ellipse id="fox-shadow" cy="618" rx="126" ry="23" fill="url(#shade)" opacity="0"/>
+  <ellipse id="paneer-shadow" cy="625" rx="33" ry="7" fill="url(#shade)" opacity="0"/>
+  <g id="animals"/>
+  <use id="paneer" href="#paneer-piece" opacity="0"/>
+  <g id="crumbs" opacity="0" fill="#efdcab">
+    <ellipse cx="-17" cy="-5" rx="3.4" ry="2.4"/>
+    <circle cx="19" cy="-8" r="2.7"/>
+    <circle cx="27" cy="-2" r="1.8"/>
+  </g>
+  <g data-camera-depth=".22" pointer-events="none">
+    <use href="#orchard-grass" transform="translate(30 694) scale(1.4)"/>
+    <use href="#orchard-grass" transform="translate(98 696) scale(.88)"/>
+    <use href="#orchard-grass" transform="translate(1086 679) scale(1.03)"/>
+    <use href="#orchard-grass" transform="translate(1221 705) scale(1.57)"/>
+  </g>
+</svg>
