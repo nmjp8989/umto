@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-label="A shady village wall opens onto a sunny mustard field and a wooden gate">
+  <defs>
+    <linearGradient id="wheel-sky" x2=".18" y2="1">
+      <stop stop-color="#8ebdca"/><stop offset=".74" stop-color="#cfe4d9"/><stop offset="1" stop-color="#f6e7b1"/>
+    </linearGradient>
+    <linearGradient id="wheel-fields" x2=".32" y2="1">
+      <stop stop-color="#c0bb68"/><stop offset=".55" stop-color="#daca61"/><stop offset="1" stop-color="#bcb255"/>
+    </linearGradient>
+    <linearGradient id="wheel-dirt" x2=".28" y2="1">
+      <stop stop-color="#d6b780"/><stop offset="1" stop-color="#b68c62"/>
+    </linearGradient>
+    <linearGradient id="wheel-wall" x2=".14" y2="1">
+      <stop stop-color="#edcf9e"/><stop offset=".57" stop-color="#dabc91"/><stop offset="1" stop-color="#b78b68"/>
+    </linearGradient>
+    <linearGradient id="wheel-wall-shadow" x2="1" y2=".45">
+      <stop stop-color="#74685b" stop-opacity=".63"/><stop offset=".84" stop-color="#897965" stop-opacity=".35"/><stop offset="1" stop-color="#a28c71" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="wheel-foot-shadow">
+      <stop stop-color="#4e5b44" stop-opacity=".65"/><stop offset="1" stop-color="#594c3b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="wheel-grain" width="83" height="75" patternUnits="userSpaceOnUse">
+      <path d="M5 9h2m36 4h3m17-5h2M27 49h3m15 16h3m18-20h2M8 38h2m4 28h2" fill="none" stroke="#fff0c9" stroke-width="1.4" stroke-linecap="round" opacity=".43"/>
+      <path d="M24 12h2m25 14h3m7-3h2m15 37h2M8 54h3m21 8h2m12-22h3" fill="none" stroke="#856f56" stroke-width="1.3" stroke-linecap="round" opacity=".35"/>
+    </pattern>
+    <pattern id="wheel-brick" width="106" height="45" patternUnits="userSpaceOnUse">
+      <rect width="106" height="45" fill="#d6aa7e"/>
+      <path d="M2 2h55v18H2ZM61 2h43v18H61ZM2 24h24v18H2Zm28 0h56v18H30Zm61 0h13v18H91Z" fill="#ae7e61"/>
+      <path d="M5 4h45m15-1h35M4 26h18m13 0h41m18 0h8" fill="none" stroke="#ecc092" stroke-width="1.7" opacity=".54"/>
+    </pattern>
+    <g id="mustard-stem">
+      <path d="M0 0q-8-23-5-37-4-11 0-27m1 47q16-15 11-24M-7-30q-10-3-17-14m15 18q-10 7-16 2" fill="none" stroke="#6c813e" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M-7-22q-13-2-20-10 14-1 20 10Zm3 4q16-10 22-10-1 11-22 10Zm-2-27q9-12 17-13 1 7-17 13Z" fill="#84964a"/>
+      <path d="M-8-63q-9-3-5-9 4-3 8 1 3-8 8-4 2 3-4 9 7-1 8 3 0 5-9 4l-5 5-5-4Zm12 18q-2-6 5-5 4 2 0 5 7 0 7 4-3 5-8 1-6 5-7 1ZM-20-43q-8 2-7-5 4-5 8 0 2-4 7-3 7 5-3 8Z" fill="#f8d955" stroke="#c5a849" stroke-width="1"/>
+      <circle cx="-4" cy="-65" r="2.4" fill="#fff2a6"/>
+    </g>
+    <g id="wheel-blade">
+      <path d="M-4 4C10-12 8-37-8-53Q19-60 49-41C53-14 31 6-4 4Z" fill="currentColor" stroke="#535846" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M-4 4Q15-16 49-41C44-11 20 4-4 4Z" fill="#fcf6db" opacity=".36"/>
+      <path d="M-5-51Q17-44 31-30" fill="none" stroke="#fff7d6" stroke-width="1.6" opacity=".65" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <g data-camera-depth="-.58">
+    <path d="M-145-40H1425V440H-145Z" fill="url(#wheel-sky)"/>
+    <path d="M118 132q47-31 111-16 44-31 88-15 55-15 105 1-117 31-304 30Zm631 2q40-24 88-12 36-34 101-20 36-17 86-1-128 35-275 33Z" fill="#f5f2d7" opacity=".85"/>
+    <path d="M787 200q62-24 120-21 51-17 123-12 38 0 79 15-149 26-322 18Z" fill="#f3f2dc" opacity=".47"/>
+    <path d="M-30 359q86-69 215-59 114-47 247-30 122-26 263 31 92-46 185-38 175-28 461-12v180H-30Z" fill="#90a47a"/>
+    <path d="M490 342q134-29 218-18 52-36 177-38 144-39 434 12v98H490Z" fill="#b0b67b"/>
+    <path d="M685 331q23-39 62-47 21-31 52-27 36-21 70 3 35-19 69-6 22-16 69 1 53-11 99 28 48-3 68 22l104 4v56H685Z" fill="#859c67"/>
+    <path d="M831 300q-3-24 13-48l1-30 6-4 15 23 12-18 22 8 9 38-25 45Z" fill="#a8a378" opacity=".62"/>
+  </g>
+
+  <path d="M589 365q284-30 691-30v240H589Z" fill="url(#wheel-fields)"/>
+  <path d="M632 375q277-58 654-33v10q-370-13-654 39Zm-2 48q330-72 656-48v12q-306-20-656 50Zm7 45q295-56 649-50v16q-269-17-649 47Z" fill="#a2a653" opacity=".69"/>
+  <path d="M852 370q162-29 396-19m-466 57q208-47 461-43m-524 86q283-60 519-51m-459 65q203-37 414-49" fill="none" stroke="#f4da6b" stroke-width="5" stroke-linecap="round" opacity=".63"/>
+  <path d="M-50 461q273-22 593 2l137 7q96-27 145-15 65 34 141 36 176-23 337-15v244H-50Z" fill="url(#wheel-dirt)"/>
+  <path d="M-28 514q357-34 642-3 129 16 300 9 231-18 386 6M-11 674q306-55 584-24 290 28 740-40M-9 705q227-41 462-30 225 29 391 20 271-19 447-56" fill="none" stroke="#edd6a4" stroke-width="4.5" stroke-opacity=".54" stroke-linecap="round"/>
+  <path d="M-18 469q483-61 695-4 371 25 620 6v249H-18Z" fill="url(#wheel-grain)" opacity=".86"/>
+  <path d="M-32 466 660 451 761 551Q417 599 148 649L-32 658Z" fill="url(#wheel-wall-shadow)"/>
+
+  <g>
+    <path d="M-18 225q247-23 456 22l210 24 7 243q-246-20-671 2Z" fill="url(#wheel-wall)" stroke="#a88264" stroke-width="3.5"/>
+    <path d="M-14 431q199-15 328-5 138 17 342 7v81q-445-27-674 4Z" fill="url(#wheel-brick)" opacity=".62"/>
+    <path d="M-18 224q242-29 453 16l228 28-7 29-219-25Q237 222-18 255Z" fill="url(#wheel-brick)" stroke="#a5795c" stroke-width="3"/>
+    <path d="M639 277l26-10 24 15 9 232-49 16Z" fill="#b59372" stroke="#9b7e65" stroke-width="3"/>
+    <path d="M649 287q9-10 19-15v243l-19 13Z" fill="#d9b789"/>
+    <path d="M-4 267q221-15 421 29l200 17 19 98q-172 2-252-10-202-26-388 0Z" fill="url(#wheel-grain)" opacity=".83"/>
+    <path d="M10 299q139-18 258-4m-163 21q91-5 133 1m131 21q81 6 163 26m-198 68q138 13 270 13" fill="none" stroke="#f6dfaa" stroke-width="3" stroke-opacity=".62" stroke-linecap="round"/>
+    <path d="M548 362l16 15-8 16 11 9-4 13m-344-56 10 7-2 11 13 11m-165-39 7 23 14 3-5 14" fill="none" stroke="#a58b6d" stroke-width="2.1" opacity=".69"/>
+    <path d="M82 505q-14-37-31-54 3 29 20 51m6-10q21-47 49-52-12 40-35 61m-6-21q10-44 25-51 1 35-20 63" fill="#78845c" opacity=".8"/>
+    <path d="M45 500q35-20 66-1l-7 45q-23 18-50-5Z" fill="#b77b59" stroke="#946b54" stroke-width="3"/>
+    <path d="M56 514q23-8 49-3m-44 22q23 6 39-1" fill="none" stroke="#ebad79" stroke-width="3"/>
+  </g>
+
+  <g>
+    <path d="M1140 416l147-27v17l-146 30Z" fill="#b49c73" stroke="#85795d" stroke-width="3"/>
+    <path d="M1142 450l145-23v14l-144 28Zm-22-69 25-4 5 117-24 5Z" fill="#aa8d68" stroke="#83745a" stroke-width="3.2"/>
+    <path d="M1128 390l5 106m17-73 124-20" fill="none" stroke="#d5bd88" stroke-width="2.8"/>
+    <path d="M837 421l19-10 74 19v18l-80-14Zm0 32 23-7 69 22v15l-69-21Z" fill="#ad9670" stroke="#82745c" stroke-width="2.9"/>
+    <path d="M829 371l24-9 8 119-23 16Z" fill="#a28763" stroke="#7b7155" stroke-width="3.8"/>
+    <path d="M836 379l8 99" fill="none" stroke="#dcc391" stroke-width="3.4"/>
+    <path id="gate-ribbon" fill="#c75952" stroke="#8f4948" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M838 360q14-7 18 0-1 10-15 8Z" fill="#e18067" stroke="#934e49" stroke-width="2"/>
+  </g>
+
+  <g id="field-flowers">
+    <g transform="translate(988 464) scale(.67)"><g data-sway="0"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1027 475) scale(.84)"><g data-sway="1"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1070 459) scale(.59)"><g data-sway="2"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1093 487) scale(.98)"><g data-sway="3"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1157 472) scale(.62)"><g data-sway="4"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1185 491) scale(.94)"><g data-sway="5"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1240 470) scale(.7)"><g data-sway="6"><use href="#mustard-stem"/></g></g>
+  </g>
+
+  <g fill="url(#wheel-foot-shadow)">
+    <ellipse id="mehar-shadow" rx="48" ry="13"/>
+    <ellipse id="harpreet-shadow" rx="64" ry="14"/>
+  </g>
+
+  <g id="pinwheel">
+    <path d="M-2-94 2-95 3 19Q1 24-2 21Z" fill="#a47b51" stroke="#735e45" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M0-79 1-10" fill="none" stroke="#eed4a1" stroke-width="1.2" opacity=".76"/>
+    <g transform="translate(0 -93)">
+      <g id="wheel-rotor">
+        <use href="#wheel-blade" color="#de7670"/>
+        <use href="#wheel-blade" color="#ebbf56" transform="rotate(90)"/>
+        <use href="#wheel-blade" color="#68a9a0" transform="rotate(180)"/>
+        <use href="#wheel-blade" color="#8b80b0" transform="rotate(270)"/>
+      </g>
+      <circle id="wheel-blur" r="49" fill="#eacba4" opacity="0"/>
+      <circle id="wheel-hub" r="6.6" fill="#f6e2a8" stroke="#765b44" stroke-width="1.8"/>
+      <circle cx="-1.3" cy="-1.4" r="1.4" fill="#fff4cc"/>
+    </g>
+  </g>
+  <g id="mehar"><g id="mehar-props"/></g>
+  <g id="harpreet"><g id="harpreet-props"/></g>
+
+  <g data-camera-depth=".66" opacity=".85">
+    <path d="M-8 715q31-34 77-41-15 29-40 48H-8Zm1288 5h-49q-27-10-41-56 55 21 90 47Z" fill="#85915c"/>
+    <g transform="translate(1244 722) scale(.92)"><g data-sway="7"><use href="#mustard-stem"/></g></g>
+    <g transform="translate(1271 728) scale(1.1)"><g data-sway="8"><use href="#mustard-stem"/></g></g>
+  </g>
+</svg>
