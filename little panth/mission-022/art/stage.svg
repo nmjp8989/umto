@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Rohan and three monkeys beneath a banyan tree</title>
+  <defs>
+    <radialGradient id="cap-shade">
+      <stop stop-color="#3f3625" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#3f3625" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cap-bark" x2=".18" y2="1">
+      <stop stop-color="#aa814d"/>
+      <stop offset=".48" stop-color="#8f6940"/>
+      <stop offset="1" stop-color="#5e4833"/>
+    </linearGradient>
+    <linearGradient id="cap-wicker" x2=".44" y2="1">
+      <stop stop-color="#dfaa65"/>
+      <stop offset=".57" stop-color="#bf8949"/>
+      <stop offset="1" stop-color="#875a3a"/>
+    </linearGradient>
+    <linearGradient id="cap-stone-fill" x2=".24" y2="1">
+      <stop stop-color="#b9a98b"/>
+      <stop offset="1" stop-color="#7f6f5b"/>
+    </linearGradient>
+    <clipPath id="cap-basket-cut">
+      <path d="M-58 5Q0-19 58 5L57 38Q48 55 0 57Q-48 55-57 38Z"/>
+    </clipPath>
+    <g id="cap-design" stroke-linejoin="round">
+      <path d="M-27-2Q-27-24-15-29Q-4-35 8-29Q25-25 27-6L25 1Q9 7-16 5Z" fill="var(--cap-body)" stroke="var(--cap-line)" stroke-width="2.2"/>
+      <path d="M-1-30Q-12-29-15-13L-16 4M7-29Q17-21 18-4" fill="none" stroke="var(--cap-light)" stroke-opacity=".73" stroke-width="1.6"/>
+      <path d="M-26-3Q-10 3 17-1Q28-6 42 0Q44 3 36 7Q14 14-15 8Q-24 5-26-3Z" fill="var(--cap-visor)" stroke="var(--cap-line)" stroke-width="2.1"/>
+      <path d="M-15 4Q4 10 35 4" fill="none" stroke="var(--cap-light)" stroke-width="1.4" stroke-linecap="round" opacity=".76"/>
+      <ellipse cx="0" cy="-31" rx="4" ry="2.2" fill="var(--cap-visor)" stroke="var(--cap-line)" stroke-width="1.3"/>
+    </g>
+    <g id="cap-monkey-template" stroke-linecap="round" stroke-linejoin="round">
+      <path data-tail="" fill="none" stroke="var(--monkey-edge)" stroke-width="11.7"/>
+      <path data-tail-light="" fill="none" stroke="var(--monkey-fur)" stroke-width="8"/>
+      <g data-leg="far">
+        <path fill="none" stroke="var(--monkey-edge)" stroke-width="13"/>
+        <path fill="none" stroke="var(--monkey-fur)" stroke-width="9.2"/>
+        <ellipse data-foot="" rx="12" ry="5.5" fill="var(--monkey-light)" stroke="var(--monkey-edge)" stroke-width="1.8"/>
+      </g>
+      <g data-arm="far">
+        <path fill="none" stroke="var(--monkey-edge)" stroke-width="12.3"/>
+        <path fill="none" stroke="var(--monkey-fur)" stroke-width="8.5"/>
+        <g data-paw=""><circle r="6.1" fill="var(--monkey-light)" stroke="var(--monkey-edge)" stroke-width="1.7"/><path d="M-1-3Q1 0 0 2M3-2Q4 0 3 2" fill="none" stroke="var(--monkey-edge)" stroke-width="1.2"/></g>
+      </g>
+      <path d="M-27-43Q-23-63 0-63Q20-64 25-42Q35-17 17-11Q-10-4-24-16Q-34-26-27-43Z" fill="var(--monkey-fur)" stroke="var(--monkey-edge)" stroke-width="2.5"/>
+      <path d="M-12-48Q4-52 13-44Q23-28 11-17Q-3-11-15-20Q-24-30-12-48Z" fill="var(--monkey-light)" opacity=".78"/>
+      <g data-leg="near">
+        <path fill="none" stroke="var(--monkey-edge)" stroke-width="13.6"/>
+        <path fill="none" stroke="var(--monkey-fur)" stroke-width="9.5"/>
+        <ellipse data-foot="" rx="12.5" ry="5.8" fill="var(--monkey-light)" stroke="var(--monkey-edge)" stroke-width="1.9"/>
+      </g>
+      <g data-head="">
+        <circle cx="-28" cy="-78" r="12" fill="var(--monkey-fur)" stroke="var(--monkey-edge)" stroke-width="2.4"/>
+        <circle cx="28" cy="-78" r="12" fill="var(--monkey-fur)" stroke="var(--monkey-edge)" stroke-width="2.4"/>
+        <path d="M-34-77Q-34-86-25-83M34-76Q36-85 26-84" fill="none" stroke="var(--monkey-light)" stroke-width="3.5"/>
+        <path d="M-28-85Q-22-101-6-102Q-9-106-6-111Q-2-107 3-105Q6-110 11-109Q8-104 13-101Q28-96 30-81Q35-54 12-50Q-7-45-24-55Q-33-63-28-85Z" fill="var(--monkey-fur)" stroke="var(--monkey-edge)" stroke-width="2.6"/>
+        <path d="M-21-79Q-19-94-7-91Q-1-90 1-85Q6-94 17-89Q26-84 26-72Q27-58 9-54Q-13-52-21-61Q-27-67-21-79Z" fill="var(--monkey-light)" stroke="#694938" stroke-opacity=".47" stroke-width="1.9"/>
+        <path d="M-14-83q5-4 9 0m12 0q5-5 10-1" fill="none" stroke="var(--monkey-edge)" stroke-width="1.9"/>
+        <g data-eyes="" fill="#322623"><ellipse cx="-9" cy="-76" rx="2.65" ry="4.2"/><ellipse cx="12" cy="-76" rx="2.65" ry="4.2"/></g>
+        <path d="M2-70q-3 3 3 4M-2-61q7 3 13-2" fill="none" stroke="#634438" stroke-width="1.6"/>
+        <circle cx="-13" cy="-65" r="3" fill="#cb7e60" opacity=".62"/><circle cx="19" cy="-66" r="2.8" fill="#cb7e60" opacity=".62"/>
+        <circle data-monkey-crown="" cy="-96" r="1" visibility="hidden"/>
+      </g>
+      <g data-arm="near">
+        <path fill="none" stroke="var(--monkey-edge)" stroke-width="12.8"/>
+        <path fill="none" stroke="var(--monkey-fur)" stroke-width="8.9"/>
+        <g data-paw=""><circle r="6.3" fill="var(--monkey-light)" stroke="var(--monkey-edge)" stroke-width="1.7"/><path d="M-1-3Q1 0 0 2M3-2Q4 0 3 2" fill="none" stroke="var(--monkey-edge)" stroke-width="1.2"/></g>
+      </g>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.12">
+    <rect x="-100" y="-68" width="1470" height="855" fill="#cfa276"/>
+    <image href="../mission-003/art/banyan.webp" x="-45" y="-32" width="1370" height="784" preserveAspectRatio="none"/>
+  </g>
+  <g id="cap-vines" fill="none" stroke-linecap="round">
+    <path d="M615 206C596 331 610 481 611 578M744 196C763 334 738 482 752 582M877 199C895 343 867 469 879 582" stroke="#684634" stroke-width="4.7" opacity=".74"/>
+    <path d="M613 209C594 331 609 481 609 577M745 199C765 333 740 482 754 581M878 201C897 341 869 470 881 580" stroke="#bd9964" stroke-width="1.7" opacity=".54"/>
+  </g>
+  <g id="cap-bough" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M560 226Q601 207 626 201Q672 191 717 197Q760 185 819 194Q850 198 887 190Q939 184 970 160L1023 128 1048 150Q1036 171 1002 185Q971 209 927 214Q881 225 834 217Q777 209 735 215Q698 227 649 218Q612 217 560 226Z" fill="url(#cap-bark)" stroke="#6e5136" stroke-width="2.35"/>
+    <path d="M576 221Q646 202 687 210Q730 210 766 199Q828 198 864 205Q945 198 977 175Q1012 152 1032 142" fill="none" stroke="#c39a5c" stroke-width="3.2" opacity=".65"/>
+    <path d="M626 216q49-5 78 2m119-6q41 1 67-6m37 2q40-9 63-28" fill="none" stroke="#62472f" stroke-width="2.45" opacity=".7"/>
+  </g>
+  <g id="cap-stone">
+    <ellipse cx="705" cy="595" rx="90" ry="19" fill="url(#cap-shade)"/>
+    <path d="M631 585Q634 566 664 552Q693 542 746 551Q773 556 781 577Q765 591 735 597Q671 608 631 585Z" fill="url(#cap-stone-fill)" stroke="#817055" stroke-width="3"/>
+    <path d="M649 574Q665 559 692 555Q736 551 764 567M647 588Q666 594 689 593M734 587q18-6 28-7" fill="none" stroke="#dac29b" stroke-width="2.8" stroke-linecap="round" opacity=".66"/>
+  </g>
+  <ellipse id="rohan-shadow" rx="67" ry="15" fill="url(#cap-shade)"/>
+  <g id="rohan-plane"><g id="rohan"/><g id="rohan-props"/></g>
+  <g id="cap-monkeys">
+    <g id="blue-monkey" style="--monkey-fur:#957353;--monkey-edge:#5d4634;--monkey-light:#e7ba80"/>
+    <g id="yellow-monkey" style="--monkey-fur:#b08659;--monkey-edge:#6e4a34;--monkey-light:#f0c892"/>
+    <g id="green-monkey" style="--monkey-fur:#a47556;--monkey-edge:#614433;--monkey-light:#eac797"/>
+  </g>
+  <g id="cap-objects">
+    <g id="cap-basket" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cy="57" rx="67" ry="12" fill="url(#cap-shade)"/>
+      <path d="M-52 30Q-45-2 0 0Q45-2 52 30" fill="none" stroke="#805432" stroke-width="9.2"/>
+      <path d="M-51 29Q-44-1 0 0Q44-1 51 29" fill="none" stroke="#ddb074" stroke-width="4.5"/>
+      <ellipse cy="30" rx="60" ry="18" fill="#795337" stroke="#94653f" stroke-width="2.7"/>
+      <ellipse cy="31" rx="51" ry="13.5" fill="#62472f"/>
+      <g id="cap-basket-slots" clip-path="url(#cap-basket-cut)"/>
+      <path d="M-59 33Q0 51 59 33L49 53Q21 70-38 58Z" fill="url(#cap-wicker)" stroke="#805738" stroke-width="2.6"/>
+      <path d="M-53 38Q0 55 54 39M-47 45Q0 61 51 46M-43 52Q1 66 45 53M-36 43l3 13m10-10 3 15m10-10 2 12m12-12v13m13-12-1 12m14-16-2 13m14-16-3 12" fill="none" stroke="#f1c48a" stroke-width="1.8" opacity=".79"/>
+    </g>
+    <g id="red-cap" style="--cap-body:#bf584c;--cap-visor:#9d423b;--cap-light:#efaa86;--cap-line:#733b34"><use href="#cap-design"/></g>
+    <g id="blue-cap" style="--cap-body:#698fba;--cap-visor:#4b729d;--cap-light:#afc9e0;--cap-line:#415873"><use href="#cap-design"/></g>
+    <g id="yellow-cap" style="--cap-body:#e8b753;--cap-visor:#c0893d;--cap-light:#f6db97;--cap-line:#825930"><use href="#cap-design"/></g>
+    <g id="green-cap" style="--cap-body:#82a365;--cap-visor:#627f52;--cap-light:#c1cc8d;--cap-line:#4b6241"><use href="#cap-design"/></g>
+  </g>
+</svg>
