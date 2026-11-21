@@ -1,7 +1,30 @@
 /* Reuse the current Anitoons character rig without exposing studio controls in Play mode. */
 (function(){
- if(!new URLSearchParams(location.search).has('missionBridge'))return;
- if(new URLSearchParams(location.search).get('missionBridge')==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js?v=101';document.body.append(script);return;}
+ const mode=new URLSearchParams(location.search).get('missionBridge');
+ if(mode===null)return;
+ if(mode==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js?v=101';document.body.append(script);return;}
+ if(mode==='native'){
+  window.UmtoStudioRig=Object.freeze({
+   create(preset,view,index){
+    if(!scenePreset(preset))throw Error('Unknown Studio character '+preset);
+    const actor=newSceneActor(preset,index);
+    actor.view=view;
+    actor.appearance.pose='relaxed';
+    return {actor,node:createSceneActor(actor,index)};
+   },
+   withActor:sceneWithState,
+   arm:poseRigArm,
+   walk:poseWalking,
+   readyArms:setBodyArmPose,
+   restArms:restingBodyPose,
+   reaction:reactionPose,
+   face:paintSceneActorFace,
+   proportions:BODY_RIG,
+   direction:view=>cameraDirections[view]||0
+  });
+  parent.postMessage({type:'umto-native-rig-ready'},location.origin);
+  return;
+ }
  try{
  const original={...state},oldView=cameraView,poses={};
  for(const [i,pose] of ['stand','drink','sit','ride'].entries()){

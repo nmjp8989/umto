@@ -19,9 +19,13 @@ async function run() {
     const page = await browser.newPage({ viewport: { width: 1600, height: 900 } });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
+    page.on('console', message => {
+      if (message.type() === 'error') errors.push(message.text());
+    });
     const backdrop = page.waitForResponse(response => response.url().endsWith('/mission-003/art/courtyard.webp') && response.ok());
     await page.goto(url + '?test=1');
-    await page.waitForFunction(() => window.lp011Test);
+    await page.waitForFunction(() => window.lp011Test || document.getElementById('loading').textContent.includes('ਨਹੀਂ'));
+    assert.deepEqual(errors, []);
     await backdrop;
     const { scenes, clips } = await page.evaluate(() => window.lp011Test.state());
     const lines = scenes.flatMap(scene => scene.lines);
@@ -58,32 +62,42 @@ async function run() {
       const hand = document.querySelector('[data-hand="' + actor + '-' + side + '"]');
       const item = document.getElementById(target);
       const held = new DOMPoint(x, y).matrixTransform(item.getCTM());
-      const wrist = new DOMPoint().matrixTransform(hand.getCTM());
-      return Math.hypot(held.x - wrist.x, held.y - wrist.y);
+      const palm = new DOMPoint(0, Number(hand.dataset.gripY)).matrixTransform(hand.getCTM());
+      return Math.hypot(held.x - palm.x, held.y - palm.y);
     }, { actor, side, target, x, y });
 
     for (const [id, preset] of [['mehar', 'kid-meher'], ['boy', 'kid-sidak'], ['dadi', 'elder-bibi-ji']]) {
       assert.equal(await page.locator('#' + id).getAttribute('data-studio-preset'), preset);
+      assert.equal(await page.locator('#' + id + ' [data-rig-shoulder]').count(), 2);
+      assert.equal(await page.locator('#' + id + ' [data-rig-elbow]').count(), 2);
+      assert.equal(await page.locator('#' + id + ' [data-rig-foot]').count(), 2);
     }
-    const rearHands = await page.locator('#dadi-hands').evaluate(hands =>
+    const rearHands = await page.locator('#dadi [data-rig-arm]').last().evaluate(hands =>
       ['mehar-plane', 'boy-plane'].every(id =>
         hands.compareDocumentPosition(document.getElementById(id)) & Node.DOCUMENT_POSITION_FOLLOWING));
     assert.ok(rearHands, 'Bibi Ji’s hand layer must paint behind both children');
     await speak(0, 0, 6);
     await page.screenshot({ path: output + '/01-courtyard.png' });
+    const ballLine = scenes[0].lines[0];
+    const reachWord = ballLine.reading.words.indexOf('ਇੱਕੋ');
+    await seek(0, ballLine.start + ballLine.reading.timings[reachWord][0] - 430);
+    assert.equal(await page.locator('#mehar').getAttribute('data-studio-motion'), 'walk');
+    const stride = await page.locator('#mehar [data-leg-surface]').first().getAttribute('d');
+    await seek(0, ballLine.start + ballLine.reading.timings[reachWord][0] - 210);
+    assert.notEqual(await page.locator('#mehar [data-leg-surface]').first().getAttribute('d'), stride);
     await speak(1, 0, 4);
     await page.screenshot({ path: output + '/02-turn.png' });
     await speak(1, 1, 4);
     await speak(2, 0, 5);
     assert.equal(await parent('bundle'), 'dadi-props');
-    assert.ok(await gripDistance('dadi', 'left', 'bundle', -62, 2) < 2);
-    assert.ok(await gripDistance('dadi', 'right', 'bundle', 62, 2) < 2);
+    assert.ok(await gripDistance('dadi', 'left', 'bundle', -42, 2) < 3);
+    assert.ok(await gripDistance('dadi', 'right', 'bundle', 42, 2) < 3);
     await page.screenshot({ path: output + '/03-bibi.png' });
     const setDown = scenes[2].events.at(-1).ms;
     for (const before of [600, 340, 40]) {
       await seek(2, setDown - before);
-      assert.ok(await gripDistance('dadi', 'left', 'bundle', -62, 2) < 2);
-      assert.ok(await gripDistance('dadi', 'right', 'bundle', 62, 2) < 2);
+      assert.ok(await gripDistance('dadi', 'left', 'bundle', -42, 2) < 3);
+      assert.ok(await gripDistance('dadi', 'right', 'bundle', 42, 2) < 3);
     }
     await seek(2, setDown + 175);
     assert.equal(await parent('bundle'), 'stool-props');
@@ -94,11 +108,12 @@ async function run() {
       await seek(3, event.ms);
       assert.equal(await stage.getAttribute('data-bundle'), 'tied');
       assert.equal(await stage.getAttribute('data-stick-snaps'), '0');
-      assert.ok(await coordinate('bundle', 'f') < 486);
+      assert.ok(await coordinate('bundle', 'f') < 462);
       const owner = i === 0 ? 'mehar' : 'boy';
       assert.equal(await parent('bundle'), owner + '-props');
-      assert.ok(await gripDistance(owner, 'left', 'bundle', -54, -2) < 6);
-      assert.ok(await gripDistance(owner, 'right', 'bundle', 54, -2) < 6);
+      assert.ok(await gripDistance(owner, 'left', 'bundle', -41, -2) < 6);
+      assert.ok(await gripDistance(owner, 'right', 'bundle', 41, -2) < 6);
+      assert.equal(await page.locator('[data-hand="' + owner + '-left"]').getAttribute('data-action-hand'), 'fist');
     }
     await page.screenshot({ path: output + '/04-bundle.png' });
     const untie = scenes[4].events.find(event => event.sound === 'ribbon').ms;
@@ -116,8 +131,8 @@ async function run() {
     assert.equal(await stage.getAttribute('data-stick-snaps'), '2');
     assert.ok(await coordinate('boy-stick-left', 'e') < -8);
     for (const actor of ['mehar', 'boy']) {
-      assert.ok(await gripDistance(actor, 'left', actor + '-stick-left', -45, 1) < 2);
-      assert.ok(await gripDistance(actor, 'right', actor + '-stick-right', 45, 1) < 2);
+      assert.ok(await gripDistance(actor, 'left', actor + '-stick-left', -38, 1) < 3);
+      assert.ok(await gripDistance(actor, 'right', actor + '-stick-right', 38, 1) < 3);
     }
     await page.screenshot({ path: output + '/05-snaps.png' });
     await speak(5, 0, 5);
@@ -150,7 +165,7 @@ async function run() {
     await page.locator('#approve-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '1 of 7 approved');
     assert.deepEqual(errors, []);
-    console.log('PASS Mission 11: Studio cast, 186 words, 13 aligned clips, independent mouth poses, rear hand layer, anchored wooden props, mobile, and review.');
+    console.log('PASS Mission 11: live Studio rigs with native joint motion and footsteps, 186 words, 13 aligned clips, prop grips, mobile, and review.');
   } finally {
     await browser.close();
   }

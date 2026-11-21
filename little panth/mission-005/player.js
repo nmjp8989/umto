@@ -164,7 +164,8 @@
       read('art/stage.svg', 'text'),
       read('audio/generation-manifest.json').catch(() => ({})),
       read('audio/word-timings.json').catch(() => ({})),
-      document.fonts.load('700 48px "Little Panth Gurmukhi"', book.getAttribute('aria-label')).catch(() => {})
+      document.fonts.load('700 48px "Little Panth Gurmukhi"', book.getAttribute('aria-label')).catch(() => {}),
+      stageModule.prepare?.()
     ]);
     const svg = new DOMParser().parseFromString(drawing, 'image/svg+xml').documentElement;
     if (svg.localName !== 'svg') throw Error('The illustration is invalid');

@@ -2337,6 +2337,14 @@ function layoutSceneActors(){
 function rebuildSceneCast(){
  scene.nodes=scene.cast.map(createSceneActor);document.getElementById('sceneActors').replaceChildren(...scene.nodes.map(n=>n.svg));layoutSceneActors();paintScene(scene.elapsed);
 }
+function paintSceneActorFace(node,p){
+ const faceKey=[p.mouth,p.eyes,p.brows,p.gazeX,p.gazeY,p.wink].join(':');
+ if(node.faceKey!==faceKey){
+  const parts={eyeGroup:animationEyesSvg(p),eyebrowGroup:browSvg(p.brows),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`,beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache)};
+  for(const [id,art] of Object.entries(parts)){node.layers[id].innerHTML=cameraMarkup(id,art);remapSceneRefs(node.layers[id],node.prefix);}node.faceKey=faceKey;
+ }
+ for(const id of reactionHeadIds)node.layers[id]?.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
+}
 function paintScene(seconds){
  const talkers=scene.cast.map((a,i)=>a.action==='talk'?i:-1).filter(i=>i>=0),speaker=talkers.length?talkers[Math.floor(seconds/2.4)%talkers.length]:-1;
  for(const [i,actor] of scene.cast.entries())sceneWithState(actor,()=>{
@@ -2346,12 +2354,7 @@ function paintScene(seconds){
   if(action==='talk'&&active)p.mouth=['closed','EE','A','O','EE','MBP'][Math.floor(t*7)%6];
   if(action==='walk'||action==='dance')poseWalking(t*(action==='dance'?.7:1),node.scope);
   if(action!=='walk')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},node.scope);
-  const faceKey=[p.mouth,p.eyes,p.brows,p.gazeX,p.gazeY,p.wink].join(':');
-  if(node.faceKey!==faceKey){
-   const parts={eyeGroup:animationEyesSvg(p),eyebrowGroup:browSvg(p.brows),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`,beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache)};
-   for(const [id,art] of Object.entries(parts)){node.layers[id].innerHTML=cameraMarkup(id,art);remapSceneRefs(node.layers[id],node.prefix);}node.faceKey=faceKey;
-  }
-  for(const id of reactionHeadIds)node.layers[id]?.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
+  paintSceneActorFace(node,p);
   // New hand shapes reference this actor's own skin gradient.
   for(const el of node.svg.querySelectorAll('[data-hand-action]'))remapSceneRefs(el,node.prefix);
  });
@@ -2416,6 +2419,6 @@ document.getElementById('sceneSaveImage').onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseScene();});
 
-</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=101"></script></body></html>
+</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=studio-cast"></script></body></html>
 
 
