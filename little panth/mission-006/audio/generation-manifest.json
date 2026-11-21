@@ -124,5 +124,26 @@
     "text": "ਹੋ ਗਿਆ! ਹੁਣ ਤੁਸੀਂ ਆਜ਼ਾਦ ਹੋ!",
     "speaker": "mouse",
     "model": "gemini-3.8-flash-tts"
+  },
+  "lion-thanks": {
+    "hash": "89904568ff94bb2737fca4f0e0cb4b510358b266e13db793647f8aa9f4a25e63",
+    "voice": "Charon",
+    "text": "ਨਿੱਕੇ ਦੋਸਤ, ਅੱਜ ਤੂੰ ਮੇਰੀ ਜਾਨ ਬਚਾਈ। ਧੰਨਵਾਦ!",
+    "speaker": "lion",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-heart": {
+    "hash": "fa5966107c6a00a4d5ed6fa22b1674a4f778267f8421d6352f3c0aa286837522",
+    "voice": "Leda",
+    "text": "ਦੋਸਤੀ ਵਿੱਚ ਕੋਈ ਵੱਡਾ ਜਾਂ ਛੋਟਾ ਨਹੀਂ ਹੁੰਦਾ!",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moral": {
+    "hash": "76647095447975e8b0d01f23d27efcfc5e24bb7bf96a395f82635e9a7afe68f9",
+    "voice": "Aoede",
+    "text": "ਸਿੱਖਿਆ: ਦਇਆ ਦਾ ਫਲ ਹਮੇਸ਼ਾ ਚੰਗਾ ਹੁੰਦਾ ਹੈ। ਹਰ ਕੋਈ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
   }
 }
