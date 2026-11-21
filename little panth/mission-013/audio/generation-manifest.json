@@ -1,0 +1,93 @@
+{
+  "morning": {
+    "hash": "4926a444781412e84725971e159d43d724a6ac90607340d25d8578be2da99357",
+    "voice": "Aoede",
+    "text": "ਸਵੇਰੇ ਸਿਦਕ ਭੇਡਾਂ ਨੂੰ ਚਰਾਉਣ ਲੈ ਗਿਆ। ਮੇਹਰ ਤੇ ਬੀਬੀ ਜੀ ਨੇੜਲੇ ਖੇਤ ਵਿੱਚ ਕੰਮ ਕਰ ਰਹੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bored": {
+    "hash": "d5e5bfea3244291cdf37a6b781c353575aae039cfa2f79822d4268dea4a2c10c",
+    "voice": "Orus",
+    "text": "ਇੱਥੇ ਬੈਠੇ ਬੈਠੇ ਮੈਂ ਅੱਕ ਗਿਆ ਹਾਂ!",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "prank": {
+    "hash": "534d3a36bdce7df8164a7b044adabd259efe8076d5d0657d76d9c375b75c9317",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੂੰ ਇੱਕ ਮਜ਼ਾਕ ਸੁੱਝਿਆ। ਉਹ ਉੱਚੀ ਆਵਾਜ਼ ਵਿੱਚ ਚੀਕਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "first-shout": {
+    "hash": "0f866dccc9562ac8257d4be5da2f8213a7fbed3e88d2454fe38fce54b6bfbe97",
+    "voice": "Orus",
+    "text": "ਬਘਿਆੜ ਆ ਗਿਆ! ਛੇਤੀ ਆਓ!",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-runs": {
+    "hash": "c789d0fc49e647240458a5dab5953c11d34bec5b51e069f4f9c807ef0f30503e",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਦੌੜ ਕੇ ਆਈ। ਉੱਥੇ ਭੇਡਾਂ ਘਾਹ ਖਾ ਰਹੀਆਂ ਸਨ ਤੇ ਸਿਦਕ ਹੱਸ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-warns": {
+    "hash": "10fc8df837bc6c42eb8a6d8ae39e622ac9682334e51e31932b8093883430bd84",
+    "voice": "Kore",
+    "text": "ਸਿਦਕ, ਮਦਦ ਲਈ ਤਾਂ ਹੀ ਬੁਲਾਈਂ ਜਦੋਂ ਸੱਚਮੁੱਚ ਲੋੜ ਹੋਵੇ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "again": {
+    "hash": "924b5d0667dd8f5a50fd5cc9a1a90ee52891a47d64ccc63ea5b64ab3dacb4a60",
+    "voice": "Aoede",
+    "text": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਉਸ ਨੇ ਫਿਰ ਝੂਠਾ ਰੌਲਾ ਪਾਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "second-shout": {
+    "hash": "2a81857ca276ddf97e1bb357745aec4e9481089273971eb0fb01ccd602379122",
+    "voice": "Orus",
+    "text": "ਬਘਿਆੜ ਆ ਗਿਆ!",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-arrives": {
+    "hash": "46233145f0f37331ebbb6f2496af15649ea7e5c22f125959ea1ccbbcdbf0dc1f",
+    "voice": "Aoede",
+    "text": "ਇਸ ਵਾਰੀ ਮੇਹਰ ਦੇ ਨਾਲ ਬੀਬੀ ਜੀ ਵੀ ਆਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-warns": {
+    "hash": "634eeda283b513fb96affbbb37bd1dd102590c29c5d0ca28b5261f8ff0188b01",
+    "voice": "Pulcherrima",
+    "text": "ਪੁੱਤ, ਝੂਠ ਬੋਲਣ ਨਾਲ ਲੋਕਾਂ ਦਾ ਭਰੋਸਾ ਟੁੱਟ ਜਾਂਦਾ ਹੈ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "rustle": {
+    "hash": "b7543dcf9ce5de78e4cd23815bb7bf86bfc4ec108b29b4e765989a75899924ed",
+    "voice": "Aoede",
+    "text": "ਸ਼ਾਮ ਨੂੰ ਝਾੜੀਆਂ ਵਿੱਚ ਖੜਕਾ ਹੋਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "real-wolf": {
+    "hash": "6c7d58c67d38aa07f6c61ad6a51b4397586096605ee6a34985fb6f9e235671e2",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਬਘਿਆੜ ਬਾਹਰ ਨਿਕਲਿਆ। ਭੇਡਾਂ ਡਰ ਕੇ ਵਾੜ ਵੱਲ ਭੱਜੀਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "real-shout": {
+    "hash": "d8e7ab5d31e11c5f4b5bd715909a4323d0104bd3d44e844062c9d93cd9925b5d",
+    "voice": "Orus",
+    "text": "ਇਸ ਵਾਰੀ ਸੱਚਮੁੱਚ ਬਘਿਆੜ ਆਇਆ ਹੈ! ਮੇਰੀ ਮਦਦ ਕਰੋ!",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
