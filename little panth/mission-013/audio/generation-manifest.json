@@ -89,5 +89,47 @@
     "text": "ਇਸ ਵਾਰੀ ਸੱਚਮੁੱਚ ਬਘਿਆੜ ਆਇਆ ਹੈ! ਮੇਰੀ ਮਦਦ ਕਰੋ!",
     "speaker": "boy",
     "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-hears": {
+    "hash": "cae7043f0e1c8f626d869bae5dbad8705991ac945fdf8e1659976480fe81d40e",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਆਵਾਜ਼ ਸੁਣੀ। ਉਸ ਨੂੰ ਲੱਗਾ ਕਿ ਸਿਦਕ ਫਿਰ ਮਜ਼ਾਕ ਕਰ ਰਿਹਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "no-help": {
+    "hash": "833accd2aaeb22cf56ffe8de6bb35c6e8babfdf258b56f0d7ad7ade62d1a5f98",
+    "voice": "Aoede",
+    "text": "ਕੋਈ ਵੀ ਨਾ ਆਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "shut-gate": {
+    "hash": "08cb296c2ea6b5d1f650304b10a2f916dd4b3b0d2bbd4768bd54e01ff0128492",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੇ ਭੇਡਾਂ ਨੂੰ ਵਾੜ ਅੰਦਰ ਕੀਤਾ ਤੇ ਬੂਹਾ ਬੰਦ ਕਰ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "wolf-leaves": {
+    "hash": "93a406e09d1d39647709040c874ad2bc4a10283f9f3078fd30c192d9d34df32f",
+    "voice": "Aoede",
+    "text": "ਬਘਿਆੜ ਝਾੜੀਆਂ ਪਿੱਛੇ ਚਲਾ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-sorry": {
+    "hash": "780a70e698b4a430886dc8638f55890d9c1b989ea425640a41951283688c333f",
+    "voice": "Orus",
+    "text": "ਮੇਹਰ, ਮੈਨੂੰ ਮਾਫ਼ ਕਰੀਂ। ਹੁਣ ਮੈਂ ਸੱਚ ਬੋਲਾਂਗਾ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "count-sheep": {
+    "hash": "2ff100145ba9fd6a6311268b1dd87dd008e270ee31fd6a25340f310f79794142",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਨੇ ਭੇਡਾਂ ਗਿਣੀਆਂ। ਸਾਰੀਆਂ ਸੁਰੱਖਿਅਤ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
   }
 }
