@@ -30,7 +30,7 @@ jobs:
           python-version: '3.11'
       - name: Install Punjabi audio tools
         run: python -m pip install --disable-pip-version-check imageio-ffmpeg numpy sherpa-onnx==1.13.0
-      - name: Record the narrator, Arjan, and the river fairy
+      - name: Record the narrator, Baldev, and the river fairy
         env:
           GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
           GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
