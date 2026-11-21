@@ -1,0 +1,79 @@
+{
+  "the-country-mouse": {
+    "hash": "c58bc44bc9900965d7863ac667e029dd4e40a322ee9772c8209f50422099b54a",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਨਿੱਕਾ ਚੂਹਾ ਖੇਤ ਦੇ ਨੇੜੇ ਰਹਿੰਦਾ ਸੀ। ਇੱਕ ਦਿਨ ਉਸ ਦਾ ਸ਼ਹਿਰ ਵਾਲਾ ਦੋਸਤ ਉਸ ਨੂੰ ਮਿਲਣ ਆਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "millet-and-gur": {
+    "hash": "8abb645844d64fe51956f6cbb5ede708a7532e6f1f2d8fd09adb7153b9aa150c",
+    "voice": "Aoede",
+    "text": "ਪਿੰਡ ਦੇ ਚੂਹੇ ਨੇ ਬਾਜਰੇ ਦੇ ਦਾਣੇ ਤੇ ਗੁੜ ਦਾ ਟੁਕੜਾ ਰੱਖਿਆ। ਦੋਵੇਂ ਆਰਾਮ ਨਾਲ ਬੈਠ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "town-invites": {
+    "hash": "bf2f3508204eba770c8eb93fc6bd62427336b0e8e24b8c3d252e6236838a9fac",
+    "voice": "Iapetus",
+    "text": "ਆ, ਮੇਰੇ ਨਾਲ ਸ਼ਹਿਰ ਚੱਲ। ਉੱਥੇ ਆਪਾਂ ਹੋਰ ਵੀ ਸੁਆਦ ਦੀਆਂ ਚੀਜ਼ਾਂ ਖਾਵਾਂਗੇ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "in-the-town": {
+    "hash": "677bd3b0a8ac763f205048b0d2d8d502cc4b66b0d70a081de805eb879ed834b0",
+    "voice": "Aoede",
+    "text": "ਸ਼ਾਮ ਨੂੰ ਦੋਵੇਂ ਸ਼ਹਿਰ ਪਹੁੰਚੇ। ਇੱਕ ਰਸੋਈ ਵਿੱਚ ਮੇਜ਼ ਉੱਤੇ ਮਠਿਆਈ ਤੇ ਰੋਟੀ ਪਈ ਸੀ। ਖੁਸ਼ਬੂ ਸਾਰੇ ਕਮਰੇ ਵਿੱਚ ਫੈਲੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "town-offers": {
+    "hash": "fd4fd4edd36d6e8ee8a30115dfee1c2fc3d2efd634e22f0e5d5691c3acd4a664",
+    "voice": "Iapetus",
+    "text": "ਇੱਥੋਂ ਤੈਨੂੰ ਜਿਹੜੀ ਮਠਿਆਈ ਚੰਗੀ ਲੱਗੇ, ਉਹ ਲੈ ਲੈ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "footsteps-nearby": {
+    "hash": "0bd2393e1b88c5a599bc4d71ae8c0a61e9533d3ee8029094a999bb2e404151fa",
+    "voice": "Aoede",
+    "text": "ਪਿੰਡ ਦੇ ਚੂਹੇ ਨੇ ਇੱਕ ਟੁਕੜਾ ਚੁੱਕਿਆ ਹੀ ਸੀ ਕਿ ਬਿੱਲੀ ਦੇ ਕਦਮਾਂ ਦੀ ਆਵਾਜ਼ ਸੁਣਾਈ ਦਿੱਤੀ। ਦੋਵੇਂ ਕਾਹਲੀ ਨਾਲ ਟੋਕਰੀ ਪਿੱਛੇ ਲੁਕ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "town-whispers": {
+    "hash": "72c6db9f0f1cfc66b0d3a9a46a7baffbfbc159c4987d70144843632109d014e8",
+    "voice": "Iapetus",
+    "text": "ਹੌਲੀ ਬੋਲੀਂ। ਬਿੱਲੀ ਅਜੇ ਦਰਵਾਜ਼ੇ ਕੋਲ ਹੀ ਹੈ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "cat-leaves": {
+    "hash": "60d85c88685de67f451839694a92f4989cf7729cdff3f6be19d501844b086e56",
+    "voice": "Aoede",
+    "text": "ਬਿੱਲੀ ਚਲੀ ਗਈ ਤਾਂ ਉਹ ਬਾਹਰ ਆਏ। ਪਿੰਡ ਦਾ ਚੂਹਾ ਅਜੇ ਵੀ ਘਬਰਾਇਆ ਹੋਇਆ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "country-decides": {
+    "hash": "f74cd23d7995556bcd1dca16f3f7cc518749fe554e9ee58d3cc510f3dcc11958",
+    "voice": "Leda",
+    "text": "ਮੈਨੂੰ ਆਪਣੇ ਖੇਤ ਦੇ ਦਾਣੇ ਹੀ ਚੰਗੇ ਲੱਗਦੇ ਹਨ। ਉੱਥੇ ਮੈਂ ਚੈਨ ਨਾਲ ਖਾ ਸਕਦਾ ਹਾਂ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "country-returns": {
+    "hash": "7ad61d81845c9736923fa66719eda44e6dd2e8fae1ce5cee68df0e13b60bf2ce",
+    "voice": "Aoede",
+    "text": "ਅਗਲੀ ਸਵੇਰ ਪਿੰਡ ਦਾ ਚੂਹਾ ਆਪਣੇ ਘਰ ਮੁੜ ਆਇਆ। ਉਸ ਨੇ ਧੁੱਪ ਵਿੱਚ ਬੈਠ ਕੇ ਦਾਣਾ ਖਾਧਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "friends-eat": {
+    "hash": "b8a8238c51c74fc76e73de3ed945f025dc6e21b9a6addb774d67bef6c55f0a7c",
+    "voice": "Aoede",
+    "text": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਸ਼ਹਿਰ ਦਾ ਚੂਹਾ ਵੀ ਮਿਲਣ ਆਇਆ। ਇਸ ਵਾਰੀ ਉਹ ਦੋਵੇਂ ਹੌਲੀ ਹੌਲੀ ਖਾਂਦੇ ਰਹੇ ਤੇ ਗੱਲਾਂ ਕਰਦੇ ਰਹੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
