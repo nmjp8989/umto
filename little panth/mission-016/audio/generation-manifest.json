@@ -1,0 +1,100 @@
+{
+  "the-garden": {
+    "hash": "0641afadbe61c95bb0f441cf3b64588c7e6fb267bff1efa97e67794e551c9f55",
+    "voice": "Aoede",
+    "text": "ਪਿੰਡ ਦੇ ਨੇੜੇ ਇੱਕ ਬਾਗ ਵਿੱਚ ਲੂੰਬੜੀ ਰਹਿੰਦੀ ਸੀ। ਇੱਕ ਦਿਨ ਉਸ ਨੇ ਸਾਰਸ ਨੂੰ ਆਪਣੇ ਘਰ ਖਾਣੇ ਲਈ ਸੱਦਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-invites": {
+    "hash": "1336678e21ee7a761a11ee903f2a17e58016d24820d964227984ed96e057c017",
+    "voice": "Kore",
+    "text": "ਅੱਜ ਮੈਂ ਗਰਮ ਦਾਲ ਬਣਾਈ ਹੈ। ਆ, ਮੇਰੇ ਕੋਲ ਬੈਠ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "shallow-plates": {
+    "hash": "41d704996fe61a0907026c59ac6ce0ea2b5a114a65f3accff57aa25a1c6b059e",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਨੇ ਦੋ ਚਪਟੀਆਂ ਥਾਲੀਆਂ ਵਿੱਚ ਦਾਲ ਪਾਈ। ਉਸ ਨੇ ਛੇਤੀ ਛੇਤੀ ਆਪਣੀ ਦਾਲ ਚੱਟ ਲਈ। ਸਾਰਸ ਦੀ ਲੰਮੀ ਚੁੰਝ ਵਿੱਚ ਦਾਲ ਨਾ ਆਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "stork-struggles": {
+    "hash": "db2bb865c25072ae9a4877fe1df026fef8f05c7d02efd397198544a09f74e006",
+    "voice": "Charon",
+    "text": "ਮੇਰੀ ਚੁੰਝ ਥਾਲੀ ਨਾਲ ਟਕਰਾ ਰਹੀ ਹੈ। ਮੈਂ ਦਾਲ ਕਿਵੇਂ ਖਾਵਾਂ?",
+    "speaker": "stork",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "one-more-try": {
+    "hash": "19583234af80c43ecd26757c56cbe6dd5acfdcc9725b8aa0a665f2d3ab06b3a8",
+    "voice": "Aoede",
+    "text": "ਸਾਰਸ ਨੇ ਇੱਕ ਵਾਰ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਥਾਲੀ ਵਿੱਚ ਦਾਲ ਉਵੇਂ ਹੀ ਪਈ ਰਹੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "stork-invites": {
+    "hash": "f60152a10342f14b75ebd614b42b8ad6f6be528f7b64d4d6bcbde784ece94ab0",
+    "voice": "Charon",
+    "text": "ਅੱਜ ਦੇ ਸੱਦੇ ਲਈ ਧੰਨਵਾਦ। ਕੱਲ੍ਹ ਤੂੰ ਮੇਰੇ ਘਰ ਖਾਣਾ ਖਾਣ ਆਈਂ।",
+    "speaker": "stork",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "narrow-jugs": {
+    "hash": "c45e0617bbf0722044d36f456dba971afe095ef26c806494417e84dc2a7a7e87",
+    "voice": "Aoede",
+    "text": "ਅਗਲੇ ਦਿਨ ਲੂੰਬੜੀ ਨਹਿਰ ਦੇ ਕੰਢੇ ਸਾਰਸ ਦੇ ਘਰ ਗਈ। ਸਾਰਸ ਨੇ ਖੀਰ ਦੋ ਲੰਮੀਆਂ ਸੁਰਾਹੀਆਂ ਵਿੱਚ ਪਾਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "stork-serves": {
+    "hash": "095a899742725e30f238f3ab2e1da2678c11aefbb351cf01c470f08453975783",
+    "voice": "Charon",
+    "text": "ਆ, ਖੀਰ ਤਿਆਰ ਹੈ। ਆਪਾਂ ਇਕੱਠੇ ਬੈਠ ਕੇ ਖਾਈਏ।",
+    "speaker": "stork",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-cant-reach": {
+    "hash": "cf3bf689d6b4c2e3a18b07cca3b9646f0d4777857f9d9636c6ae16e64bb021f1",
+    "voice": "Aoede",
+    "text": "ਸਾਰਸ ਨੇ ਆਪਣੀ ਚੁੰਝ ਸੁਰਾਹੀ ਅੰਦਰ ਪਾਈ ਤੇ ਖੀਰ ਖਾਧੀ। ਲੂੰਬੜੀ ਦਾ ਮੂੰਹ ਭਾਂਡੇ ਅੰਦਰ ਨਾ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-understands": {
+    "hash": "8ccd838d34a6c08fabaf9f7c16fc1b1559452b01380defc4e075e3d5ea382f3e",
+    "voice": "Kore",
+    "text": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਕੱਲ੍ਹ ਤੈਨੂੰ ਵੀ ਇੰਨੀ ਔਖ ਹੋਈ ਹੋਣੀ ਹੈ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "stork-offers-a-plate": {
+    "hash": "c2f62d582ec37d840f3f589ab947e9902910a4a9ea7b649eeecc4f0606080d78",
+    "voice": "Charon",
+    "text": "ਰੁਕ, ਮੈਂ ਤੇਰੇ ਲਈ ਇੱਕ ਥਾਲੀ ਲਿਆਉਂਦਾ ਹਾਂ।",
+    "speaker": "stork",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "pour-into-plate": {
+    "hash": "52d1ab1060400cbd42ba0d70927c4192379566a148fbbca6c2501ef41d24e43a",
+    "voice": "Aoede",
+    "text": "ਸਾਰਸ ਨੇ ਲੂੰਬੜੀ ਦੀ ਖੀਰ ਥਾਲੀ ਵਿੱਚ ਪਾ ਦਿੱਤੀ। ਹੁਣ ਦੋਵੇਂ ਖਾ ਸਕਦੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-promises": {
+    "hash": "f3b5c23a9ae5fadeea30edff524c0a3ec7444f57d90cffec5a3ee5652a2a8d44",
+    "voice": "Kore",
+    "text": "ਅਗਲੀ ਵਾਰ ਤੇਰੇ ਲਈ ਲੰਮਾ ਭਾਂਡਾ ਰੱਖਾਂਗੀ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "end-together": {
+    "hash": "72f8c0d31b356c7121da55fc76bbebf0fee3f019ad6a2869e2dd23a465ef33df",
+    "voice": "Aoede",
+    "text": "ਉਸ ਦਿਨ ਤੋਂ ਜਦੋਂ ਵੀ ਦੋਵੇਂ ਇਕੱਠੇ ਖਾਂਦੇ, ਉਹ ਇੱਕ ਦੂਜੇ ਲਈ ਢੁਕਵਾਂ ਭਾਂਡਾ ਪਹਿਲਾਂ ਹੀ ਰੱਖ ਲੈਂਦੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
