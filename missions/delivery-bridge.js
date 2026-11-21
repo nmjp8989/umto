@@ -32,7 +32,7 @@
   const {mehar,narrator,baba}=cast;
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
-   mehar,dadi:narrator,
+   mehar,dadi:{...narrator,colours:{...narrator.colours,headwear:'chunni',headwearColour:'#856882'}},
    friend:{preset:'kid-rohan',colours:{shirtColour:'#4c735a',bodyType:'short'}},
    girl:{preset:'kid-meher',colours:{hair:'sideBraid',shirt:'kurtaChunni',shirtColour:'#b45f55',trouserColour:'#6a5379',bodyType:'short'}},
    boy:{preset:'kid-amir',colours:{shirt:'hoodie',shirtColour:'#bc8b3d',bodyType:'short'}},
@@ -70,7 +70,7 @@
    const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
    if(littlePanth&&(id==='mehar'||id==='narrator'||(missionTwo&&['girl','boy','mother','teacher'].includes(id)))){
     const colour=id==='mehar'?'#f4ce37':'#e8ba37';
-    slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('chunni',colour)));
+    slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('tuckedChunni',colour)));
    }
  const storyReactions={beckon:'wave',wonder:'shrug',point:'point',celebrate:'celebrate',alarm:'stop',reflect:'sad',offer:'welcome',explain:'explain',nod:'nod',concern:'sad',happy:'smile',proud:'celebrate',angry:'angry'};
    const keys=littlePanth?['idle','blink','talkA','talkEE','talkO',...Object.keys(storyReactions),...(id==='narrator'?[]:Array.from({length:12},(_,i)=>'walk'+i))]:['idle','blink','talkA','talkEE','talkO','reach','gesture',...Array.from({length:12},(_,i)=>'walk'+i),...Array.from({length:8},(_,i)=>'idle'+i),...Array.from({length:4},(_,i)=>'greet'+i),...(id==='harpreet'&&view==='right'?['ride','rideA','rideEE','rideO']:[])];

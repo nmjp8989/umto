@@ -33,7 +33,7 @@ const result=await p.evaluate(()=>{
   if(Math.abs(noseCenter()-center)>.01)throw Error('Nose width shifts its center in '+view);
  }
  state.noseW=100;
- for(const covering of ['chunni','patka']){
+ for(const covering of ['tuckedChunni','patka']){
   sample.innerHTML=headwearSvg(covering,'#55496c');
   const shapes=[...sample.querySelectorAll('path[fill="#55496c"]')];
   if(shapes.length!==1)throw Error('Detached fabric on '+covering);
@@ -41,6 +41,20 @@ const result=await p.evaluate(()=>{
   if(box.x<5||box.x+box.width>107||box.y+box.height>94||!shape.isPointInFill(new DOMPoint(52,31)))throw Error('Head covering left the skull on '+covering);
  }
  sample.remove();
+ for(const preset of ['elder-bibi-ji','elder-bibi'])for(const view of ['front','left','right']){
+  const actor=newSceneActor(preset,0);actor.view=view;
+  const node=createSceneActor(actor,991);
+  document.body.append(node.svg);
+  const head=node.layers.headwearFront.querySelector('[data-chunni-head]');
+  const drape=node.layers.torso.querySelector('[data-chunni-shoulders]');
+  if(!head||!drape)throw Error('Bibi Ji’s chunni is missing in '+preset+' '+view);
+  const fabric=head.querySelector('path'),sameFabric=drape.querySelector('path');
+  if(fabric.getAttribute('fill')!==sameFabric.getAttribute('fill'))throw Error('Head and shoulders use different scarf colours');
+  if(!fabric.isPointInFill(new DOMPoint(52,28))||fabric.isPointInFill(new DOMPoint(52,85)))throw Error('Chunni does not frame the face');
+  sceneWithState(actor,()=>paintSceneActorFace(node,reactionPose('nod',1.2)));
+  if(head.getBoundingClientRect().bottom<=drape.getBoundingClientRect().top)throw Error('Chunni lost its shoulder overlap while nodding');
+  node.svg.remove();
+ }
  for(const hair of Object.keys(indianLongHair))for(const view of ['front','left','right']){state.hair=hair;cameraView=view;render();if(!document.querySelector('#frontHair path'))throw Error('Missing long hair');}
  if(premadeCharacters.filter(p=>p.id.startsWith('india-')).length!==8)throw Error('Indian presets missing');
  feature='hair';for(const section of ['girls','boys','all']){hairSection=section;drawDesigns();if(!document.querySelector('[data-hair-section="'+section+'"][aria-pressed="true"]'))throw Error('Hair filter broken');}
