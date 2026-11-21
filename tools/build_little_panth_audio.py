@@ -34,11 +34,13 @@ VOICES={
  "boy":("Orus","Gentle young Punjabi boy asking his older sister a quiet question. Avoid exaggerated emotion."),
  "teacher":("Vindemiatrix","Calm, reassuring Punjabi teacher. Clear, conversational delivery."),
  "farmer":("Fenrir","Kind, slightly weathered older Punjabi farmer male voice, thankful and natural, clear Punjabi."),
+ "lion":("Charon","Warm, deep, expressive male lion character voice for Punjabi children. Gentle and reassuring rather than frightening; every Punjabi word clear. Read only the given line."),
+ "mouse":("Leda","Tiny playful, bright and energetic childlike mouse character speaking natural Punjabi with clear articulation and courage. Read only the given line."),
  "crow":("Puck","Curious young crow in a Punjabi children's story. A light, playful speaking voice with clear, natural Gurmukhi Punjabi pronunciation. Read exactly the written line at a comfortable pace for young readers."),
 }
 def main():
  p=argparse.ArgumentParser()
- p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005"), default="mission-001")
+ p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005", "mission-006"), default="mission-001")
  p.add_argument("--model", choices=TTS_MODELS, default=MODEL)
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
