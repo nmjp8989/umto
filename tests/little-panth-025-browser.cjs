@@ -53,6 +53,13 @@ async function run() {
       return { x: target.x, y: target.y };
     }, { selector, x, y });
     const gap = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    const toes = () => page.locator('#elephant [data-leg-toes]').evaluateAll(nodes => {
+      const inverse = document.getElementById('stage').getScreenCTM().inverse();
+      return nodes.map(node => {
+        const p = node.getPointAtLength(0).matrixTransform(node.getScreenCTM()).matrixTransform(inverse);
+        return { x: p.x, y: p.y };
+      });
+    });
     async function close(a, b, limit, description) {
       const distance = gap(await position(a), await position(b));
       assert.ok(distance < limit, description + ' (gap ' + distance.toFixed(2) + ')');
@@ -75,6 +82,16 @@ async function run() {
     const fabric = page.locator('#cloth-shape');
     const clothLeft = ['#cloth-left'];
     const clothRight = ['#cloth-right'];
+    const arrival = at(0, 0, 'ਆਇਆ');
+    await seek(0, arrival - 1600);
+    const firstStep = await toes();
+    const walker = await position(['#elephant']);
+    const restSkin = await page.locator('#elephant-head-skin').getAttribute('d');
+    await seek(0, arrival - 1550);
+    const nextStep = await toes();
+    assert.ok(gap(walker, await position(['#elephant'])) > 4, 'The elephant advances');
+    assert.ok(firstStep.some((toe, i) => gap(toe, nextStep[i]) < .5), 'A stance foot stays on its mark');
+    assert.ok(firstStep.some((toe, i) => nextStep[i].y < toe.y - 1), 'Another foot lifts');
     await speech(0, 1, 5);
     await page.screenshot({ path: output + '/01-courtyard.png' });
     await speech(1, 0, 4);
@@ -109,11 +126,28 @@ async function run() {
     assert.ok(Number(await page.locator('#wash-splash').getAttribute('opacity')) > .8);
     await seek(2, splash + 215);
     await page.screenshot({ path: output + '/03-splash.png' });
+    const stir = at(2, 0, 'ਹਿਲਾਇਆ');
+    const feet = ['#harpreet [data-rig-foot]'];
+    const face = ['#harpreet [data-scene-layer="face"]', 627, 600];
+    await seek(2, stir - 675);
+    const planted = await position(feet);
+    const upright = await position(face);
+    await seek(2, stir + 20);
+    assert.ok(gap(planted, await position(feet)) < 1, 'Harpreet plants his feet as he bends');
+    assert.ok((await position(face)).x > upright.x + 20, 'Harpreet bends forward above the hips');
+    await close(clothLeft, hand, 1, 'His hand stays on the cloth while he stirs');
+    await page.screenshot({ path: output + '/07-stir.png' });
 
     await seek(3, at(3, 0, 'ਖਿੱਚਿਆ') + 160);
     await close(trunk, ['#tailor-pail', 1, 2], 1, 'The trunk reaches the water in the pail');
     await seek(3, at(3, 0, 'ਛੱਡੀ') + 270);
     assert.ok(Number(await page.locator('#rinse-spray').getAttribute('opacity')) > .95);
+    const skin = await page.locator('#elephant-head-skin').evaluate(node => ({
+      path: node.getAttribute('d'), joined: node.isPointInFill(new DOMPoint(-104, -145))
+    }));
+    assert.notEqual(skin.path, restSkin);
+    assert.equal(skin.path.match(/M/g).length, 1);
+    assert.ok(skin.joined, 'The trunk root remains within the continuous head silhouette');
     const sprayStart = await page.locator('#rinse-stream').evaluate(node => {
       const p = node.getPointAtLength(0);
       return { x: p.x, y: p.y };
@@ -163,7 +197,7 @@ async function run() {
     await page.locator('#approve-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '1 of 6 approved');
     assert.deepEqual(errors, []);
-    console.log('PASS Mission 25: 184 Punjabi words, 11 aligned voice clips, tub, rinse and cloth contacts, mobile and review.');
+    console.log('PASS Mission 25: 184 Punjabi words, 11 aligned voice clips, planted steps and hip bend, tub, rinse and cloth contacts, mobile and review.');
   } finally {
     await browser.close();
   }
