@@ -83,7 +83,7 @@
     <path d="M380 172q28-29 79-15 16-37 53-37 30 0 48 18 48-11 81 20 40-1 55 22-159 30-316-8Z" fill="#c2d4d1"/>
     <path d="M729 281q38-21 74-12 24-28 64-15 36-4 50 15 25-2 39 7-112 26-227 5Z" fill="#d1ddd0"/>
   </g>
-  <g id="wind" transform="translate(257 182)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+  <g id="wind" transform="translate(461 137)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
     <path d="M-127 25q-27 3-34-12 37 5 43-10-24 3-31-12 24 9 45-1" fill="none" stroke="#b0c9cf" stroke-width="5" opacity=".72"/>
     <path d="M-113 22q-25 0-28-22 2-34 40-39 9-33 41-42 41-13 68 20 36-17 63 13 23-2 38 22 28 1 37 29 7 31-22 38-18 23-41 9-29 18-51 5-27 14-48-2-67 8-97-14Z" fill="url(#wind-body)" stroke="#7c9ca9" stroke-width="5"/>
     <path d="M-104-17q10-16 31-16 8-24 34-32 19-3 38 10m23 4q27-10 41 7" fill="none" stroke="#edf5ef" stroke-width="4.8" opacity=".88"/>
@@ -128,8 +128,8 @@
   </g>
 
   <g id="wind-streams" fill="none" stroke="#f2f0da" stroke-linecap="round" stroke-width="4.4" opacity="0">
-    <path d="M355 203q91-32 178 1 76 30 175 32 158 3 256 82" opacity=".67"/>
-    <path d="M471 232q78 5 146 39 60 29 126 28m89 11q57 12 91 31" opacity=".47"/>
+    <path d="M560 156q62-9 124 37 76 46 161 46 96 6 174 71" opacity=".67"/>
+    <path d="M594 190q74 10 130 51 56 30 112 34m64 9q48 10 92 31" opacity=".47"/>
     <path d="M313 427q80-36 145-17 94 28 180 20t130 20" opacity=".72"/>
     <path d="M561 524q57-9 103-1t90 12q102 9 167-11" opacity=".6"/>
     <path d="M594 573q47-6 98 2 56 13 109-7" opacity=".56"/>

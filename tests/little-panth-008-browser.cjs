@@ -79,6 +79,11 @@ async function run() {
     await page.setViewportSize({ width: 390, height: 844 });
     await speak(6, 0, 4);
     assert.ok((await page.locator('#reading').boundingBox()).width < 390);
+    const windFaceVisible = await page.locator('#wind-eyes ellipse').first().evaluate(eye => {
+      const center = new DOMPoint(eye.cx.baseVal.value, eye.cy.baseVal.value).matrixTransform(eye.getScreenCTM());
+      return Boolean(document.elementFromPoint(center.x, center.y)?.closest('#wind'));
+    });
+    assert.ok(windFaceVisible, 'The speaking Wind should be visible above the foreground on a phone');
     await page.screenshot({ path: output + '/07-phone.png' });
 
     await page.goto(url + '?review=1&scene=fold&test=1');

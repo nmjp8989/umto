@@ -7,6 +7,7 @@
   const smooth = t => t * t * (3 - 2 * t);
   const line = (scene, id) => scene.lines.find(entry => entry.id === id);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
+  const windHome = { x: 461, y: 137 };
 
   function wordAt(scene, id, word) {
     const entry = line(scene, id);
@@ -139,7 +140,9 @@
         return;
       }
       const shot = focusOnFace ? {
-        preset: 'medium', focus: speech.speaker === 'wind' ? { x: 317, y: 193 } : { x: 1003, y: 183 }, width: 790
+        preset: 'medium',
+        focus: speech.speaker === 'wind' ? { x: windHome.x + 25, y: windHome.y + 16 } : { x: 1035, y: 162 },
+        width: 590
       } : {
         preset: this.scene.framing, focus: this.scene.focus, width: id === 'gust' ? 1060 : undefined
       };
@@ -180,7 +183,8 @@
       p['sun-rays'].setAttribute('transform', 'rotate(' + time * 2.1 + ')');
       p['shade-clouds'].setAttribute('transform', 'translate(' + pose.cloudShift * 270 + ' ' + (-pose.cloudShift * 34) + ')');
       opacity(p['shade-clouds'], (1 - pose.cloudShift) * .6);
-      p.wind.setAttribute('transform', 'translate(' + (257 + Math.sin(time * 2) * gust * 15) + ' ' + (182 + Math.sin(time * 1.8) * 3) + ')');
+      p.wind.setAttribute('transform', 'translate(' + (windHome.x + Math.sin(time * 2) * gust * 15) + ' ' +
+        (windHome.y + Math.sin(time * 1.8) * 3) + ')');
       p['tree-crown'].setAttribute('transform', 'rotate(' + (Math.sin(time * 6) * gust * 2.9) + ' 128 297)');
       opacity(p['wind-streams'], gust * (still ? .52 : .78));
       p['wind-streams'].setAttribute('transform', 'translate(' + (Math.sin(time * 6.8) * gust * 18) + ' 0)');
