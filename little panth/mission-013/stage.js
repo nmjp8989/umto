@@ -12,9 +12,9 @@
 
   const { open, Character } = window.UmtoNativeCharacterPlayer;
   const cast = {
-    dadi: { preset: 'elder-bibi-ji', view: 'right', height: 292, serial: 430 },
-    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 431 },
-    boy: { preset: 'kid-sidak', view: 'left', height: 252, serial: 432 }
+    dadi: { preset: 'elder-bibi-ji', view: 'right', height: 292, serial: 430, hipHinge: true, fluidArms: true },
+    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 431, hipHinge: true, fluidArms: true },
+    boy: { preset: 'kid-sidak', view: 'left', height: 252, serial: 432, hipHinge: true, fluidArms: true }
   };
   const farm = { dadi: point(160, 548), mehar: point(345, 534), boy: point(651, 612) };
   const waitingBoy = point(707, 635);
@@ -26,7 +26,7 @@
   ];
   const hinge = point(1050, 618);
   const hiddenWolf = 346;
-  const clearWolf = 573;
+  const clearWolf = 539;
   let studio;
 
   const findLine = (scene, id) => scene.lines.find(line => line.id === id);
@@ -87,11 +87,19 @@
     actor.grips[arm] = { target, weight, hand };
   }
 
-  function callOut(boy, ms, call) {
-    const lift = ease(phase(ms, call.start - 270, call.start + 240));
-    const lower = ease(phase(ms, call.end - 190, call.end + 260));
-    reach(boy, 0, point(boy.x - 49, boy.y - 153), lift * (1 - lower), 'relaxed');
-    boy.lean = -3 * lift * (1 - lower);
+  function callOut(boy, ms, call, still, urgent = false) {
+    const firstWord = call.start + call.reading.timings[0][0];
+    const lastWord = call.start + call.reading.timings.at(-1)[1];
+    const lift = ease(phase(ms, firstWord - (urgent ? 360 : 460), firstWord + 45));
+    const lower = ease(phase(ms, lastWord + 60, lastWord + 510));
+    const hold = still ? Number(ms >= firstWord && ms <= lastWord) : lift * (1 - lower);
+    const accent = still ? 0 : Math.sin(Math.PI * ease(phase(ms, firstWord - 30, firstWord + 380)));
+    boy.quietHands = true;
+    boy.bend = -(urgent ? 6 + 2 * accent : 3.5 + accent) * hold;
+    boy.grips[0] = {
+      target: point(boy.x - (urgent ? 47 : 42) - 2 * accent, boy.y - 165 - 2 * accent),
+      weight: hold, hand: 'cupped', wrist: -11
+    };
   }
 
   function makeFrame(scene, cue, ms, still) {
@@ -114,11 +122,11 @@
 
     switch (scene.id) {
       case 'first-call':
-        callOut(boy, ms, cue.call);
+        callOut(boy, ms, cue.call, still);
         walk(mehar, ms, cue.arrive - 90, cue.arrive + 1130, farm.mehar, point(463, 612), move);
         break;
       case 'second-call':
-        callOut(boy, ms, cue.call);
+        callOut(boy, ms, cue.call, still);
         walk(dadi, ms, cue.arrive - 70, cue.arrive + 2300, farm.dadi, point(432, 611), move);
         walk(mehar, ms, cue.arrive - 150, cue.arrive + 1520, farm.mehar, point(281, 588), move);
         mehar.mirror = ms < cue.arrive + 1520 && ms > cue.arrive - 150;
@@ -127,9 +135,10 @@
         mehar.visible = dadi.visible = false;
         state.dusk = .78 + .22 * move(phase(ms, 100, 1500));
         state.rustle = still ? 0 : Math.sin(Math.PI * phase(ms, cue.rustle - 130, cue.emerge + 440));
-        const emergence = move(phase(ms, cue.emerge - 150, cue.emerge + 1220));
+        const steps = phase(ms, cue.emerge - 150, cue.emerge + 1220);
+        const emergence = move(steps);
         state.wolf = { x: mix(hiddenWolf, clearWolf, emergence), visible: Number(emergence > 0),
-          facing: 1, walking: emergence > 0 && emergence < 1 };
+          facing: 1, steps };
         state.sheep.forEach((sheep, index) => {
           const { grass, waiting } = flock[index];
           const dash = phase(ms, cue.rush + index * 130, cue.rush + 1200 + index * 130);
@@ -139,14 +148,15 @@
         });
         walk(boy, ms, cue.rush - 45, cue.rush + 880, farm.boy, waitingBoy, move);
         boy.mirror = boy.walk != null;
-        callOut(boy, ms, cue.call);
+        if (ms >= cue.emerge) boy.expression = 'surprise';
+        callOut(boy, ms, cue.call, still, true);
         break;
       }
       case 'no-answer': {
         waitByGate();
         const reaction = ease(phase(ms, cue.look - 95, cue.look + 495)) *
           (1 - ease(phase(ms, cue.look + 1280, cue.alone)));
-        mehar.lean = reaction * 5;
+        mehar.bend = (still ? 0 : reaction) * 5;
         mehar.mirror = reaction < .49;
         break;
       }
@@ -156,8 +166,9 @@
         const walkToGate = point(1080, 642);
         walk(boy, ms, 90, cue.close - 145, waitingBoy, walkToGate, move);
         boy.mirror = boy.walk != null;
-        walk(mehar, ms, cue.leave + 570, cue.sorry + 220, farm.mehar, point(599, 616), move);
-        mehar.visible = ms >= cue.leave + 570;
+        const rejoin = cue.leave + 1280;
+        walk(mehar, ms, rejoin, cue.sorry + 220, farm.mehar, point(599, 616), move);
+        mehar.visible = ms >= rejoin;
 
         state.sheep.forEach((sheep, index) => {
           const { waiting, pen } = flock[index];
@@ -183,9 +194,10 @@
           boy.mirror = false;
         }
         if (ms >= cue.leave) {
-          const retreat = move(phase(ms, cue.leave + 260, cue.leave + 1380));
+          const steps = phase(ms, cue.leave + 260, cue.leave + 1380);
+          const retreat = move(steps);
           state.wolf = { x: mix(clearWolf, hiddenWolf + 19, retreat),
-            visible: 1 - ease(phase(retreat, .64, 1)), facing: -1, walking: retreat > 0 && retreat < 1 };
+            visible: 1 - ease(phase(retreat, .64, 1)), facing: -1, steps };
         }
         break;
       }
@@ -282,13 +294,17 @@
     paintAnimals(state, ms, still) {
       const { wolf, sheep } = state;
       opacity(this.parts.wolf, wolf.visible);
-      transform(this.parts.wolf, 'translate(' + wolf.x + ' 412) scale(' + (.87 * wolf.facing) + ' .87)');
-      transform(this.parts['wolf-tail'], 'rotate(' + (still ? 0 : 3 * Math.sin(ms / 350)) + ' -52 -52)');
-      const stride = wolf.walking && !still ? Math.sin(ms / 89) : 0;
-      transform(this.parts['wolf-body'], 'translate(0 ' + (-2.2 * Math.abs(stride)) + ')');
-      transform(this.parts['wolf-head'], 'rotate(' + (3 * stride) + ' 53 -68)');
+      transform(this.parts.wolf, 'translate(' + wolf.x + ' 404) scale(' + (.87 * wolf.facing) + ' .87)');
+      const progress = still ? 0 : wolf.steps ?? 0;
+      const cycle = 6 * Math.PI * progress;
+      const effort = Math.sin(Math.PI * progress);
+      const stride = Math.sin(cycle) * effort;
+      const tail = still ? 0 : 1.5 * Math.sin(ms / 550) - 3.6 * stride;
+      transform(this.parts['wolf-tail'], 'rotate(' + tail + ' -55 -70)');
+      transform(this.parts['wolf-body'], 'translate(0 ' + (-2.5 * Math.sin(cycle) ** 2 * effort) + ')');
+      transform(this.parts['wolf-head'], 'rotate(' + (2.8 * stride) + ' 51 -69)');
       this.wolfLegs.forEach((leg, index) => {
-        const step = 20 * stride * (index === 0 || index === 3 ? 1 : -1);
+        const step = 16 * stride * (index === 0 || index === 3 ? 1 : -1);
         transform(leg, 'rotate(' + step + ' ' + leg.dataset.stride + ')');
       });
       sheep.forEach((pose, index) => {

@@ -116,6 +116,41 @@ const result=await p.evaluate(()=>{
  }
  state.framing='head';cameraView='front';render();poseHeadshotArms(reactionPose('explain',1));
  if(document.querySelectorAll('#torso [data-hand-action][display="inline"] [data-action-hand="palmUp"]').length!==1||document.querySelectorAll('#torso [data-hand-action][display="inline"] [data-action-hand="point"]').length!==1)throw Error('Explaining hand states lost');
+
+ state.pose='relaxed';state.armPose='rest';
+ for(const key of ['wave','explain','point','shrug','celebrate','thumbsUp','stop','welcome','countOne','bow','dance']){
+  const sample=time=>{
+   const p=reactionPose(key,time);
+   return ['left','right'].flatMap(side=>{
+    const [shoulder,elbow,wrist]=p.arms[side];
+    return [shoulder,elbow,wrist+(p.hands?.[side]?.roll??0)];
+   });
+  };
+  for(let i=0;i<360;i++){
+   const pose=sample(i/100),next=sample((i+1)/100);
+   if(pose.some((angle,j)=>Math.abs(angle-next[j])>6))throw Error('Arm snaps during '+key+' at '+i/100);
+   if(Math.abs(pose[1])>135||Math.abs(pose[4])>135||Math.abs(pose[2])>38||Math.abs(pose[5])>38)throw Error('Overturned joint during '+key);
+  }
+  const rest=[-3,0,0,-3,0,0];
+  for(const time of [0,.01,2.99,3.6]){
+   if(sample(time).some((angle,j)=>Math.abs(angle-rest[j])>.35))throw Error('Gesture misses resting pose in '+key);
+  }
+ }
+
+ scene.cast=[newSceneActor('kid-sidak',0),newSceneActor('kid-meher',1)];
+ scene.cast.forEach(actor=>{actor.action='talk';});
+ scene.alternate=true;
+ rebuildSceneCast();
+ const sceneElbows=time=>{
+  paintScene(time);
+  return scene.nodes.map(node=>node.svg.querySelector('[data-rig-arm="-1"] [data-rig-elbow]').transform.baseVal.getItem(0).angle);
+ };
+ const firstTurn=sceneElbows(1),secondTurn=sceneElbows(3.4);
+ if(firstTurn[0]>-50||firstTurn[1]!==0||secondTurn[1]>-50||secondTurn[0]!==0)throw Error('A listener gestured during the other speaker’s turn');
+ for(const time of [2.39,2.41]){
+  if(sceneElbows(time).some(angle=>Math.abs(angle)>1))throw Error('Arms snap at a speaker handoff');
+ }
+
  WARDROBE.testDesign={label:'Test',template:'short',neck:'v',pocket:true};state.shirt='testDesign';render();if(!document.querySelector('[data-garment="testDesign"]'))throw Error('Registry addition failed');delete WARDROBE.testDesign;render();if(!document.querySelector('[data-garment="crew"]'))throw Error('Removed design fallback failed');
  return {styles:styles.length,checks,templates:Object.keys(GARMENT_TEMPLATES).length};
 });assert.deepEqual(errors,[]);console.log('PASS',result);await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

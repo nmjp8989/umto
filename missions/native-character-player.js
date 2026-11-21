@@ -213,12 +213,12 @@
         }
         const active = Boolean(word);
         const beat = reduced ? 0 : seconds + this.spec.serial * .43;
-        const expression = api.reaction(active ? 'explain' : 'smile', beat);
+        const expression = api.reaction(pose.expression ?? (active ? 'explain' : 'smile'), beat);
         const match = word?.text ?? '';
         expression.mouth = active && word.phase > .085 && word.phase < .93
           ? /[ਓਔਊੌੋੂ]/u.test(match) ? 'O' : /[ਈਇਏੀਿੇ]/u.test(match) ? 'EE' : 'A'
           : 'closed';
-        if (!active) expression.eyes = api.reaction('neutral', beat).eyes;
+        if (!active && !pose.expression) expression.eyes = api.reaction('neutral', beat).eyes;
         if (reduced) expression.eyes = 'open';
         if (pose.gazeX != null) expression.gazeX = Math.round(pose.gazeX / 10) * 10;
         if (pose.gazeY != null) expression.gazeY = Math.round(pose.gazeY / 10) * 10;

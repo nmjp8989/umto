@@ -61,6 +61,64 @@ async function run() {
       }
     }
 
+    function sidakPose() {
+      return page.evaluate(() => {
+        const sidak = document.getElementById('boy');
+        const stageSpace = document.getElementById('stage').getScreenCTM().inverse();
+        const project = (node, x = 0, y = 0) =>
+          new DOMPoint(x, y).matrixTransform(node.getScreenCTM()).matrixTransform(stageSpace).toJSON();
+        const raised = sidak.querySelector('[data-rig-arm="-1"]');
+        const other = sidak.querySelector('[data-rig-arm="1"]');
+        const palm = arm => {
+          const hand = arm.querySelector('[data-action-hand]');
+          return { ...project(hand, 0, Number(hand.dataset.gripY)), shape: hand.dataset.actionHand };
+        };
+        const mouth = sidak.querySelector('[data-scene-layer="mouthGroup"]');
+        const box = mouth.getBBox();
+        return {
+          hand: palm(raised),
+          other: palm(other),
+          shoulder: project(raised.querySelector('[data-rig-shoulder]'), 0, 48),
+          elbow: project(raised.querySelector('[data-rig-elbow]')),
+          mouth: project(mouth, box.x + box.width / 2, box.y + box.height / 2),
+          feet: Array.from(sidak.querySelectorAll('[data-rig-foot]'), foot => project(foot, 0, 111))
+        };
+      });
+    }
+
+    async function checkCall(scene, line, word) {
+      const entry = scenes[scene].lines[line];
+      const first = entry.start + entry.reading.timings[0][0];
+      const last = entry.start + entry.reading.timings.at(-1)[1];
+      await seek(scene, first - 540);
+      const rest = await sidakPose();
+      await seek(scene, first - 185);
+      const raising = await sidakPose();
+      await speak(scene, line, word);
+      const call = await sidakPose();
+      await seek(scene, last + 240);
+      const lowering = await sidakPose();
+      await seek(scene, last + 550);
+      const released = await sidakPose();
+
+      assert.equal(call.hand.shape, 'cupped', entry.id);
+      assert.equal(call.other.shape, 'relaxed', entry.id);
+      assert.ok(call.mouth.x - call.hand.x > 16 && call.mouth.x - call.hand.x < 38, entry.id + ': hand beside cheek');
+      assert.ok(Math.abs(call.mouth.y - call.hand.y) < 14, entry.id + ': hand reaches mouth level');
+      assert.ok(call.elbow.x < call.shoulder.x && call.elbow.y >= call.shoulder.y - 5, entry.id + ': elbow stays low');
+      assert.ok(call.other.y > call.shoulder.y + 40, entry.id + ': other arm stays down');
+      for (const pose of [raising, lowering]) {
+        assert.ok(pose.hand.y > call.hand.y + 8 && pose.hand.y < rest.hand.y - 4, entry.id + ': eased arm path');
+      }
+      assert.equal(released.hand.shape, 'relaxed', entry.id);
+      assert.ok(Math.hypot(rest.hand.x - released.hand.x, rest.hand.y - released.hand.y) < .2, entry.id + ': hand returns to rest');
+      for (const pose of [raising, call, lowering, released]) {
+        pose.feet.forEach((foot, i) => {
+          assert.ok(Math.hypot(foot.x - rest.feet[i].x, foot.y - rest.feet[i].y) < .2, entry.id + ': feet stay planted');
+        });
+      }
+    }
+
     for (const [id, preset] of [['mehar', 'kid-meher'], ['boy', 'kid-sidak'], ['dadi', 'elder-bibi-ji']]) {
       assert.equal(await page.locator('#' + id).getAttribute('data-studio-preset'), preset);
       assert.equal(await page.locator('#' + id + ' [data-rig-foot]').count(), 2);
@@ -73,11 +131,13 @@ async function run() {
     await speak(1, 1, 2);
     assert.equal(await opacity('wolf'), 0);
     assert.equal(await page.locator('#flock > [data-activity="grazing"]').count(), 4);
+    await checkCall(1, 1, 2);
     const arrive = wordAt(1, 2, 'ਦੌੜ');
     await seek(1, arrive + 450);
     assert.equal(await stage.getAttribute('data-camera-motion'), 'tracking');
     assert.equal(await page.locator('#mehar').getAttribute('data-studio-motion'), 'walk');
     await speak(1, 3, 4);
+    await checkCall(2, 1, 2);
     await speak(2, 3, 5);
     assert.equal(await opacity('wolf'), 0);
     assert.equal(await page.locator('#flock > [data-activity="grazing"]').count(), 4);
@@ -87,12 +147,22 @@ async function run() {
     await seek(3, wordAt(3, 0, 'ਖੜਕਾ') + 80);
     assert.equal(await opacity('wolf'), 0);
     assert.equal(await stage.getAttribute('data-camera-preset'), 'detail');
+    const emerge = wordAt(3, 1, 'ਬਘਿਆੜ');
+    await seek(3, emerge + 330);
+    assert.equal(await opacity('wolf'), 1);
+    const legs = await page.locator('#wolf [data-stride]').evaluateAll(nodes =>
+      nodes.map(node => node.transform.baseVal.getItem(0).angle));
+    assert.equal(legs.length, 4);
+    assert.ok(legs.some(angle => angle > 1) && legs.some(angle => angle < -1), 'Wolf steps in opposing pairs');
+    await seek(3, emerge + 1250);
+    assert.ok(await page.locator('#wolf [data-stride]').evaluateAll(nodes =>
+      nodes.every(node => Math.abs(node.transform.baseVal.getItem(0).angle) < .05)), 'Wolf settles after stepping out');
     await seek(3, rush + 490);
     assert.equal(await opacity('wolf'), 1);
     assert.equal(await page.locator('#flock > [data-activity="running"]').count(), 4);
     assert.equal(await page.locator('#book').getAttribute('data-layout'), 'cinema');
     await page.screenshot({ path: output + '/03-wolf-and-flock.png' });
-    await speak(3, 2, 4);
+    await checkCall(3, 2, 4);
     await speak(4, 0, 4);
     assert.equal(await page.locator('#book').getAttribute('data-layout'), 'spread');
 
@@ -133,6 +203,8 @@ async function run() {
     assert.equal(await page.locator('#mehar').getAttribute('data-studio-motion'), 'stand');
     await seek(3, rush + 490);
     assert.equal(await page.locator('#flock > [data-activity="running"]').count(), 0);
+    await speak(3, 2, 4);
+    assert.equal((await sidakPose()).hand.shape, 'cupped');
 
     await page.goto(url + '?review=1&scene=safe-pen&test=1');
     await page.waitForFunction(() => window.lp013Test);
@@ -145,7 +217,7 @@ async function run() {
     await page.locator('#change-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '0 of 7 approved');
     assert.deepEqual(errors, []);
-    console.log('PASS Mission 13: 190 Punjabi words, 21 aligned clips, Studio cast, speaker-specific lips, timed flock and gate, mobile and review.');
+    console.log('PASS Mission 13: 190 Punjabi words, 21 aligned clips, all three calls, wolf gait, speaker-specific lips, flock and gate, mobile and review.');
   } finally {
     await browser.close();
   }
