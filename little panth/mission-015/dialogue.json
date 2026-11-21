@@ -1,0 +1,90 @@
+{
+  "mission": 15,
+  "title": "ਪੁਲ ਉੱਤੇ ਦੋ ਬੱਕਰੀਆਂ",
+  "englishTitle": "The Two Goats and the Bridge",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "boy": "Sidak"
+  },
+  "scenes": [
+    {
+      "id": "canal",
+      "title": "A narrow wooden bridge",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["near-village", "mehar-warns"],
+      "review": "Establish the water, the two banks, and the narrow bridge. Then frame Mehar beside Channi on the left bank."
+    },
+    {
+      "id": "meet",
+      "title": "The goats meet in the middle",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 385 },
+      "lines": ["meet-midway", "sidak-calls"],
+      "review": "Show the two goats approach from opposite banks. Both should come to a complete stop with a small gap between their noses."
+    },
+    {
+      "id": "creak",
+      "title": "The plank creaks",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 631, "y": 489 },
+      "lines": ["plank-creaks"],
+      "review": "Show Channi set down a front hoof before the plank moves. Then show both goats look at the water below."
+    },
+    {
+      "id": "plan",
+      "title": "One goat at a time",
+      "framing": "two-shot",
+      "focus": { "x": 443, "y": 417 },
+      "lines": ["mehar-plan", "moti-backs-up"],
+      "review": "Frame Mehar as she suggests taking turns. Track Moti as she backs onto the right bank. Channi waits in place."
+    },
+    {
+      "id": "first-crossing",
+      "title": "Channi goes first",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 798, "y": 427 },
+      "lines": ["sidak-praises", "channi-crosses"],
+      "review": "Keep Moti on the bank while Channi finishes crossing. Channi moves away from the bridge entrance to give Moti room."
+    },
+    {
+      "id": "second-crossing",
+      "title": "Now it is Moti’s turn",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 635, "y": 428 },
+      "lines": ["moti-crosses"],
+      "review": "Follow Moti all the way to the left bank. Keep Channi clear of the bridge."
+    },
+    {
+      "id": "grass",
+      "title": "Room for everyone",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 365 },
+      "lines": ["grass-on-both-banks", "mehar-smiles", "new-habit"],
+      "review": "Return to the wide shot. Both goats graze on opposite banks, and Mehar smiles as she talks about taking turns."
+    }
+  ],
+  "lines": {
+    "near-village": { "speaker": "narrator", "pa": "ਪਿੰਡ ਕੋਲ ਇੱਕ ਛੋਟੀ ਨਹਿਰ ਸੀ। ਨਹਿਰ ਉੱਤੇ ਲੱਕੜ ਦਾ ਤੰਗ ਪੁਲ ਸੀ। ਇੱਕ ਦਿਨ ਮੇਹਰ ਤੇ ਸਿਦਕ ਆਪਣੀਆਂ ਬੱਕਰੀਆਂ ਨੂੰ ਚਰਾਉਣ ਲੈ ਗਏ।" },
+    "mehar-warns": { "speaker": "mehar", "pa": "ਚੰਨੀ, ਪੁਲ ਕੋਲ ਹੌਲੀ ਹੌਲੀ ਚੱਲੀਂ।" },
+    "meet-midway": { "speaker": "narrator", "pa": "ਚੰਨੀ ਇੱਕ ਪਾਸਿਓਂ ਪੁਲ ਉੱਤੇ ਚੜ੍ਹੀ ਤੇ ਮੋਤੀ ਦੂਜੇ ਪਾਸਿਓਂ। ਦੋਵੇਂ ਵਿਚਕਾਰ ਆ ਕੇ ਰੁਕ ਗਈਆਂ। ਲੰਘਣ ਲਈ ਥਾਂ ਬਹੁਤ ਥੋੜ੍ਹੀ ਸੀ।" },
+    "sidak-calls": { "speaker": "boy", "pa": "ਮੋਤੀ, ਉੱਥੇ ਹੀ ਖੜ੍ਹੀ ਰਹੀਂ। ਮੈਂ ਇੱਥੇ ਹਾਂ।" },
+    "plank-creaks": { "speaker": "narrator", "pa": "ਚੰਨੀ ਨੇ ਇੱਕ ਪੈਰ ਅੱਗੇ ਰੱਖਿਆ। ਪੁਲ ਦੀ ਲੱਕੜ ਚਰਮਰਾਈ। ਦੋਵੇਂ ਬੱਕਰੀਆਂ ਨੇ ਹੇਠਾਂ ਵਗਦਾ ਪਾਣੀ ਵੇਖਿਆ।" },
+    "mehar-plan": { "speaker": "mehar", "pa": "ਜੇ ਆਪਾਂ ਵਾਰੀ ਵਾਰੀ ਲੰਘੀਏ ਤਾਂ ਦੋਵੇਂ ਆਰਾਮ ਨਾਲ ਪਾਰ ਹੋ ਜਾਣਗੀਆਂ।" },
+    "moti-backs-up": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੇ ਮੋਤੀ ਨੂੰ ਆਵਾਜ਼ ਮਾਰੀ। ਮੋਤੀ ਹੌਲੀ ਹੌਲੀ ਪਿੱਛੇ ਹਟੀ ਤੇ ਕੰਢੇ ਉੱਤੇ ਆ ਗਈ।" },
+    "sidak-praises": { "speaker": "boy", "pa": "ਸ਼ਾਬਾਸ਼, ਮੋਤੀ! ਹੁਣ ਚੰਨੀ ਦੀ ਵਾਰੀ ਹੈ।" },
+    "channi-crosses": { "speaker": "narrator", "pa": "ਚੰਨੀ ਪੁਲ ਪਾਰ ਕਰ ਗਈ। ਉਸ ਨੇ ਮੋਤੀ ਲਈ ਰਾਹ ਛੱਡ ਦਿੱਤਾ।" },
+    "moti-crosses": { "speaker": "narrator", "pa": "ਫਿਰ ਮੋਤੀ ਦੂਜੇ ਕੰਢੇ ਵੱਲ ਤੁਰ ਪਈ। ਇਸ ਵਾਰੀ ਪੁਲ ਉੱਤੇ ਇੱਕੋ ਬੱਕਰੀ ਸੀ।" },
+    "grass-on-both-banks": { "speaker": "narrator", "pa": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਹੱਸ ਪਏ। ਪੁਲ ਪਾਰ ਕਰ ਕੇ ਦੋਵੇਂ ਬੱਕਰੀਆਂ ਹਰਾ ਘਾਹ ਖਾਣ ਲੱਗੀਆਂ।" },
+    "mehar-smiles": { "speaker": "mehar", "pa": "ਵਾਰੀ ਦੀ ਉਡੀਕ ਕੀਤੀ ਤੇ ਦੋਵਾਂ ਦਾ ਕੰਮ ਬਣ ਗਿਆ!" },
+    "new-habit": { "speaker": "narrator", "pa": "ਉਸ ਦਿਨ ਤੋਂ ਜਦੋਂ ਵੀ ਉਹ ਨਹਿਰ ਕੋਲ ਆਉਂਦੀਆਂ, ਇੱਕ ਬੱਕਰੀ ਪਹਿਲਾਂ ਲੰਘਦੀ ਤੇ ਦੂਜੀ ਆਪਣੀ ਵਾਰੀ ਉਡੀਕਦੀ।" }
+  }
+}
