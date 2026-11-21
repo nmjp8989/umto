@@ -1,0 +1,93 @@
+{
+  "near-village": {
+    "hash": "8f83bbd8af9b079ee4fc77c7c1a96cb4ee40a1b1a51accb196b9ca02339419c2",
+    "voice": "Aoede",
+    "text": "ਪਿੰਡ ਕੋਲ ਇੱਕ ਛੋਟੀ ਨਹਿਰ ਸੀ। ਨਹਿਰ ਉੱਤੇ ਲੱਕੜ ਦਾ ਤੰਗ ਪੁਲ ਸੀ। ਇੱਕ ਦਿਨ ਮੇਹਰ ਤੇ ਸਿਦਕ ਆਪਣੀਆਂ ਬੱਕਰੀਆਂ ਨੂੰ ਚਰਾਉਣ ਲੈ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-warns": {
+    "hash": "57f56dfc7aef83bfdece3aaa09582c8f73b9df4957a4e4835d4ce0c1c4fb9319",
+    "voice": "Kore",
+    "text": "ਚੰਨੀ, ਪੁਲ ਕੋਲ ਹੌਲੀ ਹੌਲੀ ਚੱਲੀਂ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "meet-midway": {
+    "hash": "f670a55a7fa36da3ffc9933b496ab8214a20e6648583fb6f561984679522e43a",
+    "voice": "Aoede",
+    "text": "ਚੰਨੀ ਇੱਕ ਪਾਸਿਓਂ ਪੁਲ ਉੱਤੇ ਚੜ੍ਹੀ ਤੇ ਮੋਤੀ ਦੂਜੇ ਪਾਸਿਓਂ। ਦੋਵੇਂ ਵਿਚਕਾਰ ਆ ਕੇ ਰੁਕ ਗਈਆਂ। ਲੰਘਣ ਲਈ ਥਾਂ ਬਹੁਤ ਥੋੜ੍ਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-calls": {
+    "hash": "7edd30b0578c290133e7d44c6b4723e5d175f50986f2096d632e0cdd4319ddd6",
+    "voice": "Orus",
+    "text": "ਮੋਤੀ, ਉੱਥੇ ਹੀ ਖੜ੍ਹੀ ਰਹੀਂ। ਮੈਂ ਇੱਥੇ ਹਾਂ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "plank-creaks": {
+    "hash": "e0321948c836f10309ea8c9a758338e5e89c0402e3f31778268f70ad73ec37f9",
+    "voice": "Aoede",
+    "text": "ਚੰਨੀ ਨੇ ਇੱਕ ਪੈਰ ਅੱਗੇ ਰੱਖਿਆ। ਪੁਲ ਦੀ ਲੱਕੜ ਚਰਮਰਾਈ। ਦੋਵੇਂ ਬੱਕਰੀਆਂ ਨੇ ਹੇਠਾਂ ਵਗਦਾ ਪਾਣੀ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-plan": {
+    "hash": "285d5ec8a5a32a80b6f9376d5e2767980382b757be57ed570613918a6c1a4bdc",
+    "voice": "Kore",
+    "text": "ਜੇ ਆਪਾਂ ਵਾਰੀ ਵਾਰੀ ਲੰਘੀਏ ਤਾਂ ਦੋਵੇਂ ਆਰਾਮ ਨਾਲ ਪਾਰ ਹੋ ਜਾਣਗੀਆਂ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "moti-backs-up": {
+    "hash": "029638b228911d9d6bcb886b0f10255388fe138fdd98db3354b794f64066ade6",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੇ ਮੋਤੀ ਨੂੰ ਆਵਾਜ਼ ਮਾਰੀ। ਮੋਤੀ ਹੌਲੀ ਹੌਲੀ ਪਿੱਛੇ ਹਟੀ ਤੇ ਕੰਢੇ ਉੱਤੇ ਆ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-praises": {
+    "hash": "ad86d478394bc4a94e178cc03b03ee70bc54c0e0b9ebea6b26b99d1810cb60ef",
+    "voice": "Orus",
+    "text": "ਸ਼ਾਬਾਸ਼, ਮੋਤੀ! ਹੁਣ ਚੰਨੀ ਦੀ ਵਾਰੀ ਹੈ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "channi-crosses": {
+    "hash": "18528e9509d898c2c53e6f7ba7348323c238ca9cd0c574e425533cf1d1474ed5",
+    "voice": "Aoede",
+    "text": "ਚੰਨੀ ਪੁਲ ਪਾਰ ਕਰ ਗਈ। ਉਸ ਨੇ ਮੋਤੀ ਲਈ ਰਾਹ ਛੱਡ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moti-crosses": {
+    "hash": "30a3e40521d0a8fbcb024ceafaa2adb97dcb54891777eb6c658194ebe850a4f1",
+    "voice": "Aoede",
+    "text": "ਫਿਰ ਮੋਤੀ ਦੂਜੇ ਕੰਢੇ ਵੱਲ ਤੁਰ ਪਈ। ਇਸ ਵਾਰੀ ਪੁਲ ਉੱਤੇ ਇੱਕੋ ਬੱਕਰੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "grass-on-both-banks": {
+    "hash": "fec68eb75c5fb1aa757a890c8e17135108df2af419181df7c057b3b052a47479",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਹੱਸ ਪਏ। ਪੁਲ ਪਾਰ ਕਰ ਕੇ ਦੋਵੇਂ ਬੱਕਰੀਆਂ ਹਰਾ ਘਾਹ ਖਾਣ ਲੱਗੀਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-smiles": {
+    "hash": "8848539df71e0772ae3991a529703ff5af604c4d52b1c921921731e45a0511ff",
+    "voice": "Kore",
+    "text": "ਵਾਰੀ ਦੀ ਉਡੀਕ ਕੀਤੀ ਤੇ ਦੋਵਾਂ ਦਾ ਕੰਮ ਬਣ ਗਿਆ!",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "new-habit": {
+    "hash": "2230cf10b59277fc76ce193aa3a4598cb5aacd7bb08803b4fd92bf3c868ec279",
+    "voice": "Aoede",
+    "text": "ਉਸ ਦਿਨ ਤੋਂ ਜਦੋਂ ਵੀ ਉਹ ਨਹਿਰ ਕੋਲ ਆਉਂਦੀਆਂ, ਇੱਕ ਬੱਕਰੀ ਪਹਿਲਾਂ ਲੰਘਦੀ ਤੇ ਦੂਜੀ ਆਪਣੀ ਵਾਰੀ ਉਡੀਕਦੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
