@@ -1,0 +1,85 @@
+{
+  "mission": 21,
+  "title": "ਇਮਾਨਦਾਰ ਲੱਕੜਹਾਰਾ",
+  "englishTitle": "The Honest Woodcutter",
+  "score": "original",
+  "speakers": {
+    "narrator": "Narrator",
+    "arjan": "Arjan",
+    "pari": "River Fairy"
+  },
+  "scenes": [
+    {
+      "id": "riverbank",
+      "title": "Arjan by the river",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 381 },
+      "lines": ["morning-by-the-river"],
+      "review": "Establish the river and its banks. Follow Arjan on the path with the old axe in his hand and show him stop beside the branch."
+    },
+    {
+      "id": "splash",
+      "title": "The axe falls into the river",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 618, "y": 466 },
+      "lines": ["the-axe-slips"],
+      "review": "Show the axe leave Arjan’s hand, strike the stone once, then make a splash where it actually enters the river."
+    },
+    {
+      "id": "lost-tool",
+      "title": "Arjan misses his father’s axe",
+      "framing": "medium",
+      "focus": { "x": 516, "y": 406 },
+      "lines": ["arjan-remembers-his-father"],
+      "review": "Show the last ripples and hold on Arjan’s reaction. Only his mouth should follow this line."
+    },
+    {
+      "id": "gold-axe",
+      "title": "The golden axe",
+      "framing": "two-shot",
+      "focus": { "x": 636, "y": 415 },
+      "lines": ["the-river-fairy", "fairy-offers-gold", "arjan-describes-the-mark"],
+      "review": "Reveal the fairy as the water settles. Keep the gold axe at her palm as she asks Arjan whose it is. On his reply, keep her mouth still."
+    },
+    {
+      "id": "silver-axe",
+      "title": "Silver, then a familiar handle",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 662, "y": 439 },
+      "lines": ["silver-and-iron"],
+      "review": "Show the fairy set the gold axe down, display the silver one, then reveal the old iron axe. Give the nick in the wooden handle a clear close-up."
+    },
+    {
+      "id": "honest-return",
+      "title": "Arjan recognizes his axe",
+      "framing": "two-shot",
+      "focus": { "x": 663, "y": 427 },
+      "lines": ["arjan-recognizes-the-axe", "fairy-rewards-honesty"],
+      "review": "During each line, animate the speaker’s mouth only. On the handoff, the two hands should meet the handle before the axe changes hands."
+    },
+    {
+      "id": "homeward",
+      "title": "Taking the path home",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 381 },
+      "lines": ["arjan-heads-home"],
+      "review": "Show the three axes tucked into a cloth bag. Arjan picks up the tied branches and walks away with the bundle and bag."
+    }
+  ],
+  "lines": {
+    "morning-by-the-river": { "speaker": "narrator", "pa": "ਅਰਜਨ ਹਰ ਸਵੇਰ ਨਦੀ ਕੰਢੇ ਪਈਆਂ ਸੁੱਕੀਆਂ ਟਾਹਣੀਆਂ ਚੁੱਕਦਾ ਸੀ। ਇੱਕ ਦਿਨ ਉਹ ਵੱਡੀ ਟਾਹਣੀ ਨੂੰ ਛੋਟਾ ਕਰਨ ਲਈ ਪੱਥਰ ਕੋਲ ਰੁਕਿਆ।" },
+    "the-axe-slips": { "speaker": "narrator", "pa": "ਕੁਹਾੜੀ ਦਾ ਦਸਤਾ ਗਿੱਲਾ ਸੀ। ਜਦੋਂ ਉਸ ਨੇ ਕੁਹਾੜੀ ਚੁੱਕੀ, ਹੱਥ ਫਿਸਲ ਗਿਆ। ਕੁਹਾੜੀ ਪੱਥਰ ਉੱਤੇ ਵੱਜੀ ਤੇ ਛਪਾਕ ਕਰ ਕੇ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।" },
+    "arjan-remembers-his-father": { "speaker": "arjan", "pa": "ਹਾਏ, ਮੇਰੀ ਕੁਹਾੜੀ! ਉਸ ਦਾ ਦਸਤਾ ਪਿਉ ਜੀ ਨੇ ਬਣਾਇਆ ਸੀ। ਹੁਣ ਮੈਂ ਲੱਕੜ ਕਿਵੇਂ ਕੱਟਾਂਗਾ?" },
+    "the-river-fairy": { "speaker": "narrator", "pa": "ਪਾਣੀ ਦੀਆਂ ਲਹਿਰਾਂ ਠੰਢੀਆਂ ਪਈਆਂ ਤਾਂ ਨਦੀ ਦੀ ਪਰੀ ਕੰਢੇ ਉੱਤੇ ਦਿਸੀ। ਉਸ ਦੇ ਹੱਥ ਵਿੱਚ ਸੋਨੇ ਦੀ ਕੁਹਾੜੀ ਚਮਕ ਰਹੀ ਸੀ।" },
+    "fairy-offers-gold": { "speaker": "pari", "pa": "ਕੀ ਇਹ ਸੋਨੇ ਵਾਲੀ ਕੁਹਾੜੀ ਤੇਰੀ ਹੈ?" },
+    "arjan-describes-the-mark": { "speaker": "arjan", "pa": "ਨਹੀਂ ਜੀ। ਮੇਰੀ ਕੁਹਾੜੀ ਦਾ ਦਸਤਾ ਪੁਰਾਣਾ ਹੈ। ਉਸ ਉੱਤੇ ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਲਕੀਰ ਵੀ ਹੈ।" },
+    "silver-and-iron": { "speaker": "narrator", "pa": "ਪਰੀ ਨੇ ਚਾਂਦੀ ਦੀ ਕੁਹਾੜੀ ਵਿਖਾਈ। ਅਰਜਨ ਨੇ ਸਿਰ ਹਿਲਾਇਆ। ਫਿਰ ਪਰੀ ਨੇ ਪੁਰਾਣੇ ਲੱਕੜ ਦੇ ਦਸਤੇ ਵਾਲੀ ਕੁਹਾੜੀ ਵਿਖਾਈ।" },
+    "arjan-recognizes-the-axe": { "speaker": "arjan", "pa": "ਹਾਂ ਜੀ, ਇਹ ਮੇਰੀ ਹੈ! ਵੇਖੋ, ਦਸਤੇ ਉੱਤੇ ਉਹੀ ਲਕੀਰ ਹੈ।" },
+    "fairy-rewards-honesty": { "speaker": "pari", "pa": "ਤੂੰ ਸੱਚ ਬੋਲਿਆ, ਭਾਵੇਂ ਹੋਰ ਕੁਹਾੜੀਆਂ ਚਮਕਦੀਆਂ ਸਨ। ਆਪਣੀ ਕੁਹਾੜੀ ਲੈ। ਬਾਕੀ ਦੋ ਵੀ ਤੇਰੇ ਲਈ ਹਨ।" },
+    "arjan-heads-home": { "speaker": "narrator", "pa": "ਅਰਜਨ ਨੇ ਧੰਨਵਾਦ ਕੀਤਾ। ਉਸ ਨੇ ਤਿੰਨੋਂ ਕੁਹਾੜੀਆਂ ਕੱਪੜੇ ਦੇ ਥੈਲੇ ਵਿੱਚ ਪਾਈਆਂ। ਫਿਰ ਟਾਹਣੀਆਂ ਦੀ ਗੱਠ ਚੁੱਕੀ ਤੇ ਘਰ ਵੱਲ ਤੁਰ ਪਿਆ।" }
+  }
+}
