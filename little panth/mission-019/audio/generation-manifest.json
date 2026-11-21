@@ -1,0 +1,79 @@
+{
+  "crow-finds-paneer": {
+    "hash": "6fef3fe2c76536add96dad79964599dc478efc8d43d1ebce2a19c93e2d57678d",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਸਵੇਰ ਕਾਂ ਨੂੰ ਪਨੀਰ ਦਾ ਇੱਕ ਟੁਕੜਾ ਮਿਲਿਆ। ਉਹ ਟੁਕੜਾ ਚੁੰਝ ਵਿੱਚ ਫੜ ਕੇ ਬਾਗ ਦੇ ਇੱਕ ਰੁੱਖ ਉੱਤੇ ਜਾ ਬੈਠਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-passes": {
+    "hash": "821cd1bf6b233bb44dcf3982d35978339f384922db716ac7fac3cc65df42b927",
+    "voice": "Aoede",
+    "text": "ਰੁੱਖ ਹੇਠੋਂ ਇੱਕ ਲੂੰਬੜੀ ਲੰਘ ਰਹੀ ਸੀ। ਜਦੋਂ ਉਸ ਨੇ ਪਨੀਰ ਵੇਖਿਆ ਤਾਂ ਉਹ ਰੁਕ ਗਈ ਤੇ ਕਾਂ ਵੱਲ ਤੱਕਣ ਲੱਗੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-praises": {
+    "hash": "ecd7f2b015a2304136329ceb1b6ddb2e392f8fdb8687df749f07238676002e92",
+    "voice": "Kore",
+    "text": "ਕਾਂ ਭਰਾ, ਤੇਰੇ ਖੰਭ ਧੁੱਪ ਵਿੱਚ ਕਿੰਨੇ ਸੋਹਣੇ ਲੱਗ ਰਹੇ ਹਨ! ਤੇਰੀ ਆਵਾਜ਼ ਵੀ ਜ਼ਰੂਰ ਮਿੱਠੀ ਹੋਵੇਗੀ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "crow-feels-proud": {
+    "hash": "b955abc530cd0a501129a75803713ce958bdb833e2d29fd2238cff7b668ae27e",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਨੂੰ ਆਪਣੀ ਤਾਰੀਫ਼ ਸੁਣ ਕੇ ਬਹੁਤ ਚੰਗਾ ਲੱਗਿਆ। ਉਸ ਨੇ ਛਾਤੀ ਫੁਲਾਈ ਤੇ ਆਪਣਾ ਸਿਰ ਉੱਚਾ ਕਰ ਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-asks-for-song": {
+    "hash": "8b1910e93f42539f8335433427ae569d25ce54732a91348d5751ad764e3fdd52",
+    "voice": "Kore",
+    "text": "ਮੈਨੂੰ ਵੀ ਆਪਣਾ ਇੱਕ ਗੀਤ ਸੁਣਾ ਦੇ। ਮੈਂ ਇੱਥੇ ਖੜ੍ਹੀ ਹੋ ਕੇ ਸੁਣਾਂਗੀ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "paneer-falls": {
+    "hash": "851b30fa009e33dbade9173cc4e43836f0a4c6f5617cb173e98b47b8f89b9d95",
+    "voice": "Aoede",
+    "text": "ਕਾਂ ਨੇ ਗਾਉਣ ਲਈ ਚੁੰਝ ਖੋਲ੍ਹੀ। ਕਾਂ ਕਾਂ ਦੀ ਆਵਾਜ਼ ਨਾਲ ਹੀ ਪਨੀਰ ਉਸ ਦੀ ਚੁੰਝ ਵਿੱਚੋਂ ਹੇਠਾਂ ਡਿੱਗ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-picks-up-paneer": {
+    "hash": "ab4a33a4bf7ec6e8b6af3121ddf923b93fca0ad9ff0daeb5869c8cc5cb08b2a5",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਨੇ ਪਨੀਰ ਚੁੱਕ ਲਿਆ। ਕਾਂ ਨੇ ਹੇਠਾਂ ਵੇਖਿਆ ਤੇ ਤੁਰੰਤ ਸਮਝ ਗਿਆ ਕਿ ਲੂੰਬੜੀ ਕਿਉਂ ਰੁਕੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "crow-realizes": {
+    "hash": "c5f638e0a174c48f1d1afd4f0e9d86e91877c8616ad4894f49159523cebf74e5",
+    "voice": "Puck",
+    "text": "ਮੈਨੂੰ ਗੀਤ ਸੁਣਾਉਣ ਦੀ ਕਾਹਲੀ ਸੀ। ਮੈਂ ਪਨੀਰ ਬਾਰੇ ਸੋਚਿਆ ਹੀ ਨਹੀਂ।",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "fox-goes-away": {
+    "hash": "2dedf2d4f60a35a7fe0a3407d7c2de1d541bf353366e1feee779901a7097683a",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਪਨੀਰ ਲੈ ਕੇ ਚਲੀ ਗਈ। ਕਾਂ ਕੁਝ ਦੇਰ ਟਾਹਣੀ ਉੱਤੇ ਚੁੱਪ ਬੈਠਾ ਰਿਹਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "crow-decides": {
+    "hash": "66d1417f55afa4f75c3d2c077737cc80feae91fe9abf54777e9333dc477ab898",
+    "voice": "Puck",
+    "text": "ਹੁਣ ਕੋਈ ਮੇਰੀ ਤਾਰੀਫ਼ ਕਰੇਗਾ ਤਾਂ ਮੈਂ ਚੁੰਝ ਖੋਲ੍ਹਣ ਤੋਂ ਪਹਿਲਾਂ ਸੋਚਾਂਗਾ।",
+    "speaker": "crow",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "crow-goes-home": {
+    "hash": "e98ede4cb5b151dd1a01822c8f065061e3492fa3fa1fd08225f62f436f65ad28",
+    "voice": "Aoede",
+    "text": "ਫਿਰ ਉਸ ਨੇ ਖੰਭ ਖੋਲ੍ਹੇ ਤੇ ਆਪਣੇ ਘਰ ਵੱਲ ਉੱਡ ਗਿਆ। ਉਸ ਨੂੰ ਉਹ ਸਵੇਰ ਬਹੁਤ ਦਿਨ ਯਾਦ ਰਹੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
