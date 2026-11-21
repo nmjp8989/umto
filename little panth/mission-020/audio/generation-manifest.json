@@ -1,0 +1,79 @@
+{
+  "hen-finds-wheat": {
+    "hash": "449806223de7040928615fa41972ba584943d02796afb3a74cef0e27e806a951",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਸਵੇਰ ਲਾਲ ਮੁਰਗੀ ਨੂੰ ਵਿਹੜੇ ਵਿੱਚ ਕਣਕ ਦੇ ਕੁਝ ਦਾਣੇ ਮਿਲੇ। ਉਸ ਨੇ ਦਾਣੇ ਚੁੰਝ ਨਾਲ ਚੁੱਕ ਕੇ ਕਿਆਰੀ ਕੋਲ ਰੱਖੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "hen-calls": {
+    "hash": "471940305b7295cf835a3408aa357648cf7d7d3809ea52037c4b5a62af17b6a9",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਮੇਹਰ ਤੇ ਸਿਦਕ ਵੱਲ ਵੇਖ ਕੇ ਕੁੜ ਕੁੜ ਕੀਤੀ। ਦੋਵੇਂ ਉਸ ਵੇਲੇ ਗੇਂਦ ਨਾਲ ਖੇਡ ਰਹੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-finishes-game": {
+    "hash": "4cd19197771e8743fa96cadfe688d7e32af19613d9c0708707a2ea77e11bafa0",
+    "voice": "Orus",
+    "text": "ਮੇਹਰ, ਆਪਣੀ ਖੇਡ ਮੁੱਕੇ ਤਾਂ ਆਪਾਂ ਮੁਰਗੀ ਕੋਲ ਜਾਵਾਂਗੇ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "hen-plants": {
+    "hash": "1664b400f9a1f0ac9ff3790d13e8e8139f7572c232970b9f546850e3c7250c31",
+    "voice": "Aoede",
+    "text": "ਮੁਰਗੀ ਨੇ ਮਿੱਟੀ ਖੁਰਚੀ ਤੇ ਦਾਣੇ ਉਸ ਵਿੱਚ ਸੁੱਟ ਦਿੱਤੇ। ਜਦੋਂ ਮੀਂਹ ਪਿਆ ਤਾਂ ਮਿੱਟੀ ਗਿੱਲੀ ਹੋ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "wheat-ripens": {
+    "hash": "20d6cde674b10c94f9618b7f729bf711680674cb2c4cbe03cf862c6467043a29",
+    "voice": "Aoede",
+    "text": "ਕੁਝ ਦਿਨਾਂ ਪਿੱਛੋਂ ਹਰੇ ਬੂਟੇ ਨਿਕਲੇ। ਜਦੋਂ ਕਣਕ ਪੱਕੀ ਤਾਂ ਮੇਹਰ ਤੇ ਸਿਦਕ ਕਿਆਰੀ ਕੋਲ ਆਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-helps": {
+    "hash": "84bf78f8aad4300e39fad5ba7a9cd105df6ddd5ff22ae25be7d2df832cb91996",
+    "voice": "Kore",
+    "text": "ਮੁਰਗੀ ਨੇ ਇੰਨਾ ਕੰਮ ਕੀਤਾ ਹੈ। ਹੁਣ ਅਸੀਂ ਕਣਕ ਘਰ ਲੈ ਚੱਲੀਏ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "basket-to-mill": {
+    "hash": "17856b0ae29a1e313afb1ae5526c56d27ca4a41b33f957c70b599f5d8b07b9d2",
+    "voice": "Aoede",
+    "text": "ਦੋਵਾਂ ਨੇ ਕਣਕ ਟੋਕਰੀ ਵਿੱਚ ਪਾਈ ਤੇ ਬੀਬੀ ਜੀ ਕੋਲ ਲੈ ਗਏ। ਬੀਬੀ ਜੀ ਨੇ ਚੱਕੀ ਵਿੱਚ ਦਾਣੇ ਪੀਸ ਕੇ ਆਟਾ ਬਣਾਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-flour": {
+    "hash": "527356cab73160a06f3a610b73c47ff0034dc9088af69fb21b81890f614a4170",
+    "voice": "Pulcherrima",
+    "text": "ਇਹ ਆਟਾ ਵੇਖੋ, ਪੁੱਤ। ਹੁਣ ਆਪਾਂ ਰੋਟੀਆਂ ਬਣਾਵਾਂਗੇ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "roti-is-served": {
+    "hash": "54f95e987dfb850ed3c8400eb153069746048832181cc7ab2d337f1fc2834db3",
+    "voice": "Aoede",
+    "text": "ਬੀਬੀ ਜੀ ਨੇ ਤਵੇ ਤੋਂ ਰੋਟੀ ਲਾਹ ਕੇ ਥਾਲੀ ਵਿੱਚ ਰੱਖੀ। ਸਿਦਕ ਨੇ ਥਾਲੀ ਚੁੱਕੀ ਤੇ ਮੇਹਰ ਨੇ ਮੁਰਗੀ ਲਈ ਦਾਣੇ ਰੱਖੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-promises": {
+    "hash": "ab8f8c13afc6250998c4b2a9b78f753461b1aa3b8b0ccdec2d8ad4a731cf7c72",
+    "voice": "Orus",
+    "text": "ਅਗਲੀ ਵਾਰੀ ਅਸੀਂ ਸ਼ੁਰੂ ਤੋਂ ਹੀ ਮਦਦ ਕਰਾਂਗੇ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "share-the-meal": {
+    "hash": "8b21270fbbea35f000eb886c7825a12498bbce2c82e1c1ee5f56c504aa45ad75",
+    "voice": "Aoede",
+    "text": "ਮੁਰਗੀ ਨੇ ਦਾਣੇ ਚੁਗੇ ਤੇ ਸਾਰਿਆਂ ਨੇ ਰਲ ਕੇ ਖਾਣਾ ਖਾਧਾ। ਮੇਹਰ ਨੂੰ ਹੁਣ ਪਤਾ ਸੀ ਕਿ ਇੱਕ ਰੋਟੀ ਬਣਾਉਣ ਵਿੱਚ ਕਿੰਨਾ ਕੰਮ ਲੱਗਦਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
