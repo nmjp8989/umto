@@ -1,0 +1,100 @@
+{
+  "the-pouch": {
+    "hash": "368e152a9a013bab30fe153959ef0e23c54a461a5237d8cb1bc5e1cff0a02af5",
+    "voice": "Aoede",
+    "text": "ਸਵੇਰੇ ਬੀਬੀ ਜੀ ਨੇ ਮੇਹਰ ਤੇ ਸਿਦਕ ਨੂੰ ਵਿਹੜੇ ਵਿੱਚ ਸੱਦਿਆ। ਉਨ੍ਹਾਂ ਕੋਲ ਬੀਜਾਂ ਦੀ ਪੋਟਲੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-invites": {
+    "hash": "39ec018f4a0a9055d174c74ed15f14b8156246deb879cb0da50bcc150d3c7cbf",
+    "voice": "Pulcherrima",
+    "text": "ਇਹ ਇੱਕ ਇੱਕ ਬੀਜ ਆਪਣੇ ਗਮਲੇ ਵਿੱਚ ਲਾਓ। ਇੱਕ ਮਹੀਨੇ ਪਿੱਛੋਂ ਗਮਲੇ ਲੈ ਕੇ ਆਇਓ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "plant-and-water": {
+    "hash": "6ea8b8e6a01c99cc324308150980d9de19d821035de28a473bea3a1e1aa18874",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਮਿੱਟੀ ਵਿੱਚ ਬੀਜ ਰੱਖਿਆ ਤੇ ਉਸ ਉੱਤੇ ਥੋੜ੍ਹੀ ਮਿੱਟੀ ਪਾਈ। ਫਿਰ ਉਸ ਨੇ ਗਮਲੇ ਨੂੰ ਪਾਣੀ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-promise": {
+    "hash": "2da9e7206e397073527c8ddbd461ffb3032b66ef4fdd1bbd61e1173d05373c12",
+    "voice": "Kore",
+    "text": "ਮੈਂ ਹਰ ਰੋਜ਼ ਵੇਖਾਂਗੀ ਕਿ ਤੇਰੇ ਪੱਤੇ ਕਦੋਂ ਨਿਕਲਦੇ ਨੇ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "days-pass": {
+    "hash": "41fb7d5b92ae1f0c52366e96541102c7fde6a80c280a68b520a34dd6b8d698e3",
+    "voice": "Aoede",
+    "text": "ਕਈ ਦਿਨ ਲੰਘ ਗਏ। ਮੇਹਰ ਹਰ ਸਵੇਰ ਮਿੱਟੀ ਵੇਖਦੀ, ਪਰ ਇੱਕ ਵੀ ਪੱਤਾ ਨਹੀਂ ਨਿਕਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-worries": {
+    "hash": "ddce7a68dc8a92a95b21e23a148546a1ddfd4a928bdb6d8bea93c1362054f42c",
+    "voice": "Kore",
+    "text": "ਸ਼ਾਇਦ ਮੈਂ ਕੁਝ ਗ਼ਲਤ ਕੀਤਾ। ਬੀਬੀ ਜੀ ਨੂੰ ਕੀ ਦੱਸਾਂ?",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-returns": {
+    "hash": "8c2e0603fddff9998e5cb8d96b132431f01d223e5135300a751417de62d981a8",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਮਹੀਨੇ ਬਾਅਦ ਸਿਦਕ ਹਰਾ ਭਰਾ ਬੂਟਾ ਲੈ ਆਇਆ। ਮੇਹਰ ਨੇ ਆਪਣਾ ਖਾਲੀ ਗਮਲਾ ਚੁੱਕਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-encourages": {
+    "hash": "27fae5fa4ef4d36960a104090ff466523fbd85f02d4eefb4ea511b873a7fe03b",
+    "voice": "Orus",
+    "text": "ਤੂੰ ਵੀ ਚੱਲ। ਆਪਾਂ ਬੀਬੀ ਜੀ ਨੂੰ ਦੱਸਦੇ ਹਾਂ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-tells": {
+    "hash": "4a26b7eff592a11e3b8da090fa89a0b8b2c3a7cc282cbb1868f381ece45d920e",
+    "voice": "Kore",
+    "text": "ਬੀਬੀ ਜੀ, ਮੈਂ ਬੀਜ ਲਾਇਆ ਤੇ ਪਾਣੀ ਦਿੱਤਾ, ਪਰ ਕੁਝ ਨਹੀਂ ਉੱਗਿਆ। ਇਹ ਮੇਰਾ ਖਾਲੀ ਗਮਲਾ ਹੈ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-listens": {
+    "hash": "cda89979a2cee5b6b86bb3771f7b413879b755b0e45d49dc9facde9ea1549cfd",
+    "voice": "Pulcherrima",
+    "text": "ਮੇਹਰ, ਤੂੰ ਸੱਚ ਦੱਸ ਕੇ ਹਿੰਮਤ ਕੀਤੀ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-explains": {
+    "hash": "7760a021ecdfcbeb57d2f5f86801ffc2d295d39127a79954870edf0419ebb321",
+    "voice": "Pulcherrima",
+    "text": "ਮੈਂ ਉਹ ਬੀਜ ਪਹਿਲਾਂ ਹੀ ਉਬਾਲ ਦਿੱਤੇ ਸਨ। ਉਬਾਲੇ ਹੋਏ ਬੀਜ ਨਹੀਂ ਉੱਗਦੇ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-admits": {
+    "hash": "2ac606a478cb16d1ec491fe10903492369d2f7554e81f55b370c4895565a5b7d",
+    "voice": "Orus",
+    "text": "ਮੇਰਾ ਬੀਜ ਵੀ ਨਹੀਂ ਉੱਗਿਆ ਸੀ। ਇਹ ਬੂਟਾ ਮੈਂ ਬਾਅਦ ਵਿੱਚ ਲਾਇਆ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-thanks": {
+    "hash": "a93e2da08765b9e06ea4c907d56e76c29d285fd71fa585ef96380bfe6426143b",
+    "voice": "Pulcherrima",
+    "text": "ਸਿਦਕ, ਸੱਚ ਦੱਸਣ ਲਈ ਤੇਰਾ ਵੀ ਧੰਨਵਾਦ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "second-chance": {
+    "hash": "b016beeb2f42a2b51c81c81973acb50bbc5cbe225c30652da99b0d242881880d",
+    "voice": "Aoede",
+    "text": "ਬੀਬੀ ਜੀ ਨੇ ਦੋਵਾਂ ਨੂੰ ਨਵੇਂ ਬੀਜ ਦਿੱਤੇ। ਕੁਝ ਦਿਨਾਂ ਬਾਅਦ ਦੋਵਾਂ ਦੇ ਗਮਲਿਆਂ ਵਿੱਚ ਨੰਨੇ ਪੱਤੇ ਦਿਸਣ ਲੱਗੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
