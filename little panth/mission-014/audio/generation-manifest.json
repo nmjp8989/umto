@@ -1,0 +1,100 @@
+{
+  "pail": {
+    "hash": "87a249c863537ef3ff948f4d19202640bf002a745c61111ee78a800d295a6bd5",
+    "voice": "Aoede",
+    "text": "ਸਵੇਰੇ ਬੀਬੀ ਜੀ ਨੇ ਮੇਹਰ ਨੂੰ ਦੁੱਧ ਦੀ ਬਾਲਟੀ ਦਿੱਤੀ। ਸਿਦਕ ਵੀ ਵਿਹੜੇ ਵਿੱਚ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-errand": {
+    "hash": "dd46819327a22a4f41df591805b43a2ebf8320680d58d2990c037f74d9739cfa",
+    "voice": "Pulcherrima",
+    "text": "ਇਹ ਦੁੱਧ ਮੰਡੀ ਲੈ ਜਾ। ਹੌਲੀ ਤੁਰ ਕੇ ਜਾਈਂ, ਬਾਲਟੀ ਭਰੀ ਹੋਈ ਹੈ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-ready": {
+    "hash": "9852756c3822b3653371253d21b52641772560b4d377b272be74726dde8ea608",
+    "voice": "Kore",
+    "text": "ਠੀਕ ਹੈ, ਬੀਬੀ ਜੀ। ਮੈਂ ਧਿਆਨ ਰੱਖਾਂਗੀ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "market-path": {
+    "hash": "6996b28ad53da1b994820eb7eb57a694778d714d1c1dfc6061362130e21b3ac0",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਖੇਤਾਂ ਵਾਲੇ ਰਾਹ ਉੱਤੇ ਤੁਰ ਪਈ। ਰਾਹ ਵਿੱਚ ਉਹ ਸੋਚਣ ਲੱਗੀ ਕਿ ਦੁੱਧ ਵੇਚ ਕੇ ਕੀ ਖਰੀਦੇਗੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "buy-eggs": {
+    "hash": "6b1a1c3c39122d0702b0e255aa9b7c769d98cf5466c3f8efbc94daaba11bd24b",
+    "voice": "Kore",
+    "text": "ਮੈਂ ਦੁੱਧ ਦੇ ਪੈਸਿਆਂ ਨਾਲ ਅੰਡੇ ਖਰੀਦਾਂਗੀ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "imagine-eggs": {
+    "hash": "ca7e7164710188a44503d519c7116f717535812a9a1aedd1b18829ab7b37520e",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਸੋਚਿਆ ਕਿ ਅੰਡਿਆਂ ਵਿੱਚੋਂ ਨਿੱਕੇ ਨਿੱਕੇ ਚੂਚੇ ਨਿਕਲਣਗੇ। ਫਿਰ ਉਹ ਚੂਚੇ ਵੱਡੇ ਹੋ ਜਾਣਗੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sell-eggs": {
+    "hash": "483e095017a25ea178e0a2e40dac1a9afe698fecf3b55555b28b97fdf495e24e",
+    "voice": "Kore",
+    "text": "ਮੁਰਗੀਆਂ ਹੋਰ ਅੰਡੇ ਦੇਣਗੀਆਂ। ਅੰਡੇ ਵੇਚ ਕੇ ਮੈਂ ਨੀਲੀ ਚੁੰਨੀ ਲਵਾਂਗੀ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "blue-scarf": {
+    "hash": "ed33097d48ff816f0a37f280d34917a2cbcc6a5f6203ac3757fc1dde664acae6",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੂੰ ਲੱਗਾ ਜਿਵੇਂ ਨਵੀਂ ਚੁੰਨੀ ਉਸ ਦੇ ਸਿਰ ਉੱਤੇ ਲਹਿਰਾ ਰਹੀ ਹੋਵੇ। ਉਹ ਖੁਸ਼ੀ ਨਾਲ ਘੁੰਮੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "milk-spills": {
+    "hash": "c74aafdd5fea8a62004060dc661031f14b88adf3b90c5fa297d2e8bd57e17b2f",
+    "voice": "Aoede",
+    "text": "ਬਾਲਟੀ ਇੱਕ ਪਾਸੇ ਝੁਕ ਗਈ ਤੇ ਸਾਰਾ ਦੁੱਧ ਮਿੱਟੀ ਉੱਤੇ ਡੁੱਲ੍ਹ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-arrives": {
+    "hash": "7321d6945a717101624ee1d82570e72d6db2b54b8244f2753d5006bc565fc1fe",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਉਸ ਦੇ ਪਿੱਛੇ ਆ ਰਿਹਾ ਸੀ। ਉਸ ਨੇ ਖਾਲੀ ਬਾਲਟੀ ਚੁੱਕੀ ਤੇ ਮੇਹਰ ਕੋਲ ਆਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-kind": {
+    "hash": "159fe7ac2b940e85d408d4b814fba94bd2741e42c87b01a668aae5c72b0ea218",
+    "voice": "Orus",
+    "text": "ਤੂੰ ਠੀਕ ਹੈਂ, ਮੇਹਰ? ਚੱਲ, ਆਪਾਂ ਘਰ ਚੱਲੀਏ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-realizes": {
+    "hash": "e2b99e17956e8d34acf409990f105a30da75dd5651ed830ba1f7799a7c6887e0",
+    "voice": "Kore",
+    "text": "ਮੈਂ ਅਗਲੇ ਕੰਮਾਂ ਬਾਰੇ ਇੰਨਾ ਸੋਚਿਆ ਕਿ ਬਾਲਟੀ ਦਾ ਧਿਆਨ ਹੀ ਭੁੱਲ ਗਈ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "back-home": {
+    "hash": "9011b5748e20e759745697396a4e60561c0eeb68a12b331df38d30095858ea92",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਘਰ ਮੁੜ ਆਏ। ਮੇਹਰ ਨੇ ਬੀਬੀ ਜੀ ਨੂੰ ਸਾਰੀ ਗੱਲ ਦੱਸੀ ਤੇ ਬਾਲਟੀ ਧੋ ਕੇ ਰੱਖ ਦਿੱਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-comforts": {
+    "hash": "58a46c7accdfa91eb1835a1e157a33946210cd02e3359be52950a3118d4dc17b",
+    "voice": "Pulcherrima",
+    "text": "ਸੁਪਨੇ ਦੇਖਣੇ ਚੰਗੀ ਗੱਲ ਹੈ, ਪੁੱਤ। ਬੱਸ ਪਹਿਲਾਂ ਹੱਥ ਵਾਲਾ ਕੰਮ ਮੁਕਾ ਲਈਏ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
