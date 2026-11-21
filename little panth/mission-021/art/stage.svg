@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Baldev and the river fairy by a woodland river</title>
+  <defs>
+    <linearGradient id="woodcut-water" x2=".34" y2="1">
+      <stop stop-color="#80a99d"/>
+      <stop offset=".58" stop-color="#63969b"/>
+      <stop offset="1" stop-color="#447985"/>
+    </linearGradient>
+    <linearGradient id="woodcut-steel" x2=".65" y2="1">
+      <stop stop-color="#aeb2a9"/>
+      <stop offset=".66" stop-color="#738586"/>
+      <stop offset="1" stop-color="#555b59"/>
+    </linearGradient>
+    <linearGradient id="woodcut-silver" x2=".55" y2="1">
+      <stop stop-color="#fffff0"/>
+      <stop offset=".6" stop-color="#c5d8dc"/>
+      <stop offset="1" stop-color="#839ba1"/>
+    </linearGradient>
+    <linearGradient id="woodcut-gold" x2=".65" y2="1">
+      <stop stop-color="#ffe197"/>
+      <stop offset=".55" stop-color="#e9b64a"/>
+      <stop offset="1" stop-color="#be7a30"/>
+    </linearGradient>
+    <linearGradient id="woodcut-rock" x2=".35" y2="1">
+      <stop stop-color="#d2cbb1"/>
+      <stop offset=".48" stop-color="#a2a18b"/>
+      <stop offset="1" stop-color="#77776b"/>
+    </linearGradient>
+    <linearGradient id="woodcut-bag" x2=".64" y2="1">
+      <stop stop-color="#d8a976"/>
+      <stop offset="1" stop-color="#9e643d"/>
+    </linearGradient>
+    <radialGradient id="woodcut-shadow">
+      <stop stop-color="#484639" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#484639" stop-opacity="0"/>
+    </radialGradient>
+    <path id="woodcut-water-edge" d="M1410 404C1151 426 1067 449 925 465C803 480 717 517 679 575C647 629 663 683 601 768H1410Z"/>
+    <clipPath id="woodcut-water-clip"><use href="#woodcut-water-edge"/></clipPath>
+    <g id="woodcut-rock-shape">
+      <ellipse cy="4" rx="62" ry="14" fill="url(#woodcut-shadow)"/>
+      <path d="M-60 1Q-54-14-39-25Q-13-43 20-32Q43-29 58-7L62 2Q34 16-27 15Q-48 13-60 1Z" fill="url(#woodcut-rock)" stroke="#777765" stroke-width="2.7"/>
+      <path d="M-45-11Q-14-32 18-25Q35-20 43-12M-35 9Q-11 7 5 9M15-1Q35-9 46-6" fill="none" stroke="#e0d6b9" stroke-width="2.6" opacity=".65" stroke-linecap="round"/>
+      <path d="M-25-7Q-13-8-6-3L14-3M18 11l13-2" fill="none" stroke="#66695d" stroke-width="1.7" opacity=".7" stroke-linecap="round"/>
+    </g>
+    <g id="woodcut-reed">
+      <path d="M0 0Q-7-30-22-49M0 0Q5-22 8-54M1 0Q12-19 29-36M5 0q20-10 35-13" fill="none" stroke="#7f8c51" stroke-width="4" stroke-linecap="round"/>
+      <path d="M8-46l1-12m-29 16-6-10m54 18 7-8" fill="none" stroke="#bb9564" stroke-width="6.3" stroke-linecap="round"/>
+    </g>
+    <g id="woodcut-axe-shape" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-4 53Q6 33 2 8Q-3-12-5-39Q-7-50-4-56Q-1-60 6-57Q7-34 12-10Q17 11 13 32Q10 53 4 59Q-1 62-4 53Z" fill="var(--woodcut-handle,#ab7248)" stroke="#664331" stroke-width="2.7"/>
+      <path d="M0-49Q1-22 7-1Q11 19 5 49" fill="none" stroke="#f0ce97" stroke-width="1.9" opacity=".76"/>
+      <path d="M-8-46Q10-53 23-65Q40-58 43-39Q39-23 28-19Q15-33-8-34Q-10-39-8-46Z" fill="var(--woodcut-metal,url(#woodcut-steel))" stroke="#55594e" stroke-width="2.7"/>
+      <path d="M23-63Q34-52 38-41Q36-31 29-23M-5-43Q9-44 17-49" fill="none" stroke="#fff6da" stroke-width="2.5" opacity=".81"/>
+    </g>
+  </defs>
+  <g data-camera-depth="-.16">
+    <rect x="-105" y="-68" width="1490" height="860" fill="#bd9d75"/>
+    <image href="../mission-003/art/banyan.webp" x="-48" y="-34" width="1376" height="788" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <path d="M1388 397C1147 415 1064 438 917 456C780 470 711 510 668 570C633 621 651 688 584 765" fill="none" stroke="#b99a68" stroke-width="15" opacity=".68"/>
+  <use href="#woodcut-water-edge" fill="url(#woodcut-water)" stroke="#a0b59b" stroke-width="3.6"/>
+  <g clip-path="url(#woodcut-water-clip)">
+    <path d="M772 554Q957 495 1135 495M871 600Q1076 544 1310 553M650 692Q866 616 1078 611M712 748Q975 661 1270 664M1111 464Q1219 443 1334 445" fill="none" stroke="#bfd5b5" stroke-width="9" opacity=".27" stroke-linecap="round"/>
+    <path d="M741 572Q768 557 794 554M1021 500Q1050 491 1081 490M1117 531Q1218 509 1283 515M899 631Q957 622 1002 621M733 703Q778 679 852 668M1088 693Q1147 681 1217 679" fill="none" stroke="#e0e8c9" stroke-width="2.5" opacity=".59" stroke-linecap="round"/>
+    <g id="woodcut-current" fill="none" stroke="#e0ead0" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <g id="woodcut-shore">
+    <use href="#woodcut-rock-shape" transform="translate(653 568) scale(.65 .7)"/>
+    <use href="#woodcut-rock-shape" transform="translate(803 615) scale(1.33 .76)"/>
+    <use href="#woodcut-rock-shape" transform="translate(749 554) scale(.97 .77)"/>
+    <use href="#woodcut-rock-shape" transform="translate(842 568) scale(.92 .65)"/>
+    <use href="#woodcut-rock-shape" transform="translate(947 556) scale(.49 .5)"/>
+    <use href="#woodcut-rock-shape" transform="translate(590 623) scale(.3 .42)"/>
+    <use href="#woodcut-rock-shape" transform="translate(320 581) scale(.19 .29)"/>
+    <use href="#woodcut-reed" transform="translate(690 567) rotate(8) scale(.7)"/>
+    <use href="#woodcut-reed" transform="translate(651 679) rotate(12)"/>
+    <use href="#woodcut-reed" transform="translate(623 714) rotate(-13) scale(1.09)"/>
+    <use href="#woodcut-reed" transform="translate(940 473) rotate(13) scale(.62)"/>
+    <use href="#woodcut-reed" transform="translate(980 467) rotate(-9) scale(.78)"/>
+    <ellipse cx="561" cy="608" rx="53" ry="12" fill="url(#woodcut-shadow)"/>
+    <path d="M522 565Q565 549 600 566L596 599Q556 617 522 601Z" fill="#946848" stroke="#76513a" stroke-width="2.8"/>
+    <ellipse cx="561" cy="565" rx="39" ry="12" fill="#ccab76" stroke="#926c44" stroke-width="2.5"/>
+    <ellipse cx="559" cy="565" rx="27" ry="7.5" fill="none" stroke="#ab8251" stroke-width="1.5"/>
+    <path d="M529 594l3-17m13 24 2-23m28 20-3-20m16 17-1-19" fill="none" stroke="#d5a470" stroke-width="2.4"/>
+    <path d="M517 561Q539 554 564 551L596 544Q607 548 600 556L568 560 530 568Z" fill="#a16d46" stroke="#6d4932" stroke-width="2.8"/>
+    <path d="M523 561q35-8 67-12" fill="none" stroke="#cca071" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <g id="woodcut-splash" opacity="0" transform="translate(721 585)" fill="none" stroke-linecap="round">
+    <g id="woodcut-ring" stroke="#e6f1dc">
+      <ellipse rx="38" ry="8" stroke-width="2.7"/>
+      <ellipse rx="54" ry="13.6" stroke-width="2" opacity=".67"/>
+    </g>
+    <g id="woodcut-droplets" stroke="#f2f5dd" stroke-width="3">
+      <path d="M-14-3q-23-10-27-26m32 23q-5-12-3-34m21 35q13-20 29-22m-14 24q17-4 23-13"/>
+      <path d="M-45-35l-2-4m37-8 1-4m54 18 6-3"/>
+    </g>
+  </g>
+  <ellipse id="woodcut-river-shimmer" cx="801" cy="609" rx="87" ry="12" fill="none" stroke="#d8efd8" stroke-width="3" opacity="0"/>
+  <g id="woodcut-ledge-props"/>
+  <ellipse id="baldev-shadow" rx="65" ry="15" fill="url(#woodcut-shadow)"/>
+  <ellipse id="pari-shadow" rx="62" ry="12" fill="url(#woodcut-shadow)"/>
+  <g id="baldev-plane"><g id="baldev"/><g id="baldev-props"/></g>
+  <g id="pari-plane"><g id="pari"/><g id="pari-props"/></g>
+  <g id="woodcut-objects" stroke-linecap="round" stroke-linejoin="round">
+    <g id="gold-axe" style="--woodcut-handle:#b88850;--woodcut-metal:url(#woodcut-gold)"><use href="#woodcut-axe-shape"/></g>
+    <g id="silver-axe" style="--woodcut-handle:#a5876e;--woodcut-metal:url(#woodcut-silver)"><use href="#woodcut-axe-shape"/></g>
+    <g id="iron-axe">
+      <use href="#woodcut-axe-shape"/>
+      <path id="woodcut-notch" d="M-1-18l7 4-6 4 7 3" fill="none" stroke="#674534" stroke-width="3" stroke-linecap="round"/>
+      <path d="M0-10l6 3" fill="none" stroke="#ebbb82" stroke-width="1"/>
+    </g>
+    <g id="woodcut-firewood">
+      <ellipse cy="28" rx="65" ry="11" fill="url(#woodcut-shadow)"/>
+      <path d="M-60 12Q-15-6 59 11M-55 20Q-20 8 63 22M-60 24Q14 26 61 30M-53 6Q-16-3 62 4M-43 15l-8-13" fill="none" stroke="#694732" stroke-width="8"/>
+      <path d="M-60 10Q-15-7 59 9M-54 18Q-20 7 63 20M-60 22Q14 24 61 28M-53 4Q-16-5 62 2" fill="none" stroke="#b98357" stroke-width="5"/>
+      <path d="M-14 2Q-24 10-20 25M-8 1Q-17 11-14 26M13 0Q7 11 14 26M18 0Q12 11 19 26M-15 2Q-26-4-21-11Q-17-17-12-9L-9 0Q-3-14 2-8Q7-2-9 1" fill="none" stroke="#e0ba76" stroke-width="3.4"/>
+    </g>
+    <g id="woodcut-satchel">
+      <path d="M-31 13Q-22-11 0 0Q23-10 33 13" fill="none" stroke="#765338" stroke-width="6.7"/>
+      <path d="M-30 13Q-22-9 0 0Q23-8 32 13" fill="none" stroke="#dab086" stroke-width="3"/>
+      <ellipse cx="1" cy="16" rx="37" ry="10" fill="#70533f" stroke="#8d6248" stroke-width="2.5"/>
+      <path d="M-36 16Q0 25 36 15Q40 43 29 54Q4 62-28 54Q-40 40-36 16Z" fill="url(#woodcut-bag)" stroke="#77583e" stroke-width="2.8"/>
+      <path d="M-30 26Q-3 38 30 26M-22 51Q-15 42-20 34M21 49q-4-8-1-15" fill="none" stroke="#ecd1a2" stroke-width="2.5" opacity=".74"/>
+      <path id="woodcut-bag-flap" d="M-36 16Q0 5 36 16L30 26Q0 36-31 26Z" fill="#c89966" stroke="#7c573e" stroke-width="2"/>
+    </g>
+  </g>
+  <g id="woodcut-foreground" data-camera-depth=".16">
+    <use href="#woodcut-reed" transform="translate(1022 748) rotate(21) scale(1.7)" opacity=".88"/>
+    <use href="#woodcut-reed" transform="translate(1081 742) rotate(-17) scale(1.49)" opacity=".93"/>
+    <use href="#woodcut-reed" transform="translate(1190 756) rotate(19) scale(1.8)"/>
+  </g>
+</svg>
