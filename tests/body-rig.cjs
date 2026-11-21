@@ -17,6 +17,22 @@ const result=await p.evaluate(()=>{
  const version=document.title.match(/v(\d+)/)?.[1];if(!version||!document.querySelector('.appbar').textContent.includes(version))throw Error('Build label mismatch');
  const socketCheck=()=>{for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){const fixed=new DOMPoint(0,48).matrixTransform(arm.getCTM()),moving=new DOMPoint(0,48).matrixTransform(arm.querySelector('[data-rig-shoulder]').getCTM());if(Math.hypot(fixed.x-moving.x,fixed.y-moving.y)>.001)throw Error('Shoulder left socket');}};
  const sample=document.createElementNS(svg.namespaceURI,'g');svg.append(sample);
+ const noseCenter=()=>{
+  const mark=sample.querySelector('circle');
+  return new DOMPoint(627,694).matrixTransform(mark.getCTM()).matrixTransform(sample.getCTM().inverse()).x;
+ };
+ const noseMark='<circle cx="627" cy="694" r="1"/>';
+ for(const view of ['front','left','right']){
+  const turn=cameraDirections[view];
+  sample.innerHTML=projectCameraMarkup('noseGroup',noseMark,view);
+  const center=noseCenter();
+  const depth=(center-cameraX(627,turn))*turn;
+  if(turn?(depth<8||depth>16):Math.abs(center-627)>.01)throw Error('Nose is off the facial centerline in '+view);
+  state.noseW=140;
+  sample.innerHTML=adjustedFeatureSvg('noseGroup',projectCameraMarkup('noseGroup',noseMark,view),view);
+  if(Math.abs(noseCenter()-center)>.01)throw Error('Nose width shifts its center in '+view);
+ }
+ state.noseW=100;
  for(const covering of ['chunni','patka']){
   sample.innerHTML=headwearSvg(covering,'#55496c');
   const shapes=[...sample.querySelectorAll('path[fill="#55496c"]')];

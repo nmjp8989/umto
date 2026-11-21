@@ -55,8 +55,8 @@
     <g id="dadi-props"/>
   </g>
   <g id="stool" stroke-linejoin="round">
-    <path d="m503 507 17 3-8 85q-9 5-18-2Zm164-8 17-3 7 86q-10 7-17 2Zm-112 8 14 3-2 85-16 3Zm74-1 13-4 10 88-14 3Z" fill="url(#stool-wood)" stroke="#795640" stroke-width="4.2"/>
-    <g transform="translate(0 -35)">
+    <path d="M503 534l17 3-8 58q-9 5-18-2ZM667 526l17-3 7 59q-10 7-17 2ZM555 534l14 3-2 58-16 3ZM629 533l13-4 10 61-14 3Z" fill="url(#stool-wood)" stroke="#795640" stroke-width="4.2"/>
+    <g transform="translate(0 -8)">
       <path d="m484 532 173-16 43 22-171 24-45-17Z" fill="url(#stool-rope)" stroke="#846246" stroke-width="4.1"/>
       <path d="m529 557 171-19v13l-170 20-46-18v-9Z" fill="#966b4b" stroke="#785640" stroke-width="3.5"/>
       <path d="m512 531 45 22m-27-25 44 23m-26-26 44 24m-24-27 44 24m-25-26 45 23m-26-26 45 24m-25-26 42 23m-27-25 43 21m-170-3 176-17m-169 23 178-19m-164 23 176-19" fill="none" stroke="#a68962" stroke-width="2.3" opacity=".72"/>
@@ -72,7 +72,7 @@
     <g id="boy-props"/>
   </g>
   <g id="floor-props">
-    <g id="bundle" transform="translate(589 474) rotate(-4)" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+    <g id="bundle" transform="translate(589 501) rotate(-4)" stroke-linecap="round" stroke-linejoin="round" opacity="0">
       <path data-wood-curve="-12" d="M-67 -12Q0 -12 67 -12" fill="none" stroke="#7e5941" stroke-width="16"/>
       <path data-wood-curve="-12" d="M-67 -12Q0 -12 67 -12" fill="none" stroke="#a97850" stroke-width="12"/>
       <path data-wood-curve="-15" d="M-67 -15Q0 -15 67 -15" fill="none" stroke="#e1b880" stroke-width="2.1"/>

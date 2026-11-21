@@ -9,12 +9,12 @@
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
   const parked = point(351, 592);
-  const onStool = point(589, 474, -4);
+  const onStool = point(589, 501, -4);
   const { open, Character } = window.UmtoNativeCharacterPlayer;
   const cast = {
-    dadi: { preset: 'elder-bibi-ji', view: 'left', height: 315, serial: 410 },
-    mehar: { preset: 'kid-meher', view: 'right', height: 290, serial: 411 },
-    boy: { preset: 'kid-sidak', view: 'left', height: 287, serial: 412 }
+    dadi: { preset: 'elder-bibi-ji', view: 'left', height: 315, serial: 410, hipHinge: true, fluidArms: true },
+    mehar: { preset: 'kid-meher', view: 'right', height: 290, serial: 411, hipHinge: true, fluidArms: true },
+    boy: { preset: 'kid-sidak', view: 'left', height: 287, serial: 412, hipHinge: true, fluidArms: true }
   };
   let studio;
 
@@ -77,14 +77,14 @@
       object.y + x * Math.sin(angle) + y * Math.cos(angle), object.angle);
   }
 
-  function grip(actor, index, target, weight = 1, hand) {
-    actor.grips[index] = { target, weight, hand };
+  function grip(actor, index, target, weight = 1, hand, elbow) {
+    actor.grips[index] = { target, weight, hand, elbow };
   }
 
-  function couple(actor, object, span, weight = 1, bend = 0) {
+  function couple(actor, object, span, weight = 1, bend = 0, elbow) {
     const y = 2 - bend * (1 - (span / 67) ** 2);
-    grip(actor, 0, offsetAt(object, -span, y), weight);
-    grip(actor, 1, offsetAt(object, span, y), weight);
+    grip(actor, 0, offsetAt(object, -span, y), weight, 'fist', elbow);
+    grip(actor, 1, offsetAt(object, span, y), weight, 'fist', elbow);
   }
 
   function stageStick(position, ms, take, snap, move) {
@@ -117,23 +117,23 @@
     const press = Math.sin(Math.PI * phase(ms, squeeze - 120, squeeze + 530));
     const weight = lift * step;
     actor.x = mix(actor.x, layout.near, step) + (layout.lifted - layout.near) * weight;
-    actor.lean = layout.lean * (step - .55 * weight);
+    actor.bend = layout.lean * (step - .55 * weight);
     if (ms > take - 600 && ms < take - 40) actor.walk = (ms - take + 600) / 1000;
-    if (ms > setDown + 110 && ms < setDown + 590) actor.walk = (ms - setDown - 110) / 1000;
-    bundle.position = point(mix(onStool.x, layout.center, weight), mix(onStool.y, 458, weight),
+    if (ms > setDown + 110 && ms < setDown + 590) actor.walk = -(ms - setDown - 110) / 1000;
+    bundle.position = point(mix(onStool.x, layout.center, weight), mix(onStool.y, 489, weight),
       mix(onStool.angle, layout.lean * .6, weight) + (still ? 0 : Math.sin(ms / 72) * 2.2 * press));
     bundle.owner = lift > .02 ? layout.id : 'stool';
     bundle.flex = 7.6 * press * lift;
-    couple(actor, bundle.position, 41, hold, bundle.flex);
+    couple(actor, bundle.position, 49, hold, bundle.flex);
     return Math.max(lift, hold);
   }
 
   function sceneState(scene, cue, ms, still, speaker) {
     const move = t => still ? Math.round(t) : ease(t);
-    const actor = (x, y) => ({ x, y, lean: 0, grips: [] });
+    const actor = (x, y) => ({ x, y, lean: 0, bend: 0, grips: [], quietHands: true });
     const mehar = actor(408, 622);
     const boy = actor(786, 623);
-    const dadi = actor(594, 611);
+    const dadi = actor(594, 628);
     const bundle = { position: onStool, owner: 'stool', visible: !['courtyard', 'argument'].includes(scene.id),
       cord: 1, flex: 0 };
     let ball = { position: parked, owner: 'floor' };
@@ -165,8 +165,8 @@
         boy.x = 662 + tug * .4;
         dadi.x = 1010;
         dadi.y = 610;
-        mehar.lean = -1.5 * (1 - pause);
-        boy.lean = 1.5 * (1 - pause);
+        mehar.bend = 4.5 * pull * (1 - pause);
+        boy.bend = -4.5 * pull * (1 - pause);
         ball = { position: point(589 + tug, 465, tug * .6), owner: 'mehar' };
         grip(mehar, 1, offsetAt(ball.position, -25, -3));
         grip(boy, 0, offsetAt(ball.position, 25, -3));
@@ -179,8 +179,7 @@
         const finish = ease(phase(ms, cue.place + 90, cue.place + 610));
         mehar.x = mix(318, 408, aside);
         boy.x = mix(870, 786, aside);
-        dadi.y = mix(611, 605, finish);
-        dadi.lean = -Math.sin(place * Math.PI) * 3;
+        dadi.bend = -Math.sin(place * Math.PI) * 7;
         if (aside > .15 && aside < 1) {
           mehar.walk = (ms - cue.aside) / 1000;
           boy.walk = mehar.walk;
@@ -188,9 +187,9 @@
         ball = { position: point(mix(366, 435, aside) + (parked.x - 435) * park,
           mix(470, parked.y, aside ** 1.7), -135 * aside - 170 * park), owner: aside < .83 ? 'mehar' : 'floor' };
         grip(mehar, 1, offsetAt(ball.position, -19, -9), 1 - phase(aside, .27, .49));
-        bundle.position = point(589, mix(455, onStool.y, place), mix(3, onStool.angle, place));
+        bundle.position = point(589, mix(482, onStool.y, place), mix(3, onStool.angle, place));
         bundle.owner = place >= 1 ? 'stool' : 'dadi';
-        couple(dadi, bundle.position, 42, 1 - finish);
+        couple(dadi, bundle.position, 42, 1 - finish, 0, 'up');
         break;
       }
       case 'try-bundle': {
@@ -223,8 +222,8 @@
         freeCord = { position: point(mix(heldEnd.x, cordEnd.x, coil), mix(heldEnd.y, cordEnd.y, coil)), visible: clamp(pull * 2),
           owner: coil > .97 ? 'stool' : 'dadi' };
         const setups = [
-          { actor: mehar, take: cue.leftTake, snap: cue.leftSnap, start: point(535, 468, -7), end: point(452, 486, -6) },
-          { actor: boy, take: cue.rightTake, snap: cue.rightSnap, start: point(636, 465, 1), end: point(743, 485, 6) }
+          { actor: mehar, take: cue.leftTake, snap: cue.leftSnap, start: point(535, 496, -7), end: point(452, 497, -6) },
+          { actor: boy, take: cue.rightTake, snap: cue.rightSnap, start: point(636, 493, 1), end: point(743, 499, 6) }
         ];
         sticks = setups.map(({ actor, take, snap, start, end }) => {
           const pickup = move(phase(ms, take, take + 540));
@@ -242,7 +241,7 @@
       case 'play': {
         bundle.cord = 0;
         freeCord = { position: offsetAt(onStool, 74, 15), visible: 1, owner: 'stool' };
-        sticks = [point(550, 474, -16), point(642, 483, 10)].map(position =>
+        sticks = [point(550, 501, -16), point(642, 510, 10)].map(position =>
           ({ position, split: true, visible: 1, picked: 0, halves: [point(-12, 2, -12), point(12, 3, 11)] }));
         if (scene.id === 'lesson') {
           if (speaker === 'dadi') grip(dadi, 1, offsetAt(onStool, 52, -20), .76);
@@ -255,8 +254,8 @@
           const distance = (forward - back) * 373;
           mehar.x = 299;
           boy.x = 783;
-          mehar.lean = Math.sin(Math.PI * phase(ms, cue.roll - 230, cue.roll + 450)) * 6;
-          boy.lean = -Math.sin(Math.PI * phase(ms, cue.back - 205, cue.back + 410)) * 6;
+          mehar.bend = Math.sin(Math.PI * phase(ms, cue.roll - 350, cue.roll + 550)) * 9;
+          boy.bend = -Math.sin(Math.PI * phase(ms, cue.back - 340, cue.back + 490)) * 9;
           ball = { position: point(parked.x + distance, parked.y, distance / 28 * 180 / Math.PI), owner: 'floor' };
         }
         break;

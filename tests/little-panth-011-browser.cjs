@@ -65,6 +65,14 @@ async function run() {
       const palm = new DOMPoint(0, Number(hand.dataset.gripY)).matrixTransform(hand.getCTM());
       return Math.hypot(held.x - palm.x, held.y - palm.y);
     }, { actor, side, target, x, y });
+    const lowElbows = id => page.locator('#' + id + ' [data-rig-arm]').evaluateAll(arms => {
+      const world = document.getElementById('stage').getScreenCTM().inverse();
+      return arms.every(arm => {
+        const shoulder = new DOMPoint(0, 48).matrixTransform(arm.getScreenCTM()).matrixTransform(world);
+        const elbow = new DOMPoint().matrixTransform(arm.querySelector('[data-rig-elbow]').getScreenCTM()).matrixTransform(world);
+        return elbow.y > shoulder.y + 7;
+      });
+    });
 
     for (const [id, preset] of [['mehar', 'kid-meher'], ['boy', 'kid-sidak'], ['dadi', 'elder-bibi-ji']]) {
       assert.equal(await page.locator('#' + id).getAttribute('data-studio-preset'), preset);
@@ -92,6 +100,7 @@ async function run() {
     assert.equal(await parent('bundle'), 'dadi-props');
     assert.ok(await gripDistance('dadi', 'left', 'bundle', -42, 2) < 3);
     assert.ok(await gripDistance('dadi', 'right', 'bundle', 42, 2) < 3);
+    assert.ok(await lowElbows('dadi'), 'Bibi Ji supports the bundle with both elbows down');
     await page.screenshot({ path: output + '/03-bibi.png' });
     const setDown = scenes[2].events.at(-1).ms;
     for (const before of [600, 340, 40]) {
@@ -108,11 +117,12 @@ async function run() {
       await seek(3, event.ms);
       assert.equal(await stage.getAttribute('data-bundle'), 'tied');
       assert.equal(await stage.getAttribute('data-stick-snaps'), '0');
-      assert.ok(await coordinate('bundle', 'f') < 462);
+      assert.ok(await coordinate('bundle', 'f') < 493);
       const owner = i === 0 ? 'mehar' : 'boy';
       assert.equal(await parent('bundle'), owner + '-props');
-      assert.ok(await gripDistance(owner, 'left', 'bundle', -41, -2) < 6);
-      assert.ok(await gripDistance(owner, 'right', 'bundle', 41, -2) < 6);
+      assert.ok(await gripDistance(owner, 'left', 'bundle', -49, -1) < 6);
+      assert.ok(await gripDistance(owner, 'right', 'bundle', 49, -1) < 6);
+      assert.ok(await lowElbows(owner), owner + ' bends the bundle with low elbows');
       assert.equal(await page.locator('[data-hand="' + owner + '-left"]').getAttribute('data-action-hand'), 'fist');
     }
     await page.screenshot({ path: output + '/04-bundle.png' });
