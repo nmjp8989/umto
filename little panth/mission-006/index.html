@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pa">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff7e8"><meta name="description" content="ਸ਼ੇਰ ਤੇ ਚੂਹਾ · A lovingly animated Punjabi read-along story about kindness, courage and friendship.">
+<title>Little Panth VI · ਸ਼ੇਰ ਤੇ ਚੂਹਾ</title>
+<link rel="stylesheet" href="../mission-004/style.css?v=storybook">
+<link rel="stylesheet" href="../mission-005/style.css?v=storybook">
+<style>
+.movie{background:#b3d9ac;border-color:#899b68;touch-action:manipulation}
+.book[data-layout="cinema"] .movie{background:#b5d7a0}
+#stage{width:100%;height:100%;display:block}
+#stage text{font-family:system-ui,sans-serif}
+#leaf-a,#leaf-b,#leaf-c{transform-box:fill-box;transform-origin:center}
+#review-panel{display:none}
+body.reviewing{background:#f4f0e5}
+body.reviewing .shell{max-width:1560px;margin:auto;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px}
+body.reviewing .book{height:auto;min-height:0;aspect-ratio:16/9;grid-template-columns:1fr 1fr;overflow:hidden;border:1px solid #d3c3a8;border-radius:16px}
+body.reviewing .book .art-page{grid-column:1;grid-row:1;padding:15px}
+body.reviewing .book .reading-page{grid-column:2;grid-row:1;padding:28px}
+body.reviewing .book .gurmukhi{font-size:clamp(18px,3vw,48px)}
+body.reviewing .book[data-layout="cinema"] .art-page{grid-column:1/-1;padding:0}
+body.reviewing .book[data-layout="cinema"] .reading-page{position:absolute;grid-column:1/-1;bottom:4%;padding:0;inset-inline:6%;background:transparent}
+body.reviewing .book[data-layout="cinema"] .gurmukhi{font-size:clamp(18px,2.5vw,36px)}
+body.reviewing #review-panel{display:block;background:#fffcf4;padding:18px;border:1px solid #d6c7ac;border-radius:15px;font:14px/1.5 system-ui,sans-serif;color:#263528}
+#review-panel h1{font-size:20px;margin:0 0 3px}
+#review-panel p{margin:4px 0 12px}
+#review-panel button{cursor:pointer;appearance:none;border:1px solid #c7cdbd;border-radius:8px;padding:9px;background:#f6f7f1;color:#213b29;font-weight:650}
+#review-panel button:hover{background:#e6eddf}
+#review-panel button.selected{border-color:#315b3f;background:#e5f1e2}
+#review-panel .scene-list{display:grid;gap:4px;margin-bottom:12px}
+#review-panel .scene-list button{text-align:left;padding:7px;font-size:12px}
+#review-panel .actions{display:flex;gap:7px;flex-wrap:wrap;margin-block:11px}
+#review-panel textarea{width:100%;min-height:75px;border-radius:7px;border:1px solid #c7cdbd;padding:8px;font:inherit;resize:vertical}
+#review-panel small{color:#516758}
+#review-panel .label{display:block;font-weight:bold;margin-bottom:4px}
+@media(max-width:850px){body.reviewing .shell{grid-template-columns:1fr}body.reviewing .book{max-width:100%}}
+</style>
+<script defer src="../mission-004/reading.js"></script>
+<script defer src="../mission-005/sound.js"></script>
+</head>
+<body>
+<div class="shell">
+<main class="book" id="book" data-layout="spread" aria-label="ਸ਼ੇਰ ਤੇ ਚੂਹਾ">
+ <section class="page art-page" aria-label="ਐਨੀਮੇਟਿਡ ਕਹਾਣੀ">
+ <div class="movie" id="movie" role="group" aria-label="ਤਸਵੀਰ ਉੱਤੇ ਟੈਪ ਕਰਕੇ ਕਹਾਣੀ ਸੁਣੋ" tabindex="0">
+ <svg id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title" xmlns="http://www.w3.org/2000/svg">
+ <title id="stage-title">A storybook lion and mouse in a bright painted forest</title>
+ <defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#7cbcc2"/><stop offset=".52" stop-color="#d0e9cb"/><stop offset="1" stop-color="#f9db9a"/></linearGradient>
+  <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#9dbd67"/><stop offset=".7" stop-color="#7fa654"/><stop offset="1" stop-color="#608b4a"/></linearGradient>
+  <radialGradient id="gold" cx=".48" cy=".2" r=".85"><stop stop-color="#ffe8ad"/><stop offset=".62" stop-color="#f1b766"/><stop offset="1" stop-color="#c67b3b"/></radialGradient>
+  <radialGradient id="mane"><stop stop-color="#bb673a"/><stop offset=".68" stop-color="#9c4c2f"/><stop offset="1" stop-color="#733c2b"/></radialGradient>
+  <linearGradient id="leaf" x2="1" y2="1"><stop stop-color="#9fbe65"/><stop offset="1" stop-color="#52854c"/></linearGradient>
+  <linearGradient id="wood" x2="1" y2="1"><stop stop-color="#876344"/><stop offset="1" stop-color="#4c3c32"/></linearGradient>
+  <radialGradient id="shade"><stop stop-color="#32472c" stop-opacity=".42"/><stop offset="1" stop-color="#30472c" stop-opacity="0"/></radialGradient>
+  <radialGradient id="glow"><stop stop-color="#fff0b7" stop-opacity=".72"/><stop offset="1" stop-color="#fff0b7" stop-opacity="0"/></radialGradient>
+  <clipPath id="net-limit"><path d="M650 302Q814 241 1010 306L1035 590Q852 650 641 594Z"/></clipPath>
+ </defs>
+ <g id="far" data-camera-depth="-.26">
+   <path fill="url(#sky)" d="M-80-80h1440v850H-80z"/>
+   <circle id="sun" cx="995" cy="115" r="92" fill="url(#glow)"/>
+   <circle cx="997" cy="112" r="42" fill="#fff2be" opacity=".82"/>
+   <path d="M-80 395Q90 265 250 333T590 307T970 344T1360 309V740H-80Z" fill="#a4bd91"/>
+   <path d="M-80 434Q130 333 305 380T620 358T990 378T1360 339V740H-80Z" fill="#77a37a" opacity=".78"/>
+   <g fill="#557b5d" opacity=".53">
+     <path d="M140 423V245h11v176m-38-155 32-110 35 115Z"/>
+     <path d="M365 390V251h12v139m-34-118 27-91 32 96Z"/>
+     <path d="M730 393V246h13v147m-35-132 29-104 35 109Z"/>
+     <path d="M1130 398V238h11v160m-39-139 33-119 39 120Z"/>
+   </g>
+ </g>
+ <g id="mid" data-camera-depth="-.08">
+   <path d="M-90 486Q190 423 392 470T803 452T1360 454V800H-90Z" fill="url(#floor)"/>
+   <path d="M-80 692Q207 580 377 597T714 607T1137 590L1360 632V800H-80Z" fill="#e9cf9a" opacity=".88"/>
+   <path d="M-80 737Q217 626 407 644T771 668T1310 622L1380 740" fill="none" stroke="#fff1c9" stroke-width="23" opacity=".48"/>
+   <g stroke="#4f6d42" stroke-width="3.5" stroke-linecap="round" opacity=".72">
+     <path d="M58 616l-10-34m10 34 14-27m136-40-10-29m10 29 13-19m215 44-7-27m7 27 16-22m657 18-9-34m9 34 13-24"/>
+   </g>
+   <g id="tree-left">
+     <path d="M98 650Q148 509 120 330T143-35h102q-55 223-19 374t-38 311Z" fill="url(#wood)" stroke="#514732" stroke-width="9"/>
+     <path d="M155 425q105-81 138-204" stroke="#614c36" stroke-width="29" fill="none" stroke-linecap="round"/>
+     <path d="M163 345q-69-56-100-128" stroke="#614c36" stroke-width="22" fill="none" stroke-linecap="round"/>
+     <g fill="url(#leaf)" stroke="#497849" stroke-width="7">
+       <ellipse cx="161" cy="52" rx="175" ry="120"/><ellipse cx="315" cy="140" rx="136" ry="116"/>
+       <ellipse cx="70" cy="160" rx="156" ry="125"/><ellipse cx="200" cy="178" rx="175" ry="90"/>
+     </g>
+     <g fill="#bcd08c" opacity=".4"><ellipse cx="129" cy="27" rx="110" ry="46"/><ellipse cx="296" cy="119" rx="68" ry="35"/></g>
+   </g>
+   <g id="tree-right">
+     <path d="M1133 611Q1109 468 1144 265T1131-50h78q-47 205-32 323t26 338Z" fill="url(#wood)" stroke="#594d35" stroke-width="8"/>
+     <path d="M1157 317q-71-36-111-142" fill="none" stroke="#645139" stroke-width="25" stroke-linecap="round"/>
+     <g fill="url(#leaf)" stroke="#4e7d49" stroke-width="7">
+       <ellipse cx="1162" cy="75" rx="190" ry="135"/><ellipse cx="1045" cy="163" rx="130" ry="93"/>
+       <ellipse cx="1270" cy="173" rx="145" ry="101"/>
+     </g>
+     <ellipse cx="1194" cy="53" rx="103" ry="49" fill="#b1c977" opacity=".36"/>
+   </g>
+ </g>
+ <g id="atmosphere" pointer-events="none">
+   <path d="M299 0l420 0L516 551l-108-1Z" fill="#fff4c4" opacity=".09"/>
+   <path d="M818 0l143 0L718 622l-69-8Z" fill="#fff4c4" opacity=".10"/>
+   <g id="fireflies" fill="#fff4c1">
+     <circle cx="460" cy="341" r="3"/><circle cx="583" cy="413" r="2.4"/><circle cx="1083" cy="447" r="3"/><circle cx="350" cy="485" r="2"/><circle cx="937" cy="292" r="2.5"/>
+   </g>
+ </g>
+ <ellipse id="lion-shadow" cx="842" cy="623" rx="168" ry="27" fill="url(#shade)"/>
+ <ellipse id="mouse-shadow" cx="360" cy="628" rx="51" ry="13" fill="url(#shade)"/>
+ <g id="lion" transform="translate(844 600)" stroke-linejoin="round" stroke-linecap="round">
+   <path id="tail" d="M87-119q140-61 153 20t-31 87" stroke="#c98943" stroke-width="23" fill="none"/>
+   <path d="M210-32q-23 15-23 35 28 16 42-2 8-18-19-33Z" fill="#8c4b31"/>
+   <ellipse cx="0" cy="-98" rx="139" ry="85" fill="url(#gold)" stroke="#b77a47" stroke-width="5"/>
+   <path d="M34-122q56-28 92 12" fill="none" stroke="#ffdc89" stroke-width="8" opacity=".55"/>
+   <path d="M-36-57q-17 40-8 75h38q17-23 19-61m80-18q7 35 1 78h38q8-24 3-68" fill="#d9984c" stroke="#b7753f" stroke-width="5"/>
+   <ellipse cx="-2" cy="17" rx="32" ry="13" fill="#f0b46e" stroke="#bc8249" stroke-width="4"/>
+   <ellipse cx="114" cy="19" rx="30" ry="13" fill="#e8af6c" stroke="#bc8249" stroke-width="4"/>
+   <g id="lion-paw" transform="rotate(0 -104 -70)">
+     <path d="M-90-70q-52 14-52 68 2 18 36 17 29-1 30-22l10-60Z" fill="#e5a65e" stroke="#ad683f" stroke-width="5"/>
+     <path d="M-126 9l3-9m14 14 3-12" stroke="#c48348" stroke-width="4"/>
+   </g>
+   <g id="lion-face" transform="translate(-89 -133)">
+     <circle cx="-38" cy="-65" r="29" fill="#9b4f2e" stroke="#743c2d" stroke-width="5"/>
+     <circle cx="56" cy="-67" r="29" fill="#9b4f2e" stroke="#743c2d" stroke-width="5"/>
+     <ellipse cx="0" cy="0" rx="105" ry="111" fill="url(#mane)" stroke="#7d452c" stroke-width="7"/>
+     <path d="M-65-65q-35-25-34-3m178-9q15-31 27-14m-172 151q-24 21-4 36m118 1q34 13 42-9" fill="none" stroke="#c97d48" stroke-width="11" opacity=".55"/>
+     <ellipse cx="0" cy="-7" rx="76" ry="78" fill="#edb66e" stroke="#bd7a42" stroke-width="4"/>
+     <path d="M-38 24q-19 20-8 48 16 28 46 22 30 3 46-21 13-29-8-48Z" fill="#fbe3b4"/>
+     <path d="M-47-37q17-15 35-7m24-2q16-11 34 7" fill="none" stroke="#854932" stroke-width="6"/>
+     <g id="lion-eyes">
+      <ellipse cx="-29" cy="-24" rx="13" ry="17" fill="#fff6db"/><ellipse cx="28" cy="-24" rx="13" ry="17" fill="#fff6db"/>
+      <ellipse cx="-25" cy="-22" rx="5.7" ry="9" fill="#34352d"/><ellipse cx="25" cy="-22" rx="5.7" ry="9" fill="#34352d"/>
+      <circle cx="-27" cy="-26" r="2.2" fill="#fff"/><circle cx="23" cy="-26" r="2.2" fill="#fff"/>
+     </g>
+     <g id="lion-sleep" opacity="1"><path d="M-43-23q13 14 28 0m29 0q14 14 28 0" stroke="#693e2d" stroke-width="5" fill="none"/></g>
+     <path d="M-19 24q17-15 39 0l-20 14Z" fill="#69443b"/>
+     <path d="M0 36v14" stroke="#674238" stroke-width="4"/>
+     <g id="lion-mouth" transform="translate(0 54) scale(1 0.1)">
+       <ellipse cx="0" cy="0" rx="24" ry="15" fill="#643d43"/><path d="M-19-1q19 9 38 0" fill="none" stroke="#f8d5ca" stroke-width="3"/>
+     </g>
+     <path d="M-1 48q-13 14-24 1m25-1q14 14 25 1" stroke="#7c503f" stroke-width="3.4" fill="none"/>
+     <g stroke="#fce8c0" stroke-width="2.3"><path d="M-25 42l-58-9m60 17-59 9m110-17 58-9m-58 17 59 9"/></g>
+   </g>
+ </g>
+ <g id="net" opacity="0" pointer-events="none">
+  <path d="M650 302Q814 241 1010 306L1035 590Q852 650 641 594Z" fill="#bf9970" opacity=".13" stroke="#766042" stroke-width="12"/>
+  <g clip-path="url(#net-limit)" stroke="#98724c" stroke-width="8" opacity=".98">
+   <path d="M595 300l540 430M570 370l470 380M585 465l350 320M690 215l460 400M800 210l359 348M965 205l230 210"/>
+   <path d="M1102 245L624 700M1072 335L695 718M1050 440L796 725M1011 537L913 714M955 210L556 602M844 200L553 473"/>
+  </g>
+  <g id="cut-ropes" stroke="#edd29d" stroke-width="7" fill="none" opacity="0">
+   <path d="M622 545l25-33m14-13 23-28m-3 87 20-26m18-22 28-25"/>
+  </g>
+ </g>
+ <ellipse cx="0" cy="0" rx="1" ry="1" fill="transparent"/>
+ <g id="mouse" transform="translate(360 621)" stroke-linecap="round" stroke-linejoin="round">
+   <path id="mouse-tail" d="M-24-21Q-101-32-89-74q7-26 29-6" fill="none" stroke="#c58b90" stroke-width="10"/>
+   <ellipse cx="-5" cy="-29" rx="51" ry="38" fill="#b6a4a0" stroke="#877e82" stroke-width="4"/>
+   <ellipse cx="35" cy="-50" rx="43" ry="42" fill="#bcb0a5" stroke="#877e82" stroke-width="4"/>
+   <circle cx="14" cy="-91" r="28" fill="#bfb1aa" stroke="#8a7b7d" stroke-width="4"/>
+   <circle cx="17" cy="-91" r="17" fill="#e9a6aa"/>
+   <circle cx="62" cy="-87" r="26" fill="#bfb1aa" stroke="#8a7b7d" stroke-width="4"/>
+   <circle cx="63" cy="-87" r="16" fill="#e9a6aa"/>
+   <ellipse cx="44" cy="-29" rx="24" ry="18" fill="#e7d1bd"/>
+   <ellipse cx="51" cy="-56" rx="8.5" ry="10" fill="#2d383b"/>
+   <circle cx="54" cy="-60" r="2.8" fill="#fff"/>
+   <circle cx="73" cy="-31" r="7" fill="#cb7d83"/>
+   <path id="mouse-mouth" d="M61-19q8 9 17 1" stroke="#84565c" stroke-width="3.4" fill="none"/>
+   <ellipse cx="-26" cy="4" rx="17" ry="7" fill="#dbb2a7"/><ellipse cx="29" cy="4" rx="16" ry="7" fill="#dbb2a7"/>
+   <g stroke="#f5e5d3" stroke-width="1.7"><path d="M70-24l23-9m-23 11 26 1m-26 0 20 10"/></g>
+ </g>
+ <g id="front" pointer-events="none">
+  <path d="M-80 686q105-52 233-5t255-15 242 4 276-11 430 19v92H-80Z" fill="#597f41" opacity=".46"/>
+  <g fill="#ffc68b"><circle cx="198" cy="650" r="9"/><circle cx="232" cy="681" r="7"/><circle cx="1090" cy="650" r="8"/></g>
+  <g stroke="#4d7540" stroke-width="3" fill="none"><path d="M198 681v-31m0 19-15-17m15 13 14-17m878 46v-37m0 24-13-12m13 6 14-16"/></g>
+ </g>
+ <g id="ending-sparkles" opacity="0" fill="#f8dc86">
+  <path d="M506 348l6 19 17 5-17 6-6 18-6-18-17-6 17-5Z"/>
+  <path d="M1115 329l5 13 14 5-14 5-5 15-5-15-14-5 14-5Z"/>
+ </g>
+ </svg>
+ <div class="story-loading" id="loading" role="status">ਕਹਾਣੀ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</div>
+ </div></section>
+ <section class="page reading-page" aria-label="ਵੱਡੇ ਸਿੰਕ ਕੀਤੇ ਗੁਰਮੁਖੀ ਸ਼ਬਦ"><p id="reading" class="gurmukhi" lang="pa"></p></section>
+</main>
+<aside id="review-panel" lang="en" aria-label="Scene review">
+<h1>Mission 06 · Scene Review</h1><p>The Lion and the Mouse · review before YouTube export</p>
+<div id="review-scenes" class="scene-list"></div>
+<div class="actions"><button id="scene-play">Play / pause</button><button id="scene-restart">Restart scene</button></div>
+<p><strong id="scene-name"></strong><br><small id="scene-guidance"></small></p>
+<label class="label" for="scene-note">Animator review notes</label><textarea id="scene-note" placeholder="What should be adjusted?"></textarea>
+<div class="actions"><button id="scene-approve">Approve scene</button><button id="scene-changes">Needs changes</button></div>
+<div class="actions"><button id="download-notes">Download notes</button></div>
+<small id="voice-progress"></small>
+</aside>
+</div>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+ 'use strict';
+ const $=id=>document.getElementById(id);
+ const {makeReading,readingAt}=window.LP004Reading;
+ const book=$('book'), movie=$('movie'),svg=$('stage'), output=$('reading');
+ const sound=new window.LP005Sound();
+ const params=new URLSearchParams(location.search),reviewing=params.get('review')==='1';
+ const parts=Object.fromEntries([...svg.querySelectorAll('[id]')].map(x=>[x.id,x]));
+ const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+ const ease=x=>{x=clamp(x);return x*x*(3-2*x)};
+ const lerp=(a,b,t)=>a+(b-a)*t;
+ const shots={
+ morning:[0,0,1280,720],scamper:[60,42,1140,641],caught:[260,106,870,489],
+ mercy:[175,70,1030,579],trap:[0,0,1280,720],return:[70,40,1140,641],
+ chew:[315,135,865,487],friends:[0,0,1280,720]
+ };
+ let sceneIndex=0,position=0,playing=false,activated=false,frame=0,started=0,scenes=[],lastKey='',words=[],lastWord=-1;
+ let notes={};
+ try{notes=JSON.parse(localStorage.getItem('little-panth-06-review')||'{}')}catch{}
+ const safeText=s=>String(s||'');
+ const musicContext=sound.context;
+ function compile(data,manifest,timings){
+  let elapsed=0;
+  return data.scenes.map((s,i)=>{
+   let cursor=350;
+   const lines=s.lines.map(id=>{
+    const record=data.lines[id],voice=manifest[id],timing=timings[id],buffer=sound.clips.get(id);
+    const count=record.pa.trim().split(/\s+/u).length;
+    const duration=buffer?Math.round(buffer.duration*1000):Math.max(1850,count*455);
+    const aligned=Boolean(buffer&&timing?.dialogueHash===voice?.hash&&timing.words?.length===count);
+    const line={id,...record,start:cursor,duration,end:cursor+duration,reading:makeReading(record.pa,duration,aligned?timing.words:null),aligned};
+    cursor=line.end+220;
+    return line;
+   });
+   const entry={...s,lines,events:[],duration:cursor+(i===data.scenes.length-1?2600:650),episodeStart:elapsed};
+   elapsed+=entry.duration;
+   return entry;
+  });
+ }
+ function renderReading(line,ms){
+  const current=readingAt(line.reading,ms);
+  const phrase=line.reading.phrases[current.phrase]||line.reading.phrases[0];
+  const key=line.id+':'+current.phrase;
+  if(lastKey!==key){
+   lastKey=key;lastWord=-1;words=[];
+   const fragment=document.createDocumentFragment();
+   for(let i=phrase.first;i<phrase.end;i++){
+    const element=document.createElement('span');
+    element.className='word';element.textContent=line.reading.words[i];words.push(element);
+    if(i>phrase.first)fragment.append(' ');
+    fragment.append(element);
+   }
+   output.replaceChildren(fragment);
+  }
+  if(lastWord!==current.word){
+   words[lastWord-phrase.first]?.removeAttribute('aria-current');
+   words[current.word-phrase.first]?.setAttribute('aria-current','true');
+   lastWord=current.word;
+  }
+  return current.word;
+ }
+ const isDuring=(ms,line,extra=0)=>!!line&&ms>=line.start&&ms<line.end+extra;
+ function figurePose(scene,ms,line){
+  const id=scene.id,t=ms/1000,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const first=(scene.lines[0]?.end||2500),second=(scene.lines[1]?.end||5000);
+  const p=parts;
+  let lx=844,ly=600,mx=360,my=621,visibleMouse=true,net=0,netY=0;
+  const wobble=still?0:Math.sin(t*2.4)*1.7;
+  const part=(a,b)=>ease((ms-a)/Math.max(1,b-a));
+  let awake=true,trap=0;
+  if(id==='morning'){awake=false;visibleMouse=false;ly=604;}
+  if(id==='scamper'){awake=false;mx=lerp(160,760,part(450,first+250));my=621-165*part(1700,second+200);}
+  if(id==='caught'){mx=lerp(735,621,part(450,first+200));my=lerp(477,621,part(450,first+200));}
+  if(id==='mercy'){mx=lerp(632,390,part(second-400,scene.duration-300));}
+  if(id==='trap'){visibleMouse=false;lx=lerp(1040,844,part(250,first));trap=part(first+100,second-150);net=trap;netY=-280*(1-trap);}
+  if(id==='return'){mx=lerp(115,619,part(250,first+700));my=621;net=1;}
+  if(id==='chew'){mx=lerp(535,648,part(300,first));net=1-part(second-150,scene.duration-500);netY=-140*(1-net);}
+  if(id==='friends'){mx=493;net=0;ly=596;}
+  if(id==='trap'&&ms>=second-80)net=1;
+  p.lion.setAttribute('transform','translate('+lx+' '+(ly+wobble)+')');
+  p['lion-shadow'].setAttribute('cx',lx);p['lion-shadow'].setAttribute('opacity','.8');
+  p.mouse.setAttribute('opacity',visibleMouse?'1':'0');
+  p.mouse.setAttribute('transform','translate('+mx+' '+(my+(id==='scamper'||id==='return'?(still?0:-Math.abs(Math.sin(t*13))*6):wobble))+')');
+  p['mouse-shadow'].setAttribute('cx',mx);p['mouse-shadow'].setAttribute('opacity',visibleMouse?'.65':'0');
+  p['lion-sleep'].setAttribute('opacity',awake?'0':'1');
+  p['lion-eyes'].setAttribute('opacity',awake?'1':'0');
+  const speaking=line&&isDuring(ms,line)&&line.speaker;
+  const wordProgress=speaking?readingAt(line.reading,ms-line.start).word:-1;
+  const rhythm=still?.25:(Math.abs(Math.sin(t*14))*0.75+0.2);
+  p['lion-mouth'].setAttribute('transform','translate(0 54) scale(1 '+(speaking==='lion'&&wordProgress>=0?rhythm:.1)+')');
+  p['mouse-mouth'].setAttribute('d',speaking==='mouse'&&wordProgress>=0?'M61-18q11 17 18-1':'M61-19q8 9 17 1');
+  const pawAngle=id==='caught'? -17:id==='mercy'? -34*part(250,second+400):id==='friends'?-13*Math.sin(t*1.7):0;
+  p['lion-paw'].setAttribute('transform','rotate('+pawAngle+' -104 -70)');
+  p.net.setAttribute('opacity',String(clamp(net)));
+  p.net.setAttribute('transform','translate(0 '+netY+')');
+  p['cut-ropes'].setAttribute('opacity',id==='chew'&&ms>first?String(part(first,second)):0);
+  p['ending-sparkles'].setAttribute('opacity',id==='friends'?String(.5+.45*Math.abs(Math.sin(t*1.3))):'0');
+  p['sun'].setAttribute('opacity',id==='friends'?'1':'.82');
+  p['fireflies'].setAttribute('opacity',String(.6+Math.sin(t*1.9)*.3));
+  p['tree-left'].setAttribute('transform','translate('+(still?0:Math.sin(t*.65)*1.7)+' 0)');
+  p['tree-right'].setAttribute('transform','translate('+(still?0:-Math.sin(t*.7)*1.4)+' 0)');
+ }
+ function draw(ms){
+  const scene=scenes[sceneIndex];if(!scene)return;
+  position=clamp(ms,0,scene.duration);
+  const line=scene.lines.findLast(x=>x.start<=position)||scene.lines[0];
+  renderReading(line,position-line.start);
+  const shot=shots[scene.id];const sway=Math.sin(ms/1500)*2.8;
+  const dynamic=scene.id==='scamper'?Math.min(80,ms/80):scene.id==='return'?Math.min(70,ms/95):0;
+  const camera=[shot[0]+dynamic+sway,shot[1],shot[2],shot[3]];
+  svg.setAttribute('viewBox',camera.map(Math.round).join(' '));
+  figurePose(scene,position,line);
+  if(reviewing)$('voice-progress').textContent=sound.clips.size+' / '+Object.keys(window.storyData.lines).length+' generated voice clips · '+Math.floor(position/1000)+'s / '+Math.floor(scene.duration/1000)+'s';
+ }
+ function stop(){playing=false;sound.stop();cancelAnimationFrame(frame)}
+ function select(i){
+  sceneIndex=i;position=0;lastKey='';lastWord=-1;
+  const scene=scenes[i];
+  book.dataset.layout=scene.layout||'spread';
+  book.dataset.scene=scene.id;
+  book.dataset.caption=scene.id==='chew'?'top':'bottom';
+  draw(0);if(reviewing)paintReview();
+ }
+ function animate(now){
+  if(!playing)return;
+  const scene=scenes[sceneIndex];
+  const time=sound.elapsed()??(now-started);
+  if(time>=scene.duration){
+   if(!reviewing&&sceneIndex+1<scenes.length){select(sceneIndex+1);play();return}
+   stop();draw(scene.duration);return;
+  }
+  draw(time);frame=requestAnimationFrame(animate);
+ }
+ function play(){if(position>=scenes[sceneIndex].duration)draw(0);playing=true;started=performance.now()-position;
+  if(activated)sound.playScene(scenes[sceneIndex],position);
+  cancelAnimationFrame(frame);frame=requestAnimationFrame(animate);
+ }
+ async function withAudio(restart=false){
+  if(!scenes.length)return;
+  if(restart){stop();select(reviewing?sceneIndex:0)}
+  try{activated=await sound.unlock()}catch{activated=false}
+  play();
+ }
+ function touch(){if(!reviewing&&(!activated||!playing))withAudio(!playing)}
+ movie.addEventListener('click',touch);
+ movie.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();touch()}});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stop();draw(position)}});
+ window.addEventListener('pagehide',stop);
+ function save(){try{localStorage.setItem('little-panth-06-review',JSON.stringify(notes))}catch{}}
+ function paintReview(){
+  const scene=scenes[sceneIndex],current=notes[scene.id]||{};
+  $('scene-name').textContent=(sceneIndex+1)+'. '+scene.title;
+  $('scene-guidance').textContent=safeText(scene.review);
+  $('scene-note').value=current.note||'';
+  $('review-scenes').replaceChildren(...scenes.map((s,i)=>{
+   const b=document.createElement('button');b.textContent=(i+1)+'. '+s.title+(notes[s.id]?.status==='approved'?' ✓':notes[s.id]?.status==='changes'?' !':'');
+   if(i===sceneIndex)b.classList.add('selected');
+   b.addEventListener('click',()=>{stop();select(i)});return b;
+  }));
+ }
+ function mark(status){const s=scenes[sceneIndex];notes[s.id]={...(notes[s.id]||{}),status};save();paintReview()}
+ function setupReview(){
+  document.body.classList.add('reviewing');
+  $('scene-play').onclick=()=>{if(playing){stop();draw(position)}else withAudio(false)};
+  $('scene-restart').onclick=()=>{stop();select(sceneIndex);withAudio(false)};
+  $('scene-approve').onclick=()=>mark('approved');
+  $('scene-changes').onclick=()=>mark('changes');
+  $('scene-note').oninput=e=>{const id=scenes[sceneIndex].id;notes[id]={...(notes[id]||{}),note:e.target.value};save()};
+  $('download-notes').onclick=()=>{
+   const file=new Blob([JSON.stringify({mission:6,title:window.storyData.title,review:notes},null,2)],{type:'application/json'});
+   const link=document.createElement('a');const url=URL.createObjectURL(file);link.href=url;link.download='little-panth-mission-006-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
+  };
+  paintReview();
+ }
+ async function start(){
+  const fetchJSON=async(url,fallback)=>{try{const res=await fetch(url,{cache:'no-cache'});if(!res.ok)throw Error(url);return await res.json()}catch{return fallback}};
+  const [data,manifest,timings]=await Promise.all([fetchJSON('dialogue.json',null),fetchJSON('audio/generation-manifest.json',{}),fetchJSON('audio/word-timings.json',{})]);
+  if(!data)throw Error('dialogue.json missing');
+  window.storyData=data;
+  await document.fonts.load('700 48px "Little Panth Gurmukhi"','ਸ਼ੇਰ ਤੇ ਚੂਹਾ').catch(()=>{});
+  const voiceIds=Object.keys(data.lines).filter(id=>manifest[id]?.text===data.lines[id].pa);
+  await sound.load(voiceIds);
+  scenes=compile(data,manifest,timings);
+  $('loading').hidden=true;
+  select(0);
+  if(reviewing)setupReview();else play();
+  // The scene-review mode is used to approve every drawing before exporting video.
+  if(params.get('test')==='1')window.lp006Test={seek(i,ms){stop();select(i);draw(ms)},state:()=>({scene:sceneIndex,position,playing,clips:sound.clips.size,line:scenes[sceneIndex].lines.findLast(x=>x.start<=position)?.id})};
+ }
+ start().catch(error=>{console.error(error);$('loading').textContent='ਕਹਾਣੀ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ।'});
+});
+</script>
+</body></html>
