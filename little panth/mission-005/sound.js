@@ -1,9 +1,10 @@
 (() => {
   'use strict';
 
+  const effectDurations = { wings: .48, plop: .43, sip: .64, step: .18, ribbon: .3, gust: 1.55, chirp: .47, spring: .29 };
+
   function effect(context, name) {
-    const durations = { wings: 0.48, plop: 0.43, sip: 0.64, step: 0.18, ribbon: 0.3, gust: 1.55 };
-    const duration = durations[name];
+    const duration = effectDurations[name];
     const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
     const samples = buffer.getChannelData(0);
     let seed = 217 + name.length;
@@ -27,6 +28,15 @@
         const swell = Math.sin(Math.PI * t / duration) ** 1.5;
         const whistle = Math.sin(2 * Math.PI * (161 * t + 47 * t * t)) * 0.05;
         samples[i] = (filtered * 0.68 + whistle) * swell * (0.7 + Math.sin(t * 16) * 0.2);
+      } else if (name === 'chirp') {
+        const note = t % .16;
+        const sweep = 2190 * note + 6300 * note * note;
+        const envelope = Math.min(1, note * 180) * Math.exp(-note * 51);
+        samples[i] = Math.sin(2 * Math.PI * sweep) * envelope * .18 * (1 - t / duration);
+      } else if (name === 'spring') {
+        const sweep = 210 * t + 459 * t * t;
+        const pluck = Math.sin(2 * Math.PI * sweep) + .18 * Math.sin(4 * Math.PI * sweep);
+        samples[i] = pluck * Math.min(1, t * 95) * Math.exp(-t * 17) * .21;
       } else if (name === 'ribbon') {
         samples[i] = (filtered * 0.38 + 0.08 * Math.sin(2 * Math.PI * 420 * t)) *
           Math.exp(-t * 18) * Math.min(t * 380, 1);
@@ -40,12 +50,18 @@
   }
 
   // A quiet original loop is used when a generated score is unavailable.
-  function fallbackScore(context) {
-    const beat = 0.73;
+  function fallbackScore(context, theme) {
+    const orchard = theme === 'orchard';
+    const beat = orchard ? .51 : .73;
     const bars = 8;
     const buffer = context.createBuffer(1, Math.floor(context.sampleRate * beat * 4 * bars), context.sampleRate);
     const samples = buffer.getChannelData(0);
-    const melody = [74, null, 71, 69, 71, null, 74, null, 76, 74, 71, null, 69, null, 67, null, 74, null, 76, 78, 74, null, 71, null, 69, 71, 74, null, 71, null, 67, null];
+    const melody = orchard
+      ? [67, 71, 74, null, 72, 71, 69, null, 74, 76, 74, 71, 69, null, 67, null,
+        71, 74, 79, 76, 74, 71, 69, null, 72, 76, 74, 69, 67, null, null, null]
+      : [74, null, 71, 69, 71, null, 74, null, 76, 74, 71, null, 69, null, 67, null,
+        74, null, 76, 78, 74, null, 71, null, 69, 71, 74, null, 71, null, 67, null];
+    const decay = orchard ? 6.2 : 3.9;
     for (const [index, note] of melody.entries()) {
       if (note === null) continue;
       const hz = 440 * (2 ** ((note - 69) / 12));
@@ -55,7 +71,19 @@
         const t = (i - start) / context.sampleRate;
         const phase = 2 * Math.PI * hz * t + 0.27 * Math.sin(t * 32);
         const tone = Math.sin(phase) + 0.13 * Math.sin(2 * phase);
-        samples[i] += tone * 0.31 * Math.min(1, t * 18) * Math.exp(-t * 3.9);
+        samples[i] += tone * 0.31 * Math.min(1, t * 18) * Math.exp(-t * decay);
+      }
+    }
+    if (orchard) {
+      const bass = [55, 50, 52, 55, 55, 50, 48, 55];
+      for (const [bar, note] of bass.entries()) {
+        const hz = 440 * (2 ** ((note - 69) / 12));
+        const start = Math.floor(bar * 4 * beat * context.sampleRate);
+        const end = Math.min(samples.length, start + Math.floor(1.15 * context.sampleRate));
+        for (let i = start; i < end; i++) {
+          const t = (i - start) / context.sampleRate;
+          samples[i] += Math.sin(t * 2 * Math.PI * hz) * Math.min(1, t * 15) * Math.exp(-t * 4.2) * .16;
+        }
       }
     }
     return buffer;
@@ -77,7 +105,7 @@
       this.speech.gain.value = 0.94;
       this.foleyGain.gain.value = 0.42;
       for (const bus of [this.speech, this.scoreGain, this.foleyGain]) bus.connect(this.context.destination);
-      this.effects = Object.fromEntries(['wings', 'plop', 'sip', 'step', 'ribbon', 'gust'].map(name => [name, effect(this.context, name)]));
+      this.effects = Object.fromEntries(Object.keys(effectDurations).map(name => [name, effect(this.context, name)]));
     }
 
     async decode(url) {
@@ -86,7 +114,7 @@
       return this.context.decodeAudioData(await response.arrayBuffer());
     }
 
-    async load(ids, scorePath = 'audio/score.mp3') {
+    async load(ids, scorePath = 'audio/score.mp3', theme) {
       if (!this.context) return;
       const [score] = await Promise.all([
         scorePath ? this.decode(scorePath).catch(() => null) : Promise.resolve(null),
@@ -96,7 +124,7 @@
         })
       ]);
       this.generatedScore = Boolean(score);
-      this.score = score || fallbackScore(this.context);
+      this.score = score || fallbackScore(this.context, theme);
     }
 
     async unlock() {

@@ -173,7 +173,8 @@
     stage = new Stage(stageElement);
 
     const voiceIds = Object.keys(data.lines).filter(id => manifest[id]?.text === data.lines[id].pa);
-    await sound.load(voiceIds, data.score === 'original' ? null : undefined);
+    const originalScore = data.score === 'original' || data.score === 'orchard';
+    await sound.load(voiceIds, originalScore ? null : undefined, data.score);
     scenes = compile(data, manifest, timings);
     if (reviewing) {
       const revision = await revisionFor(data, manifest, timings);
