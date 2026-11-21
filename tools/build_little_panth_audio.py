@@ -37,6 +37,8 @@ VOICES={
  "dove":("Vindemiatrix","A gentle and reassuring dove speaking clear conversational Punjabi. Read only the written words for young listeners."),
  "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
  "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
+ "harpreet":("Algieba","A kind Punjabi village tailor speaking to a friend. Use clear, warm conversational Punjabi pronunciation in Gurmukhi, with an easy pace for children."),
+ "elephant":("Fenrir","A gentle and enthusiastic elephant in a Punjabi children’s story. Speak in natural, unhurried Punjabi and read the given words exactly."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
  "mehar":("Kore","Bright gentle young Punjabi girl's voice with warmth, natural child-friendly surprise, clear conversational Punjabi."),
  "baba":("Charon","Calm, dignified, warm older Punjabi Sikh grandfather voice with careful pronunciation, patient respectful delivery."),

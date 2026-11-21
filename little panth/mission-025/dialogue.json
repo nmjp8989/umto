@@ -1,0 +1,78 @@
+{
+  "mission": 25,
+  "title": "ਹਾਥੀ ਤੇ ਦਰਜ਼ੀ",
+  "englishTitle": "The Elephant and the Tailor",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "harpreet": "Harpreet",
+    "elephant": "Elephant"
+  },
+  "scenes": [
+    {
+      "id": "outside-the-shop",
+      "title": "A morning at the tailor’s shop",
+      "framing": "establishing",
+      "focus": { "x": 642, "y": 370 },
+      "lines": ["the-blue-cloth", "harpreet-wants-to-wash-it"],
+      "review": "Establish the shop and the courtyard. Follow the elephant to the doorway and show the dusty blue cloth on the folding table."
+    },
+    {
+      "id": "tub-from-the-corner",
+      "title": "The elephant brings the tub",
+      "framing": "full",
+      "focus": { "x": 670, "y": 405 },
+      "lines": ["elephant-offers-help", "elephant-carries-the-tub"],
+      "review": "Keep the trunk on the tub handle during the lift. Check that the tub is back on the courtyard floor before the trunk lets go."
+    },
+    {
+      "id": "cloth-into-water",
+      "title": "The cloth goes into the tub",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 652, "y": 472 },
+      "lines": ["cloth-into-the-tub"],
+      "review": "Follow the cloth from Harpreet’s hand into the tub. The first splash should begin at the surface when the cloth lands."
+    },
+    {
+      "id": "spray-and-rinse",
+      "title": "The trunk rinses the cloth",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 684, "y": 470 },
+      "lines": ["trunk-sprays-water", "harpreet-thanks-his-friend"],
+      "review": "Track water from the elephant’s trunk to the blue cloth. Keep the elephant’s mouth still under narration and while Harpreet speaks."
+    },
+    {
+      "id": "hang-it-together",
+      "title": "Both corners reach the line",
+      "framing": "two-shot",
+      "focus": { "x": 659, "y": 418 },
+      "lines": ["each-takes-a-corner", "cloth-on-the-line"],
+      "review": "Show Harpreet’s hand and the trunk take the actual corners. Follow the corners to the line before either lets go."
+    },
+    {
+      "id": "dry-in-the-sun",
+      "title": "What they did together",
+      "framing": "wide",
+      "focus": { "x": 648, "y": 390 },
+      "lines": ["elephant-likes-working-together", "cloth-dries"],
+      "review": "Finish with the cloth on the line in the breeze. Only the elephant should move his mouth during his line."
+    }
+  ],
+  "lines": {
+    "the-blue-cloth": { "speaker": "narrator", "pa": "ਹਰਪ੍ਰੀਤ ਪਿੰਡ ਦਾ ਦਰਜ਼ੀ ਸੀ। ਇੱਕ ਸਵੇਰ ਉਸ ਦਾ ਦੋਸਤ ਹਾਥੀ ਦੁਕਾਨ ਕੋਲ ਆਇਆ। ਹਰਪ੍ਰੀਤ ਦੇ ਮੇਜ਼ ਉੱਤੇ ਇੱਕ ਨੀਲਾ ਕੱਪੜਾ ਪਿਆ ਸੀ। ਉਸ ਉੱਤੇ ਧੂੜ ਸੀ।" },
+    "harpreet-wants-to-wash-it": { "speaker": "harpreet", "pa": "ਮੈਂ ਇਸ ਕੱਪੜੇ ਤੋਂ ਥੈਲਾ ਸਿਊਣਾ ਹੈ। ਪਰ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਧੋਣਾ ਪਵੇਗਾ।" },
+    "elephant-offers-help": { "speaker": "elephant", "pa": "ਮੈਂ ਤੇਰੀ ਮਦਦ ਕਰਾਂ? ਤੂੰ ਕੱਪੜਾ ਲੈ ਆ। ਮੈਂ ਟੱਬ ਲੈ ਆਉਂਦਾ ਹਾਂ।" },
+    "elephant-carries-the-tub": { "speaker": "narrator", "pa": "ਹਾਥੀ ਨੇ ਸੁੰਡ ਨਾਲ ਟੱਬ ਦਾ ਕੰਡਾ ਫੜਿਆ। ਉਸ ਨੇ ਟੱਬ ਚੁੱਕ ਕੇ ਵਿਹੜੇ ਵਿਚਕਾਰ ਰੱਖਿਆ। ਟੱਬ ਵਿੱਚ ਥੋੜ੍ਹਾ ਜਿਹਾ ਪਾਣੀ ਸੀ।" },
+    "cloth-into-the-tub": { "speaker": "narrator", "pa": "ਹਰਪ੍ਰੀਤ ਨੇ ਕੱਪੜਾ ਟੱਬ ਵਿੱਚ ਪਾਇਆ। ਛਪਾਕ! ਪਾਣੀ ਦੀਆਂ ਬੂੰਦਾਂ ਛਿੱਟ ਕੇ ਵਾਪਸ ਟੱਬ ਵਿੱਚ ਡਿੱਗੀਆਂ। ਹਰਪ੍ਰੀਤ ਨੇ ਕੱਪੜਾ ਪਾਣੀ ਵਿੱਚ ਹਿਲਾਇਆ।" },
+    "trunk-sprays-water": { "speaker": "narrator", "pa": "ਹਾਥੀ ਨੇ ਨੇੜੇ ਪਈ ਬਾਲਟੀ ਵਿੱਚੋਂ ਸੁੰਡ ਨਾਲ ਪਾਣੀ ਖਿੱਚਿਆ। ਫਿਰ ਉਸ ਨੇ ਕੱਪੜੇ ਉੱਤੇ ਪਾਣੀ ਦੀ ਧਾਰ ਛੱਡੀ। ਕੱਪੜੇ ਤੋਂ ਧੂੜ ਲਹਿ ਗਈ।" },
+    "harpreet-thanks-his-friend": { "speaker": "harpreet", "pa": "ਦੇਖ, ਹੁਣ ਕੱਪੜਾ ਸਾਫ਼ ਹੈ। ਧੰਨਵਾਦ, ਦੋਸਤ! ਆ, ਇਸ ਨੂੰ ਰੱਸੀ ਉੱਤੇ ਸੁਕਾਈਏ।" },
+    "each-takes-a-corner": { "speaker": "harpreet", "pa": "ਤੂੰ ਇੱਕ ਕੋਨਾ ਫੜ। ਦੂਜਾ ਕੋਨਾ ਮੈਂ ਫੜ ਲੈਂਦਾ ਹਾਂ।" },
+    "cloth-on-the-line": { "speaker": "narrator", "pa": "ਦੋਵਾਂ ਨੇ ਕੱਪੜਾ ਇਕੱਠੇ ਚੁੱਕਿਆ ਤੇ ਰੱਸੀ ਉੱਤੇ ਟੰਗ ਦਿੱਤਾ। ਉਸ ਵਿੱਚੋਂ ਨਿੱਕੀਆਂ ਨਿੱਕੀਆਂ ਬੂੰਦਾਂ ਟਪਕੀਆਂ।" },
+    "elephant-likes-working-together": { "speaker": "elephant", "pa": "ਤੇਰੇ ਨਾਲ ਕੰਮ ਕਰ ਕੇ ਮੈਨੂੰ ਬਹੁਤ ਮਜ਼ਾ ਆਇਆ।" },
+    "cloth-dries": { "speaker": "narrator", "pa": "ਕੱਪੜਾ ਹਵਾ ਵਿੱਚ ਹਿੱਲਣ ਲੱਗਾ। ਦੋਵੇਂ ਧੁੱਪ ਵਿੱਚ ਖੜ੍ਹੇ ਉਸ ਨੂੰ ਵੇਖ ਕੇ ਮੁਸਕਰਾ ਪਏ।" }
+  }
+}
