@@ -1,0 +1,88 @@
+{
+  "mission": 18,
+  "title": "ਪਿੰਡ ਦਾ ਚੂਹਾ ਤੇ ਸ਼ਹਿਰ ਦਾ ਚੂਹਾ",
+  "englishTitle": "The Town Mouse and the Country Mouse",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mouse": "Country Mouse",
+    "friend": "Town Mouse"
+  },
+  "scenes": [
+    {
+      "id": "country",
+      "title": "A friend comes to the field",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 375 },
+      "lines": ["the-country-mouse"],
+      "review": "Establish both mice at the edge of a field. Track the visitor along the path to his friend."
+    },
+    {
+      "id": "millet",
+      "title": "A quiet meal in the country",
+      "framing": "two-shot",
+      "focus": { "x": 640, "y": 446 },
+      "lines": ["millet-and-gur", "town-invites"],
+      "review": "Show the country mouse bring a grain of millet to his mouth. Let both mice settle before the town mouse offers to show him the city."
+    },
+    {
+      "id": "town-kitchen",
+      "title": "The town kitchen",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 381 },
+      "lines": ["in-the-town", "town-offers"],
+      "review": "Reveal a town kitchen with warm light and sweets. Show both mice climb onto the low wooden step together."
+    },
+    {
+      "id": "footsteps",
+      "title": "Footsteps by the door",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 704, "y": 425 },
+      "lines": ["footsteps-nearby", "town-whispers"],
+      "review": "Show the country mouse pick up the sweet, then let it go when the cat's shadow reaches the doorway. Track the mice to the basket and leave their faces visible for the whisper."
+    },
+    {
+      "id": "quiet-again",
+      "title": "The choice to go home",
+      "framing": "two-shot",
+      "focus": { "x": 720, "y": 453 },
+      "lines": ["cat-leaves", "country-decides"],
+      "review": "Let the shadow pass before either mouse steps out. Hold on the country mouse as he explains why he prefers his home."
+    },
+    {
+      "id": "morning-home",
+      "title": "Back in the morning sun",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 589, "y": 436 },
+      "lines": ["country-returns"],
+      "review": "Return to the field in morning light. Show the country mouse place his feet, lift a piece of grain, and take a quiet bite."
+    },
+    {
+      "id": "friends",
+      "title": "Friends share a quiet meal",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 375 },
+      "lines": ["friends-eat"],
+      "review": "Show the town mouse come back to visit. End with both friends sharing their meal at the edge of the field."
+    }
+  ],
+  "lines": {
+    "the-country-mouse": { "speaker": "narrator", "pa": "ਇੱਕ ਨਿੱਕਾ ਚੂਹਾ ਖੇਤ ਦੇ ਨੇੜੇ ਰਹਿੰਦਾ ਸੀ। ਇੱਕ ਦਿਨ ਉਸ ਦਾ ਸ਼ਹਿਰ ਵਾਲਾ ਦੋਸਤ ਉਸ ਨੂੰ ਮਿਲਣ ਆਇਆ।" },
+    "millet-and-gur": { "speaker": "narrator", "pa": "ਪਿੰਡ ਦੇ ਚੂਹੇ ਨੇ ਬਾਜਰੇ ਦੇ ਦਾਣੇ ਤੇ ਗੁੜ ਦਾ ਟੁਕੜਾ ਰੱਖਿਆ। ਦੋਵੇਂ ਆਰਾਮ ਨਾਲ ਬੈਠ ਗਏ।" },
+    "town-invites": { "speaker": "friend", "pa": "ਆ, ਮੇਰੇ ਨਾਲ ਸ਼ਹਿਰ ਚੱਲ। ਉੱਥੇ ਆਪਾਂ ਹੋਰ ਵੀ ਸੁਆਦ ਦੀਆਂ ਚੀਜ਼ਾਂ ਖਾਵਾਂਗੇ।" },
+    "in-the-town": { "speaker": "narrator", "pa": "ਸ਼ਾਮ ਨੂੰ ਦੋਵੇਂ ਸ਼ਹਿਰ ਪਹੁੰਚੇ। ਇੱਕ ਰਸੋਈ ਵਿੱਚ ਮੇਜ਼ ਉੱਤੇ ਮਠਿਆਈ ਤੇ ਰੋਟੀ ਪਈ ਸੀ। ਖੁਸ਼ਬੂ ਸਾਰੇ ਕਮਰੇ ਵਿੱਚ ਫੈਲੀ ਸੀ।" },
+    "town-offers": { "speaker": "friend", "pa": "ਇੱਥੋਂ ਤੈਨੂੰ ਜਿਹੜੀ ਮਠਿਆਈ ਚੰਗੀ ਲੱਗੇ, ਉਹ ਲੈ ਲੈ।" },
+    "footsteps-nearby": { "speaker": "narrator", "pa": "ਪਿੰਡ ਦੇ ਚੂਹੇ ਨੇ ਇੱਕ ਟੁਕੜਾ ਚੁੱਕਿਆ ਹੀ ਸੀ ਕਿ ਬਿੱਲੀ ਦੇ ਕਦਮਾਂ ਦੀ ਆਵਾਜ਼ ਸੁਣਾਈ ਦਿੱਤੀ। ਦੋਵੇਂ ਕਾਹਲੀ ਨਾਲ ਟੋਕਰੀ ਪਿੱਛੇ ਲੁਕ ਗਏ।" },
+    "town-whispers": { "speaker": "friend", "pa": "ਹੌਲੀ ਬੋਲੀਂ। ਬਿੱਲੀ ਅਜੇ ਦਰਵਾਜ਼ੇ ਕੋਲ ਹੀ ਹੈ।" },
+    "cat-leaves": { "speaker": "narrator", "pa": "ਬਿੱਲੀ ਚਲੀ ਗਈ ਤਾਂ ਉਹ ਬਾਹਰ ਆਏ। ਪਿੰਡ ਦਾ ਚੂਹਾ ਅਜੇ ਵੀ ਘਬਰਾਇਆ ਹੋਇਆ ਸੀ।" },
+    "country-decides": { "speaker": "mouse", "pa": "ਮੈਨੂੰ ਆਪਣੇ ਖੇਤ ਦੇ ਦਾਣੇ ਹੀ ਚੰਗੇ ਲੱਗਦੇ ਹਨ। ਉੱਥੇ ਮੈਂ ਚੈਨ ਨਾਲ ਖਾ ਸਕਦਾ ਹਾਂ।" },
+    "country-returns": { "speaker": "narrator", "pa": "ਅਗਲੀ ਸਵੇਰ ਪਿੰਡ ਦਾ ਚੂਹਾ ਆਪਣੇ ਘਰ ਮੁੜ ਆਇਆ। ਉਸ ਨੇ ਧੁੱਪ ਵਿੱਚ ਬੈਠ ਕੇ ਦਾਣਾ ਖਾਧਾ।" },
+    "friends-eat": { "speaker": "narrator", "pa": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਸ਼ਹਿਰ ਦਾ ਚੂਹਾ ਵੀ ਮਿਲਣ ਆਇਆ। ਇਸ ਵਾਰੀ ਉਹ ਦੋਵੇਂ ਹੌਲੀ ਹੌਲੀ ਖਾਂਦੇ ਰਹੇ ਤੇ ਗੱਲਾਂ ਕਰਦੇ ਰਹੇ।" }
+  }
+}
