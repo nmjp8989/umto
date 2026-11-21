@@ -1,8 +1,8 @@
 {
   "ball-game": {
-    "hash": "427228b3ce00b80760f4ad0608efb1c1bd7d288a53054316b10ae448c803f30f",
+    "hash": "5e6200e62f790a54782fce9d31be1e3a35b81a2f047a55ee847d2ef9ad12b5f3",
     "voice": "Aoede",
-    "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਖੇਡ ਰਹੇ ਸਨ। ਦੋਵਾਂ ਨੂੰ ਇੱਕੋ ਗੇਂਦ ਚਾਹੀਦੀ ਸੀ।",
+    "text": "ਧੁੱਪ ਵਾਲੀ ਦੁਪਹਿਰ ਨੂੰ ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਖੇਡ ਰਹੇ ਸਨ। ਸਿਦਕ ਨੇ ਸੰਤਰੀ ਗੇਂਦ ਫੜੀ ਸੀ। ਦੋਵਾਂ ਨੂੰ ਇੱਕੋ ਗੇਂਦ ਚਾਹੀਦੀ ਸੀ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-lite-tts"
   },
@@ -28,16 +28,16 @@
     "model": "gemini-3.8-flash-lite-tts"
   },
   "bundle-down": {
-    "hash": "f9bbd9624ce9c0bfb3efaceb6320cd0a1bc1e63aed5eda4ed56b88ef1065b339",
+    "hash": "8cee3a352d86740130662561b4a09d7edb49328b04951ec44a493f9d3673514e",
     "voice": "Aoede",
-    "text": "ਬੀਬੀ ਜੀ ਨੇ ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ ਨੀਵੀਂ ਪੀੜ੍ਹੀ ਉੱਤੇ ਰੱਖ ਦਿੱਤਾ।",
+    "text": "ਬੀਬੀ ਜੀ ਨੇ ਬੱਚਿਆਂ ਨੂੰ ਗੇਂਦ ਪਾਸੇ ਰੱਖਣ ਲਈ ਕਿਹਾ। ਫਿਰ ਉਨ੍ਹਾਂ ਨੇ ਰੱਸੀ ਨਾਲ ਬੱਝਾ ਗੱਠਾ ਨੀਵੀਂ ਪੀੜ੍ਹੀ ਉੱਤੇ ਰੱਖ ਦਿੱਤਾ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-lite-tts"
   },
   "try-together": {
-    "hash": "3117b0163a477443d1a32363fef1335eafaf0235557a934859a00cce72a941f3",
+    "hash": "36846295f883af659fdf66c80be4cf15693c3680e9aa3d98cdeffcdcb3979e44",
     "voice": "Aoede",
-    "text": "ਮੇਹਰ ਨੇ ਜ਼ੋਰ ਲਾਇਆ। ਫਿਰ ਸਿਦਕ ਨੇ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਗੱਠਾ ਨਾ ਟੁੱਟਿਆ।",
+    "text": "ਮੇਹਰ ਨੇ ਗੱਠਾ ਦੋਹਾਂ ਹੱਥਾਂ ਨਾਲ ਫੜਿਆ ਤੇ ਜ਼ੋਰ ਲਾਇਆ। ਫਿਰ ਸਿਦਕ ਨੇ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਰੱਸੀ ਕੱਸੀ ਰਹੀ ਤੇ ਗੱਠਾ ਨਾ ਟੁੱਟਿਆ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-lite-tts"
   },
@@ -49,11 +49,11 @@
     "model": "gemini-3.8-flash-tts"
   },
   "sticks-snap": {
-    "hash": "f7225f7f03873fe55e2d4318d5f4aba4c16d5f7e0cfd059fb34b2f3deed43652",
+    "hash": "316910fe22b0fa2ff455988e18d2f8ebf4842ed879ac93d5369d083d6f861cda",
     "voice": "Aoede",
-    "text": "ਇਸ ਵਾਰੀ ਦੋਵਾਂ ਨੇ ਆਪਣੀ ਲੱਕੜੀ ਛੇਤੀ ਤੋੜ ਲਈ।",
+    "text": "ਮੇਹਰ ਨੇ ਇੱਕ ਲੱਕੜੀ ਫੜੀ ਤੇ ਸਿਦਕ ਨੇ ਦੂਜੀ। ਇਸ ਵਾਰੀ ਦੋਵਾਂ ਦੇ ਹੱਥਾਂ ਵਿੱਚ ਲੱਕੜੀਆਂ ਛੇਤੀ ਟੁੱਟ ਗਈਆਂ।",
     "speaker": "narrator",
-    "model": "gemini-3.8-flash-tts"
+    "model": "gemini-3.8-flash-lite-tts"
   },
   "dadi-explains": {
     "hash": "6f7df862b28ff8cc73c414063ed6a6de94f2b675a18539d0cbe401bca27aa751",
@@ -63,9 +63,9 @@
     "model": "gemini-3.8-flash-tts"
   },
   "mehar-shares": {
-    "hash": "8260717c64093e1b7745d9c2990ab308a1300625ec3f38786e873b189b6e5271",
+    "hash": "1c46d86a38c304e18cb7d9b9448d5538813b30f8850eaf8b8cf4cd4ae6c30047",
     "voice": "Kore",
-    "text": "ਅਸੀਂ ਵੀ ਇਕੱਠੇ ਖੇਡੀਏ?",
+    "text": "ਅਸੀਂ ਵੀ ਇਕੱਠੇ ਖੇਡੀਏ? ਫਿਰ ਦੋਵਾਂ ਨੂੰ ਵਾਰੀ ਮਿਲੇਗੀ।",
     "speaker": "mehar",
     "model": "gemini-3.8-flash-tts"
   },
@@ -77,9 +77,16 @@
     "model": "gemini-3.8-flash-tts"
   },
   "roll-and-share": {
-    "hash": "c9dcc2c4c2b38775f17f0d7a7701b82b60486267d51cf8dd458ecb0049849bdb",
+    "hash": "28739fb2d31e22e2ceae2550f65dece137834a60b53b0f914c89692bc9970f9f",
     "voice": "Aoede",
-    "text": "ਮੇਹਰ ਨੇ ਗੇਂਦ ਸਿਦਕ ਵੱਲ ਰੋੜ੍ਹੀ। ਸਿਦਕ ਨੇ ਗੇਂਦ ਵਾਪਸ ਰੋੜ੍ਹ ਦਿੱਤੀ। ਹੁਣ ਦੋਵੇਂ ਖ਼ੁਸ਼ ਸਨ।",
+    "text": "ਮੇਹਰ ਨੇ ਗੇਂਦ ਸਿਦਕ ਵੱਲ ਰੋੜ੍ਹੀ। ਸਿਦਕ ਨੇ ਉਹਨੂੰ ਰੋਕਿਆ ਤੇ ਵਾਪਸ ਰੋੜ੍ਹ ਦਿੱਤਾ। ਬੀਬੀ ਜੀ ਮੁਸਕਰਾਏ। ਹੁਣ ਦੋਵੇਂ ਖ਼ੁਸ਼ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "hold-the-ball": {
+    "hash": "0804eead231fde34a9d16a2c510d5110d8a71484c0d7bd191773651edbe9df4c",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਗੇਂਦ ਨੂੰ ਆਪਣੇ ਵੱਲ ਖਿੱਚਣ ਲੱਗੇ। ਬੀਬੀ ਜੀ ਨੇ ਉਹਨਾਂ ਵੱਲ ਵੇਖਿਆ। ਹੁਣ ਖੇਡ ਰੁਕ ਗਈ ਸੀ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-tts"
   }
