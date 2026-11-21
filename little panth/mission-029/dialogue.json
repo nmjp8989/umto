@@ -1,0 +1,77 @@
+{
+  "mission": 29,
+  "title": "ਗੁੰਮ ਹੋਈ ਜੁੱਤੀ",
+  "englishTitle": "The Missing Jutti",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "friend": "Sidak",
+    "dadi": "Bibi Ji"
+  },
+  "scenes": [
+    {
+      "id": "only-one-jutti",
+      "title": "Only one red jutti",
+      "framing": "establishing",
+      "focus": { "x": 639, "y": 375 },
+      "lines": ["fair-day", "sidak-asks"],
+      "review": "Show the doorway, one embroidered red jutti on the step, and a charpai on the far side. Sidak comes to a stop beside the step before he speaks."
+    },
+    {
+      "id": "listen-under-the-charpai",
+      "title": "A sound under the charpai",
+      "framing": "two-shot",
+      "focus": { "x": 589, "y": 485 },
+      "lines": ["hear-a-rustle", "bibi-sees-the-tail"],
+      "review": "Time the cloth rustle to the sound in the narration. Sidak leans forward with his feet planted. Cut in on Moti’s tail as Bibi Ji notices it."
+    },
+    {
+      "id": "moti-has-the-jutti",
+      "title": "Moti comes out with the jutti",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 739, "y": 502 },
+      "lines": ["moti-comes-out", "sidak-offers-the-ball"],
+      "review": "Moti crawls out from under the charpai. Keep the missing jutti in his mouth while he looks up and wags his tail."
+    },
+    {
+      "id": "roll-the-ball",
+      "title": "A ball rolls across the courtyard",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 761, "y": 536 },
+      "lines": ["moti-chases"],
+      "review": "Sidak releases the cloth ball onto the floor. Moti drops the jutti before he takes off after the ball. Follow the roll long enough to see Moti reach it."
+    },
+    {
+      "id": "the-pair-is-together",
+      "title": "Two juttis on the step",
+      "framing": "two-shot",
+      "focus": { "x": 572, "y": 492 },
+      "lines": ["sidak-finds-the-pair", "bibi-smiles"],
+      "review": "Follow Sidak’s hand as he lifts the fallen jutti and sets it beside its mate. Bibi Ji speaks once the pair is together."
+    },
+    {
+      "id": "one-more-game",
+      "title": "One more game",
+      "framing": "wide",
+      "focus": { "x": 639, "y": 375 },
+      "lines": ["puppy-comes-back"],
+      "review": "Moti brings the ball back to Sidak. Keep the recovered pair together on the step in the closing wide shot."
+    }
+  ],
+  "lines": {
+    "fair-day": { "speaker": "narrator", "pa": "ਅੱਜ ਪਿੰਡ ਵਿੱਚ ਮੇਲਾ ਸੀ। ਸਿਦਕ ਨੇ ਆਪਣੀਆਂ ਨਵੀਆਂ ਲਾਲ ਜੁੱਤੀਆਂ ਬੂਹੇ ਕੋਲ ਰੱਖੀਆਂ ਸਨ। ਹੁਣ ਉੱਥੇ ਸਿਰਫ਼ ਇੱਕ ਜੁੱਤੀ ਪਈ ਸੀ।" },
+    "sidak-asks": { "speaker": "friend", "pa": "ਬੀਬੀ ਜੀ, ਮੇਰੀ ਦੂਜੀ ਜੁੱਤੀ ਕਿੱਥੇ ਗਈ? ਮੈਂ ਤਾਂ ਦੋਵੇਂ ਇੱਥੇ ਰੱਖੀਆਂ ਸਨ।" },
+    "hear-a-rustle": { "speaker": "narrator", "pa": "ਬੀਬੀ ਜੀ ਨੇ ਕੰਨ ਲਾ ਕੇ ਸੁਣਿਆ। ਮੰਜੇ ਹੇਠੋਂ ਹੌਲੀ ਜਿਹੀ ਖੜਖੜਾਹਟ ਆਈ। ਸਿਦਕ ਨੇ ਝੁਕ ਕੇ ਹੇਠਾਂ ਵੇਖਿਆ।" },
+    "bibi-sees-the-tail": { "speaker": "dadi", "pa": "ਉਹ ਵੇਖ, ਮੋਤੀ ਦੀ ਪੂਛ! ਲੱਗਦਾ ਹੈ ਉਸ ਨੂੰ ਕੋਈ ਖਿਡੌਣਾ ਲੱਭ ਗਿਆ ਹੈ।" },
+    "moti-comes-out": { "speaker": "narrator", "pa": "ਨਿੱਕਾ ਕਤੂਰਾ ਮੰਜੇ ਹੇਠੋਂ ਨਿਕਲਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਲਾਲ ਜੁੱਤੀ ਸੀ। ਸਿਦਕ ਵੱਲ ਵੇਖ ਕੇ ਉਸ ਨੇ ਪੂਛ ਹਿਲਾਈ।" },
+    "sidak-offers-the-ball": { "speaker": "friend", "pa": "ਮੋਤੀ, ਇਹ ਮੇਲੇ ਵਾਲੀ ਜੁੱਤੀ ਹੈ। ਆ, ਤੇਰੀ ਗੇਂਦ ਨਾਲ ਖੇਡੀਏ।" },
+    "moti-chases": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੇ ਕੱਪੜੇ ਦੀ ਗੇਂਦ ਚੁੱਕੀ ਤੇ ਵਿਹੜੇ ਵਿੱਚ ਰੋੜ੍ਹ ਦਿੱਤੀ। ਮੋਤੀ ਨੇ ਜੁੱਤੀ ਛੱਡੀ ਤੇ ਗੇਂਦ ਪਿੱਛੇ ਭੱਜਿਆ।" },
+    "sidak-finds-the-pair": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੇ ਜੁੱਤੀ ਚੁੱਕ ਕੇ ਦੂਜੀ ਜੁੱਤੀ ਕੋਲ ਰੱਖ ਦਿੱਤੀ। ਜਦੋਂ ਦੋਵੇਂ ਜੁੱਤੀਆਂ ਨਾਲ ਨਾਲ ਪਈਆਂ, ਉਸ ਦੇ ਚਿਹਰੇ ਉੱਤੇ ਮੁਸਕਾਨ ਆ ਗਈ।" },
+    "bibi-smiles": { "speaker": "dadi", "pa": "ਹੁਣ ਤੇਰੀ ਜੋੜੀ ਪੂਰੀ ਹੋ ਗਈ। ਮੋਤੀ ਨੂੰ ਵੀ ਉਸ ਦਾ ਖਿਡੌਣਾ ਮਿਲ ਗਿਆ।" },
+    "puppy-comes-back": { "speaker": "narrator", "pa": "ਮੋਤੀ ਗੇਂਦ ਲੈ ਕੇ ਮੁੜ ਆਇਆ। ਸਿਦਕ ਹੱਸ ਪਿਆ। ਮੇਲੇ ਨੂੰ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ ਉਸ ਨੇ ਮੋਤੀ ਨਾਲ ਇੱਕ ਵਾਰ ਹੋਰ ਖੇਡਿਆ।" }
+  }
+}
