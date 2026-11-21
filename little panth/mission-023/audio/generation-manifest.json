@@ -1,0 +1,72 @@
+{
+  "jar-and-bowls": {
+    "hash": "effe2e9255d5f13c056b823b5d75e67a2a215daec7fc493471e6c98e4042b213",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦੁਪਹਿਰ ਬੀਬੀ ਜੀ ਤੇ ਮੇਹਰ ਰਸੋਈ ਵਿੱਚ ਸਨ। ਮੇਜ਼ ਉੱਤੇ ਬਦਾਮਾਂ ਦੀ ਬਰਨੀ ਤੇ ਦੋ ਕੌਲੀਆਂ ਪਈਆਂ ਸਨ। ਮੇਹਰ ਨੇ ਬਰਨੀ ਵੱਲ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-offers-almonds": {
+    "hash": "f631468c70a6aa1e0ab02251dc4d96da62a4ca2991975b52a160b55e145c24be",
+    "voice": "Pulcherrima",
+    "text": "ਬਦਾਮ ਲੈ ਲੈ, ਪੁੱਤ। ਮੇਰੇ ਲਈ ਵੀ ਦੋ ਕੱਢ ਦੇਈਂ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-gets-stuck": {
+    "hash": "55975580d2e69bc5b6f73917e31182098962a8490232f4d72ff9ddbc665fd4ca",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਢੱਕਣ ਲਾਹਿਆ ਤੇ ਹੱਥ ਬਰਨੀ ਵਿੱਚ ਪਾਇਆ। ਉਸ ਨੇ ਪੰਜ ਬਦਾਮ ਫੜ ਲਏ। ਜਦੋਂ ਹੱਥ ਬਾਹਰ ਖਿੱਚਿਆ ਤਾਂ ਉਸ ਦੀ ਭਰੀ ਮੁੱਠੀ ਅਟਕ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-asks-bibi": {
+    "hash": "653940bfd3674b866c71337ab20fe625ad8763316ccbccdb4d47d6fb0da3f217",
+    "voice": "Kore",
+    "text": "ਬੀਬੀ ਜੀ, ਮੇਰਾ ਹੱਥ ਨਹੀਂ ਨਿਕਲਦਾ! ਤੁਸੀਂ ਬਰਨੀ ਫੜੋਗੇ?",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-explains": {
+    "hash": "809550e9f9909f418675c91f7e96dc91e9fba8f5079771719de4fc7fdaa30d5b",
+    "voice": "Pulcherrima",
+    "text": "ਹਾਂ ਪੁੱਤ, ਮੈਂ ਬਰਨੀ ਫੜਦੀ ਹਾਂ। ਤਿੰਨ ਬਦਾਮ ਛੱਡ ਦੇ। ਫਿਰ ਹੌਲੀ ਜਿਹੀ ਹੱਥ ਬਾਹਰ ਕੱਢੀਂ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "three-drop-two-stay": {
+    "hash": "7d251b87b19447cf8d4bdea4c0d814c010b027b0030edd133fe42b8739e1294c",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਮੁੱਠੀ ਢਿੱਲੀ ਕੀਤੀ। ਟਪ, ਟਪ, ਟਪ! ਤਿੰਨ ਬਦਾਮ ਬਰਨੀ ਵਿੱਚ ਵਾਪਸ ਡਿੱਗੇ। ਦੋ ਬਦਾਮ ਉਸ ਦੇ ਹੱਥ ਵਿੱਚ ਰਹੇ। ਹੁਣ ਹੱਥ ਸੌਖਿਆਂ ਬਾਹਰ ਆ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-offers-two": {
+    "hash": "c231c7619dfd710dddf2aa34cd9628b63a07f74a0f909f4e12241c8612bb367e",
+    "voice": "Kore",
+    "text": "ਲਓ ਬੀਬੀ ਜੀ, ਇਹ ਦੋ ਤੁਹਾਡੇ ਲਈ। ਹੁਣ ਮੈਂ ਆਪਣੇ ਲਈ ਦੋ ਕੱਢਦੀ ਹਾਂ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "both-bowls-filled": {
+    "hash": "1d6d84f1105eb04335a28cc9e150afa0d8c28cff6c76bd6eb7882215518736e3",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਦੋ ਬਦਾਮ ਬੀਬੀ ਜੀ ਦੀ ਹਰੀ ਕੌਲੀ ਵਿੱਚ ਪਾਏ। ਫਿਰ ਉਸ ਨੇ ਦੋ ਆਪਣੇ ਲਈ ਕੱਢ ਕੇ ਨੀਲੀ ਕੌਲੀ ਵਿੱਚ ਪਾਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lid-back-on": {
+    "hash": "94843cecbabc92919214420f6d3c8afdc8f0852982dbb98a84a86222a04c4fe8",
+    "voice": "Aoede",
+    "text": "ਬੀਬੀ ਜੀ ਨੇ ਬਰਨੀ ਦਾ ਢੱਕਣ ਲਾ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "two-each": {
+    "hash": "7838ab07d4bf116a69f2d2370051c50d626229bc6e9b30198825165ec1092da4",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਦੋਵਾਂ ਕੌਲੀਆਂ ਵਿੱਚ ਵੇਖਿਆ। ਹਰ ਕੌਲੀ ਵਿੱਚ ਦੋ ਬਦਾਮ ਸਨ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਥੋੜ੍ਹੇ ਥੋੜ੍ਹੇ ਬਦਾਮ ਲੈਣੇ ਸੌਖੇ ਹਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
