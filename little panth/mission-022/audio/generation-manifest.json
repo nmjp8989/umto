@@ -1,0 +1,72 @@
+{
+  "caps-for-the-fair": {
+    "hash": "56c34a595040b36de087894a0869375c42af71d191a831f9249c559a297380c1",
+    "voice": "Aoede",
+    "text": "ਰੋਹਨ ਮੇਲੇ ਵਿੱਚ ਟੋਪੀਆਂ ਵੇਚਣ ਜਾ ਰਿਹਾ ਸੀ। ਟੋਕਰੀ ਵਿੱਚ ਤਿੰਨ ਟੋਪੀਆਂ ਸਨ। ਇੱਕ ਨੀਲੀ, ਇੱਕ ਪੀਲੀ ਤੇ ਇੱਕ ਹਰੀ। ਲਾਲ ਟੋਪੀ ਉਸ ਨੇ ਆਪ ਪਾਈ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "a-little-rest": {
+    "hash": "8be737a352db045b6e39777e1978105bf3dce1a9ea714dff9bd08aa244d963e4",
+    "voice": "Iapetus",
+    "text": "ਪਹਿਲਾਂ ਥੋੜ੍ਹੀ ਦੇਰ ਛਾਂ ਹੇਠ ਰੁਕ ਲਵਾਂ। ਫਿਰ ਮੇਲੇ ਵੱਲ ਤੁਰਾਂਗਾ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "basket-on-the-stone": {
+    "hash": "24a7f1d3c5b42430d455f2bb9abe2c0c6ed605ded2edab89e591bd9d981ef927",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਟੋਕਰੀ ਇੱਕ ਪੱਥਰ ਉੱਤੇ ਰੱਖੀ। ਰੁੱਖ ਦੀ ਛਾਂ ਵਿੱਚ ਉਸ ਨੇ ਅੱਖਾਂ ਮੀਟ ਲਈਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "three-monkeys": {
+    "hash": "7b8a22ee52f46a7e39e76c897e5b58c5a5ad5ed9bb40253aab4c2231fe46d2fc",
+    "voice": "Aoede",
+    "text": "ਤਿੰਨ ਬਾਂਦਰ ਹੇਠਾਂ ਉਤਰੇ। ਉਨ੍ਹਾਂ ਨੇ ਟੋਕਰੀ ਵਿੱਚੋਂ ਨੀਲੀ, ਪੀਲੀ ਤੇ ਹਰੀ ਟੋਪੀ ਚੁੱਕ ਲਈ। ਫਿਰ ਉਹ ਟਾਹਣੀਆਂ ਉੱਤੇ ਚੜ੍ਹ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "where-are-my-caps": {
+    "hash": "5cda70e2bd39e601cb525f6e90736627a6f84b71eb747286f53868c878ddfa27",
+    "voice": "Iapetus",
+    "text": "ਮੇਰੀਆਂ ਟੋਪੀਆਂ ਕਿੱਥੇ ਗਈਆਂ?",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "copying-rohan": {
+    "hash": "f4e1cf20b93170adfa7fe23f0e975b070ce5dc7902a7ad7fef187292f249aeda",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਉੱਪਰ ਵੇਖਿਆ। ਬਾਂਦਰਾਂ ਨੇ ਟੋਪੀਆਂ ਪਾਈਆਂ ਸਨ। ਰੋਹਨ ਨੇ ਹੱਥ ਹਿਲਾਇਆ ਤਾਂ ਤਿੰਨਾਂ ਨੇ ਵੀ ਹੱਥ ਹਿਲਾਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "red-cap-first": {
+    "hash": "e055a15646ded2c4f72295973a65ccbd132fcdb68f7ed07fcf9171b505f41c37",
+    "voice": "Aoede",
+    "text": "ਰੋਹਨ ਦੀਆਂ ਅੱਖਾਂ ਚਮਕੀਆਂ। ਉਸ ਨੇ ਸਿਰ ਅੱਗੇ ਝੁਕਾਇਆ। ਉਸ ਦੀ ਲਾਲ ਟੋਪੀ ਸਿਰ ਤੋਂ ਸਿੱਧੀ ਟੋਕਰੀ ਵਿੱਚ ਜਾ ਡਿੱਗੀ। ਬਾਂਦਰਾਂ ਨੇ ਧਿਆਨ ਨਾਲ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "caps-come-down": {
+    "hash": "799ee223a383b9ec552bd7e9bd024e28b48c67536dff1ffda5b4398d134da9b5",
+    "voice": "Aoede",
+    "text": "ਬਾਂਦਰਾਂ ਨੇ ਵੀ ਸਿਰ ਝੁਕਾਏ। ਇੱਕ, ਦੋ, ਤਿੰਨ! ਨੀਲੀ, ਪੀਲੀ ਤੇ ਹਰੀ ਟੋਪੀ ਟੋਕਰੀ ਵਿੱਚ ਆ ਡਿੱਗੀ। ਰੋਹਨ ਨੇ ਸਾਰੀਆਂ ਟੋਪੀਆਂ ਗਿਣੀਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "remember-the-game": {
+    "hash": "d852dfb5935cdef1bec3abb50acf78aefedf072a467381086edc8ddada7df64b",
+    "voice": "Iapetus",
+    "text": "ਟੋਪੀਆਂ ਤਾਂ ਮੇਲੇ ਲਈ ਹਨ। ਪਰ ਇਹ ਖੇਡ ਮੈਂ ਯਾਦ ਰੱਖਾਂਗਾ!",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "on-to-the-fair": {
+    "hash": "21fb82cda931035e6d04ec47ccd28f257c4bf4f6f13bd008f618c2018f580070",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਆਪਣੀ ਲਾਲ ਟੋਪੀ ਚੁੱਕੀ, ਟੋਕਰੀ ਫੜੀ ਤੇ ਹੱਸਦਾ ਹੋਇਆ ਮੇਲੇ ਵੱਲ ਤੁਰ ਪਿਆ। ਬਾਂਦਰ ਰੁੱਖ ਵਿੱਚ ਬੈਠੇ ਉਸ ਨੂੰ ਜਾਂਦਾ ਵੇਖਦੇ ਰਹੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
