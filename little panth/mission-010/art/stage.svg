@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">A little ant and a pale dove beside a flowing river</title>
+  <defs>
+    <linearGradient id="sky" x2=".13" y2="1"><stop stop-color="#a5c8c7"/><stop offset="1" stop-color="#e9e8be"/></linearGradient>
+    <linearGradient id="river-water" x2=".24" y2="1"><stop stop-color="#86b7b3"/><stop offset=".48" stop-color="#6e9fa5"/><stop offset="1" stop-color="#b5cebb"/></linearGradient>
+    <linearGradient id="sand" x2=".18" y2="1"><stop stop-color="#eed7a0"/><stop offset=".78" stop-color="#d3b581"/><stop offset="1" stop-color="#c6a96d"/></linearGradient>
+    <linearGradient id="stone" x2=".15" y2="1"><stop stop-color="#b6bbb0"/><stop offset="1" stop-color="#88918e"/></linearGradient>
+    <linearGradient id="bark" x2=".43" y2="1"><stop stop-color="#bc9268"/><stop offset="1" stop-color="#866746"/></linearGradient>
+    <linearGradient id="tree-leaf" x2=".6" y2="1"><stop stop-color="#b4c181"/><stop offset="1" stop-color="#789665"/></linearGradient>
+    <linearGradient id="rescue-green" x2="0" y2="1"><stop stop-color="#dbe197"/><stop offset=".62" stop-color="#a9c16e"/><stop offset="1" stop-color="#8fa55b"/></linearGradient>
+    <linearGradient id="ant-shell" x2=".21" y2="1"><stop stop-color="#d99667"/><stop offset=".68" stop-color="#be775c"/><stop offset="1" stop-color="#9c574b"/></linearGradient>
+    <linearGradient id="dove-feather" x2=".27" y2="1"><stop stop-color="#fff7e5"/><stop offset=".63" stop-color="#e6ddd9"/><stop offset="1" stop-color="#cdc4c8"/></linearGradient>
+    <radialGradient id="sun-glow"><stop stop-color="#fff0ba" stop-opacity=".88"/><stop offset="1" stop-color="#fff0ba" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shadow"><stop stop-color="#6a5646" stop-opacity=".39"/><stop offset="1" stop-color="#6a5646" stop-opacity="0"/></radialGradient>
+    <filter id="paper-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".62" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".09"/></feComponentTransfer>
+    </filter>
+    <path id="stream-edge" d="M-120 515Q49 556 204 534T395 499Q517 473 672 472 792 467 939 426 1179 372 1400 420V558Q1177 521 1040 587 899 645 715 631 504 614 347 663 133 716-120 631Z"/>
+    <clipPath id="water-limit"><use href="#stream-edge"/></clipPath>
+    <path id="glint" d="M-47 2q22-7 51-4 23 3 43 0" fill="none" stroke="#edf3da" stroke-width="2.6" stroke-linecap="round"/>
+    <g id="willow-spray" stroke-linecap="round">
+      <path d="M0 0Q-9 37 12 81" fill="none" stroke="#849c65" stroke-width="2.9"/>
+      <g fill="url(#tree-leaf)" stroke="#759760" stroke-width="1.1">
+        <path d="M-1 17q-21 2-31-18Q-8 0-1 17Zm0 10q19-8 23-21Q2 8-1 27Zm2 12q-25 1-35-16Q-10 20 1 39Zm1 6q24-7 28-21Q7 25 2 45Zm3 13q-24-1-31-14Q-7 41 5 58Zm2 10q19-9 24-22Q9 48 7 68Zm5 13q-14-4-17-17 11 3 17 17Z"/>
+      </g>
+    </g>
+    <g id="reed" fill="none" stroke-linecap="round">
+      <path d="M0 0Q-5-31-20-49M0 0Q4-48-1-72M2 0Q15-36 26-48m-22 48q12-22 25-23" stroke="#76906a" stroke-width="3.8"/>
+      <path d="M-1-63v-14m-17 32-4-9m47 10 4-7" stroke="#bd9b6c" stroke-width="6"/>
+    </g>
+    <g id="flower">
+      <path d="M-4 2Q0-11 0-28m-1 13q-11-10-17-3 7 9 17 3m1 6q7-12 18-11-1 13-18 11" fill="#839957" stroke="#7f9357" stroke-width="2.6" stroke-linecap="round"/>
+      <g fill="#fff2d6"><ellipse cy="-33" rx="4.4" ry="7"/><ellipse cy="-26" rx="4.3" ry="6"/><ellipse cx="-5" cy="-30" rx="6.3" ry="4"/><ellipse cx="5" cy="-30" rx="6.3" ry="4"/></g>
+      <circle cy="-30" r="3.3" fill="#d5a759"/>
+    </g>
+    <g id="pebble">
+      <ellipse cy="1" rx="17" ry="5.6" fill="url(#shadow)"/>
+      <path d="M-14 1q3-9 16-10 9 0 13 8-11 7-29 2Z" fill="url(#stone)" stroke="#999b8b" stroke-width="1.5"/>
+      <path d="M-7-4q5-2 11-1" fill="none" stroke="#d4d0b9" stroke-width="1.7" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.2">
+    <path d="M-150-100h1580v920H-150Z" fill="url(#sky)"/>
+    <ellipse cx="244" cy="160" rx="330" ry="246" fill="url(#sun-glow)"/>
+    <path d="M156 151q34-26 67-14 31-26 75-1 37-9 62 8-89 17-204 7Zm344 61q36-22 65-12 25-19 61-3 29-1 40 9-74 15-166 6Z" fill="#f5edd2" opacity=".8"/>
+    <path d="M-140 375q140-71 282-49 110-60 267-24 119-26 243 33 189-66 340-49 168-35 428 40v211H-140Z" fill="#9eb090"/>
+    <path d="M-140 418q132-74 278-42 135-66 306-28 144-32 304 19 133-38 237-15 223-53 435 17v187H-140Z" fill="#88a483"/>
+    <path d="M-140 448q132-44 267-22 125-38 274-10 169-43 314-19 145-25 305-22 183-29 400 46v184H-140Z" fill="#b0bd86"/>
+    <path d="M-150 466q244-33 430-8 239-18 418-25 178-28 364-30 166-24 368 12v121H-150Z" fill="#c6c793"/>
+    <path d="M386 434q92-23 186-17m-278 44q88-16 163-6M1220 386l36-3m-406 15q98-13 118-12" fill="none" stroke="#d3d29f" stroke-width="4.1" stroke-linecap="round"/>
+  </g>
+
+  <g id="willow" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M927 412q41-25 51-67l15-111q0-59-35-104l39-11q39 47 49 110 28-51 72-74l19 29q-48 38-75 91-8 65 30 130-54 27-165 7Z" fill="url(#bark)" stroke="#886b4e" stroke-width="5.8"/>
+    <path d="M986 398q32-58 30-121 0-55-13-76m48 192q-23-52-19-97m24-26q32-59 64-80" fill="none" stroke="#d1ac7b" stroke-width="6.2" opacity=".68"/>
+    <path d="M962 246q25-6 57-7l8 23q-33 9-64 12l7-9-6-6 6-6Z" fill="url(#bark)" stroke="#886b4e" stroke-width="4.5"/>
+    <path d="M977 251q20-3 40-7" fill="none" stroke="#d1ac7b" stroke-width="3.4"/>
+    <path d="M994 208q-136-39-262-52-55-14-92 5m361 39q-69-55-156-78m230 92q69-36 169-44" fill="none" stroke="#927452" stroke-width="9.1"/>
+    <g id="willow-crown">
+      <path d="M736 128q31-61 105-56 42-43 113-12 49-40 115-6 75-20 116 23 54-2 81 35 40 6 63 54-6 38-66 40-33 26-82 14-59 35-122 9-65 9-109-19-56 15-102-14-84 15-112-68Z" fill="url(#tree-leaf)" stroke="#789663" stroke-width="5.1"/>
+      <path d="M755 128q63-5 97-31 34 10 77-5 53-23 108-2 47-18 96 6 37-3 70 19-79-10-126 7-72-23-130 2-57 22-104 11-43 17-88-7Z" fill="#c4cb8c" opacity=".59"/>
+      <path d="M828 173q82-14 132 1 61-13 110 6 57-17 108 4 38-5 76 1-50 31-110 15-64 20-119 1-56-16-115-1-48 2-82-27Z" fill="#6f9364" opacity=".56"/>
+      <use href="#willow-spray" transform="translate(745 146) rotate(19) scale(.8)"/>
+      <use href="#willow-spray" transform="translate(796 170) rotate(16) scale(.82)"/>
+      <use href="#willow-spray" transform="translate(875 184) rotate(14) scale(.95)"/>
+      <use href="#willow-spray" transform="translate(947 189) rotate(9) scale(.65)"/>
+      <use href="#willow-spray" transform="translate(1135 199) scale(.82)"/>
+      <use href="#willow-spray" transform="translate(1219 190) rotate(-11)"/>
+    </g>
+    <path d="M648 160q-19 16 4 34" fill="none" stroke="#829b5e" stroke-width="3.2"/>
+    <path d="M640 172q-17-4-25-17 19-1 25 17Zm2 8q16-4 19-21-18 6-19 21Z" fill="#a6bb76" stroke="#839d61" stroke-width="1.9"/>
+  </g>
+
+  <use href="#stream-edge" fill="url(#river-water)" stroke="#81a9a1" stroke-width="3.5"/>
+  <g clip-path="url(#water-limit)">
+    <path d="M-100 563q174 32 312 1 146-38 314-34 196 3 417-56 246-67 467-29m-1510 159q149 39 330-9 174-44 325-23 160 13 359-40 251-72 496-28" fill="none" stroke="#bdd5c2" stroke-width="12.3" opacity=".35"/>
+    <path d="M17 574q71 12 144-4m160 18q66-17 115-17m128-70q72-10 131-7m-1 91q83 3 166-19m169-65q92-27 167-26" fill="none" stroke="#d2e4d2" stroke-width="2.2" stroke-linecap="round"/>
+    <g id="moving-glints" opacity=".67">
+      <use href="#glint"/><use href="#glint"/><use href="#glint"/><use href="#glint"/><use href="#glint"/>
+      <use href="#glint"/><use href="#glint"/><use href="#glint"/><use href="#glint"/><use href="#glint"/>
+    </g>
+  </g>
+
+  <g id="banks">
+    <path d="M-100 447q127-5 211 30 65 20 127 14 49-2 73 24 30-3 47 9-10 34-67 42-103-1-176 57-67 42-215 19Z" fill="url(#sand)" stroke="#bca473" stroke-width="3.7"/>
+    <path d="M-100 484q182-9 254 40m54-14q45-7 78 6m-377 68q107 0 173-27" fill="none" stroke="#f4dfaa" stroke-width="7" opacity=".67" stroke-linecap="round"/>
+    <path d="M277 542q15-38 48-39 34-6 56 13l6 16q-49 26-110 10Z" fill="url(#stone)" stroke="#858e83" stroke-width="3.3"/>
+    <path d="M293 527q24-17 62-13m-52 22 37-5" fill="none" stroke="#ced0bb" stroke-width="3.9" stroke-linecap="round"/>
+    <path d="M925 740q-6-65 37-121 15-20 34-60 22-33 62-34 163-42 338 17V740Z" fill="url(#sand)" stroke="#c0a979" stroke-width="3.6"/>
+    <path d="M974 617q27-43 46-58 52-28 122-29 132-12 233 19" fill="none" stroke="#f2dcaa" stroke-width="8" opacity=".72"/>
+    <path d="M1044 586q145-19 279 18m-267 4q43-9 82-7" fill="none" stroke="#be9e6d" stroke-width="4.5" stroke-linecap="round" opacity=".58"/>
+    <use href="#reed" x="115" y="491"/><use href="#reed" transform="translate(193 533) scale(.65)"/>
+    <use href="#reed" transform="translate(1169 530) scale(.82)"/><use href="#reed" transform="translate(1243 552) scale(1.18)"/>
+    <use href="#pebble" x="210" y="549"/><use href="#pebble" transform="translate(251 557) scale(.51)"/>
+    <use href="#pebble" transform="translate(1095 573) scale(.6)"/><use href="#pebble" transform="translate(1200 598) scale(1.1)"/>
+    <use href="#pebble" transform="translate(1041 579) scale(.73)"/>
+  </g>
+
+  <g id="loose-branch" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M563 269q96-4 195-10 103-21 211-14l11 25q-76-2-165 15-121 12-252-9Z" fill="url(#bark)" stroke="#83664d" stroke-width="4.8"/>
+    <path d="M581 271q105 6 236-9 82-11 146-10" fill="none" stroke="#d5ad79" stroke-width="4.1" opacity=".8"/>
+    <path d="M674 273q-18-15-39-18" fill="none" stroke="#9c7d57" stroke-width="5"/>
+    <use href="#willow-spray" transform="translate(628 252) rotate(25) scale(.56)"/>
+    <use href="#willow-spray" transform="translate(831 268) rotate(-17) scale(.55)"/>
+    <path id="branch-crack" d="m950 246 8 5-6 7 8 5-4 9" fill="none" stroke="#604c42" stroke-width="5.2" opacity="0"/>
+  </g>
+
+  <g id="rescue-leaf" transform="translate(652 192) rotate(-25)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-52 3q24-25 50-20 25-4 48 15l14 2q-22 17-53 19-36 3-59-16Z" fill="url(#rescue-green)" stroke="#7d9859" stroke-width="3.1"/>
+    <path d="M-55 4Q-7-4 48 0m-56-3q-7-6-14-7m23 8q-7 10-20 15m36-15q-5-6-11-9m25 10q-4 7-13 11" fill="none" stroke="#e0e5a9" stroke-width="2.4"/>
+  </g>
+  <g id="water-wake" opacity="0">
+    <ellipse rx="59" ry="11" fill="none" stroke="#c8e1d3" stroke-width="3"/>
+    <path d="M-66 1q32 15 98 10" fill="none" stroke="#e2ecdb" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <g id="splash" opacity="0" stroke-linecap="round">
+    <ellipse rx="47" ry="10" fill="none" stroke="#d5e9d7" stroke-width="3.3"/>
+    <path d="M-25-4q-27-15-21-26m26 23q-8-22-1-33m41 34q16-23 22-18m-3 20q17-10 22-5" fill="none" stroke="#edf5e1" stroke-width="4.1"/>
+    <circle cx="-49" cy="-31" r="3.8" fill="#e4f0df"/><circle cx="37" cy="-32" r="3.2" fill="#e4f0df"/>
+  </g>
+
+  <ellipse id="ant-shadow" cx="344" cy="534" rx="60" ry="11" fill="url(#shadow)"/>
+  <g id="ant" transform="translate(350 532)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <g id="ant-far-legs" fill="none" stroke="#935745" stroke-width="4.5">
+      <path d="M-35-29-52-16-58-1m40-26-13 12-3 13m39-26 11 12 1 13"/>
+    </g>
+    <ellipse cx="-43" cy="-30" rx="26" ry="23" fill="url(#ant-shell)" stroke="#965b48" stroke-width="3.8"/>
+    <path d="M-62-36q9-15 25-12" fill="none" stroke="#edb280" stroke-width="3.1" opacity=".65"/>
+    <ellipse cx="-10" cy="-30" rx="18" ry="18" fill="url(#ant-shell)" stroke="#965b48" stroke-width="3.4"/>
+    <g id="ant-near-legs" fill="none" stroke="#895747" stroke-width="4.9">
+      <path d="M-40-27-40-13-47 1m33-25-3 13 4 12m13-23 16 10 6 13"/>
+    </g>
+    <g id="ant-head">
+      <path id="ant-antennae" d="M12-62q-8-21-21-23m36 22q5-22 20-26" fill="none" stroke="#8e5547" stroke-width="3.9"/>
+      <circle cx="-10" cy="-85" r="4.3" fill="#a26954"/><circle cx="48" cy="-90" r="4.1" fill="#a26954"/>
+      <path d="M-2-50q1-22 23-26 23-2 35 15 12 19-7 35-25 16-42 0-10-9-9-24Z" fill="url(#ant-shell)" stroke="#8e5545" stroke-width="3.9"/>
+      <path d="M7-57q10-17 23-13" fill="none" stroke="#f2b98a" stroke-width="3.2"/>
+      <g id="ant-eye"><ellipse cx="40" cy="-52" rx="9.5" ry="10.5" fill="#fff0d5"/><ellipse cx="44" cy="-52" rx="4.7" ry="6.9" fill="#503d37"/><circle cx="45.6" cy="-54.5" r="1.7" fill="#fff4df"/></g>
+      <path id="ant-lid" d="M34-52q6 5 14-1" fill="none" stroke="#7b4c43" stroke-width="2.4" opacity="0"/>
+      <path d="M32-64q6-5 14-1" fill="none" stroke="#965849" stroke-width="2.7"/>
+      <ellipse cx="29" cy="-40" rx="7" ry="3.4" fill="#eead90" opacity=".66"/>
+      <path id="ant-mouth" d="M29-35q11 3 21-5-5 19-16 13-5-3-5-8Z" fill="#75483e" transform="translate(0 -25) scale(1 .28)"/>
+    </g>
+  </g>
+
+  <ellipse id="dove-shadow" cx="1130" cy="555" rx="91" ry="17" fill="url(#shadow)" opacity="0"/>
+  <g id="dove" transform="translate(736 268)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <g id="dove-feet" fill="none" stroke="#a77e71" stroke-width="4.2">
+      <path d="M-14-24-17 0m39-22-2 21m-36 0-13 3m13-3 10 3m24-2-8 4m9-5 13 2"/>
+    </g>
+    <path d="M43-52q45-4 81 1-10 24-32 32L35-27Z" fill="url(#dove-feather)" stroke="#a89a9f" stroke-width="3.4"/>
+    <path d="m69-39 40-7m-36 16 27-5" fill="none" stroke="#b7aaae" stroke-width="2.4"/>
+    <path d="M-49-68q16-12 41-5 38-4 71 23 8 17-12 31-30 21-76 9-29-8-34-29-2-18 10-29Z" fill="url(#dove-feather)" stroke="#a99ba0" stroke-width="4.1"/>
+    <g id="dove-wing">
+      <path d="M-18-62q28-12 76 7 18 8 33 27-40 19-74 11-30-7-44-21-6-12 9-24Z" fill="url(#dove-feather)" stroke="#a699a3" stroke-width="3.6"/>
+      <path d="M-12-52q28-11 73 8m-65 9q22-6 52 8m-44-3q10 3 15 7" fill="none" stroke="#c1b4ba" stroke-width="2.6"/>
+      <path d="M-14-55q22-7 41-6" fill="none" stroke="#fff3df" stroke-width="3.9"/>
+    </g>
+    <g id="dove-head">
+      <path d="M-72-72q-5-27 15-39 26-16 46 2 18 14 11 35-6 13-25 21-38 12-47-19Z" fill="url(#dove-feather)" stroke="#aa9da4" stroke-width="3.9"/>
+      <path d="M-57-103q13-9 28-6m-34 28q8-6 15-4" fill="none" stroke="#fff6e3" stroke-width="4"/>
+      <path d="M-20-67q12-11 17-19" fill="none" stroke="#b5a7b7" stroke-width="5" opacity=".75"/>
+      <path id="dove-lower-beak" d="M-69-77-87-75l17 9 5-5Z" fill="#bd8c68" stroke="#9e725d" stroke-width="1.9"/>
+      <path d="m-67-84-22 10 19 2Z" fill="#d2a177" stroke="#9e725d" stroke-width="1.9"/>
+      <g id="dove-eye"><ellipse cx="-50" cy="-88" rx="7.6" ry="8.7" fill="#bc998b"/><circle cx="-50" cy="-88" r="5.5" fill="#56494a"/><circle cx="-51.4" cy="-90" r="1.8" fill="#fff4de"/></g>
+      <path id="dove-lid" d="M-56-88q5 5 12 0" fill="none" stroke="#857377" stroke-width="2.3" opacity="0"/>
+    </g>
+  </g>
+
+  <g data-camera-depth=".2">
+    <path d="M-130 724q139-62 255-16 108-20 230 26 227 14 450-18 253-32 615-30v124H-130Z" fill="#a5ae76"/>
+    <use href="#reed" transform="translate(74 684) scale(1.15)"/><use href="#reed" transform="translate(114 694) scale(.7)"/>
+    <use href="#flower" x="130" y="696"/><use href="#flower" transform="translate(167 705) scale(.71)"/>
+    <use href="#flower" x="1005" y="695"/><use href="#reed" transform="translate(1161 705) scale(.86)"/>
+    <use href="#flower" transform="translate(1227 688) scale(1.2)"/><use href="#flower" x="1257" y="696"/>
+  </g>
+  <path d="M0 0h1280v720H0Z" filter="url(#paper-grain)" opacity=".61" pointer-events="none"/>
+</svg>
