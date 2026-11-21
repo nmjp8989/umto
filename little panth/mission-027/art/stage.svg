@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-label="A Punjabi courtyard by moonlight">
+  <defs>
+    <linearGradient id="moon-sky" x2=".14" y2="1">
+      <stop stop-color="#121a39"/>
+      <stop offset=".54" stop-color="#283656"/>
+      <stop offset="1" stop-color="#5a6578"/>
+    </linearGradient>
+    <radialGradient id="moon-halo">
+      <stop stop-color="#f9eac1" stop-opacity=".57"/>
+      <stop offset=".4" stop-color="#e9ded2" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#e4e5ef" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="moon-disc" x2=".78" y2="1">
+      <stop stop-color="#fff6d8"/>
+      <stop offset="1" stop-color="#eddfb0"/>
+    </linearGradient>
+    <linearGradient id="moon-ground" x2=".42" y2="1">
+      <stop stop-color="#5e6779"/>
+      <stop offset=".62" stop-color="#424c65"/>
+      <stop offset="1" stop-color="#29344e"/>
+    </linearGradient>
+    <linearGradient id="moon-plaster" x2=".34" y2="1">
+      <stop stop-color="#7f8497"/>
+      <stop offset=".7" stop-color="#5b6579"/>
+      <stop offset="1" stop-color="#4b566a"/>
+    </linearGradient>
+    <linearGradient id="moon-house" x2=".87" y2=".68">
+      <stop stop-color="#514e60"/>
+      <stop offset=".65" stop-color="#797684"/>
+      <stop offset="1" stop-color="#696b7f"/>
+    </linearGradient>
+    <radialGradient id="moon-door">
+      <stop stop-color="#fff0ac"/>
+      <stop offset=".68" stop-color="#f3b16a"/>
+      <stop offset="1" stop-color="#b9764b"/>
+    </radialGradient>
+    <linearGradient id="moon-door-light" x2="1" y2=".88">
+      <stop stop-color="#edbb79" stop-opacity=".73"/>
+      <stop offset="1" stop-color="#dda76b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="moon-pot" x2=".62" y2="1">
+      <stop stop-color="#bb805a"/>
+      <stop offset=".37" stop-color="#95614b"/>
+      <stop offset=".8" stop-color="#624850"/>
+      <stop offset="1" stop-color="#483948"/>
+    </linearGradient>
+    <linearGradient id="moon-water" x2=".8" y2="1">
+      <stop stop-color="#687e9f"/>
+      <stop offset=".46" stop-color="#385776"/>
+      <stop offset="1" stop-color="#263d61"/>
+    </linearGradient>
+    <linearGradient id="moon-reflection-tones" x2="0" y2="1">
+      <stop stop-color="#fff4ce"/>
+      <stop offset=".6" stop-color="#e8e6cf"/>
+      <stop offset="1" stop-color="#a7c2d7"/>
+    </linearGradient>
+    <radialGradient id="moon-reflection-glow">
+      <stop stop-color="#dce4ec" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#a8bfe2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon-shadow">
+      <stop stop-color="#192239" stop-opacity=".8"/>
+      <stop offset=".67" stop-color="#202b40" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#202b40" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="moon-mortar" width="126" height="52" patternUnits="userSpaceOnUse">
+      <rect width="126" height="52" fill="#505467"/>
+      <path d="M1 1h57v22H1ZM62 1h64v22H62ZM1 27h29v21H1ZM34 27h63v21H34ZM101 27h25v21h-25Z" fill="#6e6574"/>
+      <path d="M1 2h51m12 0h59M3 28h23m12 0h51m15 0h20" stroke="#a39ba0" stroke-opacity=".26" stroke-width="2"/>
+    </pattern>
+    <pattern id="moon-grain" width="94" height="82" patternUnits="userSpaceOnUse">
+      <path d="M8 7h2m28 21h1m18-14h5m30 7h1m-22 23h3m15 27h2m-67-8h2m20 10h3M3 43h2m6 36h3m51-13h2" stroke="#faf4e3" stroke-opacity=".22" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M14 15h4m31 27h3m24-34h2M31 42h2m-13 10h3m-9 16h3m63-11h5m-26 22h4" stroke="#1b243f" stroke-opacity=".32" stroke-width="1.4" stroke-linecap="round"/>
+    </pattern>
+    <clipPath id="inside-the-water">
+      <ellipse cx="642" cy="550" rx="126" ry="34"/>
+    </clipPath>
+  </defs>
+
+  <g data-camera-depth="-0.58">
+    <rect x="-100" y="-40" width="1480" height="550" fill="url(#moon-sky)"/>
+    <path d="M-67 263Q89 236 230 263t260-3q152-10 232 13 102 2 201 19 206-87 388-10v96H-67Z" fill="#455473" opacity=".52"/>
+    <path d="M366 286q53-20 93-16 25-41 70-25 63-28 110 17 91-7 122 29l-58 16H369Zm606-83q33-25 65-14 60-41 109 8 60-29 84 3l79 22-337-2Z" fill="#8c9bb0" opacity=".12"/>
+    <g fill="#ffdfac">
+      <circle cx="395" cy="102" r="2.2" opacity=".74"/><circle cx="489" cy="150" r="1.4" opacity=".55"/>
+      <circle cx="529" cy="69" r="1.6" opacity=".73"/><circle cx="596" cy="104" r="2.6" opacity=".8"/>
+      <circle cx="661" cy="159" r="1.5" opacity=".61"/><circle cx="688" cy="78" r="1.1" opacity=".46"/>
+      <circle cx="764" cy="89" r="1.6" opacity=".8"/><circle cx="964" cy="78" r="2.1" opacity=".71"/>
+      <circle cx="994" cy="152" r="1.6" opacity=".64"/><circle cx="1056" cy="106" r="1.25" opacity=".68"/>
+      <circle cx="1120" cy="163" r="1.9" opacity=".68"/><circle cx="1131" cy="81" r="2.4" opacity=".56"/>
+    </g>
+    <g id="moon-in-sky" transform="translate(98)">
+      <circle cx="856" cy="145" r="107" fill="url(#moon-halo)"/>
+      <circle cx="856" cy="145" r="45" fill="url(#moon-disc)"/>
+      <path d="M820 126q7-14 22-20-5 7 1 13l11 5-9 7-17-3-6 7Zm47 40q10-12 21-6l5 9-9 10-14 6-6-6Zm-30-22q8-10 15-4l8 8-7 11-9-7-10 4Z" fill="#ad9b8d" opacity=".23"/>
+      <circle cx="877" cy="132" r="6" fill="#d5c398" opacity=".45"/>
+      <circle cx="842" cy="169" r="5" fill="#beaa84" opacity=".3"/>
+      <path d="M822 130a38 38 0 0 1 26-24" fill="none" stroke="#fffdeb" stroke-width="1.7" stroke-linecap="round" opacity=".7"/>
+    </g>
+    <g fill="#293951">
+      <path d="M357 339v-52h78v-18h52v16h41v54Zm90-45h17v-33h16v33Zm537 47v-67h88v-12h53v76Z"/>
+      <path d="M1033 325q3-46 38-63 12-27 44-23 10-30 54-22 29-19 55 8 40-32 99 1l20 105H1033Z" fill="#293b53"/>
+      <path d="M1130 329q70-47 78-105l12-28 5 4q-2 38 9 70 15-14 31-36l10 4q-7 19-39 50l4 41Z" fill="#253247"/>
+    </g>
+  </g>
+
+  <rect y="445" width="1280" height="275" fill="url(#moon-ground)"/>
+  <path d="M0 481q155-25 336-11 161 19 305 6 267-18 639-9v22q-423-5-706 13-289-5-574 1Z" fill="#37435c" opacity=".62"/>
+  <path d="M0 479Q304 483 623 488t657-3M0 544Q246 519 485 529t795-7M0 617Q295 594 560 612t720-24M0 704Q316 653 686 694t594-26M125 542 0 581m398-56-83 66-106 48m413-146 18 38m315-42 57 41 70 73 198 81m-494-76 46 46 112 66" fill="none" stroke="#26314b" stroke-opacity=".49" stroke-width="2.6"/>
+  <path d="M37 599q132-9 216-4m43 70q137-13 261-2m271-107q110-7 205 2m-297 121q189 16 394-9" fill="none" stroke="#acb4c1" stroke-opacity=".24" stroke-linecap="round" stroke-width="2"/>
+  <rect y="467" width="1280" height="253" fill="url(#moon-grain)" opacity=".48"/>
+
+  <g>
+    <path d="M0 340q235-11 398-13 320-20 575-10 212-10 307 3v157q-367 4-673 6-322-13-607 4Z" fill="url(#moon-plaster)"/>
+    <path d="M333 426q277 5 392-2 288-1 555-6v59q-367 4-673 6-126-8-274 0Z" fill="url(#moon-mortar)" opacity=".65"/>
+    <path d="M344 344q276-23 507-21t429 1M346 352q177-15 324-15m326-9q162-8 284 2" fill="none" stroke="#abb2b9" stroke-opacity=".68" stroke-width="4" stroke-linecap="round"/>
+    <path d="M346 352q281-21 512-19t422 0" fill="none" stroke="#3c4a64" stroke-width="5" opacity=".62"/>
+    <path d="M366 410q38-14 69-5 26-16 64-15 26 4 54-1m211 16q73-14 139-4m90-5q39-20 72-9 39-17 78-5" fill="none" stroke="#d4c8b9" stroke-opacity=".23" stroke-width="3" stroke-linecap="round"/>
+    <path d="M388 355h85v45h-85Zm452-10h248v72H840Z" fill="url(#moon-grain)" opacity=".68"/>
+    <path d="M657 420q14-11 27-8l22-17 11 3 8-9m320-18 12 14-7 5 7 18M538 345l-7 15 4 9-10 11" fill="none" stroke="#45526a" stroke-opacity=".51" stroke-width="2"/>
+    <path d="M0 124q129-16 352 12l18 373-370 29Z" fill="url(#moon-house)"/>
+    <path d="M335 138l17-2 18 373-25 10Z" fill="#4c536b"/>
+    <path d="M0 121q164-15 373 12l-22 25Q140 132 0 149Z" fill="url(#moon-mortar)" stroke="#42475c" stroke-width="4"/>
+    <path d="M0 153q174-18 349 12M0 491l347-19" fill="none" stroke="#c2a395" stroke-opacity=".48" stroke-width="3"/>
+    <path d="M0 157h342v360H0Z" fill="url(#moon-grain)" opacity=".59"/>
+    <path d="M0 380q45-25 70 10 35-13 65 0 20-9 50 10v107L0 538Z" fill="url(#moon-mortar)" opacity=".49"/>
+    <path d="M158 513V330q0-80 72-87 66-5 77 74v187Z" fill="#514253" stroke="#9a8283" stroke-width="15"/>
+    <path d="M170 513V330q0-66 61-74 56-4 64 70l5 177Z" fill="#382e40" stroke="#564252" stroke-width="7"/>
+    <path d="M181 519V330q0-51 48-59 46-4 56 61v175Z" fill="url(#moon-door)"/>
+    <path d="M181 519V328l37-40v219Z" fill="#8e5d57" opacity=".91"/>
+    <path d="M193 502V334l9-12v177m20-198q17-11 38 3m-34 103h54" fill="none" stroke="#fcd698" stroke-opacity=".56" stroke-width="3"/>
+    <path d="M220 348v49h-12v-41Zm37 149V391l21-10v119Z" fill="#aa6548" opacity=".57"/>
+    <circle cx="227" cy="386" r="6" fill="#fff2b4" opacity=".79"/>
+    <path d="M178 511 299 502l29 17-154 18-19-10Z" fill="#b7896d" stroke="#65505a" stroke-width="3"/>
+    <path d="M166 533l162-18 38 10v8l-201 24-15-9Z" fill="#736272"/>
+    <path d="M178 523l120-15 275 55-278 98-272-84Z" fill="url(#moon-door-light)"/>
+    <path d="M85 545 220 528l68 17-144 26Z" fill="#4e4355"/>
+    <path d="M101 545l122-14 52 14-129 23Z" fill="#9b7768" stroke="#bf9b78" stroke-width="2"/>
+    <path d="m128 545 103-10m-87 17 104-13m-93 20 106-16" fill="none" stroke="#d3ab85" stroke-width="2" opacity=".59"/>
+    <path d="M75 474v-51m-1 36q-26-15-34-37 35 4 34 26m0-1q37-22 46-45-30 7-44 33m-3-12q-24-14-22-43 22 10 23 38m1-4q2-26 18-38 9 30-18 38Z" fill="#55666b" stroke="#506b6c" stroke-width="3"/>
+    <path d="M47 463q32-13 65 0l-12 39q-20 10-42 0Z" fill="#896152" stroke="#625057" stroke-width="3"/>
+    <path d="M53 478q25-11 53-1" fill="none" stroke="#bc8a6a" stroke-width="3"/>
+    <path d="M1058 489q17-9 52-8l135 9-31 21-143-6Zm13 16 12-1-1 27-13 1Zm127 7 12-4 1 27-13 3Z" fill="#4b455a"/>
+    <path d="M1058 489q17-9 52-8l135 9-31 15-143-4Z" fill="#7b6a73" stroke="#af9c94" stroke-opacity=".49" stroke-width="2"/>
+    <path d="M1094 488l115 6m-92-9 93 5" fill="none" stroke="#554c61" stroke-width="2"/>
+    <path d="M1147 478q-7-41 10-74 4-17 14-22-3 33-23 70m0 18q23-43 59-51-9 29-56 42m-6-16q-18-33-47-36 5 24 44 40m7 12q32-26 57-23-18 19-49 24" fill="#688083" stroke="#4e636e" stroke-width="2"/>
+    <path d="M1127 463q24-9 44 1l-6 25q-13 7-31-1Z" fill="#946a57"/>
+    <path d="M1269 395q-43-36-67-82 36 6 76 41m-9 39q-3-36 11-55v60" fill="#425c68"/>
+    <path d="M1019 341q18-20 33-21 14-11 38-8 9 19-2 29-16 7-38 1-18 12-32 9Zm75-20q23-15 37-10 9 10-5 16l-31 5Z" fill="#3b535e" opacity=".8"/>
+  </g>
+
+  <g aria-hidden="true">
+    <ellipse id="mehar-shadow" cx="3" cy="-1" rx="54" ry="15" fill="url(#moon-shadow)"/>
+    <ellipse id="harpreet-shadow" cx="0" cy="-2" rx="67" ry="16" fill="url(#moon-shadow)"/>
+    <ellipse cx="648" cy="621" rx="162" ry="30" fill="url(#moon-shadow)"/>
+  </g>
+
+  <g id="rainwater-bowl">
+    <path d="M500 550q24 69 69 71 70 20 147 0 49-9 68-71Z" fill="url(#moon-pot)" stroke="#4c3d49" stroke-width="5"/>
+    <path d="M518 576q79 41 245 8m-220 12q83 31 201 7" fill="none" stroke="#dfa381" stroke-opacity=".46" stroke-width="3"/>
+    <path d="M552 598l14-6 16 13 19-7 20 11 21-8 21 8 21-9 20 6 19-13 16 6" fill="none" stroke="#eeb89a" stroke-width="2.5" stroke-linejoin="round" opacity=".63"/>
+    <ellipse cx="642" cy="548" rx="144" ry="45" fill="#b98266" stroke="#523f50" stroke-width="4"/>
+    <ellipse cx="642" cy="550" rx="130" ry="37" fill="#4b4b63"/>
+    <ellipse cx="642" cy="550" rx="126" ry="34" fill="url(#moon-water)"/>
+    <g id="bowl-surface" clip-path="url(#inside-the-water)">
+      <path d="M500 551q154 18 291-12m-269 28q105 14 256-12m-211 23q105 5 185-10" fill="none" stroke="#a1b8d3" stroke-width="1.5" stroke-linecap="round" opacity=".33"/>
+      <ellipse cx="663" cy="549" rx="75" ry="32" fill="url(#moon-reflection-glow)"/>
+      <g id="moon-in-water" fill="url(#moon-reflection-tones)">
+        <ellipse id="moon-round" cx="663" cy="549" rx="39" ry="19"/>
+        <path id="moon-broken" opacity="0"/>
+      </g>
+      <g id="surface-rings" fill="none" stroke="#d0e4ec" stroke-width="2.2" opacity="0">
+        <ellipse/><ellipse/><ellipse/>
+      </g>
+      <circle id="water-contact" r="1" opacity="0"/>
+    </g>
+    <path d="M499 549q7 18 42 30 41 14 100 15 59 0 105-15 30-11 38-30-11 15-43 26-45 14-100 14-62-1-99-14-35-11-43-26Z" fill="#c99275"/>
+    <path d="M527 572q87 32 198 9" fill="none" stroke="#f0b993" stroke-width="2.3" opacity=".53" stroke-linecap="round"/>
+  </g>
+  <g id="mehar"><g id="mehar-props"/></g>
+  <g id="harpreet"><g id="harpreet-props"/></g>
+  <g data-camera-depth=".64" fill="#3d5461" opacity=".8">
+    <path d="M-22 716q46-59 67-86-4 39-45 87m0-3q36-21 78-32-16 27-40 38H-3m57 0q27-19 54-14-11 5-19 14Z"/>
+    <path d="M1283 720h-62q-28-16-42-42 57 7 104 42m-8 0q-51-44-51-67 36 21 56 55Zm6-3q-16-38-10-64 19 21 24 65Z"/>
+  </g>
+</svg>

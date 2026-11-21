@@ -46,7 +46,7 @@
     });
   }
 
-  function armAngles(arm, screen, target, proportions) {
+  function armAngles(arm, screen, target, proportions, anchor) {
     const local = new DOMPoint(target.x, target.y).matrixTransform(screen)
       .matrixTransform(arm.getScreenCTM().inverse());
     const x = local.x;
@@ -57,8 +57,10 @@
     const close = inRange((proportions.forearm + palmCenter - upper + 64 - requested) / 64, 0, 1);
     const wristDegrees = -Math.round(close * 90 * 2) / 2;
     const wrist = wristDegrees / degrees;
-    const handX = palmCenter * Math.sin(wrist);
-    const handY = proportions.forearm + palmCenter * Math.cos(wrist);
+    const anchorX = anchor?.x ?? 0;
+    const anchorY = anchor?.y ?? palmCenter;
+    const handX = anchorY * Math.sin(wrist) - anchorX * Math.cos(wrist);
+    const handY = proportions.forearm + anchorX * Math.sin(wrist) + anchorY * Math.cos(wrist);
     const lower = Math.hypot(handX, handY);
     const handAngle = Math.atan2(handX, handY);
     const distance = inRange(requested, Math.abs(upper - lower) + 1, upper + lower - 1);
@@ -200,12 +202,14 @@
           : 'closed';
         if (!active) expression.eyes = api.reaction('neutral', beat).eyes;
         if (reduced) expression.eyes = 'open';
+        if (pose.gazeX != null) expression.gazeX = Math.round(pose.gazeX / 10) * 10;
+        if (pose.gazeY != null) expression.gazeY = Math.round(pose.gazeY / 10) * 10;
         api.face(node, expression);
         if (this.spec.hipHinge) this.bendAtHips(pose.bend);
         root.dataset.speaking = String(expression.mouth !== 'closed');
         root.dataset.studioMotion = walking ? 'walk' : 'stand';
 
-        const rest = walking ? api.restArms() : expression.arms ?? api.restArms();
+        const rest = walking || pose.quietHands ? api.restArms() : expression.arms ?? api.restArms();
         const screen = stage.getScreenCTM();
         for (const [index, side] of ['left', 'right'].entries()) {
           const grip = pose.grips[index];
@@ -213,11 +217,11 @@
           if (walking && !grip?.weight) continue;
           const resting = rest[side] ?? [0, 0, 0];
           const angles = grip?.weight
-            ? armAngles(arm, screen, grip.target, api.proportions).map((angle, i) => mix(resting[i], angle, grip.weight))
+            ? armAngles(arm, screen, grip.target, api.proportions, grip.anchor).map((angle, i) => mix(resting[i], angle, grip.weight))
             : resting;
           const hand = grip?.weight > .57
             ? { pose: grip.hand || 'fist', view: 'edge' }
-            : expression.hands?.[side] ?? { pose: 'relaxed', view: 'edge' };
+            : (!pose.quietHands && expression.hands?.[side]) || { pose: 'relaxed', view: 'edge' };
           api.arm(arm, angles, hand, this.facing);
         }
         const inverse = props.parentElement.getScreenCTM().inverse().multiply(screen);
