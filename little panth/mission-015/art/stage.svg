@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Channi and Moti at a narrow bridge over the village canal</title>
+  <defs>
+    <linearGradient id="sky" x2=".17" y2="1">
+      <stop stop-color="#91b7c0"/><stop offset=".85" stop-color="#eee7b9"/><stop offset="1" stop-color="#ffedbc"/>
+    </linearGradient>
+    <radialGradient id="sunlight">
+      <stop stop-color="#fff1ae" stop-opacity=".87"/><stop offset="1" stop-color="#fff1ae" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bank-green" x2=".25" y2="1">
+      <stop stop-color="#a9b678"/><stop offset=".52" stop-color="#879d63"/><stop offset="1" stop-color="#6a8d68"/>
+    </linearGradient>
+    <linearGradient id="earth" x2=".2" y2="1">
+      <stop stop-color="#ecd29a"/><stop offset=".56" stop-color="#cfac77"/><stop offset="1" stop-color="#ab9066"/>
+    </linearGradient>
+    <linearGradient id="water" x2=".21" y2="1">
+      <stop stop-color="#a4c7b4"/><stop offset=".34" stop-color="#82afa9"/><stop offset=".77" stop-color="#63959e"/><stop offset="1" stop-color="#83afa8"/>
+    </linearGradient>
+    <linearGradient id="timber" x2=".2" y2="1">
+      <stop stop-color="#deb683"/><stop offset=".56" stop-color="#c79867"/><stop offset="1" stop-color="#a87650"/>
+    </linearGradient>
+    <linearGradient id="stone" x2=".42" y2="1">
+      <stop stop-color="#bdbca4"/><stop offset="1" stop-color="#868f82"/>
+    </linearGradient>
+    <radialGradient id="shadow">
+      <stop stop-color="#4b4d3c" stop-opacity=".54"/><stop offset="1" stop-color="#4b4d3c" stop-opacity="0"/>
+    </radialGradient>
+    <path id="canal-edge" d="M572 278q32-10 62-10 37 0 77 13 54 17 94 55 44 37 140 84 36 21 40 87 71 112 181 234H102Q234 617 305 512q9-85 78-120 70-46 128-69 36-12 61-45Z"/>
+    <clipPath id="canal-mask"><use href="#canal-edge"/></clipPath>
+    <path id="sheen" d="M-33 0Q-18-5 3-3 25-1 33-5" stroke="#e5ebcb" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <g id="reeds" stroke-linecap="round" fill="none">
+      <path d="M1 0q0-32-21-59m21 59q6-45 1-79m0 79q19-41 35-58M1 0q-13-32-29-37m31 35q15-22 28-25" stroke="#67875c" stroke-width="4.2"/>
+      <path d="M2-69v-15m-20 28-7-11m57 14 6-8" stroke="#b38b5f" stroke-width="7"/>
+      <path d="M-1-9q-9-30-21-39m25 31q10-24 23-33" stroke="#a8b877" stroke-width="2.1"/>
+    </g>
+    <g id="grass" fill="none" stroke-linecap="round">
+      <path d="M0 1q-7-24-23-32M0 1q2-29-5-46M1 1q9-27 27-34M0 2q-14-14-27-15m29 15q14-18 25-19" stroke="#77945e" stroke-width="4"/>
+      <path d="M-4-12q-4-13-11-16m19 15q5-13 10-17" stroke="#b3bb76" stroke-width="2.6"/>
+    </g>
+    <g id="rock">
+      <ellipse cy="2" rx="30" ry="7" fill="url(#shadow)"/>
+      <path d="M-27 1q4-13 18-19 10-4 25 1L29-4q-16 14-56 5Z" fill="url(#stone)" stroke="#828f80" stroke-width="1.8"/>
+      <path d="M-15-8q8-7 24-6" fill="none" stroke="#d7d4b3" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <g id="tree">
+      <path d="M-7 0q8-31 4-55-8-18-20-28l8-8q15 7 22 23 8-28 24-37l5 9Q15-72 13-49q-5 23 10 49Z" fill="#a3855c" stroke="#877654" stroke-width="3"/>
+      <path d="M-67-78q6-24 32-26 18-24 46-17 26-10 42 9 34 0 44 26-2 25-29 25-20 10-48 6-20 10-49-5-24 2-38-18Z" fill="#819b68" stroke="#769466" stroke-width="3"/>
+      <path d="M-54-78q19 1 36-14 16 10 36-4 28-9 54 6-24 4-44 11-18-4-36 6-30-5-46-5Z" fill="#b8bf7d" opacity=".57"/>
+    </g>
+
+    <g id="goat-art" stroke="var(--goat-outline)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cy="3" rx="90" ry="12" fill="url(#shadow)" stroke="none"/>
+      <g data-tail="">
+        <path d="M-66-63q-20 2-30-24-2-10 7-6 9 12 29 12Z" fill="var(--goat-accent)"/>
+      </g>
+      <g data-leg="back-far">
+        <path d="M-7-2q12-7 14 2L3 16l4 22-1 6H-7l-2-8 2-19Z" fill="var(--goat-shade)"/>
+        <path d="M-8 37q7 3 15-1v8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+      </g>
+      <g data-leg="front-far">
+        <path d="M-9-3q9-7 17 1L5 23l1 19-2 2H-8l-2-10 1-15Z" fill="var(--goat-shade)"/>
+        <path d="M-9 37q7 3 15 0l-2 7H-8Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+      </g>
+      <path d="M-80-70q12-21 42-19 29 3 50-2 19-2 37 4 17 11 15 29-3 17-30 24-55 11-94 0-21-8-20-36Z" fill="var(--goat-coat)"/>
+      <path d="M-72-68q23-15 51-9m10-1 30-1M-67-49q15 10 31 8" stroke="var(--goat-light)" stroke-width="3" fill="none" opacity=".85"/>
+      <g data-leg="back-near">
+        <path d="M-11-7q10-11 23-2L8 14 3 23l5 13-1 8H-6l-3-11-1-12 4-14Z" fill="var(--goat-coat)"/>
+        <path d="M-8 36q7 4 16 0l-1 8H-6Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+      </g>
+      <g data-leg="front-near">
+        <path d="M-9-6q11-9 21 0L8 18 6 22l2 14-1 8H-7l-2-9 1-16Z" fill="var(--goat-coat)"/>
+        <path d="M-8 36q7 4 16 0l-1 8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+      </g>
+      <g data-head="">
+        <path d="M-10 8Q-4-9 2-28l25-5q8 15 12 41L28 30q-18 16-37 2Z" fill="var(--goat-coat)"/>
+        <path d="M12-28Q8-49-8-60 20-62 24-34m2 1q2-27 23-36-8 12-8 40"
+          fill="var(--goat-horn)" stroke="var(--goat-outline)"/>
+        <path d="M33-30q24-18 42-10-3 15-28 21Z" fill="var(--goat-shade)"/>
+        <path d="M9-20q19-12 37 0l13 19q19 5 20 13-2 12-22 15-26 4-43-8-16-10-5-39Z" fill="var(--goat-coat)"/>
+        <path d="M55 7q13-6 22 0 6 8-6 15-12 8-20 0-5-7 4-15Z" fill="var(--goat-accent)" stroke="none"/>
+        <path d="M45 22q7 8 9 17-9 0-13-5-7 2-9-11Z" fill="var(--goat-shade)"/>
+        <path d="M20-16q-6 0-14-7-8-6-21 0 2 18 21 22 15-1 17-8Z" fill="var(--goat-accent)"/>
+        <path d="M-9-18q10 2 17 7" stroke="var(--goat-light)" stroke-width="2.3" fill="none"/>
+        <path d="M56 19q9 3 15 0" stroke="var(--goat-outline)" stroke-width="1.9" fill="none"/>
+        <ellipse cx="66" cy="11" rx="3.3" ry="2" fill="#59423c" stroke="none"/>
+        <ellipse cx="45" cy="-6" rx="4.4" ry="4.9" fill="#fff4d8" stroke="none"/>
+        <ellipse cx="47" cy="-5.7" rx="2.7" ry="2" fill="#51433f" stroke="none"/>
+        <circle cx="48" cy="-7" r=".85" fill="#fff9e4" stroke="none"/>
+        <path d="M-6 21q19 10 34 0l1 8q-16 11-37 1Z" fill="var(--goat-collar)" stroke-width="1.6"/>
+        <path d="M13 31q5-2 8 2l3 11q-7 6-15 1l2-11Z" fill="#dfb972" stroke="#9a774e" stroke-width="1.8"/>
+      </g>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.22">
+    <rect x="-100" y="-100" width="1480" height="920" fill="url(#sky)"/>
+    <ellipse cx="276" cy="170" rx="349" ry="250" fill="url(#sunlight)"/>
+    <path d="M111 151q38-26 77-15 30-24 65-2 51-4 75 13-125 17-217 4Zm632-8q29-24 69-15 50-21 84 4 33-2 54 13-94 17-207-2Z" fill="#fff3d2" opacity=".74"/>
+    <path d="M-110 304q140-42 284-23 130-50 270-32 77-13 196 26 153-43 317-32 189-12 445 37v202H-110Z" fill="#a7b890"/>
+    <path d="M-112 330q142-20 275-15 156-37 286-21 92 4 156 18 156-38 338-32 209-20 442 47v176H-112Z" fill="#92ab78"/>
+    <path d="M-111 349q159-30 317-16 175-27 343-6m222-8q149-25 247-15t369 25" fill="none" stroke="#dde0a4" stroke-width="9" opacity=".53"/>
+    <g fill="#ba9870" stroke="#a78865" stroke-width="2.4">
+      <path d="M108 292v-47h75v47m-78-50 43-24 40 24Z" fill="#d5a781"/>
+      <path d="M177 297v-35h75v35m-80-37 40-21 45 22Z" fill="#dcc297"/>
+      <path d="M272 300v-24h47v24m-53-27 26-15 31 15Z" fill="#d7b789"/>
+      <path d="M142 292v-30h19v30" fill="#858f7a"/>
+      <path d="M211 278h13v10h-13Z" fill="#8b8b72"/>
+    </g>
+    <use href="#tree" transform="translate(78 288) scale(.48)"/>
+    <use href="#tree" transform="translate(347 300) scale(.52)"/>
+    <use href="#tree" transform="translate(889 291) scale(.55)"/>
+    <use href="#tree" transform="translate(926 294) scale(.68)"/>
+    <use href="#tree" transform="translate(1093 299) scale(.6)"/>
+  </g>
+
+  <path d="M-100 338q174-35 307-8 170-33 384-18l99-29q140 9 228 37 152-23 462 26v470H-100Z" fill="url(#bank-green)"/>
+  <use href="#canal-edge" fill="url(#water)" stroke="#a3b586" stroke-width="5"/>
+  <g clip-path="url(#canal-mask)">
+    <path d="M631 275q-2 67-127 135-104 53-187 168T195 760m475-487q10 84 123 150 110 74 167 166l105 165"
+      fill="none" stroke="#c1dac0" stroke-width="16" opacity=".28"/>
+    <path d="M558 381q70 4 157-8m-275 46q97 1 158-7m142 71q83 2 164-12m-622 128q151 7 257-9m164 48q153 11 308-7m-670 61q111 12 279 5"
+      fill="none" stroke="#b4d2be" stroke-width="3.6" stroke-linecap="round" opacity=".5"/>
+    <g id="current"/>
+    <path d="M308 491q219-28 363-18 164 1 301 19l17 33q-147-23-310-22-214 1-385 31Z" fill="#476967" opacity=".19"/>
+  </g>
+  <path d="M-100 464q170 22 241-8 102-39 230-9l34 21-7 22q-43 20-113 16-71 5-132 57-68 53-252 32Z" fill="url(#earth)" stroke="#9f9b6d" stroke-width="3.4"/>
+  <path d="M876 457q115-38 230-21 149 12 274 35v114q-134-35-268-24-82 11-161-25-62-47-82-62Z" fill="url(#earth)" stroke="#9f9b6d" stroke-width="3.4"/>
+  <path d="M-59 523q120 7 237-31 101-37 185-20m534 1q123-29 257-10 101 14 195 45" fill="none" stroke="#f2d6a4" stroke-width="8" stroke-linecap="round" opacity=".66"/>
+  <use href="#tree" transform="translate(109 428) scale(1.17)"/>
+  <use href="#tree" transform="translate(1203 417) scale(1.03)"/>
+  <use href="#reeds" transform="translate(340 508) scale(.83)"/>
+  <use href="#reeds" transform="translate(400 423) scale(.48)"/>
+  <use href="#reeds" transform="translate(925 537) scale(.76)"/>
+  <use href="#reeds" transform="translate(1011 603) scale(.97)"/>
+  <use href="#rock" transform="translate(376 495) scale(.9)"/>
+  <use href="#rock" transform="translate(904 506) scale(1.08)"/>
+
+  <g id="bridge" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M359 471h31l-12 75-27 6Zm542 0h30l15 76-26-2Z" fill="#a8805d" stroke="#836343" stroke-width="4"/>
+    <path d="M399 484l12 17 45-23m388 6-9 19-49-25" fill="none" stroke="#8d6548" stroke-width="9"/>
+    <path d="M371 426l2-50 14-4 1 52m142-3v-52l11-2 3 54m167 0 1-56 12 3 1 53m155 4 1-50 13 3 1 53" fill="#bb9265" stroke="#8b6b4d" stroke-width="2.6"/>
+    <path d="M381 393q250-38 506-3" fill="none" stroke="#926d4c" stroke-width="10"/>
+    <path d="M381 391q254-38 506-3" fill="none" stroke="#d7af77" stroke-width="5"/>
+    <path d="M348 467l34-40h510l42 40-11 19H359Z" fill="url(#timber)" stroke="#856246" stroke-width="3.8"/>
+    <path d="M349 467h583l-10 17H360Z" fill="#a4724f" stroke="#856246" stroke-width="2.5"/>
+    <path d="M385 431l-30 36m72-38-23 38m69-38-17 38m65-38-10 38m60-38-5 38m56-38-1 38m52-38 3 38m49-38 9 38m41-38 16 38m34-38 24 38m31-38 30 38" fill="none" stroke="#90694b" stroke-width="2" opacity=".82"/>
+    <path id="creaking-board" d="M570 429h51l-1 37h-55Z" fill="#c09063" stroke="#8d664a" stroke-width="2"/>
+    <path d="M387 434h26m68 8h24m88 0h17m118 2h24m49 8h18m54-13 16 13M374 477h129m115 0h116m88 0h68"
+      fill="none" stroke="#e0ba85" stroke-width="2" opacity=".88"/>
+  </g>
+
+  <g fill="url(#shadow)">
+    <ellipse id="mehar-shadow" rx="75" ry="16"/>
+    <ellipse id="boy-shadow" rx="73" ry="15"/>
+  </g>
+  <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+  <g id="boy-plane"><g id="boy"/><g id="boy-props"/></g>
+  <g id="goats"/>
+  <g data-camera-depth=".24">
+    <use href="#grass" transform="translate(53 643) scale(1.27)"/>
+    <use href="#grass" transform="translate(147 592) scale(.86)"/>
+    <use href="#grass" transform="translate(293 586) scale(.85)"/>
+    <use href="#grass" transform="translate(1138 581) scale(.93)"/>
+    <use href="#grass" transform="translate(1045 643) scale(1.18)"/>
+    <use href="#grass" transform="translate(1236 668) scale(1.3)"/>
+    <use href="#reeds" transform="translate(211 688) scale(.9)"/>
+    <use href="#rock" transform="translate(244 638) scale(.81)"/>
+    <use href="#rock" transform="translate(1166 635) scale(.93)"/>
+  </g>
+</svg>
