@@ -14,6 +14,16 @@
   const sparePlate = point(605, 581);
   const kheerPlate = point(648, 550);
   const foxJug = point(541, 535);
+  const emptyJug = point(448, 603);
+  const storkJug = point(793, 537);
+  const storkPlate = point(743, 545);
+  const storkPlateTap = point(storkPlate.x + 34, storkPlate.y - 1, -57);
+  // The steep beak angle carries the tip through the centre of the rim.
+  const storkJugSip = point(storkJug.x - 3, storkJug.y - 83, -82);
+  const foxHeadPivot = point(42, -124);
+  const tongueTip = point(78, 25);
+  const noseTip = point(103, -4);
+  const beakLength = 124;
   const sharedFox = point(500, 626);
   let foxArt;
 
@@ -42,8 +52,7 @@
         return { sip: wordAt(scene, 'fox-cant-reach', 'ਚੁੰਝ'), try: wordAt(scene, 'fox-cant-reach', 'ਮੂੰਹ'),
           speak: lineFor(scene, 'fox-understands').start };
       case 'new-plate':
-        return { plate: lineFor(scene, 'stork-offers-a-plate').end - 110, pour: wordAt(scene, 'pour-into-plate', 'ਪਾ'),
-          together: wordAt(scene, 'pour-into-plate', 'ਦੋਵੇਂ') };
+        return { plate: lineFor(scene, 'stork-offers-a-plate').end - 110, pour: wordAt(scene, 'pour-into-plate', 'ਪਾ') };
       case 'shared-meal':
         return { eat: wordAt(scene, 'end-together', 'ਇਕੱਠੇ') };
     }
@@ -82,19 +91,31 @@
       pose.y + (x - pivot) * Math.sin(angle) + y * Math.cos(angle));
   }
 
+  function aimFox(fox, feature, target, amount) {
+    // Keep her feet planted and rotate the head until the muzzle reaches the dish.
+    const radius = Math.hypot(feature.x, feature.y);
+    const down = (target.y - fox.y) / scale - foxHeadPivot.y;
+    const dip = Math.asin(Math.max(-1, Math.min(1, down / radius)));
+    const angle = (dip - Math.atan2(feature.y, feature.x)) * 180 / Math.PI;
+    const x = target.x - scale * (foxHeadPivot.x + radius * Math.cos(dip));
+    fox.x = mix(fox.x, x, amount);
+    fox.angle = angle * amount;
+  }
+
   function makeFrame(scene, cue, ms, still) {
     const move = still ? Math.round : ease;
-    const fox = { ...seats.fox, stride: 0, effort: 0 };
+    const fox = { ...seats.fox, stride: 0, effort: 0, lapping: 0 };
     const bird = { ...seats.stork, stride: 0, reach: 0, goal: null };
     const state = { fox, bird, canal: false, plate: dalPlate, plateVisible: 1, storkPlate: 1,
-      food: 1, jug: foxJug, pouring: 0 };
+      food: 1, jug: foxJug, jugCleared: false, pouring: 0 };
     const reach = (goal, amount) => {
       bird.goal = goal;
       bird.reach = amount;
     };
     const lap = amount => {
-      fox.x += 8 * amount;
-      fox.angle = amount * (43 + (still ? 0 : Math.sin(ms / 118) * 2.2));
+      const spot = point(state.plate.x - 20 * Math.sqrt(state.food), state.plate.y - 1);
+      aimFox(fox, tongueTip, spot, amount);
+      fox.lapping = amount;
     };
     const secondDay = () => {
       state.canal = true;
@@ -109,15 +130,15 @@
         break;
       case 'plates': {
         const eating = action(ms, cue.lap - 190, cue.lap + 290, cue.empty + 410, cue.empty + 1040);
-        lap(eating);
         state.food = 1 - ease(phase(ms, cue.lap + 420, cue.empty + 380));
+        lap(eating);
         const peck = action(ms, cue.try - 90, cue.try + 480, cue.speak - 420, cue.speak - 30);
-        reach(point(743, 545, -46), peck);
+        reach(storkPlateTap, peck);
         break;
       }
       case 'return-invitation':
         state.food = 0;
-        reach(point(743, 544, -48), action(ms, cue.try - 390, cue.try + 330, cue.try + 900, cue.try + 1430));
+        reach(storkPlateTap, action(ms, cue.try - 390, cue.try + 330, cue.try + 900, cue.try + 1430));
         break;
       case 'jugs':
         secondDay();
@@ -125,11 +146,10 @@
         break;
       case 'narrow-mouth': {
         secondDay();
-        reach(point(793, 463, -65), action(ms, cue.sip - 200, cue.sip + 440, cue.try - 410, cue.try + 70));
+        reach(storkJugSip, action(ms, cue.sip - 200, cue.sip + 440, cue.try - 410, cue.try + 70));
         const lean = action(ms, cue.try - 180, cue.try + 600, cue.speak - 350, cue.speak + 30);
-        fox.angle = -39 * lean;
+        aimFox(fox, noseTip, jugPoint(state.jug, -19, -104), lean);
         fox.effort = ease(phase(ms, cue.try, cue.speak + 280));
-        fox.x += 4 * lean;
         break;
       }
       case 'new-plate': {
@@ -142,20 +162,28 @@
         state.plate.y -= (still ? 0 : Math.sin(Math.PI * carry) * 30);
         state.food = move(phase(ms, cue.pour + 240, cue.pour + 1280));
         const leanJug = action(ms, cue.pour - 540, cue.pour + 260, cue.pour + 1110, cue.pour + 1730);
-        state.jug = { ...foxJug, angle: 61 * (still ? Math.round(leanJug) : leanJug) };
+        const clearStart = cue.pour + 1660;
+        const clearEnd = Math.min(cue.pour + 2610, scene.duration - 520);
+        const clear = move(phase(ms, clearStart, clearEnd));
+        state.jug = between(foxJug, emptyJug, clear);
+        state.jug.y -= (still ? 0 : 26 * Math.sin(Math.PI * clear));
+        state.jug.angle = 61 * (still ? Math.round(leanJug) : leanJug);
+        state.jugCleared = clear === 1;
         state.pouring = action(ms, cue.pour + 180, cue.pour + 370, cue.pour + 1080, cue.pour + 1310);
         if (ms < cue.pour - 760) {
           reach(point(state.plate.x + 57, state.plate.y - 4, -65),
             action(ms, cue.plate + 30, cue.plate + 310, place + 55, place + 470));
         } else {
-          const handle = jugPoint(state.jug, 51, -72);
+          const handle = jugPoint(state.jug, 55, -70);
           reach(point(handle.x, handle.y, -39),
-            action(ms, cue.pour - 960, cue.pour - 530, cue.pour + 1600, cue.pour + 1990));
+            action(ms, cue.pour - 960, cue.pour - 530, clearEnd + 20, clearEnd + 420));
         }
-        if (ms >= cue.pour + 1910) {
-          walk(bird, ms, cue.pour + 1910, Math.max(cue.together + 690, cue.pour + 2720), point(816, 596), seats.stork, move);
-          walk(fox, ms, cue.pour + 1740, Math.max(cue.together + 690, cue.pour + 2670), seats.fox, sharedFox, move);
+        if (ms >= clearEnd + 120) {
+          walk(bird, ms, clearEnd + 120, scene.duration - 80, point(764, 603), seats.stork, move);
+        } else if (ms >= clearStart) {
+          walk(bird, ms, clearStart, clearEnd - 70, point(816, 596), point(764, 603), move);
         }
+        walk(fox, ms, clearStart + 460, scene.duration - 100, seats.fox, sharedFox, move);
         break;
       }
       case 'shared-meal': {
@@ -163,11 +191,13 @@
         Object.assign(fox, sharedFox);
         state.plate = kheerPlate;
         state.plateVisible = 1;
+        state.jug = emptyJug;
+        state.jugCleared = true;
         const eat = ease(phase(ms, cue.eat - 230, cue.eat + 580));
-        const pause = still ? .88 : .88 + Math.sin(ms / 685) * .12;
-        lap(eat * pause * .85);
-        reach(point(793, 463, -63), eat * pause);
         state.food = 1 - .42 * ease(phase(ms, cue.eat + 300, cue.eat + 6300));
+        const sip = still ? 1 : action(Math.max(0, ms - cue.eat + 300) % 3050, 0, 500, 1860, 2790);
+        lap(eat * (.35 + .65 * sip));
+        reach(storkJugSip, sip * eat);
         break;
       }
     }
@@ -181,8 +211,13 @@
       this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
       svg.querySelector('defs').append(document.importNode(foxArt.fur, true));
       svg.querySelector('#fox-mount').append(document.importNode(foxArt.fox, true));
-      svg.querySelector('#jugs').after(svg.querySelector('#plates'));
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
+      const p = this.parts;
+      p['fox-head'].append(p['fox-tongue']);
+      p['fox-face-plane'].append(p['fox-head']);
+      p['stork-face-plane'].append(p['stork-head']);
+      transform(p['stork-jug'], 'translate(' + storkJug.x + ' ' + storkJug.y + ')');
+      transform(p['stork-plate'], 'translate(' + storkPlate.x + ' ' + storkPlate.y + ')');
     }
 
     select(scene) {
@@ -232,7 +267,9 @@
     paintFox(pose, ms, speaking, opening, still) {
       const p = this.parts;
       const stride = still ? 0 : 23 * pose.stride;
-      transform(p.fox, 'translate(' + pose.x + ' ' + (pose.y - Math.abs(stride) * .13) + ') scale(' + scale + ')');
+      const body = 'translate(' + pose.x + ' ' + (pose.y - Math.abs(stride) * .13) + ') scale(' + scale + ')';
+      transform(p.fox, body);
+      transform(p['fox-face-plane'], body);
       p['fox-shadow'].setAttribute('cx', pose.x - 37);
       p['fox-shadow'].setAttribute('cy', pose.y + 2);
       transform(p['fox-rear-far'], 'rotate(' + (-stride * .8) + ' -77 -84)');
@@ -240,22 +277,30 @@
       transform(p['fox-front-far'], 'rotate(' + stride + ' 29 -104)');
       transform(p['fox-front-near'], 'rotate(' + (-stride) + ' 52 -101)');
       transform(p['fox-tail'], 'rotate(' + (still ? 0 : 4 * Math.sin(ms / 408) + .25 * stride) + ' -83 -89)');
-      transform(p['fox-head'], 'translate(42 -124) rotate(' + pose.angle + ')');
+      transform(p['fox-head'], 'translate(' + foxHeadPivot.x + ' ' + foxHeadPivot.y + ') rotate(' + pose.angle + ')');
       transform(p['fox-brow'], 'rotate(' + (14 * pose.effort) + ' 39 -31)');
       transform(p['fox-ears'], 'rotate(' + (-7 * pose.effort) + ' -6 -44)');
       const blink = !still && (ms + 530) % 4770 > 4630;
       opacity(p['fox-eye'], blink ? 0 : 1);
       opacity(p['fox-lid'], blink ? 1 : 0);
-      transform(p['fox-jaw'], 'rotate(' + (speaking ? 14 * opening : 0) + ' 20 8)');
+      const chewing = still ? 0 : pose.lapping * (2.6 + 2.6 * Math.sin(ms / 85));
+      transform(p['fox-jaw'], 'rotate(' + (speaking ? 14 * opening : chewing) + ' 20 8)');
       transform(p['fox-mouth'], 'scale(1 ' + (.22 + opening * .95) + ')');
       opacity(p['fox-mouth'], Number(speaking));
+      opacity(p['fox-tongue'], speaking ? 0 : ease(phase(pose.lapping, .62, .95)));
       p.fox.dataset.speaking = String(speaking);
     }
 
     paintStork(pose, ms, speaking, opening, still) {
       const p = this.parts;
       const stride = still ? 0 : 18 * pose.stride;
-      transform(p.stork, 'translate(' + pose.x + ' ' + (pose.y - .16 * Math.abs(stride)) + ')');
+      const y = pose.y - .16 * Math.abs(stride);
+      const body = 'translate(' + pose.x + ' ' + y + ')';
+      const face = p['stork-face-plane'];
+      const layer = p[this.scene.id === 'new-plate' ? 'faces-over-jugs' : 'faces-over-plates'];
+      if (face.parentElement !== layer) layer.append(face);
+      transform(p.stork, body);
+      transform(face, body);
       p['stork-shadow'].setAttribute('cx', pose.x + 9);
       p['stork-shadow'].setAttribute('cy', pose.y + 2);
       transform(p['stork-far-leg'], 'rotate(' + stride + ' -5 -176)');
@@ -264,8 +309,8 @@
       const head = point(-79, -293 + (still ? 0 : 2.4 * Math.sin(ms / 539)));
       if (pose.goal) {
         const radians = pose.goal.angle * Math.PI / 180;
-        const tip = point(pose.goal.x - pose.x + 123 * Math.cos(radians),
-          pose.goal.y - pose.y + 123 * Math.sin(radians));
+        const tip = point(pose.goal.x - pose.x + beakLength * Math.cos(radians),
+          pose.goal.y - y + beakLength * Math.sin(radians));
         Object.assign(head, between(head, tip, pose.reach));
       }
       const curve = 'M-57-175 C-106-193 ' + (head.x + 19) + ' ' + (head.y + 47) +
@@ -292,6 +337,8 @@
       transform(p['fox-food'], 'scale(' + Math.max(.01, Math.sqrt(state.food)) + ' ' + Math.max(.01, state.food) + ')');
       p['fox-food-fill'].setAttribute('fill', state.canal ? 'url(#kheer)' : 'url(#dal)');
       opacity(p.jugs, Number(state.canal));
+      const jugLayer = state.jugCleared ? p['cleared-jug'] : p.jugs;
+      if (p['fox-jug'].parentElement !== jugLayer) jugLayer.append(p['fox-jug']);
       transform(p['fox-jug'], 'translate(' + state.jug.x + ' ' + state.jug.y + ') rotate(' + state.jug.angle + ' 29 0)');
       opacity(p['pour-stream'], state.pouring);
       if (state.pouring > 0) {

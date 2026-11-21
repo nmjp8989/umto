@@ -78,6 +78,7 @@
     <ellipse id="stork-shadow" rx="101" ry="18"/>
     <ellipse cx="644" cy="629" rx="226" ry="30"/>
   </g>
+  <g id="cleared-jug"/>
   <g id="fox-mount"/>
   <g id="stork" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
     <g id="stork-far-leg" fill="none" stroke="#a56a57" stroke-width="7">
@@ -129,16 +130,24 @@
         <path d="M-23 1q20-5 34-3m11 3 9-1m-36 5 8-1" fill="none" stroke="#fff0c5" stroke-width="2.2" opacity=".78" stroke-linecap="round"/>
       </g>
     </g>
-    <g id="stork-plate" transform="translate(743 545)">
+    <g id="stork-plate">
       <use href="#plate-shape"/>
       <ellipse rx="47" ry="9" fill="url(#dal)"/>
       <path d="M-24 1q20-5 34-3m10 2 11-1m-24 6 6-1" fill="none" stroke="#fff0c5" stroke-width="2.2" opacity=".78" stroke-linecap="round"/>
     </g>
   </g>
+  <g id="faces-over-plates">
+    <g id="fox-face-plane" stroke-linecap="round" stroke-linejoin="round">
+      <path id="fox-tongue" d="M56 10q9-1 17 6 7 4 5 9-3 5-11 0l-12-10Z"
+        fill="#d79281" stroke="#aa695c" stroke-width="1.6" opacity="0"/>
+    </g>
+    <g id="stork-face-plane" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
   <g id="jugs" opacity="0">
     <g id="fox-jug"><use href="#surahi-shape"/></g>
-    <g id="stork-jug" transform="translate(793 537)"><use href="#surahi-shape"/></g>
+    <g id="stork-jug"><use href="#surahi-shape"/></g>
   </g>
+  <g id="faces-over-jugs"/>
   <g id="pour-stream" opacity="0" fill="none" stroke-linecap="round">
     <path id="kheer-stream" stroke="#f3d7a8" stroke-width="14"/>
     <path id="kheer-glint" stroke="#fff6d7" stroke-width="5"/>

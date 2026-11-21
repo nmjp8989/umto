@@ -13,9 +13,12 @@
     mehar: { preset: 'kid-meher', view: 'right', height: 244, serial: 471 },
     boy: { preset: 'kid-sidak', view: 'right', height: 233, serial: 472 }
   };
-  const courtyard = { mehar: point(450, 659), boy: point(275, 656), dog: point(635, 621) };
+  const dogScale = .68;
+  const breadScale = .86 * dogScale;
+  const offer = point(514, 560);
+  const courtyard = { mehar: point(450, 659), boy: point(275, 656),
+    dog: point(offer.x + 115 * dogScale, offer.y + 90 * dogScale) };
   const bank = { mehar: point(453, 467), boy: point(297, 474), dog: point(644, 493) };
-  const offer = point(520, 531);
   const lookDown = 27;
   let studio;
 
@@ -82,8 +85,8 @@
 
   function mouth(dog) {
     const angle = dog.angle * Math.PI / 180;
-    return point(dog.x + dog.facing * (42 + 73 * Math.cos(angle) - 18 * Math.sin(angle)),
-      dog.y - 108 + 73 * Math.sin(angle) + 18 * Math.cos(angle), dog.facing * (dog.angle - 12));
+    return point(dog.x + dog.facing * dogScale * (42 + 73 * Math.cos(angle) - 18 * Math.sin(angle)),
+      dog.y + dogScale * (-108 + 73 * Math.sin(angle) + 18 * Math.cos(angle)), dog.facing * (dog.angle - 12));
   }
 
   const waterContact = point(mouth({ ...bank.dog, angle: lookDown, facing: 1 }).x + 38, 533);
@@ -111,7 +114,7 @@
         }
         dog.facing = -1;
         dog.angle = 0;
-        const seated = point(707, 617);
+        const seated = point(672, 617);
         moveTo(dog, ms, cue.dog - 390, cue.sit + 280, point(921, 600), seated, motion);
         dog.sit = action(ms, cue.sit - 90, cue.sit + 480, cue.offer - 660, cue.offer - 285);
         if (ms >= cue.offer - 670) {
@@ -193,6 +196,9 @@
       this.camera = new window.UmtoCamera.DeliveryCamera(svg);
       this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
+      const shadow = this.parts['dog-shadow'];
+      shadow.setAttribute('rx', String(Number(shadow.getAttribute('rx')) * dogScale));
+      shadow.setAttribute('ry', String(Number(shadow.getAttribute('ry')) * dogScale));
       this.puppets = Object.fromEntries(Object.entries(cast).map(([id, spec]) =>
         [id, new Character(studio, svg, this.parts[id], this.parts[id + '-props'], spec)]));
     }
@@ -279,7 +285,8 @@
     paintDog(dog, ms, still) {
       const p = this.parts;
       const stride = still ? 0 : 24 * dog.gait;
-      transform(p.sheru, 'translate(' + dog.x + ' ' + (dog.y - Math.abs(stride) * .12) + ') scale(' + dog.facing + ' 1)');
+      const bounce = Math.abs(stride) * .12 * dogScale;
+      transform(p.sheru, 'translate(' + dog.x + ' ' + (dog.y - bounce) + ') scale(' + (dog.facing * dogScale) + ' ' + dogScale + ')');
       transform(p['dog-head'], 'translate(42 -108) rotate(' + dog.angle + ')');
       transform(p['dog-tail'], 'rotate(' + ((still ? 0 : 7 * Math.sin(ms / 163)) - dog.sit * 16) + ' -82 -80)');
       transform(p['dog-body'], 'rotate(' + (-18 * dog.sit) + ' 43 -91)');
@@ -314,7 +321,7 @@
       transform(p['surface-glints'], 'translate(' + (still ? 0 : 11 * Math.sin((this.scene.episodeStart + ms) / 2580)) + ' 0)');
       const bread = state.bread;
       opacity(p['free-bread'], bread?.visible ?? 0);
-      if (bread) transform(p['free-bread'], 'translate(' + bread.x + ' ' + bread.y + ') rotate(' + bread.angle + ') scale(.86)');
+      if (bread) transform(p['free-bread'], 'translate(' + bread.x + ' ' + bread.y + ') rotate(' + bread.angle + ') scale(' + breadScale + ')');
       opacity(p['splash-drops'], state.splash);
       transform(p['splash-drops'], 'translate(' + waterContact.x + ' ' + waterContact.y + ') scale(' + mix(.55, 1, state.splash) + ')');
       ['ring-one', 'ring-two', 'ring-three'].forEach((id, index) => {

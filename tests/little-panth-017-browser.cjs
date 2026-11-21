@@ -128,6 +128,11 @@ async function run() {
     await seek(5, wordAt(5, 0, 'ਟੇਢਾ') + 720);
     const tilted = await page.locator('#dog-head').getAttribute('transform');
     assert.equal(tilted, 'translate(42 -108) rotate(38)');
+    const sizeRatio = await page.evaluate(() => {
+      const height = id => document.getElementById(id).getBoundingClientRect().height;
+      return height('sheru') / Math.min(height('mehar'), height('boy'));
+    });
+    assert.ok(sizeRatio < .65, 'Sheru is clearly smaller than both standing children');
     await speak(5, 1, 5);
     await speak(6, 0, 5);
     await seek(6, wordAt(6, 1, 'ਤੁਰ') + 2090);
@@ -154,7 +159,7 @@ async function run() {
     await page.locator('#approve-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '1 of 7 approved');
     assert.deepEqual(errors, []);
-    console.log('PASS Mission 17: 179 Punjabi words, 10 aligned clips, Studio cast, reflected roti and continuous splash, mobile, and review.');
+    console.log('PASS Mission 17: child-to-dog scale, aligned speech, reflected roti and continuous splash, mobile, and review.');
   } finally {
     await browser.close();
   }

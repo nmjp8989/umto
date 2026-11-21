@@ -39,7 +39,8 @@ async function run() {
     const reading = await page.locator('.reading-page').boundingBox();
     assert.equal(art.width, reading.width);
     assert.equal(art.height, reading.height);
-    assert.equal(await page.locator('#fox-mount #fox-head').count(), 1);
+    assert.equal(await page.locator('#fox-mount #fox-tail').count(), 1);
+    assert.equal(await page.locator('#fox-face-plane #fox-head').count(), 1);
 
     const stage = page.locator('#stage');
     const opacity = async id => Number(await page.locator('#' + id).getAttribute('opacity'));
@@ -60,27 +61,35 @@ async function run() {
       }
     }
 
-    async function beakGap(id, x, y) {
-      return page.evaluate(({ id, x, y }) => {
-        const beak = document.getElementById('stork-head');
-        const dish = document.getElementById(id);
-        const tip = new DOMPoint(-123, 0).matrixTransform(beak.getCTM());
-        const target = new DOMPoint(x, y).matrixTransform(dish.getCTM());
-        return Math.hypot(tip.x - target.x, tip.y - target.y);
-      }, { id, x, y });
+    async function gap(a, b) {
+      return page.evaluate(([a, b]) => {
+        const stage = document.getElementById('stage').getCTM().inverse();
+        const locate = ([id, x, y]) => new DOMPoint(x, y)
+          .matrixTransform(document.getElementById(id).getCTM()).matrixTransform(stage);
+        const from = locate(a);
+        const to = locate(b);
+        return Math.hypot(from.x - to.x, from.y - to.y);
+      }, [a, b]);
     }
+    const beak = ['stork-head', -124, 0];
+    const tongue = ['fox-head', 78, 25];
+    const food = ['fox-food', -20, 0];
+    const jugSip = ['stork-jug', -3, -83];
 
     await speak(0, 0, 4);
     assert.equal(await stage.getAttribute('data-camera-preset'), 'wide');
     assert.equal(await stage.getAttribute('data-meal'), 'plates');
     await speak(0, 1, 4);
+    await seek(1, wordAt(1, 0, 'ਛੇਤੀ') + 1140);
+    assert.ok(await opacity('fox-tongue') > .95);
+    assert.ok(await gap(tongue, food) < 2);
     await seek(1, wordAt(1, 0, 'ਚੱਟ') + 480);
     assert.equal(await stage.getAttribute('data-fox-food'), 'empty');
     assert.equal(await opacity('stork-plate'), 1);
     const dipping = wordAt(1, 0, 'ਚੁੰਝ') + 600;
     await seek(1, dipping);
     assert.equal(await page.locator('#book').getAttribute('data-layout'), 'cinema');
-    assert.ok(await beakGap('stork-plate', 0, 0) < 2);
+    assert.ok(await gap(beak, ['stork-plate', 34, -1]) < 2);
     await page.screenshot({ path: output + '/01-shallow-plate.png' });
     await speak(1, 1, 5);
     await speak(2, 1, 5);
@@ -92,28 +101,45 @@ async function run() {
     assert.equal(await opacity('stork-plate'), 0);
     await speak(3, 1, 4);
     await seek(4, wordAt(4, 0, 'ਚੁੰਝ') + 610);
-    assert.ok(await beakGap('stork-jug', 0, -74) < 2);
+    assert.ok(await gap(beak, jugSip) < 2);
+    const mouthOffset = await page.evaluate(() => {
+      const head = document.getElementById('stork-head').getCTM();
+      const jug = document.getElementById('stork-jug').getCTM().inverse();
+      const inJug = x => new DOMPoint(x, 0).matrixTransform(head).matrixTransform(jug);
+      const tip = inJug(-124);
+      const base = inJug(-26);
+      const t = (-106 - tip.y) / (base.y - tip.y);
+      return tip.x + t * (base.x - tip.x);
+    });
+    assert.ok(Math.abs(mouthOffset) < 12, 'The beak passes through the narrow jug opening');
     await seek(4, wordAt(4, 0, 'ਮੂੰਹ') + 660);
-    const sniff = await page.locator('#fox-head').getAttribute('transform');
-    assert.equal(sniff, 'translate(42 -124) rotate(-39)');
+    assert.ok(await gap(['fox-head', 103, -4], ['fox-jug', -19, -104]) < 2);
     await speak(4, 1, 4);
 
     await speak(5, 0, 5);
     await seek(5, scenes[5].lines[0].end + 620);
-    assert.ok(await beakGap('fox-plate', 57, -4) < 2);
+    assert.ok(await gap(beak, ['fox-plate', 57, -4]) < 2);
     assert.equal(await opacity('pour-stream'), 0);
     const pouring = wordAt(5, 1, 'ਪਾ') + 550;
     await seek(5, pouring);
-    assert.ok(await beakGap('fox-jug', 51, -72) < 2);
+    assert.ok(await gap(beak, ['fox-jug', 55, -70]) < 2);
     assert.ok(await opacity('pour-stream') > .8);
     assert.equal(await stage.getAttribute('data-fox-food'), 'partial');
     await page.screenshot({ path: output + '/02-pouring.png' });
     await seek(5, scenes[5].duration - 70);
     assert.equal(await opacity('pour-stream'), 0);
     assert.equal(await stage.getAttribute('data-fox-food'), 'full');
+    assert.equal(await page.locator('#cleared-jug #fox-jug').count(), 1);
     await speak(6, 0, 3);
-    await seek(6, wordAt(6, 1, 'ਇਕੱਠੇ') + 1000);
-    assert.equal(await stage.getAttribute('data-meal'), 'shared');
+    const meal = wordAt(6, 1, 'ਇਕੱਠੇ');
+    for (const offset of [800, 1100, 1370]) {
+      await seek(6, meal + offset);
+      assert.equal(await stage.getAttribute('data-meal'), 'shared');
+      assert.equal(await page.locator('#cleared-jug #fox-jug').count(), 1);
+      assert.ok(await opacity('fox-tongue') > .95);
+      assert.ok(await gap(tongue, food) < 2);
+      assert.ok(await gap(beak, jugSip) < 2);
+    }
     await page.screenshot({ path: output + '/03-shared-meal.png' });
 
     await page.locator('#movie').click();
@@ -135,7 +161,7 @@ async function run() {
     await page.locator('#approve-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '1 of 7 approved');
     assert.deepEqual(errors, []);
-    console.log('PASS Mission 16: 194 Punjabi words, 14 aligned clips, distinct speakers, dish contacts, mobile, and review.');
+    console.log('PASS Mission 16: aligned speech, plate and jug contact in every meal, empty jug cleared, mobile, and review.');
   } finally {
     await browser.close();
   }
