@@ -1,0 +1,73 @@
+name: Little Panth 06 · Lion and Mouse Punjabi voices
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-006/dialogue.json'
+      - 'tools/build_little_panth_audio.py'
+      - '.github/workflows/little-panth-006-voices.yml'
+  workflow_dispatch:
+    inputs:
+      max_new_lines:
+        description: "Maximum new Gemini Punjabi voice clips to generate"
+        required: false
+        default: "50"
+        type: choice
+        options: ["5", "20", "50", "100"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: little-panth-006-voices
+  cancel-in-progress: false
+
+jobs:
+  narration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install encoder
+        run: python -m pip install --disable-pip-version-check imageio-ffmpeg
+      - name: Narration and character voices from existing Gemini secrets
+        id: voices
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAX_NEW_LINES: ${{ inputs.max_new_lines || '50' }}
+        run: |
+          python tools/build_little_panth_audio.py --mission mission-006 --dry-run --max-new-lines "$MAX_NEW_LINES"
+          python tools/build_little_panth_audio.py --mission mission-006 --max-new-lines "$MAX_NEW_LINES"
+      - name: Preserve completed voice clips
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-006-voices
+          path: |
+            little panth/mission-006/audio/*.mp3
+            little panth/mission-006/audio/generation-manifest.json
+          if-no-files-found: ignore
+      - name: Commit completed clips even if some requests fail
+        if: always()
+        run: |
+          test -d "little panth/mission-006/audio" || exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "little panth/mission-006/audio"
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Mission 06 narrator, lion and mouse voices"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Signal incomplete audio generation
+        if: steps.voices.outcome != 'success'
+        run: |
+          echo 'Some or all voice clips were not generated. Rerun the workflow after checking Gemini key quota.'
+          exit 1
