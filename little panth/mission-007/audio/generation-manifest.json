@@ -1,0 +1,107 @@
+{
+  "meet-path": {
+    "hash": "d3605a4fffa194e58d2ff7f71c2c333d119165fa2e8788bc6663a31bcca4157e",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦਿਨ ਖ਼ਰਗੋਸ਼ ਨੇ ਕੱਛੂਏ ਨੂੰ ਰਾਹ ਉੱਤੇ ਤੁਰਦਿਆਂ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "meet-hare": {
+    "hash": "1f39fcb31e82810a7bb6664b601e2c1048431cb85e75194e694c788bcf1a4470",
+    "voice": "Iapetus",
+    "text": "ਮੈਂ ਬਹੁਤ ਤੇਜ਼ ਭੱਜਦਾ ਹਾਂ। ਆ, ਅੱਜ ਦੌੜ ਲਾਈਏ!",
+    "speaker": "hare",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "meet-tortoise": {
+    "hash": "ea2e2d17adc2416e5c407a614b8586a7fd4226dd3a7559ee20b72092bd2ef4b1",
+    "voice": "Orus",
+    "text": "ਠੀਕ ਹੈ। ਮੈਂ ਆਪਣੇ ਕਦਮਾਂ ਨਾਲ ਦੌੜ ਪੂਰੀ ਕਰਾਂਗਾ।",
+    "speaker": "tortoise",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "start-race": {
+    "hash": "a0512fabeaf8a56e24753469d7fd9b268b11eb293c4903670d694419880891cf",
+    "voice": "Aoede",
+    "text": "ਦੌੜ ਸ਼ੁਰੂ ਹੋਈ। ਖ਼ਰਗੋਸ਼ ਛਾਲਾਂ ਮਾਰਦਾ ਅੱਗੇ ਨਿਕਲ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "start-steps": {
+    "hash": "df5a21be1e721b48a3c3e061665f20b8e11df3bd6cea26397f1071534bccb96d",
+    "voice": "Aoede",
+    "text": "ਕੱਛੂਆ ਨਿੱਕੇ ਨਿੱਕੇ ਕਦਮਾਂ ਨਾਲ ਤੁਰਦਾ ਰਿਹਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "nap-hare": {
+    "hash": "6fd44a0a694177abc267a55a8751634b96f07edcb18ad9ace672ade1b5a0dd74",
+    "voice": "Iapetus",
+    "text": "ਕੱਛੂਆ ਹਾਲੇ ਬਹੁਤ ਪਿੱਛੇ ਹੈ। ਮੈਂ ਥੋੜ੍ਹਾ ਆਰਾਮ ਕਰ ਲਵਾਂ।",
+    "speaker": "hare",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "nap-sleep": {
+    "hash": "046b0cd9401a57f6ff0630ea594dfcc7bc003c7ea82e2526c37aa719661f888e",
+    "voice": "Aoede",
+    "text": "ਖ਼ਰਗੋਸ਼ ਰੁੱਖ ਦੀ ਛਾਂ ਹੇਠ ਲੇਟਿਆ ਤੇ ਸੌਂ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "pass-sleeper": {
+    "hash": "91119275cebac8883fcc39833a0ba690023f8ed21f0a1961e6b08a98bab89ad1",
+    "voice": "Aoede",
+    "text": "ਕੱਛੂਆ ਸੁੱਤੇ ਖ਼ਰਗੋਸ਼ ਕੋਲੋਂ ਹੌਲੀ ਹੌਲੀ ਲੰਘ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "pass-tortoise": {
+    "hash": "3408de2050342c4bd6e0e8f783ff257005e854c0416c24d5eaee2a34e0172a70",
+    "voice": "Orus",
+    "text": "ਇੱਕ ਕਦਮ, ਫਿਰ ਇੱਕ ਕਦਮ।",
+    "speaker": "tortoise",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "wake-eyes": {
+    "hash": "b8e4b1d0fcf4412cc18eae805a65a917bdb427205c5349d847ff49fe2cce3ee9",
+    "voice": "Aoede",
+    "text": "ਖ਼ਰਗੋਸ਼ ਜਾਗਿਆ ਤੇ ਉਸ ਨੇ ਕੱਛੂਏ ਨੂੰ ਅੱਗੇ ਦੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "wake-hare": {
+    "hash": "877dc95193c918e944c91d8370deb5dd292e38066a9d6d986b8dd35b47eecefd",
+    "voice": "Iapetus",
+    "text": "ਓਹ! ਕੱਛੂਆ ਤਾਂ ਫੀਤੇ ਕੋਲ ਪਹੁੰਚਣ ਵਾਲਾ ਹੈ!",
+    "speaker": "hare",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "finish-cross": {
+    "hash": "360eb76efb1a750c702fc4693886a3a8f36e5c10085c9bb9f7a063b11346aba7",
+    "voice": "Aoede",
+    "text": "ਕੱਛੂਆ ਫੀਤੇ ਦੇ ਪਾਰ ਲੰਘ ਗਿਆ। ਉਹ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਪਹੁੰਚਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "finish-hare": {
+    "hash": "ea6580003a09c901f180f48b4eeb8b733a14a1e5c3d697df1560d10ce11752b8",
+    "voice": "Iapetus",
+    "text": "ਸ਼ਾਬਾਸ਼, ਕੱਛੂਏ! ਤੂੰ ਤੁਰਦਾ ਰਿਹਾ ਤੇ ਜਿੱਤ ਗਿਆ।",
+    "speaker": "hare",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "friends-tortoise": {
+    "hash": "dbb4bea010d75337cfa6e1fca2a4d1e800a730e22ddb9a33bd9c74d074843592",
+    "voice": "Orus",
+    "text": "ਆ, ਹੁਣ ਆਪਾਂ ਇਕੱਠੇ ਘਰ ਚੱਲੀਏ।",
+    "speaker": "tortoise",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "friends-home": {
+    "hash": "7bd8a6410ae4e76c7bc9b86ce08e26f3b743806d9f9da7ca93f404c4dcab9c3c",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਮੁਸਕਰਾਏ ਤੇ ਇਕੱਠੇ ਘਰ ਵੱਲ ਤੁਰ ਪਏ। ਕੱਛੂਏ ਦੇ ਨਿੱਕੇ ਕਦਮਾਂ ਨੇ ਵੱਡਾ ਕੰਮ ਕਰ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
