@@ -1,0 +1,78 @@
+{
+  "mission": 28,
+  "title": "ਕਾਗਜ਼ ਦੀ ਕਿਸ਼ਤੀ",
+  "englishTitle": "The Paper Boat",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "friend": "Sidak"
+  },
+  "scenes": [
+    {
+      "id": "after-the-rain",
+      "title": "After the rain",
+      "framing": "establishing",
+      "focus": { "x": 640, "y": 365 },
+      "lines": ["rain-stops"],
+      "review": "Open wide on the wet lane, the shallow channel, and the stone footbridge. Keep the paper boat in Mehar’s hand as the two children approach."
+    },
+    {
+      "id": "launch-the-boat",
+      "title": "Mehar puts the boat on the water",
+      "framing": "two-shot",
+      "focus": { "x": 430, "y": 490 },
+      "lines": ["mehar-predicts", "boat-goes-in"],
+      "review": "Mehar bends while her feet stay on the dry path. Her hand carries the boat all the way to the water. The bow moves downstream only after she lets go."
+    },
+    {
+      "id": "yellow-leaf",
+      "title": "A leaf stops the boat",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 717, "y": 535 },
+      "lines": ["boat-gets-stuck", "mehar-wonders"],
+      "review": "Follow the boat to the yellow leaf caught against the stone. The bow should meet the leaf and stop while the water keeps moving."
+    },
+    {
+      "id": "lift-the-leaf",
+      "title": "Sidak clears the way",
+      "framing": "two-shot",
+      "focus": { "x": 704, "y": 502 },
+      "lines": ["sidak-spots-the-leaf", "sidak-clears-the-leaf"],
+      "review": "Sidak picks up the twig from the bank. Keep one end in his hand and put the other end under the leaf before the leaf rises out of the channel."
+    },
+    {
+      "id": "under-the-bridge",
+      "title": "Through the bridge",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 926, "y": 558 },
+      "lines": ["through-the-arch"],
+      "review": "Track the boat into the bridge shadow. Let the stonework hide the boat briefly, then reveal it in sunlight on the other side."
+    },
+    {
+      "id": "around-the-bend",
+      "title": "Goodbye, little boat",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 369 },
+      "lines": ["mehar-cheers", "sidak-explains", "the-boat-sails-away"],
+      "review": "Both children stay on the dry path. After taking turns to speak, they follow their boat downstream and Mehar waves as it rounds the bend."
+    }
+  ],
+  "lines": {
+    "rain-stops": { "speaker": "narrator", "pa": "ਮੀਂਹ ਰੁਕ ਗਿਆ ਸੀ। ਮੇਹਰ ਨੇ ਪੁਰਾਣੇ ਕਾਗਜ਼ ਦੀ ਇੱਕ ਕਿਸ਼ਤੀ ਬਣਾਈ। ਉਹ ਸਿਦਕ ਨਾਲ ਬੂਹੇ ਕੋਲ ਆਈ। ਗਲੀ ਦੀ ਨਿੱਕੀ ਨਾਲੀ ਵਿੱਚ ਪਾਣੀ ਵਗ ਰਿਹਾ ਸੀ।" },
+    "mehar-predicts": { "speaker": "mehar", "pa": "ਵੇਖੀਂ, ਮੇਰੀ ਕਿਸ਼ਤੀ ਨਿੱਕੇ ਪੁਲ ਹੇਠੋਂ ਲੰਘੇਗੀ!" },
+    "boat-goes-in": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਝੁਕ ਕੇ ਕਿਸ਼ਤੀ ਪਾਣੀ ਉੱਤੇ ਰੱਖੀ ਤੇ ਛੱਡ ਦਿੱਤੀ। ਉਹ ਡੋਲਦੀ ਹੋਈ ਅੱਗੇ ਤੁਰ ਪਈ।" },
+    "boat-gets-stuck": { "speaker": "narrator", "pa": "ਪੁਲ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਪੱਥਰ ਕੋਲ ਪੀਲਾ ਪੱਤਾ ਫਸਿਆ ਸੀ। ਕਿਸ਼ਤੀ ਉਸ ਪੱਤੇ ਨਾਲ ਟਕਰਾਈ ਤੇ ਰੁਕ ਗਈ।" },
+    "mehar-wonders": { "speaker": "mehar", "pa": "ਇਹ ਅੱਗੇ ਕਿਉਂ ਨਹੀਂ ਜਾਂਦੀ? ਪਾਣੀ ਤਾਂ ਅਜੇ ਵੀ ਵਗ ਰਿਹਾ ਹੈ।" },
+    "sidak-spots-the-leaf": { "speaker": "friend", "pa": "ਪੱਤਾ ਰਾਹ ਰੋਕ ਰਿਹਾ ਹੈ। ਵੇਖੀਂ, ਮੈਂ ਇਹਨੂੰ ਇੱਕ ਟਾਹਣੀ ਨਾਲ ਹਟਾ ਦਿੰਦਾ ਹਾਂ।" },
+    "sidak-clears-the-leaf": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੇ ਕੰਢੇ ਤੋਂ ਸੁੱਕੀ ਟਾਹਣੀ ਚੁੱਕੀ। ਉਸ ਨੇ ਟਾਹਣੀ ਦਾ ਸਿਰਾ ਪੱਤੇ ਹੇਠ ਲਾਇਆ ਤੇ ਪੱਤਾ ਚੁੱਕ ਕੇ ਪਾਸੇ ਰੱਖ ਦਿੱਤਾ।" },
+    "through-the-arch": { "speaker": "narrator", "pa": "ਪਾਣੀ ਨੇ ਕਿਸ਼ਤੀ ਨੂੰ ਫਿਰ ਅੱਗੇ ਧੱਕਿਆ। ਕਿਸ਼ਤੀ ਪੁਲ ਦੀ ਛਾਂ ਵਿੱਚ ਗਾਇਬ ਹੋ ਗਈ। ਦੋਵਾਂ ਨੇ ਸਾਹ ਰੋਕ ਲਿਆ। ਫਿਰ ਉਹ ਦੂਜੇ ਪਾਸੇ ਧੁੱਪ ਵਿੱਚ ਨਿਕਲ ਆਈ।" },
+    "mehar-cheers": { "speaker": "mehar", "pa": "ਦੇਖ, ਇਹ ਤਾਂ ਸੱਚੀਂ ਪੁਲ ਲੰਘ ਗਈ!" },
+    "sidak-explains": { "speaker": "friend", "pa": "ਸਿਰਫ਼ ਇੱਕ ਨਿੱਕਾ ਜਿਹਾ ਪੱਤਾ ਸੀ! ਆਪਾਂ ਉਹ ਹਟਾਇਆ ਤੇ ਪਾਣੀ ਨੇ ਬਾਕੀ ਕੰਮ ਕਰ ਦਿੱਤਾ।" },
+    "the-boat-sails-away": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਸੁੱਕੇ ਰਾਹ ਉੱਤੇ ਨਾਲ ਨਾਲ ਤੁਰੇ। ਜਦੋਂ ਕਿਸ਼ਤੀ ਮੋੜ ਮੁੜੀ, ਮੇਹਰ ਨੇ ਹੱਥ ਹਿਲਾ ਕੇ ਉਸ ਨੂੰ ਅਲਵਿਦਾ ਆਖਿਆ।" }
+  }
+}
