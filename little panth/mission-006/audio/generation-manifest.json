@@ -82,5 +82,40 @@
     "text": "ਅਚਾਨਕ ਇੱਕ ਜਾਲ ਉਸ ਉੱਤੇ ਡਿੱਗ ਪਿਆ। ਸ਼ੇਰ ਫਸ ਗਿਆ!",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-tts"
+  },
+  "lion-help": {
+    "hash": "766e254153bf3d63cc35016e8c23c9057cd800bce6846bfcd4f54e02f0d45a93",
+    "voice": "Charon",
+    "text": "ਕੋਈ ਹੈ? ਮੇਰੀ ਮਦਦ ਕਰੋ!",
+    "speaker": "lion",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "heard": {
+    "hash": "daff91835d401fd7163d695678c887fc2c11a7e01d49b616d738a2dafc717c4e",
+    "voice": "Aoede",
+    "text": "ਚੂਹੇ ਨੇ ਸ਼ੇਰ ਦੀ ਆਵਾਜ਼ ਸੁਣੀ ਅਤੇ ਦੌੜਦਾ ਹੋਇਆ ਆ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-rescue": {
+    "hash": "3430306695ab8703634d7c3068ecfc2c537da7bf2def884121a2d0816d2e473d",
+    "voice": "Leda",
+    "text": "ਘਬਰਾਓ ਨਾ, ਸ਼ੇਰ ਜੀ! ਮੈਂ ਤੁਹਾਨੂੰ ਛੁਡਾਉਂਦਾ ਹਾਂ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "chew-knots": {
+    "hash": "788d611f09027bf32a70cece59e3f47b5418e5d0e285a1d494e16c75c934c556",
+    "voice": "Aoede",
+    "text": "ਚੂਹੇ ਨੇ ਆਪਣੇ ਤਿੱਖੇ ਦੰਦਾਂ ਨਾਲ ਜਾਲ ਦੀ ਰੱਸੀ ਕੁਤਰਣੀ ਸ਼ੁਰੂ ਕੀਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "chew-more": {
+    "hash": "4fc63b1edb4974e0ec867e18ce706a10518ac2507d60b369e812d94931f438e9",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਗੰਢ ਟੁੱਟੀ, ਫਿਰ ਦੂਜੀ। ਜਾਲ ਢਿੱਲਾ ਹੋਣ ਲੱਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
   }
 }
