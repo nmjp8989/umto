@@ -1,0 +1,89 @@
+{
+  "mission": 20,
+  "title": "ਲਾਲ ਮੁਰਗੀ ਤੇ ਰੋਟੀ",
+  "englishTitle": "The Little Red Hen",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "boy": "Sidak",
+    "dadi": "Bibi Ji"
+  },
+  "scenes": [
+    {
+      "id": "found-grains",
+      "title": "The hen finds some wheat",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 385 },
+      "lines": ["hen-finds-wheat"],
+      "review": "Show the red hen spot the wheat on the courtyard path. Keep the grain in her beak while she carries it to the garden bed."
+    },
+    {
+      "id": "children-playing",
+      "title": "The children are playing",
+      "framing": "two-shot",
+      "focus": { "x": 571, "y": 412 },
+      "lines": ["hen-calls", "sidak-finishes-game"],
+      "review": "Frame Mehar and Sidak with their ball, and show them turn toward the hen when she clucks."
+    },
+    {
+      "id": "planting",
+      "title": "Seeds in the soil",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 727, "y": 506 },
+      "lines": ["hen-plants"],
+      "review": "Show the hen scratch the soil and drop a grain into the furrow. Let the ground darken as the rain starts."
+    },
+    {
+      "id": "wheat-grows",
+      "title": "The wheat is ready",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 653, "y": 435 },
+      "lines": ["wheat-ripens", "mehar-helps"],
+      "review": "Show green shoots emerge, then turn golden after time passes. Bring the children back with their basket when Mehar offers to help."
+    },
+    {
+      "id": "mill",
+      "title": "Grinding the grain",
+      "framing": "two-shot",
+      "focus": { "x": 665, "y": 423 },
+      "lines": ["basket-to-mill", "bibi-flour"],
+      "review": "Follow the children carrying the basket to Bibi Ji. Keep her hand lined up with the moving mill handle as the flour appears."
+    },
+    {
+      "id": "roti",
+      "title": "A warm roti and a dish of grain",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 644, "y": 437 },
+      "lines": ["roti-is-served"],
+      "review": "Show Bibi Ji transfer the roti from the tawa to Sidak’s plate with tongs. Then show Mehar set a small dish down for the hen."
+    },
+    {
+      "id": "share",
+      "title": "Everyone shares the meal",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 387 },
+      "lines": ["sidak-promises", "share-the-meal"],
+      "review": "Let Sidak speak, then show the hen peck from the dish and the children lift a piece of roti to their mouths."
+    }
+  ],
+  "lines": {
+    "hen-finds-wheat": { "speaker": "narrator", "pa": "ਇੱਕ ਸਵੇਰ ਲਾਲ ਮੁਰਗੀ ਨੂੰ ਵਿਹੜੇ ਵਿੱਚ ਕਣਕ ਦੇ ਕੁਝ ਦਾਣੇ ਮਿਲੇ। ਉਸ ਨੇ ਦਾਣੇ ਚੁੰਝ ਨਾਲ ਚੁੱਕ ਕੇ ਕਿਆਰੀ ਕੋਲ ਰੱਖੇ।" },
+    "hen-calls": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਮੇਹਰ ਤੇ ਸਿਦਕ ਵੱਲ ਵੇਖ ਕੇ ਕੁੜ ਕੁੜ ਕੀਤੀ। ਦੋਵੇਂ ਉਸ ਵੇਲੇ ਗੇਂਦ ਨਾਲ ਖੇਡ ਰਹੇ ਸਨ।" },
+    "sidak-finishes-game": { "speaker": "boy", "pa": "ਮੇਹਰ, ਆਪਣੀ ਖੇਡ ਮੁੱਕੇ ਤਾਂ ਆਪਾਂ ਮੁਰਗੀ ਕੋਲ ਜਾਵਾਂਗੇ।" },
+    "hen-plants": { "speaker": "narrator", "pa": "ਮੁਰਗੀ ਨੇ ਮਿੱਟੀ ਖੁਰਚੀ ਤੇ ਦਾਣੇ ਉਸ ਵਿੱਚ ਸੁੱਟ ਦਿੱਤੇ। ਜਦੋਂ ਮੀਂਹ ਪਿਆ ਤਾਂ ਮਿੱਟੀ ਗਿੱਲੀ ਹੋ ਗਈ।" },
+    "wheat-ripens": { "speaker": "narrator", "pa": "ਕੁਝ ਦਿਨਾਂ ਪਿੱਛੋਂ ਹਰੇ ਬੂਟੇ ਨਿਕਲੇ। ਜਦੋਂ ਕਣਕ ਪੱਕੀ ਤਾਂ ਮੇਹਰ ਤੇ ਸਿਦਕ ਕਿਆਰੀ ਕੋਲ ਆਏ।" },
+    "mehar-helps": { "speaker": "mehar", "pa": "ਮੁਰਗੀ ਨੇ ਇੰਨਾ ਕੰਮ ਕੀਤਾ ਹੈ। ਹੁਣ ਅਸੀਂ ਕਣਕ ਘਰ ਲੈ ਚੱਲੀਏ।" },
+    "basket-to-mill": { "speaker": "narrator", "pa": "ਦੋਵਾਂ ਨੇ ਕਣਕ ਟੋਕਰੀ ਵਿੱਚ ਪਾਈ ਤੇ ਬੀਬੀ ਜੀ ਕੋਲ ਲੈ ਗਏ। ਬੀਬੀ ਜੀ ਨੇ ਚੱਕੀ ਵਿੱਚ ਦਾਣੇ ਪੀਸ ਕੇ ਆਟਾ ਬਣਾਇਆ।" },
+    "bibi-flour": { "speaker": "dadi", "pa": "ਇਹ ਆਟਾ ਵੇਖੋ, ਪੁੱਤ। ਹੁਣ ਆਪਾਂ ਰੋਟੀਆਂ ਬਣਾਵਾਂਗੇ।" },
+    "roti-is-served": { "speaker": "narrator", "pa": "ਬੀਬੀ ਜੀ ਨੇ ਤਵੇ ਤੋਂ ਰੋਟੀ ਲਾਹ ਕੇ ਥਾਲੀ ਵਿੱਚ ਰੱਖੀ। ਸਿਦਕ ਨੇ ਥਾਲੀ ਚੁੱਕੀ ਤੇ ਮੇਹਰ ਨੇ ਮੁਰਗੀ ਲਈ ਦਾਣੇ ਰੱਖੇ।" },
+    "sidak-promises": { "speaker": "boy", "pa": "ਅਗਲੀ ਵਾਰੀ ਅਸੀਂ ਸ਼ੁਰੂ ਤੋਂ ਹੀ ਮਦਦ ਕਰਾਂਗੇ।" },
+    "share-the-meal": { "speaker": "narrator", "pa": "ਮੁਰਗੀ ਨੇ ਦਾਣੇ ਚੁਗੇ ਤੇ ਸਾਰਿਆਂ ਨੇ ਰਲ ਕੇ ਖਾਣਾ ਖਾਧਾ। ਮੇਹਰ ਨੂੰ ਹੁਣ ਪਤਾ ਸੀ ਕਿ ਇੱਕ ਰੋਟੀ ਬਣਾਉਣ ਵਿੱਚ ਕਿੰਨਾ ਕੰਮ ਲੱਗਦਾ ਹੈ।" }
+  }
+}
