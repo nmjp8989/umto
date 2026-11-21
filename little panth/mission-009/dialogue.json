@@ -1,0 +1,80 @@
+{
+  "mission": 9,
+  "title": "ਲੂੰਬੜੀ ਤੇ ਅੰਗੂਰ",
+  "englishTitle": "The Fox and the Grapes",
+  "score": "orchard",
+  "speakers": { "narrator": "Narrator", "fox": "Fox", "sparrow": "Sparrow" },
+  "scenes": [
+    {
+      "id": "arrival",
+      "title": "The garden path",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["garden-path"],
+      "review": "Open wide enough to establish the vine and the grape bunch above the path. Follow the fox until she reaches the shade beneath it."
+    },
+    {
+      "id": "notice",
+      "title": "A bunch of grapes",
+      "framing": "full",
+      "focus": { "x": 749, "y": 397 },
+      "lines": ["look-up", "looks-sweet"],
+      "review": "Follow the fox’s glance to the grapes with an insert. Return to her face for her own line, with her paws on the ground."
+    },
+    {
+      "id": "first-jump",
+      "title": "The first jump",
+      "framing": "full",
+      "focus": { "x": 738, "y": 396 },
+      "lines": ["jumps-short", "almost"],
+      "review": "Show both the paw and the grapes at the top of the first jump so the gap reads. Keep her feet planted again as she says how close she was."
+    },
+    {
+      "id": "run-up",
+      "title": "A running jump",
+      "layout": "cinema",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["runs-and-jumps", "only-a-leaf"],
+      "review": "Keep the run-up, paw, leaf and grapes in frame. Time the leaf flick to the higher jump and let it wobble while the bunch stays on the vine."
+    },
+    {
+      "id": "sour",
+      "title": "Were they sour?",
+      "framing": "medium",
+      "focus": { "x": 740, "y": 459 },
+      "lines": ["makes-a-face", "must-be-sour", "sparrow-asks"],
+      "review": "Show the fox’s disappointed expression before she calls the grapes sour. Cut to the sparrow on the rail for its reply. Check that each mouth moves during its own line."
+    },
+    {
+      "id": "truth",
+      "title": "What the fox knows",
+      "framing": "two-shot",
+      "focus": { "x": 835, "y": 415 },
+      "lines": ["fox-admits"],
+      "review": "Hold the fox and sparrow in one frame. Let the fox look up and speak matter-of-factly while the sparrow listens."
+    },
+    {
+      "id": "exit",
+      "title": "On down the path",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["walks-away"],
+      "review": "Release to the wide shot as the fox walks on. The grapes remain on the vine through the quiet ending hold."
+    }
+  ],
+  "lines": {
+    "garden-path": { "speaker": "narrator", "pa": "ਇੱਕ ਦਿਨ ਇੱਕ ਭੁੱਖੀ ਲੂੰਬੜੀ ਬਾਗ਼ ਵਿੱਚ ਆਈ। ਵੇਲ ਉੱਤੇ ਜਾਮਣੀ ਅੰਗੂਰਾਂ ਦਾ ਗੁੱਛਾ ਲਟਕ ਰਿਹਾ ਸੀ।" },
+    "look-up": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਨੇ ਉੱਪਰ ਵੇਖਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਪਾਣੀ ਆ ਗਿਆ।" },
+    "looks-sweet": { "speaker": "fox", "pa": "ਵਾਹ! ਇਹ ਅੰਗੂਰ ਕਿੰਨੇ ਮਿੱਠੇ ਲੱਗਦੇ ਨੇ!" },
+    "jumps-short": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਛਾਲ ਮਾਰੀ। ਉਸ ਦਾ ਪੰਜਾ ਅੰਗੂਰਾਂ ਤੱਕ ਨਾ ਪਹੁੰਚਿਆ।" },
+    "almost": { "speaker": "fox", "pa": "ਓਹ! ਥੋੜ੍ਹਾ ਜਿਹਾ ਰਹਿ ਗਿਆ।" },
+    "runs-and-jumps": { "speaker": "narrator", "pa": "ਉਹ ਪਿੱਛੇ ਗਈ। ਫਿਰ ਦੌੜ ਕੇ ਉਸ ਨੇ ਹੋਰ ਉੱਚੀ ਛਾਲ ਮਾਰੀ।" },
+    "only-a-leaf": { "speaker": "narrator", "pa": "ਇੱਕ ਪੱਤਾ ਹਿੱਲਿਆ, ਪਰ ਅੰਗੂਰ ਵੇਲ ਉੱਤੇ ਹੀ ਰਹਿ ਗਏ।" },
+    "makes-a-face": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਨੇ ਮੂੰਹ ਬਣਾ ਲਿਆ।" },
+    "must-be-sour": { "speaker": "fox", "pa": "ਛੱਡੋ ਜੀ! ਇਹ ਅੰਗੂਰ ਤਾਂ ਖੱਟੇ ਹੋਣੇ ਨੇ।" },
+    "sparrow-asks": { "speaker": "sparrow", "pa": "ਪਰ ਤੂੰ ਤਾਂ ਇੱਕ ਵੀ ਅੰਗੂਰ ਨਹੀਂ ਚੱਖਿਆ!" },
+    "fox-admits": { "speaker": "fox", "pa": "ਗੱਲ ਤਾਂ ਠੀਕ ਹੈ। ਮੈਂ ਅੰਗੂਰਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਸਕੀ। ਕੀ ਪਤਾ ਉਹ ਖੱਟੇ ਨੇ ਜਾਂ ਮਿੱਠੇ?" },
+    "walks-away": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਨੇ ਸੱਚ ਮੰਨ ਲਿਆ ਤੇ ਮੁਸਕਰਾ ਕੇ ਅੱਗੇ ਤੁਰ ਪਈ।" }
+  }
+}

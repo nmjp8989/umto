@@ -29,6 +29,8 @@ VOICES={
  "wind":("Leda","Bright, lively and sure of herself. Speak the exact Punjabi words clearly at a pace a young reader can follow."),
  "sun":("Charon","Warm and quietly confident, with an easy smile in the voice. Speak the exact Punjabi words clearly for young readers."),
  "traveller":("Iapetus","An expressive, friendly Punjabi traveller. Speak naturally and clearly for young readers."),
+ "fox":("Kore","An expressive young fox speaking conversational Punjabi. Give her bright enthusiasm and honest disappointment without overacting. Read only the written words."),
+ "sparrow":("Leda","A small, lively sparrow with a kind, curious voice. Read the Punjabi words clearly, with no imitation of bird sounds."),
  "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
  "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
