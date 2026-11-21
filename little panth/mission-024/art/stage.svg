@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="jackal-title">
+  <title id="jackal-title">A golden jackal on a woodland path at dusk</title>
+  <defs>
+    <linearGradient id="dusk-sky" x2="0" y2="1">
+      <stop stop-color="#494967"/>
+      <stop offset=".46" stop-color="#977183"/>
+      <stop offset=".86" stop-color="#efaf85"/>
+      <stop offset="1" stop-color="#f4c095"/>
+    </linearGradient>
+    <radialGradient id="dusk-glow">
+      <stop stop-color="#ffdeb2" stop-opacity=".76"/>
+      <stop offset="1" stop-color="#ffd7a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dusk-ground" x2=".42" y2="1">
+      <stop stop-color="#6f6a65"/>
+      <stop offset=".55" stop-color="#595a54"/>
+      <stop offset="1" stop-color="#393e45"/>
+    </linearGradient>
+    <linearGradient id="dusk-path" x2=".56" y2="1">
+      <stop stop-color="#b48f77"/>
+      <stop offset=".62" stop-color="#a27b64"/>
+      <stop offset="1" stop-color="#7a5e53"/>
+    </linearGradient>
+    <linearGradient id="dusk-bark" x2=".75" y2=".24">
+      <stop stop-color="#695543"/>
+      <stop offset=".55" stop-color="#56463f"/>
+      <stop offset="1" stop-color="#3f3b41"/>
+    </linearGradient>
+    <linearGradient id="drum-wood" x2=".25" y2="1">
+      <stop stop-color="#af6850"/>
+      <stop offset=".43" stop-color="#934e45"/>
+      <stop offset="1" stop-color="#603b3b"/>
+    </linearGradient>
+    <radialGradient id="drum-hide" cx=".37" cy=".35" r=".78">
+      <stop stop-color="#efcf99"/>
+      <stop offset=".72" stop-color="#c99a69"/>
+      <stop offset="1" stop-color="#9d6f55"/>
+    </radialGradient>
+    <linearGradient id="jackal-coat" x2=".28" y2="1">
+      <stop stop-color="#cba171"/>
+      <stop offset=".63" stop-color="#ba895a"/>
+      <stop offset="1" stop-color="#9d6c53"/>
+    </linearGradient>
+    <radialGradient id="ground-shadow">
+      <stop stop-color="#282836" stop-opacity=".55"/>
+      <stop offset=".7" stop-color="#282836" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#282836" stop-opacity="0"/>
+    </radialGradient>
+    <g id="dusk-pines">
+      <path d="M-8 139 0 0 8 139Z" fill="currentColor"/>
+      <path d="M0-3Q-10 27-29 43L-16 42-36 68-22 65-44 96-26 92-52 120Q-18 116 0 120Q23 118 51 120L29 94 45 97 23 66 37 68 19 39 31 43Q12 23 0-3Z" fill="currentColor"/>
+    </g>
+    <g id="dusk-reed" fill="none" stroke-linecap="round">
+      <path d="M0 0Q4-29-18-50M0 0Q-2-42 13-71M1 0Q13-33 34-44M0 0Q-11-24-36-28" stroke="currentColor" stroke-width="4"/>
+      <path d="M-18-50l-5-7M13-71l3-8M34-44l7-4" stroke="#ba9867" stroke-width="5.5" opacity=".7"/>
+    </g>
+    <g id="dusk-leaves" stroke-linejoin="round">
+      <path d="M0 0Q-10-12-35-15Q-24-33-3-10Q-2-31 12-48Q26-29 4-6Q21-24 43-20Q36 1 8 4Z" fill="currentColor"/>
+      <path d="M0 2Q-12-14-28-18M0 1Q8-31 12-39M3 2Q20-13 36-17" fill="none" stroke="#c09b70" stroke-width="1.5" stroke-linecap="round" opacity=".36"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.55">
+    <rect x="-120" y="-80" width="1520" height="595" fill="url(#dusk-sky)"/>
+    <ellipse cx="508" cy="279" rx="444" ry="260" fill="url(#dusk-glow)"/>
+    <circle cx="496" cy="251" r="34" fill="#ffce9c" opacity=".88"/>
+    <path d="M-100 304Q55 256 166 276T361 304Q477 326 563 296T761 295Q855 323 983 275T1380 269V506H-100Z" fill="#74667c"/>
+    <path d="M-100 353Q60 294 153 308T311 344Q418 365 504 328T686 334Q814 378 941 327T1390 306V537H-100Z" fill="#605e69"/>
+    <path d="M92 196Q177 188 225 200T385 201M510 158Q574 152 657 162T816 157M758 238Q808 235 930 246" fill="none" stroke="#edbaac" stroke-width="2.6" opacity=".37" stroke-linecap="round"/>
+    <g color="#665c70" opacity=".68">
+      <use href="#dusk-pines" transform="translate(109 259) scale(.78 .85)"/>
+      <use href="#dusk-pines" transform="translate(203 265) scale(.68 .79)"/>
+      <use href="#dusk-pines" transform="translate(301 287) scale(.62 .69)"/>
+      <use href="#dusk-pines" transform="translate(647 273) scale(.67 .75)"/>
+      <use href="#dusk-pines" transform="translate(707 299) scale(.58 .68)"/>
+      <use href="#dusk-pines" transform="translate(1155 238) scale(1.05)"/>
+    </g>
+  </g>
+
+  <g data-camera-depth="-.2">
+    <path d="M-110 403Q64 331 202 377T408 396Q558 365 685 390T929 361Q1124 332 1389 397V790H-110Z" fill="url(#dusk-ground)"/>
+    <path d="M-110 408Q17 341 127 360T251 393Q158 405 84 451T-110 488Z" fill="#565b57"/>
+    <path d="M1001 382Q1212 330 1390 385V553Q1245 497 1175 482T1001 382Z" fill="#4a5352"/>
+    <g fill="#4e5253">
+      <path d="M119 432Q122 353 105 257L84 207 94 192Q124 223 136 258Q155 203 181 177L189 185Q155 232 152 289L158 431Z"/>
+      <path d="M1099 457Q1107 375 1087 304Q1062 262 1020 243L1027 219Q1072 234 1101 279Q1110 221 1143 160L1167 160Q1134 236 1132 302Q1149 260 1184 243L1194 259Q1150 295 1144 344L1154 457Z"/>
+      <path d="M-55 311Q-36 272 8 277Q19 228 76 242Q114 214 154 244Q187 244 197 279Q232 287 229 324L172 348 80 341-15 367Z"/>
+      <path d="M994 294Q1004 245 1036 244Q1030 206 1069 190Q1100 172 1125 193Q1162 171 1201 197Q1240 209 1252 239Q1299 219 1370 253V367L1254 327 1185 344 1110 321Z"/>
+    </g>
+    <path d="M-100 461Q34 409 191 437Q254 453 334 439Q440 424 512 446Q359 471 467 516Q582 547 737 492Q967 402 1385 413V516Q1217 538 1119 571Q1002 610 1110 651L1221 767H-110Z" fill="url(#dusk-path)"/>
+    <path d="M-85 562Q135 513 306 562T534 623M-69 635Q126 585 271 630M818 533Q939 475 1128 475T1388 451M1002 637Q1130 620 1289 560" fill="none" stroke="#eac293" stroke-width="3.6" stroke-linecap="round" opacity=".25"/>
+    <path d="M382 473Q417 469 447 478M495 556l42 7m-39 92 69-4m550-125 62-20m-319 47 25-9m-738-65 40 4" fill="none" stroke="#654e49" stroke-width="3.3" stroke-linecap="round" opacity=".48"/>
+  </g>
+
+  <g id="woodland-tree">
+    <path d="M949 574Q988 524 982 456Q977 393 981 351Q946 327 892 310L887 297Q945 295 980 314Q983 266 946 222L883 181 893 163Q964 192 1005 261Q1016 182 1061 106L1092 109Q1067 165 1060 226Q1113 184 1171 176L1177 195Q1113 225 1079 293Q1069 358 1074 459Q1081 531 1132 556L1119 569Q1084 565 1069 551Q1068 576 1097 594Q1056 595 1024 564Q988 589 944 590Z" fill="url(#dusk-bark)" stroke="#493d3a" stroke-width="3.6"/>
+    <path d="M1009 536q30-95 17-174t18-172m-40 108q-7-58-65-103M1050 481q-5 43 27 62m-96 8 31-21m47-241q17-44 55-73" fill="none" stroke="#b88558" stroke-width="5" stroke-linecap="round" opacity=".36"/>
+    <path d="M995 536q15-63 15-119m42-91q-8 48-4 72M1009 242l11-22" fill="none" stroke="#3e3635" stroke-width="3" stroke-linecap="round" opacity=".68"/>
+    <path d="M699 165Q729 117 789 132Q805 80 872 99Q894 55 952 71Q973 37 1023 60Q1076 40 1104 84Q1181 77 1201 127Q1260 137 1274 188Q1316 190 1378 227V271Q1289 294 1237 264Q1203 297 1142 266Q1113 296 1061 269Q1009 287 981 247Q921 268 882 239Q809 260 774 223Q728 225 699 165Z" fill="#465051"/>
+    <path d="M716 175Q745 143 800 155Q832 119 874 129Q923 94 964 115Q1019 80 1062 113Q1118 99 1156 140Q1196 133 1235 169Q1154 150 1101 170Q1049 144 984 181Q919 162 873 193Q813 173 753 196Z" fill="#777760" opacity=".58"/>
+    <path d="M803 228Q853 208 887 219Q915 196 952 218Q984 192 1016 214Q1064 189 1101 220Q1149 192 1198 232" fill="none" stroke="#ad9270" stroke-width="3.1" stroke-linecap="round" opacity=".35"/>
+    <g id="wind-leaves" color="#797956">
+      <use href="#dusk-leaves" transform="translate(855 251) rotate(156) scale(.67)"/>
+      <use href="#dusk-leaves" transform="translate(905 283) rotate(160) scale(.8)"/>
+      <use href="#dusk-leaves" transform="translate(955 279) rotate(181) scale(.7)"/>
+      <use href="#dusk-leaves" transform="translate(1086 275) rotate(165) scale(.85)"/>
+      <use href="#dusk-leaves" transform="translate(1145 268) rotate(204) scale(.91)"/>
+    </g>
+    <use href="#dusk-reed" transform="translate(956 578) rotate(14) scale(.73)" color="#596349"/>
+    <use href="#dusk-reed" transform="translate(1102 568) rotate(19) scale(.82)" color="#77765b"/>
+  </g>
+
+  <g id="drum-set">
+    <path d="M670 583Q661 565 682 552Q687 531 707 536Q719 512 745 529Q771 514 788 536Q820 529 833 554Q864 561 866 586Z" fill="#666b53"/>
+    <use href="#dusk-leaves" transform="translate(694 560) rotate(-42) scale(.64)" color="#898461"/>
+    <use href="#dusk-reed" transform="translate(718 581) rotate(19) scale(.67)" color="#817b59"/>
+    <ellipse cx="857" cy="610" rx="152" ry="26" fill="url(#ground-shadow)"/>
+    <path d="M780 496Q848 475 914 487Q946 493 957 527Q967 567 936 581Q861 619 786 603Z" fill="url(#drum-wood)" stroke="#4e3837" stroke-width="4.5"/>
+    <path d="M792 518Q859 497 935 503M798 580Q863 586 949 555" fill="none" stroke="#e3a178" stroke-width="2.7" opacity=".52" stroke-linecap="round"/>
+    <ellipse cx="932" cy="534" rx="28" ry="47" transform="rotate(-13 932 534)" fill="none" stroke="#80563f" stroke-width="7"/>
+    <path d="M791 501 921 501 812 521 943 519 819 539 947 539 819 562 943 557 809 585 931 575 790 599" fill="none" stroke="#784d3b" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M791 500 921 500 812 520 943 518 819 538 947 538 819 561 943 556 809 584 931 574 790 598" fill="none" stroke="#d3ad7d" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="782" cy="550" rx="40" ry="57" transform="rotate(-8 782 550)" fill="#936446" stroke="#4f3833" stroke-width="3"/>
+    <ellipse id="drum-skin" cx="782" cy="550" rx="34" ry="51" transform="rotate(-8 782 550)" fill="url(#drum-hide)" stroke="#e3bb85" stroke-width="2.8"/>
+    <path d="M765 514Q753 535 760 563M775 581q4 10 15 12m15-58q9 20 5 31" fill="none" stroke="#f5d4a2" stroke-width="2" opacity=".5" stroke-linecap="round"/>
+    <path d="M755 520l-5-4m0 35-6 1m14 24-3 4m32 21 0 5m20-25 5 3m6-28 5 1m-11-32 6-3m-28-18 1-5" fill="none" stroke="#694b39" stroke-width="2.1" stroke-linecap="round"/>
+    <ellipse id="drum-vibration" cx="782" cy="550" rx="19" ry="28" transform="rotate(-8 782 550)" fill="none" stroke="#fbe1a4" stroke-width="2" opacity="0"/>
+  </g>
+
+  <g id="tapping-twig">
+    <path d="M900 304Q865 331 856 372Q837 406 799 437Q752 465 728 490" fill="none" stroke="#553d32" stroke-width="7" stroke-linecap="round"/>
+    <path d="M899 303Q864 332 856 370Q835 406 798 437Q751 465 728 490" fill="none" stroke="#ae825a" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M839 397Q809 383 789 362m16 69q-19-5-39 1m-3 35q-10-1-22-13m125-107q-1-17 6-32" fill="none" stroke="#806044" stroke-width="4" stroke-linecap="round"/>
+    <path d="M809 379Q793 384 779 374Q794 368 809 379Zm70-46q9-20 21-20-2 14-21 20Z" fill="#ad875d" stroke="#725640" stroke-width="1.3"/>
+    <circle id="twig-tip" cx="728" cy="490" r="2.15" fill="#a47550"/>
+  </g>
+
+  <g id="concealment">
+    <path d="M621 613Q600 580 622 557Q611 528 645 519Q642 488 676 477Q704 447 737 464Q766 443 803 466Q834 450 859 479Q900 468 916 501Q954 502 960 533Q985 551 970 610Z" fill="#5c604d"/>
+    <path d="M619 601Q665 549 730 565Q768 521 825 551Q849 527 902 551Q929 536 972 558L979 612Z" fill="#535846"/>
+    <path d="M640 522Q655 516 668 527Q680 498 707 504Q716 481 736 471M775 480q33 4 42 26 25-7 38 7m34 4q39 3 56 32" fill="none" stroke="#8b8360" stroke-width="3.5" stroke-linecap="round" opacity=".68"/>
+    <use href="#dusk-leaves" transform="translate(662 582) rotate(-43) scale(.85)" color="#818059"/>
+    <use href="#dusk-leaves" transform="translate(737 523) rotate(13) scale(.82)" color="#737853"/>
+    <use href="#dusk-leaves" transform="translate(867 575) rotate(24) scale(.79)" color="#747958"/>
+  </g>
+
+  <ellipse id="jackal-shadow" cx="385" cy="631" rx="131" ry="20" fill="url(#ground-shadow)"/>
+  <g id="jackal" stroke-linecap="round" stroke-linejoin="round">
+    <g id="jackal-tail">
+      <path d="M-69-92Q-101-82-129-70Q-154-59-174-74Q-170-53-150-48Q-118-41-88-58L-58-76Z" fill="#956d56" stroke="#55423c" stroke-width="2.8"/>
+      <path d="M-128-69Q-158-60-174-74Q-170-52-150-48Q-134-44-119-52L-129-53-123-58-133-61Z" fill="#624e45"/>
+      <path d="M-120-65q28-7 49-18" fill="none" stroke="#d09f70" stroke-width="2.5" opacity=".69"/>
+    </g>
+    <g id="hind-far" class="jackal-leg"><path d="" stroke-width="18" stroke="#59483d"/><path d="" stroke-width="13" stroke="#967056"/><ellipse rx="12" ry="5" fill="#85624d" stroke="#59483d" stroke-width="2"/></g>
+    <g id="front-far" class="jackal-leg"><path d="" stroke-width="15" stroke="#59483d"/><path d="" stroke-width="10" stroke="#997052"/><ellipse rx="11" ry="5" fill="#85624d" stroke="#59483d" stroke-width="2"/></g>
+    <path d="M-82-82Q-78-107-45-110Q-14-113 20-109Q39-126 58-118Q78-112 79-92Q68-64 49-60Q21-61-11-63Q-43-47-70-60Q-83-64-82-82Z" fill="url(#jackal-coat)" stroke="#543f38" stroke-width="3.4"/>
+    <path d="M-76-92Q-61-108-30-107Q-10-104 16-107L35-111 26-101 39-101Q22-91 4-94L-7-88-22-93-34-87-39-92-48-89Q-58-97-76-92Z" fill="#796651"/>
+    <path d="M-67-81q22-22 55-13m-32 26q29-10 44-12" fill="none" stroke="#dcb183" stroke-width="3" opacity=".64"/>
+    <path d="M35-98Q45-111 64-107Q79-100 77-91Q69-70 51-65Q43-71 46-79Q35-80 35-98Z" fill="#e5bd8c"/>
+    <g id="hind-near" class="jackal-leg"><path d="" stroke-width="21" stroke="#66483b"/><path d="" stroke-width="16" stroke="#bc8b61"/><ellipse rx="12" ry="5.2" fill="#aa7b55" stroke="#66483b" stroke-width="2"/></g>
+    <g id="front-near" class="jackal-leg"><path d="" stroke-width="17" stroke="#66483b"/><path d="" stroke-width="12" stroke="#c29466"/><ellipse id="near-paw" rx="11.5" ry="5.2" fill="#bd8c5f" stroke="#66483b" stroke-width="2"/></g>
+    <g id="jackal-head">
+      <g id="jackal-ear-far">
+        <path d="M6-9Q-7-26 6-49Q21-40 28-16Z" fill="#a57656" stroke="#62483e" stroke-width="2.6"/>
+        <path d="M9-16q-7-14-2-22 11 5 13 20" fill="#c6977e"/>
+      </g>
+      <g id="jackal-ear-near">
+        <path d="M-13-8Q-26-29-20-58Q3-48 15-22L11-9Z" fill="#c2986c" stroke="#62483e" stroke-width="2.8"/>
+        <path d="M-11-15q-10-15-8-32Q-5-40 5-20Z" fill="#a77166"/>
+        <path d="M-10-15l5-12 7 7" fill="none" stroke="#e3b89a" stroke-width="2.1"/>
+      </g>
+      <path id="jackal-jaw" d="M18 7Q36 13 60 9L62 16Q43 26 24 20L14 15Z" fill="#d6aa7e" stroke="#61463e" stroke-width="2.7"/>
+      <path d="M-16 8Q-24-5-14-17Q-6-27 13-23Q31-22 39-10L55-2Q69-1 66 9Q61 16 43 15Q28 19 19 23Q3 26-6 18Z" fill="url(#jackal-coat)" stroke="#61463e" stroke-width="3"/>
+      <path d="M-10 5q11-13 24-7l17 9 34-1Q62 15 42 15Q28 19 17 23Q3 24-6 17Z" fill="#e9c495"/>
+      <path d="M40 12q8 0 15-2" fill="none" stroke="#714d42" stroke-width="1.9"/>
+      <path d="M61 0q8-1 10 4 2 5-7 7-5-3-3-11Z" fill="#483b39"/>
+      <path d="M63 2l4 1" fill="none" stroke="#b68d7e" stroke-width="1.5"/>
+      <ellipse id="jackal-eye" cx="22" cy="-7" rx="4.2" ry="5" fill="#382f34"/>
+      <circle id="eye-shine" cx="23.5" cy="-8.7" r="1.15" fill="#fff3cf"/>
+      <path id="jackal-lid" d="M18-6q4 4 8 0" fill="none" stroke="#533f38" stroke-width="2.1" opacity="0"/>
+      <path id="jackal-brow" d="M16-15q6-3 12 0" fill="none" stroke="#7c573e" stroke-width="2.2"/>
+    </g>
+  </g>
+
+  <g data-camera-depth=".36">
+    <path d="M-110 655Q-20 613 98 640Q130 606 193 631Q247 641 286 694Q358 675 429 730L-110 779Z" fill="#404c43"/>
+    <path d="M1052 686Q1102 628 1170 653Q1215 601 1275 618L1390 651V790H1012Z" fill="#424b46"/>
+    <use href="#dusk-reed" transform="translate(107 695) rotate(-17) scale(1.22)" color="#7d8059"/>
+    <use href="#dusk-reed" transform="translate(246 727) rotate(12) scale(1.19)" color="#787d58"/>
+    <use href="#dusk-reed" transform="translate(1162 723) rotate(-15) scale(1.3)" color="#777950"/>
+    <use href="#dusk-reed" transform="translate(1281 700) rotate(11) scale(1.42)" color="#85805b"/>
+    <use href="#dusk-leaves" transform="translate(29 676) rotate(-10) scale(1.25)" color="#738064"/>
+    <use href="#dusk-leaves" transform="translate(1214 672) rotate(16) scale(1.25)" color="#687359"/>
+    <path d="M480 622q12-7 27-1l-6 5-21 1Zm504 13q13-10 28 0l-3 5h-22Z" fill="#866656" stroke="#6a5850" stroke-width="1.6"/>
+  </g>
+</svg>

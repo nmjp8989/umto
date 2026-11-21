@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const effectDurations = { wings: .48, plop: .43, sip: .64, step: .18, ribbon: .3, gust: 1.55, chirp: .47, spring: .29, twig: .23, bark: .35 };
+  const effectDurations = { wings: .48, plop: .43, sip: .64, step: .18, ribbon: .3, gust: 1.55, chirp: .47, spring: .29, twig: .23, bark: .35, drum: .57 };
 
   function effect(context, name) {
     const duration = effectDurations[name];
@@ -42,6 +42,11 @@
         const sweep = 210 * t + 459 * t * t;
         const pluck = Math.sin(2 * Math.PI * sweep) + .18 * Math.sin(4 * Math.PI * sweep);
         samples[i] = pluck * Math.min(1, t * 95) * Math.exp(-t * 17) * .21;
+      } else if (name === 'drum') {
+        const membrane = Math.sin(2 * Math.PI * (126 * t + 3 * (1 - Math.exp(-t * 27))));
+        const overtone = Math.sin(2 * Math.PI * 243 * t) * Math.exp(-t * 19);
+        const attack = filtered * 0.26 * Math.exp(-t * 72);
+        samples[i] = (membrane * .62 * Math.exp(-t * 8) + overtone * .21 + attack) * Math.min(1, t * 800);
       } else if (name === 'twig') {
         const snap = Math.exp(-t * 58) + .42 * Math.exp(-Math.abs(t - .082) * 71);
         const wood = Math.sin(2 * Math.PI * (620 * t - 1050 * t * t)) * .12;
