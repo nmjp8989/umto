@@ -1,0 +1,63 @@
+name: Little Panth Mission 12 Punjabi voices
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-012/dialogue.json'
+      - '.github/workflows/little-panth-mission-012-voices.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: little-panth-012-voices
+  cancel-in-progress: false
+
+jobs:
+  voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    env:
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Punjabi audio tools
+        run: python -m pip install --disable-pip-version-check imageio-ffmpeg numpy sherpa-onnx==1.13.0
+      - name: Record the narrator, Mehar, Sidak, and Bibi Ji
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          for attempt in 1 2 3 4; do
+            if python tools/build_little_panth_audio.py --mission mission-012 --model gemini-3.8-flash-lite-tts ||
+              python tools/build_little_panth_audio.py --mission mission-012; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 4 ]; then sleep 55; fi
+          done
+          exit 1
+      - name: Align Gurmukhi text to the speech
+        run: |
+          model=https://huggingface.co/parismitaglobalsolutions/indicconformer-sherpa-onnx/resolve/main
+          curl --fail --location --retry 3 "$model/pa/model.int8.onnx" -o /tmp/lp012-punjabi.onnx
+          curl --fail --location --retry 3 "$model/tokens.txt" -o /tmp/lp012-tokens.txt
+          python tools/little-panth-004-align.py /tmp/lp012-punjabi.onnx /tmp/lp012-tokens.txt --mission mission-012
+      - name: Save the clips and timing data
+        if: always()
+        run: |
+          test -d "little panth/mission-012/audio" || exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "little panth/mission-012/audio/"
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add recorded Punjabi voices for Little Panth Mission 12'
+          git pull --rebase origin main
+          git push origin HEAD:main

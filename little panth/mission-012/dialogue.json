@@ -1,0 +1,172 @@
+{
+  "mission": 12,
+  "title": "ਖਾਲੀ ਗਮਲਾ",
+  "englishTitle": "The Empty Pot",
+  "score": "original",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "boy": "Sidak",
+    "dadi": "Bibi Ji"
+  },
+  "scenes": [
+    {
+      "id": "seeds",
+      "title": "A seed for each child",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 365
+      },
+      "lines": [
+        "the-pouch",
+        "bibi-invites"
+      ],
+      "review": "Open wide on the courtyard. Move to a medium shot of Bibi Ji as she shares the seeds."
+    },
+    {
+      "id": "planting",
+      "title": "Mehar plants her seed",
+      "layout": "cinema",
+      "framing": "medium",
+      "focus": {
+        "x": 523,
+        "y": 456
+      },
+      "lines": [
+        "plant-and-water",
+        "mehar-promise"
+      ],
+      "review": "Follow Mehar’s hand to the soil. The water should begin as she tilts the watering can toward the pot."
+    },
+    {
+      "id": "waiting",
+      "title": "Days go by",
+      "framing": "medium",
+      "focus": {
+        "x": 501,
+        "y": 440
+      },
+      "lines": [
+        "days-pass",
+        "mehar-worries"
+      ],
+      "review": "Use changing daylight and Mehar’s reaction to mark the passing days. Her terracotta pot stays bare."
+    },
+    {
+      "id": "return",
+      "title": "Two very different pots",
+      "framing": "two-shot",
+      "focus": {
+        "x": 630,
+        "y": 428
+      },
+      "lines": [
+        "sidak-returns",
+        "sidak-encourages"
+      ],
+      "review": "Frame Sidak’s green plant beside Mehar’s empty pot. Sidak walks in with both hands supporting his pot."
+    },
+    {
+      "id": "honesty",
+      "title": "Mehar explains",
+      "framing": "two-shot",
+      "focus": {
+        "x": 548,
+        "y": 433
+      },
+      "lines": [
+        "mehar-tells",
+        "bibi-listens"
+      ],
+      "review": "Keep Mehar’s expression and the empty pot visible while she speaks. Bibi Ji listens and then responds gently."
+    },
+    {
+      "id": "reveal",
+      "title": "What happened to the seeds",
+      "layout": "cinema",
+      "framing": "two-shot",
+      "focus": {
+        "x": 739,
+        "y": 418
+      },
+      "lines": [
+        "bibi-explains",
+        "sidak-admits",
+        "bibi-thanks"
+      ],
+      "review": "Let Bibi Ji’s explanation land before cutting to Sidak as he tells her where his plant came from."
+    },
+    {
+      "id": "new-growth",
+      "title": "New seeds, new leaves",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 370
+      },
+      "lines": [
+        "second-chance"
+      ],
+      "review": "The children receive fresh seeds. After a change of light, reveal two small sprouts and return to the wide courtyard."
+    }
+  ],
+  "lines": {
+    "the-pouch": {
+      "speaker": "narrator",
+      "pa": "ਸਵੇਰੇ ਬੀਬੀ ਜੀ ਨੇ ਮੇਹਰ ਤੇ ਸਿਦਕ ਨੂੰ ਵਿਹੜੇ ਵਿੱਚ ਸੱਦਿਆ। ਉਨ੍ਹਾਂ ਕੋਲ ਬੀਜਾਂ ਦੀ ਪੋਟਲੀ ਸੀ।"
+    },
+    "bibi-invites": {
+      "speaker": "dadi",
+      "pa": "ਇਹ ਇੱਕ ਇੱਕ ਬੀਜ ਆਪਣੇ ਗਮਲੇ ਵਿੱਚ ਲਾਓ। ਇੱਕ ਮਹੀਨੇ ਪਿੱਛੋਂ ਗਮਲੇ ਲੈ ਕੇ ਆਇਓ।"
+    },
+    "plant-and-water": {
+      "speaker": "narrator",
+      "pa": "ਮੇਹਰ ਨੇ ਮਿੱਟੀ ਵਿੱਚ ਬੀਜ ਰੱਖਿਆ ਤੇ ਉਸ ਉੱਤੇ ਥੋੜ੍ਹੀ ਮਿੱਟੀ ਪਾਈ। ਫਿਰ ਉਸ ਨੇ ਗਮਲੇ ਨੂੰ ਪਾਣੀ ਦਿੱਤਾ।"
+    },
+    "mehar-promise": {
+      "speaker": "mehar",
+      "pa": "ਮੈਂ ਹਰ ਰੋਜ਼ ਵੇਖਾਂਗੀ ਕਿ ਤੇਰੇ ਪੱਤੇ ਕਦੋਂ ਨਿਕਲਦੇ ਨੇ।"
+    },
+    "days-pass": {
+      "speaker": "narrator",
+      "pa": "ਕਈ ਦਿਨ ਲੰਘ ਗਏ। ਮੇਹਰ ਹਰ ਸਵੇਰ ਮਿੱਟੀ ਵੇਖਦੀ, ਪਰ ਇੱਕ ਵੀ ਪੱਤਾ ਨਹੀਂ ਨਿਕਲਿਆ।"
+    },
+    "mehar-worries": {
+      "speaker": "mehar",
+      "pa": "ਸ਼ਾਇਦ ਮੈਂ ਕੁਝ ਗ਼ਲਤ ਕੀਤਾ। ਬੀਬੀ ਜੀ ਨੂੰ ਕੀ ਦੱਸਾਂ?"
+    },
+    "sidak-returns": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਮਹੀਨੇ ਬਾਅਦ ਸਿਦਕ ਹਰਾ ਭਰਾ ਬੂਟਾ ਲੈ ਆਇਆ। ਮੇਹਰ ਨੇ ਆਪਣਾ ਖਾਲੀ ਗਮਲਾ ਚੁੱਕਿਆ।"
+    },
+    "sidak-encourages": {
+      "speaker": "boy",
+      "pa": "ਤੂੰ ਵੀ ਚੱਲ। ਆਪਾਂ ਬੀਬੀ ਜੀ ਨੂੰ ਦੱਸਦੇ ਹਾਂ।"
+    },
+    "mehar-tells": {
+      "speaker": "mehar",
+      "pa": "ਬੀਬੀ ਜੀ, ਮੈਂ ਬੀਜ ਲਾਇਆ ਤੇ ਪਾਣੀ ਦਿੱਤਾ, ਪਰ ਕੁਝ ਨਹੀਂ ਉੱਗਿਆ। ਇਹ ਮੇਰਾ ਖਾਲੀ ਗਮਲਾ ਹੈ।"
+    },
+    "bibi-listens": {
+      "speaker": "dadi",
+      "pa": "ਮੇਹਰ, ਤੂੰ ਸੱਚ ਦੱਸ ਕੇ ਹਿੰਮਤ ਕੀਤੀ।"
+    },
+    "bibi-explains": {
+      "speaker": "dadi",
+      "pa": "ਮੈਂ ਉਹ ਬੀਜ ਪਹਿਲਾਂ ਹੀ ਉਬਾਲ ਦਿੱਤੇ ਸਨ। ਉਬਾਲੇ ਹੋਏ ਬੀਜ ਨਹੀਂ ਉੱਗਦੇ।"
+    },
+    "sidak-admits": {
+      "speaker": "boy",
+      "pa": "ਮੇਰਾ ਬੀਜ ਵੀ ਨਹੀਂ ਉੱਗਿਆ ਸੀ। ਇਹ ਬੂਟਾ ਮੈਂ ਬਾਅਦ ਵਿੱਚ ਲਾਇਆ।"
+    },
+    "bibi-thanks": {
+      "speaker": "dadi",
+      "pa": "ਸਿਦਕ, ਸੱਚ ਦੱਸਣ ਲਈ ਤੇਰਾ ਵੀ ਧੰਨਵਾਦ।"
+    },
+    "second-chance": {
+      "speaker": "narrator",
+      "pa": "ਬੀਬੀ ਜੀ ਨੇ ਦੋਵਾਂ ਨੂੰ ਨਵੇਂ ਬੀਜ ਦਿੱਤੇ। ਕੁਝ ਦਿਨਾਂ ਬਾਅਦ ਦੋਵਾਂ ਦੇ ਗਮਲਿਆਂ ਵਿੱਚ ਨੰਨੇ ਪੱਤੇ ਦਿਸਣ ਲੱਗੇ।"
+    }
+  }
+}
