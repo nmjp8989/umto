@@ -8,7 +8,9 @@
   const params = new URLSearchParams(location.search);
   const reviewing = params.get('review') === '1';
   const { makeReading, readingAt } = window.LP004Reading;
-  const { CrowStage, eventsFor } = window.LP005Stage;
+  const stageModule = window.LittlePanthStage || window.LP005Stage;
+  const Stage = stageModule.Stage || stageModule.CrowStage;
+  const { eventsFor } = stageModule;
   const sound = new window.LP005Sound();
   let scenes = [];
   let stage;
@@ -103,7 +105,7 @@
     selected = index;
     const scene = scenes[index];
     book.dataset.layout = scene.layout || 'spread';
-    book.dataset.caption = scene.id === 'drops' ? 'top' : 'bottom';
+    book.dataset.caption = scene.caption || (scene.id === 'drops' ? 'top' : 'bottom');
     book.dataset.scene = scene.id;
     stage.select(scene);
     draw(0);
@@ -162,16 +164,16 @@
       read('art/stage.svg', 'text'),
       read('audio/generation-manifest.json').catch(() => ({})),
       read('audio/word-timings.json').catch(() => ({})),
-      document.fonts.load('700 48px "Little Panth Gurmukhi"', 'ਪਿਆਸਾ ਕਾਂ').catch(() => {})
+      document.fonts.load('700 48px "Little Panth Gurmukhi"', book.getAttribute('aria-label')).catch(() => {})
     ]);
     const svg = new DOMParser().parseFromString(drawing, 'image/svg+xml').documentElement;
     if (svg.localName !== 'svg') throw Error('The illustration is invalid');
     const stageElement = document.importNode(svg, true);
     movie.prepend(stageElement);
-    stage = new CrowStage(stageElement);
+    stage = new Stage(stageElement);
 
     const voiceIds = Object.keys(data.lines).filter(id => manifest[id]?.text === data.lines[id].pa);
-    await sound.load(voiceIds);
+    await sound.load(voiceIds, data.score === 'original' ? null : undefined);
     scenes = compile(data, manifest, timings);
     if (reviewing) {
       const revision = await revisionFor(data, manifest, timings);
@@ -199,7 +201,8 @@
       if (navigator.getAutoplayPolicy?.('audiocontext') === 'allowed') playWithSound(true);
     }
     if (params.get('test') === '1') {
-      window.lp005Test = {
+      const mission = String(data.mission || 5).padStart(3, '0');
+      window['lp' + mission + 'Test'] = {
         seek(index, ms) { stop(); select(index); draw(ms); },
         state: () => ({
           scene: selected, position, playing, audioActive: sound.elapsed() !== null,

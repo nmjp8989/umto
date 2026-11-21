@@ -10,7 +10,9 @@
     const template = $('review-ui').content.cloneNode(true);
     document.body.insertBefore(template.querySelector('.review-header'), $('shell'));
     $('shell').append(template);
-    const key = 'little-panth-05-review-' + revision;
+    const mission = data.mission || 5;
+    const number = String(mission).padStart(2, '0');
+    const key = 'little-panth-' + number + '-review-' + revision;
     let entries = {};
     try { entries = JSON.parse(localStorage.getItem(key)) || {}; } catch {}
 
@@ -78,7 +80,7 @@
     });
     $('download-review').addEventListener('click', () => {
       const documentReview = {
-        mission: 5,
+        mission,
         title: data.title,
         revision,
         approved: scenes.every(scene => read(scene.id).decision === 'approved'),
@@ -88,7 +90,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'little-panth-05-review.json';
+      link.download = 'little-panth-' + number + '-review.json';
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     });
@@ -111,7 +113,7 @@
         }
         if (lastLine !== line.id) {
           lastLine = line.id;
-          $('review-speaker').textContent = line.speaker === 'crow' ? 'Crow' : 'Narrator';
+          $('review-speaker').textContent = data.speakers?.[line.speaker] || (line.speaker === 'crow' ? 'Crow' : 'Narrator');
           $('review-dialogue').textContent = line.pa;
         }
         $('watch-scene').textContent = playing ? 'Pause' : 'Play scene';

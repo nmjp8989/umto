@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6e5">
+  <meta name="robots" content="noindex">
+  <meta name="mission-revision" content="race-draft-1">
+  <meta name="description" content="ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼. An animated Punjabi read-along about a steady tortoise and a speedy hare.">
+  <title>Little Panth VII · ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼</title>
+  <link rel="stylesheet" href="../mission-004/style.css?v=storybook">
+  <link rel="stylesheet" href="../mission-005/style.css?v=race1">
+  <script defer src="../../missions/delivery-camera.js"></script>
+  <script defer src="../mission-004/reading.js"></script>
+  <script defer src="stage.js?v=race1"></script>
+  <script defer src="../mission-005/sound.js?v=race1"></script>
+  <script defer src="../mission-005/review.js?v=race1"></script>
+  <script defer src="../mission-005/player.js?v=race1"></script>
+</head>
+<body>
+<div class="shell" id="shell">
+  <main class="book" id="book" data-layout="spread" aria-label="ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼">
+    <section class="page art-page" aria-label="ਐਨੀਮੇਸ਼ਨ">
+      <div id="movie" class="movie" role="group" aria-label="ਕਹਾਣੀ ਸੁਣਨ ਲਈ ਤਸਵੀਰ ਉੱਤੇ ਟੈਪ ਕਰੋ" tabindex="0">
+        <div class="story-loading" id="loading" role="status">ਕਹਾਣੀ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</div>
+      </div>
+    </section>
+    <section class="page reading-page" aria-label="ਕਹਾਣੀ ਦੇ ਸ਼ਬਦ">
+      <p id="reading" class="gurmukhi" lang="pa"></p>
+    </section>
+  </main>
+</div>
+
+<template id="review-ui">
+  <header class="review-header" lang="en">
+    <div>
+      <p class="review-mission">Little Panth · Mission 07</p>
+      <h1><span lang="pa">ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼</span> <span class="english-title">The Tortoise and the Hare</span></h1>
+    </div>
+    <a class="review-link" href="./">Open clean player</a>
+  </header>
+  <div class="review-transport" lang="en">
+    <button type="button" class="primary" id="watch-scene">Play scene</button>
+    <button type="button" id="rewind-scene">Restart</button>
+    <label for="scrub" class="visually-hidden">Scene playback position</label>
+    <input id="scrub" type="range" min="0" max="0" step="16" value="0">
+    <output id="clock" for="scrub"></output>
+  </div>
+  <aside class="review-panel" aria-label="Scene review" lang="en">
+    <div class="review-overview">
+      <strong id="review-progress"></strong>
+      <span id="review-audio" class="review-audio"></span>
+    </div>
+    <ol id="review-scenes" class="review-scenes"></ol>
+    <div class="scene-info">
+      <h2 id="review-title"></h2>
+      <p id="review-check"></p>
+      <div class="review-line">
+        <span id="review-speaker"></span>
+        <p id="review-dialogue" class="review-gurmukhi" lang="pa"></p>
+      </div>
+    </div>
+    <label for="review-note">Review notes</label>
+    <textarea id="review-note" rows="3" placeholder="Add anything to adjust in this scene"></textarea>
+    <button type="button" id="note-time" class="note-time">Insert playback time</button>
+    <div class="review-actions">
+      <button type="button" id="approve-scene" class="primary">Approve scene</button>
+      <button type="button" id="change-scene">Needs changes</button>
+    </div>
+    <button type="button" class="download-review" id="download-review">Download review notes</button>
+  </aside>
+</template>
+</body>
+</html>

@@ -2,6 +2,7 @@
   "mission": 7,
   "title": "ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼",
   "englishTitle": "The Tortoise and the Hare",
+  "score": "original",
   "speakers": { "narrator": "Narrator", "tortoise": "Tortoise", "hare": "Hare" },
   "scenes": [
     {

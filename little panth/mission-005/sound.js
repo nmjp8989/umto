@@ -2,7 +2,8 @@
   'use strict';
 
   function effect(context, name) {
-    const duration = name === 'wings' ? 0.48 : name === 'sip' ? 0.64 : 0.43;
+    const durations = { wings: 0.48, plop: 0.43, sip: 0.64, step: 0.18, ribbon: 0.3 };
+    const duration = durations[name];
     const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
     const samples = buffer.getChannelData(0);
     let seed = 217 + name.length;
@@ -18,6 +19,12 @@
         const bubble = t % 0.18;
         samples[i] = (Math.sin(2 * Math.PI * (420 * bubble - 315 * bubble * bubble)) * 0.12 + filtered * 0.1) *
           Math.exp(-bubble * 26) * Math.sin(Math.PI * t / duration);
+      } else if (name === 'step') {
+        const soil = 0.15 * Math.sin(2 * Math.PI * (104 * t - 121 * t * t));
+        samples[i] = (filtered * 0.28 + soil) * Math.exp(-t * 29) * Math.min(t * 120, 1);
+      } else if (name === 'ribbon') {
+        samples[i] = (filtered * 0.38 + 0.08 * Math.sin(2 * Math.PI * 420 * t)) *
+          Math.exp(-t * 18) * Math.min(t * 380, 1);
       } else {
         const clay = 0.13 * Math.sin(t * 2 * Math.PI * 1070) * Math.exp(-t * 70);
         const bubble = 0.33 * Math.sin(2 * Math.PI * (244 * t - 115 * t * t)) * Math.exp(-t * 15);
@@ -65,7 +72,7 @@
       this.speech.gain.value = 0.94;
       this.foleyGain.gain.value = 0.42;
       for (const bus of [this.speech, this.scoreGain, this.foleyGain]) bus.connect(this.context.destination);
-      this.effects = Object.fromEntries(['wings', 'plop', 'sip'].map(name => [name, effect(this.context, name)]));
+      this.effects = Object.fromEntries(['wings', 'plop', 'sip', 'step', 'ribbon'].map(name => [name, effect(this.context, name)]));
     }
 
     async decode(url) {
@@ -74,10 +81,10 @@
       return this.context.decodeAudioData(await response.arrayBuffer());
     }
 
-    async load(ids) {
+    async load(ids, scorePath = 'audio/score.mp3') {
       if (!this.context) return;
       const [score] = await Promise.all([
-        this.decode('audio/score.mp3').catch(() => null),
+        scorePath ? this.decode(scorePath).catch(() => null) : Promise.resolve(null),
         ...ids.map(async id => {
           const buffer = await this.decode('audio/' + id + '.mp3').catch(() => null);
           if (buffer) this.clips.set(id, buffer);
