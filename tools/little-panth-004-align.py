@@ -6,6 +6,7 @@ from difflib import SequenceMatcher
 import hashlib
 import json
 from pathlib import Path
+import re
 import subprocess
 import unicodedata
 
@@ -84,8 +85,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("model", type=Path)
     parser.add_argument("tokens", type=Path)
-    parser.add_argument("--mission", choices=("mission-004", "mission-005", "mission-007"), default="mission-004")
+    parser.add_argument("--mission", default="mission-004", metavar="mission-NNN")
     args = parser.parse_args()
+    if not re.fullmatch(r"mission-[0-9]{3}", args.mission):
+        parser.error("--mission must be in the form mission-NNN")
     import imageio_ffmpeg
     import sherpa_onnx
 

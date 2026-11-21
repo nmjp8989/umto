@@ -12,6 +12,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -25,6 +26,9 @@ MODEL="gemini-3.8-flash-tts"
 TTS_MODELS=(MODEL,"gemini-3.8-flash-lite-tts")
 VOICES={
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),
+ "wind":("Leda","Bright, lively and sure of herself. Speak the exact Punjabi words clearly at a pace a young reader can follow."),
+ "sun":("Charon","Warm and quietly confident, with an easy smile in the voice. Speak the exact Punjabi words clearly for young readers."),
+ "traveller":("Iapetus","An expressive, friendly Punjabi traveller. Speak naturally and clearly for young readers."),
  "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
  "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
  "baldev":("Puck","Lively middle-aged Punjabi village uncle, naturally funny, strong emotion and playful urgency, speaking everyday Punjabi clearly. Avoid artificial exaggerated shouting."),
@@ -42,12 +46,13 @@ VOICES={
 }
 def main():
  p=argparse.ArgumentParser()
- p.add_argument("--mission", choices=("mission-001", "mission-002", "mission-003", "mission-004", "mission-005", "mission-006", "mission-007"), default="mission-001")
+ p.add_argument("--mission", default="mission-001", metavar="mission-NNN")
  p.add_argument("--model", choices=TTS_MODELS, default=MODEL)
  p.add_argument("--max-new-lines",type=int,default=100,help="Hard limit on billed requests in one run.")
  p.add_argument("--dry-run",action="store_true")
  p.add_argument("--include-sacred-draft",action="store_true",help="Include a synthetic recitation of the Japji Sahib line.")
  args=p.parse_args()
+ if not re.fullmatch(r"mission-[0-9]{3}",args.mission):p.error("--mission must be in the form mission-NNN")
  if not (1<=args.max_new_lines<=100):p.error("--max-new-lines must be between 1 and 100")
  mission=ROOT/"little panth"/args.mission
  AUDIO=mission/"audio"
