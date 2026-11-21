@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">The fox and the stork share a meal in a Punjabi village garden</title>
+  <defs>
+    <radialGradient id="ground-shadow"><stop stop-color="#503725" stop-opacity=".52"/><stop offset="1" stop-color="#503725" stop-opacity="0"/></radialGradient>
+    <linearGradient id="canal-water" x2=".19" y2="1">
+      <stop stop-color="#c6d9b9"/><stop offset=".54" stop-color="#8bb8a7"/><stop offset="1" stop-color="#699697"/>
+    </linearGradient>
+    <linearGradient id="timber" x2=".19" y2="1">
+      <stop stop-color="#e2b881"/><stop offset=".54" stop-color="#bc895d"/><stop offset="1" stop-color="#987050"/>
+    </linearGradient>
+    <linearGradient id="ceramic" x2=".88" y2=".72">
+      <stop stop-color="#c6ddd1"/><stop offset=".53" stop-color="#92b4a6"/><stop offset="1" stop-color="#588983"/>
+    </linearGradient>
+    <linearGradient id="clay" x2=".85" y2=".49">
+      <stop stop-color="#e8b786"/><stop offset=".48" stop-color="#c58b64"/><stop offset="1" stop-color="#9b624f"/>
+    </linearGradient>
+    <linearGradient id="stork-feather" x2=".38" y2="1">
+      <stop stop-color="#fff4d8"/><stop offset=".68" stop-color="#e7ddc9"/><stop offset="1" stop-color="#c3c0b2"/>
+    </linearGradient>
+    <linearGradient id="stork-wing" x2=".35" y2="1">
+      <stop stop-color="#8a888d"/><stop offset="1" stop-color="#514c5d"/>
+    </linearGradient>
+    <linearGradient id="dal" x2=".22" y2="1">
+      <stop stop-color="#f9d685"/><stop offset="1" stop-color="#dba65b"/>
+    </linearGradient>
+    <linearGradient id="kheer" x2=".28" y2="1">
+      <stop stop-color="#fff5d4"/><stop offset="1" stop-color="#dfb883"/>
+    </linearGradient>
+    <g id="plate-shape">
+      <path d="M-63 0q6 16 63 17Q55 16 63 0Z" fill="#628e84" stroke="#487672" stroke-width="2.8"/>
+      <ellipse rx="63" ry="15" fill="url(#ceramic)" stroke="#527e74" stroke-width="2.8"/>
+      <ellipse rx="52" ry="11" fill="#82a698" stroke="#d9e4cb" stroke-width="1.9"/>
+      <path d="M-56 5q52 18 109 0" fill="none" stroke="#dde3c6" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="surahi-shape" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cy="4" rx="61" ry="13" fill="url(#ground-shadow)"/>
+      <path d="M9-93q45-8 49 21 3 23-25 35" fill="none" stroke="#8e5c49" stroke-width="9"/>
+      <path d="M11-93q43-7 46 21 1 21-22 32" fill="none" stroke="#d6a17b" stroke-width="5"/>
+      <path d="M-16-106h32l2 28q2 9 20 21 15 13 13 30Q49-8 29-1H-30Q-50-9-51-28q0-17 14-29 18-13 19-22Z"
+        fill="url(#clay)" stroke="#8f5d48" stroke-width="3.2"/>
+      <path d="M-35-54q34 17 71 0m-81 16q45 21 90 0m-88 12q43 22 86 0" fill="none" stroke="#ebbe87" stroke-width="2.9"/>
+      <path d="M-24-47l9 6 10-3 9 5 9-4 9 2 10-4m-55 24 12 6 10-4 10 4 11-6 9 0" fill="none" stroke="#9b674f" stroke-width="2" opacity=".78"/>
+      <ellipse cy="-106" rx="21" ry="7.8" fill="#e2ae80" stroke="#8d5b49" stroke-width="2.8"/>
+      <ellipse cy="-106" rx="14.7" ry="4.7" fill="#73564d"/>
+      <path d="M-18-104q17 11 36-1" fill="none" stroke="#f1c18f" stroke-width="2.3"/>
+    </g>
+    <g id="reeds">
+      <path d="M0 0q-7-38-27-58M2 1q8-59 4-78M3-3q21-44 39-57m-38 58q23-24 38-26"
+        fill="none" stroke="#6e8e59" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M6-71v-11m-30 29-7-10m68 11 7-8" stroke="#9b7d54" stroke-width="6.8" stroke-linecap="round"/>
+    </g>
+    <g id="tuft">
+      <path d="M0 6Q-21-10-36-9Q-31-20-4 1Q-19-22-18-42Q-4-33 1-2Q11-26 32-32Q23-22 6 3Q24-13 39-12Q31-2 0 6Z" fill="#818d5b"/>
+      <path d="M-2 1q-3-18-11-29m18 29q7-12 15-16" fill="none" stroke="#bcc078" stroke-width="1.7" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.18">
+    <rect x="-110" y="-64" width="1500" height="850" fill="#d4b889"/>
+    <image href="../mission-003/art/courtyard.webp" x="-60" y="-34" width="1400" height="788" preserveAspectRatio="xMidYMid slice"/>
+    <g id="canal-scene" opacity="0">
+      <image href="../mission-003/art/banyan.webp" x="-60" y="-34" width="1400" height="788" preserveAspectRatio="xMidYMid slice"/>
+      <path d="M-78 389q233-42 390-11 167 38 314 7 212-58 474-46 163-19 261 11v84q-139-20-232-6-251-5-461 65-158 49-370 17-170-27-376 5Z"
+        fill="url(#canal-water)" stroke="#839e78" stroke-width="4"/>
+      <path id="canal-ripples" d="M-24 419q116-25 258-18m37 10q76 22 177 20m70-1q114-16 202-37m72 10q98-31 206-32m46 24q90-11 184-7M-16 466q144-26 252-17m382-4q122-34 204-50"
+        fill="none" stroke="#e3e9bf" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+      <path d="M-70 519q199-45 375-13 147 26 301 1 144-30 283-70 154-38 454-5v320H-70Z"
+        fill="#a4a16e" opacity=".54"/>
+      <use href="#reeds" transform="translate(198 516)"/>
+      <use href="#reeds" transform="translate(183 518) scale(.73)"/>
+      <use href="#reeds" transform="translate(1106 450) scale(1.12)"/>
+      <use href="#reeds" transform="translate(1141 449) scale(.78)"/>
+    </g>
+  </g>
+
+  <g fill="url(#ground-shadow)">
+    <ellipse id="fox-shadow" rx="137" ry="21"/>
+    <ellipse id="stork-shadow" rx="101" ry="18"/>
+    <ellipse cx="644" cy="629" rx="226" ry="30"/>
+  </g>
+  <g id="fox-mount"/>
+  <g id="stork" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
+    <g id="stork-far-leg" fill="none" stroke="#a56a57" stroke-width="7">
+      <path d="M-5-176l-13 83 15 84m-1 0h-30m32 0-22 8"/>
+      <path d="M-4-9Q-11-11-17-10" stroke="#ca8a66" stroke-width="3"/>
+    </g>
+    <g id="stork-near-leg" fill="none" stroke="#b87960" stroke-width="8">
+      <path d="M25-172l17 76-9 88m0 0H1m32 0-20 10"/>
+      <path d="M28-97q14-3 14 3" stroke="#d79672" stroke-width="3.3"/>
+    </g>
+    <path id="neck-guide" fill="none" stroke="#b1a798" stroke-width="40"/>
+    <path id="neck-feathers" fill="none" stroke="#f5e8cf" stroke-width="34"/>
+    <path id="neck-light" fill="none" stroke="#fff4dc" stroke-width="3.8" opacity=".65"/>
+    <g id="stork-body">
+      <path d="M-80-184q12-34 60-42 52-8 77 27 15 19 41 23l-10 17-27 4q-19 32-72 31-50-4-65-27-10-10-4-33Z"
+        fill="url(#stork-feather)" stroke="#b2a697" stroke-width="3"/>
+      <path d="M-27-204q49-15 76 13 16 17 53 19l-17 17q-53 21-99-8-22-15-13-41Z"
+        fill="url(#stork-wing)" stroke="#645e67" stroke-width="3.2"/>
+      <path d="M-24-194q38-14 61 9 19 16 47 15M-16-169q42 21 75 11" fill="none" stroke="#a6a0a0" stroke-width="3.2"/>
+      <path d="M-72-179q9-24 36-28m-31 41q9 18 38 23" fill="none" stroke="#fff3d5" stroke-width="3.8"/>
+    </g>
+    <g id="stork-head">
+      <path id="stork-lower-beak" d="M-26 1-123 0q47 14 99 10Z" fill="#cf855a" stroke="#995c48" stroke-width="2.4"/>
+      <path d="M-124 0-31-13-18 0-31 6Z" fill="#df9b66" stroke="#a36850" stroke-width="2.4"/>
+      <path d="M-109-1l69-8" stroke="#f1bf86" stroke-width="1.8"/>
+      <path d="M-31-20q8-18 30-15 28 2 34 25 3 22-18 35-23 13-40-5-13-13-6-40Z"
+        fill="url(#stork-feather)" stroke="#b1a595" stroke-width="3"/>
+      <path d="M15-27q19-6 26 0-4 10-15 12" fill="#f5e7cc" stroke="#b1a595" stroke-width="2.4"/>
+      <path d="M-29-5q15-9 22 1-5 11-22 9Z" fill="#cb8b6d" opacity=".79"/>
+      <ellipse id="stork-eye" cx="-15" cy="-10" rx="5" ry="5.8" fill="#4e4244"/>
+      <circle id="stork-eye-glint" cx="-16.4" cy="-11.7" r="1.2" fill="#fff4d8"/>
+      <path id="stork-lid" d="M-20-9q4 3 10 0" fill="none" stroke="#76645f" stroke-width="2.2" opacity="0"/>
+    </g>
+  </g>
+
+  <g id="table" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M484 550h24l-6 64-21 6Zm313 0h25l8 64-22 2Zm-52-16 19 1 2 59-16-3Zm-212 0 18 2-5 56-15-1Z"
+      fill="url(#timber)" stroke="#805e47" stroke-width="4"/>
+    <path d="M500 579q124 7 314-4l2 9q-161 19-317 5Z" fill="#ac7b55" stroke="#8c6248" stroke-width="3"/>
+    <path d="M465 527l282-24 97 28-25 27-322 10-31-16Z" fill="url(#timber)" stroke="#805c44" stroke-width="4"/>
+    <path d="M465 531l34 26 320-9 24-16-3 16-21 13-320 10-35-25Z" fill="#af805a" stroke="#825e45" stroke-width="3.5"/>
+    <path d="M489 533l122-11m-105 26 127-6m46-24 62-4m-68 28 130-10" fill="none" stroke="#ebc391" stroke-width="2.8"/>
+  </g>
+  <g id="plates">
+    <g id="fox-plate">
+      <use href="#plate-shape"/>
+      <g id="fox-food">
+        <ellipse id="fox-food-fill" rx="47" ry="9" fill="url(#dal)"/>
+        <path d="M-23 1q20-5 34-3m11 3 9-1m-36 5 8-1" fill="none" stroke="#fff0c5" stroke-width="2.2" opacity=".78" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g id="stork-plate" transform="translate(743 545)">
+      <use href="#plate-shape"/>
+      <ellipse rx="47" ry="9" fill="url(#dal)"/>
+      <path d="M-24 1q20-5 34-3m10 2 11-1m-24 6 6-1" fill="none" stroke="#fff0c5" stroke-width="2.2" opacity=".78" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g id="jugs" opacity="0">
+    <g id="fox-jug"><use href="#surahi-shape"/></g>
+    <g id="stork-jug" transform="translate(793 537)"><use href="#surahi-shape"/></g>
+  </g>
+  <g id="pour-stream" opacity="0" fill="none" stroke-linecap="round">
+    <path id="kheer-stream" stroke="#f3d7a8" stroke-width="14"/>
+    <path id="kheer-glint" stroke="#fff6d7" stroke-width="5"/>
+  </g>
+  <g data-camera-depth=".24">
+    <use href="#tuft" transform="translate(38 697) scale(1.3)"/>
+    <use href="#tuft" transform="translate(107 720) scale(1.48)"/>
+    <use href="#tuft" transform="translate(1190 693) scale(1.32)"/>
+    <use href="#tuft" transform="translate(1234 717) scale(1.49)"/>
+  </g>
+</svg>
