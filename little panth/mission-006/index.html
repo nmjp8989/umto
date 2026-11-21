@@ -215,6 +215,30 @@ window.addEventListener('DOMContentLoaded', () => {
  try{notes=JSON.parse(localStorage.getItem('little-panth-06-review')||'{}')}catch{}
  const safeText=s=>String(s||'');
  const musicContext=sound.context;
+ function makeFoley(name){
+  const ctx=musicContext;if(!ctx)return null;
+  const dur=name==='net'?0.63:name==='chew'?0.34:0.55;
+  const buffer=ctx.createBuffer(1,Math.ceil(dur*ctx.sampleRate),ctx.sampleRate);
+  const out=buffer.getChannelData(0);let seed=78413,low=0;
+  for(let i=0;i<out.length;i++){
+   const t=i/ctx.sampleRate;seed=(1664525*seed+1013904223)>>>0;
+   const noise=(seed/2147483648-1);low+=.12*(noise-low);
+   const envelope=Math.sin(Math.PI*t/dur);
+   if(name==='net')out[i]=(Math.sin(2*Math.PI*(71*t-25*t*t))*.55+noise*.12)*Math.exp(-t*8);
+   else if(name==='chew')out[i]=(noise*.23+Math.sin(2*Math.PI*790*t)*.18)*Math.exp(-(t%0.105)*41)*envelope;
+   else out[i]=low*.43*envelope*(.5+.5*Math.sin(2*Math.PI*12*t));
+  }
+  return buffer;
+ }
+ if(musicContext)for(const name of ['rustle','net','chew'])sound.effects[name]=makeFoley(name);
+ function effectsFor(scene){
+  const a=scene.lines,at=(index,offset=0)=>Math.min(scene.duration-280,(a[index]?.start||0)+offset);
+  if(scene.id==='scamper')return [{ms:at(0,550),sound:'rustle'},{ms:at(1,240),sound:'rustle'}];
+  if(scene.id==='trap')return [{ms:at(1,580),sound:'net'}];
+  if(scene.id==='return')return [{ms:at(0,630),sound:'rustle'}];
+  if(scene.id==='chew')return [{ms:at(0,550),sound:'chew'},{ms:at(1,270),sound:'chew'},{ms:at(2,140),sound:'net'}];
+  return [];
+ }
  function compile(data,manifest,timings){
   let elapsed=0;
   return data.scenes.map((s,i)=>{
@@ -229,6 +253,7 @@ window.addEventListener('DOMContentLoaded', () => {
     return line;
    });
    const entry={...s,lines,events:[],duration:cursor+(i===data.scenes.length-1?2600:650),episodeStart:elapsed};
+   entry.events=effectsFor(entry);
    elapsed+=entry.duration;
    return entry;
   });
@@ -282,7 +307,7 @@ window.addEventListener('DOMContentLoaded', () => {
   p['lion-eyes'].setAttribute('opacity',awake?'1':'0');
   const speaking=line&&isDuring(ms,line)&&line.speaker;
   const wordProgress=speaking?readingAt(line.reading,ms-line.start).word:-1;
-  const rhythm=still?.25:(Math.abs(Math.sin(t*14))*0.75+0.2);
+  const rhythm=still ? 0.25 :(Math.abs(Math.sin(t*14))*0.75+0.2);
   p['lion-mouth'].setAttribute('transform','translate(0 54) scale(1 '+(speaking==='lion'&&wordProgress>=0?rhythm:.1)+')');
   p['mouse-mouth'].setAttribute('d',speaking==='mouse'&&wordProgress>=0?'M61-18q11 17 18-1':'M61-19q8 9 17 1');
   const pawAngle=id==='caught'? -17:id==='mercy'? -34*part(250,second+400):id==='friends'?-13*Math.sin(t*1.7):0;
