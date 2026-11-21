@@ -1,0 +1,110 @@
+{
+  "mission": 24,
+  "title": "ਗਿੱਦੜ ਤੇ ਢੋਲ",
+  "englishTitle": "The Jackal and the Drum",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "jackal": "Jackal"
+  },
+  "scenes": [
+    {
+      "id": "sound-on-the-path",
+      "title": "A sound on the forest path",
+      "framing": "establishing",
+      "focus": { "x": 640, "y": 353 },
+      "lines": ["unexpected-sound"],
+      "review": "Follow the jackal along the path and watch him stop on the two beats. Keep the source of the sound hidden."
+    },
+    {
+      "id": "stop-and-listen",
+      "title": "Stop and listen",
+      "framing": "medium",
+      "focus": { "x": 510, "y": 438 },
+      "lines": ["jackal-wonders", "listens-to-the-wind"],
+      "review": "Show the jackal take two steps back, prick up his ears, and listen as the wind moves the leaves."
+    },
+    {
+      "id": "behind-the-bush",
+      "title": "Behind the bush",
+      "framing": "full",
+      "focus": { "x": 681, "y": 408 },
+      "lines": ["finds-a-drum"],
+      "review": "Track the jackal to the edge of the bush. Reveal the old drum and the twig above it."
+    },
+    {
+      "id": "twig-taps-skin",
+      "title": "The twig taps the drum",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 775, "y": 459 },
+      "lines": ["wind-makes-a-beat"],
+      "review": "Watch the twig swing with the gust. Its tip should touch the drum skin on the beat, then spring back."
+    },
+    {
+      "id": "may-i-try",
+      "title": "The jackal has an idea",
+      "framing": "two-shot",
+      "focus": { "x": 705, "y": 438 },
+      "lines": ["jackal-wants-a-turn"],
+      "review": "Keep the jackal's muzzle and the drum in the shot. His ears and expression should relax."
+    },
+    {
+      "id": "two-little-taps",
+      "title": "Two little taps",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 736, "y": 488 },
+      "lines": ["jackal-taps-the-drum", "jackal-understands"],
+      "review": "Match each sound to the moment the forepaw contacts the drum skin, then show the jackal's smile."
+    },
+    {
+      "id": "homeward-path",
+      "title": "On his way again",
+      "framing": "wide",
+      "focus": { "x": 690, "y": 366 },
+      "lines": ["walks-on"],
+      "review": "Let the twig make one last beat. This time the jackal keeps his ears relaxed and walks on."
+    }
+  ],
+  "lines": {
+    "unexpected-sound": {
+      "speaker": "narrator",
+      "pa": "ਸ਼ਾਮ ਵੇਲੇ ਇੱਕ ਗਿੱਦੜ ਜੰਗਲ ਦੇ ਰਾਹ ਉੱਤੇ ਤੁਰਿਆ ਜਾ ਰਿਹਾ ਸੀ। ਅਚਾਨਕ ਉਸ ਨੂੰ ਝਾੜੀਆਂ ਪਿੱਛੋਂ ਆਵਾਜ਼ ਸੁਣਾਈ ਦਿੱਤੀ। ਢਮ! ਢਮ! ਉਹ ਉੱਥੇ ਹੀ ਰੁਕ ਗਿਆ।"
+    },
+    "jackal-wonders": {
+      "speaker": "jackal",
+      "pa": "ਇਹ ਕਿਹੋ ਜਿਹੀ ਆਵਾਜ਼ ਹੈ? ਕਿਤੇ ਝਾੜੀਆਂ ਪਿੱਛੇ ਕੋਈ ਵੱਡਾ ਜਾਨਵਰ ਤਾਂ ਨਹੀਂ?"
+    },
+    "listens-to-the-wind": {
+      "speaker": "narrator",
+      "pa": "ਪਹਿਲਾਂ ਗਿੱਦੜ ਦੋ ਕਦਮ ਪਿੱਛੇ ਹਟਿਆ। ਫਿਰ ਉਸ ਨੇ ਕੰਨ ਖੜ੍ਹੇ ਕੀਤੇ ਤੇ ਧਿਆਨ ਨਾਲ ਸੁਣਿਆ। ਆਵਾਜ਼ ਸਿਰਫ਼ ਉਦੋਂ ਆਉਂਦੀ ਸੀ ਜਦੋਂ ਹਵਾ ਚੱਲਦੀ ਸੀ।"
+    },
+    "finds-a-drum": {
+      "speaker": "narrator",
+      "pa": "ਉਹ ਹੌਲੀ ਹੌਲੀ ਅੱਗੇ ਵਧਿਆ ਤੇ ਝਾੜੀ ਦੇ ਪਾਸੇ ਤੋਂ ਝਾਕਿਆ। ਉੱਥੇ ਇੱਕ ਪੁਰਾਣਾ ਢੋਲ ਪਿਆ ਸੀ। ਉਸ ਦੇ ਉੱਪਰ ਇੱਕ ਸੁੱਕੀ ਟਾਹਣੀ ਲਟਕ ਰਹੀ ਸੀ।"
+    },
+    "wind-makes-a-beat": {
+      "speaker": "narrator",
+      "pa": "ਜਦੋਂ ਹਵਾ ਚੱਲੀ, ਟਾਹਣੀ ਹਿੱਲੀ। ਉਸ ਦਾ ਸਿਰਾ ਢੋਲ ਦੀ ਖੱਲ ਉੱਤੇ ਵੱਜਿਆ। ਢਮ! ਹੁਣ ਗਿੱਦੜ ਨੂੰ ਪਤਾ ਲੱਗ ਗਿਆ ਕਿ ਆਵਾਜ਼ ਕਿੱਥੋਂ ਆ ਰਹੀ ਸੀ।"
+    },
+    "jackal-wants-a-turn": {
+      "speaker": "jackal",
+      "pa": "ਓਹ, ਇਹ ਤਾਂ ਢੋਲ ਹੈ! ਜ਼ਰਾ ਮੈਂ ਵੀ ਇਸ ਨੂੰ ਵਜਾ ਕੇ ਵੇਖਾਂ।"
+    },
+    "jackal-taps-the-drum": {
+      "speaker": "narrator",
+      "pa": "ਗਿੱਦੜ ਨੇ ਆਪਣਾ ਪੰਜਾ ਚੁੱਕਿਆ ਤੇ ਢੋਲ ਉੱਤੇ ਹੌਲੀ ਜਿਹੀ ਥਾਪ ਦਿੱਤੀ। ਉਹੀ ਆਵਾਜ਼ ਫੇਰ ਆਈ। ਉਸ ਨੇ ਇੱਕ ਹੋਰ ਥਾਪ ਦਿੱਤੀ ਤੇ ਹੱਸ ਪਿਆ।"
+    },
+    "jackal-understands": {
+      "speaker": "jackal",
+      "pa": "ਪਹਿਲਾਂ ਮੈਂ ਡਰ ਗਿਆ ਸੀ। ਹੁਣ ਮੈਨੂੰ ਪਤਾ ਹੈ, ਇਹ ਆਵਾਜ਼ ਕਿਵੇਂ ਬਣਦੀ ਹੈ।"
+    },
+    "walks-on": {
+      "speaker": "narrator",
+      "pa": "ਹਵਾ ਨੇ ਟਾਹਣੀ ਨੂੰ ਫੇਰ ਹਿਲਾਇਆ। ਇਸ ਵਾਰੀ ਗਿੱਦੜ ਨਹੀਂ ਡਰਿਆ। ਉਹ ਆਪਣੇ ਰਾਹ ਤੁਰ ਪਿਆ ਤੇ ਪਿੱਛੋਂ ਢੋਲ ਦੀ ਹੌਲੀ ਜਿਹੀ ਥਾਪ ਸੁਣਦਾ ਰਿਹਾ।"
+    }
+  }
+}
