@@ -131,5 +131,19 @@
     "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਨੇ ਭੇਡਾਂ ਗਿਣੀਆਂ। ਸਾਰੀਆਂ ਸੁਰੱਖਿਅਤ ਸਨ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-lite-tts"
+  },
+  "trust": {
+    "hash": "e3c8a27004b2c632b378b6264c5c696e879d6fb582cdeaf546e12d384da9e379",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਸਮਝ ਗਿਆ ਕਿ ਭਰੋਸਾ ਸੱਚ ਬੋਲਣ ਨਾਲ ਬਣਦਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "home": {
+    "hash": "8d26253c30bc47e4951bab07c9d94408e069b72c119ca0c31c275c49120d6578",
+    "voice": "Kore",
+    "text": "ਚੱਲ, ਆਪਾਂ ਇਕੱਠੇ ਘਰ ਚੱਲੀਏ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
   }
 }
