@@ -49,9 +49,9 @@
     "model": "gemini-3.8-flash-lite-tts"
   },
   "second-shout": {
-    "hash": "2a81857ca276ddf97e1bb357745aec4e9481089273971eb0fb01ccd602379122",
+    "hash": "0f866dccc9562ac8257d4be5da2f8213a7fbed3e88d2454fe38fce54b6bfbe97",
     "voice": "Orus",
-    "text": "ਬਘਿਆੜ ਆ ਗਿਆ!",
+    "text": "ਬਘਿਆੜ ਆ ਗਿਆ! ਛੇਤੀ ਆਓ!",
     "speaker": "boy",
     "model": "gemini-3.8-flash-tts"
   },
