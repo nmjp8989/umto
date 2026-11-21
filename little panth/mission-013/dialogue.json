@@ -1,0 +1,97 @@
+{
+  "mission": 13,
+  "title": "ਬਘਿਆੜ ਆਇਆ!",
+  "englishTitle": "The Boy Who Cried Wolf",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "boy": "Sidak",
+    "mehar": "Mehar",
+    "dadi": "Bibi Ji"
+  },
+  "scenes": [
+    {
+      "id": "pasture",
+      "title": "A morning with the sheep",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 372 },
+      "lines": ["morning", "bored"],
+      "review": "Show the flock, the open pen, and the path between Sidak and the others. Move closer when Sidak speaks."
+    },
+    {
+      "id": "first-call",
+      "title": "The first false alarm",
+      "framing": "wide",
+      "focus": { "x": 590, "y": 402 },
+      "lines": ["prank", "first-shout", "mehar-runs", "mehar-warns"],
+      "review": "Sidak cups a hand to call. Mehar runs in from the left. Keep the sheep grazing calmly through the prank."
+    },
+    {
+      "id": "second-call",
+      "title": "Bibi Ji comes to check",
+      "framing": "wide",
+      "focus": { "x": 475, "y": 408 },
+      "lines": ["again", "second-shout", "bibi-arrives", "bibi-warns"],
+      "review": "Show Mehar and Bibi Ji arriving from the field. Frame Bibi Ji with Sidak for her warning while Mehar listens."
+    },
+    {
+      "id": "wolf",
+      "title": "A real wolf in the bushes",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["rustle", "real-wolf", "real-shout"],
+      "review": "At dusk, cut to the rustling hedge. Show the wolf emerge before the sheep run to the pen. Keep the wolf on the far side of the field."
+    },
+    {
+      "id": "no-answer",
+      "title": "Nobody comes",
+      "framing": "two-shot",
+      "focus": { "x": 310, "y": 432 },
+      "lines": ["mehar-hears", "no-help"],
+      "review": "Show Mehar look back when she hears Sidak. After she stays with Bibi Ji, cut to Sidak alone by the open gate."
+    },
+    {
+      "id": "safe-pen",
+      "title": "Sidak closes the gate",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "wide",
+      "focus": { "x": 927, "y": 418 },
+      "lines": ["shut-gate", "wolf-leaves", "sidak-sorry"],
+      "review": "Show all four sheep cross the gate before Sidak closes it. The wolf leaves behind the bushes before Mehar comes back."
+    },
+    {
+      "id": "counting",
+      "title": "Four sheep, safe and sound",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 370 },
+      "lines": ["count-sheep", "trust", "home"],
+      "review": "Count the four sheep with Mehar and Sidak. Leave the gate closed as the children walk home with Bibi Ji."
+    }
+  ],
+  "lines": {
+    "morning": { "speaker": "narrator", "pa": "ਸਵੇਰੇ ਸਿਦਕ ਭੇਡਾਂ ਨੂੰ ਚਰਾਉਣ ਲੈ ਗਿਆ। ਮੇਹਰ ਤੇ ਬੀਬੀ ਜੀ ਨੇੜਲੇ ਖੇਤ ਵਿੱਚ ਕੰਮ ਕਰ ਰਹੇ ਸਨ।" },
+    "bored": { "speaker": "boy", "pa": "ਇੱਥੇ ਬੈਠੇ ਬੈਠੇ ਮੈਂ ਅੱਕ ਗਿਆ ਹਾਂ!" },
+    "prank": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੂੰ ਇੱਕ ਮਜ਼ਾਕ ਸੁੱਝਿਆ। ਉਹ ਉੱਚੀ ਆਵਾਜ਼ ਵਿੱਚ ਚੀਕਿਆ।" },
+    "first-shout": { "speaker": "boy", "pa": "ਬਘਿਆੜ ਆ ਗਿਆ! ਛੇਤੀ ਆਓ!" },
+    "mehar-runs": { "speaker": "narrator", "pa": "ਮੇਹਰ ਦੌੜ ਕੇ ਆਈ। ਉੱਥੇ ਭੇਡਾਂ ਘਾਹ ਖਾ ਰਹੀਆਂ ਸਨ ਤੇ ਸਿਦਕ ਹੱਸ ਰਿਹਾ ਸੀ।" },
+    "mehar-warns": { "speaker": "mehar", "pa": "ਸਿਦਕ, ਮਦਦ ਲਈ ਤਾਂ ਹੀ ਬੁਲਾਈਂ ਜਦੋਂ ਸੱਚਮੁੱਚ ਲੋੜ ਹੋਵੇ।" },
+    "again": { "speaker": "narrator", "pa": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਉਸ ਨੇ ਫਿਰ ਝੂਠਾ ਰੌਲਾ ਪਾਇਆ।" },
+    "second-shout": { "speaker": "boy", "pa": "ਬਘਿਆੜ ਆ ਗਿਆ!" },
+    "bibi-arrives": { "speaker": "narrator", "pa": "ਇਸ ਵਾਰੀ ਮੇਹਰ ਦੇ ਨਾਲ ਬੀਬੀ ਜੀ ਵੀ ਆਏ।" },
+    "bibi-warns": { "speaker": "dadi", "pa": "ਪੁੱਤ, ਝੂਠ ਬੋਲਣ ਨਾਲ ਲੋਕਾਂ ਦਾ ਭਰੋਸਾ ਟੁੱਟ ਜਾਂਦਾ ਹੈ।" },
+    "rustle": { "speaker": "narrator", "pa": "ਸ਼ਾਮ ਨੂੰ ਝਾੜੀਆਂ ਵਿੱਚ ਖੜਕਾ ਹੋਇਆ।" },
+    "real-wolf": { "speaker": "narrator", "pa": "ਇੱਕ ਬਘਿਆੜ ਬਾਹਰ ਨਿਕਲਿਆ। ਭੇਡਾਂ ਡਰ ਕੇ ਵਾੜ ਵੱਲ ਭੱਜੀਆਂ।" },
+    "real-shout": { "speaker": "boy", "pa": "ਇਸ ਵਾਰੀ ਸੱਚਮੁੱਚ ਬਘਿਆੜ ਆਇਆ ਹੈ! ਮੇਰੀ ਮਦਦ ਕਰੋ!" },
+    "mehar-hears": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਆਵਾਜ਼ ਸੁਣੀ। ਉਸ ਨੂੰ ਲੱਗਾ ਕਿ ਸਿਦਕ ਫਿਰ ਮਜ਼ਾਕ ਕਰ ਰਿਹਾ ਹੈ।" },
+    "no-help": { "speaker": "narrator", "pa": "ਕੋਈ ਵੀ ਨਾ ਆਇਆ।" },
+    "shut-gate": { "speaker": "narrator", "pa": "ਸਿਦਕ ਨੇ ਭੇਡਾਂ ਨੂੰ ਵਾੜ ਅੰਦਰ ਕੀਤਾ ਤੇ ਬੂਹਾ ਬੰਦ ਕਰ ਦਿੱਤਾ।" },
+    "wolf-leaves": { "speaker": "narrator", "pa": "ਬਘਿਆੜ ਝਾੜੀਆਂ ਪਿੱਛੇ ਚਲਾ ਗਿਆ।" },
+    "sidak-sorry": { "speaker": "boy", "pa": "ਮੇਹਰ, ਮੈਨੂੰ ਮਾਫ਼ ਕਰੀਂ। ਹੁਣ ਮੈਂ ਸੱਚ ਬੋਲਾਂਗਾ।" },
+    "count-sheep": { "speaker": "narrator", "pa": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਨੇ ਭੇਡਾਂ ਗਿਣੀਆਂ। ਸਾਰੀਆਂ ਸੁਰੱਖਿਅਤ ਸਨ।" },
+    "trust": { "speaker": "narrator", "pa": "ਸਿਦਕ ਸਮਝ ਗਿਆ ਕਿ ਭਰੋਸਾ ਸੱਚ ਬੋਲਣ ਨਾਲ ਬਣਦਾ ਹੈ।" },
+    "home": { "speaker": "mehar", "pa": "ਚੱਲ, ਆਪਾਂ ਇਕੱਠੇ ਘਰ ਚੱਲੀਏ।" }
+  }
+}
