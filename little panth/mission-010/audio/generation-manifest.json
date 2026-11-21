@@ -1,0 +1,86 @@
+{
+  "ant-at-bank": {
+    "hash": "668bfb11d3fa48ab50683e8eb7da28dc224229c0fb78a6f9eba8ba4b37487e78",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਕੀੜੀ ਪਾਣੀ ਪੀਣ ਲਈ ਨਦੀ ਕੰਢੇ ਆਈ। ਘੁੱਗੀ ਟਾਹਣੀ ਉੱਤੇ ਬੈਠੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "ant-slips": {
+    "hash": "1b2983c92a31c89f2ae076fe61f9a93bec79713792e9dffb9680a1ed2f23037a",
+    "voice": "Aoede",
+    "text": "ਕੀੜੀ ਦਾ ਪੈਰ ਤਿਲਕਿਆ ਤੇ ਉਹ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "ant-calls": {
+    "hash": "115941348120016caae6fb7ee3ebd5d3c5b368c195334fa9edf2451f6e1eab98",
+    "voice": "Leda",
+    "text": "ਬਚਾਓ! ਪਾਣੀ ਮੈਨੂੰ ਵਹਾ ਕੇ ਲੈ ਜਾ ਰਿਹਾ ਹੈ!",
+    "speaker": "ant",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "dove-promises": {
+    "hash": "d2a67e4fba53c2fb4709f607c91007277fb9719c483c81dca33b036f0a3e1b5e",
+    "voice": "Vindemiatrix",
+    "text": "ਕੀੜੀਏ, ਘਬਰਾ ਨਾ! ਮੈਂ ਹੁਣੇ ਪੱਤਾ ਸੁੱਟਦੀ ਹਾਂ।",
+    "speaker": "dove",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "leaf-drops": {
+    "hash": "00155bb28111b3a569000f0003e00b5ec98db2df5e2d3b8f01478df16868226b",
+    "voice": "Aoede",
+    "text": "ਘੁੱਗੀ ਨੇ ਇੱਕ ਵੱਡਾ ਪੱਤਾ ਤੋੜਿਆ ਤੇ ਕੀੜੀ ਕੋਲ ਸੁੱਟ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "leaf-floats": {
+    "hash": "ddddd108889177927bcd0e1edd53a2b1c9c9746f076d848c667ded3ba37c77dd",
+    "voice": "Aoede",
+    "text": "ਕੀੜੀ ਪੱਤੇ ਉੱਤੇ ਚੜ੍ਹ ਗਈ। ਪੱਤਾ ਤੈਰ ਕੇ ਕੰਢੇ ਤੱਕ ਆ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "ant-thanks": {
+    "hash": "06e575ed04d6446ef8421e08e39814a899fcc7eaf1cdc3903c98126055c32e61",
+    "voice": "Leda",
+    "text": "ਤੇਰਾ ਧੰਨਵਾਦ, ਘੁੱਗੀ ਭੈਣ!",
+    "speaker": "ant",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "branch-cracks": {
+    "hash": "c0af414c53b377f9983e3b5a0fcd159b9a6dd0f3c4eb1b52098f86769b73e096",
+    "voice": "Aoede",
+    "text": "ਫਿਰ ਤੇਜ਼ ਹਵਾ ਵਗੀ। ਕੀੜੀ ਨੇ ਘੁੱਗੀ ਦੀ ਟਾਹਣੀ ਵਿੱਚ ਤਰੇੜ ਵੇਖੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "ant-warns": {
+    "hash": "431bceb27fc03a0e3faf4233c5d9ac03f7f16419992fbcfdf472aef5a59b242a",
+    "voice": "Leda",
+    "text": "ਘੁੱਗੀ ਭੈਣ, ਛੇਤੀ ਉੱਡ ਜਾ! ਟਾਹਣੀ ਟੁੱਟ ਰਹੀ ਹੈ!",
+    "speaker": "ant",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "dove-flies": {
+    "hash": "1c090869f5c42f2e31cdd44e554161433a4e4731151616de09a7185950951b5b",
+    "voice": "Aoede",
+    "text": "ਘੁੱਗੀ ਉੱਡ ਗਈ। ਫਿਰ ਟਾਹਣੀ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "dove-thanks": {
+    "hash": "082d6bfc6c8c0fe7481d6be03d0a18817569fc572dcee9983eb16d79213a99f3",
+    "voice": "Vindemiatrix",
+    "text": "ਧੰਨਵਾਦ, ਨਿੱਕੀ ਦੋਸਤ! ਅੱਜ ਤੂੰ ਮੇਰੀ ਮਦਦ ਕੀਤੀ।",
+    "speaker": "dove",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bank-together": {
+    "hash": "6b7b1d9ce33c98db9c431043ce059f37e2676839705bfe66c32c9eeb3ce3ab83",
+    "voice": "Aoede",
+    "text": "ਹੁਣ ਦੋਵੇਂ ਕੰਢੇ ਉੱਤੇ ਇਕੱਠੇ ਬੈਠ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
