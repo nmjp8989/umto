@@ -1,0 +1,86 @@
+{
+  "mission": 22,
+  "title": "ਟੋਪੀਆਂ ਵਾਲਾ ਤੇ ਬਾਂਦਰ",
+  "englishTitle": "The Cap Seller and the Monkeys",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "friend": "Rohan"
+  },
+  "scenes": [
+    {
+      "id": "road-to-the-fair",
+      "title": "Four caps for the fair",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["caps-for-the-fair"],
+      "review": "Follow Rohan along the path. Keep his red cap on his head and all three other caps visible inside his basket."
+    },
+    {
+      "id": "under-the-tree",
+      "title": "A rest in the shade",
+      "framing": "medium",
+      "focus": { "x": 659, "y": 409 },
+      "lines": ["a-little-rest", "basket-on-the-stone"],
+      "review": "Keep the basket handle in Rohan’s hand until the basket rests on the stone. His mouth should move only for his own line."
+    },
+    {
+      "id": "monkeys-take-caps",
+      "title": "Three curious monkeys",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 747, "y": 368 },
+      "lines": ["three-monkeys"],
+      "review": "Show the monkeys come down in turn. Each should lift one cap by its brim, put it on, and climb back to its branch."
+    },
+    {
+      "id": "copying-game",
+      "title": "Where did the caps go?",
+      "framing": "full",
+      "focus": { "x": 698, "y": 360 },
+      "lines": ["where-are-my-caps", "copying-rohan"],
+      "review": "Show Rohan spot the caps in the tree. Let his wave come first, then the monkeys copy it one after another."
+    },
+    {
+      "id": "red-cap",
+      "title": "Rohan tries an idea",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 688, "y": 425 },
+      "lines": ["red-cap-first"],
+      "review": "Keep the red cap on Rohan’s head until he bows, then follow it into the open basket in one continuous motion."
+    },
+    {
+      "id": "caps-tumble",
+      "title": "One, two, three!",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 712, "y": 354 },
+      "lines": ["caps-come-down"],
+      "review": "Match each falling cap to one spoken number. Check that the blue, yellow, and green caps all land inside the basket."
+    },
+    {
+      "id": "on-to-the-fair",
+      "title": "The caps are ready for the fair",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 367 },
+      "lines": ["remember-the-game", "on-to-the-fair"],
+      "review": "Show Rohan carry his red cap in one hand and the basket in the other. Keep the three monkeys on their branches as he leaves."
+    }
+  ],
+  "lines": {
+    "caps-for-the-fair": { "speaker": "narrator", "pa": "ਰੋਹਨ ਮੇਲੇ ਵਿੱਚ ਟੋਪੀਆਂ ਵੇਚਣ ਜਾ ਰਿਹਾ ਸੀ। ਟੋਕਰੀ ਵਿੱਚ ਤਿੰਨ ਟੋਪੀਆਂ ਸਨ। ਇੱਕ ਨੀਲੀ, ਇੱਕ ਪੀਲੀ ਤੇ ਇੱਕ ਹਰੀ। ਲਾਲ ਟੋਪੀ ਉਸ ਨੇ ਆਪ ਪਾਈ ਸੀ।" },
+    "a-little-rest": { "speaker": "friend", "pa": "ਪਹਿਲਾਂ ਥੋੜ੍ਹੀ ਦੇਰ ਛਾਂ ਹੇਠ ਰੁਕ ਲਵਾਂ। ਫਿਰ ਮੇਲੇ ਵੱਲ ਤੁਰਾਂਗਾ।" },
+    "basket-on-the-stone": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਟੋਕਰੀ ਇੱਕ ਪੱਥਰ ਉੱਤੇ ਰੱਖੀ। ਰੁੱਖ ਦੀ ਛਾਂ ਵਿੱਚ ਉਸ ਨੇ ਅੱਖਾਂ ਮੀਟ ਲਈਆਂ।" },
+    "three-monkeys": { "speaker": "narrator", "pa": "ਤਿੰਨ ਬਾਂਦਰ ਹੇਠਾਂ ਉਤਰੇ। ਉਨ੍ਹਾਂ ਨੇ ਟੋਕਰੀ ਵਿੱਚੋਂ ਨੀਲੀ, ਪੀਲੀ ਤੇ ਹਰੀ ਟੋਪੀ ਚੁੱਕ ਲਈ। ਫਿਰ ਉਹ ਟਾਹਣੀਆਂ ਉੱਤੇ ਚੜ੍ਹ ਗਏ।" },
+    "where-are-my-caps": { "speaker": "friend", "pa": "ਮੇਰੀਆਂ ਟੋਪੀਆਂ ਕਿੱਥੇ ਗਈਆਂ?" },
+    "copying-rohan": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਉੱਪਰ ਵੇਖਿਆ। ਬਾਂਦਰਾਂ ਨੇ ਟੋਪੀਆਂ ਪਾਈਆਂ ਸਨ। ਰੋਹਨ ਨੇ ਹੱਥ ਹਿਲਾਇਆ ਤਾਂ ਤਿੰਨਾਂ ਨੇ ਵੀ ਹੱਥ ਹਿਲਾਇਆ।" },
+    "red-cap-first": { "speaker": "narrator", "pa": "ਰੋਹਨ ਦੀਆਂ ਅੱਖਾਂ ਚਮਕੀਆਂ। ਉਸ ਨੇ ਸਿਰ ਅੱਗੇ ਝੁਕਾਇਆ। ਉਸ ਦੀ ਲਾਲ ਟੋਪੀ ਸਿਰ ਤੋਂ ਸਿੱਧੀ ਟੋਕਰੀ ਵਿੱਚ ਜਾ ਡਿੱਗੀ। ਬਾਂਦਰਾਂ ਨੇ ਧਿਆਨ ਨਾਲ ਵੇਖਿਆ।" },
+    "caps-come-down": { "speaker": "narrator", "pa": "ਬਾਂਦਰਾਂ ਨੇ ਵੀ ਸਿਰ ਝੁਕਾਏ। ਇੱਕ, ਦੋ, ਤਿੰਨ! ਨੀਲੀ, ਪੀਲੀ ਤੇ ਹਰੀ ਟੋਪੀ ਟੋਕਰੀ ਵਿੱਚ ਆ ਡਿੱਗੀ। ਰੋਹਨ ਨੇ ਸਾਰੀਆਂ ਟੋਪੀਆਂ ਗਿਣੀਆਂ।" },
+    "remember-the-game": { "speaker": "friend", "pa": "ਟੋਪੀਆਂ ਤਾਂ ਮੇਲੇ ਲਈ ਹਨ। ਪਰ ਇਹ ਖੇਡ ਮੈਂ ਯਾਦ ਰੱਖਾਂਗਾ!" },
+    "on-to-the-fair": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਆਪਣੀ ਲਾਲ ਟੋਪੀ ਚੁੱਕੀ, ਟੋਕਰੀ ਫੜੀ ਤੇ ਹੱਸਦਾ ਹੋਇਆ ਮੇਲੇ ਵੱਲ ਤੁਰ ਪਿਆ। ਬਾਂਦਰ ਰੁੱਖ ਵਿੱਚ ਬੈਠੇ ਉਸ ਨੂੰ ਜਾਂਦਾ ਵੇਖਦੇ ਰਹੇ।" }
+  }
+}
