@@ -1,23 +1,174 @@
 <!doctype html>
-<html lang="pa">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Little Panth · ਮਿਸ਼ਨ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fcf8ef">
+<meta name="description" content="Explore all 29 Little Panth animated Punjabi storybooks and interactive children's missions. Read, listen and learn together.">
+<title>Little Panth | All Missions & Animated Punjabi Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #19241c; color: #faf2dd; }
-main { max-width: 52rem; margin: 8vh auto; padding: 1rem; }
-a { display: block; margin: 1rem 0; padding: 1rem 1.25rem; border-radius: .7rem; background: #344838; color: #fbe0a0; text-decoration: none; }
-a:focus-visible { outline: 3px solid #fbe0a0; }
+:root{--ink:#203629;--forest:#174d3a;--cream:#fcf8ef;--sand:#f1e8d7;--yellow:#ffcf69;--rust:#bd643e;--muted:#697368;--line:#e6e2d6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Baloo 2",ui-rounded,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #dc8d2c;outline-offset:3px}
+.wrap{width:min(1190px,calc(100% - 48px));margin-inline:auto}
+.topline{background:#184b38;color:#f9edcf;text-align:center;padding:6px 12px;font-family:"Noto Sans Gurmukhi",sans-serif;font-size:.78rem;letter-spacing:.02em}
+header{background:var(--cream);border-bottom:1px solid var(--line)}
+.nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{height:49px;width:49px;border-radius:16px;background:#eec272;color:#235640;display:grid;place-items:center;font-size:1.9rem;transform:rotate(-6deg);box-shadow:inset 0 -4px 0 #daaa55}
+.brand strong{display:block;font-size:1.64rem;letter-spacing:-.06em;line-height:1}
+.brand small{display:block;color:var(--muted);font-size:.76rem;letter-spacing:.08em;line-height:1.8}
+.nav-link{color:var(--forest);font-weight:800;text-decoration:none;font-size:.97rem}
+.nav-link:hover{text-decoration:underline}
+.hero{padding:36px 0 22px}
+.hero-panel{background:#e3edda;min-height:345px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;position:relative;isolation:isolate}
+.hero-panel:after{content:"";position:absolute;inset:0;background-image:radial-gradient(#2b603b17 1px,transparent 1px);background-size:24px 24px;pointer-events:none;z-index:-1}
+.hero-copy{padding:49px 0 49px 58px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:800;color:var(--forest)}
+.eyebrow .dot{width:7px;height:7px;background:#d18939;border-radius:50%}
+h1{font-size:clamp(2.65rem,5vw,5rem);letter-spacing:-.065em;line-height:.99;margin:14px 0 15px;font-weight:800}
+h1 em{font-style:normal;color:#b76a3c}
+.hero-lead{max-width:490px;color:#4e6855;font-size:1.12rem;line-height:1.45;margin:0 0 24px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:100px;padding:12px 21px;text-decoration:none;font-weight:800;transition:transform .15s,box-shadow .15s;font-size:.95rem}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:#1e5942;color:#fff7e2;box-shadow:0 5px 0 #163f31}
+.btn-secondary{background:#fff9e9;color:#20513c;border:1px solid #c8d7bf}
+.art{width:100%;height:100%;min-height:330px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.art svg{width:100%;height:100%;max-width:620px}
+.summary{display:flex;gap:24px;flex-wrap:wrap;padding:17px 2px 25px;border-bottom:1px solid var(--line);color:#6c766b;font-weight:600}
+.summary strong{font-size:1.15rem;color:var(--forest)}
+.summary span{display:inline-flex;gap:7px;align-items:center}
+.library{padding:36px 0 75px}
+.lib-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:21px}
+.lib-head h2{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.045em;line-height:1.1;margin:0 0 3px}
+.lib-head p{color:var(--muted);margin:0;font-size:.97rem}
+.result{font-weight:700;color:#68776b;font-size:.92rem;white-space:nowrap}
+.controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:23px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filter{background:#fffdf6;border:1px solid #dddccf;padding:8px 17px;color:#49634f;border-radius:999px;font-weight:700;font-size:.91rem}
+.filter[aria-pressed="true"]{background:#215640;color:white;border-color:#215640}
+.finder{display:flex;align-items:center;gap:10px;background:#fffefa;padding:2px 15px;border:1px solid #deded2;border-radius:99px;min-width:min(300px,100%);color:#738075}
+.finder:focus-within{outline:2px solid #caa157}
+.finder input{width:100%;border:0;outline:none;background:transparent;padding:10px 0;color:var(--ink);min-width:0}
+.finder svg{width:18px;height:18px;flex:none}
+.catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.story{background:#fffefa;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 3px 0 #ddd8c633;transition:transform .16s,box-shadow .16s;min-width:0}
+.story:hover{transform:translateY(-4px);box-shadow:0 14px 30px #243d2920}
+.story-cover{height:168px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-decoration:none;background:var(--scene)}
+.story-cover:before{content:"";width:220px;height:220px;background:#ffffff36;border-radius:50%;position:absolute;top:-116px;right:-48px}
+.story-cover:after{content:"";position:absolute;left:-25px;bottom:-45px;width:260px;height:95px;background:#285c4420;border-radius:50%;transform:rotate(-12deg)}
+.story-icon{font-family:system-ui,sans-serif;font-size:5.25rem;filter:drop-shadow(0 10px 6px #2d403329);line-height:1;transform:rotate(-7deg);position:relative;z-index:1;transition:transform .2s}
+.story:hover .story-icon{transform:rotate(0) scale(1.11)}
+.story-num{position:absolute;top:13px;left:14px;background:#fffdf3e8;color:#385741;font-size:.77rem;font-weight:800;letter-spacing:.05em;border-radius:100px;padding:5px 12px;z-index:2}
+.story-type{position:absolute;bottom:11px;right:14px;color:#1d503c;background:#ffffffd8;border-radius:30px;padding:4px 10px;font-size:.76rem;font-weight:800;z-index:2}
+.story-info{padding:17px 20px 19px;display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.story-kicker{color:#a15c37;text-transform:uppercase;letter-spacing:.09em;font-weight:800;font-size:.7rem;line-height:1.4;margin:0 0 9px}
+.story-title{font-family:"Noto Sans Gurmukhi","Baloo 2",sans-serif;font-size:1.26rem;line-height:1.48;font-weight:700;margin:0 0 5px;letter-spacing:-.035em;overflow-wrap:anywhere}
+.story-title.english-only{font-family:"Baloo 2",sans-serif;font-size:1.38rem;line-height:1.18;min-height:42px}
+.story-en{margin:0 0 19px;color:#64736b;line-height:1.25;font-size:.98rem}
+.story-open{margin-top:auto;text-decoration:none;color:#195b42;display:inline-flex;gap:7px;align-items:center;font-weight:800;font-size:.95rem;padding:3px 0}
+.story-open:hover{text-decoration:underline}
+.empty{grid-column:1/-1;text-align:center;padding:65px 18px;border:1px dashed #b9bfad;border-radius:21px;color:#59725d}
+.empty strong{display:block;font-size:1.5rem;color:#24533d}
+.bottom-cta{background:#f2e8d3;border-radius:23px;padding:30px 36px;display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 54px}
+.bottom-cta h2{font-size:1.6rem;line-height:1.1;margin:0 0 4px}
+.bottom-cta p{margin:0;color:#67705e}
+footer{background:#183f31;color:#fffbec;padding:24px 0}
+.footerline{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;font-size:.88rem}
+.footerline a{color:#ffde9c;text-decoration:none}
+.footerline a:hover{text-decoration:underline}
+@media(max-width:1000px){.catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-copy{padding-left:40px}h1{font-size:3.7rem}}
+@media(max-width:700px){.wrap{width:min(100% - 32px,540px)}.topline{font-size:.66rem}.nav{min-height:70px}.brand strong{font-size:1.4rem}.brand small{font-size:.65rem}.logo{width:41px;height:41px}.nav-link{font-size:.85rem}.hero{padding-top:18px}.hero-panel{grid-template-columns:1fr;border-radius:22px}.hero-copy{padding:34px 27px 0}.hero-lead{font-size:1rem}h1{font-size:clamp(2.7rem,10vw,4rem)}.art{min-height:200px;height:210px}.art svg{height:260px;max-width:380px}.hero-actions{gap:9px}.btn{padding:10px 16px;font-size:.88rem}.summary{gap:8px 17px;font-size:.86rem}.library{padding-top:28px}.lib-head{align-items:flex-start}.controls{flex-direction:column;align-items:stretch}.filters{flex-wrap:nowrap;overflow-x:auto;padding:2px 0 8px}.filter{flex:none}.finder{width:100%;min-width:0}.catalog{grid-template-columns:1fr;gap:16px}.story{flex-direction:row;min-height:154px;border-radius:18px}.story-cover{height:auto;min-height:154px;min-width:37%;width:37%}.story-icon{font-size:3.6rem}.story-cover:before{width:135px;height:135px;top:-70px;right:-25px}.story-num{font-size:.67rem;padding:4px 8px;left:9px;top:9px}.story-type{font-size:.6rem;right:7px;bottom:9px}.story-info{padding:14px 11px 13px 15px}.story-kicker{font-size:.61rem;margin-bottom:4px}.story-title{font-size:1rem;line-height:1.35;margin-bottom:5px}.story-title.english-only{font-size:1.16rem;min-height:0}.story-en{font-size:.81rem;margin-bottom:7px}.story-open{font-size:.85rem}.bottom-cta{padding:24px;flex-direction:column;align-items:flex-start}.result{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
+<div class="topline" lang="pa">ਪੰਜਾਬੀ ਕਹਾਣੀਆਂ • ਸਿੱਖਣਾ, ਸੁਣਨਾ ਤੇ ਮੁਸਕਰਾਉਣਾ</div>
+<header><nav class="nav wrap" aria-label="Main navigation">
+<a class="brand" href="./"><span class="logo" aria-hidden="true">✺</span><span><strong>little panth.</strong><small>STORIES THAT GROW WITH YOU</small></span></a>
+<a class="nav-link" href="../../">UMTO Studio ↗</a>
+</nav></header>
 <main>
-<h1>Little Panth</h1>
-<a href="mission-001/">ਮਿਸ਼ਨ ੧ · The Cart That Was Never Full</a>
-<a href="mission-002/">ਮਿਸ਼ਨ ੨ · ਮੇਹਰ ਅਤੇ ਚੁੱਪ ਸਿਤਾਰ</a>
-<a href="mission-003/">ਮਿਸ਼ਨ ੩ · The Kite in the Banyan</a>
-<a href="mission-004/">ਮਿਸ਼ਨ ੪ · ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ — Animated Gurmukhi storybook</a>
+<section class="hero wrap" aria-labelledby="hero-title">
+<div class="hero-panel">
+<div class="hero-copy">
+<span class="eyebrow"><span class="dot"></span> Animated Punjabi story library</span>
+<h1 id="hero-title">Little stories.<br><em>Big hearts.</em></h1>
+<p class="hero-lead">A growing world of animated Punjabi stories, playful characters and meaningful lessons. Pick a mission and begin the adventure!</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#all-stories">Explore all 29 stories <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="mission-001/">Start with Mission 01 <span aria-hidden="true">→</span></a></div>
+</div>
+<div class="art" aria-hidden="true"><svg viewBox="0 0 600 380" role="presentation" xmlns="http://www.w3.org/2000/svg">
+<circle cx="320" cy="170" r="153" fill="#fbd5a0"/><circle cx="442" cy="66" r="32" fill="#f7b75f"/>
+<path d="M20 266Q145 175 280 266T600 250V400H20Z" fill="#b6cb9b"/><path d="M0 323Q166 238 327 320T610 300V410H0Z" fill="#7ca68a"/>
+<path d="M197 246C247 219 293 225 317 239C349 220 399 214 455 244V320C397 290 344 296 318 311C282 293 236 295 197 316Z" fill="#fffaf0" stroke="#316146" stroke-width="6" stroke-linejoin="round"/>
+<path d="M317 240V311M212 260Q253 248 295 269M338 270Q388 246 438 260M212 281Q261 267 295 288M339 291Q394 269 439 281" fill="none" stroke="#e6c99c" stroke-width="4" stroke-linecap="round"/>
+<path d="M325 225C306 192 286 167 274 135" fill="none" stroke="#735d3d" stroke-width="3" stroke-dasharray="7 7"/>
+<path d="M274 90L313 132L274 169L235 132Z" fill="#d86f44" stroke="#8c4c38" stroke-width="4"/><path d="M274 90L274 169M235 132H313" stroke="#fff0c8" stroke-width="3"/>
+<path d="M468 188Q484 154 512 188" fill="none" stroke="#42634c" stroke-width="5" stroke-linecap="round"/>
+<path d="M104 143q16-20 33 0m13-9q12-15 24 0" stroke="#668a73" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="119" cy="270" r="14" fill="#f6d274"/><circle cx="489" cy="299" r="11" fill="#f7d374"/>
+<path d="M91 328q0-40 25-54M116 330q-2-50 25-77M477 334q-2-37 24-56" fill="none" stroke="#376a4c" stroke-width="5" stroke-linecap="round"/>
+</svg></div></div>
+<div class="summary" aria-label="Library overview"><span><strong>29</strong> missions</span><span><strong>26</strong> animated read-alongs</span><span><strong>3</strong> interactive adventures</span><span lang="pa">ੴ • ਪੰਜਾਬੀ ਵਿੱਚ ਕਹਾਣੀਆਂ</span></div>
+</section>
+<section class="library wrap" id="all-stories" aria-labelledby="library-heading">
+<div class="lib-head"><div><h2 id="library-heading">Explore the missions <span aria-hidden="true">✦</span></h2><p>Every story in one place. Choose one to watch or play.</p></div><span class="result" id="count" role="status" aria-live="polite">Showing all 29 stories</span></div>
+<div class="controls">
+<div class="filters" role="group" aria-label="Filter missions">
+<button type="button" class="filter" data-filter="all" aria-pressed="true">All stories (29)</button>
+<button type="button" class="filter" data-filter="play" aria-pressed="false">Interactive (3)</button>
+<button type="button" class="filter" data-filter="read" aria-pressed="false">Read-alongs (26)</button>
+</div>
+<label class="finder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search English, ਪੰਜਾਬੀ, or number…" aria-label="Search Little Panth missions" autocomplete="off"></label>
+</div>
+<div class="catalog" id="catalog" aria-live="off"></div>
+</section>
+<section class="bottom-cta wrap"><div><h2>Ready for another adventure?</h2><p lang="pa">ਚਲੋ, ਅਗਲੀ ਕਹਾਣੀ ਸੁਣੀਏ!</p></div><a class="btn btn-primary" href="mission-029/">Latest story: The Missing Jutti <span aria-hidden="true">→</span></a></section>
 </main>
-</body>
-</html>
+<footer><div class="footerline wrap"><span>© Little Panth · Made for curious minds & kind hearts.</span><span><a href="#all-stories">All missions ↑</a> &nbsp; · &nbsp; <a href="../../">UMTO Studio</a></span></div></footer>
+<script>
+"use strict";
+const missions=[[1,"","The Cart That Was Never Full","🐂","play","Santokh · Gratitude"],[2,"ਮੇਹਰ ਅਤੇ ਚੁੱਪ ਸਿਤਾਰ","Mehar and the Silent Sitar","🎵","play","Music · Listening"],[3,"","The Kite in the Banyan","🪁","play","Truth · Courage"],[4,"ਨਿੱਕੀ ਜਿਹੀ ਸੇਵਾ, ਵੱਡਾ ਦਿਲ","A Little Seva, a Big Heart","🤲","read","Seva · Humility"],[5,"ਪਿਆਸਾ ਕਾਂ","The Thirsty Crow","🐦","read","Clever thinking"],[6,"ਸ਼ੇਰ ਤੇ ਚੂਹਾ","The Lion and the Mouse","🦁","read","Kindness"],[7,"ਕੱਛੂਆ ਤੇ ਖ਼ਰਗੋਸ਼","The Tortoise and the Hare","🐢","read","Perseverance"],[8,"ਹਵਾ ਤੇ ਸੂਰਜ","The North Wind and the Sun","☀️","read","Gentleness"],[9,"ਲੂੰਬੜੀ ਤੇ ਅੰਗੂਰ","The Fox and the Grapes","🍇","read","Perspective"],[10,"ਕੀੜੀ ਤੇ ਘੁੱਗੀ","The Ant and the Dove","🕊️","read","Helping each other"],[11,"ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ","The Bundle of Sticks","🪵","read","Togetherness"],[12,"ਖਾਲੀ ਗਮਲਾ","The Empty Pot","🪴","read","Honesty"],[13,"ਬਘਿਆੜ ਆਇਆ!","The Boy Who Cried Wolf","🐑","read","Truthfulness"],[14,"ਦੁੱਧ ਦੀ ਬਾਲਟੀ","The Milkmaid and Her Pail","🥛","read","Mindfulness"],[15,"ਪੁਲ ਉੱਤੇ ਦੋ ਬੱਕਰੀਆਂ","The Two Goats and the Bridge","🐐","read","Taking turns"],[16,"ਲੂੰਬੜੀ ਅਤੇ ਸਾਰਸ","The Fox and the Stork","🦊","read","Respect"],[17,"ਸ਼ੇਰੂ ਤੇ ਉਸ ਦਾ ਅਕਸ","The Dog and His Reflection","🐕","read","Contentment"],[18,"ਪਿੰਡ ਦਾ ਚੂਹਾ ਤੇ ਸ਼ਹਿਰ ਦਾ ਚੂਹਾ","The Town Mouse and the Country Mouse","🐭","read","Simple joys"],[19,"ਕਾਂ ਤੇ ਲੂੰਬੜੀ","The Crow and the Fox","🧀","read","Flattery"],[20,"ਲਾਲ ਮੁਰਗੀ ਤੇ ਰੋਟੀ","The Little Red Hen","🐓","read","Hard work"],[21,"ਇਮਾਨਦਾਰ ਲੱਕੜਹਾਰਾ","The Honest Woodcutter","🪓","read","Integrity"],[22,"ਟੋਪੀਆਂ ਵਾਲਾ ਤੇ ਬਾਂਦਰ","The Cap Seller and the Monkeys","🐒","read","Quick thinking"],[23,"ਮੇਹਰ ਤੇ ਬਦਾਮਾਂ ਦੀ ਬਰਨੀ","Mehar and the Almond Jar","🥜","read","Self-control"],[24,"ਗਿੱਦੜ ਤੇ ਢੋਲ","The Jackal and the Drum","🥁","read","Curiosity"],[25,"ਹਾਥੀ ਤੇ ਦਰਜ਼ੀ","The Elephant and the Tailor","🐘","read","Friendship"],[26,"ਕੱਛੂਆ ਤੇ ਦੋ ਹੰਸ","The Tortoise and the Two Geese","🪿","read","Listening"],[27,"ਚੰਦ ਦਾ ਅਕਸ","The Moon’s Reflection","🌙","read","Wonder"],[28,"ਕਾਗਜ਼ ਦੀ ਕਿਸ਼ਤੀ","The Paper Boat","⛵","read","Teamwork"],[29,"ਗੁੰਮ ਹੋਈ ਜੁੱਤੀ","The Missing Jutti","👞","read","Family · Fun"]];
+const catalog=document.getElementById("catalog");
+const count=document.getElementById("count");
+const search=document.getElementById("search");
+const filters=Array.from(document.querySelectorAll(".filter"));
+const palettes=["#c5d9b2","#d9dfb6","#f8d0a4","#c5d9d1","#f6d3ab","#e7c3a6","#cfdeb5","#f7cf95","#d2c4e8","#b9d5e5","#f0d1a8","#c7dbc0"];
+let activeFilter="all";
+function node(tag,klass,txt){const e=document.createElement(tag);if(klass)e.className=klass;if(txt!==undefined)e.textContent=txt;return e}
+function render(){
+const term=search.value.trim().toLocaleLowerCase();
+const shown=missions.filter(m=>(activeFilter==="all"||m[4]===activeFilter)&&[m[0],String(m[0]).padStart(3,"0"),m[1],m[2],m[5]].join(" ").toLocaleLowerCase().includes(term));
+catalog.replaceChildren();
+const frag=document.createDocumentFragment();
+for(const m of shown){
+const id=String(m[0]).padStart(3,"0"),url="mission-"+id+"/";
+const article=node("article","story");article.id="mission-"+id;
+const cover=node("a","story-cover");cover.href=url;cover.setAttribute("aria-label","Open mission "+m[0]+": "+m[2]);cover.style.setProperty("--scene",palettes[(m[0]-1)%palettes.length]);
+const number=node("span","story-num","MISSION "+id);const glyph=node("span","story-icon",m[3]);glyph.setAttribute("aria-hidden","true");
+const kind=node("span","story-type",m[4]==="play"?"✦ Interactive":"▶ Read-along");
+cover.append(number,glyph,kind);
+const info=node("div","story-info");info.append(node("p","story-kicker",m[5]));
+if(m[1]){const title=node("h3","story-title",m[1]);title.lang="pa";info.append(title, node("p","story-en",m[2]));}
+else info.append(node("h3","story-title english-only",m[2]),node("p","story-en",m[0]===1?"A Punjabi village adventure":"An interactive Punjabi adventure"));
+const open=node("a","story-open",m[4]==="play"?"Open adventure →":"Read & watch →");open.href=url;open.setAttribute("aria-label","Open "+m[2]);info.append(open);
+article.append(cover,info);frag.append(article);
+}
+if(!shown.length){const empty=node("div","empty");empty.append(node("strong",null,"No stories found"),node("span",null,"Try another title or mission number."));frag.append(empty);}
+catalog.append(frag);
+count.textContent=shown.length===29?"Showing all 29 stories":"Showing "+shown.length+" of 29 stories";
+}
+filters.forEach(button=>button.addEventListener("click",()=>{activeFilter=button.dataset.filter;filters.forEach(b=>b.setAttribute("aria-pressed",String(b===button)));render();}));
+search.addEventListener("input",render);
+render();
+</script>
+</body></html>
