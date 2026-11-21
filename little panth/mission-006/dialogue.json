@@ -1,0 +1,194 @@
+{
+  "title": "ਸ਼ੇਰ ਤੇ ਚੂਹਾ",
+  "englishTitle": "The Lion and the Mouse",
+  "moral": "ਦਇਆ ਦਾ ਕੀਤਾ ਕਦੇ ਵਿਅਰਥ ਨਹੀਂ ਜਾਂਦਾ। ਹਰ ਕੋਈ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ।",
+  "scenes": [
+    {
+      "id": "morning",
+      "title": "A golden forest morning",
+      "anchor": "forest",
+      "framing": "establishing",
+      "layout": "spread",
+      "lines": [
+        "intro",
+        "sleep"
+      ],
+      "review": "Begin wide with drifting sunbeams and a peaceful sleeping lion. The mouse is not visible yet."
+    },
+    {
+      "id": "scamper",
+      "title": "Little feet",
+      "anchor": "forest",
+      "framing": "tracking",
+      "layout": "spread",
+      "lines": [
+        "mouse-run",
+        "mouse-fun"
+      ],
+      "review": "Mouse scampers past flowers and climbs across the lion. Lion stays asleep until the end."
+    },
+    {
+      "id": "caught",
+      "title": "The lion wakes",
+      "anchor": "forest",
+      "framing": "medium-close",
+      "layout": "cinema",
+      "lines": [
+        "lion-awakes",
+        "lion-demand",
+        "mouse-please"
+      ],
+      "review": "Show the lion's paw gently blocking the mouse, not injuring it. Only the lion or mouse mouth moves while that character speaks."
+    },
+    {
+      "id": "mercy",
+      "title": "A kind decision",
+      "anchor": "forest",
+      "framing": "medium",
+      "layout": "spread",
+      "lines": [
+        "lion-laugh",
+        "lion-release",
+        "mouse-promise"
+      ],
+      "review": "Lion softens, slowly lifts its paw, and the mouse gratefully runs away."
+    },
+    {
+      "id": "trap",
+      "title": "The hidden net",
+      "anchor": "clearing",
+      "framing": "wide",
+      "layout": "cinema",
+      "lines": [
+        "trap-forest",
+        "trap-fall",
+        "lion-help"
+      ],
+      "review": "A rope net falls onto the lion and visibly holds it. No hunters are shown. Lion calls, distressed but not frightening."
+    },
+    {
+      "id": "return",
+      "title": "A familiar voice",
+      "anchor": "clearing",
+      "framing": "tracking",
+      "layout": "spread",
+      "lines": [
+        "heard",
+        "mouse-rescue"
+      ],
+      "review": "Mouse hears lion and runs swiftly along forest path to the trapped lion. Lion stays under the net."
+    },
+    {
+      "id": "chew",
+      "title": "Tiny teeth, big courage",
+      "anchor": "clearing",
+      "framing": "close-up",
+      "layout": "cinema",
+      "lines": [
+        "chew-knots",
+        "chew-more",
+        "net-break"
+      ],
+      "review": "Mouse visibly nibbles at a rope knot; strands snap one after another; then the net loosens and lifts."
+    },
+    {
+      "id": "friends",
+      "title": "Friends forever",
+      "anchor": "clearing",
+      "framing": "wide",
+      "layout": "spread",
+      "lines": [
+        "lion-thanks",
+        "mouse-heart",
+        "moral"
+      ],
+      "review": "Lion stands free, thanks mouse, and both smile. Warm sunset glow and long final hold for the lesson."
+    }
+  ],
+  "lines": {
+    "intro": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਹਰੇ-ਭਰੇ ਜੰਗਲ ਵਿੱਚ ਇੱਕ ਵੱਡਾ ਸ਼ੇਰ ਰਹਿੰਦਾ ਸੀ।"
+    },
+    "sleep": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਦਿਨ ਉਹ ਰੁੱਖ ਹੇਠਾਂ ਆਰਾਮ ਨਾਲ ਸੁੱਤਾ ਪਿਆ ਸੀ।"
+    },
+    "mouse-run": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਨਿੱਕਾ ਜਿਹਾ ਚੂਹਾ ਖੇਡਦਾ ਖੇਡਦਾ ਉੱਥੇ ਆ ਪਹੁੰਚਿਆ।"
+    },
+    "mouse-fun": {
+      "speaker": "mouse",
+      "pa": "ਵਾਹ! ਇੱਥੇ ਤਾਂ ਕਿੰਨਾ ਸੋਹਣਾ ਜੰਗਲ ਹੈ!"
+    },
+    "lion-awakes": {
+      "speaker": "narrator",
+      "pa": "ਚੂਹਾ ਸ਼ੇਰ ਉੱਤੇ ਚੜ੍ਹ ਗਿਆ। ਸ਼ੇਰ ਦੀ ਅੱਖ ਖੁੱਲ੍ਹ ਗਈ।"
+    },
+    "lion-demand": {
+      "speaker": "lion",
+      "pa": "ਓਏ ਨਿੱਕਿਆ! ਤੂੰ ਮੇਰੀ ਨੀਂਦ ਕਿਉਂ ਖਰਾਬ ਕੀਤੀ?"
+    },
+    "mouse-please": {
+      "speaker": "mouse",
+      "pa": "ਮਾਫ਼ ਕਰ ਦਿਓ! ਕਦੇ ਮੈਂ ਵੀ ਤੁਹਾਡੀ ਮਦਦ ਕਰਾਂਗਾ।"
+    },
+    "lion-laugh": {
+      "speaker": "lion",
+      "pa": "ਹਾ ਹਾ! ਤੂੰ ਮੇਰੀ ਮਦਦ ਕਰੇਂਗਾ?"
+    },
+    "lion-release": {
+      "speaker": "narrator",
+      "pa": "ਸ਼ੇਰ ਨੂੰ ਹਾਸਾ ਆਇਆ, ਪਰ ਉਸ ਨੇ ਦਇਆ ਕਰਕੇ ਚੂਹੇ ਨੂੰ ਛੱਡ ਦਿੱਤਾ।"
+    },
+    "mouse-promise": {
+      "speaker": "mouse",
+      "pa": "ਤੁਹਾਡਾ ਬਹੁਤ ਧੰਨਵਾਦ, ਸ਼ੇਰ ਜੀ!"
+    },
+    "trap-forest": {
+      "speaker": "narrator",
+      "pa": "ਕੁਝ ਦਿਨਾਂ ਬਾਅਦ ਸ਼ੇਰ ਜੰਗਲ ਦੀ ਪਗਡੰਡੀ ਉੱਤੇ ਤੁਰ ਰਿਹਾ ਸੀ।"
+    },
+    "trap-fall": {
+      "speaker": "narrator",
+      "pa": "ਅਚਾਨਕ ਇੱਕ ਜਾਲ ਉਸ ਉੱਤੇ ਡਿੱਗ ਪਿਆ। ਸ਼ੇਰ ਫਸ ਗਿਆ!"
+    },
+    "lion-help": {
+      "speaker": "lion",
+      "pa": "ਕੋਈ ਹੈ? ਮੇਰੀ ਮਦਦ ਕਰੋ!"
+    },
+    "heard": {
+      "speaker": "narrator",
+      "pa": "ਚੂਹੇ ਨੇ ਸ਼ੇਰ ਦੀ ਆਵਾਜ਼ ਸੁਣੀ ਅਤੇ ਦੌੜਦਾ ਹੋਇਆ ਆ ਗਿਆ।"
+    },
+    "mouse-rescue": {
+      "speaker": "mouse",
+      "pa": "ਘਬਰਾਓ ਨਾ, ਸ਼ੇਰ ਜੀ! ਮੈਂ ਤੁਹਾਨੂੰ ਛੁਡਾਉਂਦਾ ਹਾਂ।"
+    },
+    "chew-knots": {
+      "speaker": "narrator",
+      "pa": "ਚੂਹੇ ਨੇ ਆਪਣੇ ਤਿੱਖੇ ਦੰਦਾਂ ਨਾਲ ਜਾਲ ਦੀ ਰੱਸੀ ਕੁਤਰਣੀ ਸ਼ੁਰੂ ਕੀਤੀ।"
+    },
+    "chew-more": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਗੰਢ ਟੁੱਟੀ, ਫਿਰ ਦੂਜੀ। ਜਾਲ ਢਿੱਲਾ ਹੋਣ ਲੱਗਿਆ।"
+    },
+    "net-break": {
+      "speaker": "mouse",
+      "pa": "ਹੋ ਗਿਆ! ਹੁਣ ਤੁਸੀਂ ਆਜ਼ਾਦ ਹੋ!"
+    },
+    "lion-thanks": {
+      "speaker": "lion",
+      "pa": "ਨਿੱਕੇ ਦੋਸਤ, ਅੱਜ ਤੂੰ ਮੇਰੀ ਜਾਨ ਬਚਾਈ। ਧੰਨਵਾਦ!"
+    },
+    "mouse-heart": {
+      "speaker": "mouse",
+      "pa": "ਦੋਸਤੀ ਵਿੱਚ ਕੋਈ ਵੱਡਾ ਜਾਂ ਛੋਟਾ ਨਹੀਂ ਹੁੰਦਾ!"
+    },
+    "moral": {
+      "speaker": "narrator",
+      "pa": "ਸਿੱਖਿਆ: ਦਇਆ ਦਾ ਫਲ ਹਮੇਸ਼ਾ ਚੰਗਾ ਹੁੰਦਾ ਹੈ। ਹਰ ਕੋਈ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ।"
+    }
+  }
+}
