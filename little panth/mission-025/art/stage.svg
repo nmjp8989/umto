@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Harpreet and the elephant wash a blue cloth in the tailor’s courtyard</title>
+  <defs>
+    <radialGradient id="tailor-shadow">
+      <stop stop-color="#5c422d" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#5c422d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="elephant-hide" x2=".24" y2="1">
+      <stop stop-color="#b5b7bd"/>
+      <stop offset=".52" stop-color="#999da8"/>
+      <stop offset="1" stop-color="#777987"/>
+    </linearGradient>
+    <linearGradient id="elephant-ear" x2=".55" y2=".86">
+      <stop stop-color="#c4b3b3"/>
+      <stop offset=".55" stop-color="#b29caa"/>
+      <stop offset="1" stop-color="#988695"/>
+    </linearGradient>
+    <linearGradient id="tailor-tub-metal" x2=".2" y2="1">
+      <stop stop-color="#9aaeb1"/>
+      <stop offset=".46" stop-color="#7a969e"/>
+      <stop offset="1" stop-color="#586f7c"/>
+    </linearGradient>
+    <linearGradient id="tailor-water" x2=".1" y2="1">
+      <stop stop-color="#b1d1c5"/>
+      <stop offset=".45" stop-color="#91b9b0"/>
+      <stop offset="1" stop-color="#719ca2"/>
+    </linearGradient>
+    <linearGradient id="tailor-wood" x2=".64" y2="1">
+      <stop stop-color="#e0ae7d"/>
+      <stop offset=".45" stop-color="#bd8057"/>
+      <stop offset="1" stop-color="#88533e"/>
+    </linearGradient>
+    <linearGradient id="folded-cloth" x2=".1" y2="1">
+      <stop stop-color="#a7ccd1"/>
+      <stop offset=".52" stop-color="#79a3b4"/>
+      <stop offset="1" stop-color="#4f758f"/>
+    </linearGradient>
+  </defs>
+
+  <g data-camera-depth="-.17">
+    <rect x="-80" y="-65" width="1440" height="858" fill="#cda27f"/>
+    <image href="../mission-003/art/courtyard.webp" x="-48" y="-33" width="1376" height="786" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+
+  <g id="laundry-line" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M424 587Q418 505 423 386M847 583Q854 481 848 382" fill="none" stroke="#896045" stroke-width="9"/>
+    <path d="M424 584Q420 519 425 390M846 579Q852 466 848 386" fill="none" stroke="#c59064" stroke-width="3"/>
+    <path d="M423 402Q500 413 582 416Q642 419 704 416Q778 413 849 399" fill="none" stroke="#735346" stroke-width="3.6"/>
+    <path d="M423 401Q500 412 582 415Q642 418 704 415Q778 412 849 398" fill="none" stroke="#e8c795" stroke-width="1.7"/>
+  </g>
+
+  <g id="tailor-table">
+    <ellipse cx="490" cy="612" rx="155" ry="25" fill="url(#tailor-shadow)"/>
+    <path d="M391 527L408 525 403 611 387 616ZM555 523L570 524 589 608 572 613Z" fill="#9d6247" stroke="#71493c" stroke-width="3.2"/>
+    <path d="M384 516Q465 492 560 501L602 520Q562 539 415 539Z" fill="url(#tailor-wood)" stroke="#86543d" stroke-width="3.3"/>
+    <path d="M385 518Q459 539 601 520L593 536Q509 558 396 538Z" fill="#9c6149" stroke="#714b3b" stroke-width="3.1"/>
+    <path d="M410 514Q455 505 513 510M448 521q46 0 94-6" fill="none" stroke="#edc092" opacity=".77" stroke-width="2.6" stroke-linecap="round"/>
+    <g transform="translate(452 505)" stroke="#4e4539" stroke-linejoin="round">
+      <path d="M-28 2H47L39 10H-31Z" fill="#55483c" stroke-width="2.1"/>
+      <path d="M-16 0V-20Q-15-29 0-28L22-28Q33-28 36-19L38 0H26L24-12Q24-16 18-16H-2V0Z" fill="#625c52" stroke-width="2.35"/>
+      <path d="M-15-15v12L-9-2-9-18M7-23h11" fill="none" stroke="#cfaa67" stroke-width="2.3"/>
+      <circle cx="38" cy="-17" r="7.5" fill="#8b7a64" stroke-width="2"/>
+      <path d="M4-31v-7m-5 1h10" fill="none" stroke="#8b684d" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <g id="tailor-pail">
+    <ellipse cy="42" rx="37" ry="10" fill="url(#tailor-shadow)"/>
+    <path d="M-27 0Q0 9 27 0L21 38Q2 51-21 38Z" fill="#82989a" stroke="#536e75" stroke-width="3"/>
+    <ellipse rx="28" ry="9.5" fill="#b1c4be" stroke="#617a7a" stroke-width="2.5"/>
+    <ellipse cy="2.5" rx="22" ry="6" fill="url(#tailor-water)"/>
+    <path d="M-21 3Q-17 20 0 25Q20 16 25 3" fill="none" stroke="#c7d0bd" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M-19 22l3 11m32-17-2 12" stroke="#c7d6cc" stroke-width="2.5" stroke-linecap="round" opacity=".67"/>
+  </g>
+
+  <ellipse id="elephant-shadow" rx="186" ry="24" fill="url(#tailor-shadow)"/>
+  <ellipse id="tailor-shadow-on-ground" rx="71" ry="13" fill="url(#tailor-shadow)"/>
+  <g id="elephant" stroke-linecap="round" stroke-linejoin="round">
+    <path id="elephant-tail" d="M163-205Q214-158 205-116L196-105M196-105q-12-1-9-15 16-1 10 15Z" fill="#747688" stroke="#696977" stroke-width="5"/>
+    <g id="elephant-hind-far">
+      <path d="M105-123Q127-136 145-120L150-23Q148-9 149-2Q133 5 107 0L99-16Z" fill="#787a87" stroke="#666878" stroke-width="4"/>
+      <path d="M110-3v-10m12 11v-10m12 12v-9" fill="none" stroke="#a9aab0" stroke-width="2.6"/>
+    </g>
+    <g id="elephant-front-far">
+      <path d="M-35-147Q-12-160 9-137L3-17Q6-7 2-2Q-21 4-41-2L-44-21Z" fill="#808391" stroke="#666878" stroke-width="4"/>
+      <path d="M-34-4v-11m11 12v-11m12 12v-10" fill="none" stroke="#b5b4b5" stroke-width="2.6"/>
+    </g>
+    <path d="M-46-218Q-6-260 58-267Q143-274 181-225Q207-184 190-128Q169-89 105-92Q50-84 12-110Q-24-102-52-138Q-68-182-46-218Z" fill="url(#elephant-hide)" stroke="#666977" stroke-width="4.8"/>
+    <path d="M37-251Q104-269 149-233M117-106q41 4 59-24M21-116q30 15 53 13" fill="none" stroke="#c3c0bf" stroke-width="4.2" opacity=".52"/>
+    <g id="elephant-hind-near">
+      <path d="M137-151Q166-165 183-142Q184-101 178-74L179-18Q186-7 179-1Q159 5 132 0Q127-4 130-17L132-75Z" fill="url(#elephant-hide)" stroke="#666977" stroke-width="4"/>
+      <path d="M137-4v-11m13 13v-11m13 11v-10" fill="none" stroke="#d0c7bf" stroke-width="2.9"/>
+      <path d="M141-64l13 2m-11 9 14 2" fill="none" stroke="#757988" stroke-width="2.3" opacity=".75"/>
+    </g>
+    <g id="elephant-front-near">
+      <path d="M-9-156Q13-169 39-151Q51-119 40-84L36-19Q43-6 38-1Q14 6-13 0Q-18-8-14-21L-12-75Z" fill="url(#elephant-hide)" stroke="#666977" stroke-width="4"/>
+      <path d="M-8-4v-11m13 13v-12m13 12v-10" fill="none" stroke="#d0c7bf" stroke-width="2.9"/>
+      <path d="M-5-62l15 2m-13 10 14 2" fill="none" stroke="#757988" stroke-width="2.3" opacity=".75"/>
+    </g>
+    <g id="elephant-face">
+      <path d="M-80-210Q-112-185-111-144Q-112-115-91-100Q-73-85-42-103Q-9-119-17-160Q-20-193-52-207Z" fill="url(#elephant-hide)" stroke="#666977" stroke-width="4.4"/>
+      <path d="M-103-153Q-108-129-99-115Q-93-109-82-111Z" fill="#b2acb2" opacity=".78"/>
+      <path id="elephant-jaw" d="M-90-116Q-72-110-57-118Q-56-104-73-100Q-86-102-90-116Z" fill="#7f7887" stroke="#666977" stroke-width="2.4"/>
+      <path id="elephant-mouth" d="M-87-114Q-76-108-64-115Q-69-106-77-106Q-83-107-87-114Z" fill="#625463"/>
+      <g id="elephant-ear-pivot">
+        <path d="M-53-204Q-24-226 14-210Q39-197 31-173Q20-167 21-155Q12-121-11-121Q-39-110-55-130Q-62-148-61-165Z" fill="#9e9da9" stroke="#696c79" stroke-width="4.1"/>
+        <path d="M-51-181Q-35-207-4-201Q19-197 21-183Q13-175 9-156Q2-132-18-130Q-36-125-47-139Z" fill="url(#elephant-ear)"/>
+        <path d="M-38-185Q-29-197-11-196M-17-138q13-4 17-16" fill="none" stroke="#e0c0bb" stroke-width="3.2" opacity=".76"/>
+      </g>
+      <ellipse id="elephant-eye" cx="-82" cy="-157" rx="4.6" ry="6.6" fill="#3d3847"/>
+      <circle id="elephant-highlight" cx="-83.3" cy="-159" r="1.5" fill="#fff2d8"/>
+      <path id="elephant-lid" d="M-86-156q4 4 8 0" fill="none" stroke="#474350" stroke-width="2.5" opacity="0"/>
+      <path d="M-92-170q9-6 17-2m-26 40q5-3 11-1M-67-121q6-1 8-5" fill="none" stroke="#777382" stroke-width="2.7"/>
+      <circle cx="-78" cy="-132" r="8" fill="#c897a2" opacity=".38"/>
+    </g>
+  </g>
+  <g id="elephant-trunk" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path id="trunk-outline" fill="url(#elephant-hide)" stroke="#696a79" stroke-width="2.7"/>
+    <path id="trunk-light" stroke="#c7c2c1" stroke-width="1.85" opacity=".7"/>
+    <ellipse id="trunk-tip" rx="4.2" ry="2.1" fill="#777484"/>
+  </g>
+
+  <g id="harpreet-plane"><g id="harpreet"/><g id="harpreet-props"/></g>
+  <g id="tailor-tub">
+    <ellipse cy="40" rx="116" ry="17" fill="url(#tailor-shadow)"/>
+    <path d="M-94 0Q0 21 94 0L77 37Q49 54-51 45Q-73 42-77 35Z" fill="url(#tailor-tub-metal)" stroke="#536974" stroke-width="3.4"/>
+    <ellipse id="tub-water" rx="93" ry="24" fill="url(#tailor-water)" stroke="#657d82" stroke-width="3.1"/>
+    <ellipse rx="81" ry="17" fill="none" stroke="#d5e4ca" stroke-width="2.1" opacity=".7"/>
+    <path d="M-59-6Q-33-13-11-7Q16-1 42-9m-62 19q41 5 74-3" fill="none" stroke="#e3e7c9" stroke-width="2.3" stroke-linecap="round" opacity=".75"/>
+    <g id="tub-ripple" fill="none" stroke="#e7f1d5" opacity="0">
+      <ellipse cx="-8" cy="-4" rx="31" ry="9" stroke-width="2.3"/>
+      <ellipse cx="-8" cy="-4" rx="48" ry="13" stroke-width="1.6" opacity=".62"/>
+    </g>
+    <path d="M74-12Q92-20 104-27Q114-29 117-23Q118-16 109-12L89-4" fill="none" stroke="#556e7a" stroke-width="6" stroke-linecap="round"/>
+    <path d="M78-13Q92-19 106-25" fill="none" stroke="#d0d6c9" stroke-width="2.6" stroke-linecap="round"/>
+    <circle id="tub-handle-grip" cx="104" cy="-25" r="1" visibility="hidden"/>
+  </g>
+  <g id="cloth-shape">
+    <path id="cloth-body" fill="url(#folded-cloth)" stroke="#466b83" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="cloth-stitch" fill="none" stroke="#d5e5d8" stroke-width="2.1" stroke-linecap="round" stroke-dasharray="5 5"/>
+    <g id="cloth-dust" fill="#b49363" opacity=".76">
+      <ellipse rx="10.8" ry="4.8" transform="rotate(-18)"/>
+      <ellipse cx="19" cy="7" rx="4" ry="2.1"/>
+      <ellipse cx="-14" cy="9" rx="5.8" ry="2.6"/>
+      <path d="M5 10q8-6 12-1-4 5-12 1Z"/>
+    </g>
+    <circle id="cloth-left" r="1" visibility="hidden"/>
+    <circle id="cloth-right" r="1" visibility="hidden"/>
+  </g>
+  <path id="tub-front-rim" d="M-93 2Q-65 25 1 24Q66 23 93 2" fill="none" stroke="#b9cdcb" stroke-width="4" stroke-linecap="round"/>
+  <g id="line-pegs" opacity="0">
+    <path d="M578 411l8 13m121-13-6 14" fill="none" stroke="#8a573d" stroke-width="5.3" stroke-linecap="round"/>
+    <path d="M577 409l8 13m121-13-6 14" fill="none" stroke="#e2b981" stroke-width="3.2" stroke-linecap="round"/>
+  </g>
+  <g id="rinse-spray" fill="none" stroke-linecap="round" opacity="0">
+    <path id="rinse-stream" stroke="#b5d9cf" stroke-width="13" opacity=".72"/>
+    <path id="rinse-glint" stroke="#eef6dc" stroke-width="3.4" opacity=".92"/>
+    <ellipse id="rinse-hit" rx="31" ry="8" fill="#e6edcf" fill-opacity=".31" stroke="#edf7df" stroke-width="1.75"/>
+  </g>
+  <g id="wash-splash" fill="#d5eddd" opacity="0"/>
+  <g id="wash-drips" fill="#d5eddd" opacity="0"/>
+</svg>
