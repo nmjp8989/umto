@@ -1,0 +1,92 @@
+{
+  "mission": 14,
+  "title": "ਦੁੱਧ ਦੀ ਬਾਲਟੀ",
+  "englishTitle": "The Milkmaid and Her Pail",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "dadi": "Bibi Ji",
+    "boy": "Sidak"
+  },
+  "scenes": [
+    {
+      "id": "courtyard",
+      "title": "Bibi Ji hands Mehar the pail",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 375 },
+      "lines": ["pail", "bibi-errand", "mehar-ready"],
+      "review": "Establish the courtyard. Move closer as Mehar takes the handle. Keep the pail at Mehar’s side when Bibi Ji speaks."
+    },
+    {
+      "id": "path",
+      "title": "The walk to market",
+      "framing": "full",
+      "focus": { "x": 620, "y": 429 },
+      "lines": ["market-path", "buy-eggs"],
+      "review": "Track Mehar along the path. Keep the pail upright and the handle in her hand. Show Sidak at a distance."
+    },
+    {
+      "id": "daydream",
+      "title": "From eggs to chicks",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["imagine-eggs", "sell-eggs"],
+      "review": "Use a soft transition into Mehar’s daydream. Show each shell crack before the chick appears. Later show the hens and the new eggs."
+    },
+    {
+      "id": "scarf",
+      "title": "A blue scarf",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "medium",
+      "focus": { "x": 744, "y": 424 },
+      "lines": ["blue-scarf"],
+      "review": "Show the blue scarf flutter in Mehar’s imagination. Dissolve back to the real path as she turns with the pail."
+    },
+    {
+      "id": "spill",
+      "title": "The pail tips",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 774, "y": 492 },
+      "lines": ["milk-spills"],
+      "review": "Hold on the tilted pail and the milk landing on the path. Stop the stream when the pail is empty."
+    },
+    {
+      "id": "sidak-helps",
+      "title": "Sidak helps",
+      "framing": "two-shot",
+      "focus": { "x": 668, "y": 434 },
+      "lines": ["sidak-arrives", "sidak-kind", "mehar-realizes"],
+      "review": "Sidak walks in, reaches the handle, and lifts the empty pail before offering to walk home together."
+    },
+    {
+      "id": "home",
+      "title": "Back home",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 376 },
+      "lines": ["back-home", "bibi-comforts"],
+      "review": "Return to the courtyard. Show Mehar rinsing the pail and setting it down. Hold a two-shot for Bibi Ji’s response."
+    }
+  ],
+  "lines": {
+    "pail": { "speaker": "narrator", "pa": "ਸਵੇਰੇ ਬੀਬੀ ਜੀ ਨੇ ਮੇਹਰ ਨੂੰ ਦੁੱਧ ਦੀ ਬਾਲਟੀ ਦਿੱਤੀ। ਸਿਦਕ ਵੀ ਵਿਹੜੇ ਵਿੱਚ ਸੀ।" },
+    "bibi-errand": { "speaker": "dadi", "pa": "ਇਹ ਦੁੱਧ ਮੰਡੀ ਲੈ ਜਾ। ਹੌਲੀ ਤੁਰ ਕੇ ਜਾਈਂ, ਬਾਲਟੀ ਭਰੀ ਹੋਈ ਹੈ।" },
+    "mehar-ready": { "speaker": "mehar", "pa": "ਠੀਕ ਹੈ, ਬੀਬੀ ਜੀ। ਮੈਂ ਧਿਆਨ ਰੱਖਾਂਗੀ।" },
+    "market-path": { "speaker": "narrator", "pa": "ਮੇਹਰ ਖੇਤਾਂ ਵਾਲੇ ਰਾਹ ਉੱਤੇ ਤੁਰ ਪਈ। ਰਾਹ ਵਿੱਚ ਉਹ ਸੋਚਣ ਲੱਗੀ ਕਿ ਦੁੱਧ ਵੇਚ ਕੇ ਕੀ ਖਰੀਦੇਗੀ।" },
+    "buy-eggs": { "speaker": "mehar", "pa": "ਮੈਂ ਦੁੱਧ ਦੇ ਪੈਸਿਆਂ ਨਾਲ ਅੰਡੇ ਖਰੀਦਾਂਗੀ।" },
+    "imagine-eggs": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਸੋਚਿਆ ਕਿ ਅੰਡਿਆਂ ਵਿੱਚੋਂ ਨਿੱਕੇ ਨਿੱਕੇ ਚੂਚੇ ਨਿਕਲਣਗੇ। ਫਿਰ ਉਹ ਚੂਚੇ ਵੱਡੇ ਹੋ ਜਾਣਗੇ।" },
+    "sell-eggs": { "speaker": "mehar", "pa": "ਮੁਰਗੀਆਂ ਹੋਰ ਅੰਡੇ ਦੇਣਗੀਆਂ। ਅੰਡੇ ਵੇਚ ਕੇ ਮੈਂ ਨੀਲੀ ਚੁੰਨੀ ਲਵਾਂਗੀ।" },
+    "blue-scarf": { "speaker": "narrator", "pa": "ਉਸ ਨੂੰ ਲੱਗਾ ਜਿਵੇਂ ਨਵੀਂ ਚੁੰਨੀ ਉਸ ਦੇ ਸਿਰ ਉੱਤੇ ਲਹਿਰਾ ਰਹੀ ਹੋਵੇ। ਉਹ ਖੁਸ਼ੀ ਨਾਲ ਘੁੰਮੀ।" },
+    "milk-spills": { "speaker": "narrator", "pa": "ਬਾਲਟੀ ਇੱਕ ਪਾਸੇ ਝੁਕ ਗਈ ਤੇ ਸਾਰਾ ਦੁੱਧ ਮਿੱਟੀ ਉੱਤੇ ਡੁੱਲ੍ਹ ਗਿਆ।" },
+    "sidak-arrives": { "speaker": "narrator", "pa": "ਸਿਦਕ ਉਸ ਦੇ ਪਿੱਛੇ ਆ ਰਿਹਾ ਸੀ। ਉਸ ਨੇ ਖਾਲੀ ਬਾਲਟੀ ਚੁੱਕੀ ਤੇ ਮੇਹਰ ਕੋਲ ਆਇਆ।" },
+    "sidak-kind": { "speaker": "boy", "pa": "ਤੂੰ ਠੀਕ ਹੈਂ, ਮੇਹਰ? ਚੱਲ, ਆਪਾਂ ਘਰ ਚੱਲੀਏ।" },
+    "mehar-realizes": { "speaker": "mehar", "pa": "ਮੈਂ ਅਗਲੇ ਕੰਮਾਂ ਬਾਰੇ ਇੰਨਾ ਸੋਚਿਆ ਕਿ ਬਾਲਟੀ ਦਾ ਧਿਆਨ ਹੀ ਭੁੱਲ ਗਈ।" },
+    "back-home": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਘਰ ਮੁੜ ਆਏ। ਮੇਹਰ ਨੇ ਬੀਬੀ ਜੀ ਨੂੰ ਸਾਰੀ ਗੱਲ ਦੱਸੀ ਤੇ ਬਾਲਟੀ ਧੋ ਕੇ ਰੱਖ ਦਿੱਤੀ।" },
+    "bibi-comforts": { "speaker": "dadi", "pa": "ਸੁਪਨੇ ਦੇਖਣੇ ਚੰਗੀ ਗੱਲ ਹੈ, ਪੁੱਤ। ਬੱਸ ਪਹਿਲਾਂ ਹੱਥ ਵਾਲਾ ਕੰਮ ਮੁਕਾ ਲਈਏ।" }
+  }
+}
