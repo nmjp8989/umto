@@ -1,0 +1,86 @@
+{
+  "pond-is-drying": {
+    "hash": "6fcf7b4bd4a7dcee6aa6a621a34239d23678347797f2804af6789f8a124b527e",
+    "voice": "Aoede",
+    "text": "ਤਲਾਬ ਵਿੱਚ ਪਾਣੀ ਬਹੁਤ ਘੱਟ ਰਹਿ ਗਿਆ ਸੀ। ਕੱਛੂਆ ਸੁੱਕੇ ਕੰਢੇ ਉੱਤੇ ਬੈਠਾ ਸੀ। ਉਸ ਦੇ ਦੋ ਦੋਸਤ ਹੰਸ ਉੱਡ ਕੇ ਉਸ ਕੋਲ ਆਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "tortoise-asks": {
+    "hash": "223955f825e2f2e42a23a4d52409161f2246ac0b12e0c7a73f7b1f456b9ac29a",
+    "voice": "Orus",
+    "text": "ਇੱਥੇ ਛਾਂ ਵੀ ਘੱਟ ਹੈ। ਕੀ ਨੇੜੇ ਕੋਈ ਹੋਰ ਤਲਾਬ ਹੈ?",
+    "speaker": "tortoise",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goose-has-a-plan": {
+    "hash": "20752e85376a6a8a5b9e9f3aa1d05b95489ae4e87ff0ef8927ac0e83e53c60f3",
+    "voice": "Charon",
+    "text": "ਖੇਤਾਂ ਪਾਰ ਇੱਕ ਤਲਾਬ ਹੈ। ਅਸੀਂ ਸੋਟੀ ਦੇ ਸਿਰੇ ਫੜਾਂਗੇ। ਤੂੰ ਵਿਚਕਾਰੋਂ ਫੜੀਂ। ਸਾਰੇ ਰਾਹ ਮੂੰਹ ਬੰਦ ਰੱਖੀਂ।",
+    "speaker": "goose",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "three-friends-take-off": {
+    "hash": "fd4679e9b024b4db7a1f0d4846f420a4eeb8c180fbd0745ee5949421e4c200de",
+    "voice": "Aoede",
+    "text": "ਹੰਸਾਂ ਨੇ ਸੋਟੀ ਦੇ ਸਿਰੇ ਚੁੰਝਾਂ ਵਿੱਚ ਫੜੇ। ਕੱਛੂਏ ਨੇ ਵਿਚਕਾਰੋਂ ਫੜਿਆ। ਤਿੰਨੇ ਉੱਪਰ ਉੱਠੇ ਤੇ ਖੇਤਾਂ ਵੱਲ ਉੱਡ ਚੱਲੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fields-below": {
+    "hash": "819882c1ce261e81d9fbde679cced88c08d26ff4541ab5339e71a170d706787d",
+    "voice": "Aoede",
+    "text": "ਹੇਠਾਂ ਸਰ੍ਹੋਂ ਦੇ ਖੇਤ ਤੇ ਨਿੱਕੇ ਨਿੱਕੇ ਘਰ ਦਿਸਦੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "two-children-wave": {
+    "hash": "8cd319773f2f3e0b5515e3c09861350cdedbd784be2be9ca6403250116541b00",
+    "voice": "Aoede",
+    "text": "ਦੋ ਬੱਚਿਆਂ ਨੇ ਉੱਪਰ ਵੇਖਿਆ ਤੇ ਹੱਥ ਹਿਲਾਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-spots-the-tortoise": {
+    "hash": "0dddf25c3ab65ebbf1fc8f0efd629601997526cfa0f45981cfc084c44973defd",
+    "voice": "Kore",
+    "text": "ਦੇਖੋ! ਕੱਛੂਆ ਵੀ ਉੱਡ ਰਿਹਾ ਹੈ!",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mouth-opens-stick-slips": {
+    "hash": "8d0b09cf034cde53df8b772c53a195cf1928f859e062306032fa84e8dfdb5719",
+    "voice": "Aoede",
+    "text": "ਉਹ ਨਵੇਂ ਤਲਾਬ ਉੱਤੇ ਪਹੁੰਚ ਗਏ। ਕੱਛੂਆ ਬੱਚਿਆਂ ਨੂੰ ਜਵਾਬ ਦੇਣਾ ਚਾਹੁੰਦਾ ਸੀ। ਜਿਵੇਂ ਹੀ ਉਸ ਨੇ ਮੂੰਹ ਖੋਲ੍ਹਿਆ, ਸੋਟੀ ਛੁੱਟ ਗਈ। ਛਪਾਕ! ਉਹ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "tortoise-swims-to-shore": {
+    "hash": "37fcb9e69eb6ffba455906f56dde01f7f01303bcf5c238fdda6415d64df1d3d6",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਹੰਸ ਛੇਤੀ ਹੇਠਾਂ ਆਏ। ਕੱਛੂਏ ਨੇ ਪਾਣੀ ਵਿੱਚੋਂ ਸਿਰ ਕੱਢਿਆ ਤੇ ਤੈਰ ਕੇ ਕੰਢੇ ਵੱਲ ਆ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "goose-checks-on-friend": {
+    "hash": "907d30f2575fe5bb62b46863dfa0991fa219a0cc0f78046f7eedc1bd7d61283b",
+    "voice": "Leda",
+    "text": "ਦੋਸਤ, ਤੂੰ ਠੀਕ ਤਾਂ ਹੈਂ?",
+    "speaker": "second-goose",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "tortoise-replies": {
+    "hash": "72372f5b79d2a4181d7cf469b83d905713b6fe380d2aacb6b30a91eadd48b569",
+    "voice": "Orus",
+    "text": "ਮੈਂ ਠੀਕ ਹਾਂ। ਅਗਲੀ ਵਾਰੀ ਪਹਿਲਾਂ ਉਤਰਾਂਗਾ, ਫਿਰ ਗੱਲ ਕਰਾਂਗਾ।",
+    "speaker": "tortoise",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "friends-in-the-shade": {
+    "hash": "2d59477a986677d76400e16de80353825d6369fe7906133ba81f18f761db7a81",
+    "voice": "Aoede",
+    "text": "ਤਿੰਨੇ ਠੰਢੀ ਛਾਂ ਵਿੱਚ ਬੈਠ ਗਏ। ਇਸ ਵਾਰੀ ਕੱਛੂਏ ਨੇ ਆਰਾਮ ਨਾਲ ਆਪਣੇ ਦੋਸਤਾਂ ਨੂੰ ਦੱਸਿਆ ਕਿ ਉੱਪਰੋਂ ਪਿੰਡ ਕਿੰਨਾ ਸੋਹਣਾ ਦਿਸਦਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
