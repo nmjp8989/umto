@@ -1,0 +1,89 @@
+{
+  "mission": 26,
+  "title": "ਕੱਛੂਆ ਤੇ ਦੋ ਹੰਸ",
+  "englishTitle": "The Tortoise and the Two Geese",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "tortoise": "Tortoise",
+    "goose": "First goose",
+    "second-goose": "Second goose",
+    "mehar": "Mehar"
+  },
+  "scenes": [
+    {
+      "id": "dry-pond",
+      "title": "The pond is drying up",
+      "framing": "establishing",
+      "focus": { "x": 640, "y": 373 },
+      "lines": ["pond-is-drying", "tortoise-asks"],
+      "review": "Start wide enough to show the dry shore. Let the geese land beside the tortoise before he speaks."
+    },
+    {
+      "id": "hold-the-stick",
+      "title": "Three friends hold one stick",
+      "framing": "two-shot",
+      "focus": { "x": 674, "y": 442 },
+      "lines": ["goose-has-a-plan", "three-friends-take-off"],
+      "review": "Show each beak take an end and the tortoise take the middle. Keep the three grips on the stick as they take off."
+    },
+    {
+      "id": "over-the-fields",
+      "title": "The fields from above",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "wide",
+      "focus": { "x": 645, "y": 357 },
+      "lines": ["fields-below"],
+      "review": "Follow the group above the mustard fields. Leave room around the wings and keep the stick level."
+    },
+    {
+      "id": "children-look-up",
+      "title": "Two children look up",
+      "framing": "medium",
+      "focus": { "x": 638, "y": 452 },
+      "lines": ["two-children-wave", "mehar-spots-the-tortoise"],
+      "review": "Cut down to the children by the field, then follow their gaze up to the birds. Only Mehar should speak."
+    },
+    {
+      "id": "splash",
+      "title": "A splash in the new pond",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 672, "y": 427 },
+      "lines": ["mouth-opens-stick-slips"],
+      "review": "Keep the tortoise attached until he opens his mouth. The geese hold their ends while he drops into the new pond."
+    },
+    {
+      "id": "safe-at-the-bank",
+      "title": "Safe on the bank",
+      "framing": "two-shot",
+      "focus": { "x": 668, "y": 446 },
+      "lines": ["tortoise-swims-to-shore", "goose-checks-on-friend", "tortoise-replies"],
+      "review": "Show the tortoise's head emerge, then a wake as he swims to the bank. Check the two speakers take turns."
+    },
+    {
+      "id": "in-the-shade",
+      "title": "Time to tell the story",
+      "framing": "wide",
+      "focus": { "x": 634, "y": 397 },
+      "lines": ["friends-in-the-shade"],
+      "review": "End on a quiet wide shot with all three friends together in the shade beside the new pond."
+    }
+  ],
+  "lines": {
+    "pond-is-drying": { "speaker": "narrator", "pa": "ਤਲਾਬ ਵਿੱਚ ਪਾਣੀ ਬਹੁਤ ਘੱਟ ਰਹਿ ਗਿਆ ਸੀ। ਕੱਛੂਆ ਸੁੱਕੇ ਕੰਢੇ ਉੱਤੇ ਬੈਠਾ ਸੀ। ਉਸ ਦੇ ਦੋ ਦੋਸਤ ਹੰਸ ਉੱਡ ਕੇ ਉਸ ਕੋਲ ਆਏ।" },
+    "tortoise-asks": { "speaker": "tortoise", "pa": "ਇੱਥੇ ਛਾਂ ਵੀ ਘੱਟ ਹੈ। ਕੀ ਨੇੜੇ ਕੋਈ ਹੋਰ ਤਲਾਬ ਹੈ?" },
+    "goose-has-a-plan": { "speaker": "goose", "pa": "ਖੇਤਾਂ ਪਾਰ ਇੱਕ ਤਲਾਬ ਹੈ। ਅਸੀਂ ਸੋਟੀ ਦੇ ਸਿਰੇ ਫੜਾਂਗੇ। ਤੂੰ ਵਿਚਕਾਰੋਂ ਫੜੀਂ। ਸਾਰੇ ਰਾਹ ਮੂੰਹ ਬੰਦ ਰੱਖੀਂ।" },
+    "three-friends-take-off": { "speaker": "narrator", "pa": "ਹੰਸਾਂ ਨੇ ਸੋਟੀ ਦੇ ਸਿਰੇ ਚੁੰਝਾਂ ਵਿੱਚ ਫੜੇ। ਕੱਛੂਏ ਨੇ ਵਿਚਕਾਰੋਂ ਫੜਿਆ। ਤਿੰਨੇ ਉੱਪਰ ਉੱਠੇ ਤੇ ਖੇਤਾਂ ਵੱਲ ਉੱਡ ਚੱਲੇ।" },
+    "fields-below": { "speaker": "narrator", "pa": "ਹੇਠਾਂ ਸਰ੍ਹੋਂ ਦੇ ਖੇਤ ਤੇ ਨਿੱਕੇ ਨਿੱਕੇ ਘਰ ਦਿਸਦੇ ਸਨ।" },
+    "two-children-wave": { "speaker": "narrator", "pa": "ਦੋ ਬੱਚਿਆਂ ਨੇ ਉੱਪਰ ਵੇਖਿਆ ਤੇ ਹੱਥ ਹਿਲਾਏ।" },
+    "mehar-spots-the-tortoise": { "speaker": "mehar", "pa": "ਦੇਖੋ! ਕੱਛੂਆ ਵੀ ਉੱਡ ਰਿਹਾ ਹੈ!" },
+    "mouth-opens-stick-slips": { "speaker": "narrator", "pa": "ਉਹ ਨਵੇਂ ਤਲਾਬ ਉੱਤੇ ਪਹੁੰਚ ਗਏ। ਕੱਛੂਆ ਬੱਚਿਆਂ ਨੂੰ ਜਵਾਬ ਦੇਣਾ ਚਾਹੁੰਦਾ ਸੀ। ਜਿਵੇਂ ਹੀ ਉਸ ਨੇ ਮੂੰਹ ਖੋਲ੍ਹਿਆ, ਸੋਟੀ ਛੁੱਟ ਗਈ। ਛਪਾਕ! ਉਹ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਿਆ।" },
+    "tortoise-swims-to-shore": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਹੰਸ ਛੇਤੀ ਹੇਠਾਂ ਆਏ। ਕੱਛੂਏ ਨੇ ਪਾਣੀ ਵਿੱਚੋਂ ਸਿਰ ਕੱਢਿਆ ਤੇ ਤੈਰ ਕੇ ਕੰਢੇ ਵੱਲ ਆ ਗਿਆ।" },
+    "goose-checks-on-friend": { "speaker": "second-goose", "pa": "ਦੋਸਤ, ਤੂੰ ਠੀਕ ਤਾਂ ਹੈਂ?" },
+    "tortoise-replies": { "speaker": "tortoise", "pa": "ਮੈਂ ਠੀਕ ਹਾਂ। ਅਗਲੀ ਵਾਰੀ ਪਹਿਲਾਂ ਉਤਰਾਂਗਾ, ਫਿਰ ਗੱਲ ਕਰਾਂਗਾ।" },
+    "friends-in-the-shade": { "speaker": "narrator", "pa": "ਤਿੰਨੇ ਠੰਢੀ ਛਾਂ ਵਿੱਚ ਬੈਠ ਗਏ। ਇਸ ਵਾਰੀ ਕੱਛੂਏ ਨੇ ਆਰਾਮ ਨਾਲ ਆਪਣੇ ਦੋਸਤਾਂ ਨੂੰ ਦੱਸਿਆ ਕਿ ਉੱਪਰੋਂ ਪਿੰਡ ਕਿੰਨਾ ਸੋਹਣਾ ਦਿਸਦਾ ਸੀ।" }
+  }
+}

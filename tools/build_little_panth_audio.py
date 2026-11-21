@@ -35,6 +35,8 @@ VOICES={
  "ant":("Leda","A lively little ant speaking natural Punjabi. Clear, warm pronunciation at an easy pace for children. Read only the written words."),
  "stork":("Charon","A thoughtful and friendly stork speaking clear conversational Punjabi with a gentle, expressive delivery. Read only the written words."),
  "dove":("Vindemiatrix","A gentle and reassuring dove speaking clear conversational Punjabi. Read only the written words for young listeners."),
+ "goose":("Charon","A gentle and thoughtful goose helping a friend in a Punjabi picture book. Read the exact Gurmukhi line in clear, natural Punjabi at a comfortable read-along pace."),
+ "second-goose":("Leda","A bright, kind young goose checking on a friend in a Punjabi picture book. Speak natural Punjabi with warmth and gentle concern. Read the exact Gurmukhi line."),
  "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
  "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
  "harpreet":("Algieba","A kind Punjabi village tailor speaking to a friend. Use clear, warm conversational Punjabi pronunciation in Gurmukhi, with an easy pace for children."),
