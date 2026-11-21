@@ -1,0 +1,79 @@
+{
+  "rain-stops": {
+    "hash": "a5a42d049cb3154cec9e34cb2fcfafdb2ac28ec3e40d02965e6760645d06fc22",
+    "voice": "Aoede",
+    "text": "ਮੀਂਹ ਰੁਕ ਗਿਆ ਸੀ। ਮੇਹਰ ਨੇ ਪੁਰਾਣੇ ਕਾਗਜ਼ ਦੀ ਇੱਕ ਕਿਸ਼ਤੀ ਬਣਾਈ। ਉਹ ਸਿਦਕ ਨਾਲ ਬੂਹੇ ਕੋਲ ਆਈ। ਗਲੀ ਦੀ ਨਿੱਕੀ ਨਾਲੀ ਵਿੱਚ ਪਾਣੀ ਵਗ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-predicts": {
+    "hash": "6a66635dfb8979b33f3bd412fcdf6e7d00365762dd0f547e0923ee51b34447f0",
+    "voice": "Kore",
+    "text": "ਵੇਖੀਂ, ਮੇਰੀ ਕਿਸ਼ਤੀ ਨਿੱਕੇ ਪੁਲ ਹੇਠੋਂ ਲੰਘੇਗੀ!",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "boat-goes-in": {
+    "hash": "8f822b5a6f186e8075d677ac7448fdb25a773deff7bf080b804eb50feda3f47d",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਝੁਕ ਕੇ ਕਿਸ਼ਤੀ ਪਾਣੀ ਉੱਤੇ ਰੱਖੀ ਤੇ ਛੱਡ ਦਿੱਤੀ। ਉਹ ਡੋਲਦੀ ਹੋਈ ਅੱਗੇ ਤੁਰ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "boat-gets-stuck": {
+    "hash": "0b18b121e7ca917a80899cbb4207b8bb53626230dfdd38876f9da6caacccd707",
+    "voice": "Aoede",
+    "text": "ਪੁਲ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਪੱਥਰ ਕੋਲ ਪੀਲਾ ਪੱਤਾ ਫਸਿਆ ਸੀ। ਕਿਸ਼ਤੀ ਉਸ ਪੱਤੇ ਨਾਲ ਟਕਰਾਈ ਤੇ ਰੁਕ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-wonders": {
+    "hash": "65105ff7ffc9ee020f02026800777a7956e7aab84ae2a27badfb0cffcf68aaae",
+    "voice": "Kore",
+    "text": "ਇਹ ਅੱਗੇ ਕਿਉਂ ਨਹੀਂ ਜਾਂਦੀ? ਪਾਣੀ ਤਾਂ ਅਜੇ ਵੀ ਵਗ ਰਿਹਾ ਹੈ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-spots-the-leaf": {
+    "hash": "883a3e56c81ca8d61a7bc529a28dd893cd9f7aacbf862a67279eb653f783a86e",
+    "voice": "Iapetus",
+    "text": "ਪੱਤਾ ਰਾਹ ਰੋਕ ਰਿਹਾ ਹੈ। ਵੇਖੀਂ, ਮੈਂ ਇਹਨੂੰ ਇੱਕ ਟਾਹਣੀ ਨਾਲ ਹਟਾ ਦਿੰਦਾ ਹਾਂ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-clears-the-leaf": {
+    "hash": "969e964fc3cee5d9bfdb4ca5bfcd1db01bfddc24cd50e3cf306ac2da244b91ed",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੇ ਕੰਢੇ ਤੋਂ ਸੁੱਕੀ ਟਾਹਣੀ ਚੁੱਕੀ। ਉਸ ਨੇ ਟਾਹਣੀ ਦਾ ਸਿਰਾ ਪੱਤੇ ਹੇਠ ਲਾਇਆ ਤੇ ਪੱਤਾ ਚੁੱਕ ਕੇ ਪਾਸੇ ਰੱਖ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "through-the-arch": {
+    "hash": "d756502259253f7cadf1cef7aaaf76d383f69a6084ae8ec4d40e62dd5cca0c82",
+    "voice": "Aoede",
+    "text": "ਪਾਣੀ ਨੇ ਕਿਸ਼ਤੀ ਨੂੰ ਫਿਰ ਅੱਗੇ ਧੱਕਿਆ। ਕਿਸ਼ਤੀ ਪੁਲ ਦੀ ਛਾਂ ਵਿੱਚ ਗਾਇਬ ਹੋ ਗਈ। ਦੋਵਾਂ ਨੇ ਸਾਹ ਰੋਕ ਲਿਆ। ਫਿਰ ਉਹ ਦੂਜੇ ਪਾਸੇ ਧੁੱਪ ਵਿੱਚ ਨਿਕਲ ਆਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-cheers": {
+    "hash": "af22d01ae0e8ba64ea3effbb907ecb3145d3ffcdb989445ee226e293182113dc",
+    "voice": "Kore",
+    "text": "ਦੇਖ, ਇਹ ਤਾਂ ਸੱਚੀਂ ਪੁਲ ਲੰਘ ਗਈ!",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sidak-explains": {
+    "hash": "c23b22868b2c0ecc56968d0b3178b8ee255d1480ec52b59c0e0ba348521cb2ee",
+    "voice": "Iapetus",
+    "text": "ਸਿਰਫ਼ ਇੱਕ ਨਿੱਕਾ ਜਿਹਾ ਪੱਤਾ ਸੀ! ਆਪਾਂ ਉਹ ਹਟਾਇਆ ਤੇ ਪਾਣੀ ਨੇ ਬਾਕੀ ਕੰਮ ਕਰ ਦਿੱਤਾ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "the-boat-sails-away": {
+    "hash": "35e4dd8c118f3d3bac1585209e48be8a55ab5b42dd38ee8c2eff38ca03752468",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਸੁੱਕੇ ਰਾਹ ਉੱਤੇ ਨਾਲ ਨਾਲ ਤੁਰੇ। ਜਦੋਂ ਕਿਸ਼ਤੀ ਮੋੜ ਮੁੜੀ, ਮੇਹਰ ਨੇ ਹੱਥ ਹਿਲਾ ਕੇ ਉਸ ਨੂੰ ਅਲਵਿਦਾ ਆਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
