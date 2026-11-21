@@ -1,0 +1,72 @@
+{
+  "in-the-courtyard": {
+    "hash": "32751d70906c754f4f4dac0a67d293116bcc5a8703df73e6f650fb4c52a3ca40",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਬੈਠੇ ਸਨ। ਉਨ੍ਹਾਂ ਦਾ ਕੁੱਤਾ ਸ਼ੇਰੂ ਵੀ ਕੋਲ ਆ ਕੇ ਬੈਠ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-shares": {
+    "hash": "7ba33f824c35d2b2f65976b5b2db891a5b10368850f20547d8d94a3d36ce53eb",
+    "voice": "Kore",
+    "text": "ਸ਼ੇਰੂ, ਇਹ ਲੈ ਰੋਟੀ ਦਾ ਟੁਕੜਾ। ਇਹ ਤੇਰੇ ਲਈ ਹੈ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "to-the-canal": {
+    "hash": "2a966c63ae86b10448d27cc195390a84d4eb7069c1002741c224c6a1d8ef523f",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਟੁਕੜਾ ਮੂੰਹ ਵਿੱਚ ਫੜ ਲਿਆ ਤੇ ਨਹਿਰ ਕੋਲ ਪਹੁੰਚ ਗਿਆ। ਉੱਥੇ ਪਾਣੀ ਬਿਲਕੁਲ ਸ਼ਾਂਤ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sees-his-reflection": {
+    "hash": "8536a0f040c7359adf163f29e36fbb7ae4a4f6cf21d04ad202ee964c76d65a60",
+    "voice": "Aoede",
+    "text": "ਸ਼ੇਰੂ ਨੇ ਝੁਕ ਕੇ ਹੇਠਾਂ ਵੇਖਿਆ। ਪਾਣੀ ਵਿੱਚ ਉਸ ਨੂੰ ਇੱਕ ਹੋਰ ਕੁੱਤਾ ਦਿਸਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਵੀ ਰੋਟੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "drops-the-roti": {
+    "hash": "f86757d9589d9e8663983f80605cd82538be873c8a16a248bee20a6c7681f23a",
+    "voice": "Aoede",
+    "text": "ਸ਼ੇਰੂ ਨੂੰ ਲੱਗਾ ਕਿ ਉਹ ਦੂਜੇ ਕੁੱਤੇ ਦੀ ਰੋਟੀ ਵੀ ਲੈ ਸਕਦਾ ਹੈ। ਉਹ ਭੌਂਕਿਆ ਤੇ ਉਸ ਦੀ ਆਪਣੀ ਰੋਟੀ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "ripples-settle": {
+    "hash": "ff9c52f837239409337411b075ffe5901875147988df7f05f934a788eaeb42dc",
+    "voice": "Aoede",
+    "text": "ਪਾਣੀ ਵਿੱਚ ਗੋਲ ਗੋਲ ਲਹਿਰਾਂ ਬਣ ਗਈਆਂ। ਜਦੋਂ ਲਹਿਰਾਂ ਠਹਿਰੀਆਂ, ਕੁੱਤਾ ਮੁੜ ਦਿੱਸਿਆ। ਇਸ ਵਾਰ ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਵੀ ਰੋਟੀ ਨਹੀਂ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "children-arrive": {
+    "hash": "78ab75bd4c8bbfe5d8580d94351a6ea6c0a1b4bde6232b69df414b8e910cd7bd",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਨਹਿਰ ਕੋਲ ਆ ਗਏ। ਸ਼ੇਰੂ ਨੇ ਸਿਰ ਟੇਢਾ ਕੀਤਾ। ਪਾਣੀ ਵਾਲੇ ਕੁੱਤੇ ਦਾ ਸਿਰ ਵੀ ਟੇਢਾ ਹੋ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-explains": {
+    "hash": "ea8ba58f458cd557aa5df019eae95ac2186d643ad338748d675c15f3ccd5cc91",
+    "voice": "Orus",
+    "text": "ਮੇਹਰ, ਵੇਖ! ਪਾਣੀ ਵਿੱਚ ਤਾਂ ਸ਼ੇਰੂ ਦਾ ਆਪਣਾ ਅਕਸ ਹੈ।",
+    "speaker": "boy",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-calls": {
+    "hash": "087109b53002ca3b8475219496a57bf268813a5e16bef4fb162a94494f580a99",
+    "voice": "Kore",
+    "text": "ਸ਼ੇਰੂ, ਆ ਘਰ ਚੱਲੀਏ। ਜੋ ਸਾਡੇ ਕੋਲ ਹੈ, ਉਸ ਦੀ ਕਦਰ ਕਰੀਏ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "walk-home": {
+    "hash": "0a1595e0112195bd6f7b81a2c06d38900c4bb17118435f18a737eb16faddfc45",
+    "voice": "Aoede",
+    "text": "ਸ਼ੇਰੂ ਨੇ ਪਾਣੀ ਵੱਲ ਆਖਰੀ ਵਾਰ ਵੇਖਿਆ ਤੇ ਉਨ੍ਹਾਂ ਦੇ ਨਾਲ ਤੁਰ ਪਿਆ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਪਾਣੀ ਵਾਲਾ ਕੁੱਤਾ ਕੌਣ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
