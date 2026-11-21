@@ -1,0 +1,72 @@
+{
+  "fair-day": {
+    "hash": "46e68522556a0857e927d879cdfcd3ff44a51fa2fdde7807c5887c66029b4309",
+    "voice": "Aoede",
+    "text": "ਅੱਜ ਪਿੰਡ ਵਿੱਚ ਮੇਲਾ ਸੀ। ਸਿਦਕ ਨੇ ਆਪਣੀਆਂ ਨਵੀਆਂ ਲਾਲ ਜੁੱਤੀਆਂ ਬੂਹੇ ਕੋਲ ਰੱਖੀਆਂ ਸਨ। ਹੁਣ ਉੱਥੇ ਸਿਰਫ਼ ਇੱਕ ਜੁੱਤੀ ਪਈ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-asks": {
+    "hash": "731668be5fde56e174a06506f7d094915ba1cee0abd4c3b282789546861d2517",
+    "voice": "Iapetus",
+    "text": "ਬੀਬੀ ਜੀ, ਮੇਰੀ ਦੂਜੀ ਜੁੱਤੀ ਕਿੱਥੇ ਗਈ? ਮੈਂ ਤਾਂ ਦੋਵੇਂ ਇੱਥੇ ਰੱਖੀਆਂ ਸਨ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "hear-a-rustle": {
+    "hash": "7afb1075b566ca49cfc32cb26ea3f98fe78577626f6fbb64143920a19e3baac4",
+    "voice": "Aoede",
+    "text": "ਬੀਬੀ ਜੀ ਨੇ ਕੰਨ ਲਾ ਕੇ ਸੁਣਿਆ। ਮੰਜੇ ਹੇਠੋਂ ਹੌਲੀ ਜਿਹੀ ਖੜਖੜਾਹਟ ਆਈ। ਸਿਦਕ ਨੇ ਝੁਕ ਕੇ ਹੇਠਾਂ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bibi-sees-the-tail": {
+    "hash": "5c4e6833eb4e16715b4271b7c8ef1f3ef79202fba84aa1a91d4d7983afbace48",
+    "voice": "Pulcherrima",
+    "text": "ਉਹ ਵੇਖ, ਮੋਤੀ ਦੀ ਪੂਛ! ਲੱਗਦਾ ਹੈ ਉਸ ਨੂੰ ਕੋਈ ਖਿਡੌਣਾ ਲੱਭ ਗਿਆ ਹੈ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moti-comes-out": {
+    "hash": "30d627accd747bda086845119932f43abcdb14046710d4df1f92bc9d7bc29fad",
+    "voice": "Aoede",
+    "text": "ਨਿੱਕਾ ਕਤੂਰਾ ਮੰਜੇ ਹੇਠੋਂ ਨਿਕਲਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਲਾਲ ਜੁੱਤੀ ਸੀ। ਸਿਦਕ ਵੱਲ ਵੇਖ ਕੇ ਉਸ ਨੇ ਪੂਛ ਹਿਲਾਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-offers-the-ball": {
+    "hash": "597a2d81d0b18f8c7d0c94fbd82d66e06ff3db29bec51b706b97b504afb93cb5",
+    "voice": "Iapetus",
+    "text": "ਮੋਤੀ, ਇਹ ਮੇਲੇ ਵਾਲੀ ਜੁੱਤੀ ਹੈ। ਆ, ਤੇਰੀ ਗੇਂਦ ਨਾਲ ਖੇਡੀਏ।",
+    "speaker": "friend",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "moti-chases": {
+    "hash": "4be7d94afb3ef6e29375651573573b4af6e5c29a9a65fe4e325ca9ce3169b8b1",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੇ ਕੱਪੜੇ ਦੀ ਗੇਂਦ ਚੁੱਕੀ ਤੇ ਵਿਹੜੇ ਵਿੱਚ ਰੋੜ੍ਹ ਦਿੱਤੀ। ਮੋਤੀ ਨੇ ਜੁੱਤੀ ਛੱਡੀ ਤੇ ਗੇਂਦ ਪਿੱਛੇ ਭੱਜਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sidak-finds-the-pair": {
+    "hash": "311030780fff2cbb474129189c71f4b9500cd3d43c8e753519f70ff7434f0de3",
+    "voice": "Aoede",
+    "text": "ਸਿਦਕ ਨੇ ਜੁੱਤੀ ਚੁੱਕ ਕੇ ਦੂਜੀ ਜੁੱਤੀ ਕੋਲ ਰੱਖ ਦਿੱਤੀ। ਜਦੋਂ ਦੋਵੇਂ ਜੁੱਤੀਆਂ ਨਾਲ ਨਾਲ ਪਈਆਂ, ਉਸ ਦੇ ਚਿਹਰੇ ਉੱਤੇ ਮੁਸਕਾਨ ਆ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "bibi-smiles": {
+    "hash": "d2c1480076fca57990506ae7d6ce68c2bbbf1dd3211edea4151af16950b7d979",
+    "voice": "Pulcherrima",
+    "text": "ਹੁਣ ਤੇਰੀ ਜੋੜੀ ਪੂਰੀ ਹੋ ਗਈ। ਮੋਤੀ ਨੂੰ ਵੀ ਉਸ ਦਾ ਖਿਡੌਣਾ ਮਿਲ ਗਿਆ।",
+    "speaker": "dadi",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "puppy-comes-back": {
+    "hash": "e9123a23087e0df4160431ce4ac0b2f0b1ff609d6cec377b52e932c48bfbcdc0",
+    "voice": "Aoede",
+    "text": "ਮੋਤੀ ਗੇਂਦ ਲੈ ਕੇ ਮੁੜ ਆਇਆ। ਸਿਦਕ ਹੱਸ ਪਿਆ। ਮੇਲੇ ਨੂੰ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ ਉਸ ਨੇ ਮੋਤੀ ਨਾਲ ਇੱਕ ਵਾਰ ਹੋਰ ਖੇਡਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
