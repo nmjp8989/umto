@@ -1,0 +1,85 @@
+{
+  "mission": 23,
+  "title": "ਮੇਹਰ ਤੇ ਬਦਾਮਾਂ ਦੀ ਬਰਨੀ",
+  "englishTitle": "Mehar and the Almond Jar",
+  "score": "original",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "dadi": "Bibi Ji"
+  },
+  "scenes": [
+    {
+      "id": "afternoon-snack",
+      "title": "Two bowls for an afternoon snack",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 384 },
+      "lines": ["jar-and-bowls", "bibi-offers-almonds"],
+      "review": "Establish the kitchen with a closed jar and two empty bowls. Keep Mehar’s mouth still during Bibi Ji’s invitation."
+    },
+    {
+      "id": "full-fist",
+      "title": "A fistful of almonds",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 633, "y": 483 },
+      "lines": ["mehar-gets-stuck"],
+      "review": "Show Mehar remove the lid and put her open hand through the mouth of the jar. Her closed fist with five almonds should stop inside the neck."
+    },
+    {
+      "id": "ask-for-help",
+      "title": "Mehar asks for help",
+      "framing": "two-shot",
+      "focus": { "x": 650, "y": 435 },
+      "lines": ["mehar-asks-bibi"],
+      "review": "Frame Mehar’s reaction and keep her fist at the top of the jar. Only Mehar should speak."
+    },
+    {
+      "id": "bibi-helps",
+      "title": "Bibi Ji steadies the jar",
+      "framing": "two-shot",
+      "focus": { "x": 652, "y": 435 },
+      "lines": ["bibi-explains"],
+      "review": "Show Bibi Ji place her hand against the side of the jar before giving Mehar advice."
+    },
+    {
+      "id": "three-fall-back",
+      "title": "Three almonds fall back",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 646, "y": 481 },
+      "lines": ["three-drop-two-stay"],
+      "review": "Each of the three taps should match one almond falling from Mehar’s palm. Follow the two remaining almonds out of the jar."
+    },
+    {
+      "id": "two-for-each",
+      "title": "Two for each bowl",
+      "framing": "two-shot",
+      "focus": { "x": 641, "y": 443 },
+      "lines": ["mehar-offers-two", "both-bowls-filled"],
+      "review": "Trace the first pair from Mehar’s palm into Bibi Ji’s green bowl. Follow the second pair into Mehar’s blue bowl."
+    },
+    {
+      "id": "ready-to-share",
+      "title": "Ready to share",
+      "framing": "wide",
+      "focus": { "x": 642, "y": 406 },
+      "lines": ["lid-back-on", "two-each"],
+      "review": "Show Bibi Ji put the lid back on. Finish with two almonds visible in each bowl."
+    }
+  ],
+  "lines": {
+    "jar-and-bowls": { "speaker": "narrator", "pa": "ਇੱਕ ਦੁਪਹਿਰ ਬੀਬੀ ਜੀ ਤੇ ਮੇਹਰ ਰਸੋਈ ਵਿੱਚ ਸਨ। ਮੇਜ਼ ਉੱਤੇ ਬਦਾਮਾਂ ਦੀ ਬਰਨੀ ਤੇ ਦੋ ਕੌਲੀਆਂ ਪਈਆਂ ਸਨ। ਮੇਹਰ ਨੇ ਬਰਨੀ ਵੱਲ ਵੇਖਿਆ।" },
+    "bibi-offers-almonds": { "speaker": "dadi", "pa": "ਬਦਾਮ ਲੈ ਲੈ, ਪੁੱਤ। ਮੇਰੇ ਲਈ ਵੀ ਦੋ ਕੱਢ ਦੇਈਂ।" },
+    "mehar-gets-stuck": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਢੱਕਣ ਲਾਹਿਆ ਤੇ ਹੱਥ ਬਰਨੀ ਵਿੱਚ ਪਾਇਆ। ਉਸ ਨੇ ਪੰਜ ਬਦਾਮ ਫੜ ਲਏ। ਜਦੋਂ ਹੱਥ ਬਾਹਰ ਖਿੱਚਿਆ ਤਾਂ ਉਸ ਦੀ ਭਰੀ ਮੁੱਠੀ ਅਟਕ ਗਈ।" },
+    "mehar-asks-bibi": { "speaker": "mehar", "pa": "ਬੀਬੀ ਜੀ, ਮੇਰਾ ਹੱਥ ਨਹੀਂ ਨਿਕਲਦਾ! ਤੁਸੀਂ ਬਰਨੀ ਫੜੋਗੇ?" },
+    "bibi-explains": { "speaker": "dadi", "pa": "ਹਾਂ ਪੁੱਤ, ਮੈਂ ਬਰਨੀ ਫੜਦੀ ਹਾਂ। ਤਿੰਨ ਬਦਾਮ ਛੱਡ ਦੇ। ਫਿਰ ਹੌਲੀ ਜਿਹੀ ਹੱਥ ਬਾਹਰ ਕੱਢੀਂ।" },
+    "three-drop-two-stay": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਮੁੱਠੀ ਢਿੱਲੀ ਕੀਤੀ। ਟਪ, ਟਪ, ਟਪ! ਤਿੰਨ ਬਦਾਮ ਬਰਨੀ ਵਿੱਚ ਵਾਪਸ ਡਿੱਗੇ। ਦੋ ਬਦਾਮ ਉਸ ਦੇ ਹੱਥ ਵਿੱਚ ਰਹੇ। ਹੁਣ ਹੱਥ ਸੌਖਿਆਂ ਬਾਹਰ ਆ ਗਿਆ।" },
+    "mehar-offers-two": { "speaker": "mehar", "pa": "ਲਓ ਬੀਬੀ ਜੀ, ਇਹ ਦੋ ਤੁਹਾਡੇ ਲਈ। ਹੁਣ ਮੈਂ ਆਪਣੇ ਲਈ ਦੋ ਕੱਢਦੀ ਹਾਂ।" },
+    "both-bowls-filled": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਦੋ ਬਦਾਮ ਬੀਬੀ ਜੀ ਦੀ ਹਰੀ ਕੌਲੀ ਵਿੱਚ ਪਾਏ। ਫਿਰ ਉਸ ਨੇ ਦੋ ਆਪਣੇ ਲਈ ਕੱਢ ਕੇ ਨੀਲੀ ਕੌਲੀ ਵਿੱਚ ਪਾਏ।" },
+    "lid-back-on": { "speaker": "narrator", "pa": "ਬੀਬੀ ਜੀ ਨੇ ਬਰਨੀ ਦਾ ਢੱਕਣ ਲਾ ਦਿੱਤਾ।" },
+    "two-each": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਦੋਵਾਂ ਕੌਲੀਆਂ ਵਿੱਚ ਵੇਖਿਆ। ਹਰ ਕੌਲੀ ਵਿੱਚ ਦੋ ਬਦਾਮ ਸਨ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਥੋੜ੍ਹੇ ਥੋੜ੍ਹੇ ਬਦਾਮ ਲੈਣੇ ਸੌਖੇ ਹਨ।" }
+  }
+}
