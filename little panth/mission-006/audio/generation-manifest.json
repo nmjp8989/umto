@@ -1,0 +1,86 @@
+{
+  "intro": {
+    "hash": "b210fa82095bdcd8f367c6d3410b7e702d662012138391cc75bf24016ef7f8d8",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਹਰੇ-ਭਰੇ ਜੰਗਲ ਵਿੱਚ ਇੱਕ ਵੱਡਾ ਸ਼ੇਰ ਰਹਿੰਦਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sleep": {
+    "hash": "4651c12dc684ff8cd6660d4ba231b3256caf34430f21c641bed9aee5bb44db44",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦਿਨ ਉਹ ਰੁੱਖ ਹੇਠਾਂ ਆਰਾਮ ਨਾਲ ਸੁੱਤਾ ਪਿਆ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-run": {
+    "hash": "78813bb1528af355cafa9a7d4c1f5164986d8cdb035824a8faf4f6f3c413f4e1",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਨਿੱਕਾ ਜਿਹਾ ਚੂਹਾ ਖੇਡਦਾ ਖੇਡਦਾ ਉੱਥੇ ਆ ਪਹੁੰਚਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-fun": {
+    "hash": "a47abe64769ecd0cedefd593b711242059b6648846c012c82ac27786fec8b734",
+    "voice": "Leda",
+    "text": "ਵਾਹ! ਇੱਥੇ ਤਾਂ ਕਿੰਨਾ ਸੋਹਣਾ ਜੰਗਲ ਹੈ!",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lion-awakes": {
+    "hash": "7364228e329408f82f005ef7816e4166734bd6451e93b0de9ff72090cafef1f2",
+    "voice": "Aoede",
+    "text": "ਚੂਹਾ ਸ਼ੇਰ ਉੱਤੇ ਚੜ੍ਹ ਗਿਆ। ਸ਼ੇਰ ਦੀ ਅੱਖ ਖੁੱਲ੍ਹ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lion-demand": {
+    "hash": "ada4b4f4cf2b83888ce33b95413f58bc9f199e04385ef72587ef4a6819ddf21e",
+    "voice": "Charon",
+    "text": "ਓਏ ਨਿੱਕਿਆ! ਤੂੰ ਮੇਰੀ ਨੀਂਦ ਕਿਉਂ ਖਰਾਬ ਕੀਤੀ?",
+    "speaker": "lion",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-please": {
+    "hash": "7251ba770d2e41d712ec7bdf577e720a3e8b284b0fea473c8670994902c14704",
+    "voice": "Leda",
+    "text": "ਮਾਫ਼ ਕਰ ਦਿਓ! ਕਦੇ ਮੈਂ ਵੀ ਤੁਹਾਡੀ ਮਦਦ ਕਰਾਂਗਾ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lion-laugh": {
+    "hash": "62b989c7360e2cf1bf7721c2ce5da8ba07a26004be901599f5f512c109b8890b",
+    "voice": "Charon",
+    "text": "ਹਾ ਹਾ! ਤੂੰ ਮੇਰੀ ਮਦਦ ਕਰੇਂਗਾ?",
+    "speaker": "lion",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lion-release": {
+    "hash": "520a6b7d6ef13bbcf526dbf86063cecdfb83d30227570e7a1a4231cd296f865e",
+    "voice": "Aoede",
+    "text": "ਸ਼ੇਰ ਨੂੰ ਹਾਸਾ ਆਇਆ, ਪਰ ਉਸ ਨੇ ਦਇਆ ਕਰਕੇ ਚੂਹੇ ਨੂੰ ਛੱਡ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mouse-promise": {
+    "hash": "52652947df638159c6424659afbea3aa57d67568aa295d9dfbeb0b6ce1a39fbd",
+    "voice": "Leda",
+    "text": "ਤੁਹਾਡਾ ਬਹੁਤ ਧੰਨਵਾਦ, ਸ਼ੇਰ ਜੀ!",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "trap-forest": {
+    "hash": "bcb527b9df7c18c8bd4ac65634aac5772a14b7cee2f07762200a1d2f32f7629b",
+    "voice": "Aoede",
+    "text": "ਕੁਝ ਦਿਨਾਂ ਬਾਅਦ ਸ਼ੇਰ ਜੰਗਲ ਦੀ ਪਗਡੰਡੀ ਉੱਤੇ ਤੁਰ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "trap-fall": {
+    "hash": "59c0501559c8f5e6074efe02f5b893f460411e40c134401857dd1b5ac597e384",
+    "voice": "Aoede",
+    "text": "ਅਚਾਨਕ ਇੱਕ ਜਾਲ ਉਸ ਉੱਤੇ ਡਿੱਗ ਪਿਆ। ਸ਼ੇਰ ਫਸ ਗਿਆ!",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
