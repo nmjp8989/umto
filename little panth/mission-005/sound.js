@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const effectDurations = { wings: .48, plop: .43, sip: .64, step: .18, ribbon: .3, gust: 1.55, chirp: .47, spring: .29, twig: .23 };
+  const effectDurations = { wings: .48, plop: .43, sip: .64, step: .18, ribbon: .3, gust: 1.55, chirp: .47, spring: .29, twig: .23, bark: .35 };
 
   function effect(context, name) {
     const duration = effectDurations[name];
@@ -33,6 +33,11 @@
         const sweep = 2190 * note + 6300 * note * note;
         const envelope = Math.min(1, note * 180) * Math.exp(-note * 51);
         samples[i] = Math.sin(2 * Math.PI * sweep) * envelope * .18 * (1 - t / duration);
+      } else if (name === 'bark') {
+        const barkPitch = 2 * Math.PI * (410 * t - 268 * t * t);
+        const harmonics = .64 * Math.sin(barkPitch) + .29 * Math.sin(2 * barkPitch) + .16 * Math.sin(4 * barkPitch);
+        const envelope = Math.min(1, t * 78) * Math.exp(-t * 11) * (1 - t / duration);
+        samples[i] = (.41 * harmonics + .42 * filtered) * envelope;
       } else if (name === 'spring') {
         const sweep = 210 * t + 459 * t * t;
         const pluck = Math.sin(2 * Math.PI * sweep) + .18 * Math.sin(4 * Math.PI * sweep);

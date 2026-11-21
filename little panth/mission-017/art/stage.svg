@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Sheru, Mehar, and Sidak by the still village canal</title>
+  <defs>
+    <radialGradient id="shadow">
+      <stop stop-color="#503a28" stop-opacity=".55"/><stop offset="1" stop-color="#503a28" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bank" x2=".34" y2="1">
+      <stop stop-color="#dabc83" stop-opacity=".15"/><stop offset="1" stop-color="#b39969" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="canal-water" x2=".14" y2="1">
+      <stop stop-color="#a4c6ab"/><stop offset=".46" stop-color="#78a8a6"/><stop offset="1" stop-color="#59858e"/>
+    </linearGradient>
+    <linearGradient id="dog-fur" x2=".26" y2="1">
+      <stop stop-color="#e9be83"/><stop offset=".53" stop-color="#d39462"/><stop offset="1" stop-color="#ad7153"/>
+    </linearGradient>
+    <linearGradient id="ear-fur" x2=".48" y2="1">
+      <stop stop-color="#c48a61"/><stop offset="1" stop-color="#946448"/>
+    </linearGradient>
+    <linearGradient id="charpai-wood" x2=".18" y2="1">
+      <stop stop-color="#d7b182"/><stop offset="1" stop-color="#946c49"/>
+    </linearGradient>
+    <linearGradient id="bread" x2=".31" y2="1">
+      <stop stop-color="#fbdfa0"/><stop offset="1" stop-color="#d2a068"/>
+    </linearGradient>
+    <pattern id="weave" width="17" height="12" patternUnits="userSpaceOnUse">
+      <rect width="17" height="12" fill="#b08d63"/>
+      <path d="M-2 4L8 8l11-4M-2 7l10 4 11-4" fill="none" stroke="#d5bc8b" stroke-width="1.6"/>
+    </pattern>
+    <path id="water-outline" d="M-95 523q137-20 259-12 132-35 252-15 118 24 267 4 151-23 257-17 171 7 431-35v325H-95Z"/>
+    <clipPath id="water-mask"><use href="#water-outline"/></clipPath>
+    <filter id="water-blur" x="-.14" y="-.24" width="1.28" height="1.48" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".019 .13" numOctaves="1" seed="9" result="variation"/>
+      <feDisplacementMap id="reflection-shear" in="SourceGraphic" in2="variation" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur id="reflection-softness" stdDeviation=".45"/>
+    </filter>
+    <g id="roti-shape">
+      <path d="M-25-3q4-11 17-14 10-3 24 3l9 9-6 6 2 5-9 8q-14 3-27-2-15-4-10-15Z"
+        fill="url(#bread)" stroke="#a87850" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M-20-2q5-9 17-10m-12 21q12 9 29 1" fill="none" stroke="#fbe2a9" stroke-width="2" stroke-linecap="round"/>
+      <g fill="#b6804f" opacity=".79"><ellipse cx="-7" cy="-1" rx="2.9" ry="1.7"/><ellipse cx="8" cy="6" rx="3.3" ry="2.2"/>
+        <circle cx="7" cy="-8" r="1.9"/><circle cx="-13" cy="4" r="1.8"/><ellipse cx="15" cy="-4" rx="2" ry="1.2"/></g>
+    </g>
+    <g id="rushes">
+      <path d="M0 7q-5-45-29-77M0 7q9-59 4-83m-4 83q23-52 40-69M1 6q-12-28-30-39m33 37q17-26 29-28"
+        fill="none" stroke="#6e8657" stroke-width="4" stroke-linecap="round"/>
+      <path d="M4-70v-13m-30 17-6-10m69 19 7-10" stroke="#ab8658" stroke-width="6.8" stroke-linecap="round"/>
+      <path d="M-6-10q-8-25-18-42m29 38q12-23 23-32" stroke="#a8b674" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+    </g>
+    <g id="stone">
+      <ellipse cy="3" rx="37" ry="11" fill="url(#shadow)"/>
+      <path d="M-33 1q6-16 30-19 19 1 32 8l3 10q-30 8-65 1Z" fill="#a8aa91" stroke="#8d947c" stroke-width="2.2"/>
+      <path d="M-24-5q13-11 37-7" stroke="#d1cfb0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.14">
+    <rect x="-84" y="-70" width="1448" height="860" fill="#dfbf82"/>
+    <image href="../mission-003/art/banyan.webp" x="-43" y="-27" width="1366" height="773" preserveAspectRatio="xMidYMid slice"/>
+    <image id="courtyard-art" href="../mission-003/art/courtyard.webp" x="-43" y="-27" width="1366" height="773" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <g id="canal-art" opacity="0">
+    <path d="M-100 448q255-18 419 1 175 35 345 7 145-31 299-21 180 10 398-43v150H-100Z" fill="url(#bank)"/>
+    <path d="M130 477q75-21 141-17m63 23q48-6 92 4m83 5q93 2 164-11m50-4q94-17 153-16m167 7q92-10 167-34"
+      fill="none" stroke="#e9cea0" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+    <use href="#water-outline" fill="url(#canal-water)" stroke="#b1b582" stroke-width="5"/>
+    <g clip-path="url(#water-mask)">
+      <path d="M-59 565q206-8 341-29 128-17 283 2 190 9 372-28 202-12 390-20m-1388 141q119 15 296-9 141-56 363-19 211 10 362-21 145-24 371-17"
+        fill="none" stroke="#b2cead" stroke-width="13" opacity=".24"/>
+      <g id="reflection" opacity="0">
+        <use id="reflection-image" href="#sheru" transform="translate(0 964.18) scale(1 -.91)" filter="url(#water-blur)"/>
+      </g>
+      <path id="surface-glints" d="M-56 589q78-4 153-8m53-21q99-12 144-15m48 76q75-9 154-4m33-64q53 2 124-2m31 109q123 8 203-11m44-65q66-8 120-9m10-41q55-13 97-12m-82 127q53-4 132-13m-951 41q102-2 157-11"
+        fill="none" stroke="#dce8bf" stroke-width="3.5" opacity=".6" stroke-linecap="round"/>
+      <g id="splash-rings" fill="none" stroke="#ebefcc" stroke-linecap="round">
+        <ellipse id="ring-one" rx="89" ry="15.5" stroke-width="3.8" opacity="0"/>
+        <ellipse id="ring-two" rx="89" ry="15.5" stroke-width="2.6" opacity="0"/>
+        <ellipse id="ring-three" rx="89" ry="15.5" stroke-width="2.2" opacity="0"/>
+      </g>
+    </g>
+    <use href="#rushes" transform="translate(201 515) scale(.93)"/>
+    <use href="#rushes" transform="translate(234 504) scale(.58)"/>
+    <use href="#rushes" transform="translate(1094 487) scale(1.14)"/>
+    <use href="#rushes" transform="translate(1137 471) scale(.8)"/>
+    <use href="#stone" transform="translate(494 487) scale(.72)"/>
+    <use href="#stone" transform="translate(919 479) scale(.86)"/>
+    <use href="#stone" transform="translate(963 483) scale(.54)"/>
+  </g>
+
+  <g id="charpai" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="363" cy="619" rx="233" ry="26" fill="url(#shadow)"/>
+    <path d="M184 560h17l-7 58-15 5Zm367-4h20l11 60-15 3Zm-42-15h14l7 47-14 5Zm-283 3h17l-7 49-15 1Z"
+      fill="url(#charpai-wood)" stroke="#8e674a" stroke-width="3.5"/>
+    <path d="M173 559l52-29 289-3 69 31-20 27-351 4Z" fill="url(#weave)" stroke="#8a644a" stroke-width="4"/>
+    <path d="M173 560l38 17 352-4 20-15v12l-20 15-351 4-39-16Z" fill="url(#charpai-wood)" stroke="#8a6248" stroke-width="3.4"/>
+  </g>
+  <g fill="url(#shadow)">
+    <ellipse id="mehar-shadow" rx="85" ry="15"/>
+    <ellipse id="boy-shadow" rx="80" ry="15"/>
+    <ellipse id="dog-shadow" rx="126" ry="15"/>
+  </g>
+  <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+  <g id="boy-plane"><g id="boy"/><g id="boy-props"/></g>
+
+  <g id="sheru" stroke-linecap="round" stroke-linejoin="round">
+    <g id="dog-tail">
+      <path d="M-76-71q-40 0-64-27-24-23-21-40 5-11 14-1 19 26 50 24 18 2 36 18Z"
+        fill="url(#dog-fur)" stroke="#a06a4c" stroke-width="3.9"/>
+      <path d="M-154-142q10 11 22 21-9 6-22 4-11-13-7-21 3-7 7-4Z" fill="#f1dfbe"/>
+      <path d="M-135-110q14 14 44 14" fill="none" stroke="#edbb81" stroke-width="3.1"/>
+    </g>
+    <g id="dog-rear-far">
+      <path d="M-72-71q16-12 34 0l-8 32 6 22 11 9q4 9-12 9h-15l-14-33 4-15Z" fill="#a67453" stroke="#966649" stroke-width="3.5"/>
+      <path d="M-42-14q18 4 15 12h-29l-6-13Z" fill="#e1c59d"/>
+    </g>
+    <g id="dog-front-far">
+      <path d="M20-80q18-10 31 2l-8 51 12 17q3 12-15 12H27l-3-22-4-26Z" fill="#b57c58" stroke="#a16a4c" stroke-width="3.5"/>
+      <path d="M47-15q12 9 8 15-10 3-28 2l-3-18Z" fill="#e2c79e"/>
+    </g>
+    <g id="dog-body">
+      <path d="M-98-70q9-41 62-43 29 3 58-13 33-14 55 16 18 29-9 54-40 30-100 22-56-4-66-36Z"
+        fill="url(#dog-fur)" stroke="#a46a4c" stroke-width="4.3"/>
+      <path d="M37-122q21-11 38 12 15 17 9 36-7 12-26 20-6-18-20-31-4-15-1-37Z" fill="#f5e1ba"/>
+      <path d="M-84-86q19-20 62-20m-49 58q20 7 33 6" fill="none" stroke="#edbc80" stroke-width="3.4"/>
+    </g>
+    <g id="dog-rear-near">
+      <path d="M-88-79q15-18 33-7 20 14 10 33l-9 22 11 20q5 11-15 12h-15l-15-31 7-24Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M-55-18q16 10 17 15-9 6-31 4l-9-17Z" fill="#f3dfb9"/>
+    </g>
+    <g id="dog-sit" opacity="0">
+      <path d="M-89-66q14-15 33-4 15 15 4 34l-13 16 16 7q10 5 8 13h-38q-24-15-10-66Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M-66-17q15 2 26 13 2 5-12 6h-27l-4-10Z" fill="#f3dfb9" stroke="#ad7d57" stroke-width="2.5"/>
+    </g>
+    <g id="dog-front-near">
+      <path d="M43-83q14-13 32-1l-4 49 7 17q12 9 10 15-8 8-34 4L49-21Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M70-22q22 13 18 19-12 7-34 4l-4-21Z" fill="#f5e4bd"/>
+      <path d="M71-4l2-6m7 5 1-5" fill="none" stroke="#c1a17b" stroke-width="2.1"/>
+    </g>
+    <path d="M31-106q23 8 46-8l6 13q-18 15-45 9Z" fill="#6489a3" stroke="#4f6983" stroke-width="2.4"/>
+    <path d="M64-94l6 10-2 9-10 3-7-7 3-11Z" fill="#e5be76" stroke="#9d7951" stroke-width="2.4"/>
+    <g id="dog-head">
+      <path d="M-8-32q-15-20-41-7-9 11-1 33l17 14Q-12 1-8-32Z" fill="url(#ear-fur)" stroke="#9a6a4f" stroke-width="3.4"/>
+      <path d="M-31-4q-2-34 31-46 33-13 54 7 13 13 17 27 20-1 26 8 9 17-8 29-13 14-44 15-38 6-58-5-19-11-18-35Z"
+        fill="url(#dog-fur)" stroke="#9e694d" stroke-width="4"/>
+      <path d="M9-47q13 5 23 28 13 18 38 12l-5 11q-31 1-45-22Q16-28 9-47Z" fill="#f6e4c1"/>
+      <path id="dog-ear" d="M1-44q-13-9-27 3-10 11-6 31 1 22 19 33 18-3 18-25 2-16 12-25Z"
+        fill="url(#ear-fur)" stroke="#986447" stroke-width="3.1"/>
+      <path d="M-22-34q-11 20 2 48" fill="none" stroke="#d8a077" stroke-width="3"/>
+      <path d="M35-6q27-11 51-3 17 5 12 22-7 16-23 18Q56 35 39 25 27 18 35-6Z" fill="#f2e2bf"/>
+      <path id="dog-open-mouth" d="M50 22q23 5 45-10-4 21-25 22-15 1-20-12Z" fill="#68463d" opacity="0"/>
+      <path id="dog-jaw" d="M45 23q24 9 48-9-7 21-27 22-17-1-21-13Z" fill="#efdbb5" stroke="#ac8061" stroke-width="2.1"/>
+      <ellipse cx="91" cy="-4" rx="13" ry="8.8" fill="#66483d"/>
+      <path d="M84-7q6-4 11-1M53 20q7 5 17 2" fill="none" stroke="#ac8368" stroke-width="2.3"/>
+      <ellipse id="dog-eye" cx="42" cy="-17" rx="6.4" ry="7.8" fill="#594339"/>
+      <circle id="dog-eye-glint" cx="43.5" cy="-19.5" r="1.7" fill="#fff0d1"/>
+      <path id="dog-lid" d="M35-15q7 5 13 0" fill="none" stroke="#805641" stroke-width="2.5" opacity="0"/>
+      <g id="dog-bread" transform="translate(73 18) rotate(-12) scale(.86)" opacity="0"><use href="#roti-shape"/></g>
+    </g>
+  </g>
+  <g id="free-bread" opacity="0"><use href="#roti-shape"/></g>
+  <g id="splash-drops" fill="#ecf0cb" opacity="0">
+    <path d="M-31-9q-3-17-16-20 5 14 16 20ZM18-14q11-17 18-20-3 14-18 20Z"/>
+    <circle cx="-21" cy="-28" r="3.5"/><circle cx="10" cy="-36" r="3"/><circle cx="36" cy="-9" r="2.9"/>
+  </g>
+</svg>
