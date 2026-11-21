@@ -1,0 +1,81 @@
+{
+  "mission": 10,
+  "title": "ਕੀੜੀ ਤੇ ਘੁੱਗੀ",
+  "englishTitle": "The Ant and the Dove",
+  "score": "original",
+  "speakers": { "narrator": "Narrator", "ant": "Ant", "dove": "Dove" },
+  "scenes": [
+    {
+      "id": "river",
+      "title": "At the river",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["ant-at-bank"],
+      "review": "Establish the pebble bank, the flowing river, and the dove’s branch. Track the ant’s short walk to the slippery stone."
+    },
+    {
+      "id": "slip",
+      "title": "A slippery stone",
+      "framing": "medium",
+      "focus": { "x": 467, "y": 515 },
+      "lines": ["ant-slips", "ant-calls"],
+      "review": "Follow the ant into the current. The little splash should land on the narrated fall. Keep the ant’s face above the water and visible when she calls."
+    },
+    {
+      "id": "rescue",
+      "title": "The dove drops a leaf",
+      "layout": "cinema",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["dove-promises", "leaf-drops"],
+      "review": "Cut to the dove’s face for her promise. Reveal the full drop from the branch to the river. Let the leaf land within reach of the ant."
+    },
+    {
+      "id": "raft",
+      "title": "A leaf for a boat",
+      "framing": "medium",
+      "focus": { "x": 815, "y": 518 },
+      "lines": ["leaf-floats", "ant-thanks"],
+      "review": "Show the ant climb onto the leaf on the narrated word. Track it to shore, then hold on the ant’s thank-you with her feet on the bank."
+    },
+    {
+      "id": "crack",
+      "title": "A crack in the branch",
+      "framing": "two-shot",
+      "focus": { "x": 863, "y": 382 },
+      "lines": ["branch-cracks"],
+      "review": "The breeze builds first. Show the crack in an insert when the ant notices it. The dove stays perched during the insert."
+    },
+    {
+      "id": "warning",
+      "title": "The ant calls back",
+      "layout": "cinema",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["ant-warns", "dove-flies"],
+      "review": "Frame the ant’s warning, then cut wide. The dove must be in the air before the branch falls into the river."
+    },
+    {
+      "id": "friends",
+      "title": "Friends on the bank",
+      "framing": "two-shot",
+      "focus": { "x": 1037, "y": 506 },
+      "lines": ["dove-thanks", "bank-together"],
+      "review": "Both friends are safely ashore in the closing two-shot. The branch remains in the river and the scene settles into a quiet hold."
+    }
+  ],
+  "lines": {
+    "ant-at-bank": { "speaker": "narrator", "pa": "ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਕੀੜੀ ਪਾਣੀ ਪੀਣ ਲਈ ਨਦੀ ਕੰਢੇ ਆਈ। ਘੁੱਗੀ ਟਾਹਣੀ ਉੱਤੇ ਬੈਠੀ ਸੀ।" },
+    "ant-slips": { "speaker": "narrator", "pa": "ਕੀੜੀ ਦਾ ਪੈਰ ਤਿਲਕਿਆ ਤੇ ਉਹ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।" },
+    "ant-calls": { "speaker": "ant", "pa": "ਬਚਾਓ! ਪਾਣੀ ਮੈਨੂੰ ਵਹਾ ਕੇ ਲੈ ਜਾ ਰਿਹਾ ਹੈ!" },
+    "dove-promises": { "speaker": "dove", "pa": "ਕੀੜੀਏ, ਘਬਰਾ ਨਾ! ਮੈਂ ਹੁਣੇ ਪੱਤਾ ਸੁੱਟਦੀ ਹਾਂ।" },
+    "leaf-drops": { "speaker": "narrator", "pa": "ਘੁੱਗੀ ਨੇ ਇੱਕ ਵੱਡਾ ਪੱਤਾ ਤੋੜਿਆ ਤੇ ਕੀੜੀ ਕੋਲ ਸੁੱਟ ਦਿੱਤਾ।" },
+    "leaf-floats": { "speaker": "narrator", "pa": "ਕੀੜੀ ਪੱਤੇ ਉੱਤੇ ਚੜ੍ਹ ਗਈ। ਪੱਤਾ ਤੈਰ ਕੇ ਕੰਢੇ ਤੱਕ ਆ ਗਿਆ।" },
+    "ant-thanks": { "speaker": "ant", "pa": "ਤੇਰਾ ਧੰਨਵਾਦ, ਘੁੱਗੀ ਭੈਣ!" },
+    "branch-cracks": { "speaker": "narrator", "pa": "ਫਿਰ ਤੇਜ਼ ਹਵਾ ਵਗੀ। ਕੀੜੀ ਨੇ ਘੁੱਗੀ ਦੀ ਟਾਹਣੀ ਵਿੱਚ ਤਰੇੜ ਵੇਖੀ।" },
+    "ant-warns": { "speaker": "ant", "pa": "ਘੁੱਗੀ ਭੈਣ, ਛੇਤੀ ਉੱਡ ਜਾ! ਟਾਹਣੀ ਟੁੱਟ ਰਹੀ ਹੈ!" },
+    "dove-flies": { "speaker": "narrator", "pa": "ਘੁੱਗੀ ਉੱਡ ਗਈ। ਫਿਰ ਟਾਹਣੀ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।" },
+    "dove-thanks": { "speaker": "dove", "pa": "ਧੰਨਵਾਦ, ਨਿੱਕੀ ਦੋਸਤ! ਅੱਜ ਤੂੰ ਮੇਰੀ ਮਦਦ ਕੀਤੀ।" },
+    "bank-together": { "speaker": "narrator", "pa": "ਹੁਣ ਦੋਵੇਂ ਕੰਢੇ ਉੱਤੇ ਇਕੱਠੇ ਬੈਠ ਗਏ।" }
+  }
+}
