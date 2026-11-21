@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Mehar and Bibi Ji share almonds in a sunlit kitchen</title>
+  <defs>
+    <linearGradient id="almond-wall" x2=".64" y2="1">
+      <stop stop-color="#f6e2bc"/>
+      <stop offset="1" stop-color="#c99b77"/>
+    </linearGradient>
+    <linearGradient id="almond-floor" x2=".32" y2="1">
+      <stop stop-color="#b78260"/>
+      <stop offset="1" stop-color="#d0a176"/>
+    </linearGradient>
+    <linearGradient id="almond-wood" x2=".84" y2="1">
+      <stop stop-color="#d8a375"/>
+      <stop offset=".58" stop-color="#b77a53"/>
+      <stop offset="1" stop-color="#905b42"/>
+    </linearGradient>
+    <radialGradient id="almond-light">
+      <stop stop-color="#fff3be" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#fff0bc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="almond-shadow">
+      <stop stop-color="#583628" stop-opacity=".43"/>
+      <stop offset="1" stop-color="#583628" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="almond-glass" x1="0" y1=".4" x2="1" y2=".65">
+      <stop stop-color="#bad4c3" stop-opacity=".48"/>
+      <stop offset=".28" stop-color="#e8ebcc" stop-opacity=".18"/>
+      <stop offset=".7" stop-color="#e7f1cb" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#7eaf9c" stop-opacity=".52"/>
+    </linearGradient>
+    <clipPath id="almond-window-clip">
+      <rect x="157" y="113" width="360" height="244" rx="7"/>
+    </clipPath>
+    <g id="almond-ceramic">
+      <ellipse cy="5" rx="38" ry="9" fill="url(#almond-shadow)"/>
+      <path d="M-37-4Q-35 15-20 19Q0 24 20 19Q35 15 37-4Z" fill="var(--bowl-color)" stroke="var(--bowl-edge)" stroke-width="2.3"/>
+      <ellipse cy="-4" rx="37" ry="11.5" fill="var(--bowl-light)" stroke="var(--bowl-edge)" stroke-width="1.95"/>
+      <ellipse cy="-2" rx="29.5" ry="7.5" fill="#eaddba" stroke="var(--bowl-color)" stroke-width="1.65"/>
+      <path d="M-29 8Q0 17 27 9" fill="none" stroke="var(--bowl-light)" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <g id="almond-kernel-shape">
+      <path d="M-7 0Q-5-5 0-5Q5-4 8-1Q4 5 0 5Q-5 4-7 0Z" fill="#aa6b3f" stroke="#684530" stroke-width="1"/>
+      <path d="M-4 0Q0-3 5-1M-2 2Q2 2 5 0" fill="none" stroke="#e0aa6c" stroke-width=".75" stroke-linecap="round"/>
+    </g>
+    <path id="almond-jar-outline" d="M-20 0L-20 13Q-22 20-35 25Q-42 28-42 39V62Q-42 74-28 75H28Q42 73 42 62V39Q42 28 35 25Q22 20 20 13V0Z"/>
+  </defs>
+  <g data-camera-depth="-.13">
+    <rect x="-110" y="-65" width="1500" height="805" fill="url(#almond-wall)"/>
+    <path d="M-100 435H1380V795H-100Z" fill="url(#almond-floor)"/>
+    <path d="M-100 426H1380V443H-100Z" fill="#9b6c52" opacity=".57"/>
+    <path d="M-110 465Q548 452 1390 476M-110 576Q590 555 1390 585M-100 700Q546 682 1390 709" fill="none" stroke="#9f6d53" stroke-width="3.4" opacity=".56"/>
+    <rect x="141" y="96" width="396" height="284" rx="12" fill="#9b6b4a" stroke="#82563e" stroke-width="4"/>
+    <image href="../mission-003/art/banyan.webp" x="143" y="106" width="388" height="270" preserveAspectRatio="xMidYMid slice" clip-path="url(#almond-window-clip)"/>
+    <path d="M334 109V365M150 238H522" stroke="#895f44" stroke-width="15"/>
+    <path d="M330 111V363M153 234H520" stroke="#cca376" stroke-width="5.5"/>
+    <path d="M127 367H550L537 383H139Z" fill="#b58660" stroke="#886047" stroke-width="3.7"/>
+    <path d="M516 375Q577 471 777 626L579 655 288 449Z" fill="#ffdc96" opacity=".28"/>
+    <ellipse cx="417" cy="364" rx="489" ry="289" fill="url(#almond-light)" opacity=".44"/>
+    <path d="M844 206H1146M842 318H1146" stroke="#9d664b" stroke-width="15" stroke-linecap="round"/>
+    <path d="M846 202H1145M846 314H1145" stroke="#cb996d" stroke-width="4" stroke-linecap="round"/>
+    <g stroke="#7f5540" stroke-linejoin="round" stroke-width="2.5">
+      <path d="M873 198Q861 176 869 153L874 145H919L924 157Q933 177 921 198Z" fill="#ad6752"/>
+      <ellipse cx="896" cy="145" rx="24" ry="6.2" fill="#d89a6c"/>
+      <path d="M958 199Q943 183 952 165L960 154H995L1002 163Q1012 185 997 199Z" fill="#8fa586"/>
+      <ellipse cx="978" cy="154" rx="20" ry="5.4" fill="#b1c4a0"/>
+      <path d="M1047 199Q1038 185 1046 173L1050 164H1113L1118 173Q1122 184 1115 199Z" fill="#d6a970"/>
+      <path d="M870 311Q852 293 859 267L865 245H903L909 268Q916 295 899 311Z" fill="#c88766"/>
+      <ellipse cx="884" cy="245" rx="20" ry="5" fill="#e0b185"/>
+      <path d="M968 310Q951 294 954 278Q962 273 980 276Q1005 277 1014 288L1003 310Z" fill="#d9af7d"/>
+      <path d="M1062 312H1122L1115 283H1071Z" fill="#88a286"/>
+    </g>
+    <path d="M898 251q-13 7-26 3m-7 21q20 9 39 1m78-89q11-1 21-7m77-5h28" fill="none" stroke="#f4cd94" opacity=".6" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="642" cy="631" rx="293" ry="37" fill="#8a6150" opacity=".24"/>
+  </g>
+  <ellipse id="mehar-shadow" rx="59" ry="14" fill="url(#almond-shadow)"/>
+  <ellipse id="dadi-shadow" rx="73" ry="14" fill="url(#almond-shadow)"/>
+  <g id="almond-jar-back">
+    <ellipse cy="68" rx="45" ry="9" fill="url(#almond-shadow)"/>
+    <use href="#almond-jar-outline" fill="#b7cec0" fill-opacity=".6" stroke="#739488" stroke-width="3"/>
+    <ellipse rx="20" ry="6.7" fill="#b7c5af" stroke="#648b80" stroke-width="2.3"/>
+    <ellipse cy="1" rx="16" ry="4.5" fill="#8dad9e" opacity=".75"/>
+    <g id="almond-jar-pile"/>
+  </g>
+  <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+  <g id="dadi-plane"><g id="dadi"/><g id="dadi-props"/></g>
+  <g id="almond-table">
+    <path d="M509 553H537L528 647Q515 656 503 648ZM775 553H807L818 644Q806 653 791 649Z" fill="#9b6146" stroke="#754b39" stroke-width="3"/>
+    <path d="M496 534Q650 515 813 534L826 553Q805 564 667 566Q528 568 481 553Z" fill="url(#almond-wood)" stroke="#8f5b45" stroke-width="3"/>
+    <path d="M482 554Q629 565 825 553V568Q811 579 674 584Q527 584 482 568Z" fill="#9c6248" stroke="#794936" stroke-width="2.4"/>
+    <path d="M500 545Q556 533 628 535M699 543q70-9 111 1m-255 14q89 8 177 1" stroke="#e4b983" fill="none" opacity=".73" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g id="almond-bowls">
+    <g id="almond-blue-bowl" transform="translate(568 535)" style="--bowl-color:#698eaa;--bowl-edge:#4d6777;--bowl-light:#a8bdc3"><use href="#almond-ceramic"/></g>
+    <g id="almond-green-bowl" transform="translate(725 535)" style="--bowl-color:#799980;--bowl-edge:#4d7365;--bowl-light:#b1c7a9"><use href="#almond-ceramic"/></g>
+  </g>
+  <g id="almond-moving"/>
+  <g id="almond-jar-front">
+    <use href="#almond-jar-outline" fill="url(#almond-glass)" stroke="#628579" stroke-width="2.3"/>
+    <path d="M-29 34Q-37 39-37 63M29 35Q35 42 35 55M-7 73H20" fill="none" stroke="#f4f5da" stroke-width="2.8" opacity=".69" stroke-linecap="round"/>
+    <path d="M-20 3Q0 12 20 3M-20 12Q0 20 20 12" fill="none" stroke="#759f90" stroke-width="2.2" opacity=".79"/>
+    <path d="M-37 63Q2 75 37 63" fill="none" stroke="#628c7e" stroke-width="1.8" opacity=".67"/>
+  </g>
+  <g id="almond-lid">
+    <path d="M-22 6Q0-3 22 6L23 11Q0 18-23 11Z" fill="#af8058" stroke="#785640" stroke-width="2.2"/>
+    <ellipse cy="5.5" rx="22" ry="5.2" fill="#d2a678" stroke="#916c4d" stroke-width="1.65"/>
+    <path d="M-7 4Q-7-7 0-7Q7-7 7 4Z" fill="#bc9266" stroke="#805b42" stroke-width="1.7"/>
+    <path d="M-4 0Q-5-4 2-4" fill="none" stroke="#edcb98" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+</svg>
