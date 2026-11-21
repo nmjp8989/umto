@@ -1,0 +1,87 @@
+{
+  "mission": 17,
+  "title": "ਸ਼ੇਰੂ ਤੇ ਉਸ ਦਾ ਅਕਸ",
+  "englishTitle": "The Dog and His Reflection",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "boy": "Sidak"
+  },
+  "scenes": [
+    {
+      "id": "courtyard",
+      "title": "A piece of roti for Sheru",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 385 },
+      "lines": ["in-the-courtyard", "mehar-shares"],
+      "review": "Open wide on the courtyard. Show Sheru come over and take the roti straight from Mehar’s hand."
+    },
+    {
+      "id": "canal",
+      "title": "A walk to the canal",
+      "framing": "full",
+      "focus": { "x": 644, "y": 413 },
+      "lines": ["to-the-canal"],
+      "review": "Track Sheru along the bank, with the piece of roti steady in his mouth. Ease to a wide shot when he reaches the still water."
+    },
+    {
+      "id": "another-dog",
+      "title": "A dog in the water",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 680, "y": 470 },
+      "lines": ["sees-his-reflection"],
+      "review": "Frame Sheru above the water and his reflection below. The reflected dog should hold the same piece of roti and lean in at the same time."
+    },
+    {
+      "id": "splash",
+      "title": "The roti falls",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 700, "y": 490 },
+      "lines": ["drops-the-roti"],
+      "review": "The roti should leave Sheru’s mouth as he barks. Show the fall, then the splash and ripples from the spot where it lands."
+    },
+    {
+      "id": "still-water",
+      "title": "The water settles",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 696, "y": 472 },
+      "lines": ["ripples-settle"],
+      "review": "Let the roti float away and the reflection sharpen again. Both versions of Sheru should have empty mouths."
+    },
+    {
+      "id": "realization",
+      "title": "Sidak spots the reflection",
+      "framing": "two-shot",
+      "focus": { "x": 570, "y": 402 },
+      "lines": ["children-arrive", "sidak-explains"],
+      "review": "Show Sheru and his reflection tilt together. Then show Sidak explain what he saw, with Mehar listening."
+    },
+    {
+      "id": "homeward",
+      "title": "Home together",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 365 },
+      "lines": ["mehar-calls", "walk-home"],
+      "review": "Show Sheru look back at the water once, then turn and walk home beside Mehar and Sidak."
+    }
+  ],
+  "lines": {
+    "in-the-courtyard": { "speaker": "narrator", "pa": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਬੈਠੇ ਸਨ। ਉਨ੍ਹਾਂ ਦਾ ਕੁੱਤਾ ਸ਼ੇਰੂ ਵੀ ਕੋਲ ਆ ਕੇ ਬੈਠ ਗਿਆ।" },
+    "mehar-shares": { "speaker": "mehar", "pa": "ਸ਼ੇਰੂ, ਇਹ ਲੈ ਰੋਟੀ ਦਾ ਟੁਕੜਾ। ਇਹ ਤੇਰੇ ਲਈ ਹੈ।" },
+    "to-the-canal": { "speaker": "narrator", "pa": "ਉਸ ਨੇ ਟੁਕੜਾ ਮੂੰਹ ਵਿੱਚ ਫੜ ਲਿਆ ਤੇ ਨਹਿਰ ਕੋਲ ਪਹੁੰਚ ਗਿਆ। ਉੱਥੇ ਪਾਣੀ ਬਿਲਕੁਲ ਸ਼ਾਂਤ ਸੀ।" },
+    "sees-his-reflection": { "speaker": "narrator", "pa": "ਸ਼ੇਰੂ ਨੇ ਝੁਕ ਕੇ ਹੇਠਾਂ ਵੇਖਿਆ। ਪਾਣੀ ਵਿੱਚ ਉਸ ਨੂੰ ਇੱਕ ਹੋਰ ਕੁੱਤਾ ਦਿਸਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਵੀ ਰੋਟੀ ਸੀ।" },
+    "drops-the-roti": { "speaker": "narrator", "pa": "ਸ਼ੇਰੂ ਨੂੰ ਲੱਗਾ ਕਿ ਉਹ ਦੂਜੇ ਕੁੱਤੇ ਦੀ ਰੋਟੀ ਵੀ ਲੈ ਸਕਦਾ ਹੈ। ਉਹ ਭੌਂਕਿਆ ਤੇ ਉਸ ਦੀ ਆਪਣੀ ਰੋਟੀ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।" },
+    "ripples-settle": { "speaker": "narrator", "pa": "ਪਾਣੀ ਵਿੱਚ ਗੋਲ ਗੋਲ ਲਹਿਰਾਂ ਬਣ ਗਈਆਂ। ਜਦੋਂ ਲਹਿਰਾਂ ਠਹਿਰੀਆਂ, ਕੁੱਤਾ ਮੁੜ ਦਿੱਸਿਆ। ਇਸ ਵਾਰ ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਵੀ ਰੋਟੀ ਨਹੀਂ ਸੀ।" },
+    "children-arrive": { "speaker": "narrator", "pa": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਨਹਿਰ ਕੋਲ ਆ ਗਏ। ਸ਼ੇਰੂ ਨੇ ਸਿਰ ਟੇਢਾ ਕੀਤਾ। ਪਾਣੀ ਵਾਲੇ ਕੁੱਤੇ ਦਾ ਸਿਰ ਵੀ ਟੇਢਾ ਹੋ ਗਿਆ।" },
+    "sidak-explains": { "speaker": "boy", "pa": "ਮੇਹਰ, ਵੇਖ! ਪਾਣੀ ਵਿੱਚ ਤਾਂ ਸ਼ੇਰੂ ਦਾ ਆਪਣਾ ਅਕਸ ਹੈ।" },
+    "mehar-calls": { "speaker": "mehar", "pa": "ਸ਼ੇਰੂ, ਆ ਘਰ ਚੱਲੀਏ। ਜੋ ਸਾਡੇ ਕੋਲ ਹੈ, ਉਸ ਦੀ ਕਦਰ ਕਰੀਏ।" },
+    "walk-home": { "speaker": "narrator", "pa": "ਸ਼ੇਰੂ ਨੇ ਪਾਣੀ ਵੱਲ ਆਖਰੀ ਵਾਰ ਵੇਖਿਆ ਤੇ ਉਨ੍ਹਾਂ ਦੇ ਨਾਲ ਤੁਰ ਪਿਆ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਪਾਣੀ ਵਾਲਾ ਕੁੱਤਾ ਕੌਣ ਸੀ।" }
+  }
+}
