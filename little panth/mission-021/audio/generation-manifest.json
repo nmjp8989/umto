@@ -1,0 +1,72 @@
+{
+  "morning-by-the-river": {
+    "hash": "f222ebeb58fe0ca939affcd4b85a26d21eacf80bad1ffff5890b6b894a780438",
+    "voice": "Aoede",
+    "text": "ਅਰਜਨ ਹਰ ਸਵੇਰ ਨਦੀ ਕੰਢੇ ਪਈਆਂ ਸੁੱਕੀਆਂ ਟਾਹਣੀਆਂ ਚੁੱਕਦਾ ਸੀ। ਇੱਕ ਦਿਨ ਉਹ ਵੱਡੀ ਟਾਹਣੀ ਨੂੰ ਛੋਟਾ ਕਰਨ ਲਈ ਪੱਥਰ ਕੋਲ ਰੁਕਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "the-axe-slips": {
+    "hash": "9f58451c3bee0d3091bac388e98994bc9a85a89466b0aa622b5961f099de99d6",
+    "voice": "Aoede",
+    "text": "ਕੁਹਾੜੀ ਦਾ ਦਸਤਾ ਗਿੱਲਾ ਸੀ। ਜਦੋਂ ਉਸ ਨੇ ਕੁਹਾੜੀ ਚੁੱਕੀ, ਹੱਥ ਫਿਸਲ ਗਿਆ। ਕੁਹਾੜੀ ਪੱਥਰ ਉੱਤੇ ਵੱਜੀ ਤੇ ਛਪਾਕ ਕਰ ਕੇ ਪਾਣੀ ਵਿੱਚ ਡਿੱਗ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "arjan-remembers-his-father": {
+    "hash": "182b5b263f9b53089c78266fdfd4fe501ae6a7598d1a51ff9018dfb0b63194b4",
+    "voice": "Iapetus",
+    "text": "ਹਾਏ, ਮੇਰੀ ਕੁਹਾੜੀ! ਉਸ ਦਾ ਦਸਤਾ ਪਿਉ ਜੀ ਨੇ ਬਣਾਇਆ ਸੀ। ਹੁਣ ਮੈਂ ਲੱਕੜ ਕਿਵੇਂ ਕੱਟਾਂਗਾ?",
+    "speaker": "arjan",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "the-river-fairy": {
+    "hash": "c0bded82e6d6c8311f81e124fde44e694d1cbd16b818a73b34c76f9e38236397",
+    "voice": "Aoede",
+    "text": "ਪਾਣੀ ਦੀਆਂ ਲਹਿਰਾਂ ਠੰਢੀਆਂ ਪਈਆਂ ਤਾਂ ਨਦੀ ਦੀ ਪਰੀ ਕੰਢੇ ਉੱਤੇ ਦਿਸੀ। ਉਸ ਦੇ ਹੱਥ ਵਿੱਚ ਸੋਨੇ ਦੀ ਕੁਹਾੜੀ ਚਮਕ ਰਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fairy-offers-gold": {
+    "hash": "c795f44af527b7034c94e0839c86c91d633b9aab2cb4d019212ed105fab8862a",
+    "voice": "Vindemiatrix",
+    "text": "ਕੀ ਇਹ ਸੋਨੇ ਵਾਲੀ ਕੁਹਾੜੀ ਤੇਰੀ ਹੈ?",
+    "speaker": "pari",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "arjan-describes-the-mark": {
+    "hash": "7e58e1bc2314863c069347182ecf086dbf4b1e992a8f158177888a16cd7bc7d1",
+    "voice": "Iapetus",
+    "text": "ਨਹੀਂ ਜੀ। ਮੇਰੀ ਕੁਹਾੜੀ ਦਾ ਦਸਤਾ ਪੁਰਾਣਾ ਹੈ। ਉਸ ਉੱਤੇ ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਲਕੀਰ ਵੀ ਹੈ।",
+    "speaker": "arjan",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "silver-and-iron": {
+    "hash": "23dcb792b034c64dc85ec420b84db21ab868fc27d7c975e861fe28a1ab319064",
+    "voice": "Aoede",
+    "text": "ਪਰੀ ਨੇ ਚਾਂਦੀ ਦੀ ਕੁਹਾੜੀ ਵਿਖਾਈ। ਅਰਜਨ ਨੇ ਸਿਰ ਹਿਲਾਇਆ। ਫਿਰ ਪਰੀ ਨੇ ਪੁਰਾਣੇ ਲੱਕੜ ਦੇ ਦਸਤੇ ਵਾਲੀ ਕੁਹਾੜੀ ਵਿਖਾਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "arjan-recognizes-the-axe": {
+    "hash": "60812b833815bbe42877366ee340f073bf3f2c4ccab387d3079dd536e84e65d0",
+    "voice": "Iapetus",
+    "text": "ਹਾਂ ਜੀ, ਇਹ ਮੇਰੀ ਹੈ! ਵੇਖੋ, ਦਸਤੇ ਉੱਤੇ ਉਹੀ ਲਕੀਰ ਹੈ।",
+    "speaker": "arjan",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "fairy-rewards-honesty": {
+    "hash": "4c37a0ebb2f9604e84297964384c88f9d376d897170c3f5621a41c4a5bcde81b",
+    "voice": "Vindemiatrix",
+    "text": "ਤੂੰ ਸੱਚ ਬੋਲਿਆ, ਭਾਵੇਂ ਹੋਰ ਕੁਹਾੜੀਆਂ ਚਮਕਦੀਆਂ ਸਨ। ਆਪਣੀ ਕੁਹਾੜੀ ਲੈ। ਬਾਕੀ ਦੋ ਵੀ ਤੇਰੇ ਲਈ ਹਨ।",
+    "speaker": "pari",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "arjan-heads-home": {
+    "hash": "249c3a591d888443c5947af1ae1ecf11c9e41c71ffe639f766ef1da8529b7d33",
+    "voice": "Aoede",
+    "text": "ਅਰਜਨ ਨੇ ਧੰਨਵਾਦ ਕੀਤਾ। ਉਸ ਨੇ ਤਿੰਨੋਂ ਕੁਹਾੜੀਆਂ ਕੱਪੜੇ ਦੇ ਥੈਲੇ ਵਿੱਚ ਪਾਈਆਂ। ਫਿਰ ਟਾਹਣੀਆਂ ਦੀ ਗੱਠ ਚੁੱਕੀ ਤੇ ਘਰ ਵੱਲ ਤੁਰ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
