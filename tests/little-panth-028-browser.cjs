@@ -58,6 +58,10 @@ async function run() {
     const photo = (name) => page.screenshot({ path: output + '/' + name + '.png' });
     const state = () => attribute('#paper-boat', 'data-state');
     const boat = () => position('#paper-boat');
+    const elbowDrop = async id => {
+      const arm = '#' + id + ' [data-rig-arm="1"]';
+      return (await position(arm + ' [data-rig-elbow]')).y - (await position(arm, 0, 48)).y;
+    };
 
     async function speech(scene, line, index) {
       const entry = scenes[scene].lines[line];
@@ -81,6 +85,7 @@ async function run() {
     const grip = await position('[data-hand="mehar-right"]', -30, 84);
     const preRelease = await boat();
     assert.ok(gap(restFoot, await position('#mehar [data-rig-foot]')) < 1, 'Mehar keeps her feet planted');
+    assert.ok(await elbowDrop('mehar') > 8, 'Mehar lowers her elbow when she sets the boat on the water');
     assert.ok(gap(grip, await position('#boat-grip-mark')) < 1);
     await photo('02-launch');
     await seek(1, release + 2);
@@ -112,6 +117,7 @@ async function run() {
     await seek(3, hook + 120);
     const twigUnderLeaf = gap(await position('#leaf-under'), await position('#twig-tip'));
     assert.ok(twigUnderLeaf < 3, 'The twig reaches the underside of the leaf, gap ' + twigUnderLeaf);
+    assert.ok(await elbowDrop('sidak') > 6, 'Sidak reaches forward instead of lifting his elbow');
     assert.ok(gap(sidakFoot, await position('#sidak [data-rig-foot]')) < 1, 'Sidak reaches from the dry bank');
     await photo('04-under-the-leaf');
     const lift = at(3, 1, 'ਚੁੱਕ');

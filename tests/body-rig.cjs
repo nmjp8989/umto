@@ -16,6 +16,15 @@ const result=await p.evaluate(()=>{
  for(const view of ['left','front','right']){cameraView=view;const g=eyeGaze('open');if(g.x!==cameraDirections[view]*.8)throw Error('Gaze does not follow face');for(const style of Object.keys(eyeStyles)){state.eyeStyle=style;render();if(document.querySelector('#eyeGroup').innerHTML.includes('NaN'))throw Error('Invalid eye geometry');}if(eyeGaze('left').x!==-1||eyeGaze('right').x!==1)throw Error('Explicit look lost');}
  const version=document.title.match(/v(\d+)/)?.[1];if(!version||!document.querySelector('.appbar').textContent.includes(version))throw Error('Build label mismatch');
  const socketCheck=()=>{for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){const fixed=new DOMPoint(0,48).matrixTransform(arm.getCTM()),moving=new DOMPoint(0,48).matrixTransform(arm.querySelector('[data-rig-shoulder]').getCTM());if(Math.hypot(fixed.x-moving.x,fixed.y-moving.y)>.001)throw Error('Shoulder left socket');}};
+ const sample=document.createElementNS(svg.namespaceURI,'g');svg.append(sample);
+ for(const covering of ['chunni','patka']){
+  sample.innerHTML=headwearSvg(covering,'#55496c');
+  const shapes=[...sample.querySelectorAll('path[fill="#55496c"]')];
+  if(shapes.length!==1)throw Error('Detached fabric on '+covering);
+  const shape=shapes[0],box=shape.getBBox();
+  if(box.x<5||box.x+box.width>107||box.y+box.height>94||!shape.isPointInFill(new DOMPoint(52,31)))throw Error('Head covering left the skull on '+covering);
+ }
+ sample.remove();
  for(const hair of Object.keys(indianLongHair))for(const view of ['front','left','right']){state.hair=hair;cameraView=view;render();if(!document.querySelector('#frontHair path'))throw Error('Missing long hair');}
  if(premadeCharacters.filter(p=>p.id.startsWith('india-')).length!==8)throw Error('Indian presets missing');
  feature='hair';for(const section of ['girls','boys','all']){hairSection=section;drawDesigns();if(!document.querySelector('[data-hair-section="'+section+'"][aria-pressed="true"]'))throw Error('Hair filter broken');}
@@ -36,11 +45,27 @@ const result=await p.evaluate(()=>{
    }
   }
  }
+ // One fitted outline covers the bend and the cuff, without round elbow caps.
+ state.shirt='crew';
+ for(const view of ['front','left','right']){
+  cameraView=view;render();
+  for(const angle of [-145,-103,-45,0,45,103,145]){
+   setBodyArmPose({left:[-35,angle,14],right:[-28,-angle,-14]});
+   for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
+    const surface=arm.querySelector('[data-sleeve-surface]'),elbow=arm.querySelector('[data-rig-elbow]');
+    if(!surface||arm.querySelectorAll('[data-sleeve-surface]').length!==1)throw Error('Split sleeve outline');
+    for(const y of [0,22,100,BODY_RIG.forearm-10]){
+     const point=new DOMPoint(0,y).matrixTransform(elbow.getCTM()).matrixTransform(surface.getCTM().inverse());
+     if(!surface.isPointInFill(point))throw Error('Sleeve left a gap at '+view+' '+angle+' '+y);
+    }
+   }
+  }
+ }
  const styles=Object.keys(WARDROBE);let checks=0;
  for(const shirt of styles)for(const view of ['front','left','right'])for(const framing of ['head','full']){
   state.shirt=shirt;cameraView=view;state.framing=framing;render();
   const legSurfaces=[...document.querySelectorAll('#torso [data-leg-surface]')];
-  const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].filter(n=>!n.closest('[data-hand-action]')).map(n=>n.getAttribute('d')));
+  const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].filter(n=>!n.closest('[data-hand-action], [data-sleeve-surface]')).map(n=>n.getAttribute('d')));
   const original=geometry();const nodes=[...document.querySelectorAll('#torso [data-rig-arm]')];
   for(const time of [0,.2,1,2.8,3.5]){poseHeadshotArms(reactionPose('wave',time));socketCheck();if(geometry()!==original)throw Error('Geometry changed '+shirt);if(nodes.some(n=>!n.isConnected))throw Error('Rig replaced mid-animation');checks++;}
   if(framing==='full'){for(const time of Array.from({length:24},(_,i)=>i*.05)){poseWalking(time);socketCheck();if(document.getElementById('torso').innerHTML.includes('NaN'))throw Error('Invalid gait');

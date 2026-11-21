@@ -46,16 +46,16 @@
     });
   }
 
-  function armAngles(arm, screen, target, proportions, anchor) {
+  function armAngles(arm, screen, grip, proportions, fluid) {
+    const { target, anchor } = grip;
     const local = new DOMPoint(target.x, target.y).matrixTransform(screen)
       .matrixTransform(arm.getScreenCTM().inverse());
     const x = local.x;
     const y = local.y - shoulderPivot;
     const upper = proportions.upperArm - shoulderPivot;
     const requested = Math.hypot(x, y);
-    // A hand close to the shoulder curls at the wrist as well as the elbow.
     const close = inRange((proportions.forearm + palmCenter - upper + 64 - requested) / 64, 0, 1);
-    const wristDegrees = -Math.round(close * 90 * 2) / 2;
+    const wristDegrees = fluid ? inRange(grip.wrist ?? 0, -38, 38) : -Math.round(close * 180) / 2;
     const wrist = wristDegrees / degrees;
     const anchorX = anchor?.x ?? 0;
     const anchorY = anchor?.y ?? palmCenter;
@@ -63,11 +63,25 @@
     const handY = proportions.forearm + anchorX * Math.sin(wrist) + anchorY * Math.cos(wrist);
     const lower = Math.hypot(handX, handY);
     const handAngle = Math.atan2(handX, handY);
-    const distance = inRange(requested, Math.abs(upper - lower) + 1, upper + lower - 1);
+    // Use the same side of the elbow throughout a reach so it never flips
+    // across the hand path. A low reach folds down instead of over the shoulder.
+    const side = fluid ? (grip.elbow === 'up' ? 1 : -1) : 1;
+    const limit = fluid ? Math.min(Math.PI, 145 / degrees + side * handAngle) : Math.PI;
+    const nearest = Math.sqrt(upper ** 2 + lower ** 2 + 2 * upper * lower * Math.cos(limit));
+    const distance = inRange(requested, Math.max(nearest, Math.abs(upper - lower) + 1), upper + lower - 1);
     const cosine = (distance ** 2 - upper ** 2 - lower ** 2) / (2 * upper * lower);
-    const elbow = Math.acos(inRange(cosine, -1, 1));
+    const elbow = side * Math.acos(inRange(cosine, -1, 1));
     const shoulder = Math.atan2(-x, y) - Math.atan2(lower * Math.sin(elbow), upper + lower * Math.cos(elbow));
     return [shoulder * degrees, (elbow - handAngle) * degrees, wristDegrees];
+  }
+
+  function blendArm(resting, target, weight, fluid) {
+    if (!fluid) return target.map((angle, i) => mix(resting[i], angle, weight));
+    const influence = [1 - (1 - weight) ** 1.24, weight, weight ** 1.24];
+    return target.map((angle, i) => {
+      const turn = ((angle - resting[i] + 180) % 360 + 360) % 360 - 180;
+      return resting[i] + turn * influence[i];
+    });
   }
 
   class Character {
@@ -85,7 +99,10 @@
       this.torso = node.layers.torso;
       this.standing = this.torso.innerHTML;
 
-      for (const style of node.svg.querySelectorAll('style')) style.remove();
+      for (const style of node.svg.querySelectorAll('style')) {
+        // Keep the Studio's ink and open strokes inside the character artwork.
+        style.textContent = style.textContent.replace(/(^|})\s*(\.[\w-]+)\s*(?=\{)/g, '$1[data-studio-preset] $2');
+      }
       const artwork = document.createElementNS(ns, 'g');
       artwork.replaceChildren(...node.svg.children);
       root.replaceChildren(artwork);
@@ -176,15 +193,16 @@
 
     paint(pose, ms, word, reduced) {
       const { api, actor, node, root, props, stage } = this;
+      const fluid = Boolean(this.spec.fluidArms);
       transform(root, 'translate(' + pose.x + ' ' + pose.y + ') rotate(' + pose.lean + ')');
       api.withActor(actor, () => {
         const seconds = ms / 1000;
         const walking = !reduced && pose.walk != null;
-        const frame = walking ? Math.floor(pose.walk * 18) : null;
+        const frame = walking ? (fluid ? pose.walk : Math.floor(pose.walk * 18) / 18) : null;
         if (frame !== this.walkFrame) {
           if (walking) {
             if (this.spec.hipHinge && this.walkFrame === null) this.bendAtHips(0);
-            api.walk(frame / 18, node.scope);
+            api.walk(frame, node.scope);
             if (this.spec.hipHinge) this.rememberGarment();
           } else {
             props.remove();
@@ -217,7 +235,7 @@
           if (walking && !grip?.weight) continue;
           const resting = rest[side] ?? [0, 0, 0];
           const angles = grip?.weight
-            ? armAngles(arm, screen, grip.target, api.proportions, grip.anchor).map((angle, i) => mix(resting[i], angle, grip.weight))
+            ? blendArm(resting, armAngles(arm, screen, grip, api.proportions, fluid), grip.weight, fluid)
             : resting;
           const hand = grip?.weight > .57
             ? { pose: grip.hand || 'fist', view: 'edge' }

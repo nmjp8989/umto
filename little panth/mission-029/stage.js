@@ -11,13 +11,14 @@
   const opacity = (node, value) => node.setAttribute('opacity', String(Number(value)));
   const transform = (node, value) => node.setAttribute('transform', value);
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
-  const sidak = { preset: 'kid-sidak', view: 'right', height: 208, serial: 671, hipHinge: true };
-  const elder = { preset: 'elder-bibi-ji', view: 'right', height: 287, serial: 672 };
+  const sidak = { preset: 'kid-sidak', view: 'right', height: 208, serial: 671, hipHinge: true, fluidArms: true };
+  const elder = { preset: 'elder-bibi-ji', view: 'right', height: 287, serial: 672, fluidArms: true };
   const dogScale = .53;
   const headJoint = point(42, -108);
   const muzzle = point(81, 20);
   const boyHome = point(520, 640);
   const boyAtStool = point(625, 641);
+  const boyAtPair = point(503, 642);
   const bibiHome = point(331, 640);
   const dogNook = point(891, 614);
   const dogReveal = point(752, 615);
@@ -97,11 +98,11 @@
   function walk(actor, from, to, ms, start, end) {
     const t = ease(phase(ms, start, end));
     Object.assign(actor, between(from, to, t));
-    if (t > 0 && t < 1) actor.walk = (ms - start) / 1000;
+    if (t > 0 && t < 1) actor.walk = (ms - start) / 1000 * Math.sign(to.x - from.x);
   }
 
-  function grip(actor, target, weight = 1, hand = 'pinch', anchor = pinchAnchor) {
-    actor.grips[1] = { target, weight, hand, anchor };
+  function grip(actor, target, weight = 1, hand = 'pinch', anchor = pinchAnchor, wrist = 0) {
+    actor.grips[1] = { target, weight, hand, anchor, wrist };
   }
 
   function puppy(base, look, changes = {}) {
@@ -183,9 +184,11 @@
         const catchAt = Math.max(c.chase + 160, scene.duration - 430);
         const forward = move(c.pick + 450, c.roll);
         const grab = pulse(c.pick - 430, c.pick - 25, c.roll + 50, c.roll + 710);
-        const carried = offset(between(ballOnStool, ballRelease, forward), 0, -31 * Math.sin(forward * Math.PI));
-        boy.bend = 32 * grab;
-        grip(boy, offset(carried, ballGrip.x, ballGrip.y), grab);
+        const arc = Math.sin(forward * Math.PI);
+        const carried = offset(between(ballOnStool, ballRelease, forward), 8 * arc, -15 * arc);
+        boy.bend = grab * (32 - 11 * arc);
+        grip(boy, offset(carried, ballGrip.x, ballGrip.y), grab,
+          ms > c.roll + 38 ? 'open' : 'pinch', pinchAnchor, mix(11, -8, forward));
         frame.ball.owner = ms < c.pick ? 'stool' : ms <= c.roll ? 'boy' : 'rolling';
         if (ms > c.roll) {
           const roll = move(c.roll, catchAt);
@@ -217,14 +220,15 @@
       case 'the-pair-is-together': {
         carryBall(ballFar, -1);
         walk(boy, boyHome, boyAtStool, ms, 0, c.pick - 330);
-        if (ms >= c.pick + 90) walk(boy, boyAtStool, boyHome, ms, c.pick + 90, c.set - 440);
+        if (ms >= c.pick + 180) walk(boy, boyAtStool, boyAtPair, ms, c.pick + 180, c.set - 335);
         const transfer = move(c.pick + 140, c.set - 20);
         const hold = pulse(c.pick - 440, c.pick - 11, c.set + 104, c.set + 655);
         const firstGrip = atAnchor(shoeGrip, shoeStool, 4, -1);
         const pairGrip = atAnchor(shoeGrip, shoePair, -4, -1);
-        boy.bend = hold * (28 + 10 * Math.sin(Math.PI * transfer));
-        const target = offset(between(firstGrip, pairGrip, transfer), 0, -23 * Math.sin(transfer * Math.PI));
-        grip(boy, target, hold);
+        const arc = Math.sin(transfer * Math.PI);
+        boy.bend = hold * (28 - 10 * arc);
+        const target = offset(between(firstGrip, pairGrip, transfer), 0, -14 * arc);
+        grip(boy, target, hold, ms > c.set + 120 ? 'open' : 'pinch', pinchAnchor, mix(7, -11, transfer));
         frame.shoe = ms < c.pick ? { owner: 'stool', center: shoeStool, angle: 4 }
           : ms <= c.set + 100 ? { owner: 'boy', center: shoePair, angle: mix(4, -4, transfer) }
             : { owner: 'pair', center: shoePair, angle: -4 };
@@ -232,6 +236,7 @@
         break;
       }
       case 'one-more-game': {
+        Object.assign(boy, boyAtPair);
         frame.shoe = { owner: 'pair', center: shoePair, angle: -4 };
         const setBall = c.play - 290;
         const pupAtDoor = takenBall(ballNear, -1);

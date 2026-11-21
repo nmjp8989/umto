@@ -12,15 +12,15 @@
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
   const transform = (node, value) => node.setAttribute('transform', value);
   const radians = angle => angle * Math.PI / 180;
-  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 651, hipHinge: true };
-  const sidak = { preset: 'kid-sidak', view: 'right', height: 207, serial: 652, hipHinge: true };
-  const launchMehar = point(353, 632);
+  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 651, hipHinge: true, fluidArms: true };
+  const sidak = { preset: 'kid-sidak', view: 'right', height: 207, serial: 652, hipHinge: true, fluidArms: true };
+  const launchMehar = point(345, 632);
   const launchSidak = point(475, 638);
   const leafMehar = point(441, 640);
-  const leafSidak = point(565, 646);
+  const leafSidak = point(554, 644);
   const launch = point(419, 551);
   const leafInWater = point(681, 548);
-  const leafOnBank = point(640, 580);
+  const leafOnBank = point(664, 580);
   const boatGrip = point(-7, -15);
   const bow = point(34, -11);
   const leafStem = point(-20, 0);
@@ -100,8 +100,8 @@
     if (t > 0 && t < 1) actor.walk = (ms - start) / 1000;
   }
 
-  function touch(actor, target, weight = 1, hand = 'pinch', anchor = pinchAnchor) {
-    actor.grips[1] = { target, weight, hand, anchor };
+  function touch(actor, target, weight = 1, hand = 'pinch', anchor = pinchAnchor, wrist = 0) {
+    actor.grips[1] = { target, weight, hand, anchor, wrist };
   }
 
   function placeTwig(tip, angle) {
@@ -128,7 +128,7 @@
       frame.groundedLeaf = true;
       frame.twig = placeTwig(offset(leafOnBank, 0, 10), 13);
     };
-    const carryBoat = () => offset(girl, 51, -105);
+    const carryBoat = () => offset(girl, 58, -102);
 
     switch (scene.id) {
       case 'after-the-rain':
@@ -141,10 +141,13 @@
         break;
       case 'launch-the-boat': {
         const lowering = move(c.bend - 200, c.set - 10);
-        const withdraw = move(c.release + 80, c.release + 1020);
+        const withdraw = move(c.release + 45, c.release + 1150);
         const launchGrip = offset(launch, boatGrip.x, boatGrip.y);
-        girl.bend = 24 * lowering * (1 - withdraw);
-        touch(girl, between(carryBoat(), launchGrip, lowering), 1 - withdraw);
+        const lean = move(c.bend - 405, c.set - 180) * (1 - move(c.release + 265, c.release + 1420));
+        girl.bend = 23 * lean;
+        const arc = Math.sin(lowering * Math.PI);
+        const reach = offset(between(carryBoat(), launchGrip, lowering), 5 * arc, -7 * arc);
+        touch(girl, reach, 1 - withdraw, ms > c.release + 40 ? 'open' : 'pinch', pinchAnchor, mix(8, -9, lowering));
         frame.held = ms <= c.release;
         if (!frame.held) {
           drift(mix(launch.x, 513, move(c.release, scene.duration)));
@@ -167,18 +170,18 @@
         const pointToLeaf = pulse(c.point - 470, c.point + 290, c.point + 1420, c.point + 1990);
         if (pointToLeaf > 0) touch(boy, point(622, 521), pointToLeaf * .98, 'point', point(-47 * handWidth, 146));
         const take = pulse(c.pick - 780, c.pick - 20, c.setDown + 240, c.setDown + 690);
-        boy.bend = 31 * take;
         const hook = move(c.pick + 190, c.hook);
         const lift = move(c.lift, c.setDown + 40);
         const lower = move(c.setDown + 95, c.setDown + 305);
+        boy.bend = take * (28 - 8 * Math.sin(Math.PI * lift));
         const groundOffset = rotate(twigEnd, twigAtRest.angle);
         const tipFromGround = offset(twigAtRest.grip, groundOffset.x, groundOffset.y);
         const underLeaf = offset(leafInWater, leafRest.x, leafRest.y);
         const hookTip = offset(between(tipFromGround, underLeaf, hook), 0, -12 * Math.sin(hook * Math.PI));
         const raisedTip = offset(between(hookTip, offset(leafOnBank, leafRest.x, leafRest.y), lift), 0, -27 * Math.sin(lift * Math.PI) + 7 * lower);
-        frame.twig = placeTwig(raisedTip, mix(mix(twigAtRest.angle, -25, hook), 13, lift));
+        frame.twig = placeTwig(raisedTip, mix(mix(twigAtRest.angle, -18, hook), 13, lift));
         frame.holdsTwig = ms >= c.pick && ms <= c.setDown + 310;
-        if (take > 0) touch(boy, frame.twig.grip, take);
+        if (take > 0) touch(boy, frame.twig.grip, take, 'pinch', pinchAnchor, mix(9, -13, hook * (1 - lift)));
         frame.leaf = between(leafInWater, leafOnBank, lift);
         frame.leafAngle = -19 * lift - 10 * Math.sin(lift * Math.PI);
         frame.leafOnTwig = ms >= c.lift && ms < c.setDown + 40;
@@ -209,8 +212,8 @@
         const outOfSight = phase(ms, c.bend + 340, c.exit + 1140);
         drift(ms < c.bend + 340 ? mix(1103, 1182, corner) : mix(1182, 1320, outOfSight));
         const wave = pulse(c.wave - 450, c.wave + 155, c.exit + 400, c.exit + 1090);
-        const arc = still ? 0 : Math.sin((ms - c.wave) / 141) * 9.5;
-        if (wave > 0) touch(girl, offset(girl, 50 + arc, -153 + Math.abs(arc) * .27), wave, 'wave', point(0, 105));
+        const arc = still ? 0 : Math.sin((ms - c.wave) / 141);
+        if (wave > 0) touch(girl, offset(girl, 56 + arc * 4.5, -151), wave, 'wave', point(0, 105), arc * 18);
         girl.gazeY = 32 * (1 - wave);
         boy.gazeY = 33;
         break;

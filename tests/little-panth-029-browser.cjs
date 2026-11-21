@@ -59,6 +59,10 @@ async function run() {
     const hand = () => position('[data-hand="sidak-right"]', -30, 84);
     const jutti = () => position('#lost-jutti');
     const ball = () => position('#cloth-ball');
+    const elbowBelow = async () => {
+      const arm = '#sidak [data-rig-arm="1"]';
+      return (await position(arm + ' [data-rig-elbow]')).y - (await position(arm, 0, 48)).y > 7;
+    };
 
     async function speech(scene, line, index) {
       const entry = scenes[scene].lines[line];
@@ -72,6 +76,8 @@ async function run() {
 
     await speech(0, 1, 4);
     assert.equal(await page.locator('#puppy-back #lost-jutti').count(), 1);
+    const ear = page.locator('#bibi [data-scene-layer="earLeft"] .thin').first();
+    assert.equal(await ear.evaluate(el => getComputedStyle(el).fill), 'none');
     await photo('01-fair-day');
     const rustle = at(1, 0, 'ਖੜਖੜਾਹਟ');
     await seek(1, rustle - 60);
@@ -102,6 +108,7 @@ async function run() {
     const beforeBall = await ball();
     await seek(3, pickBall + 2);
     assert.ok(gap(beforeBall, await ball()) < 5, 'The ball lifts at Sidak’s hand');
+    assert.ok(await elbowBelow(), 'Sidak keeps his elbow below his shoulder when he picks up the ball');
     assert.ok(gap(await position('#ball-grip'), await hand()) < 1);
     const roll = at(3, 0, 'ਰੋੜ੍ਹ');
     await seek(3, roll - 2);
@@ -138,6 +145,7 @@ async function run() {
     const set = at(4, 0, 'ਰੱਖ');
     await seek(4, set + 98);
     const beforeSet = await jutti();
+    assert.ok(await elbowBelow(), 'Sidak lowers his elbow when he sets down the jutti');
     await seek(4, set + 102);
     assert.equal(await attr('#lost-jutti', 'data-owner'), 'pair');
     assert.ok(gap(beforeSet, await jutti()) < 5, 'The shoe is set down without jumping');
