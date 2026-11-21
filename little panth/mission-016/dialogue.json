@@ -1,0 +1,91 @@
+{
+  "mission": 16,
+  "title": "ਲੂੰਬੜੀ ਅਤੇ ਸਾਰਸ",
+  "englishTitle": "The Fox and the Stork",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "fox": "Fox",
+    "stork": "Stork"
+  },
+  "scenes": [
+    {
+      "id": "invitation",
+      "title": "An invitation to dinner",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 372 },
+      "lines": ["the-garden", "fox-invites"],
+      "review": "Open wide on the garden courtyard and the low table. Show the stork arrive, then frame the fox as she invites him to sit with her."
+    },
+    {
+      "id": "plates",
+      "title": "Two shallow plates",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 640, "y": 468 },
+      "lines": ["shallow-plates", "stork-struggles"],
+      "review": "Show the fox lap up her dal. The stork’s beak touches the plate, and his portion stays full. Hold on the difference between the two dishes."
+    },
+    {
+      "id": "return-invitation",
+      "title": "Come to my home tomorrow",
+      "framing": "two-shot",
+      "focus": { "x": 660, "y": 445 },
+      "lines": ["one-more-try", "stork-invites"],
+      "review": "Show one more attempt at the shallow plate. Lift the stork’s head before his line so both faces remain clear as he invites the fox to his home."
+    },
+    {
+      "id": "jugs",
+      "title": "Kheer by the canal",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["narrow-jugs", "stork-serves"],
+      "review": "Establish the stork’s home beside the canal. Show the change from shallow plates to two tall jugs. Bring the fox into the frame along the bank."
+    },
+    {
+      "id": "narrow-mouth",
+      "title": "The fox cannot reach the kheer",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 640, "y": 466 },
+      "lines": ["fox-cant-reach", "fox-understands"],
+      "review": "Lower the stork’s beak into his jug, then show the fox reach its narrow rim. Cut to her reaction as she understands what the stork felt yesterday."
+    },
+    {
+      "id": "new-plate",
+      "title": "A plate for the fox",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 630, "y": 466 },
+      "lines": ["stork-offers-a-plate", "pour-into-plate"],
+      "review": "Show the stork bring over a shallow plate and tip the fox’s jug into it. The kheer should pour into the plate and settle before they start eating."
+    },
+    {
+      "id": "shared-meal",
+      "title": "A meal they can both enjoy",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 385 },
+      "lines": ["fox-promises", "end-together"],
+      "review": "Keep the plate in front of the fox and the tall jug in front of the stork. Return to the wide canal shot as they eat together."
+    }
+  ],
+  "lines": {
+    "the-garden": { "speaker": "narrator", "pa": "ਪਿੰਡ ਦੇ ਨੇੜੇ ਇੱਕ ਬਾਗ ਵਿੱਚ ਲੂੰਬੜੀ ਰਹਿੰਦੀ ਸੀ। ਇੱਕ ਦਿਨ ਉਸ ਨੇ ਸਾਰਸ ਨੂੰ ਆਪਣੇ ਘਰ ਖਾਣੇ ਲਈ ਸੱਦਿਆ।" },
+    "fox-invites": { "speaker": "fox", "pa": "ਅੱਜ ਮੈਂ ਗਰਮ ਦਾਲ ਬਣਾਈ ਹੈ। ਆ, ਮੇਰੇ ਕੋਲ ਬੈਠ।" },
+    "shallow-plates": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਨੇ ਦੋ ਚਪਟੀਆਂ ਥਾਲੀਆਂ ਵਿੱਚ ਦਾਲ ਪਾਈ। ਉਸ ਨੇ ਛੇਤੀ ਛੇਤੀ ਆਪਣੀ ਦਾਲ ਚੱਟ ਲਈ। ਸਾਰਸ ਦੀ ਲੰਮੀ ਚੁੰਝ ਵਿੱਚ ਦਾਲ ਨਾ ਆਈ।" },
+    "stork-struggles": { "speaker": "stork", "pa": "ਮੇਰੀ ਚੁੰਝ ਥਾਲੀ ਨਾਲ ਟਕਰਾ ਰਹੀ ਹੈ। ਮੈਂ ਦਾਲ ਕਿਵੇਂ ਖਾਵਾਂ?" },
+    "one-more-try": { "speaker": "narrator", "pa": "ਸਾਰਸ ਨੇ ਇੱਕ ਵਾਰ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਥਾਲੀ ਵਿੱਚ ਦਾਲ ਉਵੇਂ ਹੀ ਪਈ ਰਹੀ।" },
+    "stork-invites": { "speaker": "stork", "pa": "ਅੱਜ ਦੇ ਸੱਦੇ ਲਈ ਧੰਨਵਾਦ। ਕੱਲ੍ਹ ਤੂੰ ਮੇਰੇ ਘਰ ਖਾਣਾ ਖਾਣ ਆਈਂ।" },
+    "narrow-jugs": { "speaker": "narrator", "pa": "ਅਗਲੇ ਦਿਨ ਲੂੰਬੜੀ ਨਹਿਰ ਦੇ ਕੰਢੇ ਸਾਰਸ ਦੇ ਘਰ ਗਈ। ਸਾਰਸ ਨੇ ਖੀਰ ਦੋ ਲੰਮੀਆਂ ਸੁਰਾਹੀਆਂ ਵਿੱਚ ਪਾਈ।" },
+    "stork-serves": { "speaker": "stork", "pa": "ਆ, ਖੀਰ ਤਿਆਰ ਹੈ। ਆਪਾਂ ਇਕੱਠੇ ਬੈਠ ਕੇ ਖਾਈਏ।" },
+    "fox-cant-reach": { "speaker": "narrator", "pa": "ਸਾਰਸ ਨੇ ਆਪਣੀ ਚੁੰਝ ਸੁਰਾਹੀ ਅੰਦਰ ਪਾਈ ਤੇ ਖੀਰ ਖਾਧੀ। ਲੂੰਬੜੀ ਦਾ ਮੂੰਹ ਭਾਂਡੇ ਅੰਦਰ ਨਾ ਗਿਆ।" },
+    "fox-understands": { "speaker": "fox", "pa": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਕੱਲ੍ਹ ਤੈਨੂੰ ਵੀ ਇੰਨੀ ਔਖ ਹੋਈ ਹੋਣੀ ਹੈ।" },
+    "stork-offers-a-plate": { "speaker": "stork", "pa": "ਰੁਕ, ਮੈਂ ਤੇਰੇ ਲਈ ਇੱਕ ਥਾਲੀ ਲਿਆਉਂਦਾ ਹਾਂ।" },
+    "pour-into-plate": { "speaker": "narrator", "pa": "ਸਾਰਸ ਨੇ ਲੂੰਬੜੀ ਦੀ ਖੀਰ ਥਾਲੀ ਵਿੱਚ ਪਾ ਦਿੱਤੀ। ਹੁਣ ਦੋਵੇਂ ਖਾ ਸਕਦੇ ਸਨ।" },
+    "fox-promises": { "speaker": "fox", "pa": "ਅਗਲੀ ਵਾਰ ਤੇਰੇ ਲਈ ਲੰਮਾ ਭਾਂਡਾ ਰੱਖਾਂਗੀ।" },
+    "end-together": { "speaker": "narrator", "pa": "ਉਸ ਦਿਨ ਤੋਂ ਜਦੋਂ ਵੀ ਦੋਵੇਂ ਇਕੱਠੇ ਖਾਂਦੇ, ਉਹ ਇੱਕ ਦੂਜੇ ਲਈ ਢੁਕਵਾਂ ਭਾਂਡਾ ਪਹਿਲਾਂ ਹੀ ਰੱਖ ਲੈਂਦੇ।" }
+  }
+}

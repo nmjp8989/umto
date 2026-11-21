@@ -32,6 +32,7 @@ VOICES={
  "fox":("Kore","An expressive young fox speaking conversational Punjabi. Give her bright enthusiasm and honest disappointment without overacting. Read only the written words."),
  "sparrow":("Leda","A small, lively sparrow with a kind, curious voice. Read the Punjabi words clearly, with no imitation of bird sounds."),
  "ant":("Leda","A lively little ant speaking natural Punjabi. Clear, warm pronunciation at an easy pace for children. Read only the written words."),
+ "stork":("Charon","A thoughtful and friendly stork speaking clear conversational Punjabi with a gentle, expressive delivery. Read only the written words."),
  "dove":("Vindemiatrix","A gentle and reassuring dove speaking clear conversational Punjabi. Read only the written words for young listeners."),
  "tortoise":("Orus","A gentle, thoughtful tortoise. Speak Gurmukhi Punjabi clearly with steady, friendly delivery for young children. Read only the written words."),
  "hare":("Iapetus","A playful and energetic young hare. Speak natural Gurmukhi Punjabi clearly, with warm, expressive delivery. Read only the written words."),
