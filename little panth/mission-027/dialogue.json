@@ -1,0 +1,77 @@
+{
+  "mission": 27,
+  "title": "ਚੰਦ ਦਾ ਅਕਸ",
+  "englishTitle": "The Moon’s Reflection",
+  "score": "moonlight",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "harpreet": "Harpreet"
+  },
+  "scenes": [
+    {
+      "id": "night-in-the-courtyard",
+      "title": "A quiet night in the courtyard",
+      "framing": "establishing",
+      "focus": { "x": 640, "y": 365 },
+      "lines": ["night-and-rainwater"],
+      "review": "Show the lit doorway and the rainwater bowl in the same wide shot. Follow Mehar only until she comes to a stop."
+    },
+    {
+      "id": "moon-in-the-bowl",
+      "title": "Mehar spots the moon",
+      "framing": "medium",
+      "focus": { "x": 565, "y": 482 },
+      "lines": ["mehar-finds-the-moon", "moon-in-my-bowl"],
+      "review": "Mehar moves closer to the bowl and bends above the hips. The reflection should be visible inside the bowl, and only Mehar speaks the question."
+    },
+    {
+      "id": "touch-the-water",
+      "title": "One finger makes ripples",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 619, "y": 498 },
+      "lines": ["one-little-touch", "where-did-it-go"],
+      "review": "The ripples start where Mehar's finger reaches the water. Check the moon's reflection breaks up as the ripples pass and remains inside the bowl."
+    },
+    {
+      "id": "look-up",
+      "title": "Harpreet points to the sky",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 650, "y": 453 },
+      "lines": ["harpreet-points-up", "harpreet-explains"],
+      "review": "Let Harpreet reach Mehar before he points. Reveal the real moon when Mehar straightens and looks up, then come back to Harpreet for his explanation."
+    },
+    {
+      "id": "water-grows-still",
+      "title": "The reflection comes back",
+      "framing": "medium",
+      "focus": { "x": 641, "y": 480 },
+      "lines": ["they-wait-together", "mehar-understands"],
+      "review": "The rings fade as the two wait, and the shape of the reflected moon gradually becomes round again. Keep Harpreet quiet while Mehar speaks."
+    },
+    {
+      "id": "one-moon",
+      "title": "One moon, seen twice",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 364 },
+      "lines": ["one-moon-two-places"],
+      "review": "Hold a quiet wide shot with the actual moon and the reflection both visible. Let Mehar look from the water back to the sky."
+    }
+  ],
+  "lines": {
+    "night-and-rainwater": { "speaker": "narrator", "pa": "ਰਾਤ ਹੋ ਗਈ ਸੀ। ਮੇਹਰ ਵਿਹੜੇ ਵਿੱਚ ਆਈ। ਬੂਹੇ ਕੋਲ ਮਿੱਟੀ ਦਾ ਇੱਕ ਭਾਂਡਾ ਪਿਆ ਸੀ। ਉਸ ਵਿੱਚ ਮੀਂਹ ਦਾ ਪਾਣੀ ਭਰਿਆ ਹੋਇਆ ਸੀ।" },
+    "mehar-finds-the-moon": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਝੁਕ ਕੇ ਵੇਖਿਆ। ਪਾਣੀ ਵਿੱਚ ਚਾਂਦੀ ਵਰਗਾ ਗੋਲ ਚੰਦ ਚਮਕ ਰਿਹਾ ਸੀ।" },
+    "moon-in-my-bowl": { "speaker": "mehar", "pa": "ਓਹ! ਚੰਦ ਮੇਰੇ ਭਾਂਡੇ ਵਿੱਚ ਕਿਵੇਂ ਆ ਗਿਆ?" },
+    "one-little-touch": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਹੌਲੀ ਜਿਹੀ ਉਂਗਲ ਪਾਣੀ ਨੂੰ ਛੁਹਾਈ। ਛੋਟੀਆਂ ਲਹਿਰਾਂ ਉੱਠੀਆਂ। ਚੰਦ ਦੀ ਗੋਲ ਤਸਵੀਰ ਟੁੱਟ ਕੇ ਟੇਢੀਆਂ ਲਕੀਰਾਂ ਵਰਗੀ ਹੋ ਗਈ।" },
+    "where-did-it-go": { "speaker": "mehar", "pa": "ਮੇਰਾ ਚੰਦ ਕਿੱਥੇ ਗਿਆ? ਮੈਂ ਤਾਂ ਉਸ ਨੂੰ ਬਹੁਤ ਹੌਲੀ ਛੂਹਿਆ ਸੀ!" },
+    "harpreet-points-up": { "speaker": "narrator", "pa": "ਹਰਪ੍ਰੀਤ ਉਸ ਕੋਲ ਆਇਆ। ਉਸ ਨੇ ਅਸਮਾਨ ਵੱਲ ਇਸ਼ਾਰਾ ਕੀਤਾ। ਮੇਹਰ ਨੇ ਸਿਰ ਚੁੱਕਿਆ। ਕੰਧ ਤੋਂ ਉੱਪਰ ਚੰਦ ਚਮਕ ਰਿਹਾ ਸੀ।" },
+    "harpreet-explains": { "speaker": "harpreet", "pa": "ਚੰਦ ਤਾਂ ਉੱਥੇ ਹੀ ਹੈ। ਪਾਣੀ ਵਿੱਚ ਉਸ ਦਾ ਅਕਸ ਹੈ। ਜਿਵੇਂ ਸ਼ੀਸ਼ੇ ਵਿੱਚ ਤੈਨੂੰ ਆਪਣਾ ਚਿਹਰਾ ਦਿਸਦਾ ਹੈ।" },
+    "they-wait-together": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਭਾਂਡੇ ਕੋਲ ਚੁੱਪ ਕਰ ਕੇ ਖੜ੍ਹੇ ਰਹੇ। ਲਹਿਰਾਂ ਹੌਲੀ ਹੌਲੀ ਰੁਕ ਗਈਆਂ। ਜਦੋਂ ਪਾਣੀ ਸ਼ਾਂਤ ਹੋਇਆ, ਗੋਲ ਅਕਸ ਮੁੜ ਦਿਸ ਪਿਆ।" },
+    "mehar-understands": { "speaker": "mehar", "pa": "ਹੁਣ ਸਮਝ ਆਈ! ਲਹਿਰਾਂ ਨਾਲ ਅਕਸ ਬਦਲਿਆ ਸੀ। ਚੰਦ ਤਾਂ ਆਪਣੀ ਥਾਂ ਹੀ ਸੀ।" },
+    "one-moon-two-places": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਇੱਕ ਵਾਰ ਪਾਣੀ ਵੱਲ ਵੇਖਿਆ ਤੇ ਇੱਕ ਵਾਰ ਅਸਮਾਨ ਵੱਲ। ਫਿਰ ਉਹ ਮੁਸਕਰਾਈ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਇੱਕੋ ਚੰਦ ਦੋ ਥਾਵਾਂ ਉੱਤੇ ਕਿਉਂ ਦਿਸਦਾ ਹੈ।" }
+  }
+}
