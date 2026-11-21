@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-label="A wet village lane and a small stone footbridge after the rain">
+  <defs>
+    <linearGradient id="boat-sky" x1="0" x2=".5" y1="0" y2="1">
+      <stop stop-color="#8dbdc9"/><stop offset=".75" stop-color="#dce7ce"/><stop offset="1" stop-color="#fae6b4"/>
+    </linearGradient>
+    <linearGradient id="boat-ground" x2=".35" y2="1">
+      <stop stop-color="#cbb488"/><stop offset=".61" stop-color="#be9b72"/><stop offset="1" stop-color="#a47d5b"/>
+    </linearGradient>
+    <linearGradient id="boat-wall" x2=".16" y2="1">
+      <stop stop-color="#e6c6a0"/><stop offset=".9" stop-color="#b88a6b"/>
+    </linearGradient>
+    <linearGradient id="boat-door" x2="1" y2=".74">
+      <stop stop-color="#749a8a"/><stop offset=".61" stop-color="#59796e"/><stop offset="1" stop-color="#345c58"/>
+    </linearGradient>
+    <linearGradient id="boat-water" x2=".16" y2="1">
+      <stop stop-color="#83b3a6"/><stop offset=".32" stop-color="#599990"/><stop offset=".79" stop-color="#438681"/>
+      <stop offset="1" stop-color="#6daba0"/>
+    </linearGradient>
+    <linearGradient id="boat-span" x2=".32" y2="1">
+      <stop stop-color="#bfa885"/><stop offset=".53" stop-color="#947e6b"/><stop offset="1" stop-color="#685b56"/>
+    </linearGradient>
+    <linearGradient id="boat-shade" x2=".86" y2=".15">
+      <stop stop-color="#365863" stop-opacity="0"/><stop offset=".3" stop-color="#365863" stop-opacity=".67"/>
+      <stop offset=".73" stop-color="#314a51" stop-opacity=".74"/><stop offset="1" stop-color="#365863" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="boat-paper" x2=".24" y2="1">
+      <stop stop-color="#fff6d8"/><stop offset="1" stop-color="#eae0af"/>
+    </linearGradient>
+    <linearGradient id="boat-leaf-gold" x2="1" y2=".79">
+      <stop stop-color="#ffc347"/><stop offset=".51" stop-color="#eaaa35"/><stop offset="1" stop-color="#b4813a"/>
+    </linearGradient>
+    <radialGradient id="boat-ground-shadow">
+      <stop stop-color="#564a3c" stop-opacity=".73"/><stop offset="1" stop-color="#564a3c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="boat-texture" width="95" height="66" patternUnits="userSpaceOnUse">
+      <path d="M12 4h3m25 6h3m-20 19h4m40 5h4m20 6h2m-19 14h3M31 56h2M3 54h2m9-10h2m31-16h4" stroke="#fcf2d4" stroke-opacity=".34" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M22 6h2m34 10h3m19 7h3m-44 12h2M4 31h2m12 28h1m46 2h2m26 2h2" stroke="#786956" stroke-opacity=".34" stroke-width="1.2" stroke-linecap="round"/>
+    </pattern>
+    <pattern id="boat-brick" width="82" height="33" patternUnits="userSpaceOnUse">
+      <rect width="82" height="33" fill="#dfbd92"/>
+      <path d="M1 1h40v13H1Zm43 0h37v13H44ZM1 18h19v13H1Zm22 0h40v13H23Zm43 0h15v13H66Z" fill="#a8765c"/>
+      <path d="M6 3h28m15-1h23m-43 18h27m14 0h8" stroke="#f0c69b" stroke-opacity=".51" stroke-width="1.4" stroke-linecap="round"/>
+    </pattern>
+    <path id="channel-outline" d="M-16 506Q123 484 261 501T515 512Q607 511 668 511Q739 510 814 491Q913 483 991 505Q1051 524 1113 506Q1214 482 1296 473L1296 554Q1232 542 1169 566Q1102 589 1027 598Q927 602 841 613Q765 622 678 611Q583 594 518 596Q438 593 389 588Q314 573 219 572Q100 558-16 589Z"/>
+    <clipPath id="paper-boat-water-clip"><use href="#channel-outline"/></clipPath>
+  </defs>
+
+  <g data-camera-depth="-.5">
+    <rect x="-110" y="-28" width="1500" height="512" fill="url(#boat-sky)"/>
+    <path d="M493 120q40-32 96-15 34-34 89-23 39-31 95-3 29-13 55 5 56-5 78 15-137 21-413 21Zm489 41q38-21 77-18 25-18 56-5 24-19 67 0 49-10 77 7-80 24-277 16Z" fill="#f6f2db" opacity=".73"/>
+    <path d="M399 156q36-15 72-8 19-17 50-9 48-15 99 1 27-16 75 9-125 23-296 7Z" fill="#fff7db" opacity=".48"/>
+    <path d="M372 355q159-81 345-51 141-38 266-28 161-39 389-17v183H372Z" fill="#99a989"/>
+    <path d="M464 371q163-62 347-44 217-51 550-54v148H464Z" fill="#aab78e"/>
+    <path d="M697 355q288-60 539-58l150 3v143H697Z" fill="#bdbf82"/>
+    <path d="M937 334q185-19 383-23m-347 41q191-22 363-20m-386 37q190-14 387-16" fill="none" stroke="#e2d39a" stroke-width="4" opacity=".58"/>
+    <g fill="#587766">
+      <path d="M828 365q5-39 34-47 9-36 37-35 14-33 47-22 41-9 64 30 43-5 58 51l30 29Z" opacity=".85"/>
+      <path d="M966 350q15-30 39-31 10-23 41-17 29-30 58-4 14-15 42-5 23-22 50-10 32-24 57-2 33-15 73 3v70Z" opacity=".68"/>
+    </g>
+  </g>
+
+  <path d="M0 396Q324 375 548 396Q824 403 1280 374V720H0Z" fill="url(#boat-ground)"/>
+  <path d="M0 415q168 10 325-10 155-21 304-10 365 10 651-12v34q-346 21-684 19-327-3-596 18Z" fill="#d1b588"/>
+  <path d="M0 462q142-27 280-17t272-11q104-6 188 7m107-5q201-27 417-40M9 643q239-52 516-24 285 38 461 18 93-8 284-48M0 701q194-38 418-24 330 34 558 11 142-14 304-50" fill="none" stroke="#ecd1a2" stroke-opacity=".54" stroke-width="5" stroke-linecap="round"/>
+  <path d="M0 393Q535 391 863 398t417-24v346H0Z" fill="url(#boat-texture)" opacity=".8"/>
+  <path d="M49 619q51-9 97-11m-39 25q97-22 221-8m775 7 46-13m-133 29 44-8m-678 24q43-3 73 0m452 5 48-3" fill="none" stroke="#8d735b" stroke-opacity=".44" stroke-width="3" stroke-linecap="round"/>
+
+  <g>
+    <path d="M0 257q144-11 346 9 126-12 252 2l10 171Q467 445 352 441 131 434 0 457Z" fill="url(#boat-wall)" stroke="#997d6a" stroke-width="4"/>
+    <path d="M0 248q156-18 345 3 118-7 259 2l-4 24q-162-13-253-5-217-17-347 0Z" fill="url(#boat-brick)" stroke="#9b785e" stroke-width="3"/>
+    <path d="M6 388q107-16 223-6 133 13 244 5l134-4v57q-134 9-256 2-181-16-351 15Z" fill="url(#boat-brick)" opacity=".69"/>
+    <path d="M0 291q140-21 330-1m111-9 144 3m-139 50 47-2m-61 14 95-4" fill="none" stroke="#f6ddae" stroke-opacity=".68" stroke-width="3" stroke-linecap="round"/>
+    <path d="M0 384q144-29 345-9t255-1" fill="none" stroke="#aa7f62" stroke-opacity=".68" stroke-width="4"/>
+    <path d="M596 269 613 283l9 155-20 2Z" fill="#a7806c"/>
+    <path d="M90 444V359Q90 289 156 282q66-3 76 66l4 94Z" fill="#9a765f" stroke="#edc598" stroke-width="12"/>
+    <path d="M103 444v-91q0-50 53-56 51-3 64 53l4 93Z" fill="url(#boat-door)" stroke="#476963" stroke-width="5"/>
+    <path d="M126 438v-99m24 97V310m26 128V311m25 126v-98M108 363l110-5m-110 42 109-6" fill="none" stroke="#aac0a5" stroke-opacity=".56" stroke-width="3"/>
+    <path d="M153 301v140h12V299Z" fill="#4c7166"/>
+    <path d="M147 375q8-12 16 0t-7 15q-9 0-9-15Z" fill="#5b5a49" stroke="#d1bc86" stroke-width="2"/>
+    <path d="M100 443l123-3 26 13-161 10-25-8Z" fill="#9a8972" stroke="#7b7263" stroke-width="2"/>
+    <path d="M82 460l169-9 18 11-186 10-17-5Z" fill="#ad987b"/>
+    <path d="M267 390q13-48 75-53 15-38 64-31 24-29 63-21 47-17 74 35 37 9 49 58 30 10 39 46H263Z" fill="#d0ae89" opacity=".48"/>
+    <path d="M475 284q14-14 19-31 26-6 36-31 27-4 35-28 44 16 57-15 49-10 79 28 30-3 47 20 39 1 66 36-91-9-143 8-55 29-102 21Z" fill="#5e825f"/>
+    <path d="M593 258q21-24 70-24 41 8 103 4 21 4 35 17-64 1-129 14l-70 11Z" fill="#8f9f64"/>
+    <path d="M614 411q13-78 13-125l-21-24 6-13 28 22 12-35 10 1-4 54 34-30 10 5-39 48-13 101Z" fill="#765f4e"/>
+    <path d="M632 414l13-113q1-21 12-53m-19 37-24-30" fill="none" stroke="#ae9070" stroke-width="4" stroke-linecap="round"/>
+    <path d="M593 410q35-11 83 5" fill="none" stroke="#8a865d" stroke-width="8" stroke-linecap="round" opacity=".56"/>
+    <path d="M707 435q67-25 122-14 70 11 147-7 103-22 304-14v31q-155-5-291 18-175 22-282-14Z" fill="#859263" opacity=".7"/>
+    <path d="M89 468q25-11 44-1 15 4 17 10-22 11-57 5-17-5-4-14Zm200 4q73-16 124-1-48 11-105 5Z" fill="#88a795" opacity=".68"/>
+    <path d="M91 473q24-5 48-1m178 0q35-4 61-4" fill="none" stroke="#e3e2bc" stroke-width="2.2" stroke-linecap="round" opacity=".64"/>
+  </g>
+
+  <path d="M-16 501Q123 475 262 494T516 506Q669 509 810 483Q937 476 989 496T1113 500Q1229 472 1296 467L1296 564Q1241 550 1170 573Q1107 599 1027 607Q935 612 848 623Q747 630 678 619Q574 599 518 604T388 595Q284 579 218 579Q109 565-16 597Z" fill="#826f58"/>
+  <use href="#channel-outline" fill="url(#boat-water)"/>
+  <g clip-path="url(#paper-boat-water-clip)">
+    <path d="M-17 513Q113 488 245 508T503 522Q680 519 788 501Q898 493 971 513Q1059 539 1145 511T1311 487M-6 551q149-37 310-7t266 18q155-12 221-13 100-18 204-10 112 19 288-46M-6 576q149-22 318-4t283 9q114-1 252 16 177-3 295-35 84-27 161-18" fill="none" stroke="#bed5b7" stroke-opacity=".46" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-5 522q215-38 378 6 171 45 308-4 197-44 323-1 109 23 292-45v14q-228 70-330 43-122-31-257 10t-360-6q-192-36-354-1Z" fill="#d8e4bb" opacity=".23"/>
+    <path d="M769 492 875 476 1047 529 1055 599 829 623 773 577Z" fill="url(#boat-shade)"/>
+    <g id="water-streaks" stroke="#e3ebc4" stroke-width="2.5" stroke-linecap="round" opacity=".55">
+      <path d="m-21 524 28-4m32 20 28-2m45-25 37 1m21 40 36 5m20-28 28 5m69 25 34 4m20-26 25 4m43 25 42 3m53-32h28m35 42 34 3m33-56 26-3m34 29 30 2m28 34 38 2m19-29 23-6m33-24 31 1m119 18 30-4m30 4 32-5m22-28 43-9m44 22 30-8m30-28 27-5m41 22 27-7"/>
+    </g>
+    <g id="boat-wake" opacity="0" fill="none" stroke="#dae6c5" stroke-width="1.9" stroke-linecap="round">
+      <path d="M-32-2q-24-5-43-3m43 7q-20 10-39 10m25 2-15 3" opacity=".81"/>
+      <path d="M5 2q11 7 25 1m-27 3q12 8 28 4" opacity=".63"/>
+    </g>
+    <g id="launch-ripple" opacity="0" fill="none" stroke="#deedca" stroke-width="2">
+      <ellipse rx="15" ry="5"/><ellipse rx="22" ry="8" opacity=".48"/>
+    </g>
+  </g>
+
+  <g>
+    <path d="M213 559q9-12 25-10 12 4 18 12-4 9-27 9-17 0-16-11Z" fill="#878878" stroke="#636e63" stroke-width="2"/>
+    <path d="M215 557q19-11 32 2" fill="none" stroke="#cad0ab" stroke-width="3"/>
+    <path d="M700 541q14-16 36-10 14 5 25 21-8 14-41 14-17-2-22-11Z" fill="#858476" stroke="#646c62" stroke-width="3"/>
+    <path d="M705 540q21-15 40 0" fill="none" stroke="#b6b79a" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M706 562q28 12 58-5m-57 10q26 10 51 0" fill="none" stroke="#dbe9c3" stroke-width="1.9" opacity=".77"/>
+    <path d="M341 594q13-13 29-6l9 11q-12 9-29 5Z" fill="#b5a188" stroke="#867b65" stroke-width="2"/>
+    <path d="M204 595q8-15 30-13 14 0 24 12-8 10-32 10Z" fill="#a3927a"/>
+    <path d="M552 579q25-21 55-20l43 6 28 16-10 21-48 10-57-7Z" fill="#9e8c75" stroke="#776d60" stroke-width="2.5"/>
+    <path d="M552 579q25-21 55-20l43 6 28 16-18 7-42 8-55-5Z" fill="#caba99"/>
+    <path d="M566 580q26-14 51-12l30 4m-82 29q32 5 50 4l49-10" fill="none" stroke="#efe0b8" stroke-opacity=".66" stroke-width="2" stroke-linecap="round"/>
+    <path d="M1135 588q10-15 29-10 15 4 26 14-19 11-47 6Z" fill="#968d77" stroke="#796f5d" stroke-width="2"/>
+  </g>
+
+  <g id="paper-boat">
+    <ellipse cx="-1" cy="1" rx="36" ry="7" fill="#3b665e" opacity=".39"/>
+    <path d="M-22-14 0-36 19-16 12-7-21-9Z" fill="url(#boat-paper)" stroke="#7d694e" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M0-35 8-13-19-14Z" fill="#fff8de"/>
+    <path d="M0-34 17-16 8-13Z" fill="#cbb585"/>
+    <path d="M-36-12-18-3 18-2 34-11 16 3-21 2Z" fill="#bf6749" stroke="#744f3c" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="m-36-12 22-5 31 1 17 5-23 4-30-1Z" fill="#fff3cc" stroke="#8a6a4e" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M-19-8 2-14 11-7-5-6Z" fill="#d6b986"/>
+    <path d="M-27-9-18-5l34 1 12-5" fill="none" stroke="#f7e8b4" stroke-width="1.6"/>
+    <circle id="boat-grip-mark" cx="-7" cy="-15" r="1" opacity="0"/>
+    <circle id="boat-bow" cx="34" cy="-11" r="1" opacity="0"/>
+  </g>
+
+  <g id="yellow-leaf">
+    <path d="M-20 0Q-27 1-30 5" fill="none" stroke="#7d5b34" stroke-width="1.75" stroke-linecap="round"/>
+    <path d="M-20 0Q-11-15 9-10L25-7Q27 3 13 10-8 11-20 0Z" fill="url(#boat-leaf-gold)" stroke="#99703a" stroke-width="1.6"/>
+    <path d="M-19 0Q0-1 22-7m-13 4L0-9m6 6-7 7" fill="none" stroke="#b78238" stroke-width="1.1" stroke-linecap="round"/>
+    <circle id="leaf-under" cy="3" r="1" opacity="0"/>
+    <circle id="leaf-edge" cx="-20" r="1" opacity="0"/>
+  </g>
+
+  <g id="stone-footbridge">
+    <path d="M800 504Q819 461 857 456L926 471Q953 471 975 493L1012 565 972 573 943 522 825 541Z" fill="#887f6d" stroke="#746b5d" stroke-width="3"/>
+    <path d="M806 509q32-56 70-43l50 11q29 10 55 56l-28 8q-32-38-66-41-41-5-70 45Z" fill="#c3ad8b" stroke="#9a876f" stroke-width="2"/>
+    <path d="M823 503q28-36 65-25l31 7q27 9 56 43m-145-27q27-26 53-18l34 7q23 8 43 34" fill="none" stroke="#e7cfab" stroke-opacity=".72" stroke-width="3" stroke-linecap="round"/>
+    <path id="bridge-stone-face" d="M806 616v-32q20-39 46-71 22-26 55-29 40-3 69 26 27 31 49 77v25h-43v-24q-12-30-34-41-24-12-48-6-25 5-44 28-14 17-16 43-15 6-34 4Z" fill="url(#boat-span)" stroke="#71655b" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M806 586q29-58 68-87 31-18 59-11 49 11 92 99" fill="none" stroke="#dfc8a8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M839 612q3-43 39-63 48-28 85 7 13 13 20 31v23" fill="none" stroke="#c2ad92" stroke-width="6" stroke-linecap="round"/>
+    <path d="m815 570 27 11m-9-37 26 16m1-47 22 34m14-55 6 44m30-44-8 42m39-24-20 32m42-2-32 15m46 12-29 12m-150 34 26 1m153-12 19-2m-192-44 15 7m113-63 26-11" fill="none" stroke="#6f675d" stroke-width="2.25" stroke-linecap="round"/>
+    <path d="M807 594h28m158-5 31-3m-148-80 18-8m36 2 17 8m39 44 12 14" fill="none" stroke="#e2c6a0" stroke-opacity=".58" stroke-width="2.25" stroke-linecap="round"/>
+    <path d="M800 614q29-1 39 0m145 1q29-8 49-4" fill="none" stroke="#7e6e58" stroke-width="5" opacity=".61" stroke-linecap="round"/>
+  </g>
+
+  <g id="leaf-twig">
+    <path d="M-8 0Q11 3 32-2l11 1 13-3H74m-39 3 7-8m18 5 7 7" fill="none" stroke="#675440" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-2-1q19 2 29-1m24-2 18-1" fill="none" stroke="#ba9770" stroke-width="1.55" stroke-linecap="round"/>
+    <circle id="twig-grip" r="1" opacity="0"/><circle id="twig-tip" cx="74" cy="-4" r="1" opacity="0"/>
+  </g>
+
+  <ellipse id="mehar-ground-shadow" rx="53" ry="13" fill="url(#boat-ground-shadow)"/>
+  <ellipse id="sidak-ground-shadow" rx="49" ry="13" fill="url(#boat-ground-shadow)"/>
+  <g id="mehar"><g id="mehar-props"/></g>
+  <g id="sidak"><g id="sidak-props"/></g>
+
+  <g data-camera-depth=".58">
+    <path d="M-17 720q48-53 89-59-15 23-55 59Zm38 0q46-34 83-25-20 17-43 25Zm1244 0q-34-38-58-79 49 17 73 67v12Zm-22 0q-40-23-79-21 12 12 25 21Z" fill="#687d52"/>
+    <path d="M-16 720q22-40 68-58-13 34-48 58Zm36 0q32-43 74-45-8 26-44 45Zm1240 0q-19-47-16-72 27 16 36 49v23Z" fill="#8f9662"/>
+    <circle cx="55" cy="677" r="4" fill="#e0b86e"/><circle cx="89" cy="681" r="3.3" fill="#edcb78"/>
+    <circle cx="1223" cy="669" r="4" fill="#e2bd79"/><circle cx="1237" cy="674" r="3.4" fill="#e8ba70"/>
+  </g>
+</svg>
