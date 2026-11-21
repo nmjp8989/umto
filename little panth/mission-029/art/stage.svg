@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-label="A sunny Punjabi courtyard with a brick step and a woven charpai">
+  <defs>
+    <linearGradient id="jutti-sky" x2=".38" y2="1">
+      <stop stop-color="#9ac4c4"/><stop offset="1" stop-color="#efe6c6"/>
+    </linearGradient>
+    <linearGradient id="jutti-wall" x2=".65" y2="1">
+      <stop stop-color="#f1d7ac"/><stop offset=".54" stop-color="#dcac82"/><stop offset="1" stop-color="#ba825f"/>
+    </linearGradient>
+    <linearGradient id="jutti-shade" x2="1" y2=".24">
+      <stop stop-color="#9f7056" stop-opacity=".68"/><stop offset="1" stop-color="#9f7056" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="jutti-floor" x2=".19" y2="1">
+      <stop stop-color="#cf9d75"/><stop offset=".54" stop-color="#dfb382"/><stop offset="1" stop-color="#c99166"/>
+    </linearGradient>
+    <linearGradient id="jutti-door" x2="1" y2=".77">
+      <stop stop-color="#769781"/><stop offset=".63" stop-color="#507c75"/><stop offset="1" stop-color="#3c635d"/>
+    </linearGradient>
+    <linearGradient id="jutti-wood" x2=".27" y2="1">
+      <stop stop-color="#ba8055"/><stop offset=".48" stop-color="#9a5b3b"/><stop offset="1" stop-color="#784733"/>
+    </linearGradient>
+    <linearGradient id="jutti-cloth" x2=".93" y2=".21">
+      <stop stop-color="#557c82"/><stop offset=".27" stop-color="#779ca0"/><stop offset=".53" stop-color="#4f7b83"/>
+      <stop offset=".81" stop-color="#71979a"/><stop offset="1" stop-color="#456876"/>
+    </linearGradient>
+    <linearGradient id="jutti-red" x2=".14" y2="1">
+      <stop stop-color="#c76258"/><stop offset="1" stop-color="#923e42"/>
+    </linearGradient>
+    <radialGradient id="jutti-shadow">
+      <stop stop-color="#674839" stop-opacity=".71"/><stop offset=".59" stop-color="#735644" stop-opacity=".37"/>
+      <stop offset="1" stop-color="#735644" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="jutti-ball" cx=".36" cy=".29" r=".72">
+      <stop stop-color="#93b5bf"/><stop offset=".61" stop-color="#6893a1"/><stop offset="1" stop-color="#47717f"/>
+    </radialGradient>
+    <linearGradient id="dog-fur" x2=".26" y2="1">
+      <stop stop-color="#e9bd83"/><stop offset="1" stop-color="#cc915d"/>
+    </linearGradient>
+    <linearGradient id="ear-fur" x2=".47" y2="1">
+      <stop stop-color="#a26f4e"/><stop offset="1" stop-color="#8e5943"/>
+    </linearGradient>
+    <pattern id="jutti-grain" width="72" height="69" patternUnits="userSpaceOnUse">
+      <path d="M9 7h2m15 9h3m30-4h2m12 7h2M6 44h3m36-15h2m8 14h3m-31 8h3m21 12h3m12-10h1" fill="none" stroke="#fff2d1" stroke-opacity=".4" stroke-width="1.15" stroke-linecap="round"/>
+      <path d="M5 17h3m13 12h2m13-6h4m3 19h2m24-8h2m-57 24h2m15 6h4m63-42h3" fill="none" stroke="#874f35" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/>
+    </pattern>
+    <pattern id="jutti-bricks" width="110" height="44" patternUnits="userSpaceOnUse">
+      <rect width="110" height="44" fill="#d2a27d"/>
+      <path d="M2 2h54v18H2Zm58 0h48v18H60ZM2 24h25v17H2Zm30 0h50v17H32Zm55 0h21v17H87Z" fill="#b1795b"/>
+      <path d="M5 4h43m16 1h32M5 27h18m14 1h38m14 0h13" fill="none" stroke="#efbd8e" stroke-width="1.6" stroke-opacity=".62" stroke-linecap="round"/>
+    </pattern>
+    <pattern id="jutti-rope" width="16" height="12" patternUnits="userSpaceOnUse">
+      <rect width="16" height="12" fill="#bc925e"/>
+      <path d="M-8-2 14 14M0-2l22 16M-6 13 15-2M2 15 23-1" fill="none" stroke="#ecd0a1" stroke-width="1.65" opacity=".83"/>
+      <path d="m-6 0 22 14M0 13 16-1" fill="none" stroke="#8b694f" stroke-width="1.15" opacity=".7"/>
+    </pattern>
+    <pattern id="jutti-embroider" width="48" height="44" patternUnits="userSpaceOnUse">
+      <path d="M24 6 37 22 24 38 11 22Z" fill="none" stroke="#adc1ac" stroke-width="1.5"/>
+      <path d="m24 15 5 7-5 7-5-7Zm-17 5 2 2-2 2-2-2Zm34 0 2 2-2 2-2-2Z" fill="#e2c392"/>
+    </pattern>
+    <clipPath id="jutti-quilt-cut">
+      <path d="M783 511q74 8 165 7-7 43 5 82-49 15-101 8l-60 4q-1-67-9-101Z"/>
+    </clipPath>
+    <g id="jutti-shape">
+      <path d="M-24-2q-1-10 4-16 12-6 25 3 9 5 23 0l-1 7q-3 8-21 10h-26q-5 0-4-4Z" fill="url(#jutti-red)" stroke="#794443" stroke-width="1.8"/>
+      <path d="M-23-2q13 3 25 0l21-5q5-2 7-7 1 12-16 17l-32 1q-7 0-5-6Z" fill="#773c3c"/>
+      <path d="M-21-14q8-7 20 3l-4 3-13-1Z" fill="#74413b" stroke="#e8bb83" stroke-width="1.35"/>
+      <path d="M-1-9Q10-8 24-12M-2-4q17 1 26-7m-17 4 2-3 2 2m-8 1 2-2 1 2m7-2 2-3 1 2" fill="none" stroke="#f2cc8b" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.51">
+    <rect x="-110" y="-40" width="1500" height="483" fill="url(#jutti-sky)"/>
+    <path d="M60 143q54-31 112-14 39-31 89-11 64-20 121 12-146 30-322 13Zm795-5q37-25 86-10 22-24 64-15 47-16 94 10 60-19 131 12-186 17-375 3Z" fill="#fcf0ce" opacity=".7"/>
+    <path d="M-29 346q9-93 81-112 43-43 115-40 39-36 101-15 83-19 110 49 83 6 95 67v101H-29Z" fill="#859c71"/>
+    <path d="M875 384q15-82 89-98 21-72 91-64 40-48 106-37 49-24 83 14 32-12 99 14v185Z" fill="#8e9d6e"/>
+    <path d="M938 380q42-101 122-81 39-47 111-31 42-31 112-23l55 112v52Z" fill="#b2b27c"/>
+    <path d="M1092 343q16-73 47-126m-8 47-22-32m41 40 39-27" fill="none" stroke="#7f8c66" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <path d="M0 464q264-14 509-11 431 15 771-32v299H0Z" fill="url(#jutti-floor)"/>
+  <path d="M0 494q258-20 530-16 537 16 750-42v25q-237 55-739 43-282-11-541 12Z" fill="#bd8a66" opacity=".53"/>
+  <path d="M-31 568q265-23 419-12 325 19 656-3l284-35M-8 649q161-18 328-15 183 2 361 16 240-5 604-57M-4 708q244-27 481-11 374 37 808-67M48 558l-78 26m420-71-88 44-163 78m402-147-12 62m205-41 35 62 7 77m245-110 64 53 93 88" fill="none" stroke="#ac7d5d" stroke-width="3.2" stroke-opacity=".45"/>
+  <path d="M542 544q258-61 499-50l215-69 24 18v87q-314 50-487 68-168 19-359 57Z" fill="#f2c995" opacity=".48"/>
+  <path d="M0 487q343-17 647-8 496-2 633-56v297H0Z" fill="url(#jutti-grain)" opacity=".71"/>
+
+  <g>
+    <path d="M0 221q132-22 337-13 171-10 343 8l213 23 15 238q-436-10-908 20Z" fill="url(#jutti-wall)" stroke="#b18166" stroke-width="3.5"/>
+    <path d="M901 283q139 0 379-35v192q-240 45-374 37Z" fill="#d4ae83" stroke="#a77e61" stroke-width="3"/>
+    <path d="M895 278q165 6 390-37v22q-243 47-385 31Z" fill="url(#jutti-bricks)" stroke="#af7d62" stroke-width="3"/>
+    <path d="M0 218q145-24 333-14 163-12 350 4l213 25 11 30-225-34q-180-12-349-6Q150 210 0 241Z" fill="url(#jutti-bricks)" stroke="#96684f" stroke-width="3.4"/>
+    <path d="M0 430q164-22 311-13 334 16 590-13l9 73q-427-13-910 20Zm909-8q155-5 371-35v51q-214 42-370 40Z" fill="url(#jutti-bricks)" opacity=".75"/>
+    <path d="M-1 252q197-15 362-8 175-14 331 1l207 24 4 139q-282 19-570 5L0 425Z" fill="url(#jutti-grain)" opacity=".58"/>
+    <path d="M336 217q30 42 6 91-14 52 1 120l-38 24-51-16q-21-87 14-173Z" fill="url(#jutti-shade)"/>
+    <path d="M8 260q103-18 267-12m437 8 78 13m-76 8 143 14m-19 101q114-24 276-19" fill="none" stroke="#ffe7b3" stroke-opacity=".64" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M119 425V348q2-57 50-59 49-8 56 43l2 87Z" fill="#90674f" stroke="#efc396" stroke-width="11"/>
+    <path d="M131 401v-49q1-48 39-52 38-6 43 37l3 61Z" fill="#685f56"/>
+    <path d="M139 350q35-17 68-4m-66 17 65-2m-52-29v62m17-78v79m18-80v79m16-65v62" fill="none" stroke="#a39f75" stroke-width="4"/>
+    <path d="M120 407l106-7 20 14-133 10-18-7Z" fill="#a57e5e" stroke="#8e6b55" stroke-width="2.2"/>
+    <path d="M402 518V380q2-112 91-124 101-15 124 105l6 153Z" fill="#9b654a" stroke="#c99872" stroke-width="17"/>
+    <path d="M416 514V383q0-106 79-117 97-11 107 108l5 140Z" fill="url(#jutti-door)" stroke="#5e6858" stroke-width="7"/>
+    <path d="M417 512V394q46-14 91-6l3 123Z" fill="#658e7e"/>
+    <path d="M523 272l78 4 27 230-109 7Z" fill="#654f41" opacity=".86"/>
+    <path d="M436 504V374m22 129V321m24 180V298m32 202V289m-90 114q57-15 98-11m-96 58q42-8 92-11" fill="none" stroke="#a5b29a" stroke-width="4" stroke-opacity=".74"/>
+    <path d="M519 511V296q12-18 28-11 44 10 52 78l5 147Z" fill="#5b7868"/>
+    <path d="M538 503V312m19 188V319m24 185V344m-50 31 64-1m-64 68 62-3" fill="none" stroke="#90a995" stroke-width="3.8" stroke-opacity=".58"/>
+    <circle cx="519" cy="423" r="8" fill="#584e41" stroke="#dab782" stroke-width="2.2"/>
+    <path d="M386 511q101-5 232-5l47 30-249 11-63-20Z" fill="#b88b6e" stroke="#947058" stroke-width="3.4"/>
+    <path d="M402 532q115-14 235-12l53 22-25 19-230 13-67-20Z" fill="#a8836c" stroke="#8d6f5c" stroke-width="3.3"/>
+    <path d="M368 553l67 12 230-12 25-11v16l-21 13-234 17-67-17Z" fill="#93735f"/>
+    <path d="M388 547q91-17 221-16l55 12-229 13Z" fill="#d5af89"/>
+    <path d="M436 555q125-13 221-12m-246-13 201-11" fill="none" stroke="#f2ca9f" stroke-width="2.7" opacity=".72"/>
+    <path d="M707 260q94 82 220 94t333-9" fill="none" stroke="#9d725b" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="m744 286 40 23-41 14Zm62 35 43 14-36 25Z" fill="#cb846e"/>
+    <path d="m865 339 42 9-29 30Zm112 17 41 1-21 30Zm111-3 41-5-13 32Z" fill="#c19758"/>
+    <path d="m921 350 43 5-21 31Zm110 6 42-1-18 31Zm115-10 38-5-12 32Z" fill="#739280"/>
+    <path d="M1088 467q39-4 51 18l-11 38q-37 13-66-4l-6-33Z" fill="#b67851" stroke="#8c624f" stroke-width="3.5"/>
+    <ellipse cx="1098" cy="483" rx="43" ry="12" fill="#b67f58" stroke="#8b634e" stroke-width="3"/>
+    <path d="M1070 491q29 4 57-2m-46 25q22 7 46-2" fill="none" stroke="#dc9e68" stroke-width="3" opacity=".77"/>
+    <path d="M1094 477q4-42 30-73m-27 68q-21-37-40-63m41 54q3-36-8-67" fill="none" stroke="#6f835b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M1100 450q1-37 31-47-4 30-31 47Zm9 8q15-29 43-33-8 26-43 33Zm-28-9q-24-9-32-37 26 1 32 37Zm9-17q-15-21-7-42 17 12 7 42Z" fill="#68895e" stroke="#5b7856" stroke-width="1.5"/>
+    <path d="M78 498q27 4 34 30l-6 35q-25 14-46 0l-7-28q2-27 25-37Z" fill="#bc855d" stroke="#985f4b" stroke-width="3"/>
+    <path d="M58 523q20-8 50 2m-46 19q22-7 49 0m-47 12q22 8 40-1" fill="none" stroke="#e0ac78" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M33 569q50-10 104 1m-53 7q40-4 72 4" fill="none" stroke="#9d785d" stroke-width="4" stroke-opacity=".4" stroke-linecap="round"/>
+  </g>
+
+  <g fill="url(#jutti-shadow)">
+    <ellipse cx="933" cy="619" rx="236" ry="27"/>
+    <ellipse cx="659" cy="618" rx="94" ry="17"/>
+    <ellipse id="sidak-shadow" rx="51" ry="14"/>
+    <ellipse id="bibi-shadow" rx="65" ry="15"/>
+    <ellipse id="dog-shadow" rx="69" ry="13"/>
+    <ellipse id="ball-shadow" rx="25" ry="6"/>
+  </g>
+  <g id="charpai-back">
+    <path d="M751 503l40-18 276-1 69 29-27 36-354-5Z" fill="#825741" opacity=".37"/>
+    <path d="M797 495l12-4-5 91-14 5Zm269-4 12 5 10 83-12 4Z" fill="url(#jutti-wood)" stroke="#754a3a" stroke-width="3"/>
+    <path d="M794 548l285 1 2 12-287 6Z" fill="#8d654c" opacity=".69"/>
+  </g>
+  <g id="puppy-back">
+  <g id="moti" stroke-linecap="round" stroke-linejoin="round">
+    <g id="dog-tail">
+      <path d="M-76-71q-40 0-64-27-24-23-21-40 5-11 14-1 19 26 50 24 18 2 36 18Z"
+        fill="url(#dog-fur)" stroke="#a06a4c" stroke-width="3.9"/>
+      <path d="M-154-142q10 11 22 21-9 6-22 4-11-13-7-21 3-7 7-4Z" fill="#f1dfbe"/>
+      <path d="M-135-110q14 14 44 14" fill="none" stroke="#edbb81" stroke-width="3.1"/>
+    </g>
+    <g id="dog-rear-far">
+      <path d="M-72-71q16-12 34 0l-8 32 6 22 11 9q4 9-12 9h-15l-14-33 4-15Z" fill="#a67453" stroke="#966649" stroke-width="3.5"/>
+      <path d="M-42-14q18 4 15 12h-29l-6-13Z" fill="#e1c59d"/>
+    </g>
+    <g id="dog-front-far">
+      <path d="M20-80q18-10 31 2l-8 51 12 17q3 12-15 12H27l-3-22-4-26Z" fill="#b57c58" stroke="#a16a4c" stroke-width="3.5"/>
+      <path d="M47-15q12 9 8 15-10 3-28 2l-3-18Z" fill="#e2c79e"/>
+    </g>
+    <g id="dog-body">
+      <path d="M-98-70q9-41 62-43 29 3 58-13 33-14 55 16 18 29-9 54-40 30-100 22-56-4-66-36Z"
+        fill="url(#dog-fur)" stroke="#a46a4c" stroke-width="4.3"/>
+      <path d="M37-122q21-11 38 12 15 17 9 36-7 12-26 20-6-18-20-31-4-15-1-37Z" fill="#f5e1ba"/>
+      <path d="M-84-86q19-20 62-20m-49 58q20 7 33 6" fill="none" stroke="#edbc80" stroke-width="3.4"/>
+    </g>
+    <g id="dog-rear-near">
+      <path d="M-88-79q15-18 33-7 20 14 10 33l-9 22 11 20q5 11-15 12h-15l-15-31 7-24Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M-55-18q16 10 17 15-9 6-31 4l-9-17Z" fill="#f3dfb9"/>
+    </g>
+    <g id="dog-sit" opacity="0">
+      <path d="M-89-66q14-15 33-4 15 15 4 34l-13 16 16 7q10 5 8 13h-38q-24-15-10-66Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M-66-17q15 2 26 13 2 5-12 6h-27l-4-10Z" fill="#f3dfb9" stroke="#ad7d57" stroke-width="2.5"/>
+    </g>
+    <g id="dog-front-near">
+      <path d="M43-83q14-13 32-1l-4 49 7 17q12 9 10 15-8 8-34 4L49-21Z"
+        fill="url(#dog-fur)" stroke="#a16a4c" stroke-width="3.8"/>
+      <path d="M70-22q22 13 18 19-12 7-34 4l-4-21Z" fill="#f5e4bd"/>
+      <path d="M71-4l2-6m7 5 1-5" fill="none" stroke="#c1a17b" stroke-width="2.1"/>
+    </g>
+    <path d="M31-106q23 8 46-8l6 13q-18 15-45 9Z" fill="#568780" stroke="#4b6b66" stroke-width="2.4"/>
+    <path d="M64-94l6 10-2 9-10 3-7-7 3-11Z" fill="#e5be76" stroke="#9d7951" stroke-width="2.4"/>
+    <g id="dog-head">
+      <path d="M-8-32q-15-20-41-7-9 11-1 33l17 14Q-12 1-8-32Z" fill="url(#ear-fur)" stroke="#9a6a4f" stroke-width="3.4"/>
+      <path d="M-31-4q-2-34 31-46 33-13 54 7 13 13 17 27 20-1 26 8 9 17-8 29-13 14-44 15-38 6-58-5-19-11-18-35Z"
+        fill="url(#dog-fur)" stroke="#9e694d" stroke-width="4"/>
+      <path d="M9-47q13 5 23 28 13 18 38 12l-5 11q-31 1-45-22Q16-28 9-47Z" fill="#f6e4c1"/>
+      <path id="dog-ear" d="M1-44q-13-9-27 3-10 11-6 31 1 22 19 33 18-3 18-25 2-16 12-25Z"
+        fill="url(#ear-fur)" stroke="#986447" stroke-width="3.1"/>
+      <path d="M-22-34q-11 20 2 48" fill="none" stroke="#d8a077" stroke-width="3"/>
+      <path d="M35-6q27-11 51-3 17 5 12 22-7 16-23 18Q56 35 39 25 27 18 35-6Z" fill="#f2e2bf"/>
+      <path id="dog-open-mouth" d="M50 22q23 5 45-10-4 21-25 22-15 1-20-12Z" fill="#68463d" opacity="0"/>
+      <path id="dog-jaw" d="M45 23q24 9 48-9-7 21-27 22-17-1-21-13Z" fill="#efdbb5" stroke="#ac8061" stroke-width="2.1"/>
+      <ellipse cx="91" cy="-4" rx="13" ry="8.8" fill="#66483d"/>
+      <path d="M84-7q6-4 11-1M53 20q7 5 17 2" fill="none" stroke="#ac8368" stroke-width="2.3"/>
+      <ellipse id="dog-eye" cx="42" cy="-17" rx="6.4" ry="7.8" fill="#594339"/>
+      <circle id="dog-eye-glint" cx="43.5" cy="-19.5" r="1.7" fill="#fff0d1"/>
+      <path id="dog-lid" d="M35-15q7 5 13 0" fill="none" stroke="#805641" stroke-width="2.5" opacity="0"/>
+      <g id="moti-mouth" transform="translate(81 20)"/>
+    </g>
+  </g>
+  </g>
+  <g id="charpai-front">
+    <path d="M750 513l18 2-4 99-13 11-13-6Zm372 1 18 2 12 91-12 13-12-9Z" fill="url(#jutti-wood)" stroke="#754a3a" stroke-width="3.5"/>
+    <path d="M744 582l25-3-1 10-25 4Zm385 0 24-5 1 11-24 6Z" fill="#bd9269" opacity=".9"/>
+    <path d="M736 513l58-38 281-6 70 47-20 24-368-2Z" fill="url(#jutti-rope)" stroke="#8a6045" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M736 513l24 15 366-1 19-11v14l-19 14-367-1-23-15Z" fill="url(#jutti-wood)" stroke="#83533b" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M756 523l368-1m-344-30 295-7" fill="none" stroke="#f2d39f" stroke-opacity=".8" stroke-width="3"/>
+    <g id="charpai-quilt">
+      <path d="M783 511q74 8 165 7-7 43 5 82-49 15-101 8l-60 4q-1-67-9-101Z" fill="url(#jutti-cloth)" stroke="#415f65" stroke-width="3"/>
+      <g clip-path="url(#jutti-quilt-cut)">
+        <rect x="781" y="517" width="176" height="95" fill="url(#jutti-embroider)" opacity=".87"/>
+        <path d="M785 537q91 8 165 3m-160 49q85-6 166-3" fill="none" stroke="#dfc08f" stroke-width="3"/>
+        <path d="M797 519q14 60 7 90m98-88q-8 44 12 92m20-91q-3 54 7 78" fill="none" stroke="#446b71" stroke-opacity=".58" stroke-width="6"/>
+      </g>
+      <path d="m792 611 3 8m12-8 2 7m14-8 1 7m17-7 1 9m16-9 2 8m16-9 2 8m16-10 2 9m23-13 1 8m17-11 1 8" stroke="#d5bc8e" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <path d="M1005 492q25-6 66-2 24 4 41 20-7 10-74 7l-43-11Z" fill="#ce9a72" stroke="#a17859" stroke-width="2"/>
+    <path d="M1005 496q32 0 86 11m-68-12q17 6 44 7" fill="none" stroke="#f1d1a3" stroke-width="2"/>
+  </g>
+
+  <g id="ball-stool" stroke-linejoin="round">
+    <path d="M582 580h17l-5 33-12 4Zm133-3h9l4 29-13 7Z" fill="url(#jutti-wood)" stroke="#80543e" stroke-width="3"/>
+    <path d="M575 568q47-14 96-12l54 10-10 18-126 4Z" fill="url(#jutti-rope)" stroke="#9b6846" stroke-width="3"/>
+    <path d="M575 568l16 13 123-4 11-11v12l-8 12-128 4-14-12Z" fill="url(#jutti-wood)" stroke="#845438" stroke-width="3"/>
+    <path d="M588 578q63-10 126-5" fill="none" stroke="#e7be8a" stroke-width="2.4" opacity=".79"/>
+  </g>
+
+  <g id="puppy-front"/>
+  <g id="left-jutti" transform="translate(618 551) rotate(-4)">
+    <ellipse cx="1" cy="2" rx="29" ry="7" fill="url(#jutti-shadow)"/>
+    <use href="#jutti-shape"/>
+  </g>
+  <g id="jutti-front">
+    <g id="lost-jutti">
+      <use href="#jutti-shape"/>
+      <circle id="jutti-grip" cx="-13" cy="-13" r="1" opacity="0"/>
+    </g>
+  </g>
+  <g id="cloth-ball">
+    <g id="ball-spin">
+      <circle r="16.5" fill="url(#jutti-ball)" stroke="#456d79" stroke-width="2.3"/>
+      <path d="M-12-11q18 4 23 21m-26-9q10-7 22-13m-11 26q8-12 18-11" fill="none" stroke="#bfd5d1" stroke-width="1.6"/>
+      <path d="M-10-11q5-4 9-3m-8 2-1 2m13 20 2-3m3 1 2-2" fill="none" stroke="#e4e2b8" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+    <circle id="ball-grip" cx="-7" cy="-8" r="1" opacity="0"/>
+  </g>
+
+  <g id="bibi"><g id="bibi-props"/></g>
+  <g id="sidak"><g id="sidak-props"/></g>
+  <g data-camera-depth=".64" fill="#7e865d">
+    <path d="M-15 720q52-48 98-48-30 20-49 48Zm35 0q43-22 86-18-15 10-33 18Zm1233 0q-43-25-62-63 44 10 89 49v14Zm-26 0q-38-16-82-15 13 7 31 15Z" opacity=".76"/>
+    <path d="M-2 717q19-45 54-52-14 23-48 55Zm1282 1q-19-42-25-66 25 17 41 51Z" fill="#9aa06d"/>
+  </g>
+</svg>
