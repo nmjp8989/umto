@@ -117,5 +117,12 @@
     "text": "ਇੱਕ ਗੰਢ ਟੁੱਟੀ, ਫਿਰ ਦੂਜੀ। ਜਾਲ ਢਿੱਲਾ ਹੋਣ ਲੱਗਿਆ।",
     "speaker": "narrator",
     "model": "gemini-3.8-flash-tts"
+  },
+  "net-break": {
+    "hash": "a5eb7b9f9d3f5eeb5fea90ed4910db755f906411e6cbb86c275611e84d6493a1",
+    "voice": "Leda",
+    "text": "ਹੋ ਗਿਆ! ਹੁਣ ਤੁਸੀਂ ਆਜ਼ਾਦ ਹੋ!",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
   }
 }
