@@ -1,0 +1,86 @@
+{
+  "garden-path": {
+    "hash": "266f27b07c3b5a8ecaf86efed5529c277100baf6dcc6af5efdb140c80aa4601e",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦਿਨ ਇੱਕ ਭੁੱਖੀ ਲੂੰਬੜੀ ਬਾਗ਼ ਵਿੱਚ ਆਈ। ਵੇਲ ਉੱਤੇ ਜਾਮਣੀ ਅੰਗੂਰਾਂ ਦਾ ਗੁੱਛਾ ਲਟਕ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "look-up": {
+    "hash": "6588256fcf6ab65eff370508f551bb5163ff6e42157e4201e7ac3adbd20ad6d3",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਨੇ ਉੱਪਰ ਵੇਖਿਆ। ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚ ਪਾਣੀ ਆ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "looks-sweet": {
+    "hash": "b7b410d9c57ab35859c1d84ab392359a3b0180342b71ebfd47c55802b1aff4d4",
+    "voice": "Kore",
+    "text": "ਵਾਹ! ਇਹ ਅੰਗੂਰ ਕਿੰਨੇ ਮਿੱਠੇ ਲੱਗਦੇ ਨੇ!",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "jumps-short": {
+    "hash": "bdf9ffad4600bb5e31f5555be1eb46cbf4865c87165a85804ab866cbec716e5a",
+    "voice": "Aoede",
+    "text": "ਉਸ ਨੇ ਛਾਲ ਮਾਰੀ। ਉਸ ਦਾ ਪੰਜਾ ਅੰਗੂਰਾਂ ਤੱਕ ਨਾ ਪਹੁੰਚਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "almost": {
+    "hash": "ee52926026b92a51280dec72ebab000277d0c33cc6a30be30752ce10237bbd3e",
+    "voice": "Kore",
+    "text": "ਓਹ! ਥੋੜ੍ਹਾ ਜਿਹਾ ਰਹਿ ਗਿਆ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "runs-and-jumps": {
+    "hash": "d2772dc327f6b57d7dc14eb56a49a2ed4a75c9043f890898b998149d58781d33",
+    "voice": "Aoede",
+    "text": "ਉਹ ਪਿੱਛੇ ਗਈ। ਫਿਰ ਦੌੜ ਕੇ ਉਸ ਨੇ ਹੋਰ ਉੱਚੀ ਛਾਲ ਮਾਰੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "only-a-leaf": {
+    "hash": "e0a2dbd1870b2ee2e56c37899757a833a46d322869e7d8f1c394a9326803b39b",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਪੱਤਾ ਹਿੱਲਿਆ, ਪਰ ਅੰਗੂਰ ਵੇਲ ਉੱਤੇ ਹੀ ਰਹਿ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "makes-a-face": {
+    "hash": "355eaa064cf92d61708ec44ebe37d509d12abcb1947a9184d392c83722baa895",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਨੇ ਮੂੰਹ ਬਣਾ ਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "must-be-sour": {
+    "hash": "63d076482dc03e6c5f3127cfcd56082e729c5fcb17f7d68f2c45d1a6430f1fbd",
+    "voice": "Kore",
+    "text": "ਛੱਡੋ ਜੀ! ਇਹ ਅੰਗੂਰ ਤਾਂ ਖੱਟੇ ਹੋਣੇ ਨੇ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "sparrow-asks": {
+    "hash": "1a2fe44be19ecfa7994aafcfc173c5a52cbf8634c959ea6b55fc597d0c8be531",
+    "voice": "Leda",
+    "text": "ਪਰ ਤੂੰ ਤਾਂ ਇੱਕ ਵੀ ਅੰਗੂਰ ਨਹੀਂ ਚੱਖਿਆ!",
+    "speaker": "sparrow",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "fox-admits": {
+    "hash": "e6285af607c3bef1a67c9d421768b23dd1f0a47c599c43a5b1c35cccf26c05a4",
+    "voice": "Kore",
+    "text": "ਗੱਲ ਤਾਂ ਠੀਕ ਹੈ। ਮੈਂ ਅੰਗੂਰਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਸਕੀ। ਕੀ ਪਤਾ ਉਹ ਖੱਟੇ ਨੇ ਜਾਂ ਮਿੱਠੇ?",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "walks-away": {
+    "hash": "83c7fa3281d10eaab1a4261d89184300fe9fcde8921f2ac3bbf45d3a20e232e4",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਨੇ ਸੱਚ ਮੰਨ ਲਿਆ ਤੇ ਮੁਸਕਰਾ ਕੇ ਅੱਗੇ ਤੁਰ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
