@@ -1,0 +1,72 @@
+{
+  "night-and-rainwater": {
+    "hash": "b46def4649efebe009043932e4043dd7a54dd6c381bfd817b6e34deb89c0dae4",
+    "voice": "Aoede",
+    "text": "ਰਾਤ ਹੋ ਗਈ ਸੀ। ਮੇਹਰ ਵਿਹੜੇ ਵਿੱਚ ਆਈ। ਬੂਹੇ ਕੋਲ ਮਿੱਟੀ ਦਾ ਇੱਕ ਭਾਂਡਾ ਪਿਆ ਸੀ। ਉਸ ਵਿੱਚ ਮੀਂਹ ਦਾ ਪਾਣੀ ਭਰਿਆ ਹੋਇਆ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-finds-the-moon": {
+    "hash": "885ec9acd2e7b5dcd4402987569845005d58fc26f23657b29a0d4c0532a3b15a",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਝੁਕ ਕੇ ਵੇਖਿਆ। ਪਾਣੀ ਵਿੱਚ ਚਾਂਦੀ ਵਰਗਾ ਗੋਲ ਚੰਦ ਚਮਕ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "moon-in-my-bowl": {
+    "hash": "4de4bb4ca8dd75f018862681a9b5409ab09644a4bc7ef7f88c654f81d6676861",
+    "voice": "Kore",
+    "text": "ਓਹ! ਚੰਦ ਮੇਰੇ ਭਾਂਡੇ ਵਿੱਚ ਕਿਵੇਂ ਆ ਗਿਆ?",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "one-little-touch": {
+    "hash": "b24909aaa515ef3811820cbcab57384ed87fd1938cf8d88e23b95f80c4d4257f",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਹੌਲੀ ਜਿਹੀ ਉਂਗਲ ਪਾਣੀ ਨੂੰ ਛੁਹਾਈ। ਛੋਟੀਆਂ ਲਹਿਰਾਂ ਉੱਠੀਆਂ। ਚੰਦ ਦੀ ਗੋਲ ਤਸਵੀਰ ਟੁੱਟ ਕੇ ਟੇਢੀਆਂ ਲਕੀਰਾਂ ਵਰਗੀ ਹੋ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "where-did-it-go": {
+    "hash": "55f4b5b2b8e500b0d8748e2aa2918a91f7d893c979e47833bb6236e5f4ae9141",
+    "voice": "Kore",
+    "text": "ਮੇਰਾ ਚੰਦ ਕਿੱਥੇ ਗਿਆ? ਮੈਂ ਤਾਂ ਉਸ ਨੂੰ ਬਹੁਤ ਹੌਲੀ ਛੂਹਿਆ ਸੀ!",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "harpreet-points-up": {
+    "hash": "42c03fcd050ab1d3fac4272764a2d7db19170bb3dd93b6b19a955ed6953ba686",
+    "voice": "Aoede",
+    "text": "ਹਰਪ੍ਰੀਤ ਉਸ ਕੋਲ ਆਇਆ। ਉਸ ਨੇ ਅਸਮਾਨ ਵੱਲ ਇਸ਼ਾਰਾ ਕੀਤਾ। ਮੇਹਰ ਨੇ ਸਿਰ ਚੁੱਕਿਆ। ਕੰਧ ਤੋਂ ਉੱਪਰ ਚੰਦ ਚਮਕ ਰਿਹਾ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "harpreet-explains": {
+    "hash": "6ff7331eabb7104ef06030b3845605b2d4ba24cb46a33105d783ef2106e916e7",
+    "voice": "Algieba",
+    "text": "ਚੰਦ ਤਾਂ ਉੱਥੇ ਹੀ ਹੈ। ਪਾਣੀ ਵਿੱਚ ਉਸ ਦਾ ਅਕਸ ਹੈ। ਜਿਵੇਂ ਸ਼ੀਸ਼ੇ ਵਿੱਚ ਤੈਨੂੰ ਆਪਣਾ ਚਿਹਰਾ ਦਿਸਦਾ ਹੈ।",
+    "speaker": "harpreet",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "they-wait-together": {
+    "hash": "2640886f3379437a74efa06256285f2cec11a37921621cf8b82da73c486e94b4",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਭਾਂਡੇ ਕੋਲ ਚੁੱਪ ਕਰ ਕੇ ਖੜ੍ਹੇ ਰਹੇ। ਲਹਿਰਾਂ ਹੌਲੀ ਹੌਲੀ ਰੁਕ ਗਈਆਂ। ਜਦੋਂ ਪਾਣੀ ਸ਼ਾਂਤ ਹੋਇਆ, ਗੋਲ ਅਕਸ ਮੁੜ ਦਿਸ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "mehar-understands": {
+    "hash": "fed60a0300e565ba4aef590d548ab852a1ad5d0b5460e813951918ebcd8af9d2",
+    "voice": "Kore",
+    "text": "ਹੁਣ ਸਮਝ ਆਈ! ਲਹਿਰਾਂ ਨਾਲ ਅਕਸ ਬਦਲਿਆ ਸੀ। ਚੰਦ ਤਾਂ ਆਪਣੀ ਥਾਂ ਹੀ ਸੀ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "one-moon-two-places": {
+    "hash": "0dddd03f1e38c89ea89504dbdc858f597734e59ce50338ae3b32ab44b5fb3f23",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਇੱਕ ਵਾਰ ਪਾਣੀ ਵੱਲ ਵੇਖਿਆ ਤੇ ਇੱਕ ਵਾਰ ਅਸਮਾਨ ਵੱਲ। ਫਿਰ ਉਹ ਮੁਸਕਰਾਈ। ਹੁਣ ਉਸ ਨੂੰ ਪਤਾ ਸੀ ਕਿ ਇੱਕੋ ਚੰਦ ਦੋ ਥਾਵਾਂ ਉੱਤੇ ਕਿਉਂ ਦਿਸਦਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
