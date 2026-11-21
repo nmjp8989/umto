@@ -2,7 +2,7 @@
   'use strict';
 
   function effect(context, name) {
-    const durations = { wings: 0.48, plop: 0.43, sip: 0.64, step: 0.18, ribbon: 0.3 };
+    const durations = { wings: 0.48, plop: 0.43, sip: 0.64, step: 0.18, ribbon: 0.3, gust: 1.55 };
     const duration = durations[name];
     const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
     const samples = buffer.getChannelData(0);
@@ -11,7 +11,8 @@
     for (let i = 0; i < samples.length; i++) {
       const t = i / context.sampleRate;
       seed = (1664525 * seed + 1013904223) >>> 0;
-      filtered += (seed / 2147483648 - 1 - filtered) * (name === 'wings' ? 0.065 : 0.28);
+      const smoothing = name === 'gust' ? 0.024 : name === 'wings' ? 0.065 : 0.28;
+      filtered += (seed / 2147483648 - 1 - filtered) * smoothing;
       if (name === 'wings') {
         const flutter = (1 + Math.sin(t * 2 * Math.PI * 9)) * 0.5;
         samples[i] = filtered * flutter * Math.sin(Math.PI * t / duration) * 0.6;
@@ -22,6 +23,10 @@
       } else if (name === 'step') {
         const soil = 0.15 * Math.sin(2 * Math.PI * (104 * t - 121 * t * t));
         samples[i] = (filtered * 0.28 + soil) * Math.exp(-t * 29) * Math.min(t * 120, 1);
+      } else if (name === 'gust') {
+        const swell = Math.sin(Math.PI * t / duration) ** 1.5;
+        const whistle = Math.sin(2 * Math.PI * (161 * t + 47 * t * t)) * 0.05;
+        samples[i] = (filtered * 0.68 + whistle) * swell * (0.7 + Math.sin(t * 16) * 0.2);
       } else if (name === 'ribbon') {
         samples[i] = (filtered * 0.38 + 0.08 * Math.sin(2 * Math.PI * 420 * t)) *
           Math.exp(-t * 18) * Math.min(t * 380, 1);
@@ -72,7 +77,7 @@
       this.speech.gain.value = 0.94;
       this.foleyGain.gain.value = 0.42;
       for (const bus of [this.speech, this.scoreGain, this.foleyGain]) bus.connect(this.context.destination);
-      this.effects = Object.fromEntries(['wings', 'plop', 'sip', 'step', 'ribbon'].map(name => [name, effect(this.context, name)]));
+      this.effects = Object.fromEntries(['wings', 'plop', 'sip', 'step', 'ribbon', 'gust'].map(name => [name, effect(this.context, name)]));
     }
 
     async decode(url) {

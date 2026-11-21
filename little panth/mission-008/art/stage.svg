@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">The North Wind and the Sun watch a traveller in a blue shawl on a path in Punjab</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#9ab9c4"/><stop offset=".7" stop-color="#d9e5c7"/><stop offset="1" stop-color="#f5dfa0"/></linearGradient>
+    <linearGradient id="clear-sky" x2="0" y2="1"><stop stop-color="#9bceca"/><stop offset=".62" stop-color="#f0e8bd"/><stop offset="1" stop-color="#ffe0a0"/></linearGradient>
+    <linearGradient id="fields" x2=".12" y2="1"><stop stop-color="#a1ae60"/><stop offset=".58" stop-color="#b4ae65"/><stop offset="1" stop-color="#b69c60"/></linearGradient>
+    <linearGradient id="trail" x2=".18" y2="1"><stop stop-color="#f5d5a0"/><stop offset=".59" stop-color="#e9bb84"/><stop offset="1" stop-color="#c28c5e"/></linearGradient>
+    <linearGradient id="leaves" x2=".32" y2="1"><stop stop-color="#a1b76a"/><stop offset=".6" stop-color="#78954f"/><stop offset="1" stop-color="#57734a"/></linearGradient>
+    <linearGradient id="hedge" x2="0" y2="1"><stop stop-color="#8ba25d"/><stop offset="1" stop-color="#647f4e"/></linearGradient>
+    <linearGradient id="wind-body" x2=".24" y2="1"><stop stop-color="#e5eeeb"/><stop offset=".63" stop-color="#bad1d4"/><stop offset="1" stop-color="#91aebc"/></linearGradient>
+    <radialGradient id="warm-halo"><stop stop-color="#ffdc88" stop-opacity=".86"/><stop offset=".57" stop-color="#ffe598" stop-opacity=".36"/><stop offset="1" stop-color="#ffeea8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="sun-body" cx=".36" cy=".31" r=".74"><stop stop-color="#fff0a2"/><stop offset=".51" stop-color="#fad470"/><stop offset="1" stop-color="#e6a44a"/></radialGradient>
+    <radialGradient id="path-light"><stop stop-color="#fff3bc" stop-opacity=".58"/><stop offset="1" stop-color="#ffe6a8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shadow"><stop stop-color="#5c4340" stop-opacity=".38"/><stop offset="1" stop-color="#5c4340" stop-opacity="0"/></radialGradient>
+    <radialGradient id="vignette"><stop offset=".67" stop-color="#413c2c" stop-opacity="0"/><stop offset="1" stop-color="#504333" stop-opacity=".16"/></radialGradient>
+    <linearGradient id="skin" x2=".72" y2="1"><stop stop-color="#dca77a"/><stop offset=".61" stop-color="#c58b66"/><stop offset="1" stop-color="#9f6650"/></linearGradient>
+    <linearGradient id="coat" x2=".76" y2="1"><stop stop-color="#efbe72"/><stop offset=".58" stop-color="#ce9151"/><stop offset="1" stop-color="#a97045"/></linearGradient>
+    <linearGradient id="indigo" x2=".48" y2="1"><stop stop-color="#829cb8"/><stop offset=".47" stop-color="#5b789c"/><stop offset="1" stop-color="#3e5878"/></linearGradient>
+    <linearGradient id="turban" x2=".6" y2="1"><stop stop-color="#a2655b"/><stop offset=".55" stop-color="#8a514a"/><stop offset="1" stop-color="#713d3e"/></linearGradient>
+    <filter id="paper-grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".56" numOctaves="3" seed="28" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".086"/></feComponentTransfer>
+    </filter>
+    <path id="ray" d="M0-100q1-8 0-25" stroke="#f3ba60" stroke-width="8" stroke-linecap="round"/>
+    <g id="sprig">
+      <path d="M0 5q4-20 0-40m2 24q8-10 15-9m-14 8q-4-9-12-10" fill="none" stroke="#71834c" stroke-width="2.9" stroke-linecap="round"/>
+      <path d="M1-11q-10-2-13-11 11 0 13 11Zm3 2q6-11 14-10-2 9-14 10Z" fill="#889d54"/>
+      <g fill="#f4d176"><ellipse cx="-4" cy="-35" rx="4.7" ry="4.1"/><ellipse cx="4" cy="-36" rx="4.7" ry="4.2"/><circle cy="-40" r="4.3"/><circle cy="-35" r="2.7" fill="#d4aa55"/></g>
+    </g>
+    <g id="tuft" fill="none" stroke-linecap="round">
+      <path d="M1 5q-1-10-6-18M1 5q5-13 12-17M3 5q8-8 16-8" stroke="#80864d" stroke-width="3.4"/>
+      <path d="M1 4q2-8 2-11" stroke="#c7b56c" stroke-width="1.8"/>
+    </g>
+    <g id="leaf-shape">
+      <path d="M-11 3q12-14 25-7-5 14-25 7Z" fill="currentColor"/>
+      <path d="M-12 5q12-6 21-7" fill="none" stroke="#87794d" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g id="distant-land" data-camera-depth="-.17">
+    <path d="M-120-100h1520v880H-120z" fill="url(#sky)"/>
+    <path id="clear-sky-layer" d="M-120-100h1520v880H-120z" fill="url(#clear-sky)" opacity=".18"/>
+    <g fill="#fff5d4" opacity=".65">
+      <path d="M481 141q39-23 82-10 29-36 64-17 21-5 40 11 38-5 66 12-100 19-252 4Z"/>
+      <path d="M696 247q35-18 67-8 36-17 70 2-65 18-137 6Z"/>
+    </g>
+    <path d="M-120 368q166-72 322-39 137-47 302 0 161-46 338-17 251-43 557 17v130H-120Z" fill="#9ea985"/>
+    <path d="M-120 388q223-40 350-28 140-36 295-7 254-43 382-15 210-32 492 8v127H-120Z" fill="#819b77"/>
+    <path d="M-120 424q156-39 365-20 197-45 363-20 160-25 296-6 193-27 494 11v111H-120Z" fill="#a0a969"/>
+    <path d="M460 424q90-54 240-38 64 7 172 3-75 28-177 24-135-6-235 11Z" fill="#cbce9b" opacity=".77"/>
+    <g fill="#d39e70" stroke="#b28360" stroke-width="2.4" stroke-linejoin="round">
+      <path d="M806 356h46v42h-46Zm57 12h35v29h-35Zm48-24h44v49h-44Z"/>
+      <path d="M801 356l26-17 33 16m46-10 24-16 31 14" fill="#a97759"/>
+      <path d="M821 375h14v20h-14Zm105-13h12v19h-12Z" fill="#778f76"/>
+    </g>
+    <g fill="#748c5d">
+      <path d="M787 394v-38l5-3 6 4v36m-20-35q1-15 14-17 16-1 24 16-20 6-38 1Z"/>
+      <path d="M959 395v-51l7-5 5 8v48m-20-46q4-20 16-20 18-1 24 17-21 6-40 3Z"/>
+    </g>
+  </g>
+  <g id="sun" transform="translate(1035 169)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <circle id="sun-halo" r="165" fill="url(#warm-halo)" opacity=".47"/>
+    <g id="sun-rays" opacity=".68">
+      <use href="#ray"/><use href="#ray" transform="rotate(30)"/><use href="#ray" transform="rotate(60)"/>
+      <use href="#ray" transform="rotate(90)"/><use href="#ray" transform="rotate(120)"/><use href="#ray" transform="rotate(150)"/>
+      <use href="#ray" transform="rotate(180)"/><use href="#ray" transform="rotate(210)"/><use href="#ray" transform="rotate(240)"/>
+      <use href="#ray" transform="rotate(270)"/><use href="#ray" transform="rotate(300)"/><use href="#ray" transform="rotate(330)"/>
+    </g>
+    <circle r="82" fill="url(#sun-body)" stroke="#cc9851" stroke-width="4.6"/>
+    <path d="M-64-30q11-27 37-36m22-4q17-2 31 6" fill="none" stroke="#fff1ad" stroke-width="4.3" opacity=".83"/>
+    <g id="sun-eyes" fill="#6d522e">
+      <ellipse cx="-24" cy="-7" rx="5.9" ry="9.3"/><ellipse cx="22" cy="-7" rx="5.9" ry="9.3"/>
+      <circle cx="-25.5" cy="-10.1" r="2" fill="#fff3ba"/><circle cx="20.5" cy="-10.1" r="2" fill="#fff3ba"/>
+    </g>
+    <path id="sun-lids" d="M-31-5q6 7 13-1m32 0q7 7 14 0" stroke="#78522e" stroke-width="3.7" fill="none" opacity="0"/>
+    <path d="M-34-25q9-7 17-1m31-1q10-5 17 3" stroke="#a4733e" stroke-width="3.6" fill="none"/>
+    <ellipse cx="-37" cy="15" rx="12" ry="6.4" fill="#e7a766" opacity=".73"/><ellipse cx="35" cy="15" rx="12" ry="6.4" fill="#e7a766" opacity=".73"/>
+    <path id="sun-mouth" d="M-15 17q14 8 30 0-3 20-16 21-10-2-14-21Z" fill="#97613a"/>
+    <path d="M-15 17q13 12 30 0" stroke="#8d5c38" stroke-width="3.4" fill="none"/>
+  </g>
+  <g id="shade-clouds" opacity=".56">
+    <path d="M380 172q28-29 79-15 16-37 53-37 30 0 48 18 48-11 81 20 40-1 55 22-159 30-316-8Z" fill="#c2d4d1"/>
+    <path d="M729 281q38-21 74-12 24-28 64-15 36-4 50 15 25-2 39 7-112 26-227 5Z" fill="#d1ddd0"/>
+  </g>
+  <g id="wind" transform="translate(257 182)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <path d="M-127 25q-27 3-34-12 37 5 43-10-24 3-31-12 24 9 45-1" fill="none" stroke="#b0c9cf" stroke-width="5" opacity=".72"/>
+    <path d="M-113 22q-25 0-28-22 2-34 40-39 9-33 41-42 41-13 68 20 36-17 63 13 23-2 38 22 28 1 37 29 7 31-22 38-18 23-41 9-29 18-51 5-27 14-48-2-67 8-97-14Z" fill="url(#wind-body)" stroke="#7c9ca9" stroke-width="5"/>
+    <path d="M-104-17q10-16 31-16 8-24 34-32 19-3 38 10m23 4q27-10 41 7" fill="none" stroke="#edf5ef" stroke-width="4.8" opacity=".88"/>
+    <path d="M-103 25q23 19 53 10 21 12 46 4m78 3q18 4 29-5" fill="none" stroke="#819fad" stroke-width="3.2" opacity=".66"/>
+    <g id="wind-eyes" fill="#3f6071">
+      <ellipse cx="37" cy="-10" rx="6.4" ry="10.1"/><ellipse cx="77" cy="-6" rx="6.4" ry="10.1"/>
+      <circle cx="39" cy="-12" r="2.1" fill="#eaf4f1"/><circle cx="79" cy="-9" r="2.1" fill="#eaf4f1"/>
+    </g>
+    <path id="wind-lids" d="M30-7q6 6 14 0m25 4q7 7 14 0" fill="none" stroke="#456777" stroke-width="3.6" opacity="0"/>
+    <path d="M29-29q10-5 18-1m25 3q10-3 17 4" fill="none" stroke="#6d8e9d" stroke-width="3.2"/>
+    <path id="wind-mouth" d="M88 15q16-4 23 3-2 17-14 14-9-2-9-17Z" fill="#536f7a"/>
+    <path d="M88 15q12 9 23 3" fill="none" stroke="#516f7b" stroke-width="3.1"/>
+  </g>
+
+  <g id="field">
+    <path d="M-100 437q248-32 454-21 214-28 438-9 279-31 580 15v340H-100Z" fill="url(#fields)"/>
+    <path d="M-90 496q232-85 457-51 181 6 334-28-115 48-349 45-215-5-442 76Zm845-45q171-29 327-10 145-15 281-12v14q-300 30-608 8Z" fill="#d9be68" opacity=".84"/>
+    <path d="M-100 548q247-63 461-31 167 22 317-28 199-71 692-16v270H-100Z" fill="url(#trail)" stroke="#b19a69" stroke-width="3.5"/>
+    <path d="M-100 655q222-71 440-62 193 18 361-37 216-66 666-24M-80 713q253-74 495-45 177 18 337-46 233-83 635-19" fill="none" stroke="#f5d0a1" stroke-width="12" opacity=".58"/>
+    <ellipse id="sun-on-path" cx="729" cy="558" rx="537" ry="119" fill="url(#path-light)" opacity=".15"/>
+    <path d="M-100 710q273-49 485-23 199 28 499-16 197-39 499-50v126H-100Z" fill="#9d865a" opacity=".54"/>
+    <g fill="url(#hedge)" stroke="#728459" stroke-width="3">
+      <path d="M-37 506q54-29 92-5 29-27 65-19 36-17 69 1 42-3 62 20-137 26-288 3Z"/>
+      <path d="M1044 448q33-20 62-5 35-40 77-20 24-6 47 15 96-5 123 22-185 26-309-12Z"/>
+    </g>
+    <path d="M-19 508q112 15 240-7m851-46q106 25 236 1" fill="none" stroke="#667c53" stroke-width="3.6" opacity=".7"/>
+    <g>
+      <use href="#sprig" x="211" y="506"/><use href="#sprig" x="249" y="488"/><use href="#sprig" x="273" y="505"/>
+      <use href="#sprig" x="307" y="497"/><use href="#sprig" x="1083" y="465"/><use href="#sprig" x="1128" y="466"/>
+      <use href="#sprig" x="1201" y="452"/><use href="#sprig" x="1228" y="461"/>
+    </g>
+  </g>
+
+  <g id="tree" data-camera-depth=".12">
+    <path d="M47 636q30-55 28-127 0-79-27-143l-64-89 37-18 64 68q-13-89-47-142l51-38q53 96 57 194 42-17 105-71l20 18q-43 55-117 103-1 134 27 251-70 29-134-6Z" fill="#9d7655" stroke="#795b49" stroke-width="5"/>
+    <path d="M113 335q21 123 7 245m18-219q70-45 100-71M124 594q2 21 10 36" fill="none" stroke="#c29969" stroke-width="4" opacity=".74"/>
+    <g id="tree-crown">
+      <path d="M-74 110q40-45 97-48 55-37 116-4 46-16 88 20 52-2 85 41 55 11 65 47 51 25 35 69-17 40-69 44-37 26-80 12-53 24-104-3-62 17-108-15-69 2-125-41Z" fill="url(#leaves)" stroke="#6c8750" stroke-width="5"/>
+      <path d="M-17 138q45-40 98-22 46-29 83-2-36 21-76 21-65 17-105 3Zm144 36q53-30 111-10 37-11 66 17-86 24-177-7Z" fill="#bbc27b" opacity=".7"/>
+      <path d="M-23 218q51 36 104 23 48 31 97 18 62 31 106 3 65 17 113-40-18 58-62 56-44 26-80 13-50 22-101-3-68 17-103-18-44 5-75-23Z" fill="#56794c" opacity=".6"/>
+    </g>
+  </g>
+
+  <g id="wind-streams" fill="none" stroke="#f2f0da" stroke-linecap="round" stroke-width="4.4" opacity="0">
+    <path d="M355 203q91-32 178 1 76 30 175 32 158 3 256 82" opacity=".67"/>
+    <path d="M471 232q78 5 146 39 60 29 126 28m89 11q57 12 91 31" opacity=".47"/>
+    <path d="M313 427q80-36 145-17 94 28 180 20t130 20" opacity=".72"/>
+    <path d="M561 524q57-9 103-1t90 12q102 9 167-11" opacity=".6"/>
+    <path d="M594 573q47-6 98 2 56 13 109-7" opacity=".56"/>
+  </g>
+  <g id="blowing-leaves" opacity="0">
+    <use href="#leaf-shape" color="#b2a855"/><use href="#leaf-shape" color="#9b9c59"/><use href="#leaf-shape" color="#cba45f"/>
+    <use href="#leaf-shape" color="#a3a75c"/><use href="#leaf-shape" color="#d6a36a"/><use href="#leaf-shape" color="#a69756"/>
+    <use href="#leaf-shape" color="#e1bb79"/><use href="#leaf-shape" color="#8c995b"/><use href="#leaf-shape" color="#a7a15b"/>
+  </g>
+
+  <ellipse id="traveller-shadow" cx="640" cy="622" rx="88" ry="22" fill="url(#shadow)"/>
+  <g id="traveller" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <path id="shawl-tail" d="M-55-183q-32 16-17 61-2 13-26 31l23 18q31-11 38-38 0-34 20-63Z" fill="#577498" stroke="#405b79" stroke-width="4.3"/>
+    <g id="leg-far">
+      <path d="M12-91h34l-3 48 4 29-26 1-7-44Z" fill="#a49b78" stroke="#6f6d59" stroke-width="4.4"/>
+      <path d="M21-15q22-2 29 3 14 2 14 10 0 6-20 8L19 4q-6-1 2-19Z" fill="#715544" stroke="#684c40" stroke-width="3.4"/>
+    </g>
+    <g id="leg-near">
+      <path d="M-38-97l36 1 2 41-3 42-27 1-4-43Z" fill="#d0c29a" stroke="#888168" stroke-width="4.4"/>
+      <path d="M-29-12l25-1Q0-4 12-5q15 3 13 10-4 8-23 6l-34-3q-6-4 3-20Z" fill="#826350" stroke="#6e523f" stroke-width="3.6"/>
+      <path d="M-24-76l1 42" fill="none" stroke="#f0dcaf" stroke-width="3.2" opacity=".67"/>
+    </g>
+
+    <g id="traveller-torso">
+      <path d="M-55-191q15-20 62-22 38 3 56 22 9 48 1 93l-1 25q-52 22-118 3-5-24 0-52-3-28 0-69Z" fill="url(#coat)" stroke="#946b48" stroke-width="5"/>
+      <path d="M7-201v110m7-106 8 16-8 13m-59 79q49 17 96 4" fill="none" stroke="#a77a4e" stroke-width="3.2" opacity=".82"/>
+      <path d="M-11-192q11 18 20 15 11-3 23-19" fill="none" stroke="#edc188" stroke-width="3.5" opacity=".82"/>
+      <path d="M-45-174q-14-3-23 20l-10 40q4 15 16 11l20-41Z" fill="url(#coat)" stroke="#946b48" stroke-width="4.1"/>
+      <path d="M-76-117q14-3 23 2-2 12-15 15-11 0-8-17Z" fill="url(#skin)" stroke="#95634d" stroke-width="3.4"/>
+    </g>
+    <g id="traveller-head" transform="translate(5 -200)">
+      <path d="M-12 19l-1-18 27-9 4 26q-13 10-30 1Z" fill="url(#skin)" stroke="#97674f" stroke-width="3.7"/>
+      <path d="M-28-37q-5-34 22-46 23-8 43 7 18 14 15 37l11 12q4 7-7 10l-4 3q-2 23-21 27-31 8-54-20-7-11-5-30Z" fill="url(#skin)" stroke="#98684f" stroke-width="4.2"/>
+      <path d="M-22-40q-8-21-19-11-5 10 3 19 9 8 19 2Z" fill="#ba805d" stroke="#98684f" stroke-width="3.4"/>
+      <path d="M22-14q13 5 26-4 9 15-1 24-16 16-38 5-24-5-30-23l-2-17q9 16 23 11Z" fill="#5d453c"/>
+      <path d="M23-18q11-6 20 0" fill="none" stroke="#5a4037" stroke-width="4.4"/>
+      <path id="traveller-mouth" d="M26-14q12 3 19 0-5 11-13 10Z" fill="#dfaa8a"/>
+      <path d="M22-14q10 8 22 1" fill="none" stroke="#794c45" stroke-width="2.3"/>
+      <ellipse id="traveller-eyes" cx="39" cy="-45" rx="5.6" ry="6.4" fill="#3d3a32"/>
+      <path id="traveller-lids" d="M33-44q6 5 11-1" fill="none" stroke="#513e36" stroke-width="3.1" opacity="0"/>
+      <path d="M31-57q6-3 14-1" fill="none" stroke="#724d43" stroke-width="3.2"/>
+      <path d="M-38-52q-15-18 0-39 22-28 60-24 35 3 44 25 9 15-1 29-13 8-27-4-40 13-65 19Z" fill="url(#turban)" stroke="#754c47" stroke-width="5"/>
+      <path d="M-36-73q45-18 76-36m-78 40q51-19 87-34m-75 52q48-17 87-33m-56 24 37-20" fill="none" stroke="#c1917e" stroke-width="3.4" opacity=".84"/>
+      <path d="M-31-81q16-19 38-21" fill="none" stroke="#d1a48a" stroke-width="3.3" opacity=".74"/>
+    </g>
+
+    <g id="shawl-open">
+      <path d="M-58-190q9-13 21-13 26 31 36 28 26-8 45-25 16 5 20 17 15 16 10 38-6 13-36 31l-31-12-18 10-23-15q-21-19-24-59Z" fill="url(#indigo)" stroke="#445b78" stroke-width="4.7"/>
+      <path d="M-48-192q25 38 44 41 41-9 61-34m-90 27q11 26 39 31m31-11q16-9 26-19" fill="none" stroke="#a5b9c6" stroke-width="3" opacity=".8"/>
+      <path d="M-32-143q13 10 34 17m39 4 16-11" stroke="#ced2c4" stroke-width="2.6" stroke-dasharray="3 5" fill="none"/>
+    </g>
+    <g id="shawl-wrapped" opacity="0">
+      <path d="M-61-186q11-18 26-17 23 12 42 29 23-11 39-27 21 3 26 19l1 31q-6 32-47 48-41 10-73-10-20-24-14-73Z" fill="url(#indigo)" stroke="#445b78" stroke-width="4.6"/>
+      <path d="M-47-190q25 24 51 29 39-10 57-23M-57-159q50 47 112 16m-88 33q39 12 72-7" fill="none" stroke="#a9bfcb" stroke-width="3.3" opacity=".74"/>
+      <path d="M-46-131q39 24 83 11" stroke="#c4d1cb" stroke-width="2.5" stroke-dasharray="3 5" fill="none"/>
+    </g>
+    <g id="shawl-folded" opacity="0">
+      <path d="M6-117q20-6 44-1l28 12-8 17-23-7-13 9-30-12Z" fill="url(#indigo)" stroke="#425a78" stroke-width="4.1"/>
+      <path d="M11-112q22-4 35 2l25 9m-65-2 26 11 16-7" fill="none" stroke="#a4b9c5" stroke-width="2.6"/>
+      <path d="m59-99 11 5m-41-2-13-4" fill="none" stroke="#cad0bf" stroke-width="2.5" stroke-dasharray="3 4"/>
+    </g>
+    <g id="near-arm">
+      <path d="M43-177q14-2 20 12l-1 38 19 16q5 10-5 16-23-2-43-20l-4-37q2-23 14-25Z" fill="url(#coat)" stroke="#976a49" stroke-width="4.1"/>
+      <path d="M74-113q16-6 22 6 1 8-10 11-10 0-15-6Z" fill="url(#skin)" stroke="#97674f" stroke-width="3.4"/>
+      <path d="M77-105l11-4" fill="none" stroke="#a37055" stroke-width="1.5"/>
+    </g>
+    <g id="shawl-grip" opacity="0">
+      <path d="M65-154q-9 19-29 29l-11-7 19-33q8-13 20-4Z" fill="url(#coat)" stroke="#9a6948" stroke-width="3.5"/>
+      <path d="M29-137q-16-7-24-1-5 8 2 15 10 5 22 2 9-2 7-9Z" fill="url(#skin)" stroke="#97674f" stroke-width="3.2"/>
+      <path d="M8-133l10 3m-9 2 9 3" fill="none" stroke="#a37055" stroke-width="1.6"/>
+    </g>
+  </g>
+
+  <g id="near-meadow" data-camera-depth=".18">
+    <use href="#tuft" x="176" y="650"/><use href="#tuft" x="78" y="688"/>
+    <use href="#sprig" x="1151" y="690"/><use href="#sprig" x="1191" y="677"/>
+    <use href="#tuft" x="1036" y="643"/><use href="#tuft" x="1272" y="667"/>
+    <g fill="#f4cf9a"><ellipse cx="300" cy="656" rx="7.4" ry="2.8"/><ellipse cx="314" cy="671" rx="4.3" ry="2"/><ellipse cx="970" cy="643" rx="9" ry="2.4"/></g>
+  </g>
+  <path d="M0 0h1280v720H0z" filter="url(#paper-grain)" opacity=".57" pointer-events="none"/>
+  <path d="M0 0h1280v720H0z" fill="url(#vignette)" pointer-events="none"/>
+</svg>
