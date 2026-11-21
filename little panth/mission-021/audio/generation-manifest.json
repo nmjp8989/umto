@@ -26,5 +26,47 @@
     "text": "ਤੂੰ ਸੱਚ ਬੋਲਿਆ, ਭਾਵੇਂ ਹੋਰ ਕੁਹਾੜੀਆਂ ਚਮਕਦੀਆਂ ਸਨ। ਆਪਣੀ ਕੁਹਾੜੀ ਲੈ। ਬਾਕੀ ਦੋ ਵੀ ਤੇਰੇ ਲਈ ਹਨ।",
     "speaker": "pari",
     "model": "gemini-3.8-flash-tts"
+  },
+  "morning-by-the-river": {
+    "hash": "cbd363bb93847cf721597cc7c10fed3fa1d76ec55c2345ef47a38c6f0c1eacff",
+    "voice": "Aoede",
+    "text": "ਬਲਦੇਵ ਹਰ ਸਵੇਰ ਨਦੀ ਕੰਢੇ ਪਈਆਂ ਸੁੱਕੀਆਂ ਟਾਹਣੀਆਂ ਚੁੱਕਦਾ ਸੀ। ਇੱਕ ਦਿਨ ਉਹ ਵੱਡੀ ਟਾਹਣੀ ਨੂੰ ਛੋਟਾ ਕਰਨ ਲਈ ਪੱਥਰ ਕੋਲ ਰੁਕਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "baldev-remembers-his-father": {
+    "hash": "6ab4d1ec7fba1e43361156159451f0252562993d2bf527f640af3f99c5fd9bfe",
+    "voice": "Puck",
+    "text": "ਹਾਏ, ਮੇਰੀ ਕੁਹਾੜੀ! ਉਸ ਦਾ ਦਸਤਾ ਪਿਉ ਜੀ ਨੇ ਬਣਾਇਆ ਸੀ। ਹੁਣ ਮੈਂ ਲੱਕੜ ਕਿਵੇਂ ਕੱਟਾਂਗਾ?",
+    "speaker": "baldev",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "baldev-describes-the-mark": {
+    "hash": "785a43f27f0e7cbb1bf780b1f83372e3627bc34a1f7d70b771d18ca629491c73",
+    "voice": "Puck",
+    "text": "ਨਹੀਂ ਜੀ। ਮੇਰੀ ਕੁਹਾੜੀ ਦਾ ਦਸਤਾ ਪੁਰਾਣਾ ਹੈ। ਉਸ ਉੱਤੇ ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਲਕੀਰ ਵੀ ਹੈ।",
+    "speaker": "baldev",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "silver-and-iron": {
+    "hash": "5212b2508752a396c35c48986322eb736ca28446134773b584fc402e10fd3cf8",
+    "voice": "Aoede",
+    "text": "ਪਰੀ ਨੇ ਚਾਂਦੀ ਦੀ ਕੁਹਾੜੀ ਵਿਖਾਈ। ਬਲਦੇਵ ਨੇ ਸਿਰ ਹਿਲਾਇਆ। ਫਿਰ ਪਰੀ ਨੇ ਪੁਰਾਣੇ ਲੱਕੜ ਦੇ ਦਸਤੇ ਵਾਲੀ ਕੁਹਾੜੀ ਵਿਖਾਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "baldev-recognizes-the-axe": {
+    "hash": "06870ea4ccb61474ae226293d49ee37c714449e81a0e6933dc2d48bb6b25d6d5",
+    "voice": "Puck",
+    "text": "ਹਾਂ ਜੀ, ਇਹ ਮੇਰੀ ਹੈ! ਵੇਖੋ, ਦਸਤੇ ਉੱਤੇ ਉਹੀ ਲਕੀਰ ਹੈ।",
+    "speaker": "baldev",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "baldev-heads-home": {
+    "hash": "83add73d7fbf7ac971b62fdb07879356d3fb826179f4b097f89a72854ba29b31",
+    "voice": "Aoede",
+    "text": "ਬਲਦੇਵ ਨੇ ਧੰਨਵਾਦ ਕੀਤਾ। ਉਸ ਨੇ ਤਿੰਨੋਂ ਕੁਹਾੜੀਆਂ ਕੱਪੜੇ ਦੇ ਥੈਲੇ ਵਿੱਚ ਪਾਈਆਂ। ਫਿਰ ਟਾਹਣੀਆਂ ਦੀ ਗੱਠ ਚੁੱਕੀ ਤੇ ਘਰ ਵੱਲ ਤੁਰ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
   }
 }
