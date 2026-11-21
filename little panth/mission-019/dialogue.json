@@ -1,0 +1,86 @@
+{
+  "mission": 19,
+  "title": "ਕਾਂ ਤੇ ਲੂੰਬੜੀ",
+  "englishTitle": "The Crow and the Fox",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "crow": "Crow",
+    "fox": "Fox"
+  },
+  "scenes": [
+    {
+      "id": "perch",
+      "title": "The crow lands with paneer",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 371 },
+      "lines": ["crow-finds-paneer"],
+      "review": "Establish the orchard and follow the crow to the branch. Check that his feet settle onto the branch and the paneer stays in his beak."
+    },
+    {
+      "id": "fox-notices",
+      "title": "The fox notices the paneer",
+      "framing": "two-shot",
+      "focus": { "x": 625, "y": 392 },
+      "lines": ["fox-passes"],
+      "review": "Show the fox stop beneath the perch and look up. Keep the branch high enough to explain why she cannot reach the paneer."
+    },
+    {
+      "id": "flattery",
+      "title": "Such beautiful feathers",
+      "framing": "two-shot",
+      "focus": { "x": 640, "y": 398 },
+      "lines": ["fox-praises", "crow-feels-proud"],
+      "review": "Watch the fox speak while the crow holds the paneer. Cut to the crow lifting his head in response to the praise."
+    },
+    {
+      "id": "song-and-fall",
+      "title": "A song and a falling bite",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "full",
+      "focus": { "x": 650, "y": 416 },
+      "lines": ["fox-asks-for-song", "paneer-falls"],
+      "review": "The paneer must drop from the exact position of the beak as it opens. Follow the fall onto the path."
+    },
+    {
+      "id": "the-trick",
+      "title": "The crow figures it out",
+      "framing": "two-shot",
+      "focus": { "x": 628, "y": 371 },
+      "lines": ["fox-picks-up-paneer", "crow-realizes"],
+      "review": "Show the fox lower her muzzle to the paneer before picking it up. Then cut to the crow speaking with an empty beak."
+    },
+    {
+      "id": "think-first",
+      "title": "Think before you speak",
+      "framing": "two-shot",
+      "focus": { "x": 652, "y": 392 },
+      "lines": ["fox-goes-away", "crow-decides"],
+      "review": "Follow the fox holding the paneer as she leaves. Hold on the crow on the branch when he says what he has learned."
+    },
+    {
+      "id": "fly-home",
+      "title": "The crow flies home",
+      "layout": "cinema",
+      "caption": "bottom",
+      "framing": "wide",
+      "focus": { "x": 640, "y": 360 },
+      "lines": ["crow-goes-home"],
+      "review": "Show the crow push off the branch, spread his wings, and leave the orchard. End on the empty perch."
+    }
+  ],
+  "lines": {
+    "crow-finds-paneer": { "speaker": "narrator", "pa": "ਇੱਕ ਸਵੇਰ ਕਾਂ ਨੂੰ ਪਨੀਰ ਦਾ ਇੱਕ ਟੁਕੜਾ ਮਿਲਿਆ। ਉਹ ਟੁਕੜਾ ਚੁੰਝ ਵਿੱਚ ਫੜ ਕੇ ਬਾਗ ਦੇ ਇੱਕ ਰੁੱਖ ਉੱਤੇ ਜਾ ਬੈਠਾ।" },
+    "fox-passes": { "speaker": "narrator", "pa": "ਰੁੱਖ ਹੇਠੋਂ ਇੱਕ ਲੂੰਬੜੀ ਲੰਘ ਰਹੀ ਸੀ। ਜਦੋਂ ਉਸ ਨੇ ਪਨੀਰ ਵੇਖਿਆ ਤਾਂ ਉਹ ਰੁਕ ਗਈ ਤੇ ਕਾਂ ਵੱਲ ਤੱਕਣ ਲੱਗੀ।" },
+    "fox-praises": { "speaker": "fox", "pa": "ਕਾਂ ਭਰਾ, ਤੇਰੇ ਖੰਭ ਧੁੱਪ ਵਿੱਚ ਕਿੰਨੇ ਸੋਹਣੇ ਲੱਗ ਰਹੇ ਹਨ! ਤੇਰੀ ਆਵਾਜ਼ ਵੀ ਜ਼ਰੂਰ ਮਿੱਠੀ ਹੋਵੇਗੀ।" },
+    "crow-feels-proud": { "speaker": "narrator", "pa": "ਕਾਂ ਨੂੰ ਆਪਣੀ ਤਾਰੀਫ਼ ਸੁਣ ਕੇ ਬਹੁਤ ਚੰਗਾ ਲੱਗਿਆ। ਉਸ ਨੇ ਛਾਤੀ ਫੁਲਾਈ ਤੇ ਆਪਣਾ ਸਿਰ ਉੱਚਾ ਕਰ ਲਿਆ।" },
+    "fox-asks-for-song": { "speaker": "fox", "pa": "ਮੈਨੂੰ ਵੀ ਆਪਣਾ ਇੱਕ ਗੀਤ ਸੁਣਾ ਦੇ। ਮੈਂ ਇੱਥੇ ਖੜ੍ਹੀ ਹੋ ਕੇ ਸੁਣਾਂਗੀ।" },
+    "paneer-falls": { "speaker": "narrator", "pa": "ਕਾਂ ਨੇ ਗਾਉਣ ਲਈ ਚੁੰਝ ਖੋਲ੍ਹੀ। ਕਾਂ ਕਾਂ ਦੀ ਆਵਾਜ਼ ਨਾਲ ਹੀ ਪਨੀਰ ਉਸ ਦੀ ਚੁੰਝ ਵਿੱਚੋਂ ਹੇਠਾਂ ਡਿੱਗ ਪਿਆ।" },
+    "fox-picks-up-paneer": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਨੇ ਪਨੀਰ ਚੁੱਕ ਲਿਆ। ਕਾਂ ਨੇ ਹੇਠਾਂ ਵੇਖਿਆ ਤੇ ਤੁਰੰਤ ਸਮਝ ਗਿਆ ਕਿ ਲੂੰਬੜੀ ਕਿਉਂ ਰੁਕੀ ਸੀ।" },
+    "crow-realizes": { "speaker": "crow", "pa": "ਮੈਨੂੰ ਗੀਤ ਸੁਣਾਉਣ ਦੀ ਕਾਹਲੀ ਸੀ। ਮੈਂ ਪਨੀਰ ਬਾਰੇ ਸੋਚਿਆ ਹੀ ਨਹੀਂ।" },
+    "fox-goes-away": { "speaker": "narrator", "pa": "ਲੂੰਬੜੀ ਪਨੀਰ ਲੈ ਕੇ ਚਲੀ ਗਈ। ਕਾਂ ਕੁਝ ਦੇਰ ਟਾਹਣੀ ਉੱਤੇ ਚੁੱਪ ਬੈਠਾ ਰਿਹਾ।" },
+    "crow-decides": { "speaker": "crow", "pa": "ਹੁਣ ਕੋਈ ਮੇਰੀ ਤਾਰੀਫ਼ ਕਰੇਗਾ ਤਾਂ ਮੈਂ ਚੁੰਝ ਖੋਲ੍ਹਣ ਤੋਂ ਪਹਿਲਾਂ ਸੋਚਾਂਗਾ।" },
+    "crow-goes-home": { "speaker": "narrator", "pa": "ਫਿਰ ਉਸ ਨੇ ਖੰਭ ਖੋਲ੍ਹੇ ਤੇ ਆਪਣੇ ਘਰ ਵੱਲ ਉੱਡ ਗਿਆ। ਉਸ ਨੂੰ ਉਹ ਸਵੇਰ ਬਹੁਤ ਦਿਨ ਯਾਦ ਰਹੀ।" }
+  }
+}
