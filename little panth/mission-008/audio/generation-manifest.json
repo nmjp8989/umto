@@ -1,0 +1,93 @@
+{
+  "road-shawl": {
+    "hash": "7b57769323573623e3065dfe7684d7ff39c04489b5c94ac830c5893a75a38c39",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਸਵੇਰ ਹਵਾ ਤੇ ਸੂਰਜ ਨੇ ਇੱਕ ਰਾਹੀ ਨੂੰ ਵੇਖਿਆ। ਰਾਹੀ ਦੇ ਮੋਢਿਆਂ ਉੱਤੇ ਨੀਲੀ ਸ਼ਾਲ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "challenge-wind": {
+    "hash": "5c986c4ec0adf4986ed8c46597984ccf736d322d7c4d8375f43e6c989d1072da",
+    "voice": "Leda",
+    "text": "ਮੈਂ ਉਸ ਦੀ ਸ਼ਾਲ ਲਾਹ ਦਿਆਂਗੀ। ਵੇਖਣਾ!",
+    "speaker": "wind",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "challenge-sun": {
+    "hash": "6d554a2e52d990949edccf36eb060c8fecfc739efac1fd53739a7510d563dbe1",
+    "voice": "Charon",
+    "text": "ਚਲੋ ਵੇਖੀਏ ਕੌਣ ਰਾਹੀ ਨੂੰ ਪਹਿਲਾਂ ਸ਼ਾਲ ਲਾਹੁਣ ਲਈ ਮਨਾ ਲੈਂਦਾ ਹੈ।",
+    "speaker": "sun",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "gust-leaves": {
+    "hash": "256d393f848edb99db46cbb53b2ecd87076f8d459ce7e901e01de71d332a9e98",
+    "voice": "Aoede",
+    "text": "ਹਵਾ ਜ਼ੋਰ ਨਾਲ ਵਗੀ। ਪੱਤੇ ਉੱਡਣ ਲੱਗੇ ਤੇ ਰਾਹੀ ਨੇ ਸ਼ਾਲ ਘੁੱਟ ਕੇ ਫੜ ਲਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "gust-cold": {
+    "hash": "9890dc33df9e3c7c5f0d012df2a96636ca810edc1814818445f8b2d8aadc957f",
+    "voice": "Iapetus",
+    "text": "ਓਹੋ! ਬੜੀ ਠੰਢ ਲੱਗ ਰਹੀ ਹੈ!",
+    "speaker": "traveller",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "wrap-shawl": {
+    "hash": "a4d2aa4fa58e05053aa2a22e75a6a63b7e778c713be0bcc40727cd471c0c597f",
+    "voice": "Aoede",
+    "text": "ਹਵਾ ਹੋਰ ਤੇਜ਼ ਵਗੀ। ਰਾਹੀ ਨੇ ਸ਼ਾਲ ਆਪਣੇ ਦੁਆਲੇ ਹੋਰ ਘੁੱਟ ਕੇ ਲਪੇਟ ਲਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "wrap-wind": {
+    "hash": "e0e2198ebe98afb383bf1531afa45f674a7a89ebd093a01d773a5bbd99da74bd",
+    "voice": "Leda",
+    "text": "ਮੇਰੇ ਤੋਂ ਤਾਂ ਇਹ ਕੰਮ ਨਹੀਂ ਹੋਇਆ।",
+    "speaker": "wind",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sunlight-turn": {
+    "hash": "774015c8360456ca9bb4b690a2422addc78476e0ec35c76807335c61bce5f90b",
+    "voice": "Charon",
+    "text": "ਹੁਣ ਮੇਰੀ ਵਾਰੀ ਹੈ। ਮੈਂ ਹੌਲੀ ਹੌਲੀ ਧੁੱਪ ਪਾਵਾਂਗਾ।",
+    "speaker": "sun",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "sunlight-clouds": {
+    "hash": "0ea87ea74cc91cfe2a57549c4beae7abef40f404564f1b921f65638fd4d7ad80",
+    "voice": "Aoede",
+    "text": "ਬੱਦਲ ਪਾਸੇ ਹੋ ਗਏ ਤੇ ਨਿੱਘੀ ਧੁੱਪ ਰਾਹ ਉੱਤੇ ਪੈਣ ਲੱਗੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fold-warm": {
+    "hash": "e794ab09225ce8523d84f1ace1bf61be81a3c1e399a90a1848a5bdd3c51ae006",
+    "voice": "Iapetus",
+    "text": "ਆਹ, ਹੁਣ ਤਾਂ ਨਿੱਘ ਲੱਗ ਰਿਹਾ ਹੈ। ਮੈਂ ਸ਼ਾਲ ਲਾਹ ਲੈਂਦਾ ਹਾਂ।",
+    "speaker": "traveller",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fold-shawl": {
+    "hash": "d999ffa13eb4c8c6c10b41bece123ee59e0221ce6c70f0fd0f7287089320daf5",
+    "voice": "Aoede",
+    "text": "ਰਾਹੀ ਨੇ ਸ਼ਾਲ ਲਾਹੀ, ਉਸ ਨੂੰ ਤਹਿ ਕੀਤਾ ਤੇ ਬਾਂਹ ਉੱਤੇ ਰੱਖ ਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "lesson-wind": {
+    "hash": "6bab3e54601e53a414aced93c2a61510de2d8c620a94ac7c0c7056b4e5cfaa94",
+    "voice": "Leda",
+    "text": "ਅੱਜ ਮੈਂ ਸਿੱਖਿਆ ਕਿ ਨਰਮੀ ਨਾਲ ਵੀ ਗੱਲ ਬਣ ਜਾਂਦੀ ਹੈ।",
+    "speaker": "wind",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "lesson-home": {
+    "hash": "cd25a9516a9ee9f849bf90ce999bef3c3e4e2e2e3538d172aec4d50228b64fc4",
+    "voice": "Aoede",
+    "text": "ਰਾਹੀ ਮੁਸਕਰਾਉਂਦਾ ਹੋਇਆ ਆਪਣੇ ਰਾਹ ਤੁਰ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
