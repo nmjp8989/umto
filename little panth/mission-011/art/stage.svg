@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Mehar, Sidak, and Bibi Ji in a sunny Punjabi courtyard with an orange ball and a bundle of sticks</title>
+  <defs>
+    <linearGradient id="skin" x1=".16" y1="0" x2=".7" y2="1"><stop stop-color="#f5bc84"/><stop offset="1" stop-color="#d39667"/></linearGradient>
+    <linearGradient id="bibi-skin" x2=".52" y2="1"><stop stop-color="#e8ae7e"/><stop offset="1" stop-color="#c48763"/></linearGradient>
+    <linearGradient id="mehar-gold" x2=".4" y2="1"><stop stop-color="#eec674"/><stop offset="1" stop-color="#c78d4a"/></linearGradient>
+    <linearGradient id="sidak-teal" x2=".28" y2="1"><stop stop-color="#79a497"/><stop offset="1" stop-color="#45756e"/></linearGradient>
+    <linearGradient id="bibi-plum" x2=".47" y2="1"><stop stop-color="#b58b9c"/><stop offset="1" stop-color="#886378"/></linearGradient>
+    <linearGradient id="stool-wood" x2=".5" y2="1"><stop stop-color="#bd905d"/><stop offset="1" stop-color="#865d43"/></linearGradient>
+    <linearGradient id="stool-rope" x2=".1" y2="1"><stop stop-color="#dcc391"/><stop offset="1" stop-color="#b7976c"/></linearGradient>
+    <radialGradient id="ball-color" cx=".3" cy=".24" r=".78"><stop stop-color="#ffcf78"/><stop offset=".6" stop-color="#ef9d53"/><stop offset="1" stop-color="#c76a40"/></radialGradient>
+    <radialGradient id="contact-shadow"><stop stop-color="#5d3b26" stop-opacity=".49"/><stop offset="1" stop-color="#5d3b26" stop-opacity="0"/></radialGradient>
+    <radialGradient id="warm-courtyard" cx=".38" cy=".25" r=".82"><stop stop-color="#ffe7af" stop-opacity=".1"/><stop offset=".7" stop-color="#604635" stop-opacity="0"/><stop offset="1" stop-color="#604635" stop-opacity=".21"/></radialGradient>
+    <filter id="illustration-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".57" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".085"/></feComponentTransfer>
+    </filter>
+    <g id="stick-left">
+      <path d="M-65-4q2-6 11-5l45 2 11 3-7 4 5 4-7 3-50-3q-10-1-8-8Z" fill="#ba885c" stroke="#805b45" stroke-width="2.7"/>
+      <path d="M-55-4q21 3 40 1" fill="none" stroke="#dfb582" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <g id="stick-right">
+      <path d="M-1-4-8-2 3 1-2 5l11-1 47 2q10 0 10-7-1-7-12-7L8-7Z" fill="#bf9064" stroke="#805b45" stroke-width="2.7"/>
+      <path d="M10-3q27-1 44 1" fill="none" stroke="#e1b782" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.18">
+    <rect x="-130" y="-90" width="1540" height="900" fill="#e0b076"/>
+    <image href="../mission-003/art/courtyard.webp" x="-62" y="-35" width="1404" height="790" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <path d="M-110-80h1500v880H-110Z" fill="url(#warm-courtyard)" pointer-events="none"/>
+  <g id="shadows" fill="url(#contact-shadow)">
+    <ellipse id="mehar-shadow" cx="408" cy="624" rx="95" ry="21"/>
+    <ellipse id="boy-shadow" cx="720" cy="624" rx="87" ry="20"/>
+    <ellipse id="dadi-shadow" cx="995" cy="610" rx="104" ry="24"/>
+    <ellipse cx="589" cy="594" rx="117" ry="24"/>
+  </g>
+  <g id="stool" stroke-linejoin="round">
+    <path d="m503 542 17 3-8 50q-9 5-18-2Zm164-8 17-3 7 51q-10 7-17 2Zm-112 8 14 3-2 50-16 3Zm74-1 13-4 10 53-14 3Z" fill="url(#stool-wood)" stroke="#795640" stroke-width="4.2"/>
+    <path d="m484 532 173-16 43 22-171 24-45-17Z" fill="url(#stool-rope)" stroke="#846246" stroke-width="4.1"/>
+    <path d="m529 557 171-19v13l-170 20-46-18v-9Z" fill="#966b4b" stroke="#785640" stroke-width="3.5"/>
+    <path d="m512 531 45 22m-27-25 44 23m-26-26 44 24m-24-27 44 24m-25-26 45 23m-26-26 45 24m-25-26 42 23m-27-25 43 21m-170-3 176-17m-169 23 178-19m-164 23 176-19" fill="none" stroke="#a68962" stroke-width="2.3" opacity=".72"/>
+  </g>
+
+  <g id="dadi" transform="translate(995 602)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <g id="dadi-feet">
+      <path d="M-37-111q-9 47-9 90 15 10 35 4l15-85m13 2 3 81q28 13 41-3l-6-84Z" fill="#c5aeb2" stroke="#946f7b" stroke-width="4.2"/>
+      <path d="M-48-25q13 3 30 1l6 15q-3 10-31 10-17-1-15-8Zm66 3q17 5 35-1l12 12q4 11-24 12-24 1-27-10Z" fill="#834f49" stroke="#69453f" stroke-width="4.2"/>
+    </g>
+    <path d="M-58-179q17-24 53-23 39-6 61 13 21 21 15 72l5 29q-68 26-143 5l9-43q-6-30 0-53Z" fill="url(#bibi-plum)" stroke="#845f73" stroke-width="5"/>
+    <path d="M-57-97q61 21 125-5m-77-66-6 60m61-63 5 62" fill="none" stroke="#caa5b1" stroke-width="3.8"/>
+    <path d="M-45-184q14 26 57 42 26-5 49-26-28-18-55-23-33-3-51 7Z" fill="#d2a5ac" stroke="#a3798b" stroke-width="3.6"/>
+    <g id="dadi-head">
+      <path d="M-60-222q-12-40 9-68 17-23 51-26 39-6 59 24 17 24 13 65l-8 32q-28 17-61 10-48 3-68-18Z" fill="url(#bibi-plum)" stroke="#876277" stroke-width="4.9"/>
+      <path d="M-44-253q2-37 42-46 39-4 57 32 10 22-5 53-17 28-45 29-39-1-52-34-5-17 3-34Z" fill="url(#bibi-skin)" stroke="#9e735f" stroke-width="3.6"/>
+      <path d="M-47-260q4-31 39-40 40-7 61 28-19-18-42-15-21 19-58 27Z" fill="#d9cbc1" stroke="#aa9695" stroke-width="3"/>
+      <path d="M-44-265q19-18 34-24m31 4q13 4 23 12" fill="none" stroke="#f0d9cc" stroke-width="3.3"/>
+      <path d="M-49-243q3 41 39 64-30 11-53-10-9-21-2-50Zm103-22q23 28 14 68-21 16-44 17 21-27 30-85Z" fill="#ba8f9c" stroke="#997583" stroke-width="3.6"/>
+      <path d="M-44-269q16-34 54-34m-58 91q11 22 30 26" fill="none" stroke="#d5adb5" stroke-width="4.5"/>
+      <g id="dadi-eyes" fill="#5f433c"><ellipse cx="-22" cy="-247" rx="4.9" ry="5.7"/><ellipse cx="20" cy="-246" rx="4.9" ry="5.7"/></g>
+      <path id="dadi-lids" d="M-27-247q5 6 11 0m30 1q5 5 12 0" fill="none" stroke="#754c43" stroke-width="2.6" opacity="0"/>
+      <g fill="none" stroke="#79534d" stroke-width="2.9"><rect x="-38" y="-258" width="29" height="21" rx="8"/><rect x="5" y="-257" width="30" height="21" rx="8"/><path d="M-9-247q7-5 14 1m30-2 9-4"/></g>
+      <path d="M-5-246q-6 14 3 18l5-2m-26 7-8 3m58-4 7 3" fill="none" stroke="#aa7058" stroke-width="2.4"/>
+      <path id="dadi-mouth" d="M-12-218q12 3 25-2-4 17-14 16-9-2-11-14Z" fill="#86524d"/>
+    </g>
+  </g>
+
+  <g id="mehar" transform="translate(408 625)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <g id="mehar-feet">
+      <path d="M-43-89q-4 32-1 66 13 10 30-1l15-66m7 2 8 66q19 11 34-4l-6-66Z" fill="#517b79" stroke="#456c65" stroke-width="4.1"/>
+      <path d="M-47-27q18 6 31 0l1 13q-5 10-32 11-15 0-14-8Zm61 1q21 7 34-1l13 13q5 10-20 11-24 1-29-10Z" fill="#79533e" stroke="#694838" stroke-width="3.7"/>
+    </g>
+    <path d="M-50-154q17-26 55-25 36-1 50 23l10 62-4 18q-57 15-121-3l-3-19Z" fill="url(#mehar-gold)" stroke="#ac773f" stroke-width="4.7"/>
+    <path d="M-47-86q49 19 102 2m-92-47q-6 23-5 35m80-38 9 37" fill="none" stroke="#f6d996" stroke-width="3.5"/>
+    <path d="M-52-154q31 15 58 25 35-7 54-15l4-12q-24 11-51 13-33-5-65-22Z" fill="#f0ca6b" stroke="#bc8949" stroke-width="2.8"/>
+    <g id="mehar-head">
+      <path d="M-51-192q-22-37-5-67 16-30 55-30 31-2 51 25 18 24 10 71-13 27-34 37-42 3-77-12Z" fill="url(#mehar-gold)" stroke="#b08750" stroke-width="4.5"/>
+      <path d="M-46-229q-6-35 27-47 27-9 52 9 24 19 21 45-2 32-25 45-35 12-61-14-14-14-14-38Z" fill="url(#skin)" stroke="#a97556" stroke-width="3.7"/>
+      <path d="M-45-233q-4-30 25-43 29-8 51 10-15-3-23-12-11 19-53 45Z" fill="#493c3a"/>
+      <path d="M-52-246q-22 45 0 70 27 16 54 16-31-19-46-64Zm81 92q40-8 40-67-6-36-31-51 17 25 17 49-4 45-26 69Z" fill="#e8bd61" stroke="#bd944f" stroke-width="3.5"/>
+      <path d="M-57-246q-4-26 26-39m74 16q13 15 17 37m-108 39q5 17 25 22" fill="none" stroke="#f9da83" stroke-width="4.1"/>
+      <path d="M-36-232q7-6 14-3m31-1q8-6 16-2" fill="none" stroke="#805840" stroke-width="2.8"/>
+      <g id="mehar-eyes" fill="#563e37"><ellipse cx="-25" cy="-220" rx="5.6" ry="7.5"/><ellipse cx="20" cy="-219" rx="5.7" ry="7.4"/><circle cx="-23" cy="-222" r="1.7" fill="#fff2d6"/><circle cx="22" cy="-221" r="1.7" fill="#fff2d6"/></g>
+      <path id="mehar-lids" d="M-31-219q6 5 12-1m32 1q8 5 14-1" fill="none" stroke="#785641" stroke-width="2.8" opacity="0"/>
+      <path d="M-5-217q-5 11 4 13l5-1" fill="none" stroke="#ab7256" stroke-width="2.4"/>
+      <ellipse cx="-28" cy="-203" rx="7" ry="3.5" fill="#e7966e"/><ellipse cx="26" cy="-203" rx="7" ry="3.5" fill="#e7966e"/>
+      <path id="mehar-mouth" d="M-11-195q11 4 22-1-3 17-13 16-8-1-9-15Z" fill="#894f47"/>
+    </g>
+  </g>
+
+  <g id="boy" transform="translate(720 626)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
+    <g id="boy-feet">
+      <path d="M-45-91q-5 30-4 65 22 12 41 1l10-67m8 3 10 68q18 8 34-6l-7-64Z" fill="#dec9a7" stroke="#a89477" stroke-width="4.1"/>
+      <path d="M-52-26q15 4 36 0l2 12q-6 13-34 11-17 0-19-8Zm69 3q18 4 37-3l12 14q0 9-22 9-22 3-28-7Z" fill="#765744" stroke="#644939" stroke-width="3.7"/>
+    </g>
+    <path d="M-53-153q7-29 50-28 45-2 57 26l12 67q-63 24-126 5l-3-16Z" fill="url(#sidak-teal)" stroke="#4b7770" stroke-width="4.8"/>
+    <path d="M-50-93q46 18 104 1m-44-80 2 39m-47-11q-2 23-8 37" fill="none" stroke="#a7bba5" stroke-width="3.4"/>
+    <path d="M-14-177q12 13 26 1" fill="none" stroke="#3e6f69" stroke-width="4.1"/>
+    <circle cx="12" cy="-156" r="2.8" fill="#dfc58c"/><circle cx="12" cy="-143" r="2.8" fill="#dfc58c"/>
+    <g id="boy-head">
+      <path d="M-49-240q10-32 42-33 39-2 55 32 10 24-2 46-13 21-40 24-33 1-48-21-14-17-7-48Z" fill="url(#skin)" stroke="#a37255" stroke-width="4"/>
+      <path d="M-57-233q-8-37 14-54 7-11 26-13 12-16 26-10 8 0 11 15 27 2 35 23 5 13-3 36-41-10-58-23-10 21-51 29Z" fill="url(#sidak-teal)" stroke="#527b69" stroke-width="4.5"/>
+      <path d="M-54-269q22-15 49-16 21 5 52 24m-89 12q23-1 36-19 21 19 47 19m-53-52q12-4 26 2" fill="none" stroke="#a9bc99" stroke-width="4.0"/>
+      <path d="M-34-231q9-6 16-3m29 0q8-4 15 1" fill="none" stroke="#805942" stroke-width="2.8"/>
+      <g id="boy-eyes" fill="#563f39"><ellipse cx="-22" cy="-218" rx="5.7" ry="7.4"/><ellipse cx="20" cy="-219" rx="5.8" ry="7.1"/><circle cx="-24" cy="-220" r="1.7" fill="#fff1d6"/><circle cx="18" cy="-221" r="1.7" fill="#fff1d6"/></g>
+      <path id="boy-lids" d="M-29-218q6 5 13-1m29 0q6 5 13-1" fill="none" stroke="#795742" stroke-width="2.8" opacity="0"/>
+      <path d="M-2-218q-6 10 0 14l5-1" fill="none" stroke="#a9755b" stroke-width="2.5"/>
+      <ellipse cx="-29" cy="-201" rx="7.2" ry="3.8" fill="#e4996e"/><ellipse cx="25" cy="-201" rx="7" ry="3.6" fill="#e4996e"/>
+      <path id="boy-mouth" d="M-13-194q12 4 23-2-3 17-12 17-9-2-11-15Z" fill="#875149"/>
+    </g>
+  </g>
+
+  <g id="arms"></g>
+  <g id="bundle" transform="translate(590 525)" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+    <path d="M-99-12Q-73-22-43-17L89-16q19-1 19 9-2 7-18 9-87 2-181 0-11-3-8-14Z" fill="#a97850" stroke="#7e5941" stroke-width="3.9"/>
+    <path d="M-92-1q52-10 110-6l68 2q20 2 19 10-4 11-27 11l-164 1q-13-2-6-18Z" fill="#c59864" stroke="#8b654a" stroke-width="3.6"/>
+    <path d="M-95 10q86-2 176-1 27-1 25 8-4 9-25 9l-165-1q-15-1-11-15Z" fill="#b6885c" stroke="#8b654b" stroke-width="3.6"/>
+    <path d="M-86-11q52-8 100-2l76 1m-170 20q90-8 170-3m-166 12q85-2 174 0" fill="none" stroke="#e1b880" stroke-width="2.9"/>
+    <g id="bundle-cord" fill="none" stroke="#b47358" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-10-17q8 20 2 42m4-42q8 17 2 41m9-42q7 24 0 42" stroke-width="4.7"/>
+      <path d="M0-16Q-26-35-22-41q11-6 25 19 9-28 20-19 5 11-19 24l19 7" stroke-width="3.6"/>
+    </g>
+  </g>
+  <g id="mehar-stick" opacity="0"><use id="mehar-stick-left" href="#stick-left"/><use id="mehar-stick-right" href="#stick-right"/></g>
+  <g id="boy-stick" opacity="0"><use id="boy-stick-left" href="#stick-left"/><use id="boy-stick-right" href="#stick-right"/></g>
+  <g id="snap-fibers" opacity="0" stroke="#fde0a9" stroke-width="3" stroke-linecap="round">
+    <path d="M-3-5-7-15m10 9 3-12m-7 24 3 10m7-10 8 7m-24-9-10 6"/>
+  </g>
+
+  <ellipse id="ball-shadow" cx="685" cy="624" rx="37" ry="12" fill="url(#contact-shadow)"/>
+  <g id="ball" transform="translate(685 461)">
+    <circle r="28" fill="url(#ball-color)" stroke="#ad633e" stroke-width="3.3"/>
+    <path d="M-26-6q19 4 35 28m-24-44q25 13 35 36m-10-34q5-2 9-1" fill="none" stroke="#ffd383" stroke-width="4.9" stroke-linecap="round"/>
+    <ellipse cx="-10" cy="-14" rx="7" ry="4.3" fill="#fff0af" opacity=".5" transform="rotate(-22 -10 -14)"/>
+  </g>
+  <g id="hands"></g>
+  <path d="M0 0h1280v720H0Z" filter="url(#illustration-grain)" opacity=".49" pointer-events="none"/>
+</svg>
