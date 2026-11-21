@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">A tortoise and two geese beside a pond and above the Punjab countryside</title>
+  <defs>
+    <linearGradient id="pond-sky-fill" x2="0" y2="1">
+      <stop stop-color="#83bec2"/>
+      <stop offset=".52" stop-color="#b6d3c2"/>
+      <stop offset="1" stop-color="#f7e1a7"/>
+    </linearGradient>
+    <linearGradient id="pond-meadow" x2=".12" y2="1">
+      <stop stop-color="#acba75"/>
+      <stop offset=".58" stop-color="#b7ad65"/>
+      <stop offset="1" stop-color="#947b51"/>
+    </linearGradient>
+    <linearGradient id="pond-water-fill" x2=".25" y2="1">
+      <stop stop-color="#97c2b0"/>
+      <stop offset=".49" stop-color="#7baaa6"/>
+      <stop offset="1" stop-color="#5c8e96"/>
+    </linearGradient>
+    <linearGradient id="pond-silt" x2=".14" y2="1">
+      <stop stop-color="#d8bd86"/>
+      <stop offset=".55" stop-color="#c9a673"/>
+      <stop offset="1" stop-color="#ae8b63"/>
+    </linearGradient>
+    <linearGradient id="goose-feathers" x2=".25" y2="1">
+      <stop stop-color="#fffae7"/>
+      <stop offset=".55" stop-color="#f5ebd6"/>
+      <stop offset="1" stop-color="var(--goose-shade,#c9c8c2)"/>
+    </linearGradient>
+    <linearGradient id="goose-bill" x2=".38" y2="1">
+      <stop stop-color="#f0c481"/>
+      <stop offset="1" stop-color="#cb8a4b"/>
+    </linearGradient>
+    <linearGradient id="pond-bark" x2="1" y2=".4">
+      <stop stop-color="#755c49"/>
+      <stop offset=".65" stop-color="#a4835c"/>
+      <stop offset="1" stop-color="#c6a579"/>
+    </linearGradient>
+    <radialGradient id="pond-haze">
+      <stop stop-color="#fff3b3" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#fff3b3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pond-shadow">
+      <stop stop-color="#4e483a" stop-opacity=".47"/>
+      <stop offset="1" stop-color="#4e483a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="mustard-dots" patternUnits="userSpaceOnUse" width="38" height="29">
+      <path d="M2 18l5-5m15 11 5-7m-6-9 4-4m9 19 3-5" stroke="#87924f" stroke-width="1.3" stroke-linecap="round" opacity=".76"/>
+      <path d="M5 13h5m13 5h6m-6-13h5m7 13h4" stroke="#f2d980" stroke-width="2.6" stroke-linecap="round"/>
+    </pattern>
+    <clipPath id="pond-tortoise-mask">
+      <rect id="pond-waterline" x="-150" y="-130" width="1750" height="910"/>
+    </clipPath>
+    <g id="pond-reeds" fill="none" stroke-linecap="round">
+      <path d="M0 0Q-12-34-14-62M0 0Q0-51 12-89M3 0Q19-39 36-55M-3 0Q-18-21-34-30" stroke="#748450" stroke-width="3.8"/>
+      <path d="M11-85l5-13M-13-60l-5-12M34-53l6-9" stroke="#a98150" stroke-width="6"/>
+      <path d="M1-5q9-25 23-36Q20-17 2-4ZM-5-3q-18-24-32-25Q-28-11-5-3Z" fill="#869359" stroke="none"/>
+    </g>
+    <g id="pond-lily">
+      <path d="M-31 0Q-16-14 10-13Q32-13 39-2Q40 8 20 11Q-7 15-31 5L-12 0Z" fill="#779467" stroke="#628564" stroke-width="2"/>
+      <path d="M7 0Q-9-10-6-23Q4-23 13-12Q9-30 16-34Q23-30 24-13Q31-24 41-24Q38-9 24-1Z" fill="#e6aaad" stroke="#ba8689" stroke-width="1.6"/>
+      <path d="M13-2q-8-8-5-16 7 3 12 10 3-8 12-10-1 10-12 16Z" fill="#f4c4b6"/>
+    </g>
+    <g id="field-home" stroke-linejoin="round">
+      <path d="M-19 4h80v33H-19Z" fill="#d6a978" stroke="#98765d" stroke-width="2"/>
+      <path d="M-28 6Q-5-13 10-18L55-16 68 4Z" fill="#a9795d" stroke="#987058" stroke-width="2.2"/>
+      <path d="M46 4h15v33H46Z" fill="#b38c65"/>
+      <path d="M0 18h12v19H0Zm27-4h10v10H27Z" fill="#706e62"/>
+      <path d="M-15 10h70M-20 32h76" stroke="#edc794" stroke-width="1.7" opacity=".8"/>
+    </g>
+    <g id="field-tree" stroke-linecap="round">
+      <path d="M0 39q3-19 1-42" stroke="#8c7959" stroke-width="4.7"/>
+      <path d="M-24 6q-11-17 5-25 3-14 21-13 11-9 22 5 19 3 17 19 7 14-9 20Q8 17-8 14-17 15-24 6Z" fill="#81995f" stroke="#728a56" stroke-width="1.8"/>
+      <path d="M-20-6Q-13-21 8-24q16-3 22 12Q12-19 3-11Z" fill="#a8ad68" opacity=".75"/>
+    </g>
+    <g id="goose-pattern" stroke-linejoin="round" stroke-linecap="round">
+      <g data-wing="far">
+        <path d="M33-80Q8-104-33-113Q-70-122-115-115Q-125-112-113-104Q-125-107-127-100Q-119-86-87-79Q-50-60-15-61Q23-57 33-80Z" fill="url(#goose-feathers)" stroke="#818980" stroke-width="3.5"/>
+        <path d="M-107-103Q-58-96-25-87q-24 1-65-5" fill="none" stroke="#a9b1aa" stroke-width="3" opacity=".72"/>
+      </g>
+      <g data-feet="legs" fill="#cd965c" stroke="#9c714d" stroke-width="2">
+        <path d="M-16-46L-15-7 5-2Q9 2 1 5L-22 4Q-27 0-24-6L-26-46Z"/>
+        <path d="M11-43L13-9 32-5Q42 0 29 4L7 4Q2 0 3-8L1-43Z"/>
+      </g>
+      <path data-neck="edge" fill="none" stroke="#747e78" stroke-width="34"/>
+      <path data-neck="fill" fill="none" stroke="url(#goose-feathers)" stroke-width="28"/>
+      <path d="M-101-63Q-79-66-63-77Q-12-109 35-86Q60-76 63-57Q43-35-4-33Q-55-31-88-46L-117-53Z" fill="url(#goose-feathers)" stroke="#747e78" stroke-width="3.6"/>
+      <path d="M-87-51q35 17 78 11 39-2 59-17" fill="none" stroke="#fdf1d6" stroke-width="3.3" opacity=".68"/>
+      <g data-wing="near">
+        <path d="M28-79Q1-110-42-117Q-79-122-126-118Q-141-113-124-104L-119-102Q-130-101-129-96Q-122-87-99-83Q-106-81-99-75Q-81-65-52-62Q-16-50 16-63Q33-69 28-79Z" fill="url(#goose-feathers)" stroke="#798580" stroke-width="3.6"/>
+        <path d="M-113-108q32-1 59 7m-57 8q29-1 53 6m-35 5q27 1 46 8" fill="none" stroke="#a6ada5" stroke-width="2.5" opacity=".74"/>
+      </g>
+      <g data-head="head">
+        <path data-jaw="jaw" d="M16 1Q28 4 42 0Q38 9 24 9L15 6Z" fill="#d19859" stroke="#9a6e48" stroke-width="2.2"/>
+        <path d="M-24-5Q-25-23-7-28Q11-33 23-21Q32-14 27 3Q21 17 1 18Q-19 16-24-5Z" fill="url(#goose-feathers)" stroke="#747e78" stroke-width="3.2"/>
+        <path d="M18-7Q29-10 41-5Q46-3 42 0Q30 5 16 1Z" fill="url(#goose-bill)" stroke="#9a6e48" stroke-width="2.1"/>
+        <ellipse data-eye="eye" cx="8" cy="-13" rx="3.9" ry="5" fill="#3c4845"/>
+        <circle data-glint="glint" cx="9.2" cy="-14.6" r="1.35" fill="#fff5d5"/>
+        <path data-lid="lid" d="M4-13q4 5 8 0" fill="none" stroke="#566862" stroke-width="2" opacity="0"/>
+        <circle cx="26" cy="-4" r="1.2" fill="#995d42" stroke="none"/>
+        <circle data-beak="contact" cx="42" cy="0" r="1" visibility="hidden"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="pond-sky" data-camera-depth="-.14">
+    <rect x="-85" y="-60" width="1450" height="800" fill="url(#pond-sky-fill)"/>
+    <ellipse cx="440" cy="228" rx="370" ry="252" fill="url(#pond-haze)"/>
+    <circle cx="441" cy="207" r="47" fill="#ffe6a5" opacity=".81"/>
+    <g id="pond-clouds" fill="#fff4d7" opacity=".73">
+      <path d="M-65 159q55-22 110-11 34-31 81-11 34-13 72 17 28 0 55 10Q92 187-65 170Z"/>
+      <path d="M551 122q43-18 77-10 29-29 73-14 27-15 59 6 45-3 81 20-141 17-290 6Z"/>
+      <path d="M931 189q36-16 65-8 29-28 61-15 25-14 57 1 51-5 93 18-113 16-276 10Z"/>
+      <path d="M182 268q52-16 105-9 31-13 72 0 42 1 65 11-136 12-242 2Z" opacity=".6"/>
+    </g>
+  </g>
+
+  <g id="pond-landscape">
+    <g data-camera-depth="-.19">
+      <path d="M-86 417Q49 332 216 351Q370 367 456 321Q608 277 751 333Q876 369 1012 329Q1142 304 1371 379V544H-86Z" fill="#91a48a"/>
+      <path d="M-86 452Q79 401 188 406Q279 386 387 401Q532 437 676 382Q866 343 984 389Q1112 404 1371 367V540H-86Z" fill="#a7ae78"/>
+      <path d="M-75 452Q97 416 219 427M734 404q174-21 303 9m-623 10 107-6" fill="none" stroke="#d7ce92" stroke-width="3" stroke-linecap="round" opacity=".73"/>
+      <use href="#field-home" transform="translate(822 390) scale(.49)"/>
+      <use href="#field-home" transform="translate(892 392) scale(.38)"/>
+      <use href="#field-tree" transform="translate(775 391) scale(.53)"/>
+      <use href="#field-tree" transform="translate(949 397) scale(.63)"/>
+      <use href="#field-tree" transform="translate(262 404) scale(.59)"/>
+    </g>
+    <path d="M-78 458Q122 420 272 444Q399 453 508 432Q695 412 898 434Q1114 459 1367 423V791H-78Z" fill="url(#pond-meadow)"/>
+    <path d="M-72 584Q111 531 241 527Q410 532 536 568Q704 616 849 613Q1110 582 1367 517V790H-72Z" fill="url(#pond-silt)"/>
+    <path d="M-70 586Q99 548 243 543Q393 543 512 578M-71 689Q173 631 367 657T746 717m218-31q225-56 402-64" fill="none" stroke="#ebca8c" stroke-width="3.6" stroke-linecap="round" opacity=".61"/>
+
+    <g id="small-pool">
+      <path d="M246 550Q329 494 542 487Q686 472 849 509Q965 547 948 592Q913 642 740 656Q539 678 380 625Q272 613 246 550Z" fill="#b59666" stroke="#a78a5d" stroke-width="3"/>
+      <path d="M342 559Q457 521 596 523Q792 517 869 557Q902 580 870 599Q787 638 554 620Q403 618 342 579Z" fill="#aaa378" opacity=".66"/>
+      <path d="M577 566Q679 542 788 557Q856 560 847 577Q827 608 686 604Q592 606 577 586Z" fill="url(#pond-water-fill)" stroke="#829d89" stroke-width="2.5"/>
+      <path d="M618 575q62-10 109-6m-13 19q75 0 103-11" fill="none" stroke="#d1dcae" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M263 554l21-11 29 8 23-7 32 18 16-4m-76 35 27-18 29 4 17 16 28 3m-63 34 28-19 11-29m2-45 37 9 21-13m-25 86 19-23 26 2 17 17 38 2m-18-77-11 26 17 21m290-68 16-14 31 2m-62 101 29-17 28 7m-47-40 57 1 13-24 25-4m-23 77 16-22 25-13" fill="none" stroke="#9c7956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    </g>
+
+    <g id="new-pond" visibility="hidden">
+      <path d="M262 554Q319 506 485 484Q708 455 872 502Q1001 540 1008 587Q1017 632 930 654Q739 698 493 664Q331 648 275 604Q244 579 262 554Z" fill="#ae986b" stroke="#ab895b" stroke-width="3"/>
+      <path d="M273 554Q331 512 489 492Q694 471 859 508Q973 541 982 580Q994 624 915 644Q744 684 497 653Q341 641 284 596Q251 573 273 554Z" fill="url(#pond-water-fill)" stroke="#789a8b" stroke-width="2.25"/>
+      <path d="M304 552Q378 514 509 510Q608 505 655 502m-328 94q100 42 239 38m75 14q171 10 280-24m-159-108q114 19 167 52" fill="none" stroke="#d6deb2" stroke-width="4" stroke-linecap="round" opacity=".53"/>
+      <path d="M473 545q52-12 96-7m37 12q60-4 101 1m57 31q71 4 108-7m-450 40q52 9 102 5m94 22q64 4 106-1" fill="none" stroke="#dce5be" stroke-width="2.4" stroke-linecap="round" opacity=".64"/>
+      <use href="#pond-lily" transform="translate(416 584) rotate(-7) scale(.83)"/>
+      <use href="#pond-lily" transform="translate(861 607) rotate(13) scale(.66)"/>
+      <use href="#pond-lily" transform="translate(812 541) rotate(-15) scale(.41)"/>
+    </g>
+    <g id="pond-rushes">
+      <use href="#pond-reeds" transform="translate(217 582) rotate(-10) scale(.84)"/>
+      <use href="#pond-reeds" transform="translate(248 623) rotate(17) scale(.75)"/>
+      <use href="#pond-reeds" transform="translate(970 541) rotate(14) scale(.83)"/>
+      <use href="#pond-reeds" transform="translate(1057 650) rotate(-13) scale(1.02)"/>
+      <use href="#pond-reeds" transform="translate(114 646) rotate(13) scale(.85)"/>
+      <path d="M147 615q16-9 31 0-11 10-31 8Zm921 40q17-12 34-3-2 10-22 13Zm-921 64q23-18 50-8l-8 10Z" fill="#aa9671" stroke="#937d5c" stroke-width="2"/>
+    </g>
+    <g id="pond-shade" opacity="0">
+      <ellipse cx="477" cy="632" rx="316" ry="40" fill="#6c7654" opacity=".2"/>
+      <path d="M258 603Q303 547 291 476Q286 420 259 363L213 306 233 292Q281 322 309 374Q317 306 350 264L371 268Q344 325 348 394Q381 333 434 316L449 333Q399 357 377 417Q367 456 373 506Q382 570 428 597Q392 604 370 592Q361 611 386 620Q341 628 311 598Q289 615 248 617Z" fill="url(#pond-bark)" stroke="#765e48" stroke-width="3.5"/>
+      <path d="M318 557q40-80 21-158m-21-13q-14-42-51-62m73 153q-1 54 26 94m-82 19 22-12" fill="none" stroke="#d4af77" stroke-width="4.2" opacity=".6" stroke-linecap="round"/>
+      <path d="M-61 249Q-46 195 35 199Q55 149 111 162Q146 114 212 152Q258 101 314 140Q372 115 415 157Q474 148 480 197Q533 196 570 237Q577 284 522 308Q506 346 446 328Q415 357 362 338Q312 367 262 329Q200 354 161 323Q116 347 68 319Q3 332-52 298Z" fill="#7f9561" stroke="#73885a" stroke-width="3.2"/>
+      <path d="M-32 257q51-32 96-19 37-34 88-24 45-42 109-20 47-38 104-12 58-22 96 22 52-4 74 38-92-19-161 10-70-16-115 13-59-17-103 12-57-26-96 0-54-28-92-20Z" fill="#a4ad6b" opacity=".71"/>
+      <path d="M38 296q47-22 85-3 44-18 81-5m106 26q46-25 90-15m-161-89q37-20 71-12" fill="none" stroke="#c1c082" stroke-width="3.5" stroke-linecap="round" opacity=".63"/>
+    </g>
+  </g>
+
+  <g id="field-landscape" visibility="hidden">
+    <g id="fields-far" data-camera-depth="-.19">
+      <path d="M-310 477Q-67 405 109 417Q217 383 354 400Q524 418 612 377Q800 346 967 404Q1143 412 1360 381L1660 395V777H-310Z" fill="#90a780"/>
+      <path d="M-310 494Q-62 433 151 444Q316 428 457 437Q626 407 746 436Q883 433 1025 399Q1254 393 1660 443V777H-310Z" fill="#afbb76"/>
+    </g>
+    <g id="field-scroll">
+      <path d="M-385 544Q-120 489 182 481Q442 449 682 488Q915 463 1088 442Q1349 464 1650 530V797H-385Z" fill="#beae56"/>
+      <path d="M-385 565Q-64 513 219 518Q485 493 763 534Q1082 482 1320 514L1630 571V797H-385Z" fill="#ccb863"/>
+      <path d="M-385 565Q-64 513 219 518Q485 493 763 534Q1082 482 1320 514L1630 571V797H-385Z" fill="url(#mustard-dots)"/>
+      <path d="M-245 674Q-72 603 118 585Q325 574 496 615Q688 679 896 632Q1120 567 1360 577L1650 601V786Q1388 710 1226 719Q1058 691 898 719Q656 763 482 687Q330 626 113 662Q-55 685-245 751Z" fill="#d5b281"/>
+      <path d="M-216 668Q-7 606 130 603Q337 589 483 632Q709 696 916 648Q1153 584 1363 596" fill="none" stroke="#eed19c" stroke-width="3.4" stroke-linecap="round"/>
+      <g>
+        <use href="#field-home" transform="translate(128 488) scale(.71)"/>
+        <use href="#field-home" transform="translate(193 499) scale(.56)"/>
+        <use href="#field-tree" transform="translate(107 490) scale(.89)"/>
+        <use href="#field-tree" transform="translate(282 504) scale(.77)"/>
+        <use href="#field-home" transform="translate(476 467) scale(.53)"/>
+        <use href="#field-home" transform="translate(522 477) scale(.43)"/>
+        <use href="#field-tree" transform="translate(461 466) scale(.59)"/>
+        <use href="#field-home" transform="translate(972 479) scale(.63)"/>
+        <use href="#field-home" transform="translate(1027 470) scale(.54)"/>
+        <use href="#field-tree" transform="translate(948 476) scale(.81)"/>
+        <use href="#field-tree" transform="translate(1123 479) scale(.73)"/>
+        <use href="#field-home" transform="translate(1236 498) scale(.65)"/>
+        <use href="#field-tree" transform="translate(1300 497) scale(.75)"/>
+      </g>
+    </g>
+    <g id="field-near" data-camera-depth=".16">
+      <use href="#pond-reeds" transform="translate(309 677) rotate(14) scale(.66)"/>
+      <use href="#pond-reeds" transform="translate(929 710) rotate(-9) scale(.79)"/>
+      <use href="#pond-reeds" transform="translate(1165 684) rotate(15) scale(.94)"/>
+    </g>
+  </g>
+
+  <g id="children" visibility="hidden">
+    <ellipse cx="494" cy="625" rx="54" ry="15" fill="url(#pond-shadow)"/>
+    <ellipse cx="666" cy="622" rx="56" ry="15" fill="url(#pond-shadow)"/>
+    <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+    <g id="friend-plane"><g id="friend"/><g id="friend-props"/></g>
+  </g>
+  <g id="animal-shadows">
+    <ellipse id="goose-shadow" rx="117" ry="16" fill="url(#pond-shadow)"/>
+    <ellipse id="other-goose-shadow" rx="123" ry="17" fill="url(#pond-shadow)"/>
+    <ellipse id="tortoise-shadow" rx="110" ry="16" fill="url(#pond-shadow)"/>
+  </g>
+  <g id="goose" style="--goose-shade:#c7c8bb"/>
+  <g id="second-goose" style="--goose-shade:#c3c9c9"/>
+  <g id="tortoise-slot" clip-path="url(#pond-tortoise-mask)"/>
+  <g id="carried-stick" stroke-linecap="round" opacity="0">
+    <path id="stick-edge" stroke="#715641" stroke-width="9" fill="none"/>
+    <path id="stick-lit" stroke="#c29e68" stroke-width="3.5" fill="none"/>
+    <circle id="stick-first" r="1" visibility="hidden"/>
+    <circle id="stick-middle" r="1" visibility="hidden"/>
+    <circle id="stick-second" r="1" visibility="hidden"/>
+  </g>
+  <g id="pond-impact" opacity="0" fill="none" stroke="#e4ebce" stroke-linecap="round">
+    <ellipse id="splash-ring" rx="45" ry="12" stroke-width="3.15"/>
+    <ellipse rx="30" ry="7" stroke-width="2.1" opacity=".74"/>
+    <path id="splash-crown" d="M-37 5Q-45-14-58-26M-21 0Q-30-28-22-44M-1 2Q3-26 15-43M17 4Q27-19 51-20M31 6Q49-7 61 1" stroke-width="3.1"/>
+    <g id="splash-droplets" fill="#e8efd6" stroke="none"/>
+  </g>
+  <g id="tortoise-wake" opacity="0" fill="none" stroke="#e3e9c6" stroke-linecap="round">
+    <path d="M-91 2Q-46 24 17 12M-119 15Q-68 33-23 28M-105-6q37 15 62 14" stroke-width="2.65"/>
+  </g>
+</svg>
