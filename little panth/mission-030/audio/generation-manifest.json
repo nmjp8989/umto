@@ -1,0 +1,72 @@
+{
+  "mehar-arrives": {
+    "hash": "c83ceda17baa85add71dea26cef024e20f4cd095ffcb0c8b44d1ce96194805f9",
+    "voice": "Aoede",
+    "text": "ਦੁਪਹਿਰ ਨੂੰ ਮੇਹਰ ਕਾਗਜ਼ ਦੀ ਚੱਕਰੀ ਲੈ ਕੇ ਖੇਤਾਂ ਕੋਲ ਆਈ। ਕੰਧ ਦੀ ਛਾਂ ਵਿੱਚ ਹਰਪ੍ਰੀਤ ਖੜ੍ਹਾ ਸੀ। ਮੇਹਰ ਉਸ ਦੇ ਕੋਲ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-asks": {
+    "hash": "6f2c267f2ceddf73b9303c3b4790c1b82f53ba37b0a0e7603f3e895c4075a9dd",
+    "voice": "Kore",
+    "text": "ਵੇਖੋ, ਮੈਂ ਚਾਰ ਰੰਗਾਂ ਦੀ ਚੱਕਰੀ ਬਣਾਈ ਹੈ। ਪਰ ਇਹ ਘੁੰਮਦੀ ਕਿਉਂ ਨਹੀਂ?",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "a-little-shake": {
+    "hash": "c8bac967fa2952058f8b82697a8b06944f9318a90e0c334662048d04b270ce02",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਨੇ ਡੰਡੀ ਹੌਲੀ ਜਿਹੀ ਹਿਲਾਈ। ਚੱਕਰੀ ਥੋੜ੍ਹੀ ਘੁੰਮੀ ਤੇ ਛੇਤੀ ਰੁਕ ਗਈ। ਉਸ ਨੇ ਡੰਡੀ ਨੂੰ ਫਿਰ ਸਿੱਧਾ ਫੜ ਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "harpreet-notices": {
+    "hash": "f5e22330873b756dbb884abc7fb07f109c5a00b24718eff4ed0fb0b4af7aa0c0",
+    "voice": "Algieba",
+    "text": "ਜ਼ਰਾ ਫਾਟਕ ਵੱਲ ਵੇਖ। ਉਹ ਲਾਲ ਫੀਤਾ ਹਿਲ ਰਿਹਾ ਹੈ। ਆਪਾਂ ਉੱਥੇ ਚੱਲ ਕੇ ਵੇਖੀਏ।",
+    "speaker": "harpreet",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "walk-past-the-wall": {
+    "hash": "bfd6582ebdc5b9382478fd543bbbc2152447f5705d2b0204a90a584f30cf2b3f",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਕੰਧ ਦੇ ਸਿਰੇ ਵੱਲ ਤੁਰ ਪਏ। ਬਾਹਰ ਸਰ੍ਹੋਂ ਦੇ ਫੁੱਲ ਹਵਾ ਵਿੱਚ ਝੂਲ ਰਹੇ ਸਨ। ਮੇਹਰ ਨੇ ਚੱਕਰੀ ਉੱਚੀ ਕੀਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "colors-spin": {
+    "hash": "0555c7fde7473f3ca5875068af6e46f8226a7699ee1fd4c6805947cdb6ff88b0",
+    "voice": "Aoede",
+    "text": "ਹਵਾ ਦਾ ਹੌਲਾ ਜਿਹਾ ਬੁੱਲਾ ਆਇਆ। ਚੱਕਰੀ ਹੌਲੀ ਹੌਲੀ ਘੁੰਮੀ। ਫਿਰ ਜਦੋਂ ਹਵਾ ਤੇਜ਼ ਹੋਈ, ਚਾਰੇ ਰੰਗ ਰਲ ਗਏ ਜਾਪਦੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-is-surprised": {
+    "hash": "ac351ad7a8337cd0cf12adf2bae6455b0ca066f5a7b4aa22fc3b1c8842bbfc00",
+    "voice": "Kore",
+    "text": "ਇੱਥੇ ਤਾਂ ਇਹ ਆਪਣੇ ਆਪ ਘੁੰਮਦੀ ਹੈ! ਕੰਧ ਵਾਲੇ ਪਾਸੇ ਮੁੜ ਕੇ ਵੇਖਾਂ?",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "test-the-shelter": {
+    "hash": "1532254125b903c90cfa2e063e3fa1c43baae079e88e5112c998f1664eb20276",
+    "voice": "Aoede",
+    "text": "ਮੇਹਰ ਇੱਕ ਕਦਮ ਪਿੱਛੇ ਗਈ। ਚੱਕਰੀ ਹੌਲੀ ਹੋ ਗਈ। ਉਸ ਨੇ ਮੁੜ ਅੱਗੇ ਕਦਮ ਰੱਖਿਆ ਤਾਂ ਚੱਕਰੀ ਫਿਰ ਘੁੰਮਣ ਲੱਗ ਪਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mehar-understands": {
+    "hash": "0c693824874c2a3fc6434a60086f795c58c49807d26cef83fc9b81e9fcc93233",
+    "voice": "Kore",
+    "text": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਕੰਧ ਪਿੱਛੇ ਹਵਾ ਘੱਟ ਸੀ। ਮੈਂ ਚੱਕਰੀ ਫੜੀ ਰਹੀ ਤੇ ਹਵਾ ਨੇ ਇਸ ਨੂੰ ਘੁਮਾ ਦਿੱਤਾ।",
+    "speaker": "mehar",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "one-last-turn": {
+    "hash": "7cf1ca4a3a64de834c71a1bac96543d7558975129939fa982b7bcae0bfbb6a68",
+    "voice": "Aoede",
+    "text": "ਦੋਵੇਂ ਹੱਸ ਪਏ। ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਵਿੱਚ ਚੱਕਰੀ ਦੇ ਰੰਗ ਚਮਕ ਰਹੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
