@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">The little red hen grows wheat and shares a meal in a Punjabi courtyard</title>
+  <defs>
+    <radialGradient id="hen-ground-shadow">
+      <stop stop-color="#503725" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#503725" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hen-soil" x2=".1" y2="1">
+      <stop stop-color="#9c653f"/>
+      <stop offset="1" stop-color="#68462f"/>
+    </linearGradient>
+    <linearGradient id="hen-wicker" x2=".7" y2="1">
+      <stop stop-color="#dfa657"/>
+      <stop offset=".55" stop-color="#bd813d"/>
+      <stop offset="1" stop-color="#88502e"/>
+    </linearGradient>
+    <linearGradient id="hen-stone" x2=".18" y2="1">
+      <stop stop-color="#a99d89"/>
+      <stop offset="1" stop-color="#655a50"/>
+    </linearGradient>
+    <linearGradient id="hen-plate-glaze" x2=".25" y2="1">
+      <stop stop-color="#b8d2bd"/>
+      <stop offset="1" stop-color="#6d998b"/>
+    </linearGradient>
+    <g id="hen-dish-shape">
+      <ellipse cy="4" rx="43" ry="13" fill="#654b3a" opacity=".31"/>
+      <path d="M-43 0Q-38 12-18 15Q0 18 18 15Q38 12 43 0Z" fill="#487d75" stroke="#455a49" stroke-width="2"/>
+      <ellipse rx="44" ry="12" fill="url(#hen-plate-glaze)" stroke="#4b6a58" stroke-width="2"/>
+      <ellipse cy="1" rx="32" ry="7.4" fill="#e1d7aa" stroke="#749883" stroke-width="1.4"/>
+    </g>
+    <g id="hen-roti-shape">
+      <ellipse cy="2" rx="29" ry="10" fill="#82502f" stroke="#70502d" stroke-width="1.5"/>
+      <path d="M-29 0Q-27-7-12-10Q3-12 18-8Q29-6 29 0Q24 8 8 9Q-7 10-20 6Q-27 5-29 0Z" fill="#e7b973"/>
+      <path d="M-24-1Q-10-8 4-7M-15 5Q-3 9 11 6M12-5Q22-5 25-1" fill="none" stroke="#f8d896" stroke-width="1.3" stroke-linecap="round"/>
+      <g fill="#9e6439" opacity=".76"><ellipse cx="-13" rx="2.8" ry="1.25"/><ellipse cx="-5" cy="-4" rx="1.5" ry=".85"/><ellipse cx="5" cy="2" rx="3.1" ry="1.3"/><ellipse cx="16" cy="-3" rx="1.8" ry="1"/><ellipse cx="18" cy="3" rx="1.4" ry=".75"/></g>
+    </g>
+    <g id="hen-wheat-shape">
+      <path d="M0 0Q-6-43 2-107" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/>
+      <path d="M-2-25Q-26-48-20-65Q-13-46-1-33ZM-2-41Q14-62 17-70Q18-55-2-34Z" fill="currentColor" stroke="#534927" stroke-width=".9"/>
+      <g data-ear="" fill="#e9bc5e" stroke="#9a682c" stroke-width=".9">
+        <path d="M2-79Q-16-90-11-102Q1-101 3-88Q9-101 17-97Q16-86 2-79Z"/>
+        <path d="M2-91Q-10-100-8-111Q1-109 3-99Q9-111 16-111Q16-99 2-91Z"/>
+        <path d="M3-103Q-6-113 4-125Q13-115 3-103Z"/>
+        <path d="M3-127L6-133M-8-112L-12-118M16-111L20-117" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g id="hen-kernel-shape">
+      <path d="M-4 1Q-6-2-2-3.9Q2-6 5-3Q7 1 3 3Q-2 5-4 1Z" fill="#efbf69" stroke="#815126" stroke-width=".9"/>
+      <path d="M-2 2Q2 0 4-2" fill="none" stroke="#9a5b2d" stroke-width=".75"/>
+    </g>
+  </defs>
+  <g data-camera-depth="-.22">
+    <rect x="-120" y="-90" width="1520" height="900" fill="#c9a780"/>
+    <image href="../mission-003/art/banyan.webp" x="-45" y="-35" width="1370" height="790" preserveAspectRatio="xMidYMid slice"/>
+    <image id="hen-yard" href="../mission-003/art/courtyard.webp" x="-45" y="-35" width="1370" height="790" preserveAspectRatio="xMidYMid slice"/>
+    <rect id="hen-overcast" x="-78" y="-60" width="1436" height="840" fill="#546f7b" opacity="0"/>
+  </g>
+  <g id="hen-plot">
+    <path d="M664 588Q694 569 761 572Q900 564 981 589Q1025 616 999 643Q946 678 753 667Q643 665 635 633Q631 606 664 588Z" fill="#bd915d" opacity=".76"/>
+    <path d="M671 590Q757 566 893 579Q964 583 989 606Q1013 628 966 647Q903 669 752 657Q642 651 650 621Q652 604 671 590Z" fill="url(#hen-soil)" stroke="#916543" stroke-width="2"/>
+    <path id="hen-wet-soil" d="M671 590Q757 566 893 579Q964 583 989 606Q1013 628 966 647Q903 669 752 657Q642 651 650 621Q652 604 671 590Z" fill="#413c2d" opacity="0"/>
+    <path d="M690 604Q790 585 915 602M677 625Q775 610 952 625M731 643Q832 636 935 645" fill="none" stroke="#d5a26d" stroke-opacity=".36" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M699 615l5-2m26 21 5-2m184-25 6 2m-39 35 6-1m62-21 6 1m-178-34 7-1" fill="none" stroke="#4c372a" stroke-opacity=".68" stroke-width="2.9" stroke-linecap="round"/>
+    <ellipse id="hen-furrow" cx="806" cy="620" rx="15" ry="4.3" fill="#432d23" opacity="0"/>
+    <g id="hen-wheat-rows"/>
+  </g>
+  <g id="hen-meal-mat">
+    <ellipse cx="692" cy="626" rx="274" ry="31" fill="url(#hen-ground-shadow)"/>
+    <path d="M486 581H847L944 635Q944 645 924 648H410Q394 644 405 632Z" fill="#ab7054" stroke="#80503e" stroke-width="2.6"/>
+    <path d="M470 598H877M448 611H897M430 624H918M413 637H937" stroke="#e0b277" stroke-width="4" opacity=".69"/>
+    <path d="M495 584L446 641M551 584L513 641M655 584L653 641M760 584L800 641M824 584L885 641" stroke="#733e4d" stroke-width="3" opacity=".66"/>
+  </g>
+  <g id="hen-mill">
+    <ellipse cx="656" cy="611" rx="119" ry="20" fill="url(#hen-ground-shadow)"/>
+    <path d="M624 563H694L695 611Q666 625 619 611Z" fill="#9a663e" stroke="#75513b" stroke-width="2.5"/>
+    <path d="M595 536H720V582Q710 605 657 605Q600 604 595 584Z" fill="url(#hen-stone)" stroke="#5d5147" stroke-width="3"/>
+    <path d="M601 564Q660 587 713 562M604 583Q649 601 686 589" fill="none" stroke="#d4c4a4" opacity=".55" stroke-width="2"/>
+    <ellipse cx="657" cy="535" rx="63" ry="21" fill="#bab19d" stroke="#67584b" stroke-width="3"/>
+    <ellipse cx="657" cy="535" rx="52" ry="16" fill="none" stroke="#948777" stroke-width="1.6"/>
+    <g id="hen-mill-etch" fill="none" stroke="#75695d" stroke-width="3" stroke-linecap="round" opacity=".75">
+      <path d="M-45 0H-28M-32-31l11 11M0-44v17m35-9-13 13M46 0H31M33 32 22 21M0 44V28M-32 33l12-12"/>
+    </g>
+    <ellipse cx="657" cy="535" rx="8" ry="4" fill="#4b4136"/>
+    <path d="M688 574L717 585 732 579 707 569Z" fill="#d7c4a1" stroke="#76624d" stroke-width="2"/>
+    <path id="hen-flour-stream" d="M710 576Q723 583 731 596" fill="none" stroke="#f2dfb4" stroke-width="4" stroke-dasharray="1 4" stroke-linecap="round"/>
+    <use href="#hen-dish-shape" transform="translate(740 601) scale(.72)"/>
+    <ellipse id="hen-flour" cx="740" cy="600" rx="21" ry="6" fill="#f6e7bf" stroke="#c0a77e" stroke-width="1"/>
+  </g>
+  <ellipse id="dadi-shadow" rx="75" ry="14" fill="url(#hen-ground-shadow)"/>
+  <ellipse id="boy-shadow" rx="62" ry="13" fill="url(#hen-ground-shadow)"/>
+  <ellipse id="mehar-shadow" rx="60" ry="13" fill="url(#hen-ground-shadow)"/>
+  <g id="hen-tawa">
+    <ellipse cx="587" cy="610" rx="101" ry="17" fill="url(#hen-ground-shadow)"/>
+    <path d="M520 558Q524 600 542 608H620Q639 591 642 558Z" fill="#a86a47" stroke="#764e39" stroke-width="2.8"/>
+    <path d="M555 600Q552 578 580 574Q607 578 607 600Z" fill="#513d33"/>
+    <path d="M569 599Q565 590 577 584Q578 589 583 590Q586 586 592 580Q604 593 594 600Z" fill="#eab378"/>
+    <ellipse cx="581" cy="557" rx="61" ry="18" fill="#cf9671" stroke="#85563e" stroke-width="2.5"/>
+    <path d="M619 539L666 533Q673 534 671 540L623 546Z" fill="#6c6359" stroke="#453c37" stroke-width="2"/>
+    <ellipse cx="581" cy="543" rx="54" ry="15" fill="#424140" stroke="#333431" stroke-width="3"/>
+    <path d="M539 542Q569 531 607 535" fill="none" stroke="#797770" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <g id="dadi-plane"><g id="dadi"/><g id="dadi-props"/></g>
+  <g id="boy-plane"><g id="boy"/><g id="boy-props"/></g>
+  <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+  <g id="hen-objects">
+    <g id="hen-ball">
+      <ellipse cy="3" rx="21" ry="6" fill="url(#hen-ground-shadow)"/>
+      <g id="hen-ball-spin">
+        <circle r="16.5" fill="#dd895b" stroke="#7a463d" stroke-width="2"/>
+        <path d="M-15-6Q-4 7 13 10M3-16Q12-6 10 13M-11-11Q0-3-3 16" fill="none" stroke="#f6d389" stroke-width="3.3"/>
+      </g>
+    </g>
+    <g id="hen-basket">
+      <ellipse cy="58" rx="50" ry="8" fill="url(#hen-ground-shadow)"/>
+      <path d="M-41 34Q-38 0 0 0Q38 0 41 34" fill="none" stroke="#754525" stroke-width="8" stroke-linecap="round"/>
+      <path d="M-40 33Q-37 0 0 0Q37 0 40 33" fill="none" stroke="#dba765" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cy="32" rx="44" ry="15" fill="#6b422a" stroke="#8b5934" stroke-width="2.5"/>
+      <g id="hen-basket-load">
+        <image href="../assets/wheat/wheat-bundle.svg" x="-32" y="13" width="65" height="38" preserveAspectRatio="none"/>
+        <path d="M-28 31Q-14 26-4 33Q15 20 32 31Q18 37-21 36Z" fill="#e7b959" opacity=".81"/>
+      </g>
+      <path d="M-44 33Q0 50 44 33L34 55Q0 69-34 55Z" fill="url(#hen-wicker)" stroke="#805136" stroke-width="2"/>
+      <path d="M-41 37Q0 53 41 37M-38 45Q0 60 38 45M-35 52Q0 65 35 52M-30 42l3 16m9-12 3 14m9-12 1 14m10-14-1 14m12-15-3 13m15-17-4 14" fill="none" stroke="#f3c077" stroke-width="1.5" opacity=".78"/>
+    </g>
+    <g id="hen-crank">
+      <path id="hen-crank-dark" fill="none" stroke="#514035" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="hen-crank-shine" fill="none" stroke="#b58856" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle id="hen-crank-contact" r="2" visibility="hidden"/>
+    </g>
+    <g id="hen-plate"><use href="#hen-dish-shape"/></g>
+    <g id="hen-roti"><use href="#hen-roti-shape"/></g>
+    <g id="hen-tongs" fill="none" stroke-linecap="round">
+      <path id="hen-tong-near" stroke="#595855" stroke-width="4"/>
+      <path id="hen-tong-far" stroke="#b8b2a2" stroke-width="2.15"/>
+      <circle id="hen-tong-contact" r="2" visibility="hidden"/>
+    </g>
+    <g id="hen-feed">
+      <use href="#hen-dish-shape" transform="scale(.53 .51)"/>
+      <g id="hen-feed-grains">
+        <use href="#hen-kernel-shape" transform="translate(-9 0) scale(.49) rotate(29)"/>
+        <use href="#hen-kernel-shape" transform="translate(5 0) scale(.49) rotate(-11)"/>
+        <use href="#hen-kernel-shape" transform="translate(-2 -3) scale(.51) rotate(20)"/>
+        <use href="#hen-kernel-shape" transform="translate(11 2) scale(.45) rotate(-5)"/>
+        <use id="hen-picked-grain" href="#hen-kernel-shape" transform="translate(0 2) scale(.51) rotate(-11)"/>
+      </g>
+    </g>
+    <g id="hen-animal"/>
+    <g id="hen-seed"><use href="#hen-kernel-shape"/></g>
+    <g id="hen-bite-boy"><path d="M-6 1Q-4-5 2-5L8 1Q5 5-2 4Z" fill="#ecc783" stroke="#93613a" stroke-width="1.3"/></g>
+    <g id="hen-bite-mehar"><path d="M-6 1Q-4-5 2-5L8 1Q5 5-2 4Z" fill="#ecc783" stroke="#93613a" stroke-width="1.3"/></g>
+  </g>
+  <g id="hen-rain" stroke="#d5ebed" stroke-width="1.75" stroke-linecap="round" pointer-events="none"/>
+</svg>
