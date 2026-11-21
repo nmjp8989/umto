@@ -1,0 +1,79 @@
+{
+  "the-blue-cloth": {
+    "hash": "61866f76163b8a4ff5726ccd891c4d5d8f64750cd74b2a777fcb57c1bcad4568",
+    "voice": "Aoede",
+    "text": "ਹਰਪ੍ਰੀਤ ਪਿੰਡ ਦਾ ਦਰਜ਼ੀ ਸੀ। ਇੱਕ ਸਵੇਰ ਉਸ ਦਾ ਦੋਸਤ ਹਾਥੀ ਦੁਕਾਨ ਕੋਲ ਆਇਆ। ਹਰਪ੍ਰੀਤ ਦੇ ਮੇਜ਼ ਉੱਤੇ ਇੱਕ ਨੀਲਾ ਕੱਪੜਾ ਪਿਆ ਸੀ। ਉਸ ਉੱਤੇ ਧੂੜ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "harpreet-wants-to-wash-it": {
+    "hash": "700f3da79e4da7e26d83f48686fdd9123cc493393c1c4e2aa1da873c03656ead",
+    "voice": "Algieba",
+    "text": "ਮੈਂ ਇਸ ਕੱਪੜੇ ਤੋਂ ਥੈਲਾ ਸਿਊਣਾ ਹੈ। ਪਰ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਧੋਣਾ ਪਵੇਗਾ।",
+    "speaker": "harpreet",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "elephant-offers-help": {
+    "hash": "46dd96aea79cde23783846db9aacdbbc72ac7913a657d740d6862c7896a86d5c",
+    "voice": "Fenrir",
+    "text": "ਮੈਂ ਤੇਰੀ ਮਦਦ ਕਰਾਂ? ਤੂੰ ਕੱਪੜਾ ਲੈ ਆ। ਮੈਂ ਟੱਬ ਲੈ ਆਉਂਦਾ ਹਾਂ।",
+    "speaker": "elephant",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "elephant-carries-the-tub": {
+    "hash": "566dfbb6b800b0a1f6432031ac1ab1160d1f19c5b068229b30274c881fe8ecdd",
+    "voice": "Aoede",
+    "text": "ਹਾਥੀ ਨੇ ਸੁੰਡ ਨਾਲ ਟੱਬ ਦਾ ਕੰਡਾ ਫੜਿਆ। ਉਸ ਨੇ ਟੱਬ ਚੁੱਕ ਕੇ ਵਿਹੜੇ ਵਿਚਕਾਰ ਰੱਖਿਆ। ਟੱਬ ਵਿੱਚ ਥੋੜ੍ਹਾ ਜਿਹਾ ਪਾਣੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "cloth-into-the-tub": {
+    "hash": "ee20328f423b841ce3f26b80ece80683bef085b4f48fe990f478c8203b19cd6c",
+    "voice": "Aoede",
+    "text": "ਹਰਪ੍ਰੀਤ ਨੇ ਕੱਪੜਾ ਟੱਬ ਵਿੱਚ ਪਾਇਆ। ਛਪਾਕ! ਪਾਣੀ ਦੀਆਂ ਬੂੰਦਾਂ ਛਿੱਟ ਕੇ ਵਾਪਸ ਟੱਬ ਵਿੱਚ ਡਿੱਗੀਆਂ। ਹਰਪ੍ਰੀਤ ਨੇ ਕੱਪੜਾ ਪਾਣੀ ਵਿੱਚ ਹਿਲਾਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "trunk-sprays-water": {
+    "hash": "9eec733f4bf7262ffb1ea93b899d491ba8d89a4128db117c03cefc91d1782881",
+    "voice": "Aoede",
+    "text": "ਹਾਥੀ ਨੇ ਨੇੜੇ ਪਈ ਬਾਲਟੀ ਵਿੱਚੋਂ ਸੁੰਡ ਨਾਲ ਪਾਣੀ ਖਿੱਚਿਆ। ਫਿਰ ਉਸ ਨੇ ਕੱਪੜੇ ਉੱਤੇ ਪਾਣੀ ਦੀ ਧਾਰ ਛੱਡੀ। ਕੱਪੜੇ ਤੋਂ ਧੂੜ ਲਹਿ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "harpreet-thanks-his-friend": {
+    "hash": "b7bd0822550369319b8fd05b394a3c9ce8df26128bbb3521ef3b13d3a7caf4d4",
+    "voice": "Algieba",
+    "text": "ਦੇਖ, ਹੁਣ ਕੱਪੜਾ ਸਾਫ਼ ਹੈ। ਧੰਨਵਾਦ, ਦੋਸਤ! ਆ, ਇਸ ਨੂੰ ਰੱਸੀ ਉੱਤੇ ਸੁਕਾਈਏ।",
+    "speaker": "harpreet",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "each-takes-a-corner": {
+    "hash": "135fbc8262233fdf8204aa97c3c864a9a5cf56cb33b8218eca7ef32f57c79f9c",
+    "voice": "Algieba",
+    "text": "ਤੂੰ ਇੱਕ ਕੋਨਾ ਫੜ। ਦੂਜਾ ਕੋਨਾ ਮੈਂ ਫੜ ਲੈਂਦਾ ਹਾਂ।",
+    "speaker": "harpreet",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "cloth-on-the-line": {
+    "hash": "206e6fae639048cab9d7f71afabc10975507c003e042ef5bb12e403d80ba4622",
+    "voice": "Aoede",
+    "text": "ਦੋਵਾਂ ਨੇ ਕੱਪੜਾ ਇਕੱਠੇ ਚੁੱਕਿਆ ਤੇ ਰੱਸੀ ਉੱਤੇ ਟੰਗ ਦਿੱਤਾ। ਉਸ ਵਿੱਚੋਂ ਨਿੱਕੀਆਂ ਨਿੱਕੀਆਂ ਬੂੰਦਾਂ ਟਪਕੀਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "elephant-likes-working-together": {
+    "hash": "6f9e587eedc9c20d26eec0c9648a6bd8239671c13660ccffbd3d30dbf312d000",
+    "voice": "Fenrir",
+    "text": "ਤੇਰੇ ਨਾਲ ਕੰਮ ਕਰ ਕੇ ਮੈਨੂੰ ਬਹੁਤ ਮਜ਼ਾ ਆਇਆ।",
+    "speaker": "elephant",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "cloth-dries": {
+    "hash": "a8dae2cdd4df196545ef095112665278711b9e648fcaf524faede964bc9cd251",
+    "voice": "Aoede",
+    "text": "ਕੱਪੜਾ ਹਵਾ ਵਿੱਚ ਹਿੱਲਣ ਲੱਗਾ। ਦੋਵੇਂ ਧੁੱਪ ਵਿੱਚ ਖੜ੍ਹੇ ਉਸ ਨੂੰ ਵੇਖ ਕੇ ਮੁਸਕਰਾ ਪਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
