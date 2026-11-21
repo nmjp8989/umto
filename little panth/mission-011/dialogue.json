@@ -3,78 +3,164 @@
   "title": "ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ",
   "englishTitle": "The Bundle of Sticks",
   "score": "original",
-  "speakers": { "narrator": "Narrator", "mehar": "Mehar", "boy": "Sidak", "dadi": "Bibi Ji" },
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "boy": "Sidak",
+    "dadi": "Bibi Ji"
+  },
   "scenes": [
     {
       "id": "courtyard",
       "title": "A game in the courtyard",
       "framing": "wide",
-      "focus": { "x": 640, "y": 360 },
-      "lines": ["ball-game"],
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "ball-game"
+      ],
       "review": "Establish the courtyard and the same orange ball that returns at the end. Let the children look at the ball and then at each other."
     },
     {
       "id": "argument",
       "title": "Whose turn is it?",
       "framing": "two-shot",
-      "focus": { "x": 562, "y": 436 },
-      "lines": ["mehar-turn", "sidak-turn"],
+      "focus": {
+        "x": 562,
+        "y": 436
+      },
+      "lines": [
+        "mehar-turn",
+        "sidak-turn",
+        "hold-the-ball"
+      ],
       "review": "Read both faces and the ball in the same frame. Each child speaks in their own voice. Their hands stay on the ball as they gently pull it back and forth."
     },
     {
       "id": "bundle",
       "title": "Bibi Ji brings a bundle",
       "framing": "medium",
-      "focus": { "x": 957, "y": 403 },
-      "lines": ["dadi-calls", "bundle-down"],
-      "review": "Meet Bibi Ji in a medium shot, then follow the tied bundle onto the low stool. Give the children time to look up from the ball."
+      "focus": {
+        "x": 957,
+        "y": 403
+      },
+      "lines": [
+        "dadi-calls",
+        "bundle-down"
+      ],
+      "review": "Bibi Ji holds the bundle behind the stool. Check both hands support it until it rests on the stool and the children have room to move."
     },
     {
       "id": "try-bundle",
       "title": "The bundle stays whole",
       "framing": "two-shot",
-      "focus": { "x": 568, "y": 446 },
-      "lines": ["try-together"],
-      "review": "Show Mehar try first, followed by Sidak. Their hands take turns holding the same tied bundle, which flexes slightly and stays whole."
+      "focus": {
+        "x": 568,
+        "y": 446
+      },
+      "lines": [
+        "try-together"
+      ],
+      "review": "Watch the children take turns. Both hands stay on the tied sticks while each tries to bend the bundle. The bundle returns to the stool whole."
     },
     {
       "id": "loose-sticks",
       "title": "One stick each",
       "layout": "cinema",
       "framing": "full",
-      "focus": { "x": 630, "y": 429 },
-      "lines": ["dadi-unties", "sticks-snap"],
-      "review": "Show the cord loosen and one loose stick in each child’s hands. Check that the two small snaps are visible and that the other sticks stay on the stool."
+      "focus": {
+        "x": 630,
+        "y": 429
+      },
+      "lines": [
+        "dadi-unties",
+        "sticks-snap"
+      ],
+      "review": "Follow Bibi Ji as she pulls the cord free. Each child bends their own stick and still holds both pieces after it snaps."
     },
     {
       "id": "lesson",
       "title": "Stronger together",
       "framing": "two-shot",
-      "focus": { "x": 597, "y": 429 },
-      "lines": ["dadi-explains", "mehar-shares", "sidak-agrees"],
+      "focus": {
+        "x": 597,
+        "y": 429
+      },
+      "lines": [
+        "dadi-explains",
+        "mehar-shares",
+        "sidak-agrees"
+      ],
       "review": "Hold on Bibi Ji as she compares the loose stick with the whole bundle. Return to the children as they make a plan to take turns."
     },
     {
       "id": "play",
       "title": "Taking turns",
       "framing": "wide",
-      "focus": { "x": 640, "y": 360 },
-      "lines": ["roll-and-share"],
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "roll-and-share"
+      ],
       "review": "Track the ball along the ground from Mehar to Sidak and back. End with both children smiling in the courtyard."
     }
   ],
   "lines": {
-    "ball-game": { "speaker": "narrator", "pa": "ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਖੇਡ ਰਹੇ ਸਨ। ਦੋਵਾਂ ਨੂੰ ਇੱਕੋ ਗੇਂਦ ਚਾਹੀਦੀ ਸੀ।" },
-    "mehar-turn": { "speaker": "mehar", "pa": "ਹੁਣ ਮੇਰੀ ਵਾਰੀ ਹੈ। ਮੈਨੂੰ ਗੇਂਦ ਦੇ!" },
-    "sidak-turn": { "speaker": "boy", "pa": "ਪਰ ਮੇਰੀ ਵਾਰੀ ਅਜੇ ਮੁੱਕੀ ਨਹੀਂ!" },
-    "dadi-calls": { "speaker": "dadi", "pa": "ਬੱਚਿਓ, ਇੱਧਰ ਆਓ। ਇਹ ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ ਤੋੜ ਕੇ ਵੇਖੋ।" },
-    "bundle-down": { "speaker": "narrator", "pa": "ਬੀਬੀ ਜੀ ਨੇ ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ ਨੀਵੀਂ ਪੀੜ੍ਹੀ ਉੱਤੇ ਰੱਖ ਦਿੱਤਾ।" },
-    "try-together": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਜ਼ੋਰ ਲਾਇਆ। ਫਿਰ ਸਿਦਕ ਨੇ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਗੱਠਾ ਨਾ ਟੁੱਟਿਆ।" },
-    "dadi-unties": { "speaker": "dadi", "pa": "ਹੁਣ ਮੈਂ ਰੱਸੀ ਖੋਲ੍ਹ ਦਿੰਦੀ ਹਾਂ। ਤੁਸੀਂ ਇੱਕ ਇੱਕ ਲੱਕੜੀ ਲਓ।" },
-    "sticks-snap": { "speaker": "narrator", "pa": "ਇਸ ਵਾਰੀ ਦੋਵਾਂ ਨੇ ਆਪਣੀ ਲੱਕੜੀ ਛੇਤੀ ਤੋੜ ਲਈ।" },
-    "dadi-explains": { "speaker": "dadi", "pa": "ਇੱਕ ਲੱਕੜੀ ਸੌਖੀ ਟੁੱਟ ਜਾਂਦੀ ਹੈ। ਇਕੱਠੀਆਂ ਲੱਕੜੀਆਂ ਮਜ਼ਬੂਤ ਹੁੰਦੀਆਂ ਨੇ।" },
-    "mehar-shares": { "speaker": "mehar", "pa": "ਅਸੀਂ ਵੀ ਇਕੱਠੇ ਖੇਡੀਏ?" },
-    "sidak-agrees": { "speaker": "boy", "pa": "ਹਾਂ! ਪਹਿਲਾਂ ਤੇਰੀ ਵਾਰੀ, ਫਿਰ ਮੇਰੀ।" },
-    "roll-and-share": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਗੇਂਦ ਸਿਦਕ ਵੱਲ ਰੋੜ੍ਹੀ। ਸਿਦਕ ਨੇ ਗੇਂਦ ਵਾਪਸ ਰੋੜ੍ਹ ਦਿੱਤੀ। ਹੁਣ ਦੋਵੇਂ ਖ਼ੁਸ਼ ਸਨ।" }
+    "ball-game": {
+      "speaker": "narrator",
+      "pa": "ਧੁੱਪ ਵਾਲੀ ਦੁਪਹਿਰ ਨੂੰ ਮੇਹਰ ਤੇ ਸਿਦਕ ਵਿਹੜੇ ਵਿੱਚ ਖੇਡ ਰਹੇ ਸਨ। ਸਿਦਕ ਨੇ ਸੰਤਰੀ ਗੇਂਦ ਫੜੀ ਸੀ। ਦੋਵਾਂ ਨੂੰ ਇੱਕੋ ਗੇਂਦ ਚਾਹੀਦੀ ਸੀ।"
+    },
+    "mehar-turn": {
+      "speaker": "mehar",
+      "pa": "ਹੁਣ ਮੇਰੀ ਵਾਰੀ ਹੈ। ਮੈਨੂੰ ਗੇਂਦ ਦੇ!"
+    },
+    "sidak-turn": {
+      "speaker": "boy",
+      "pa": "ਪਰ ਮੇਰੀ ਵਾਰੀ ਅਜੇ ਮੁੱਕੀ ਨਹੀਂ!"
+    },
+    "dadi-calls": {
+      "speaker": "dadi",
+      "pa": "ਬੱਚਿਓ, ਇੱਧਰ ਆਓ। ਇਹ ਲੱਕੜੀਆਂ ਦਾ ਗੱਠਾ ਤੋੜ ਕੇ ਵੇਖੋ।"
+    },
+    "bundle-down": {
+      "speaker": "narrator",
+      "pa": "ਬੀਬੀ ਜੀ ਨੇ ਬੱਚਿਆਂ ਨੂੰ ਗੇਂਦ ਪਾਸੇ ਰੱਖਣ ਲਈ ਕਿਹਾ। ਫਿਰ ਉਨ੍ਹਾਂ ਨੇ ਰੱਸੀ ਨਾਲ ਬੱਝਾ ਗੱਠਾ ਨੀਵੀਂ ਪੀੜ੍ਹੀ ਉੱਤੇ ਰੱਖ ਦਿੱਤਾ।"
+    },
+    "try-together": {
+      "speaker": "narrator",
+      "pa": "ਮੇਹਰ ਨੇ ਗੱਠਾ ਦੋਹਾਂ ਹੱਥਾਂ ਨਾਲ ਫੜਿਆ ਤੇ ਜ਼ੋਰ ਲਾਇਆ। ਫਿਰ ਸਿਦਕ ਨੇ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਰੱਸੀ ਕੱਸੀ ਰਹੀ ਤੇ ਗੱਠਾ ਨਾ ਟੁੱਟਿਆ।"
+    },
+    "dadi-unties": {
+      "speaker": "dadi",
+      "pa": "ਹੁਣ ਮੈਂ ਰੱਸੀ ਖੋਲ੍ਹ ਦਿੰਦੀ ਹਾਂ। ਤੁਸੀਂ ਇੱਕ ਇੱਕ ਲੱਕੜੀ ਲਓ।"
+    },
+    "sticks-snap": {
+      "speaker": "narrator",
+      "pa": "ਮੇਹਰ ਨੇ ਇੱਕ ਲੱਕੜੀ ਫੜੀ ਤੇ ਸਿਦਕ ਨੇ ਦੂਜੀ। ਇਸ ਵਾਰੀ ਦੋਵਾਂ ਦੇ ਹੱਥਾਂ ਵਿੱਚ ਲੱਕੜੀਆਂ ਛੇਤੀ ਟੁੱਟ ਗਈਆਂ।"
+    },
+    "dadi-explains": {
+      "speaker": "dadi",
+      "pa": "ਇੱਕ ਲੱਕੜੀ ਸੌਖੀ ਟੁੱਟ ਜਾਂਦੀ ਹੈ। ਇਕੱਠੀਆਂ ਲੱਕੜੀਆਂ ਮਜ਼ਬੂਤ ਹੁੰਦੀਆਂ ਨੇ।"
+    },
+    "mehar-shares": {
+      "speaker": "mehar",
+      "pa": "ਅਸੀਂ ਵੀ ਇਕੱਠੇ ਖੇਡੀਏ? ਫਿਰ ਦੋਵਾਂ ਨੂੰ ਵਾਰੀ ਮਿਲੇਗੀ।"
+    },
+    "sidak-agrees": {
+      "speaker": "boy",
+      "pa": "ਹਾਂ! ਪਹਿਲਾਂ ਤੇਰੀ ਵਾਰੀ, ਫਿਰ ਮੇਰੀ।"
+    },
+    "roll-and-share": {
+      "speaker": "narrator",
+      "pa": "ਮੇਹਰ ਨੇ ਗੇਂਦ ਸਿਦਕ ਵੱਲ ਰੋੜ੍ਹੀ। ਸਿਦਕ ਨੇ ਉਹਨੂੰ ਰੋਕਿਆ ਤੇ ਵਾਪਸ ਰੋੜ੍ਹ ਦਿੱਤਾ। ਬੀਬੀ ਜੀ ਮੁਸਕਰਾਏ। ਹੁਣ ਦੋਵੇਂ ਖ਼ੁਸ਼ ਸਨ।"
+    },
+    "hold-the-ball": {
+      "speaker": "narrator",
+      "pa": "ਦੋਵੇਂ ਗੇਂਦ ਨੂੰ ਆਪਣੇ ਵੱਲ ਖਿੱਚਣ ਲੱਗੇ। ਬੀਬੀ ਜੀ ਨੇ ਉਹਨਾਂ ਵੱਲ ਵੇਖਿਆ। ਹੁਣ ਖੇਡ ਰੁਕ ਗਈ ਸੀ।"
+    }
   }
 }
