@@ -1,0 +1,77 @@
+{
+  "mission": 30,
+  "title": "ਹਵਾ ਤੇ ਕਾਗਜ਼ ਦੀ ਚੱਕਰੀ",
+  "englishTitle": "The Pinwheel and the Wind",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "mehar": "Mehar",
+    "harpreet": "Harpreet"
+  },
+  "scenes": [
+    {
+      "id": "in-the-wall-shadow",
+      "title": "A pinwheel in the shade",
+      "framing": "establishing",
+      "focus": { "x": 640, "y": 365 },
+      "lines": ["mehar-arrives", "mehar-asks"],
+      "review": "Establish the wall, the gate, and the yellow fields. Show that the wheel stays still as Mehar carries it into the shelter of the wall."
+    },
+    {
+      "id": "shake-the-stick",
+      "title": "It turns, then stops",
+      "framing": "medium",
+      "focus": { "x": 529, "y": 479 },
+      "lines": ["a-little-shake", "harpreet-notices"],
+      "review": "Let Mehar move the stick gently from her wrist. The wheel turns briefly, then settles. Look for the red ribbon when Harpreet points it out."
+    },
+    {
+      "id": "follow-the-ribbon",
+      "title": "Out by the field gate",
+      "framing": "follow",
+      "focus": { "x": 734, "y": 428 },
+      "lines": ["walk-past-the-wall"],
+      "review": "Follow Mehar and Harpreet past the end of the wall. Show the red ribbon and the mustard flowers swaying before Mehar raises the pinwheel."
+    },
+    {
+      "id": "wind-turns-the-wheel",
+      "title": "Four colors in the wind",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "detail",
+      "focus": { "x": 852, "y": 433 },
+      "lines": ["colors-spin", "mehar-is-surprised"],
+      "review": "Show the blades pick up speed with the breeze. Keep the hub on the stick and the stick in Mehar’s hand."
+    },
+    {
+      "id": "one-step-to-test",
+      "title": "A step back, then forward",
+      "layout": "cinema",
+      "caption": "top",
+      "framing": "two-shot",
+      "focus": { "x": 768, "y": 430 },
+      "lines": ["test-the-shelter"],
+      "review": "Keep the end of the wall in frame. The wheel should slow when Mehar steps into the shelter and speed up when she steps back out."
+    },
+    {
+      "id": "wind-found",
+      "title": "Mehar finds the wind",
+      "framing": "wide",
+      "focus": { "x": 680, "y": 366 },
+      "lines": ["mehar-understands", "one-last-turn"],
+      "review": "Close on a wide shot with the wheel turning steadily and the fields swaying behind both characters."
+    }
+  ],
+  "lines": {
+    "mehar-arrives": { "speaker": "narrator", "pa": "ਦੁਪਹਿਰ ਨੂੰ ਮੇਹਰ ਕਾਗਜ਼ ਦੀ ਚੱਕਰੀ ਲੈ ਕੇ ਖੇਤਾਂ ਕੋਲ ਆਈ। ਕੰਧ ਦੀ ਛਾਂ ਵਿੱਚ ਹਰਪ੍ਰੀਤ ਖੜ੍ਹਾ ਸੀ। ਮੇਹਰ ਉਸ ਦੇ ਕੋਲ ਗਈ।" },
+    "mehar-asks": { "speaker": "mehar", "pa": "ਵੇਖੋ, ਮੈਂ ਚਾਰ ਰੰਗਾਂ ਦੀ ਚੱਕਰੀ ਬਣਾਈ ਹੈ। ਪਰ ਇਹ ਘੁੰਮਦੀ ਕਿਉਂ ਨਹੀਂ?" },
+    "a-little-shake": { "speaker": "narrator", "pa": "ਮੇਹਰ ਨੇ ਡੰਡੀ ਹੌਲੀ ਜਿਹੀ ਹਿਲਾਈ। ਚੱਕਰੀ ਥੋੜ੍ਹੀ ਘੁੰਮੀ ਤੇ ਛੇਤੀ ਰੁਕ ਗਈ। ਉਸ ਨੇ ਡੰਡੀ ਨੂੰ ਫਿਰ ਸਿੱਧਾ ਫੜ ਲਿਆ।" },
+    "harpreet-notices": { "speaker": "harpreet", "pa": "ਜ਼ਰਾ ਫਾਟਕ ਵੱਲ ਵੇਖ। ਉਹ ਲਾਲ ਫੀਤਾ ਹਿਲ ਰਿਹਾ ਹੈ। ਆਪਾਂ ਉੱਥੇ ਚੱਲ ਕੇ ਵੇਖੀਏ।" },
+    "walk-past-the-wall": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਕੰਧ ਦੇ ਸਿਰੇ ਵੱਲ ਤੁਰ ਪਏ। ਬਾਹਰ ਸਰ੍ਹੋਂ ਦੇ ਫੁੱਲ ਹਵਾ ਵਿੱਚ ਝੂਲ ਰਹੇ ਸਨ। ਮੇਹਰ ਨੇ ਚੱਕਰੀ ਉੱਚੀ ਕੀਤੀ।" },
+    "colors-spin": { "speaker": "narrator", "pa": "ਹਵਾ ਦਾ ਹੌਲਾ ਜਿਹਾ ਬੁੱਲਾ ਆਇਆ। ਚੱਕਰੀ ਹੌਲੀ ਹੌਲੀ ਘੁੰਮੀ। ਫਿਰ ਜਦੋਂ ਹਵਾ ਤੇਜ਼ ਹੋਈ, ਚਾਰੇ ਰੰਗ ਰਲ ਗਏ ਜਾਪਦੇ ਸਨ।" },
+    "mehar-is-surprised": { "speaker": "mehar", "pa": "ਇੱਥੇ ਤਾਂ ਇਹ ਆਪਣੇ ਆਪ ਘੁੰਮਦੀ ਹੈ! ਕੰਧ ਵਾਲੇ ਪਾਸੇ ਮੁੜ ਕੇ ਵੇਖਾਂ?" },
+    "test-the-shelter": { "speaker": "narrator", "pa": "ਮੇਹਰ ਇੱਕ ਕਦਮ ਪਿੱਛੇ ਗਈ। ਚੱਕਰੀ ਹੌਲੀ ਹੋ ਗਈ। ਉਸ ਨੇ ਮੁੜ ਅੱਗੇ ਕਦਮ ਰੱਖਿਆ ਤਾਂ ਚੱਕਰੀ ਫਿਰ ਘੁੰਮਣ ਲੱਗ ਪਈ।" },
+    "mehar-understands": { "speaker": "mehar", "pa": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਕੰਧ ਪਿੱਛੇ ਹਵਾ ਘੱਟ ਸੀ। ਮੈਂ ਚੱਕਰੀ ਫੜੀ ਰਹੀ ਤੇ ਹਵਾ ਨੇ ਇਸ ਨੂੰ ਘੁਮਾ ਦਿੱਤਾ।" },
+    "one-last-turn": { "speaker": "narrator", "pa": "ਦੋਵੇਂ ਹੱਸ ਪਏ। ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਵਿੱਚ ਚੱਕਰੀ ਦੇ ਰੰਗ ਚਮਕ ਰਹੇ ਸਨ।" }
+  }
+}
