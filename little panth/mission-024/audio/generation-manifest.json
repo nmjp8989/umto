@@ -1,0 +1,65 @@
+{
+  "unexpected-sound": {
+    "hash": "96c9afc3a3388a6901b9d794cf0f7183d7ebd5e341b499ac3e97a18ca79fcb5e",
+    "voice": "Aoede",
+    "text": "ਸ਼ਾਮ ਵੇਲੇ ਇੱਕ ਗਿੱਦੜ ਜੰਗਲ ਦੇ ਰਾਹ ਉੱਤੇ ਤੁਰਿਆ ਜਾ ਰਿਹਾ ਸੀ। ਅਚਾਨਕ ਉਸ ਨੂੰ ਝਾੜੀਆਂ ਪਿੱਛੋਂ ਆਵਾਜ਼ ਸੁਣਾਈ ਦਿੱਤੀ। ਢਮ! ਢਮ! ਉਹ ਉੱਥੇ ਹੀ ਰੁਕ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "jackal-wonders": {
+    "hash": "00d000f6969324fa82b34f1a8201bf03fabc0ce49c7d2d17225a12dca38a156b",
+    "voice": "Orus",
+    "text": "ਇਹ ਕਿਹੋ ਜਿਹੀ ਆਵਾਜ਼ ਹੈ? ਕਿਤੇ ਝਾੜੀਆਂ ਪਿੱਛੇ ਕੋਈ ਵੱਡਾ ਜਾਨਵਰ ਤਾਂ ਨਹੀਂ?",
+    "speaker": "jackal",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "listens-to-the-wind": {
+    "hash": "df0fa9faa665d4ec8385189f3b6dc73a07d045a977a2ad31aae77ff0285c8f35",
+    "voice": "Aoede",
+    "text": "ਪਹਿਲਾਂ ਗਿੱਦੜ ਦੋ ਕਦਮ ਪਿੱਛੇ ਹਟਿਆ। ਫਿਰ ਉਸ ਨੇ ਕੰਨ ਖੜ੍ਹੇ ਕੀਤੇ ਤੇ ਧਿਆਨ ਨਾਲ ਸੁਣਿਆ। ਆਵਾਜ਼ ਸਿਰਫ਼ ਉਦੋਂ ਆਉਂਦੀ ਸੀ ਜਦੋਂ ਹਵਾ ਚੱਲਦੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "finds-a-drum": {
+    "hash": "eb0efa35abdd4b90627b2727f7635d6451db56bb5e6fdf10c8b6ebe545805e79",
+    "voice": "Aoede",
+    "text": "ਉਹ ਹੌਲੀ ਹੌਲੀ ਅੱਗੇ ਵਧਿਆ ਤੇ ਝਾੜੀ ਦੇ ਪਾਸੇ ਤੋਂ ਝਾਕਿਆ। ਉੱਥੇ ਇੱਕ ਪੁਰਾਣਾ ਢੋਲ ਪਿਆ ਸੀ। ਉਸ ਦੇ ਉੱਪਰ ਇੱਕ ਸੁੱਕੀ ਟਾਹਣੀ ਲਟਕ ਰਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "wind-makes-a-beat": {
+    "hash": "0369a8892426063cf6222a9be5ce5017fde02bd04cb1f675e4b0d425271a0145",
+    "voice": "Aoede",
+    "text": "ਜਦੋਂ ਹਵਾ ਚੱਲੀ, ਟਾਹਣੀ ਹਿੱਲੀ। ਉਸ ਦਾ ਸਿਰਾ ਢੋਲ ਦੀ ਖੱਲ ਉੱਤੇ ਵੱਜਿਆ। ਢਮ! ਹੁਣ ਗਿੱਦੜ ਨੂੰ ਪਤਾ ਲੱਗ ਗਿਆ ਕਿ ਆਵਾਜ਼ ਕਿੱਥੋਂ ਆ ਰਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "jackal-wants-a-turn": {
+    "hash": "647be972b1c22b452cff123ac58c29038ba9e17bc1538dccc40a54a794af5e39",
+    "voice": "Orus",
+    "text": "ਓਹ, ਇਹ ਤਾਂ ਢੋਲ ਹੈ! ਜ਼ਰਾ ਮੈਂ ਵੀ ਇਸ ਨੂੰ ਵਜਾ ਕੇ ਵੇਖਾਂ।",
+    "speaker": "jackal",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "jackal-taps-the-drum": {
+    "hash": "15f15ea95f7f044113333701c30351d153b35d3dd886032875e1d45e3af6eda6",
+    "voice": "Aoede",
+    "text": "ਗਿੱਦੜ ਨੇ ਆਪਣਾ ਪੰਜਾ ਚੁੱਕਿਆ ਤੇ ਢੋਲ ਉੱਤੇ ਹੌਲੀ ਜਿਹੀ ਥਾਪ ਦਿੱਤੀ। ਉਹੀ ਆਵਾਜ਼ ਫੇਰ ਆਈ। ਉਸ ਨੇ ਇੱਕ ਹੋਰ ਥਾਪ ਦਿੱਤੀ ਤੇ ਹੱਸ ਪਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "jackal-understands": {
+    "hash": "a99ffa59e6ffa98c17deb9b9e3542306c83706f9d87b82d18c9c8f1b51a3b9e0",
+    "voice": "Orus",
+    "text": "ਪਹਿਲਾਂ ਮੈਂ ਡਰ ਗਿਆ ਸੀ। ਹੁਣ ਮੈਨੂੰ ਪਤਾ ਹੈ, ਇਹ ਆਵਾਜ਼ ਕਿਵੇਂ ਬਣਦੀ ਹੈ।",
+    "speaker": "jackal",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "walks-on": {
+    "hash": "2c81877842db77608f90bfa20e648c5d6c15fdb54981255292833f1397378838",
+    "voice": "Aoede",
+    "text": "ਹਵਾ ਨੇ ਟਾਹਣੀ ਨੂੰ ਫੇਰ ਹਿਲਾਇਆ। ਇਸ ਵਾਰੀ ਗਿੱਦੜ ਨਹੀਂ ਡਰਿਆ। ਉਹ ਆਪਣੇ ਰਾਹ ਤੁਰ ਪਿਆ ਤੇ ਪਿੱਛੋਂ ਢੋਲ ਦੀ ਹੌਲੀ ਜਿਹੀ ਥਾਪ ਸੁਣਦਾ ਰਿਹਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
