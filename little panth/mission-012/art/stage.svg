@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+  <title id="stage-title">Mehar, Sidak, and Bibi Ji tending pots in a Punjabi village courtyard</title>
+  <defs>
+    <radialGradient id="courtyard-light" cx=".26" cy=".22" r=".88">
+      <stop stop-color="#ffdf9a" stop-opacity=".16"/>
+      <stop offset=".64" stop-color="#e3ac57" stop-opacity="0"/>
+      <stop offset="1" stop-color="#755137" stop-opacity=".24"/>
+    </radialGradient>
+    <linearGradient id="wood" x2=".26" y2="1">
+      <stop stop-color="#e1b479"/><stop offset="1" stop-color="#9d6b49"/>
+    </linearGradient>
+    <linearGradient id="terracotta" x1="0" x2="1" y2=".72">
+      <stop stop-color="#e6a570"/><stop offset=".43" stop-color="#c87951"/><stop offset="1" stop-color="#8a4639"/>
+    </linearGradient>
+    <linearGradient id="glaze" x1="0" x2="1" y2=".72">
+      <stop stop-color="#9cc4b2"/><stop offset=".53" stop-color="#618c89"/><stop offset="1" stop-color="#35596b"/>
+    </linearGradient>
+    <linearGradient id="pouch-cloth" x2=".74" y2="1">
+      <stop stop-color="#f2d2a0"/><stop offset="1" stop-color="#b8845d"/>
+    </linearGradient>
+    <linearGradient id="metal" x1=".25" x2=".9" y2="1">
+      <stop stop-color="#a6c5a3"/><stop offset="1" stop-color="#517f6c"/>
+    </linearGradient>
+    <linearGradient id="leaf" x2=".9" y2=".86">
+      <stop stop-color="#b6ce77"/><stop offset=".64" stop-color="#6f9e58"/><stop offset="1" stop-color="#4d7648"/>
+    </linearGradient>
+    <radialGradient id="shadow">
+      <stop stop-color="#563721" stop-opacity=".49"/>
+      <stop offset="1" stop-color="#563721" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="evening" cx=".65" cy=".3" r=".8">
+      <stop stop-color="#ad7275" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#554463" stop-opacity=".59"/>
+    </radialGradient>
+    <g id="clay-pot">
+      <path d="M-46-69Q-42-32-30-5Q0 7 30-5Q42-30 46-69Z" fill="url(#terracotta)" stroke="#7d4b3a" stroke-width="3.5"/>
+      <path d="M-39-46Q0-34 39-46M-35-34Q0-24 35-34" fill="none" stroke="#f0b287" stroke-width="3.2" opacity=".72"/>
+      <ellipse cy="-67" rx="51" ry="14" fill="#de9a6f" stroke="#8f5241" stroke-width="3"/>
+      <ellipse cy="-68" rx="43" ry="9" fill="#65503d"/>
+      <path d="M-35-68l9-2m9 5 11-3m9-4 10 2m11 1 9-1" stroke="#947451" stroke-width="2" stroke-linecap="round"/>
+      <path d="M-50-66Q0-49 50-66" fill="none" stroke="#eeb28b" stroke-width="3.5"/>
+    </g>
+    <g id="blue-pot">
+      <path d="M-46-69Q-42-32-30-5Q0 7 30-5Q42-30 46-69Z" fill="url(#glaze)" stroke="#41646a" stroke-width="3.5"/>
+      <path d="M-39-48Q0-38 39-48M-35-34Q0-25 35-34" fill="none" stroke="#b4d4bd" stroke-width="3.2" opacity=".72"/>
+      <ellipse cy="-67" rx="51" ry="14" fill="#96b8aa" stroke="#466b6c" stroke-width="3"/>
+      <ellipse cy="-68" rx="43" ry="9" fill="#65503d"/>
+      <path d="M-34-69l11 2m11 0 8-2m13 1 8 1m7-3 7 1" stroke="#927051" stroke-width="2" stroke-linecap="round"/>
+      <path d="M-50-66Q0-49 50-66" fill="none" stroke="#c0d9c5" stroke-width="3.4"/>
+    </g>
+    <g id="young-leaves" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0Q-3-17 0-35" fill="none" stroke="#476a3e" stroke-width="3"/>
+      <path d="M0-17Q-21-9-29-34Q-7-39 0-17ZM0-27Q8-45 28-46Q28-22 0-27Z" fill="url(#leaf)" stroke="#507f47" stroke-width="2"/>
+      <path d="M-25-31Q-15-26-4-19M4-30l19-12" fill="none" stroke="#d2dd9a" stroke-width="1.8"/>
+    </g>
+    <g id="flowering-plant" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0Q7-39-1-82M5-21Q-13-36-28-43M5-40Q22-53 30-65"
+        fill="none" stroke="#4f7347" stroke-width="4.5"/>
+      <path d="M5-20Q-21-15-40-45Q-11-51 5-20ZM5-33Q19-62 48-56Q40-30 5-33ZM3-46Q-21-43-37-71Q-8-78 3-46ZM2-59Q15-85 43-81Q34-57 2-59Z"
+        fill="url(#leaf)" stroke="#4f7949" stroke-width="2.5"/>
+      <path d="M-34-41L-1-24M11-36l30-17M-29-67l26 18M8-62l27-15" fill="none" stroke="#d0d78a" stroke-width="1.9"/>
+      <g transform="translate(-3 -88)">
+        <path d="M0-14Q-13-36-19-20Q-34-24-24-5Q-33 10-15 11Q-7 29 4 14Q22 25 22 9Q40 2 24-8Q26-27 11-22Q4-37 0-14Z" fill="#f0b46d" stroke="#ac6d44" stroke-width="2.4"/>
+        <circle r="9" fill="#ba674b" stroke="#995540" stroke-width="2"/>
+        <path d="M-4-3l2-1m3 6 2-2m-4 4 2 0" stroke="#f8d981" stroke-width="2"/>
+      </g>
+    </g>
+    <g id="seed-shape">
+      <path d="M-6 1Q-4-5 6-4Q8 2 1 5Q-5 6-6 1Z" fill="#edd3a4" stroke="#966c45" stroke-width="1.6"/>
+      <path d="M-3 2L4-2" stroke="#bd9868" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <g data-camera-depth="-.18">
+    <rect x="-130" y="-90" width="1540" height="900" fill="#d9b783"/>
+    <image href="../mission-003/art/courtyard.webp" x="-62" y="-35" width="1404" height="790" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <rect x="-130" y="-90" width="1540" height="900" fill="url(#courtyard-light)" pointer-events="none"/>
+  <rect id="dusk" x="-130" y="-90" width="1540" height="900" fill="url(#evening)" opacity="0" pointer-events="none"/>
+  <g fill="url(#shadow)">
+    <ellipse id="dadi-shadow" cx="646" cy="619" rx="94" ry="22"/>
+    <ellipse id="mehar-shadow" cx="470" cy="633" rx="84" ry="19"/>
+    <ellipse id="boy-shadow" cx="766" cy="629" rx="87" ry="19"/>
+    <ellipse cx="642" cy="610" rx="238" ry="34"/>
+  </g>
+  <g id="rear-plant" transform="translate(936 591) scale(.84)" opacity="0">
+    <use href="#blue-pot"/>
+    <use href="#flowering-plant" transform="translate(0 -64)"/>
+  </g>
+  <g id="dadi-plane"><g id="dadi"/><g id="dadi-props"/></g>
+  <g id="garden-bench" stroke="#845e40" stroke-linejoin="round">
+    <path d="M460 529L482 532L476 601Q463 608 451 600ZM791 527L813 524L823 591Q815 603 800 598ZM517 540L528 543L519 600L505 604ZM751 530L770 528L778 593L758 598Z" fill="url(#wood)" stroke-width="4"/>
+    <path d="M465 569Q636 575 807 562L808 576Q644 590 463 582Z" fill="#a3714d" stroke-width="3.5"/>
+    <g transform="translate(0 32)">
+      <path d="M428 480L787 459L842 493L470 521Z" fill="url(#wood)" stroke-width="4.5"/>
+      <path d="M428 480L470 513L842 493L842 507L470 530L428 494Z" fill="#ab7450" stroke-width="4.3"/>
+      <path d="M451 488L807 468M466 500L821 479M481 508L829 487" fill="none" stroke="#ab7b53" stroke-width="2.2"/>
+      <path d="M499 520L702 506" fill="none" stroke="#d8aa79" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g id="bench-props"/>
+  <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
+  <g id="boy-plane"><g id="boy"/><g id="boy-props"/></g>
+
+  <g id="objects">
+    <g id="mehar-pot" opacity="0">
+      <use href="#clay-pot"/>
+      <g id="mehar-growth" transform="translate(0 -63)"><use href="#young-leaves"/></g>
+    </g>
+    <g id="sidak-pot" opacity="0">
+      <use href="#blue-pot"/>
+      <g id="sidak-flower" transform="translate(0 -63)"><use href="#flowering-plant"/></g>
+      <g id="sidak-growth" transform="translate(0 -63)" opacity="0"><use href="#young-leaves"/></g>
+    </g>
+    <g id="seed-pouch" opacity="0">
+      <path d="M-21-15Q-34-4-28 12Q-22 24 0 25Q22 24 28 12Q33-3 20-16L22-24Q18-30 10-27Q0-26-11-28Q-20-29-24-23Z"
+        fill="url(#pouch-cloth)" stroke="#865e42" stroke-width="2.7" stroke-linejoin="round"/>
+      <path d="M-22-16Q0-9 21-17M-9-16Q-4-30 4-17Q16-23 18-17M4-15L12-8" fill="none" stroke="#98734c" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M-20-5Q-24 6-16 15M16 11Q21 7 20 1" fill="none" stroke="#eed2a4" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="watering-can" opacity="0">
+      <path d="M-29-12Q-60-22-54 9Q-52 24-29 17" fill="none" stroke="#456658" stroke-width="7" stroke-linecap="round"/>
+      <path d="M27 4L69-39L77-41L79-30L33 19Z" fill="url(#metal)" stroke="#486958" stroke-width="3.2"/>
+      <ellipse cx="76" cy="-38" rx="7" ry="10" transform="rotate(48 76 -38)" fill="#85a88b" stroke="#486958" stroke-width="2.5"/>
+      <path d="M-33-14Q-38 6-26 26Q0 35 27 26Q37 7 31-13Z" fill="url(#metal)" stroke="#446456" stroke-width="3.3"/>
+      <ellipse cy="-13" rx="32" ry="9.4" fill="#b3cdb0" stroke="#4e705d" stroke-width="2.7"/>
+      <ellipse cy="-13" rx="24" ry="5" fill="#648e79"/>
+      <path d="M-26-3Q-24 16-13 21M-23 26Q0 31 23 25" fill="none" stroke="#c3d9bc" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+    </g>
+    <use id="seed-one" href="#seed-shape" opacity="0"/>
+    <use id="seed-two" href="#seed-shape" opacity="0"/>
+    <g id="soil-touch" opacity="0" fill="#af8b5f">
+      <circle cx="-9" cy="-2" r="2"/><circle cx="4" cy="-5" r="1.8"/><circle cx="12" cy="1" r="2.2"/>
+    </g>
+    <g id="water" opacity="0" fill="none" stroke-linecap="round">
+      <path id="water-ribbon" d="M0 0" stroke="#d8efed" stroke-width="3.7"/>
+      <path id="water-glint" d="M0 0" stroke="#8ec7c7" stroke-width="1.6" stroke-dasharray="4 6"/>
+      <ellipse id="water-ring" cx="570" cy="453" rx="14" ry="3" stroke="#b6d0b6" stroke-width="1.8"/>
+    </g>
+  </g>
+  <g id="opening-field" opacity="0" pointer-events="none">
+    <image href="../mission-003/art/banyan.webp" x="-62" y="-35" width="1404" height="790" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+</svg>
