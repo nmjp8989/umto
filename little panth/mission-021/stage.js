@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     baldev: { preset: 'elder-baldev', view: 'right', height: 298, serial: 521 },
     pari: { preset: 'adult-anaya', view: 'right', height: 281, serial: 522 }
@@ -255,14 +255,16 @@
         const packed = motion(c.pack + 260, c.pack + 610);
         frame.flap = packed;
         const lift = motion(c.lift - 90, c.lift + 550);
-        const bagLift = motion(c.lift - 340, c.lift + 430);
-        const turn = c.walk - 320;
-        if (ms > c.pack + 410) {
-          walk(baldev, nearBag, point(493, 623), ms, c.pack + 410, c.lift - 290, movement);
-        }
-        if (ms >= turn) {
+        const bagReach = motion(c.pack + 530, c.pack + 950);
+        const bagLift = motion(c.pack + 950, c.pack + 1490);
+        const woodSide = point(607, 623);
+        const leaving = Math.max(c.walk - 320, c.lift + 390);
+        if (ms >= c.pack + 500) {
           baldev.mirror = true;
-          walk(baldev, point(493, 623), point(268, 625), ms, turn, scene.duration - 110, movement);
+          walk(baldev, nearBag, woodSide, ms, c.pack + 500, c.lift - 290, movement);
+        }
+        if (ms >= leaving) {
+          walk(baldev, woodSide, point(268, 625), ms, leaving, scene.duration - 110, movement);
         }
         const branchCarry = point(baldev.x + (baldev.mirror ? -59 : 66), baldev.y - 104);
         const branchTarget = between(firewoodSite, branchCarry, lift);
@@ -270,10 +272,10 @@
         const bagTarget = between(bagSite, bagCarry, bagLift);
         frame.branch = { position: branchTarget, owner: lift > 0 ? 'baldev' : null,
           angle: -4 + (still ? 0 : lift * 4 * Math.sin(ms / 183)) };
-        frame.bag = { position: bagTarget, owner: bagLift > 0 ? 'baldev' : null, arm: 0, angle: -4 };
+        frame.bag = { position: bagTarget, owner: bagReach >= 1 ? 'baldev' : null, arm: 0, angle: -4 };
         if (lift > 0) grip(baldev, branchTarget);
         else if (ms > c.lift - 430) grip(baldev, firewoodSite, motion(c.lift - 430, c.lift - 90));
-        if (bagLift > 0) grip(baldev, bagTarget, 1, 0);
+        if (bagReach > 0) grip(baldev, bagTarget, bagReach, 0);
         frame.status = packed >= 1 ? 'packed' : 'packing';
         break;
       }
@@ -365,8 +367,7 @@
       const state = frameFor(this.scene, this.cue, ms, still);
       const p = this.parts;
       this.frameCamera(ms, line, state, still);
-      const spoken = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const spoken = voiceFrame(line, word, ms);
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         const plane = p[id + '-plane'];

@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const offset = (p, x, y) => point(p.x + x, p.y + y);
   const mix = (a, b, t) => a + (b - a) * t;
@@ -12,8 +12,8 @@
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
   const transform = (node, value) => node.setAttribute('transform', value);
   const radians = angle => angle * Math.PI / 180;
-  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 651, hipHinge: true, fluidArms: true };
-  const sidak = { preset: 'kid-sidak', view: 'right', height: 207, serial: 652, hipHinge: true, fluidArms: true };
+  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 651, hipHinge: true };
+  const sidak = { preset: 'kid-sidak', view: 'right', height: 207, serial: 652, hipHinge: true };
   const launchMehar = point(345, 632);
   const launchSidak = point(475, 638);
   const leafMehar = point(441, 640);
@@ -316,8 +316,7 @@
       const still = this.reduced.matches;
       const frame = frameFor(this.scene, this.cue, ms, still);
       this.frameCamera(ms, line, frame, still);
-      const mouth = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const mouth = voiceFrame(line, word, ms);
       this.mehar.paint(frame.girl, ms, line.speaker === 'mehar' ? mouth : null, still);
       this.sidak.paint(frame.boy, ms, line.speaker === 'friend' ? mouth : null, still);
       transform(this.parts['mehar-ground-shadow'], translate(frame.girl));

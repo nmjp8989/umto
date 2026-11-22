@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const offset = (p, x, y) => point(p.x + x, p.y + y);
   const mix = (a, b, t) => a + (b - a) * t;
@@ -11,8 +11,8 @@
   const opacity = (node, value) => node.setAttribute('opacity', String(Number(value)));
   const transform = (node, value) => node.setAttribute('transform', value);
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
-  const sidak = { preset: 'kid-sidak', view: 'right', height: 208, serial: 671, hipHinge: true, fluidArms: true };
-  const elder = { preset: 'elder-bibi-ji', view: 'right', height: 287, serial: 672, fluidArms: true };
+  const sidak = { preset: 'kid-sidak', view: 'right', height: 208, serial: 671, hipHinge: true };
+  const elder = { preset: 'elder-bibi-ji', view: 'right', height: 287, serial: 672 };
   const dogScale = .53;
   const headJoint = point(42, -108);
   const muzzle = point(81, 20);
@@ -372,8 +372,7 @@
       const still = this.reduced.matches;
       const frame = frameFor(this.scene, this.cue, ms, still);
       this.frameCamera(ms, line, frame, still);
-      const speech = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const speech = voiceFrame(line, word, ms);
       this.boy.paint(frame.boy, ms, line.speaker === 'friend' ? speech : null, still);
       this.bibi.paint(frame.bibi, ms, line.speaker === 'dadi' ? speech : null, still);
       transform(this.parts['sidak-shadow'], translate(frame.boy));

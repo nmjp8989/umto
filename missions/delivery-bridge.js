@@ -51,6 +51,50 @@
   });
  }
  const bank={};let serial=300;
+ const liveArms=new WeakMap();
+ function frameArms(torso){
+   return [...torso.querySelectorAll('[data-rig-arm]')].map(arm=>{
+     const hand=arm.querySelector('[data-action-hand]');
+     const angles=['shoulder','elbow','wrist'].map(joint=>
+       arm.querySelector('[data-rig-'+joint+']').transform.baseVal.getItem(0).angle);
+     return {angles,hand:{pose:hand.dataset.actionHand,view:hand.dataset.handSurface}};
+   });
+ }
+ function mixArms(from,to,amount,step=false){
+   return to.map((target,i)=>({
+     angles:step
+       ? target.angles.map((angle,j)=>from[i].angles[j]+(angle-from[i].angles[j])*amount)
+       : blendGestureArm(from[i].angles,target.angles,amount),
+     hand:(amount>=.55?target:from[i]).hand
+   }));
+ }
+ if(littlePanth)window.UmtoDeliveryArms=function(torso,slot,pose,seconds,{stride,walkLength=0,still=false,live=false}={}){
+   const idle=slot.frames.idle.arms;
+   if(!torso||!idle)return;
+   const walking=!still&&Number.isFinite(stride);
+   let goal=slot.frames[pose]?.arms||idle;
+   if(walking){
+     const index=Math.floor(stride),first=slot.frames['walk'+(index%12)]?.arms||idle;
+     const next=slot.frames['walk'+((index+1)%12)]?.arms||idle;
+     goal=mixArms(first,next,stride-index,true);
+   }
+   let current=goal;
+   if(!still&&live){
+     const action=walking?'walk':pose;
+     let track=liveArms.get(torso);
+     if(!track||track.action!==action||track.slot!==slot||seconds<track.start){
+       track={action,slot,start:seconds,from:track?.current||idle};
+       liveArms.set(torso,track);
+     }
+     current=track.current=mixArms(track.from,goal,armGestureWeight(seconds-track.start,Infinity));
+   }else if(!still){
+     const weight=walking?armGestureWeight(seconds,walkLength):armGestureWeight(seconds-walkLength,Infinity);
+     current=mixArms(idle,goal,weight);
+   }
+   [...torso.querySelectorAll('[data-rig-arm]')].forEach((arm,i)=>{
+     poseRigArm(arm,current[i].angles,current[i].hand,slot.turn);
+   });
+ };
  function rider(node){
     node.svg.querySelectorAll('[data-rig-arm]').forEach(e=>e.remove());
     const clip=document.createElementNS(sceneNS,'clipPath');clip.id=node.prefix+'ride-clip';clip.innerHTML='<rect x="-300" y="-300" width="2500" height="1810"/>';node.svg.querySelector('defs').append(clip);
@@ -67,7 +111,7 @@
    const base=createSceneActor(actor,serial++);
    base.svg.setAttribute('aria-label',({harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'})[id]||id);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
-   const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds};bank[id][view]=slot;
+   const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds,turn:cameraDirections[view]||0};bank[id][view]=slot;
    if(littlePanth&&(id==='mehar'||id==='narrator'||(missionTwo&&['girl','boy','mother','teacher'].includes(id)))){
     const colour=id==='mehar'?'#f4ce37':'#e8ba37';
     slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('tuckedChunni',colour)));
@@ -107,7 +151,11 @@
      head=`translate(${p.x||0} ${p.y||0}) rotate(${p.angle||0} 627 ${bodyHeadPivot()})`;
     });
     if(key.startsWith('ride')){rider(node);slot.frames[key]={svg:copy.outerHTML};}
-    else slot.frames[key]={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup',...(littlePanth?['eyebrowGroup']:[])].map(part=>[part,node.layers[part].innerHTML])),head};
+    else {
+      const frame={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup',...(littlePanth?['eyebrowGroup']:[])].map(part=>[part,node.layers[part].innerHTML])),head};
+      if(littlePanth)frame.arms=frameArms(node.layers.torso);
+      slot.frames[key]=frame;
+    }
    }
    await new Promise(resolve=>setTimeout(resolve,0));
   }

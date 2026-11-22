@@ -19,6 +19,17 @@
   const mix = (a, b, t) => a + (b - a) * t;
   const inRange = (number, min, max) => Math.min(max, Math.max(min, number));
 
+  function voiceFrame(line, index, ms) {
+    const elapsed = ms - line.start;
+    const timing = line.reading.timings[index];
+    return {
+      text: timing ? line.reading.words[index] : '',
+      phase: timing ? inRange((elapsed - timing[0]) / Math.max(Number.EPSILON, timing[1] - timing[0]), 0, 1) : 0,
+      seconds: elapsed / 1000,
+      length: line.duration / 1000
+    };
+  }
+
   function open(frame) {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
@@ -46,7 +57,7 @@
     });
   }
 
-  function armAngles(arm, screen, grip, proportions, fluid) {
+  function armAngles(arm, screen, grip, proportions) {
     const { target, anchor } = grip;
     const local = new DOMPoint(target.x, target.y).matrixTransform(screen)
       .matrixTransform(arm.getScreenCTM().inverse());
@@ -54,8 +65,7 @@
     const y = local.y - shoulderPivot;
     const upper = proportions.upperArm - shoulderPivot;
     const requested = Math.hypot(x, y);
-    const close = inRange((proportions.forearm + palmCenter - upper + 64 - requested) / 64, 0, 1);
-    const wristDegrees = fluid ? inRange(grip.wrist ?? 0, -38, 38) : -Math.round(close * 180) / 2;
+    const wristDegrees = inRange(grip.wrist ?? 0, -38, 38);
     const wrist = wristDegrees / degrees;
     const anchorX = anchor?.x ?? 0;
     const anchorY = anchor?.y ?? palmCenter;
@@ -65,8 +75,8 @@
     const handAngle = Math.atan2(handX, handY);
     // Use the same side of the elbow throughout a reach so it never flips
     // across the hand path. A low reach folds down instead of over the shoulder.
-    const side = fluid ? (grip.elbow === 'up' ? 1 : -1) : 1;
-    const limit = fluid ? Math.min(Math.PI, 145 / degrees + side * handAngle) : Math.PI;
+    const side = grip.elbow === 'up' ? 1 : -1;
+    const limit = Math.min(Math.PI, 145 / degrees + side * handAngle);
     const nearest = Math.sqrt(upper ** 2 + lower ** 2 + 2 * upper * lower * Math.cos(limit));
     const distance = inRange(requested, Math.max(nearest, Math.abs(upper - lower) + 1), upper + lower - 1);
     const cosine = (distance ** 2 - upper ** 2 - lower ** 2) / (2 * upper * lower);
@@ -75,8 +85,7 @@
     return [shoulder * degrees, (elbow - handAngle) * degrees, wristDegrees];
   }
 
-  function blendArm(resting, target, weight, fluid) {
-    if (!fluid) return target.map((angle, i) => mix(resting[i], angle, weight));
+  function blendArm(resting, target, weight) {
     const influence = [1 - (1 - weight) ** 1.24, weight, weight ** 1.24];
     return target.map((angle, i) => {
       const turn = ((angle - resting[i] + 180) % 360 + 360) % 360 - 180;
@@ -193,12 +202,11 @@
 
     paint(pose, ms, word, reduced) {
       const { api, actor, node, root, props, stage } = this;
-      const fluid = Boolean(this.spec.fluidArms);
       transform(root, 'translate(' + pose.x + ' ' + pose.y + ') rotate(' + pose.lean + ')');
       api.withActor(actor, () => {
         const seconds = ms / 1000;
         const walking = !reduced && pose.walk != null;
-        const frame = walking ? (fluid ? pose.walk : Math.floor(pose.walk * 18) / 18) : null;
+        const frame = walking ? pose.walk : null;
         if (frame !== this.walkFrame) {
           if (walking) {
             if (this.spec.hipHinge && this.walkFrame === null) this.bendAtHips(0);
@@ -211,7 +219,7 @@
           }
           this.walkFrame = frame;
         }
-        const active = Boolean(word);
+        const active = Boolean(word?.text);
         const beat = reduced ? 0 : seconds + this.spec.serial * .43;
         const expression = api.reaction(pose.expression ?? (active ? 'explain' : 'smile'), beat);
         const match = word?.text ?? '';
@@ -227,7 +235,12 @@
         root.dataset.speaking = String(expression.mouth !== 'closed');
         root.dataset.studioMotion = walking ? 'walk' : 'stand';
 
-        const rest = walking || pose.quietHands ? api.restArms() : expression.arms ?? api.restArms();
+        // Follow the speech line with the arms and each recorded word with the lips.
+        // Short pauses between words should not reset the shoulders and hands.
+        const gesture = !walking && !reduced && !pose.quietHands && word?.seconds > 0 && word.seconds < word.length
+          ? api.reaction('explain', word.seconds, word.length, word.length)
+          : null;
+        const rest = gesture?.arms ?? api.restArms();
         const screen = stage.getScreenCTM();
         for (const [index, side] of ['left', 'right'].entries()) {
           const grip = pose.grips[index];
@@ -235,11 +248,11 @@
           if (walking && !grip?.weight) continue;
           const resting = rest[side] ?? [0, 0, 0];
           const angles = grip?.weight
-            ? blendArm(resting, armAngles(arm, screen, grip, api.proportions, fluid), grip.weight, fluid)
+            ? blendArm(resting, armAngles(arm, screen, grip, api.proportions), grip.weight)
             : resting;
           const hand = grip?.weight > .57
             ? { pose: grip.hand || 'fist', view: 'edge' }
-            : (!pose.quietHands && expression.hands?.[side]) || { pose: 'relaxed', view: 'edge' };
+            : gesture?.hands?.[side] || { pose: 'relaxed', view: 'edge' };
           api.arm(arm, angles, hand, this.facing);
         }
         const inverse = props.parentElement.getScreenCTM().inverse().multiply(screen);
@@ -248,5 +261,5 @@
     }
   }
 
-  window.UmtoNativeCharacterPlayer = { open, Character };
+  window.UmtoNativeCharacterPlayer = { open, Character, voiceFrame };
 })();

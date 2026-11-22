@@ -37,6 +37,11 @@
 
   function crowPose(scene, ms, still) {
     const pose = { ...perch, flying: false, dip: 0, carrying: false, glance: 0, angle: 0, alpha: 1 };
+    function flight(from, to, t, height) {
+      Object.assign(pose, arc(from, to, still ? Math.round(t) : t, height));
+      pose.flying = t > 0 && t < 1;
+      pose.wings = ease(clamp(t / .15)) * ease(clamp((1 - t) / .2));
+    }
     let t;
     switch (scene.id) {
       case 'heat':
@@ -44,15 +49,13 @@
         break;
       case 'search':
         t = progress(ms, 180, lineById(scene, 'field-dry').duration * 0.81);
-        Object.assign(pose, arc({ x: 291, y: 308 }, { x: 839, y: 578 }, still ? Math.round(t) : t, 126));
-        pose.flying = t > 0 && t < 1;
+        flight({ x: 291, y: 308 }, { x: 839, y: 578 }, t, 126);
         pose.glance = t === 1 ? 4 : 0;
         pose.angle = t === 1 ? 9 : -5;
         break;
       case 'find':
         t = progress(ms, lineById(scene, 'jar-land').start + 100, scene.duration - 340);
-        Object.assign(pose, arc({ x: 398, y: 603 }, perch, still ? Math.round(t) : t, 103));
-        pose.flying = t > 0 && t < 1;
+        flight({ x: 398, y: 603 }, perch, t, 103);
         pose.angle = pose.flying ? -9 : 0;
         break;
       case 'reach': {
@@ -64,8 +67,7 @@
       }
       case 'idea':
         t = progress(ms, 40, 560);
-        Object.assign(pose, arc(perch, besidePot, still ? Math.round(t) : t, 45));
-        pose.flying = t > 0 && t < 1;
+        flight(perch, besidePot, t, 45);
         pose.angle = pose.flying ? 4 : 11;
         pose.glance = 5;
         if (ms >= lineById(scene, 'idea-plan').start) pose.angle = -9;
@@ -82,14 +84,12 @@
         const nearGround = next.stone === 0 ? besidePot : { x: 574 + next.stone * 11, y: 622 };
         if (!previous || ms >= pickup) {
           const landing = progress(ms, hop, release);
-          Object.assign(pose, arc(nearGround, perch, still ? Math.round(landing) : landing, 58));
-          pose.flying = landing > 0 && landing < 1;
+          flight(nearGround, perch, landing, 58);
           pose.dip = ms < hop ? 0.63 * progress(ms, pickup, hop) : 0.63 * landing;
           pose.carrying = ms >= hop && ms < release;
         } else {
           const descend = progress(ms, Math.max(previous.ms + 60, pickup - 360), pickup);
-          Object.assign(pose, arc(perch, nearGround, still ? Math.round(descend) : descend, 22));
-          pose.flying = descend > 0 && descend < 1;
+          flight(perch, nearGround, descend, 22);
           pose.dip = 0.55 * (1 - ease(progress(ms, previous.ms, previous.ms + 160)));
         }
         if (ms >= release) pose.dip = 0.63;
@@ -109,8 +109,7 @@
       case 'ending': {
         const leave = lineById(scene, 'end-fly').duration;
         t = progress(ms, 125, leave - 280);
-        Object.assign(pose, arc(perch, { x: 1455, y: 117 }, still ? Math.round(t) : t, 104));
-        pose.flying = t > 0 && t < 1;
+        flight(perch, { x: 1455, y: 117 }, t, 104);
         pose.alpha = 1 - progress(t, 0.91, 1);
         pose.angle = -12;
         break;
@@ -153,7 +152,8 @@
       const p = this.parts;
       const t = ms / 1000;
       const pose = crowPose(scene, ms, still);
-      const tilt = pose.flying ? -10 + Math.sin(t * 5) * 4 : 0;
+      const wings = pose.wings ?? 0;
+      const tilt = wings * (-10 + Math.sin(t * 5) * 4);
       const bob = still ? 0 : Math.sin(t * 2.6) * 1.15;
       p.crow.setAttribute('transform', 'translate(' + pose.x + ' ' + (pose.y + bob) + ') rotate(' + (still ? 0 : tilt) + ')');
       p.crow.setAttribute('opacity', pose.alpha);
@@ -163,11 +163,11 @@
       const onRim = !pose.flying && Math.abs(pose.x - perch.x) < 2 && Math.abs(pose.y - perch.y) < 2;
       p['crow-legs'].setAttribute('transform', onRim ? 'translate(12 -1)' : 'rotate(' + (pose.flying ? 26 : 0) + ' 0 -35)');
 
-      const flap = pose.flying && !still ? Math.sin(t * 23) : 0;
-      p['wing-near'].setAttribute('transform', 'rotate(' + (pose.flying ? -64 + flap * 90 : bob * 1.6) + ' -7 -91)');
-      p['wing-far'].setAttribute('opacity', pose.flying ? '.90' : '0');
+      const flap = still ? 0 : Math.sin(t * 23);
+      p['wing-near'].setAttribute('transform', 'rotate(' + mix(bob * 1.6, -64 + flap * 90, wings) + ' -7 -91)');
+      p['wing-far'].setAttribute('opacity', String(wings * .9));
       p['wing-far'].setAttribute('transform', 'rotate(' + (-14 - flap * 47) + ' -13 -80)');
-      p.tail.setAttribute('transform', 'rotate(' + (pose.flying ? flap * 12 : -bob * 1.7) + ' -53 -64)');
+      p.tail.setAttribute('transform', 'rotate(' + mix(-bob * 1.7, flap * 12, wings) + ' -53 -64)');
 
       const eyeX = 44 + (pose.dip ? 1 : 0);
       const eyeY = -14 + pose.glance;

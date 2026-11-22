@@ -10,11 +10,11 @@
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
   const parked = point(351, 592);
   const onStool = point(589, 501, -4);
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
-    dadi: { preset: 'elder-bibi-ji', view: 'left', height: 315, serial: 410, hipHinge: true, fluidArms: true },
-    mehar: { preset: 'kid-meher', view: 'right', height: 290, serial: 411, hipHinge: true, fluidArms: true },
-    boy: { preset: 'kid-sidak', view: 'left', height: 287, serial: 412, hipHinge: true, fluidArms: true }
+    dadi: { preset: 'elder-bibi-ji', view: 'left', height: 315, serial: 410, hipHinge: true },
+    mehar: { preset: 'kid-meher', view: 'right', height: 290, serial: 411, hipHinge: true },
+    boy: { preset: 'kid-sidak', view: 'left', height: 287, serial: 412, hipHinge: true }
   };
   let studio;
 
@@ -360,10 +360,7 @@
       this.frame(ms, line, state);
       this.objects(state, ms);
       const still = this.reduced.matches;
-      const reading = word >= 0 ? {
-        text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       for (const [id, performer] of Object.entries(this.puppets)) {
         const pose = state[id];
         const shadow = this.parts[id + '-shadow'];

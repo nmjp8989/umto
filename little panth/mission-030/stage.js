@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const offset = (p, x, y) => point(p.x + x, p.y + y);
   const mix = (a, b, t) => a + (b - a) * t;
@@ -10,8 +10,8 @@
   const opacity = (node, value) => node.setAttribute('opacity', String(Number(value)));
   const transform = (node, value) => node.setAttribute('transform', value);
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
-  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 691, hipHinge: true, fluidArms: true };
-  const harpreet = { preset: 'adult-harpreet', view: 'right', height: 293, serial: 692, hipHinge: true, fluidArms: true };
+  const mehar = { preset: 'kid-meher', view: 'right', height: 218, serial: 691, hipHinge: true };
+  const harpreet = { preset: 'adult-harpreet', view: 'right', height: 293, serial: 692, hipHinge: true };
   const shade = point(418, 627);
   const field = point(752, 626);
   const shelter = point(659, 629);
@@ -212,8 +212,7 @@
       const spin = rotorMotion(this.scene, this.cues, ms);
       const p = this.parts;
       this.cameraAt(ms, line, state, still);
-      const mouth = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const mouth = voiceFrame(line, word, ms);
       this.child.paint(state.child, ms, line.speaker === 'mehar' ? mouth : null, still);
       this.guide.paint(state.guide, ms, line.speaker === 'harpreet' ? mouth : null, still);
       transform(p['mehar-shadow'], translate(state.child));

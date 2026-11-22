@@ -67,11 +67,30 @@ async function run() {
 
     const fold = state.scenes[5];
     const clothCue = fold.events.find(event => event.sound === 'ribbon');
+    const fabricGrip = () => page.evaluate(() => {
+      const traveller = document.getElementById('traveller');
+      const space = traveller.getScreenCTM().inverse();
+      const sleeve = document.getElementById('traveller-sleeve');
+      const hand = document.getElementById('traveller-hand');
+      const shawl = document.getElementById('shawl-folded');
+      const inTraveller = (node, p) => p.matrixTransform(node.getScreenCTM()).matrixTransform(space);
+      const grip = inTraveller(hand, new DOMPoint());
+      const cloth = inTraveller(shawl, new DOMPoint(42, -106));
+      const cuff = inTraveller(sleeve, sleeve.getPointAtLength(sleeve.getTotalLength()));
+      return { x: grip.x, y: grip.y,
+        clothGap: Math.hypot(grip.x - cloth.x, grip.y - cloth.y),
+        wristGap: Math.hypot(grip.x - cuff.x, grip.y - cuff.y) };
+    });
     await seek(5, clothCue.ms + 170);
     assert.equal(await page.locator('#stage').getAttribute('data-shawl'), 'removing');
+    const lifted = await fabricGrip();
     await seek(5, fold.duration - 220);
     assert.equal(await page.locator('#stage').getAttribute('data-shawl'), 'folded');
     assert.ok(Number(await page.locator('#shawl-folded').getAttribute('opacity')) > .95);
+    const carrying = await fabricGrip();
+    assert.ok(carrying.y > lifted.y + 25, 'The elbow opens as the shawl lowers');
+    assert.ok(carrying.clothGap < 6, 'The hand follows the folded shawl');
+    assert.ok(lifted.wristGap < 10 && carrying.wristGap < 10, 'The sleeve stays joined to the wrist');
     await page.screenshot({ path: output + '/06-folded.png' });
 
     await page.locator('#movie').click();

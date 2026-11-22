@@ -118,21 +118,26 @@
       const talking = actor.id === activeSpeaker;
       const speaking = talking && currentAudio && !currentAudio.paused;
       const moving = actor.walkUntil > now && !reduce;
-      const pose = moving ? 'walk' + Math.floor(now / 63) % 12 : talking ? activePose : 'idle';
+      const stride = moving ? now / 63 : undefined;
+      const pose = moving ? 'walk' + Math.floor(stride) % 12 : talking ? activePose : 'idle';
       const blink = !reduce && (now + actor.x * 9) % 4900 < 140;
       const mouth = !reduce && speaking ? ['talkA', 'talkEE', 'talkO', 'idle'][Math.floor(currentAudio.currentTime * 9) % 4] : 'idle';
       const key = [pose, mouth, blink].join('/');
-      if (actor.frame === key) continue;
-      actor.frame = key;
-      const frame = actor.slot.frames[pose] || actor.slot.frames.idle;
-      for (const [part, original] of Object.entries(frame.parts)) {
-        if (!actor.layers[part] || (actor.covered && actor.slot.headScarf && ['hairBack', 'frontHair', 'headwearFront'].includes(part))) continue;
-        let markup = original;
-        if (blink && part === 'eyeGroup') markup = actor.slot.frames.blink.parts[part];
-        if (mouth !== 'idle' && ['mouthGroup', 'beardGroup'].includes(part)) markup = actor.slot.frames[mouth].parts[part] ?? markup;
-        if (markup !== actor.parts[part]) actor.layers[part].innerHTML = actor.parts[part] = markup;
+      if (actor.frame !== key) {
+        actor.frame = key;
+        const frame = actor.slot.frames[pose] || actor.slot.frames.idle;
+        for (const [part, original] of Object.entries(frame.parts)) {
+          if (!actor.layers[part] || (actor.covered && actor.slot.headScarf && ['hairBack', 'frontHair', 'headwearFront'].includes(part))) continue;
+          let markup = original;
+          if (blink && part === 'eyeGroup') markup = actor.slot.frames.blink.parts[part];
+          if (mouth !== 'idle' && ['mouthGroup', 'beardGroup'].includes(part)) markup = actor.slot.frames[mouth].parts[part] ?? markup;
+          if (markup !== actor.parts[part]) actor.layers[part].innerHTML = actor.parts[part] = markup;
+        }
+        for (const layer of actor.slot.headLayers) actor.layers[layer]?.setAttribute('transform', frame.head || '');
       }
-      for (const layer of actor.slot.headLayers) actor.layers[layer]?.setAttribute('transform', frame.head || '');
+      $('rig').contentWindow.UmtoDeliveryArms?.(actor.layers.torso, actor.slot, pose, now / 1000, {
+        stride, still: reduce, live: true
+      });
     }
     requestAnimationFrame(drawActors);
   }

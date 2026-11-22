@@ -133,25 +133,30 @@
     return {id, x, y, homeX:x, homeY:y, height, pose, node, costume, layers, slot, key:'', parts:{}};
   }
 
-  function drawActor(actor, seconds, moving, speech, reduce) {
-    const walking = moving && !reduce;
-    const pose = walking ? 'walk' + Math.floor(seconds * 12.8) % 12 : actor.pose;
+  function drawActor(actor, seconds, walkLength, speech, reduce) {
+    const walking = seconds < walkLength && !reduce;
+    const stride = walking ? seconds * 12.8 : undefined;
+    const pose = walking ? 'walk' + Math.floor(stride) % 12 : actor.pose;
     const blink = !reduce && !walking && (seconds + actor.homeX * .006) % 4.3 < .13;
     const mouth = speech || 'idle';
     const key = [pose,blink,mouth].join('/');
-    if (key === actor.key) return;
-    actor.key = key;
-    const frames = actor.slot.frames;
-    const selected = frames[pose] || frames.idle;
-    for (const [part, original] of Object.entries(selected.parts)) {
-      const layer = actor.layers[part];
-      if (!layer) continue;
-      let art = original;
-      if (blink && part === 'eyeGroup') art = frames.blink.parts[part];
-      if (mouth !== 'idle' && ['mouthGroup', 'beardGroup'].includes(part)) art = frames[mouth].parts[part] ?? art;
-      if (art !== actor.parts[part]) layer.innerHTML = actor.parts[part] = art;
+    if (key !== actor.key) {
+      actor.key = key;
+      const frames = actor.slot.frames;
+      const selected = frames[pose] || frames.idle;
+      for (const [part, original] of Object.entries(selected.parts)) {
+        const layer = actor.layers[part];
+        if (!layer) continue;
+        let art = original;
+        if (blink && part === 'eyeGroup') art = frames.blink.parts[part];
+        if (mouth !== 'idle' && ['mouthGroup', 'beardGroup'].includes(part)) art = frames[mouth].parts[part] ?? art;
+        if (art !== actor.parts[part]) layer.innerHTML = actor.parts[part] = art;
+      }
+      for (const name of actor.slot.headLayers) actor.layers[name]?.setAttribute('transform', selected.head || '');
     }
-    for (const name of actor.slot.headLayers) actor.layers[name]?.setAttribute('transform', selected.head || '');
+    $('rig').contentWindow.UmtoDeliveryArms?.(actor.layers.torso, actor.slot, pose, seconds, {
+      stride, walkLength, still: reduce
+    });
   }
 
   class KiteArt {
@@ -249,7 +254,7 @@
           actor.y = lerp(actor.homeY, shot.walk.y, t);
           move(actor.node, actor.x, actor.y);
         }
-        drawActor(actor, motion, walking && t < 1, actor.id === voicedActor ? mouth : null, reduce);
+        drawActor(actor, motion, walking ? shot.walk.seconds : 0, actor.id === voicedActor ? mouth : null, reduce);
       }
 
       let x, y, angle = 0, size = .64, rx, ry, rotation = 0;

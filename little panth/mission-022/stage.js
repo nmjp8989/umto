@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = { preset: 'kid-rohan', view: 'right', height: 265, serial: 551 };
   const colors = ['blue', 'yellow', 'green'];
   const point = (x, y) => ({ x, y });
@@ -329,9 +329,7 @@
       const plane = this.parts['rohan-plane'];
       transform(plane, actor.mirror ? 'translate(' + (2 * actor.x) + ' 0) scale(-1 1)' : '');
       transform(this.parts['rohan-shadow'], translate(point(actor.x, actor.y + 3)));
-      const reading = line.speaker === 'friend' && word >= 0 ? {
-        text: line.reading.words[word], phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = line.speaker === 'friend' ? voiceFrame(line, word, ms) : null;
       this.rohan.paint(actor, ms, reading, still);
       if (actor.eyes || actor.bow) {
         const { api, node } = this.rohan;

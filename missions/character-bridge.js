@@ -2,7 +2,7 @@
 (function(){
  const mode=new URLSearchParams(location.search).get('missionBridge');
  if(mode===null)return;
- if(mode==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js?v=102';document.body.append(script);return;}
+ if(mode==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js?v=103';document.body.append(script);return;}
  if(mode==='native'){
   window.UmtoStudioRig=Object.freeze({
    create(preset,view,index){

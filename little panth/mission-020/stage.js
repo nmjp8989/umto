@@ -2,11 +2,11 @@
   'use strict';
 
   const ns = 'http://www.w3.org/2000/svg';
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     dadi: { preset: 'elder-bibi-ji', view: 'right', height: 295, serial: 501 },
     boy: { preset: 'kid-sidak', view: 'right', height: 239, serial: 503 },
-    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 502 }
+    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 502, hipHinge: true }
   };
   const phase = (value, start, end) => Math.max(0, Math.min(1, (value - start) / (end - start)));
   const ease = t => t * t * (3 - 2 * t);
@@ -242,11 +242,15 @@
         const plateGrip = point(frame.plate.position.x + 40, frame.plate.position.y);
         grip(boy, plateGrip, pulse(c.plate - 335, c.plate - 60, scene.duration, scene.duration + 1));
         const setting = motion(c.bowl - 1190, c.bowl);
-        const release = motion(c.bowl, c.bowl + 500);
-        frame.dish = { position: between(point(947, 538), grainDish, setting), owner: setting < 1 ? 'mehar' : null };
-        Object.assign(mehar, between(point(1060, 625), point(964, 621), setting));
-        mehar.lean = still ? 0 : -14 * Math.sin(Math.PI * setting / 2) * (1 - release);
-        grip(mehar, point(frame.dish.position.x + 21, frame.dish.position.y - 2), 1 - release);
+        const release = motion(c.bowl + 120, c.bowl + 500);
+        const held = between(point(956, 536), point(grainDish.x, 562), setting);
+        const setDown = phase(ms, c.bowl, c.bowl + 190);
+        frame.dish = { position: grainDish, owner: ms < c.bowl ? 'mehar' : null,
+          fall: ms >= c.bowl && setDown < 1 ? setDown ** 1.5 : null };
+        walking(mehar, point(1016, 625), point(938, 621), ms, c.bowl - 1190, c.bowl - 120, tween);
+        mehar.mirror = true;
+        mehar.bend = 20 * setting * (1 - release);
+        grip(mehar, point(held.x + 21, held.y - 2), 1 - release);
         break;
       }
       case 'share': {
@@ -468,7 +472,13 @@
         const roti = state.plate.owner ? point(plate.x, plate.y - 1) : state.roti;
         transform(p['hen-roti'], translate(roti) + ' rotate(' + (state.rotiAngle ?? 0) + ')');
       }
-      this.prop('hen-feed', state.dish, state.dish?.owner ? point(21, -2) : point(0, 0));
+      const bowl = state.dish;
+      if (bowl?.fall != null) {
+        const hand = this.palm('mehar');
+        const released = point(hand.x - 21, hand.y + 2);
+        bowl.position = between(released, grainDish, bowl.fall);
+      }
+      this.prop('hen-feed', bowl, bowl?.owner ? point(21, -2) : point(0, 0));
       opacity(p['hen-picked-grain'], 1 - state.pecks);
       opacity(p['hen-tongs'], state.tongs);
       if (state.tongs) {
@@ -488,8 +498,7 @@
       this.frameCamera(ms, line, state, still);
       this.paintField(state, ms, still);
       this.paintHen(state.hen, ms, still);
-      const speech = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const speech = voiceFrame(line, word, ms);
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         const plane = this.parts[id + '-plane'];

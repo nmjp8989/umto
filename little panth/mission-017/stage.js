@@ -8,7 +8,7 @@
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     mehar: { preset: 'kid-meher', view: 'right', height: 244, serial: 471 },
     boy: { preset: 'kid-sidak', view: 'right', height: 233, serial: 472 }
@@ -244,9 +244,7 @@
     }
 
     paintChildren(state, ms, line, word, still) {
-      const reading = word >= 0 ? {
-        text: line.reading.words[word], phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       const p = this.parts;
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.children[id];

@@ -10,11 +10,11 @@
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
-    dadi: { preset: 'elder-bibi-ji', view: 'right', height: 292, serial: 430, hipHinge: true, fluidArms: true },
-    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 431, hipHinge: true, fluidArms: true },
-    boy: { preset: 'kid-sidak', view: 'left', height: 252, serial: 432, hipHinge: true, fluidArms: true }
+    dadi: { preset: 'elder-bibi-ji', view: 'right', height: 292, serial: 430, hipHinge: true },
+    mehar: { preset: 'kid-meher', view: 'right', height: 247, serial: 431, hipHinge: true },
+    boy: { preset: 'kid-sidak', view: 'left', height: 252, serial: 432, hipHinge: true }
   };
   const farm = { dadi: point(160, 548), mehar: point(345, 534), boy: point(651, 612) };
   const waitingBoy = point(707, 635);
@@ -343,10 +343,7 @@
       transform(this.parts.gate, 'matrix(' + [mix(-.15, 1, state.gate), mix(.52, .088, state.gate),
         0, 1, hinge.x, hinge.y].join(' ') + ')');
       this.svg.dataset.gate = state.gate === 1 ? 'closed' : state.gate === 0 ? 'open' : 'closing';
-      const reading = word >= 0 ? {
-        text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         const plane = this.parts[id + '-plane'];

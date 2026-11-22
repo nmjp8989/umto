@@ -103,25 +103,30 @@ function createActor(item){
   point(node,item.x,item.y);
   return {...item,node,slot,layers,parts:{},key:''};
 }
-function actorFrame(actor,seconds,talking,walking){
-  const isWalking=walking&&!reduced.matches;
-  const pose=isWalking?'walk'+(Math.floor(seconds*10)%12):actor.pose;
+function actorFrame(actor,seconds,talking,walkLength){
+  const isWalking=seconds<walkLength&&!reduced.matches;
+  const stride=isWalking?seconds*10:undefined;
+  const pose=isWalking?'walk'+(Math.floor(stride)%12):actor.pose;
   const blinking=!isWalking&&!reduced.matches&&(seconds+actor.homeX*.01)%4.4<.16;
   const mouth=talking&&!reduced.matches?['talkA','talkEE','talkO'][Math.floor(seconds*7)%3]:null;
   const key=pose+'/'+String(blinking)+'/'+(mouth||'');
-  if(key===actor.key)return;
-  actor.key=key;
-  const frame=actor.slot.frames[pose]||actor.slot.frames.idle;
-  if(!frame?.parts)return;
-  for(const [part,base] of Object.entries(frame.parts)){
-    const layer=actor.layers[part];
-    if(!layer)continue;
-    let graphic=base;
-    if(blinking&&part==='eyeGroup')graphic=actor.slot.frames.blink?.parts?.eyeGroup??graphic;
-    if(mouth&&['mouthGroup','beardGroup'].includes(part))graphic=actor.slot.frames[mouth]?.parts?.[part]??graphic;
-    if(graphic!==actor.parts[part]){layer.innerHTML=graphic;actor.parts[part]=graphic}
+  if(key!==actor.key){
+    actor.key=key;
+    const frame=actor.slot.frames[pose]||actor.slot.frames.idle;
+    if(!frame?.parts)return;
+    for(const [part,base] of Object.entries(frame.parts)){
+      const layer=actor.layers[part];
+      if(!layer)continue;
+      let graphic=base;
+      if(blinking&&part==='eyeGroup')graphic=actor.slot.frames.blink?.parts?.eyeGroup??graphic;
+      if(mouth&&['mouthGroup','beardGroup'].includes(part))graphic=actor.slot.frames[mouth]?.parts?.[part]??graphic;
+      if(graphic!==actor.parts[part]){layer.innerHTML=graphic;actor.parts[part]=graphic}
+    }
+    for(const part of actor.slot.headLayers||[])actor.layers[part]?.setAttribute('transform',frame.head||'');
   }
-  for(const part of actor.slot.headLayers||[])actor.layers[part]?.setAttribute('transform',frame.head||'');
+  rig.contentWindow.UmtoDeliveryArms?.(actor.layers.torso,actor.slot,pose,seconds,{
+    stride,walkLength,still:reduced.matches
+  });
 }
 function setupScene(beat){
   if(shownBackground!==beat.location){
@@ -209,21 +214,20 @@ function animateScene(seconds){
   const beat=beats[index];
   for(const actor of actors){
     let x=actor.homeX,y=actor.y;
-    let walking=false;
+    let walkLength=0;
     if(beat.action==='walk'&&actor.id==='mehar'){
-      const length=sceneDurationMs*.00063;
-      x+=Math.min(seconds/length,1)*375;
-      walking=seconds<length;
+      walkLength=sceneDurationMs*.00063;
+      x+=Math.min(seconds/walkLength,1)*375;
     }
     if(beat.action==='farmer-arrival'&&actor.id==='farmer'){
-      x+=320*Math.max(0,1-seconds/6);
-      walking=seconds<6;
+      walkLength=6;
+      x+=320*Math.max(0,1-seconds/walkLength);
     }
     if(!reduced.matches)y+=Math.sin(seconds*2.3+actor.homeX*.01)*1.7;
     actor.x=x;
     point(actor.node,x,y);
     const talking=(playing||exportMode)&&highlightedWord>=0&&actor.id===beat.speaker;
-    actorFrame(actor,seconds,talking,walking);
+    actorFrame(actor,seconds,talking,walkLength);
   }
   if(reduced.matches)return;
   if(props.chicken)point(props.chicken,Math.min(seconds*50,245),-Math.abs(Math.sin(seconds*9))*7);

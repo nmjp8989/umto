@@ -103,6 +103,19 @@ async function run() {
     assert.ok(await gripDistance('boy', 'right', 'sidak-pot', 34, -33) < 5);
     await speak(3, 1, 4);
     assert.equal(await parent('mehar-pot'), 'mehar-props');
+    assert.ok(await gripDistance('mehar', 'left', 'mehar-pot', -34, -33) < 5);
+    assert.ok(await gripDistance('mehar', 'right', 'mehar-pot', 34, -33) < 5);
+    const support = await page.evaluate(() => {
+      const world = document.getElementById('stage').getScreenCTM().inverse();
+      const place = (node, x = 0, y = 0) => new DOMPoint(x, y).matrixTransform(node.getScreenCTM()).matrixTransform(world);
+      return [...document.querySelectorAll('#mehar [data-rig-arm], #boy [data-rig-arm]')].map(arm => {
+        const shoulder = place(arm.querySelector('[data-rig-shoulder]'), 0, 48);
+        const elbow = place(arm.querySelector('[data-rig-elbow]'));
+        const grip = place(arm.querySelector('[data-action-hand]'), 0, 56);
+        return { outward: (elbow.x - shoulder.x) * Number(arm.dataset.rigArm), drop: grip.y - shoulder.y };
+      });
+    });
+    assert.ok(support.every(arm => arm.outward > 3 && arm.drop > 30), 'Both children carry their pots below the shoulders with elbows open');
     await page.screenshot({ path: output + '/03-two-pots.png' });
 
     await speak(4, 0, 5);

@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const mix = (a, b, t) => a + (b - a) * t;
   const phase = (ms, from, to) => Math.max(0, Math.min(1, (ms - from) / Math.max(1, to - from)));
@@ -211,8 +211,7 @@
       const still = this.reduced.matches;
       const frame = frameFor(this.scene, this.cue, ms);
       this.frameCamera(ms, line, frame, still);
-      const mouth = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const mouth = voiceFrame(line, word, ms);
       this.child.paint(frame.child, ms, line.speaker === 'mehar' ? mouth : null, still);
       transform(this.parts['mehar-shadow'], 'translate(' + frame.child.x + ' ' + frame.child.y + ')');
       opacity(this.parts.harpreet, frame.hasAdult);

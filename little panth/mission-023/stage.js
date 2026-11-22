@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const ns = 'http://www.w3.org/2000/svg';
   const cast = {
     mehar: { preset: 'kid-meher', view: 'right', height: 254, serial: 561 },
@@ -314,8 +314,7 @@
       const still = this.reduced.matches;
       const state = makeFrame(this.scene, this.cue, ms, still);
       this.frameCamera(ms, line);
-      const voice = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const voice = voiceFrame(line, word, ms);
       for (const [id, actor] of Object.entries(state.actors)) {
         transform(this.parts[id + '-plane'], actor.mirror ? 'translate(' + (2 * actor.x) + ' 0) scale(-1 1)' : '');
         transform(this.parts[id + '-shadow'], translate(point(actor.x, actor.y + 3)));

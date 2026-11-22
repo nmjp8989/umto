@@ -9,7 +9,7 @@
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     dadi: { preset: 'elder-bibi-ji', view: 'right', height: 295, serial: 440 },
     mehar: { preset: 'kid-meher', view: 'right', height: 268, serial: 441 },
@@ -372,10 +372,7 @@
       const state = makeFrame(this.scene, this.cue, ms, still);
       this.frame(ms, line, still, state);
       this.paintDream(state, ms, still);
-      const reading = word >= 0 ? {
-        text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         const plane = this.parts[id + '-plane'];

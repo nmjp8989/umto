@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const mix = (a, b, t) => a + (b - a) * t;
   const offset = (p, x, y) => point(p.x + x, p.y + y);
@@ -357,14 +357,12 @@
       const c = this.cues;
       const amount = at(ms, c.wave, 580, 1340, 2240);
       const swing = still ? 0 : Math.sin(ms / 112) * 8;
-      const voice = line.speaker === 'mehar' && word >= 0 ? {
-        text: line.reading.words[word], phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const voice = line.speaker === 'mehar' ? voiceFrame(line, word, ms) : null;
       const mehar = { x: 665, y: 618, lean: -3.5 * move(ms, c.look - 280, c.look + 230), grips: [] };
       const friend = { x: 495, y: 623, lean: -3 * move(ms, c.look - 310, c.look + 260), grips: [] };
       if (amount > 0) {
-        mehar.grips[1] = { target: point(735 + swing, 476), weight: amount, hand: 'open' };
-        friend.grips[1] = { target: point(552 - swing, 474), weight: amount, hand: 'open' };
+        mehar.grips[1] = { target: point(717 + swing, 484), weight: amount, hand: 'wave', wrist: -13 };
+        friend.grips[1] = { target: point(541 - swing, 481), weight: amount, hand: 'wave', wrist: -13 };
       }
       this.kids.mehar.paint(mehar, ms, voice, still);
       this.kids.friend.paint(friend, ms, null, still);

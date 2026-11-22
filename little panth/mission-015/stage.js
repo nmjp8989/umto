@@ -8,7 +8,7 @@
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     mehar: { preset: 'kid-meher', view: 'right', height: 232, serial: 451 },
     boy: { preset: 'kid-sidak', view: 'left', height: 228, serial: 452 }
@@ -293,9 +293,7 @@
       this.frame(ms, line, still, state);
       this.paintCanal(state, ms, still);
       this.paintGoats(state, ms, still);
-      const reading = word >= 0 ? {
-        text: line.reading.words[word], phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       for (const [id, puppet] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         const shadow = this.parts[id + '-shadow'];

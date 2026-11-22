@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const point = (x, y) => ({ x, y });
   const offset = (p, x, y) => point(p.x + x, p.y + y);
   const mix = (a, b, t) => a + (b - a) * t;
@@ -490,8 +490,7 @@
       const state = makeFrame(this.scene, this.cue, ms, still);
       const p = this.parts;
       this.frameCamera(ms, line, state, still);
-      const timing = word >= 0 ? { text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word]) } : null;
+      const timing = voiceFrame(line, word, ms);
       this.harpreet.paint(state.actor, ms, line.speaker === 'harpreet' ? timing : null, still);
       transform(p['tailor-shadow-on-ground'], translate(offset(state.actor, 0, 4)));
       const talking = line.speaker === 'elephant' && timing && timing.phase > .065 && timing.phase < .94;

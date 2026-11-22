@@ -128,6 +128,7 @@
         dove.x = 736 - 50 * up + (shore.dove.x - 686) * glide;
         dove.y = 268 - 111 * up + (shore.dove.y - 157) * (still ? glide : glide ** 1.36);
         dove.fly = flight > 0 && flight < 1 ? 1 : 0;
+        dove.wings = ease(clamp(flight / .15)) * ease(clamp((1 - flight) / .21));
         dove.direction = flight > .29 && flight < .95 ? -1 : 1;
         branch.crack = 1;
         branch.fall = movement(between(ms, cue.release, cue.impact));
@@ -229,7 +230,7 @@
       p['dove-shadow'].setAttribute('cy', shore.dove.y + 2);
       opacity(p['dove-shadow'], between(y, shore.dove.y - 40, shore.dove.y));
       opacity(p['dove-feet'], state.fly ? .22 : 1);
-      const wing = state.fly ? -78 + (still ? 0 : Math.sin(ms / 74) * 48) : 0;
+      const wing = (state.wings ?? 0) * (-78 + (still ? 0 : Math.sin(ms / 74) * 48));
       transform(p['dove-wing'], 'rotate(' + wing + ' -12 -51)');
       transform(p['dove-head'], 'rotate(' + (-state.peck * 13 + (state.fly ? 7 : 0)) + ' -12 -69)');
       transform(p['dove-lower-beak'], 'rotate(' + (speaking ? -opening * 23 : 0) + ' -69 -75)');

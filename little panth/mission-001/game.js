@@ -241,7 +241,8 @@ function renderActor(actor,now=performance.now()){
   const gesture=reducedMotion.matches?reaction:speaking?(elapsed%3000<1900?reaction:(['alarm','reflect','concern','happy','proud','angry'].includes(reaction)?reaction:reaction==='explain'?'offer':'explain')):listener&&actor.action==='idle'&&(elapsed+actor.x)%3500<650?'nod':reaction;
  const walkTime=now-(actor.walkStart??-Infinity);
  const walk=!reducedMotion.matches&&walkTime>=0&&(actor.walking||walkTime<760);
- const pose=walk?'walk'+Math.floor((walkTime%760)/760*12):gesture;
+ const stride=walk?walkTime/760*12:undefined;
+ const pose=walk?'walk'+(Math.floor(stride)%12):gesture;
  art.classList.toggle('alarm',reaction==='alarm');
  art.classList.toggle('celebrate',reaction==='celebrate');
  const frame=slot?.frames[pose]??slot?.frames.idle;
@@ -262,24 +263,28 @@ function renderActor(actor,now=performance.now()){
  }
  const face=slot.frames[mouth];
  const key=[actor.view,pose,mouth,blink].join(':');
- if(key===actor.frame)return;
- actor.frame=key;
- for(const [part,original] of Object.entries(frame.parts)){
-   let markup=original;
-   if(blink&&part==='eyeGroup')markup=slot.frames.blink.parts[part];
-   if(mouth!=='idle'&&['mouthGroup','beardGroup'].includes(part)&&reaction!=='alarm')markup=face.parts[part];
-   if(art._layers[part]&&art._parts[part]!==markup){
-     art._layers[part].innerHTML=markup;
-     art._parts[part]=markup;
+ if(key!==actor.frame){
+   actor.frame=key;
+   for(const [part,original] of Object.entries(frame.parts)){
+     let markup=original;
+     if(blink&&part==='eyeGroup')markup=slot.frames.blink.parts[part];
+     if(mouth!=='idle'&&['mouthGroup','beardGroup'].includes(part)&&reaction!=='alarm')markup=face.parts[part];
+     if(art._layers[part]&&art._parts[part]!==markup){
+       art._layers[part].innerHTML=markup;
+       art._parts[part]=markup;
+     }
    }
+   for(const name of slot.headLayers)art._layers[name]?.setAttribute('transform',frame.head||'');
  }
- for(const name of slot.headLayers)art._layers[name]?.setAttribute('transform',frame.head||'');
+ $('rigBridge').contentWindow.UmtoDeliveryArms?.(art._layers.torso,slot,pose,now/1000,{
+   stride,still:reducedMotion.matches,live:true
+ });
 }
 function updateTalking(){for(const actor of actors)renderActor(actor)}
 let last=0;
 function animate(now){
  animateCamera(now);
- if(now-last>55){last=now;for(const actor of actors)renderActor(actor,now);if($('narratorFigure').classList.contains('visible'))renderActor(narratorActor,now);stage.dataset.busy=String(stageBusy);}
+ if(now-last>=30){last=now;for(const actor of actors)renderActor(actor,now);if($('narratorFigure').classList.contains('visible'))renderActor(narratorActor,now);stage.dataset.busy=String(stageBusy);}
  requestAnimationFrame(animate);
 }
 requestAnimationFrame(animate);

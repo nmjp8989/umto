@@ -9,7 +9,7 @@
   const between = (a, b, t) => point(mix(a.x, b.x, t), mix(a.y, b.y, t), mix(a.angle, b.angle, t));
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
-  const { open, Character } = window.UmtoNativeCharacterPlayer;
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
   const cast = {
     dadi: { preset: 'elder-bibi-ji', view: 'left', height: 315, serial: 420 },
     mehar: { preset: 'kid-meher', view: 'right', height: 290, serial: 421 },
@@ -70,14 +70,17 @@
       pose.y + x * Math.sin(angle) + y * Math.cos(angle));
   }
 
-  function grip(actor, index, target, weight = 1, hand) {
-    actor.grips[index] = { target, weight, hand };
+  function grip(actor, index, target, weight = 1, hand, elbow) {
+    actor.grips[index] = { target, weight, hand, elbow };
   }
 
   function holdPot(actor, position, weight = 1) {
-    grip(actor, 0, offset(position, -34, -33), weight);
-    grip(actor, 1, offset(position, 34, -33), weight);
+    // Angle the elbows outside the pot so the hands carry its sides.
+    grip(actor, 0, offset(position, -34, -33), weight, 'fist', 'up');
+    grip(actor, 1, offset(position, 34, -33), weight, 'fist', 'up');
   }
+
+  const carriedPot = (actor, x, bounce = 0) => point(actor.x + x, actor.y - 74 + bounce);
 
   function walk(actor, ms, start, end, left, right, move) {
     const progress = move(phase(ms, start, end));
@@ -112,7 +115,7 @@
         walk(mehar, ms, cue.invite - 410, cue.invite + 990, 388, 533, move);
         walk(boy, ms, cue.invite - 410, cue.invite + 990, 898, 754, move);
         const set = move(phase(ms, cue.share - 160, cue.share + 320));
-        const bag = between(point(647, 434, -4), point(646, 499), set);
+        const bag = between(point(647, 457, -4), point(646, 499), set);
         objects['seed-pouch'] = prop(bag, set < .97 ? 'dadi' : 'bench');
         grip(dadi, 0, offset(bag, -20, 4), 1 - phase(ms, cue.share + 360, cue.share + 670));
         grip(dadi, 1, offset(bag, 19, -16), 1 - phase(ms, cue.share + 780, cue.share + 1150), 'pinch');
@@ -164,13 +167,14 @@
         showClay();
         dadi.visible = false;
         const arriving = walk(boy, ms, cue.enter - 350, cue.enter + 1660, 1007, 726, move);
-        const full = point(boy.x + 38, 510 + (still ? 0 : Math.sin(Math.PI * arriving) * Math.sin(ms / 94) * 3));
+        const bounce = still ? 0 : Math.sin(Math.PI * arriving) * Math.sin(ms / 94) * 3;
+        const full = carriedPot(boy, -9, bounce);
         objects['sidak-pot'] = prop(full, 'boy');
         holdPot(boy, full);
         state.flower = 1;
         walk(mehar, ms, cue.pickup - 1000, cue.pickup - 200, 460, 541, move);
         const pick = move(phase(ms, cue.pickup - 110, cue.pickup + 430));
-        const empty = between(clay, point(548, 510), pick);
+        const empty = between(clay, carriedPot(mehar, 7), pick);
         objects['mehar-pot'] = prop(empty, pick > .015 ? 'mehar' : 'bench');
         holdPot(mehar, empty, ease(phase(ms, cue.pickup - 385, cue.pickup)));
         break;
@@ -180,8 +184,8 @@
         const lower = move(phase(ms, cue.setDown - 110, cue.setDown + 410));
         walk(mehar, ms, cue.setDown + 700, cue.setDown + 1580, 541, 462, move);
         boy.x = 726;
-        const empty = between(point(548, 510), clay, lower);
-        const full = point(764, 510);
+        const empty = between(carriedPot(mehar, 7), clay, lower);
+        const full = carriedPot(boy, -9);
         objects['mehar-pot'] = prop(empty, lower > .985 ? 'bench' : 'mehar');
         objects['sidak-pot'] = prop(full, 'boy');
         holdPot(mehar, empty, 1 - ease(phase(ms, cue.setDown + 405, cue.setDown + 800)));
@@ -193,8 +197,9 @@
         showClay();
         const lower = move(phase(ms, cue.setDown - 110, cue.setDown + 410));
         mehar.x = 462;
-        walk(boy, ms, cue.setDown + 680, cue.setDown + 1790, 726, 871, move);
-        const full = between(point(764, 510), glaze, lower);
+        walk(boy, ms, cue.setDown - 685, cue.setDown - 185, 726, 751, move);
+        const full = between(carriedPot(boy, -9), glaze, lower);
+        walk(boy, ms, cue.setDown + 680, cue.setDown + 1790, boy.x, 871, move);
         objects['sidak-pot'] = prop(full, lower > .985 ? 'bench' : 'boy');
         holdPot(boy, full, 1 - ease(phase(ms, cue.setDown + 405, cue.setDown + 810)));
         state.flower = 1;
@@ -314,10 +319,7 @@
       const state = makeFrame(this.scene, this.cues, ms, still);
       this.frame(ms, line, still);
       this.paintProps(state, ms, still);
-      const reading = word >= 0 ? {
-        text: line.reading.words[word],
-        phase: phase(ms - line.start, ...line.reading.timings[word])
-      } : null;
+      const reading = voiceFrame(line, word, ms);
       for (const [id, performer] of Object.entries(this.puppets)) {
         const pose = state.actors[id];
         this.parts[id + '-plane'].setAttribute('visibility', pose.visible ? 'visible' : 'hidden');

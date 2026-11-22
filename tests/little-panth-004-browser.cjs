@@ -89,6 +89,21 @@ async function run() {
       }
     }
 
+    const pointing = beats.findIndex(beat => beat.action === 'point' && beat.speaker === 'baldev');
+    assert.ok(pointing >= 0);
+    const elbowAt = ms => page.evaluate(([scene, time]) => {
+      window.lp004Test.jump(scene, time);
+      const joint = document.querySelector('[data-actor="baldev"] [data-rig-arm="-1"] [data-rig-elbow]');
+      return joint.transform.baseVal.getItem(0).angle;
+    }, [pointing, ms]);
+    const stillArm = await elbowAt(0);
+    const raisingArm = await elbowAt(190);
+    const pointArm = await elbowAt(600);
+    assert.ok(Math.abs(stillArm) < 1);
+    assert.ok(raisingArm < stillArm - 4 && raisingArm > pointArm + 5, 'Baldev eases into the point');
+    assert.ok(pointArm < -28);
+    assert.equal(await elbowAt(190), raisingArm, 'Seeking samples the same arm motion as playback');
+
     await page.setViewportSize({ width: 390, height: 844 });
     await page.evaluate(() => window.lp004Test.jump(0, 1300));
     assert.ok((await read.boundingBox()).y >= (await art.boundingBox()).height);

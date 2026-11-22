@@ -5,6 +5,8 @@
   const between = (ms, start, stop) => clamp((ms - start) / Math.max(16, stop - start));
   const mix = (a, b, t) => a + (b - a) * t;
   const smooth = t => t * t * (3 - 2 * t);
+  const point = (x, y) => ({ x, y });
+  const along = (from, to, t) => point(mix(from.x, to.x, t), mix(from.y, to.y, t));
   const line = (scene, id) => scene.lines.find(entry => entry.id === id);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
   const windHome = { x: 461, y: 137 };
@@ -111,6 +113,27 @@
       }
     }
     return { light, wind, clutched, takeOff, folding, carry, x, stride, lookingUp, cloudShift };
+  }
+
+  function shawlArm(target) {
+    const shoulder = point(45, -167);
+    const dx = target.x - shoulder.x;
+    const dy = target.y - shoulder.y;
+    const distance = Math.hypot(dx, dy);
+    const x = dx / distance;
+    const y = dy / distance;
+    const reach = Math.max(24, Math.min(67, distance));
+    const upper = 34;
+    const midpoint = reach / 2;
+    const bend = Math.sqrt(upper ** 2 - midpoint ** 2);
+    const elbow = point(shoulder.x + x * midpoint + y * bend, shoulder.y + y * midpoint - x * bend);
+    const hand = point(shoulder.x + x * reach, shoulder.y + y * reach);
+    const wrist = along(hand, elbow, .27);
+    const before = along(elbow, shoulder, .32);
+    const after = along(elbow, wrist, .4);
+    const sleeve = 'M' + shoulder.x + ' ' + shoulder.y + ' L' + before.x + ' ' + before.y +
+      ' Q' + elbow.x + ' ' + elbow.y + ' ' + after.x + ' ' + after.y + ' L' + wrist.x + ' ' + wrist.y;
+    return { sleeve, hand, angle: Math.atan2(hand.y - elbow.y, hand.x - elbow.x) * 180 / Math.PI };
   }
 
   class WindStage {
@@ -221,9 +244,14 @@
       p['shawl-folded'].setAttribute('transform', 'translate(' + (-26 * (1 - pose.carry)) + ' ' +
         (-60 * (1 - pose.carry)) + ') translate(42 -106) scale(' + size + ') translate(-42 106)');
       opacity(p['shawl-folded'], pose.takeOff);
-      const arm = mix(-gait * .34, -27 * (1 - pose.carry), pose.takeOff);
-      p['near-arm'].setAttribute('transform', 'rotate(' + arm + ' 46 -168)');
-      opacity(p['shawl-grip'], pose.clutched * (1 - pose.takeOff));
+      const resting = point(65 - gait * .61, -105 - Math.abs(gait) * .13);
+      const wrapped = along(resting, point(23, -137), pose.clutched);
+      const folded = point(mix(19, 45, pose.carry), mix(-162, -104, pose.carry));
+      const arm = shawlArm(along(wrapped, folded, pose.takeOff));
+      p['traveller-sleeve-edge'].setAttribute('d', arm.sleeve);
+      p['traveller-sleeve'].setAttribute('d', arm.sleeve);
+      p['traveller-hand'].setAttribute('transform', 'translate(' + arm.hand.x + ' ' + arm.hand.y +
+        ') rotate(' + arm.angle + ')');
       this.svg.dataset.shawl = pose.carry > .98 ? 'folded' : pose.takeOff > .06 ? 'removing' : pose.clutched > .69 ? 'wrapped' : 'worn';
     }
 
