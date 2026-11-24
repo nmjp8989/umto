@@ -230,6 +230,14 @@ class WellStage{
   this.goatLegs.forEach((n,i)=>{const [x,y]=pins[i];tx(n,'translate('+x+' '+y+') rotate('+(g.walk*(i===0||i===3?1:-1)-(g.reach||0)*18+(g.angle>0&&(i===1||i===3)?-g.angle*.57:0))+')');});
   tx(this.goatHead,'translate(26 -74) rotate('+(g.head+(gt&&!still?Math.sin(ms/340)*2:0))+')');
   tx(this.goatTail,'rotate('+(still?0:Math.sin(ms/340)*4)+' -67 -68)');
+  tx(p['goat-ear-near'],'rotate('+(-11*g.worry+(still?0:Math.sin(ms/870)*1.5))+' 15 -16)');
+  tx(p['goat-ear-far'],'rotate('+(7*g.worry)+' 33 -24)');
+  tx(p['goat-brow'],'rotate('+(-18*g.worry)+' 43 -22)');
+  const goatGaze=g.head>10?1.2:g.head<0?-1.2:0;
+  tx(p['goat-pupil'],'translate(0 '+goatGaze+')');
+  tx(p['goat-glint'],'translate(0 '+goatGaze+')');
+  tx(p['goat-jaw'],'rotate('+(gt?opening*7:0)+' 40 14)');
+  tx(p['goat-bell-pendant'],'rotate('+(-g.head*.35+(still?0:g.walk*.3))+' 15 32)');
   p['goat-mouth'].setAttribute('ry',gt?String(1+opening*3.7):'1');op(p['goat-mouth'],gt?1:0);
   const gb=!still&&(ms+1520)%3970>3830;
   for(const id of ['goat-eye','goat-pupil','goat-glint'])op(p[id],gb?0:1);

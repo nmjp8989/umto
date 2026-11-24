@@ -7,6 +7,11 @@
     <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#b99467"/><stop offset="1" stop-color="#98714f"/></linearGradient>
     <linearGradient id="vine-leaf" x1="0" y1="0" x2=".82" y2="1"><stop stop-color="#b0bd6b"/><stop offset=".51" stop-color="#8ba05a"/><stop offset="1" stop-color="#57794e"/></linearGradient>
     <linearGradient id="fur" x1=".18" y1="0" x2=".6" y2="1"><stop stop-color="#efa657"/><stop offset=".55" stop-color="#d88143"/><stop offset="1" stop-color="#c3693e"/></linearGradient>
+    <linearGradient id="goat-coat" x1=".25" y1="0" x2=".55" y2="1"><stop stop-color="#fff2d2"/><stop offset=".48" stop-color="#eedfbc"/><stop offset="1" stop-color="#d5ba94"/></linearGradient>
+    <linearGradient id="goat-face" x1=".15" y1=".1" x2=".85" y2="1"><stop stop-color="#fff4d8"/><stop offset=".56" stop-color="#f0e0bb"/><stop offset="1" stop-color="#ddc29b"/></linearGradient>
+    <linearGradient id="goat-horn" x1="0" y1=".1" x2="1" y2=".8"><stop stop-color="#e0cda9"/><stop offset=".5" stop-color="#bca17b"/><stop offset="1" stop-color="#927758"/></linearGradient>
+    <linearGradient id="goat-hoof" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#927761"/><stop offset="1" stop-color="#665247"/></linearGradient>
+    <linearGradient id="goat-bell" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#ffe1a0"/><stop offset=".5" stop-color="#d9ae60"/><stop offset="1" stop-color="#ac7d43"/></linearGradient>
     <linearGradient id="feathers" x2=".38" y2="1"><stop stop-color="#c8a575"/><stop offset="1" stop-color="#986c53"/></linearGradient>
     <radialGradient id="grape" cx=".32" cy=".22" r=".8"><stop stop-color="#c99abf"/><stop offset=".55" stop-color="#966897"/><stop offset="1" stop-color="#6c507b"/></radialGradient>
     <radialGradient id="garden-glow"><stop stop-color="#fff1bd" stop-opacity=".95"/><stop offset=".48" stop-color="#ffefbd" stop-opacity=".53"/><stop offset="1" stop-color="#ffe9b0" stop-opacity="0"/></radialGradient>
@@ -164,46 +169,85 @@
 <ellipse id="goat-shadow" cx="300" cy="483" rx="83" ry="13" fill="url(#soft-shadow)" opacity=".6"/>
 <ellipse id="farmer-shadow" cx="1070" cy="487" rx="58" ry="12" fill="url(#soft-shadow)" opacity="0"/>
 <g id="farmer-plane" opacity="0"><g id="farmer"/><g id="farmer-props"/></g>
-<g id="actors"><g id="goat" style="--goat-coat:#eee1bc;--goat-shade:#c5ab90;--goat-hoof:#8e7465;--goat-accent:#f6eacb;--goat-outline:#997f68;--goat-light:#fff0cd;--goat-horn:#c5b292;--goat-collar:#588c8e" data-speaking="false" stroke="var(--goat-outline)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-      <ellipse cy="3" rx="90" ry="12" fill="url(#shadow)" stroke="none"/>
+<g id="actors"><g id="goat" data-speaking="false" stroke="#92765e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Separate shoulder, hock and head pivots retain the story's walking and climbing rig. -->
       <g data-tail="">
-        <path d="M-66-63q-20 2-30-24-2-10 7-6 9 12 29 12Z" fill="var(--goat-accent)"/>
+        <path d="M-69-65Q-90-66-98-86l-2-11 10 5-1-8q14 9 15 23l13 5Z" fill="url(#goat-coat)"/>
+        <path d="M-91-88q6 13 17 16" stroke="#fff3d8" stroke-width="2.2" fill="none"/>
       </g>
       <g data-leg="back-far">
-        <path d="M-7-2q12-7 14 2L3 16l4 22-1 6H-7l-2-8 2-19Z" fill="var(--goat-shade)"/>
-        <path d="M-8 37q7 3 15-1v8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+        <path d="M-9-9q10-6 19 2L7 9-1 21l3 12 5 5v6H-9l-3-8-2-17 5-13Z" fill="#c5ac8b"/>
+        <path d="m-11 35 12-2 6 5v6H-9Z" fill="url(#goat-hoof)" stroke-width="1.7"/>
+        <path d="M-1 38v5" stroke="#c0a080" stroke-width="1.4"/>
       </g>
       <g data-leg="front-far">
-        <path d="M-9-3q9-7 17 1L5 23l1 19-2 2H-8l-2-10 1-15Z" fill="var(--goat-shade)"/>
-        <path d="M-9 37q7 3 15 0l-2 7H-8Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+        <path d="M-8-8q8-6 16 1L6 14 3 32l5 5v7H-8l-2-7 2-20Z" fill="#c5ac8b"/>
+        <path d="m-9 35 12-2 5 4v7H-8Z" fill="url(#goat-hoof)" stroke-width="1.7"/>
+        <path d="M1 38v5" stroke="#c0a080" stroke-width="1.4"/>
       </g>
-      <path d="M-80-70q12-21 42-19 29 3 50-2 19-2 37 4 17 11 15 29-3 17-30 24-55 11-94 0-21-8-20-36Z" fill="var(--goat-coat)"/>
-      <path d="M-72-68q23-15 51-9m10-1 30-1M-67-49q15 10 31 8" stroke="var(--goat-light)" stroke-width="3" fill="none" opacity=".85"/>
+      <path d="M-82-67Q-82-88-55-92q24-2 45 2 20 3 37-4 22-7 34 14 10 18-1 32-12 15-39 18-31 8-59 2-25-3-35-14-10-9-9-25Z" fill="url(#goat-coat)"/>
+      <path d="M-75-57q18 15 47 17 40 4 79-16-7 17-30 23-35 10-63 2-24-4-33-16Z" fill="#c9ac87" opacity=".35" stroke="none"/>
+      <path d="M-71-76q15-11 36-8m10 1 17 1m-61 28q10 9 23 10" fill="none" stroke="#fff5d9" stroke-width="3" opacity=".86"/>
+      <path d="M-58-83l4 4 5-3m33 39 4 3 5-3" fill="none" stroke="#d5bc95" stroke-width="1.4" opacity=".7"/>
       <g data-leg="back-near">
-        <path d="M-11-7q10-11 23-2L8 14 3 23l5 13-1 8H-6l-3-11-1-12 4-14Z" fill="var(--goat-coat)"/>
-        <path d="M-8 36q7 4 16 0l-1 8H-6Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+        <path d="M-13-13q12-8 24 2 7 10 0 19L0 21l2 12 7 5v6H-9l-4-9-2-16 5-13q-8-8-3-19Z" fill="url(#goat-coat)"/>
+        <path d="M-7-7q8-4 12 2m-10 26 3 12" fill="none" stroke="#fff0ce" stroke-width="2.3"/>
+        <path d="m-11 35 13-2 7 5v6H-9Z" fill="url(#goat-hoof)" stroke-width="1.7"/>
+        <path d="M1 38v5" stroke="#c6a687" stroke-width="1.5"/>
       </g>
       <g data-leg="front-near">
-        <path d="M-9-6q11-9 21 0L8 18 6 22l2 14-1 8H-7l-2-9 1-16Z" fill="var(--goat-coat)"/>
-        <path d="M-8 36q7 4 16 0l-1 8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
+        <path d="M-9-12q10-7 19 1 4 11-1 24L5 32l5 6v6H-7l-3-8 1-19q-3-15 0-29Z" fill="url(#goat-coat)"/>
+        <path d="M-3-5q3 9 1 19L-3 30" fill="none" stroke="#fff3d5" stroke-width="2.4"/>
+        <path d="m-9 35 14-2 5 5v6H-7Z" fill="url(#goat-hoof)" stroke-width="1.7"/>
+        <path d="M2 38v5" stroke="#c6a687" stroke-width="1.5"/>
       </g>
       <g data-head="">
-        <path d="M-10 8Q-4-9 2-28l25-5q8 15 12 41L28 30q-18 16-37 2Z" fill="var(--goat-coat)"/>
-        <path d="M12-28Q8-49-8-60 20-62 24-34m2 1q2-27 23-36-8 12-8 40"
-          fill="var(--goat-horn)" stroke="var(--goat-outline)"/>
-        <path d="M33-30q24-18 42-10-3 15-28 21Z" fill="var(--goat-shade)"/>
-        <path d="M9-20q19-12 37 0l13 19q19 5 20 13-2 12-22 15-26 4-43-8-16-10-5-39Z" fill="var(--goat-coat)"/>
-        <path d="M55 7q13-6 22 0 6 8-6 15-12 8-20 0-5-7 4-15Z" fill="var(--goat-accent)" stroke="none"/>
-        <path d="M45 22q7 8 9 17-9 0-13-5-7 2-9-11Z" fill="var(--goat-shade)"/>
-        <path d="M20-16q-6 0-14-7-8-6-21 0 2 18 21 22 15-1 17-8Z" fill="var(--goat-accent)"/>
-        <path d="M-9-18q10 2 17 7" stroke="var(--goat-light)" stroke-width="2.3" fill="none"/>
-        <ellipse id="goat-mouth" cx="65" cy="20" rx="6" ry="1" fill="#79574b" opacity="0" stroke="none"/><path d="M56 19q9 3 15 0" stroke="var(--goat-outline)" stroke-width="1.9" fill="none"/>
-        <ellipse cx="66" cy="11" rx="3.3" ry="2" fill="#59423c" stroke="none"/>
-        <ellipse id="goat-eye" cx="45" cy="-6" rx="4.4" ry="4.9" fill="#fff4d8" stroke="none"/>
-        <ellipse id="goat-pupil" cx="47" cy="-5.7" rx="2.7" ry="2" fill="#51433f" stroke="none"/>
-        <circle id="goat-glint" cx="48" cy="-7" r=".85" fill="#fff9e4" stroke="none"/>
-        <path id="goat-lid" d="M40-6q5 4 10 0" fill="none" stroke="#997f68" stroke-width="1.6" opacity="0"/><path d="M-6 21q19 10 34 0l1 8q-16 11-37 1Z" fill="var(--goat-collar)" stroke-width="1.6"/>
-        <path d="M13 31q5-2 8 2l3 11q-7 6-15 1l2-11Z" fill="#dfb972" stroke="#9a774e" stroke-width="1.8"/>
+        <path d="M-13 30Q-10 4 1-26l26-5q7 16 10 39l-8 23q-18 14-42-1Z" fill="url(#goat-coat)"/>
+        <path d="M-5 26Q0 5 7-10" fill="none" stroke="#fff4d7" stroke-width="4" opacity=".8"/>
+        <!-- Both horns sweep back from the crown, with a lighter edge and short growth rings. -->
+        <path d="M28-28Q34-53 13-72q13 22 2 44Z" fill="url(#goat-horn)" stroke-width="2.1"/>
+        <path d="M16-26Q19-55-14-76q17 20 17 50Z" fill="url(#goat-horn)" stroke-width="2.2"/>
+        <path d="M8-32Q8-52-5-65" fill="none" stroke="#efddba" stroke-width="2"/>
+        <path d="m4-40 10-2m-13-8 9-3m-14-5 8-4m17 20 8 1m-7-11 6-1" fill="none" stroke="#8f7355" stroke-width="1.2" opacity=".8"/>
+        <g id="goat-ear-far">
+          <path d="M29-25q14-16 35-13-1 13-24 19Z" fill="#cfb18c" stroke-width="2"/>
+          <path d="M37-27q10-7 19-6" fill="none" stroke="#e9c8a9" stroke-width="3"/>
+        </g>
+        <path d="M4-20q5-13 24-13 18 0 25 16l8 15q17 4 19 13 1 12-15 17-22 9-39-1Q6 23 1 8q-5-14 3-28Z" fill="url(#goat-face)"/>
+        <path d="M12-27l3-8 5 5 6-7 4 6 7-3 5 7q-15-5-30 0Z" fill="#fff1d0" stroke-width="1.6"/>
+        <path d="M29-25q11 2 15 10" fill="none" stroke="#fff7df" stroke-width="3.2" opacity=".85"/>
+        <g id="goat-jaw">
+          <path d="M34 21q9 2 17 5l-3 18-6-5-4 4-5-10-5-2Z" fill="#d3b58f" stroke-width="1.8"/>
+          <path d="m38 30 3 8m3-9 1 9" fill="none" stroke="#f7e3bc" stroke-width="1.6"/>
+          <path d="M40 14q15 9 36 0-2 13-19 15-13 1-19-8Z" fill="#ecd5ad" stroke-width="1.8"/>
+        </g>
+        <path d="M51 3q10-4 22 2 9 4 5 12-5 9-20 8-10-1-12-9-1-8 5-13Z" fill="#fff0d2" stroke="none"/>
+        <ellipse id="goat-mouth" cx="64" cy="21" rx="6.5" ry="1" fill="#795443" opacity="0" stroke="none"/>
+        <path d="M55 20q10 4 18-1" stroke="#94735c" stroke-width="1.7" fill="none"/>
+        <path d="M68 8q5-3 8 0-1 5-6 5Z" fill="#705047" stroke="none"/>
+        <path d="m72 13-1 4" stroke="#b08c70" stroke-width="1.4" fill="none"/>
+        <ellipse cx="31" cy="10" rx="7.5" ry="3.3" fill="#deb797" opacity=".52" stroke="none"/>
+        <g id="goat-ear-near">
+          <path d="M17-19Q2-28-17-19q3 17 21 20 12-2 16-12Z" fill="url(#goat-face)" stroke-width="2.2"/>
+          <path d="M10-16q-9-6-19-2Q-5-7 4-7q5-3 6-9Z" fill="#dfb499" stroke="none"/>
+          <path d="M-9-18Q0-19 7-14" fill="none" stroke="#f5d7b7" stroke-width="1.6"/>
+        </g>
+        <path id="goat-brow" d="M34-21q7-5 15-1" fill="none" stroke="#9d7b5c" stroke-width="2"/>
+        <ellipse id="goat-eye" cx="44" cy="-9" rx="7.5" ry="8.7" fill="#fffae9" stroke="#a68869" stroke-width="1.2"/>
+        <g id="goat-pupil" stroke="none">
+          <ellipse cx="46" cy="-8.3" rx="5" ry="5.8" fill="#b19258"/>
+          <rect x="41.4" y="-10.6" width="8.8" height="3.7" rx="1.6" fill="#4f4238"/>
+        </g>
+        <circle id="goat-glint" cx="47.6" cy="-12" r="1.5" fill="#fffdf0" stroke="none"/>
+        <path id="goat-lid" d="M37-10q7 7 14 0" fill="none" stroke="#92765e" stroke-width="2" opacity="0"/>
+        <path d="M-7 22q18 10 35 0l1 8q-17 11-38 0Z" fill="#588c8e" stroke="#527779" stroke-width="1.7"/>
+        <path d="M-4 25q14 7 28 1" fill="none" stroke="#92b8ad" stroke-width="1.7"/>
+        <g id="goat-bell-pendant">
+          <ellipse cx="15" cy="34" rx="3" ry="3.5" fill="none" stroke="#967346" stroke-width="1.8"/>
+          <path d="M9 39q1-6 6-6t6 6l3 7q-9 5-18 0Z" fill="url(#goat-bell)" stroke="#9c7748" stroke-width="1.7"/>
+          <path d="M8 45q7 3 14 0M12 37l-1 5" fill="none" stroke="#ffdf99" stroke-width="1.5"/>
+          <circle cx="15" cy="48" r="2.5" fill="#8c6944" stroke="none"/>
+        </g>
       </g>
     </g><g id="fox" transform="translate(650 604)" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
     <g id="fox-tail">

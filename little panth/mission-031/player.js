@@ -27,8 +27,6 @@
   let frameRequest = 0;
   let playRequest = 0;
   let voicesReady = false;
-  const startButton = $('voice-start');
-  const voiceLabel = $('voice-label');
   // Keep an earlier cached 404 from a freshly published story from suppressing recorded voices.
   sound.decode = async url => { const r = await fetch(url, { cache: 'no-cache' }); return r.ok ? sound.context.decodeAudioData(await r.arrayBuffer()) : null; };
 
@@ -132,7 +130,6 @@
     }
     stop();
     draw(scene.duration);
-    if (!reviewing) { startButton.hidden = false; voiceLabel.textContent = 'ਫਿਰ ਸੁਣੋ'; }
   }
 
   function play() {
@@ -149,13 +146,14 @@
     if (!scenes.length) return;
     const request = ++playRequest;
     if (restart) select(reviewing ? selected : 0);
-    if (!voicesReady) { if (!reviewing) { $('loading').hidden = false; $('loading').textContent = 'ਪੰਜਾਬੀ ਆਵਾਜ਼ਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ।'; startButton.hidden = false; voiceLabel.textContent = 'ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ'; } return; }
+    if (!voicesReady) {
+      if (!reviewing) { $('loading').hidden = false; $('loading').textContent = 'ਪੰਜਾਬੀ ਆਵਾਜ਼ਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ।'; }
+      return;
+    }
     let unlocked = false;
     try { unlocked = await sound.unlock(); } catch {}
     if (request !== playRequest) return;
     activated = unlocked;
-    if (!unlocked) { if (!reviewing) { startButton.hidden = false; voiceLabel.textContent = 'ਮੁੜ ਸੁਣੋ'; } return; }
-    startButton.hidden = true;
     play();
   }
 
@@ -211,15 +209,20 @@
     const initial = reviewing ? scenes.findIndex(scene => scene.id === params.get('scene')) : 0;
     select(Math.max(0, initial));
     if (!reviewing) {
-      // Never play a silent read-along: wait for a real user gesture to unlock the recorded Punjabi audio.
-      startButton.hidden = false;
-      voiceLabel.textContent = voicesReady ? 'ਕਹਾਣੀ ਸੁਣੋ' : 'ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ';
-      if (!voicesReady) { $('loading').hidden = false; $('loading').textContent = 'ਪੰਜਾਬੀ ਆਵਾਜ਼ਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ।'; }
+      if (voicesReady) {
+        // Match the earlier storybooks: tap the picture to hear the recorded narration.
+        play();
+        if (navigator.getAutoplayPolicy?.('audiocontext') === 'allowed') playWithSound(true);
+      } else {
+        $('loading').hidden = false;
+        $('loading').textContent = 'ਪੰਜਾਬੀ ਆਵਾਜ਼ਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ।';
+      }
     }
     if (params.get('test') === '1') {
       const mission = String(data.mission || 5).padStart(3, '0');
       window['lp' + mission + 'Test'] = {
         seek(index, ms) { stop(); select(index); draw(ms); },
+        play: () => playWithSound(),
         state: () => ({
           scene: selected, position, playing, audioActive: sound.elapsed() !== null,
           words: lineInFrame?.reading.words, line: lineInFrame?.id,
@@ -234,15 +237,13 @@
   }
 
   function hear() {
-    if (reviewing || playing || !scenes.length) return;
+    if (reviewing || !scenes.length || (activated && playing)) return;
     if (!voicesReady) { location.reload(); return; }
     playWithSound(true);
   }
 
-  startButton.addEventListener('click', event => { event.stopPropagation(); hear(); });
   movie.addEventListener('click', hear);
   movie.addEventListener('keydown', event => {
-    if (event.target === startButton) return;
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       hear();
@@ -252,7 +253,7 @@
     if (document.hidden && playing) {
       stop();
       draw(position);
-    } else if (!document.hidden && !reviewing && activated && scenes.length && position < scenes[selected].duration) {
+    } else if (!document.hidden && !reviewing && voicesReady && scenes.length && position < scenes[selected].duration) {
       play();
     }
   });
