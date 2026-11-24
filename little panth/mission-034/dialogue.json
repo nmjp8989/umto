@@ -1,0 +1,144 @@
+{
+  "mission": 34,
+  "title": "ਬਲੂਤ ਤੇ ਕਾਨੇ",
+  "englishTitle": "The Oak and the Reeds",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "oak": "Oak",
+    "reed": "Reed"
+  },
+  "scenes": [
+    {
+      "id": "river-breeze",
+      "title": "Beside the river",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "intro",
+        "breeze"
+      ],
+      "review": "Establish oak and reeds far apart along a calm river; show reeds bending gently."
+    },
+    {
+      "id": "proud-oak",
+      "title": "Strength and flexibility",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "boast",
+        "reply"
+      ],
+      "review": "Separate medium shots with subtle natural faces, then return to the wide."
+    },
+    {
+      "id": "storm-coming",
+      "title": "Clouds gather",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "clouds"
+      ],
+      "review": "The sky darkens gradually; clouds and wind move across the landscape."
+    },
+    {
+      "id": "strong-wind",
+      "title": "The storm",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "storm",
+        "snap"
+      ],
+      "review": "Flexible reed stems bend low; oak branches strain; one bough cracks and falls onto empty ground.",
+      "layout": "cinema",
+      "caption": "top"
+    },
+    {
+      "id": "sun-returns",
+      "title": "After the storm",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "calm",
+        "regret",
+        "comfort"
+      ],
+      "review": "Sun returns; reeds rise; the oak's expression softens."
+    },
+    {
+      "id": "lesson",
+      "title": "A quiet river again",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "moral"
+      ],
+      "review": "Hold a warm wide frame with separated silhouettes and the fallen branch visible."
+    }
+  ],
+  "lines": {
+    "intro": {
+      "speaker": "narrator",
+      "pa": "ਨਦੀ ਦੇ ਕੰਢੇ ਇੱਕ ਵੱਡਾ ਬਲੂਤ ਦਾ ਰੁੱਖ ਖੜ੍ਹਾ ਸੀ। ਉਸ ਦੇ ਨੇੜੇ ਪਾਣੀ ਵਿੱਚ ਨਿੱਕੇ ਨਿੱਕੇ ਕਾਨੇ ਉੱਗੇ ਹੋਏ ਸਨ।"
+    },
+    "breeze": {
+      "speaker": "narrator",
+      "pa": "ਜਦੋਂ ਹਵਾ ਵਗਦੀ, ਕਾਨੇ ਹੌਲੀ ਹੌਲੀ ਝੁਕ ਜਾਂਦੇ। ਰੁੱਖ ਸਿੱਧਾ ਖੜ੍ਹਾ ਰਹਿੰਦਾ ਤੇ ਉਨ੍ਹਾਂ ਵੱਲ ਵੇਖ ਕੇ ਹੱਸਦਾ।"
+    },
+    "boast": {
+      "speaker": "oak",
+      "pa": "ਤੁਸੀਂ ਕਿੰਨੇ ਕਮਜ਼ੋਰ ਹੋ! ਥੋੜ੍ਹੀ ਜਿਹੀ ਹਵਾ ਅੱਗੇ ਵੀ ਝੁਕ ਜਾਂਦੇ ਹੋ। ਮੇਰੇ ਵਰਗੇ ਮਜ਼ਬੂਤ ਬਣੋ।"
+    },
+    "reply": {
+      "speaker": "reed",
+      "pa": "ਅਸੀਂ ਹਵਾ ਨਾਲ ਝੁਕ ਜਾਂਦੇ ਹਾਂ ਤਾਂ ਜੋ ਟੁੱਟ ਨਾ ਜਾਈਏ। ਝੁਕਣਾ ਹਮੇਸ਼ਾ ਕਮਜ਼ੋਰੀ ਨਹੀਂ ਹੁੰਦੀ।"
+    },
+    "clouds": {
+      "speaker": "narrator",
+      "pa": "ਸ਼ਾਮ ਨੂੰ ਅਸਮਾਨ ਵਿੱਚ ਕਾਲੇ ਬੱਦਲ ਛਾ ਗਏ। ਹਵਾ ਤੇਜ਼ ਹੋ ਗਈ ਤੇ ਮੀਂਹ ਪੈਣ ਲੱਗਾ।"
+    },
+    "storm": {
+      "speaker": "narrator",
+      "pa": "ਕਾਨੇ ਹਵਾ ਨਾਲ ਇੱਕ ਪਾਸੇ ਝੁਕ ਗਏ। ਰੁੱਖ ਨੇ ਸਿੱਧਾ ਰਹਿਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਉਸ ਦੀਆਂ ਟਾਹਣੀਆਂ ਜ਼ੋਰ ਨਾਲ ਹਿੱਲਣ ਲੱਗੀਆਂ।"
+    },
+    "snap": {
+      "speaker": "narrator",
+      "pa": "ਅਚਾਨਕ ਇੱਕ ਵੱਡੀ ਟਾਹਣੀ ਟੁੱਟ ਕੇ ਹੇਠਾਂ ਡਿੱਗ ਪਈ। ਰੁੱਖ ਉਦਾਸ ਹੋ ਗਿਆ।"
+    },
+    "calm": {
+      "speaker": "narrator",
+      "pa": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਤੂਫ਼ਾਨ ਰੁਕ ਗਿਆ। ਕਾਨੇ ਮੁੜ ਸਿੱਧੇ ਹੋ ਗਏ। ਸੂਰਜ ਬੱਦਲਾਂ ਵਿੱਚੋਂ ਨਿਕਲ ਆਇਆ।"
+    },
+    "regret": {
+      "speaker": "oak",
+      "pa": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਹਰ ਵਾਰ ਜ਼ੋਰ ਲਾਉਣਾ ਸਿਆਣਪ ਨਹੀਂ ਹੁੰਦੀ।"
+    },
+    "comfort": {
+      "speaker": "reed",
+      "pa": "ਦੋਸਤ, ਤੇਰੀਆਂ ਜੜ੍ਹਾਂ ਮਜ਼ਬੂਤ ਹਨ। ਨਵੀਆਂ ਟਾਹਣੀਆਂ ਫਿਰ ਉੱਗਣਗੀਆਂ।"
+    },
+    "moral": {
+      "speaker": "narrator",
+      "pa": "ਬੱਚਿਓ, ਸਮੇਂ ਦੇ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਬਦਲਣਾ ਸਿੱਖੋ। ਔਖੇ ਵੇਲੇ ਨਰਮੀ ਅਤੇ ਸਿਆਣਪ ਵੀ ਵੱਡੀ ਤਾਕਤ ਬਣ ਜਾਂਦੀਆਂ ਹਨ।"
+    }
+  }
+}

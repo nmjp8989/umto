@@ -25,6 +25,8 @@ ROOT=Path(__file__).resolve().parents[1]
 MODEL="gemini-3.8-flash-tts"
 TTS_MODELS=(MODEL,"gemini-3.8-flash-lite-tts")
 VOICES={
+ "oak":("Charon","A dignified mature oak tree speaking warm natural Gurmukhi Punjabi, confident at first, thoughtful and gentle later. Read only the written words."),
+ "reed":("Leda","A small kind reed speaking clear natural Gurmukhi Punjabi, gently confident and reassuring. Read only the written words."),
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),
  "wind":("Leda","Bright, lively and sure of herself. Speak the exact Punjabi words clearly at a pace a young reader can follow."),
  "sun":("Charon","Warm and quietly confident, with an easy smile in the voice. Speak the exact Punjabi words clearly for young readers."),

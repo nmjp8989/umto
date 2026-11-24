@@ -1,0 +1,15 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const dir=path.join(__dirname,'../little panth/mission-034');
+const data=JSON.parse(fs.readFileSync(path.join(dir,'dialogue.json'),'utf8'));
+const source=fs.readFileSync(path.join(dir,'stage.js'),'utf8'),svg=fs.readFileSync(path.join(dir,'art/stage.svg'),'utf8');
+const ids=[...svg.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+assert.equal(new Set(ids).size,ids.length);
+const spoken=data.scenes.flatMap(s=>s.lines);assert.deepEqual([...spoken].sort(),Object.keys(data.lines).sort());
+const checkAudio=process.argv.includes('--audio');let manifest={},aligned={};
+if(checkAudio){manifest=JSON.parse(fs.readFileSync(path.join(dir,'audio/generation-manifest.json'),'utf8'));aligned=JSON.parse(fs.readFileSync(path.join(dir,'audio/word-timings.json'),'utf8'));for(const [id,l] of Object.entries(data.lines)){assert.equal(manifest[id].text,l.pa);assert.match(manifest[id].model,/^gemini-/);assert.equal(aligned[id].dialogueHash,manifest[id].hash);assert.equal(aligned[id].words.length,l.pa.trim().split(/\s+/u).length);assert.ok(fs.statSync(path.join(dir,'audio',id+'.mp3')).size>2048);}}
+const parts=ids.map(id=>({id,attrs:{},dataset:{},setAttribute(k,v){this.attrs[k]=String(v);}}));
+let reduced=false;const svgMock={dataset:{},querySelectorAll:()=>parts};
+const window={matchMedia:()=>({get matches(){return reduced;}}),UmtoCamera:{DeliveryCamera:class{cue(s){assert.ok(Number.isFinite(s.focus.x)&&Number.isFinite(s.focus.y));}}}};
+vm.runInNewContext(source,{window});const {Stage,eventsFor}=window.LittlePanthStage,stage=new Stage(svgMock);
+for(const s of data.scenes){let start=320;const lines=s.lines.map(id=>{const l=data.lines[id],words=l.pa.trim().split(/\s+/u),timings=aligned[id]?.words||words.map((_,i)=>[i*455,(i+1)*455]),duration=aligned[id]?.durationMs||words.length*455;const r={id,...l,start,end:start+duration,duration,reading:{words,timings}};start=r.end+185;return r;});const scene={...s,lines,duration:start+1000};assert.ok(eventsFor(scene).every(e=>Number.isFinite(e.ms)&&e.ms>=0&&e.ms<=scene.duration));for(const mode of [false,true]){reduced=mode;stage.select(scene);for(let ms=0;ms<=scene.duration;ms+=75){const l=lines.findLast(l=>l.start<=ms)||lines[0];const word=l.reading.timings.findIndex(([a,b])=>ms-l.start>=a&&ms-l.start<b);stage.draw(ms,l,word);for(const name of ['oak','reed-bank'])assert.equal(parts.find(n=>n.id===name).dataset.rig,'continuous-curves');assert.ok(parts.find(n=>n.id==='oak-body').attrs.d.endsWith('Z'));assert.ok(parts.every(n=>Object.values(n.attrs).every(v=>!v.includes('NaN')&&!v.includes('Infinity'))));}}}
+console.log('PASS Mission 34: '+spoken.length+' lines, '+data.scenes.length+' scenes, continuous SVG poses and '+(checkAudio?'recorded Gemini audio and timings':'synthetic test timings'));
