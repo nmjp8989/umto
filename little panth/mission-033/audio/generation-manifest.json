@@ -1,0 +1,93 @@
+{
+  "summer": {
+    "hash": "64db02ba13fa3ad0a2cfed3daa78d97812ee73875161ee6a110d1b4111500c05",
+    "voice": "Aoede",
+    "text": "ਗਰਮੀਆਂ ਦੇ ਦਿਨ ਸਨ। ਖੇਤਾਂ ਵਿੱਚ ਹਰੀ ਘਾਹ ਲਹਿਰਾਉਂਦੀ ਸੀ। ਇੱਕ ਕੀੜੀ ਦਾਣੇ ਇਕੱਠੇ ਕਰ ਕੇ ਆਪਣੇ ਘਰ ਲੈ ਜਾ ਰਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "song": {
+    "hash": "b9772ae6750d689e1d2b8498b5a7f942cfa829486e8477d2e65d896d9b0efffd",
+    "voice": "Aoede",
+    "text": "ਨੇੜੇ ਹੀ ਇੱਕ ਟਿੱਡਾ ਘਾਹ ਦੇ ਪੱਤੇ ਉੱਤੇ ਬੈਠਾ ਗੀਤ ਗਾ ਰਿਹਾ ਸੀ। ਉਸ ਨੇ ਕੀੜੀ ਨੂੰ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "invitation": {
+    "hash": "d78a5d4e8cc1b1677eca0129936aa8e8db2e3b9b69ebcd52889c27bec74bedfa",
+    "voice": "Puck",
+    "text": "ਭੈਣੇ, ਤੂੰ ਸਾਰਾ ਦਿਨ ਕੰਮ ਕਿਉਂ ਕਰਦੀ ਹੈਂ? ਆ, ਮੇਰੇ ਨਾਲ ਬੈਠ ਕੇ ਗੀਤ ਗਾ।",
+    "speaker": "grasshopper",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "prepare": {
+    "hash": "4c05224485ffc9ada535adcf4e1f913e3701740c3a5e56086c01d4e5813657df",
+    "voice": "Leda",
+    "text": "ਸਰਦੀਆਂ ਵਿੱਚ ਦਾਣੇ ਨਹੀਂ ਮਿਲਣੇ। ਮੈਂ ਹੁਣੇ ਤੋਂ ਭੋਜਨ ਸੰਭਾਲ ਰਹੀ ਹਾਂ। ਤੂੰ ਵੀ ਕੁਝ ਦਾਣੇ ਇਕੱਠੇ ਕਰ ਲੈ।",
+    "speaker": "ant",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "delay": {
+    "hash": "2c18a0cecb470bde96e0d9a9dd5173c53acb06013eed5a14ee6e5e8cd5a9a72c",
+    "voice": "Puck",
+    "text": "ਅਜੇ ਤਾਂ ਬਹੁਤ ਸਮਾਂ ਹੈ! ਮੈਂ ਇਹ ਕੰਮ ਬਾਅਦ ਵਿੱਚ ਕਰ ਲਵਾਂਗਾ।",
+    "speaker": "grasshopper",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "work": {
+    "hash": "d1d32e3b61918051d809e59c5d3b20476726307942cb36b712dc1c917c9ad2f4",
+    "voice": "Aoede",
+    "text": "ਕੀੜੀ ਰੋਜ਼ ਥੋੜ੍ਹੇ ਥੋੜ੍ਹੇ ਦਾਣੇ ਲਿਆਉਂਦੀ ਰਹੀ। ਉਸ ਦਾ ਭੰਡਾਰ ਭਰ ਗਿਆ। ਟਿੱਡਾ ਗਾਉਂਦਾ ਤੇ ਖੇਡਦਾ ਰਿਹਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "winter": {
+    "hash": "e32b17b3776887728b54ff75bd9e824f18254af4f1210b6d714fa11ba569eeb7",
+    "voice": "Aoede",
+    "text": "ਫਿਰ ਸਰਦੀਆਂ ਆ ਗਈਆਂ। ਠੰਢੀ ਹਵਾ ਵਗਣ ਲੱਗੀ। ਘਾਹ ਸੁੱਕ ਗਈ ਤੇ ਟਿੱਡੇ ਨੂੰ ਖਾਣ ਲਈ ਕੁਝ ਨਾ ਮਿਲਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "knock": {
+    "hash": "48d63f2786bd7d716caacda5f06f2e3c244d9eaa44064f7a71da33a27a11e635",
+    "voice": "Aoede",
+    "text": "ਭੁੱਖਾ ਟਿੱਡਾ ਕੀੜੀ ਦੇ ਘਰ ਪਹੁੰਚਿਆ। ਉਸ ਨੇ ਹੌਲੀ ਜਿਹੀ ਦਰਵਾਜ਼ੇ ਉੱਤੇ ਦਸਤਕ ਦਿੱਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "ask": {
+    "hash": "1dbd823db9dfb4d6e5bded64101990035abcf1dc5d47e336311abbc442b37446",
+    "voice": "Puck",
+    "text": "ਭੈਣੇ, ਕੀ ਮੈਨੂੰ ਕੁਝ ਖਾਣ ਨੂੰ ਮਿਲ ਸਕਦਾ ਹੈ? ਮੈਂ ਤੇਰੀ ਸਲਾਹ ਨਹੀਂ ਮੰਨੀ ਸੀ।",
+    "speaker": "grasshopper",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "share": {
+    "hash": "f6c388b317d7ae9c4a11877d6ec4414d84ae8fb68feb7417e50feb652316b42c",
+    "voice": "Leda",
+    "text": "ਜ਼ਰੂਰ, ਅੰਦਰ ਆ ਜਾ। ਅੱਜ ਆਪਾਂ ਮਿਲ ਕੇ ਖਾਵਾਂਗੇ। ਅਗਲੀ ਵਾਰ ਪਹਿਲਾਂ ਤੋਂ ਤਿਆਰੀ ਕਰਾਂਗੇ।",
+    "speaker": "ant",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "meal": {
+    "hash": "2cf3017d8c15f526b5a9e4ae2e5c47a3b521bd35f18f3c9495a3ef4221daf505",
+    "voice": "Aoede",
+    "text": "ਕੀੜੀ ਨੇ ਆਪਣੇ ਦਾਣਿਆਂ ਵਿੱਚੋਂ ਕੁਝ ਦਾਣੇ ਟਿੱਡੇ ਨੂੰ ਦਿੱਤੇ। ਟਿੱਡੇ ਦੇ ਚਿਹਰੇ ਉੱਤੇ ਮੁਸਕਾਨ ਆ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "thanks": {
+    "hash": "c57a1cde404a54b7d5356b9a785b78fe357cad9a91765ffbe1b3fa80e235f4a9",
+    "voice": "Puck",
+    "text": "ਧੰਨਵਾਦ! ਹੁਣ ਮੈਂ ਕੰਮ ਤੇ ਖੇਡ ਦੋਵਾਂ ਲਈ ਸਮਾਂ ਕੱਢਾਂਗਾ।",
+    "speaker": "grasshopper",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moral": {
+    "hash": "43a18358d9755f42839faad06efd8af946a9db9d4791a0604945030e7467e6fa",
+    "voice": "Aoede",
+    "text": "ਬੱਚਿਓ, ਅੱਜ ਦਾ ਕੰਮ ਕੱਲ੍ਹ ਉੱਤੇ ਨਾ ਛੱਡੋ। ਸਮੇਂ ਸਿਰ ਤਿਆਰੀ ਕਰੋ ਅਤੇ ਲੋੜ ਵੇਲੇ ਦੂਜਿਆਂ ਦੀ ਮਦਦ ਕਰੋ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
