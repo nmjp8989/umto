@@ -45,6 +45,13 @@ for(const s of data.scenes){
    const line=lines.findLast(l=>l.start<=ms)||lines[0];
    const word=line.reading.timings.findIndex(([a,b])=>ms-line.start>=a&&ms-line.start<b);
    stage.draw(ms,line,word);
+   for(const name of ['fox','goat']){
+    const body=parts.find(n=>n.id===name+'-body');
+    const clip=parts.find(n=>n.id===name+'-clip-shape');
+    assert.ok(body.attrs.d.startsWith('M')&&body.attrs.d.endsWith('Z'));
+    assert.equal(body.attrs.d,clip.attrs.d);
+    assert.equal(parts.find(n=>n.id===name).dataset.rig,'continuous-curves');
+   }
    assert.ok(parts.every(n=>Object.values(n.attrs).every(a=>!a.includes('NaN')&&!a.includes('Infinity'))));
   }
  }

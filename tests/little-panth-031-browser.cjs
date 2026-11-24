@@ -22,6 +22,10 @@ async function run(){
   await page.locator('#movie').click();
   await page.waitForFunction(()=>window.lp031Test.state().audioActive&&window.lp031Test.state().position>450);
   assert.equal(await page.locator('#movie button').count(),0);
+  for(const name of ['fox','goat']){
+    assert.equal(await page.locator('#'+name).getAttribute('data-rig'),'continuous-curves');
+    assert.ok((await page.locator('#'+name+'-body').getAttribute('d')).endsWith('Z'));
+  }
   const scenes=initial.scenes;
   const seek=(i,ms)=>page.evaluate(([i,ms])=>window.lp031Test.seek(i,ms),[i,ms]);
   const attr=(id,key)=>page.locator('#'+id).getAttribute('data-'+key);

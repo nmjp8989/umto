@@ -151,6 +151,72 @@ function poseAt(s,c,ms,speech,still){
  }
  return {fox,goat,cross,ramp,rampAngle,rampOffset,splash,splashX,farmer};
 }
+// The near foreleg, chest, back and near hind leg are one deforming closed path.
+// No shoulder/hip disks or outlines cross the main silhouette.  The feet follow
+// a bounded stride arc; cubic control points follow them rather than rotating
+// separate rigid upper/lower limb pieces.
+const round=n=>Math.round(n*100)/100;
+const xy=(x,y)=>round(x)+' '+round(y);
+function foot(x,walk,reach,front,far,goat,brace=0){
+ const sign=front===far?1:-1;
+ return {x:x+walk*sign*(goat?.59:1.02)+reach*(front?(goat?18:47):(goat?-11:-27))+brace*(front?17:0),
+ y:-(Math.max(0,walk*sign)*.29+reach*(goat?13:25)+brace*(front?28:0))};
+}
+function limb(p,startX,startY,front,goat,far){
+ const w=goat?7:11,x=p.x,y=p.y,k=front?startX-2:startX-8;
+ return 'M'+xy(startX-w*1.6,startY)+' C'+xy(startX-w*2,startY+18)+' '+xy(k-w, y-35)+' '+xy(x-w*.7,y-13)+' Q'+xy(x-w,y-3)+' '+xy(x-w*.65,y)+' L'+xy(x+w,y)+' Q'+xy(x+w*1.5,y-4)+' '+xy(x+w*.65,y-11)+' C'+xy(x+w*.15,y-30)+' '+xy(startX+w*1.5,startY+18)+' '+xy(startX+w*1.45,startY)+' Z';
+}
+function boot(p,w,h){return 'M'+xy(p.x-w*1.7,p.y-h)+' Q'+xy(p.x,p.y-h*.52)+' '+xy(p.x+w*1.7,p.y-h)+' L'+xy(p.x+w*2,p.y+3)+' H'+round(p.x-w*2)+' Z';}
+function bendHead(angle,px,py,x,y){const t=angle*Math.PI/180;return {x:px+x*Math.cos(t)-y*Math.sin(t),y:py+x*Math.sin(t)+y*Math.cos(t)};}
+function smoothAnimals(p,f,g,ms,still,ft,gt,opening){
+ const set=(id,d)=>p[id].setAttribute('d',d);
+ const fw=f.walk,fr=f.reach||0;
+ const fH=f.head-fr*7+(ft&&!still?Math.sin(ms/300)*2:0);
+ const fn=foot(58,fw,fr,true,false,false),rn=foot(-77,fw,fr,false,false,false);
+ const ff=foot(34,fw,fr,true,true,false),rf=foot(-53,fw,fr,false,true,false);
+ const fh=bendHead(fH,42,-124,-17,8),fc=bendHead(fH,42,-124,33,22);
+ const fd='M-103 -90 C-108 -121 -85 -139 -52 -136 C-19 -132 0 -132 '+xy(fh.x-8,fh.y-12)+' Q'+xy(fh.x,fh.y-18)+' '+xy(fh.x+9,fh.y-11)+' C'+xy(fc.x+4,fc.y-20)+' '+xy(fc.x+12,fc.y-7)+' '+xy(fc.x+1,fc.y+4)+' C'+xy(80,-83)+' '+xy(fn.x+12,fn.y-40)+' '+xy(fn.x+8,fn.y-13)+' Q'+xy(fn.x+23,fn.y-5)+' '+xy(fn.x+16,fn.y)+' L'+xy(fn.x-8,fn.y)+' Q'+xy(fn.x-13,fn.y-2)+' '+xy(fn.x-12,fn.y-14)+' C'+xy(fn.x-9,fn.y-34)+' 36 -50 30 -68 C6 -58 -24 -59 -49 -70 C-52 -52 '+xy(rn.x-4,rn.y-37)+' '+xy(rn.x-8,rn.y-15)+' Q'+xy(rn.x+9,rn.y-7)+' '+xy(rn.x+12,rn.y)+' L'+xy(rn.x-12,rn.y)+' Q'+xy(rn.x-20,rn.y-4)+' '+xy(rn.x-20,rn.y-15)+' C'+xy(rn.x-19,rn.y-35)+' -79 -60 -83 -71 Q-104 -76 -103 -90Z';
+ set('fox-body',fd);set('fox-clip-shape',fd);
+ set('fox-front-far',limb(ff,30,-100,true,false,true));set('fox-rear-far',limb(rf,-65,-87,false,false,true));
+ set('fox-far-paws',boot(ff,9,29)+boot(rf,9,29));
+ set('fox-near-paws',boot(fn,12,40)+boot(rn,13,36));
+ set('fox-leg-shade','M-89 -98Q-66 -82 -68 -61Q-81 -73 -89 -98Z M41 -98Q58 -86 48 -68Q52 -88 41 -98Z');
+ tx(p['fox-head'],'translate(42 -124) rotate('+fH+')');
+ tx(p['fox-tail'],'rotate('+((still?0:Math.sin(ms/430)*4)+fw*.14+fr*17)+' -83 -89)');
+ tx(p['fox-ears'],'rotate('+(-7*f.worry)+' -6 -44)');
+ tx(p['fox-brow'],'rotate('+(13*f.worry)+' 39 -31)');
+ tx(p['fox-pupil'],'translate(0 '+(f.head>10?1.3:f.head<0?-1.3:0)+')');
+ tx(p['fox-jaw'],'rotate('+(ft?opening*6:0)+' 33 12)');
+ tx(p['fox-mouth'],'translate(0 12) scale(1 '+(.22+opening*.8)+') translate(0 -12)');op(p['fox-mouth'],ft?1:0);
+ const fb=!still&&(ms+420)%3770>3630;op(p['fox-eye'],fb?0:1);op(p['fox-lid'],fb?1:0);
+ const gw=g.walk,gr=g.reach||0,br=clamp(g.angle/38);
+ const gh=g.head+(gt&&!still?Math.sin(ms/340)*1.5:0);
+ const gn=foot(47,gw,gr,true,false,true,br),grn=foot(-47,gw,gr,false,false,true);
+ const gf=foot(29,gw,gr,true,true,true,br),grf=foot(-30,gw,gr,false,true,true);
+ // A flexible neck joins the moving head and body; its endpoints rotate with the head.
+ const n=bendHead(gh,26,-74,1,9),m=bendHead(gh,26,-74,34,23);
+ const gd='M-81 -65 C-83 -84 -66 -95 -44 -93 Q-14 -87 7 -92 C'+xy(n.x-16,n.y-4)+' '+xy(n.x-10,n.y-21)+' '+xy(n.x+1,n.y-18)+' Q'+xy(n.x+23,n.y-13)+' '+xy(m.x,m.y-9)+' C'+xy(m.x+5,m.y+3)+' 64 -48 '+xy(gn.x+8,gn.y-24)+' C'+xy(gn.x+5,gn.y-13)+' '+xy(gn.x+10,gn.y-9)+' '+xy(gn.x+11,gn.y-2)+' Q'+xy(gn.x+10,gn.y)+' '+xy(gn.x+6,gn.y)+' L'+xy(gn.x-7,gn.y)+' Q'+xy(gn.x-10,gn.y-4)+' '+xy(gn.x-9,gn.y-11)+' C'+xy(gn.x-10,gn.y-29)+' 28 -40 24 -47 Q-5 -35 -29 -47 C-30 -33 '+xy(grn.x-1,grn.y-25)+' '+xy(grn.x-4,grn.y-12)+' Q'+xy(grn.x+9,grn.y-6)+' '+xy(grn.x+8,grn.y)+' L'+xy(grn.x-9,grn.y)+' Q'+xy(grn.x-14,grn.y-3)+' '+xy(grn.x-14,grn.y-12)+' C'+xy(grn.x-17,grn.y-30)+' -58 -47 -62 -50 Q-78 -52 -81 -65Z';
+ set('goat-body',gd);set('goat-clip-shape',gd);
+ set('goat-far-front',limb(gf,32,-48,true,true,true));set('goat-far-back',limb(grf,-38,-51,false,true,true));
+ set('goat-far-hooves',boot(gf,6,10)+boot(grf,6,10));set('goat-near-hooves',boot(gn,7,11)+boot(grn,7,11));
+ set('goat-hoof-splits','M'+xy(gn.x+1,gn.y-7)+' L'+xy(gn.x+1,gn.y)+' M'+xy(grn.x+1,grn.y-7)+' L'+xy(grn.x+1,grn.y));
+ set('goat-leg-shade','M-69 -67Q-50 -59 -52 -47Q-61 -55 -69 -67Z M33 -71Q42 -54 33 -40Q36 -59 33 -71Z');
+ const c1=bendHead(gh,26,-74,0,24),c2=bendHead(gh,26,-74,35,27);
+ set('goat-collar-band','M'+xy(c1.x,c1.y)+' Q'+xy((c1.x+c2.x)/2,(c1.y+c2.y)/2+12)+' '+xy(c2.x,c2.y)+' L'+xy(c2.x,c2.y+6)+' Q'+xy((c1.x+c2.x)/2,(c1.y+c2.y)/2+18)+' '+xy(c1.x,c1.y+6)+' Z');
+ tx(p['goat-bell-pendant'],'translate('+round((c1.x+c2.x)/2-44)+' '+round((c1.y+c2.y)/2+13+48)+') rotate('+round(still?0:gw*.15)+' 44 -48)');
+ tx(p['goat-ear-near'],'rotate('+(-9*g.worry+(still?0:Math.sin(ms/870)*1.5))+' 15 -16)');
+ tx(p['goat-ear-far'],'rotate('+(5*g.worry)+' 39 -24)');
+ tx(p['goat-brow'],'rotate('+(-15*g.worry)+' 40 -23)');
+ const gaze=g.head>10?1:g.head<0?-1:0;
+ tx(p['goat-pupil'],'translate(0 '+gaze+')');tx(p['goat-glint'],'translate(0 '+gaze+')');
+ tx(p['goat-jaw'],'rotate('+(gt?opening*5:0)+' 48 25)');
+ p['goat-mouth'].setAttribute('ry',gt?String(1+opening*3.2):'1');op(p['goat-mouth'],gt?1:0);
+ const gb=!still&&(ms+1520)%3970>3830;
+ for(const id of ['goat-eye','goat-pupil','goat-glint'])op(p[id],gb?0:1);
+ op(p['goat-lid'],gb?1:0);
+ return gh;
+}
+
 class WellStage{
  constructor(svg){
   this.svg=svg;this.camera=new window.UmtoCamera.DeliveryCamera(svg);
@@ -209,39 +275,17 @@ class WellStage{
   op(p['exterior-back'],a.cross?0:1);op(p['exterior-front'],a.cross?0:1);
   op(p.cutaway,a.cross?1:0);op(p['water-front'],a.cross?1:0);op(p['foreground-garden'],a.cross?0:1);
   op(p.fox,f.visible?1:0);op(p['fox-shadow'],f.visible&&f.y>=bank-8&&f.y<bank+9?.58:0);
-  tx(p.fox,'translate('+f.x+' '+(f.y-(still?0:Math.abs(f.walk)*.13))+') scale('+(f.facing*.79)+' .79)');
+  tx(p.fox,'translate('+f.x+' '+(f.y-(still?0:Math.abs(f.walk)*.06))+') scale('+(f.facing*.79)+' .79)');
   p['fox-shadow'].setAttribute('cx',f.x);p['fox-shadow'].setAttribute('cy',f.y+4);
-  for(const [id,x,y,sign,reach] of [['fox-rear-far',-77,-84,-1,19],['fox-rear-near',-76,-88,1,-38],['fox-front-far',29,-104,1,-62],['fox-front-near',52,-101,-1,-110]]){
-   tx(p[id],'rotate('+(f.walk*sign+f.reach*reach)+' '+x+' '+y+')');
-  }
-  tx(p['fox-tail'],'rotate('+((still?0:Math.sin(ms/370)*3.5)+f.walk*.2+f.reach*22)+' -83 -89)');
-  tx(p['fox-head'],'translate(42 -124) rotate('+(f.head-f.reach*7+(ft&&!still?Math.sin(ms/300)*2:0))+')');
-  tx(p['fox-ears'],'rotate('+(-11*f.worry)+' -6 -44)');
-  tx(p['fox-brow'],'rotate('+(17*f.worry)+' 39 -31)');
-  tx(p['fox-pupil'],'translate(0 '+(f.head>10?2:f.head<0?-2:0)+')');
-  tx(p['fox-jaw'],'rotate('+(ft?opening*16:0)+' 20 8)');
-  tx(p['fox-mouth'],'translate(0 '+(ft?-6*opening:0)+') scale(1 '+(.25+opening*.92)+')');op(p['fox-mouth'],ft?1:0);
-  const fb=!still&&(ms+420)%3770>3630;op(p['fox-eye'],fb?0:1);op(p['fox-lid'],fb?1:0);
-  p.fox.dataset.speaking=String(ft);p.fox.dataset.location=f.y>500?'well':'bank';
   op(p.goat,g.visible?1:0);op(p['goat-shadow'],g.visible&&g.y>=bank-7&&g.y<bank+9?.55:0);
   p['goat-shadow'].setAttribute('cx',g.x);p['goat-shadow'].setAttribute('cy',g.y+3);
-  tx(p.goat,'translate('+g.x+' '+(g.y-(still?0:Math.abs(g.walk)*.11))+') rotate('+g.angle+') scale('+(g.facing*1.35)+' 1.35)');
-  const pins=[[-43,-44],[35,-44],[-32,-44],[50,-44]];
-  this.goatLegs.forEach((n,i)=>{const [x,y]=pins[i];tx(n,'translate('+x+' '+y+') rotate('+(g.walk*(i===0||i===3?1:-1)-(g.reach||0)*18+(g.angle>0&&(i===1||i===3)?-g.angle*.57:0))+')');});
-  tx(this.goatHead,'translate(26 -74) rotate('+(g.head+(gt&&!still?Math.sin(ms/340)*2:0))+')');
-  tx(this.goatTail,'rotate('+(still?0:Math.sin(ms/340)*4)+' -67 -68)');
-  tx(p['goat-ear-near'],'rotate('+(-11*g.worry+(still?0:Math.sin(ms/870)*1.5))+' 15 -16)');
-  tx(p['goat-ear-far'],'rotate('+(7*g.worry)+' 33 -24)');
-  tx(p['goat-brow'],'rotate('+(-18*g.worry)+' 43 -22)');
-  const goatGaze=g.head>10?1.2:g.head<0?-1.2:0;
-  tx(p['goat-pupil'],'translate(0 '+goatGaze+')');
-  tx(p['goat-glint'],'translate(0 '+goatGaze+')');
-  tx(p['goat-jaw'],'rotate('+(gt?opening*7:0)+' 40 14)');
-  tx(p['goat-bell-pendant'],'rotate('+(-g.head*.35+(still?0:g.walk*.3))+' 15 32)');
-  p['goat-mouth'].setAttribute('ry',gt?String(1+opening*3.7):'1');op(p['goat-mouth'],gt?1:0);
-  const gb=!still&&(ms+1520)%3970>3830;
-  for(const id of ['goat-eye','goat-pupil','goat-glint'])op(p[id],gb?0:1);
-  op(p['goat-lid'],gb?1:0);p.goat.dataset.speaking=String(gt);p.goat.dataset.location=g.y>500?'well':'bank';
+  tx(p.goat,'translate('+g.x+' '+(g.y-(still?0:Math.abs(g.walk)*.06))+') rotate('+g.angle+') scale('+(g.facing*1.35)+' 1.35)');
+  const gh=smoothAnimals(p,f,g,ms,still,ft,gt,opening);
+  tx(this.goatHead,'translate(26 -74) rotate('+gh+')');
+  tx(this.goatTail,'rotate('+(still?0:Math.sin(ms/410)*3)+' -67 -68)');
+  p.fox.dataset.speaking=String(ft);p.fox.dataset.location=f.y>500?'well':'bank';
+  p.goat.dataset.speaking=String(gt);p.goat.dataset.location=g.y>500?'well':'bank';
+  p.fox.dataset.rig=p.goat.dataset.rig='continuous-curves';
   const showRamp=a.ramp>0;
   op(p['rescue-ramp'],showRamp?1:0);
   tx(p['rescue-ramp'],'translate('+a.rampOffset+' 0) translate(934 417) rotate('+a.rampAngle+') translate(-934 -417)');
