@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+<title id="stage-title">A fox and a gray tabby cat beneath a spreading tree in a sunlit Punjabi woodland</title>
+<defs>
+    <linearGradient id="orchard-sky" x2=".1" y2="1"><stop stop-color="#a9cac5"/><stop offset=".66" stop-color="#dfe5bd"/><stop offset="1" stop-color="#f6e8ae"/></linearGradient>
+    <linearGradient id="orchard-ground" x2=".2" y2="1"><stop stop-color="#c6c77f"/><stop offset="1" stop-color="#a5aa61"/></linearGradient>
+    <linearGradient id="orchard-path" x2=".35" y2="1"><stop stop-color="#e6ca89"/><stop offset="1" stop-color="#eac895"/></linearGradient>
+    <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#b99467"/><stop offset="1" stop-color="#98714f"/></linearGradient>
+    <linearGradient id="vine-leaf" x1="0" y1="0" x2=".82" y2="1"><stop stop-color="#b0bd6b"/><stop offset=".51" stop-color="#8ba05a"/><stop offset="1" stop-color="#57794e"/></linearGradient>
+    <linearGradient id="fur" x1=".18" y1="0" x2=".6" y2="1"><stop stop-color="#efa657"/><stop offset=".55" stop-color="#d88143"/><stop offset="1" stop-color="#c3693e"/></linearGradient>
+    <linearGradient id="goat-coat" x1=".25" y1="0" x2=".55" y2="1"><stop stop-color="#fff2d2"/><stop offset=".48" stop-color="#eedfbc"/><stop offset="1" stop-color="#d5ba94"/></linearGradient>
+    <linearGradient id="goat-face" x1=".15" y1=".1" x2=".85" y2="1"><stop stop-color="#fff4d8"/><stop offset=".56" stop-color="#f0e0bb"/><stop offset="1" stop-color="#ddc29b"/></linearGradient>
+    <linearGradient id="goat-horn" x1="0" y1=".1" x2="1" y2=".8"><stop stop-color="#e0cda9"/><stop offset=".5" stop-color="#bca17b"/><stop offset="1" stop-color="#927758"/></linearGradient>
+    <linearGradient id="goat-hoof" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#927761"/><stop offset="1" stop-color="#665247"/></linearGradient>
+    <linearGradient id="goat-bell" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#ffe1a0"/><stop offset=".5" stop-color="#d9ae60"/><stop offset="1" stop-color="#ac7d43"/></linearGradient>
+    <linearGradient id="feathers" x2=".38" y2="1"><stop stop-color="#c8a575"/><stop offset="1" stop-color="#986c53"/></linearGradient>
+    <radialGradient id="grape" cx=".32" cy=".22" r=".8"><stop stop-color="#c99abf"/><stop offset=".55" stop-color="#966897"/><stop offset="1" stop-color="#6c507b"/></radialGradient>
+    <radialGradient id="garden-glow"><stop stop-color="#fff1bd" stop-opacity=".95"/><stop offset=".48" stop-color="#ffefbd" stop-opacity=".53"/><stop offset="1" stop-color="#ffe9b0" stop-opacity="0"/></radialGradient>
+    <radialGradient id="soft-shadow"><stop stop-color="#523832" stop-opacity=".36"/><stop offset="1" stop-color="#523832" stop-opacity="0"/></radialGradient>
+    <filter id="orchard-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".62" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".088"/></feComponentTransfer>
+    </filter>
+    <g id="vineLeaf" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 6Q-6-12-27-3l7-13-23-8 17-6-11-14 22 2 5-19 12 14 12-16 5 20 22-5-8 17 18 7-21 8 6 11Q12-16 0 6Z" fill="url(#vine-leaf)" stroke="#648257" stroke-width="2.4"/>
+      <path d="M0 3Q4-23 1-47M2-11l-18-16m18 12 20-15M1-26l-11-12m12 13 10-13" fill="none" stroke="#ced389" stroke-width="1.9" opacity=".77"/>
+    </g>
+    <g id="berry">
+      <path d="M-22-5Q-22-23 1-23 23-21 22 0 21 22 1 24-20 21-22-5Z" fill="url(#grape)" stroke="#714f76" stroke-width="2.5"/>
+      <ellipse cx="-7" cy="-12" rx="6.4" ry="3.2" fill="#f2d5de" opacity=".57" transform="rotate(-26 -7 -12)"/>
+    </g>
+    <g id="grass" fill="none" stroke-linecap="round">
+      <path d="M0 1Q0-15-10-25M0 1Q4-20 14-26M5 0q8-10 15-10m-25 10q-4-10-12-12" stroke="#788753" stroke-width="3.2"/>
+      <path d="M0 0Q1-16 6-27m3 27q7-9 14-10" stroke="#abb270" stroke-width="2.4"/>
+    </g>
+    <g id="orchard-flower">
+      <path d="M-4 1Q6-9 0-34M2-13q9-12 16-8-4 11-16 8m-2-4q-10-10-16-6 6 11 16 6" fill="#829152" stroke="#7b8852" stroke-width="2.4" stroke-linecap="round"/>
+      <g fill="#fbebbb"><ellipse cx="-5" cy="-34" rx="6.5" ry="4"/><ellipse cx="5" cy="-34" rx="6.5" ry="4"/><ellipse cy="-38" rx="4.1" ry="6"/><ellipse cy="-31" rx="4.7" ry="6"/></g>
+      <circle cy="-35" r="3.4" fill="#dba652"/>
+    </g>
+    <g id="path-stone">
+      <ellipse rx="13" ry="4.3" cy="2" fill="#926d52" opacity=".32"/>
+      <path d="M-11 1-5-5 5-6 12-1 7 2-6 3Z" fill="#dabc95"/>
+    </g>
+  
+ <radialGradient id="shadow"><stop stop-color="#4b4d3c" stop-opacity=".54"/><stop offset="1" stop-color="#4b4d3c" stop-opacity="0"/></radialGradient>
+ <linearGradient id="well-stone" x2=".2" y2="1"><stop stop-color="#d3bd94"/><stop offset=".5" stop-color="#b6a181"/><stop offset="1" stop-color="#8d806d"/></linearGradient>
+ <linearGradient id="well-inside" x2="0" y2="1"><stop stop-color="#9b8b72"/><stop offset=".58" stop-color="#b8a88c"/><stop offset="1" stop-color="#a49c7e"/></linearGradient>
+ <linearGradient id="well-water" x2="0" y2="1"><stop stop-color="#a6c9bd"/><stop offset="1" stop-color="#6f9ca0"/></linearGradient>
+ <pattern id="well-bricks" width="94" height="48" patternUnits="userSpaceOnUse"><path d="M0 1h94M0 25h94M47 1v24M0 25v23M94 25v23" fill="none" stroke="#766c5c" stroke-width="2.5" opacity=".48"/><path d="M3 4h38m10 24h39" stroke="#e6d1a8" stroke-width="2" opacity=".55"/></pattern>
+ <clipPath id="water-clip"><path d="M415 621Q660 608 908 621L905 680Q660 701 415 680Z"/></clipPath>
+
+ <linearGradient id="wall-light" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7cbaa"/><stop offset=".45" stop-color="#c7ad89"/><stop offset="1" stop-color="#9b8268"/></linearGradient>
+ <linearGradient id="earth-section" x1="0" y1="0" x2=".1" y2="1"><stop stop-color="#d6ae7b"/><stop offset=".22" stop-color="#b38b66"/><stop offset=".73" stop-color="#a17d61"/><stop offset="1" stop-color="#81634e"/></linearGradient>
+ <linearGradient id="shaft-shade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#514c44" stop-opacity=".50"/><stop offset=".17" stop-color="#514c44" stop-opacity=".08"/><stop offset=".52" stop-color="#f9dfa4" stop-opacity=".20"/><stop offset=".88" stop-color="#4c493b" stop-opacity=".13"/><stop offset="1" stop-color="#51483d" stop-opacity=".55"/></linearGradient>
+ <radialGradient id="well-hole" cx=".46" cy=".28" r=".76"><stop stop-color="#81796b"/><stop offset=".53" stop-color="#655e51"/><stop offset="1" stop-color="#3f443c"/></radialGradient>
+ <radialGradient id="well-glow" cx=".48" cy="0" r="1"><stop stop-color="#fff0b6" stop-opacity=".47"/><stop offset="1" stop-color="#fff0b6" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ramp-wood" x2=".2" y2="1"><stop stop-color="#ead0a0"/><stop offset=".45" stop-color="#c99e71"/><stop offset="1" stop-color="#936b49"/></linearGradient>
+ <linearGradient id="tree-leaf" x2=".2" y2="1"><stop stop-color="#b9c48a"/><stop offset=".52" stop-color="#91a36a"/><stop offset="1" stop-color="#637e55"/></linearGradient>
+ <g id="well-tree" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M-28 0q19-83 9-148-12-44-63-79l15-19q50 29 72 70 10-47 62-95l17 15q-50 58-52 112 10-22 42-45l15 16Q35-120 32-88q-6 53 11 88Z" fill="#9e7957" stroke="#80654d" stroke-width="5"/>
+   <path d="M-13-3q13-75 2-139M17-7q-5-80 10-144M-18-152q-14-42-47-68" fill="none" stroke="#c49c6b" stroke-width="5" opacity=".8"/>
+   <path d="M-169-233q10-45 67-55 18-57 83-55 51-38 99-1 68-8 97 50 52 18 42 66-11 39-61 43-37 37-91 16-65 27-107-3-56 15-88-18-38-3-41-43Z" fill="url(#tree-leaf)" stroke="#78905d" stroke-width="4"/>
+   <path d="M-143-257q31-22 62-13 21-42 63-36m16 9q34-23 68-4m17 11q45-8 76 27m-272 45q34 9 66-8m58 16q53 20 84-6m22-18q43 13 71-12" fill="none" stroke="#d1ce95" opacity=".61" stroke-width="9"/>
+   <path d="M-118-203q51 15 89-5m40 28q67 8 95-16" stroke="#597950" stroke-width="4" fill="none" opacity=".7"/>
+ </g>
+ <g id="stone-detail"><path d="M-18 3q2-13 17-14 17 0 23 11-11 12-40 3Z" fill="#b89b78" stroke="#8e745a" stroke-width="2.3"/><path d="M-13-2q10-8 23-3" stroke="#e6cba1" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+ <g id="soil-grain" opacity=".6"><path d="M0 0l25 4m22 9 14-4m36 5 29-3m13 28 22 4m34-16 14 3m-179 14 15 3m70 9 11-4" fill="none" stroke="#d2aa79" stroke-width="2.5" stroke-linecap="round"/></g>
+
+<linearGradient id="fox-smooth-fur" gradientUnits="userSpaceOnUse" x1="-75" y1="-145" x2="70" y2="15"><stop stop-color="#f5ad58"/><stop offset=".48" stop-color="#e2873e"/><stop offset="1" stop-color="#b65b31"/></linearGradient>
+<linearGradient id="fox-smooth-head" x1=".15" y1="0" x2=".8" y2="1"><stop stop-color="#ffb965"/><stop offset=".6" stop-color="#e78a42"/><stop offset="1" stop-color="#c36a35"/></linearGradient>
+<linearGradient id="fox-cream" x2=".25" y2="1"><stop stop-color="#fff3d7"/><stop offset="1" stop-color="#ecc798"/></linearGradient>
+<linearGradient id="fox-smooth-paw" gradientUnits="userSpaceOnUse" x1="0" y1="-49" x2="0" y2="3"><stop stop-color="#a95431"/><stop offset=".43" stop-color="#79412e"/><stop offset="1" stop-color="#583c32"/></linearGradient>
+<linearGradient id="fox-tail-fur" x1=".15" y1=".1" x2=".8" y2="1"><stop stop-color="#ffc16e"/><stop offset=".54" stop-color="#de833f"/><stop offset="1" stop-color="#b76036"/></linearGradient>
+<linearGradient id="goat-smooth-coat" gradientUnits="userSpaceOnUse" x1="-36" y1="-110" x2="38" y2="5"><stop stop-color="#fff5db"/><stop offset=".5" stop-color="#f4e4c8"/><stop offset="1" stop-color="#d7b994"/></linearGradient>
+<linearGradient id="goat-smooth-head" x1=".18" y1=".1" x2=".85" y2="1"><stop stop-color="#fff9e7"/><stop offset=".6" stop-color="#f6e4c7"/><stop offset="1" stop-color="#dfbf9b"/></linearGradient>
+<linearGradient id="goat-smooth-ear" x2=".3" y2="1"><stop stop-color="#f7d7bd"/><stop offset="1" stop-color="#c68d79"/></linearGradient>
+<linearGradient id="goat-smooth-horn" x1=".1" y1=".1" x2=".9" y2=".8"><stop stop-color="#ead2a7"/><stop offset=".5" stop-color="#c7a171"/><stop offset="1" stop-color="#9d784f"/></linearGradient>
+<linearGradient id="goat-smooth-hoof" gradientUnits="userSpaceOnUse" x1="0" y1="-13" x2="0" y2="3"><stop stop-color="#9a785b"/><stop offset="1" stop-color="#5e473d"/></linearGradient>
+<clipPath id="fox-body-clip"><path id="fox-clip-shape"/></clipPath>
+
+<clipPath id="fox-far-clip"><use href="#fox-rear-far"/><use href="#fox-front-far"/></clipPath>
+
+
+ <linearGradient id="cat-coat" gradientUnits="userSpaceOnUse" x1="-45" y1="-125" x2="38" y2="8"><stop stop-color="#dfd5c9"/><stop offset=".53" stop-color="#bfb1a2"/><stop offset="1" stop-color="#998d7e"/></linearGradient>
+ <linearGradient id="cat-face" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#e6ded3"/><stop offset="1" stop-color="#b7a899"/></linearGradient>
+ <linearGradient id="cat-tail-color" x2=".5" y2="1"><stop stop-color="#c8bcaf"/><stop offset="1" stop-color="#998c7c"/></linearGradient>
+ <clipPath id="cat-clip"><path id="cat-clip-shape"/></clipPath>
+ <linearGradient id="forest-bark" x1="0" x2="1" y2=".1"><stop stop-color="#b5966f"/><stop offset=".47" stop-color="#a17d58"/><stop offset="1" stop-color="#80664d"/></linearGradient>
+ <linearGradient id="forest-canopy" x2=".15" y2="1"><stop stop-color="#c5ce91"/><stop offset=".52" stop-color="#a2b477"/><stop offset="1" stop-color="#718d5c"/></linearGradient>
+ <radialGradient id="bush-green"><stop stop-color="#b0bf81"/><stop offset="1" stop-color="#77915c"/></radialGradient>
+</defs>
+<g data-camera-depth="-.24">
+    <path d="M-140-80h1560v880H-140Z" fill="url(#orchard-sky)"/>
+    <ellipse cx="183" cy="126" rx="294" ry="234" fill="url(#garden-glow)"/>
+    <circle cx="184" cy="120" r="39" fill="#fff2bd" opacity=".8"/>
+    <path d="M318 151q34-31 66-13 32-23 66-3 35-6 56 10-77 20-188 6Zm570-39q34-18 69-9 49-31 88-6 34-4 52 10-78 17-209 5Z" fill="#fff3d5" opacity=".69"/>
+    <path d="M-140 356q150-54 288-29 98-58 256-40 140-12 262 46 102-48 234-44 191-46 520 60v133H-140Z" fill="#9daa83"/>
+    <path d="M-140 410q182-78 349-30 103-58 239-23 119-13 242 16 126-50 252-14 230-14 478 30v103H-140Z" fill="#93a47b"/>
+    <path d="M-140 433q246-45 424-23 151-32 340-5 190-53 419-19 199-15 377 45v150H-140Z" fill="#b7ba79"/>
+    <path d="M84 418q205-43 355-17 140 17 185 11-124 10-229 2-157-10-311 4Zm807-28q150-24 316 7-199-7-316 10Z" fill="#d2cd90" opacity=".85"/>
+    <g stroke="#aa7d5b" stroke-width="2.6" stroke-linejoin="round">
+      <path d="M215 370h72v54h-72Z" fill="#dfb07d"/>
+      <path d="m207 373 44-34 44 33Z" fill="#b6855e"/>
+      <path d="M238 424v-20h15v20m14-38h8v11h-8Z" fill="#849177"/>
+    </g>
+    <path d="M196 424v-27q-14-2-14-14 5-10 10-9-7-16 7-23 14 3 13 17 14 2 13 17-2 9-14 12v27Z" fill="#7e9871"/>
+  </g>
+
+  <g id="garden-ground">
+    <path d="M-120 478q206-50 404-30 240-54 462-14 212-41 654 3v360H-120Z" fill="url(#orchard-ground)"/>
+    <path d="M-120 469q61-37 133-17 29-30 71-16 16-24 55-19 51-19 71 12 43-17 76 4 55-13 87 10-144 33-493 26Zm1042-3q39-56 98-32 32-49 99-30 24-46 74-22 51-13 91 20 46-19 116 12v68q-145 11-478-16Z" fill="#889b65"/>
+    <path d="M-120 487q199-12 383 13 138 9 278 2 258-25 477-21 181-10 382-49v209q-192-33-405-8-224 34-447 25-243-15-372-1-137 14-296-10Z" fill="url(#orchard-path)" stroke="#c3a36c" stroke-width="3.1"/>
+    <path d="M-120 524q144-20 302 5m-302 83q165 10 265-12m793 11q236-37 461-8" fill="none" stroke="#f6daad" stroke-width="12" opacity=".58" stroke-linecap="round"/>
+    <path d="M-120 675q251-34 429-12t368 21q230-4 382-35 179-15 341 11v100H-120Z" fill="#9f9f61"/>
+    <ellipse cx="903" cy="596" rx="398" ry="53" fill="url(#soft-shadow)" opacity=".5"/>
+    <ellipse cx="395" cy="550" rx="415" ry="95" fill="url(#garden-glow)" opacity=".56"/>
+    <g>
+      <use href="#path-stone" x="189" y="591"/><use href="#path-stone" transform="translate(355 572) scale(.68)"/>
+      <use href="#path-stone" transform="translate(536 636) scale(1.2)"/><use href="#path-stone" x="789" y="616"/>
+      <use href="#path-stone" transform="translate(1003 585) scale(.7)"/><use href="#path-stone" x="1122" y="621"/>
+      <use href="#grass" x="77" y="500"/><use href="#grass" x="1092" y="475"/><use href="#grass" x="320" y="476"/>
+      <use href="#orchard-flower" transform="translate(104 508) scale(.74)"/><use href="#orchard-flower" x="1047" y="487"/>
+    </g>
+  </g>
+
+  
+
+
+<g opacity=".68" data-camera-depth="-.10"><use href="#well-tree" transform="translate(130 478) scale(.74)"/><use href="#well-tree" transform="translate(1110 465) scale(.58)"/><use href="#well-tree" transform="translate(430 455) scale(.49)"/></g>
+<path d="M-80 554Q225 511 443 547T940 546Q1130 520 1360 549L1360 667Q1070 633 899 659T420 646Q190 650-80 641Z" fill="#e4c89b" opacity=".85"/>
+<g id="tree" stroke-linecap="round" stroke-linejoin="round">
+ <ellipse cx="779" cy="585" rx="224" ry="32" fill="url(#soft-shadow)" opacity=".73"/>
+ <path d="M700 584Q744 555 735 494C727 437 747 377 727 310Q698 270 630 264L585 236Q651 239 712 270L746 288Q727 219 666 168L690 154Q762 208 784 277C822 229 882 209 950 193L967 219Q899 239 853 277Q817 315 812 366Q804 455 823 528Q831 560 883 583Q834 599 794 582L776 568Q749 592 700 584Z" fill="url(#forest-bark)" stroke="#886b50" stroke-width="4"/>
+ <path d="M776 354Q794 312 851 303L1000 303Q1020 308 1013 321Q954 338 895 330Q837 326 806 369Z" fill="url(#forest-bark)" stroke="#886b50" stroke-width="4"/>
+ <path d="M829 318Q904 311 999 312" stroke="#d7b58a" stroke-width="5" fill="none"/>
+ <path d="M764 554Q778 510 766 449Q751 392 775 346M791 558Q804 481 791 434M754 295Q741 241 705 201M815 328Q837 284 889 253" stroke="#c7a174" stroke-width="6" fill="none" opacity=".8"/>
+ <path d="M748 489Q760 513 750 539M795 409Q787 433 796 454M758 373Q745 408 756 429" stroke="#8a6d51" stroke-width="3" fill="none" opacity=".7"/>
+ <g id="canopy" fill="url(#forest-canopy)" stroke="#819762" stroke-width="3">
+ <path d="M468 169Q441 115 507 85Q515 29 592 28Q650-22 724 12Q791-20 852 23Q927-1 970 42Q1047 41 1066 101Q1140 133 1105 191Q1087 225 1026 219Q972 257 909 218Q859 239 818 211Q758 248 701 216Q639 244 591 213Q516 230 486 194Z"/>
+ <path d="M492 136Q530 88 598 105Q620 55 689 68M719 65Q770 32 828 69M858 72Q931 44 982 95M997 101Q1042 102 1061 144" stroke="#d7d69b" stroke-width="12" fill="none" opacity=".6"/>
+ <path d="M533 181Q571 198 615 177M641 198Q685 213 726 185M771 198Q813 210 855 183M895 191Q949 211 988 182" stroke="#6f8e5c" stroke-width="6" fill="none" opacity=".65"/>
+ </g>
+</g>
+<g id="bush-back"><path d="M65 573Q55 547 85 528Q76 484 123 479Q156 444 194 475Q242 444 270 479Q315 474 330 513Q372 526 353 562Q312 588 65 573Z" fill="url(#bush-green)" stroke="#6c8654" stroke-width="3"/></g>
+<ellipse id="fox-shadow" cx="340" cy="585" rx="78" ry="13" fill="url(#soft-shadow)" opacity=".63"/>
+<ellipse id="cat-shadow" cx="580" cy="585" rx="58" ry="10" fill="url(#soft-shadow)" opacity=".63"/>
+<g id="fox" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
+<!-- Continuous deforming silhouette, with the far limbs behind it. -->
+<g id="fox-tail">
+ <path d="M-83-100C-119-80-137-103-139-133C-141-166-166-192-205-183C-188-171-186-158-196-149C-173-153-181-127-174-107C-163-67-114-49-80-77Z" fill="url(#fox-tail-fur)" stroke="#a45f39" stroke-width="2.4"/>
+ <path d="M-205-183C-175-192-152-172-144-151C-151-157-161-157-165-152L-163-139C-174-145-180-142-182-134C-181-146-181-154-196-149C-186-158-188-171-205-183Z" fill="url(#fox-cream)"/>
+ <path d="M-173-124Q-164-88-131-82Q-153-95-159-121Z" fill="#f3a351" opacity=".55"/>
+</g>
+<path id="fox-rear-far" fill="#ae6039" stroke="#93512f" stroke-width="2"/>
+<path id="fox-front-far" fill="#a85d38" stroke="#93512f" stroke-width="2"/>
+<path id="fox-far-paws" fill="#654333" clip-path="url(#fox-far-clip)"/>
+<path id="fox-body" fill="url(#fox-smooth-fur)" stroke="#a45a32" stroke-width="2.6"/>
+<g clip-path="url(#fox-body-clip)">
+ <path d="M-92-110C-75-133-42-132-18-126C-4-123 17-129 30-140C11-111-23-105-49-109C-68-112-83-107-94-98Z" fill="#ffc16d" opacity=".38"/>
+ <path d="M-48-63Q-6-55 20-83L42-143Q85-143 90-117Q71-69 42-55Q14-47-48-63Z" fill="url(#fox-cream)"/>
+ <path d="M32-134Q18-109 27-90L36-100 35-84 49-98 47-79Q70-94 75-121Z" fill="#fff0ce" opacity=".8"/>
+ <path id="fox-near-paws" fill="url(#fox-smooth-paw)"/>
+ <path id="fox-leg-shade" fill="#a6542e" opacity=".24"/>
+</g>
+<path id="fox-rear-near" fill="none" stroke="none"/>
+<path id="fox-front-near" fill="none" stroke="none"/>
+<g id="fox-head" transform="translate(42 -124)">
+ <g id="fox-ears">
+  <path d="M-22-35C-39-49-50-72-44-94C-20-86-5-71 3-51M13-46C13-68 29-89 42-97C52-78 53-54 44-40" fill="url(#fox-smooth-head)" stroke="#a45a32" stroke-width="2.3"/>
+  <path d="M-36-84Q-15-72-9-51Q-28-55-36-84M40-85Q27-72 26-48Q43-60 40-85" fill="#efb08b"/>
+  <path d="M-44-94Q-34-91-28-85L-43-79Z M42-97L47-86 33-87Z" fill="#815039"/>
+ </g>
+ <path d="M-35 14C-53-9-46-36-24-49C-4-63 25-59 43-43Q55-31 60-23C72-20 83-16 93-11Q98-5 89 2L68 13C57 31 29 39 5 31Q-20 26-35 14Z" fill="url(#fox-smooth-head)" stroke="#a45a32" stroke-width="2.6"/>
+ <path d="M-35 5Q-27-5-13-8Q4-15 18-4C36 5 46-1 60-12Q73-17 91-10L91 0 68 14Q52 37 17 32Q-10 31-35 14L-28 12Z" fill="url(#fox-cream)"/>
+ <path d="M-30 7Q-12-3 5 2L-3 10 12 8 1 18Q-16 16-30 7Z" fill="#fff1d3"/>
+ <path id="fox-jaw" d="M27 15Q52 21 75 7Q62 28 43 28Q35 27 27 15Z" fill="#efd1a4"/>
+ <path id="fox-mouth" d="M32 10Q52 16 75 3Q65 25 47 24Q37 22 32 10Z" fill="#6a3932" opacity="0"/>
+ <path d="M35 11Q55 17 72 7" fill="none" stroke="#784932" stroke-width="2.1"/>
+ <path d="M84-14Q94-18 97-10Q99-5 92 0Q86 2 81-4Q77-10 84-14Z" fill="#573a32"/>
+ <path d="M85-12Q90-15 93-11" fill="none" stroke="#bf9070" stroke-width="2.2"/>
+ <path id="fox-brow" d="M21-35Q33-45 47-34" fill="none" stroke="#85502e" stroke-width="3"/>
+ <g id="fox-eye">
+  <path d="M19-18Q23-35 39-33Q53-29 55-14Q40-4 19-18Z" fill="#fff4db" stroke="#945530" stroke-width="1.8"/>
+  <g id="fox-pupil"><ellipse cx="42" cy="-21" rx="8" ry="11" fill="#7d4b2d"/><ellipse cx="44" cy="-21" rx="5.2" ry="8.8" fill="#422e28"/><circle cx="46" cy="-25" r="2.7" fill="#fff9e8"/></g>
+  <path d="M19-18Q23-35 39-33Q51-30 55-19" fill="none" stroke="#59352c" stroke-width="2.7"/>
+ </g>
+ <path id="fox-lid" d="M22-19Q37-11 52-19" fill="none" stroke="#75452f" stroke-width="2.6" opacity="0"/>
+ <ellipse cx="19" cy="5" rx="9" ry="4" fill="#da8257" opacity=".28"/>
+ <path d="M-7-49Q1-60 11-61Q6-52 24-55Q15-48 9-45" fill="#f0a14e"/>
+</g>
+</g><g id="cat" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
+ <path id="cat-tail" fill="none" stroke="url(#cat-tail-color)" stroke-width="17"/>
+ <path id="cat-tail-tip" fill="none" stroke="#887d6d" stroke-width="12"/>
+ <path id="cat-rear-far" fill="#9f9587" stroke="#82786b" stroke-width="1.8"/>
+ <path id="cat-front-far" fill="#a59b8e" stroke="#82786b" stroke-width="1.8"/>
+ <path id="cat-body" fill="url(#cat-coat)" stroke="#82786b" stroke-width="2.1"/>
+ <g clip-path="url(#cat-clip)">
+  <path d="M-77-93Q-51-111-14-101Q12-95 37-108Q18-84-13-87Q-47-95-77-82Z" fill="#e4dacf" opacity=".65"/>
+  <path d="M17-92Q46-115 62-80Q52-58 15-47Q-5-42-29-53Q-1-55 17-92Z" fill="#fff0d8"/>
+  <path id="cat-paws" fill="#e9dfd1"/>
+  <path d="M-67-100Q-52-84-58-71M-44-105Q-33-92-37-81M-20-103Q-8-91-10-82" stroke="#958979" stroke-width="6" fill="none" opacity=".57"/>
+ </g>
+ <g id="cat-head">
+  <path d="M-39-28Q-53-42-48-67Q-27-64-12-45M9-45Q24-65 44-65Q50-43 36-26" fill="url(#cat-face)" stroke="#82786b" stroke-width="2"/>
+  <path d="M-43-58Q-28-54-23-43L-38-39Z M38-57Q25-52 20-41L35-39Z" fill="#d6a49b"/>
+  <path d="M-40-20C-41-41-17-51 7-48C32-46 47-30 47-9Q51 10 36 24Q19 37-6 30Q-37 29-41 7Q-45-5-40-20Z" fill="url(#cat-face)" stroke="#82786b" stroke-width="2.1"/>
+  <path d="M-9-45L-3-32 4-44M12-43L16-32 22-41" fill="none" stroke="#9e8f7e" stroke-width="4" opacity=".7"/>
+  <path d="M-35 5Q-20-1-6 7Q5-2 20 5Q37 4 41 14Q31 33 6 31Q-22 34-35 5Z" fill="#fff1dd"/>
+  <g id="cat-eye">
+   <path d="M-29-14Q-21-31-8-23Q0-18-1-8Q-18 1-29-14Z M10-13Q18-31 32-22Q39-17 39-7Q23 1 10-13Z" fill="#fff7e4" stroke="#706353" stroke-width="1.3"/>
+   <g id="cat-pupils"><ellipse cx="-13" cy="-15" rx="8" ry="10" fill="#9b9c56"/><ellipse cx="27" cy="-15" rx="8" ry="10" fill="#9b9c56"/><ellipse cx="-11" cy="-15" rx="4.3" ry="8" fill="#403a32"/><ellipse cx="29" cy="-15" rx="4.3" ry="8" fill="#403a32"/><circle cx="-9" cy="-19" r="2.3" fill="#fffbed"/><circle cx="31" cy="-19" r="2.3" fill="#fffbed"/></g>
+  </g>
+  <path id="cat-lids" d="M-27-15Q-15-7-3-14M12-14Q25-7 37-14" stroke="#726456" stroke-width="2.2" fill="none" opacity="0"/>
+  <path id="cat-brows" d="M-27-30Q-19-36-9-30M14-30Q25-36 34-29" fill="none" stroke="#756655" stroke-width="2.5"/>
+  <path d="M-4 5Q4 0 12 5Q10 12 4 13Q-2 11-4 5Z" fill="#b97d75"/>
+  <path d="M4 13v6" stroke="#8b6256" fill="none" stroke-width="1.7"/>
+  <ellipse id="cat-mouth" cx="5" cy="22" rx="7" ry="1" fill="#72504a" opacity="0"/>
+  <path d="M-7 19Q0 25 4 19Q10 25 18 18" stroke="#8b6256" stroke-width="1.6" fill="none"/>
+  <path d="M-15 14L-47 9M-16 20L-46 22M22 14L52 9M23 20L51 23" stroke="#8d8070" stroke-width="1.35" fill="none"/>
+ </g>
+</g>
+<g id="bush-front"><path d="M60 578Q41 550 78 538Q93 509 133 524Q155 489 197 515Q237 501 260 530Q307 515 342 548Q369 553 355 582Q213 609 60 578Z" fill="url(#bush-green)" stroke="#6e8756" stroke-width="3"/>
+ <path d="M91 553Q117 537 140 548M156 541Q179 520 202 537M217 548Q241 531 260 545M279 550Q310 544 327 563" stroke="#c3ca8b" stroke-width="5" stroke-linecap="round" fill="none" opacity=".7"/>
+ <use href="#vineLeaf" transform="translate(88 565) rotate(-28) scale(.27)"/><use href="#vineLeaf" transform="translate(240 560) rotate(24) scale(.24)"/></g>
+<g id="sound-rustle" fill="none" stroke="#879665" stroke-width="3.5" stroke-linecap="round" opacity="0"><path d="M1168 440q25-18 49 0M1192 421q18-12 36 0M1148 460q24-11 43 4"/></g>
+<g data-camera-depth=".18"><use href="#grass" transform="translate(57 692) scale(1.35)"/><use href="#orchard-flower" x="135" y="684"/><use href="#grass" x="222" y="708"/><use href="#orchard-flower" transform="translate(1130 682) scale(1.25)"/><use href="#grass" transform="translate(1220 700) scale(1.5)"/></g>
+<path d="M0 0h1280v720H0Z" filter="url(#orchard-grain)" opacity=".28" pointer-events="none"/>
+</svg>

@@ -1,0 +1,154 @@
+{
+  "mission": 32,
+  "title": "ਲੂੰਬੜੀ ਤੇ ਬਿੱਲੀ",
+  "englishTitle": "The Fox and the Cat",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "fox": "Fox",
+    "cat": "Cat"
+  },
+  "scenes": [
+    {
+      "id": "forest-meeting",
+      "title": "Two friends meet beneath a tree",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "meeting"
+      ],
+      "review": "Wide forest establishing shot. Fox and cat walk towards one another, paws grounded on the path."
+    },
+    {
+      "id": "hundred-tricks",
+      "title": "The fox boasts",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "fox-boasts",
+        "cat-reply",
+        "fox-laughs",
+        "fox-teases"
+      ],
+      "review": "Alternate eye-level speaker close-ups, with a modest tail swish and expressive brows."
+    },
+    {
+      "id": "a-distant-sound",
+      "title": "A sudden sound",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "barking",
+        "cat-calls"
+      ],
+      "review": "Both animals turn towards the sound from the right, then the cat looks up at the tree."
+    },
+    {
+      "id": "one-useful-skill",
+      "title": "The cat climbs",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "cat-climbs",
+        "fox-confused"
+      ],
+      "review": "Follow the cat's leap, climb and landing on the branch. Cut to the fox hesitating below.",
+      "layout": "cinema",
+      "caption": "top"
+    },
+    {
+      "id": "a-place-to-hide",
+      "title": "The fox finds shelter",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "fox-hides"
+      ],
+      "review": "Show the fox noticing the bush, running behind it, and waiting as distant sound fades."
+    },
+    {
+      "id": "a-lesson-learned",
+      "title": "The friends reunite",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "reunion",
+        "fox-learns",
+        "moral"
+      ],
+      "review": "Cat descends, fox returns, then both listen in a warm closing wide shot."
+    }
+  ],
+  "lines": {
+    "meeting": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਦਿਨ ਜੰਗਲ ਦੇ ਰਾਹ ਉੱਤੇ ਇੱਕ ਲੂੰਬੜੀ ਤੇ ਇੱਕ ਬਿੱਲੀ ਮਿਲੀਆਂ। ਦੋਵੇਂ ਇੱਕ ਵੱਡੇ ਦਰੱਖਤ ਹੇਠ ਰੁਕ ਗਈਆਂ।"
+    },
+    "fox-boasts": {
+      "speaker": "fox",
+      "pa": "ਮੈਂ ਬਹੁਤ ਚਲਾਕ ਹਾਂ। ਮੈਨੂੰ ਮੁਸੀਬਤ ਤੋਂ ਬਚਣ ਦੇ ਸੌ ਤਰੀਕੇ ਆਉਂਦੇ ਹਨ। ਤੈਨੂੰ ਕਿੰਨੇ ਤਰੀਕੇ ਆਉਂਦੇ ਹਨ?"
+    },
+    "cat-reply": {
+      "speaker": "cat",
+      "pa": "ਮੈਨੂੰ ਤਾਂ ਇੱਕੋ ਤਰੀਕਾ ਆਉਂਦਾ ਹੈ। ਮੈਂ ਦਰੱਖਤ ਉੱਤੇ ਚੜ੍ਹ ਸਕਦੀ ਹਾਂ। ਮੈਂ ਹਰ ਰੋਜ਼ ਇਸ ਦਾ ਅਭਿਆਸ ਕਰਦੀ ਹਾਂ।"
+    },
+    "fox-laughs": {
+      "speaker": "narrator",
+      "pa": "ਲੂੰਬੜੀ ਹੱਸ ਪਈ। ਉਸ ਨੇ ਆਪਣੀ ਪੂਛ ਹਿਲਾਈ ਤੇ ਬੜੇ ਮਾਣ ਨਾਲ ਬਿੱਲੀ ਵੱਲ ਵੇਖਿਆ।"
+    },
+    "fox-teases": {
+      "speaker": "fox",
+      "pa": "ਸਿਰਫ਼ ਇੱਕ ਤਰੀਕਾ? ਫਿਰ ਤਾਂ ਤੈਨੂੰ ਮੇਰੇ ਕੋਲੋਂ ਬਹੁਤ ਕੁਝ ਸਿੱਖਣਾ ਪਵੇਗਾ!"
+    },
+    "barking": {
+      "speaker": "narrator",
+      "pa": "ਅਚਾਨਕ ਦੂਰੋਂ ਕੁੱਤਿਆਂ ਦੇ ਭੌਂਕਣ ਦੀ ਆਵਾਜ਼ ਆਈ। ਦੋਵੇਂ ਚੌਕੰਨੀਆਂ ਹੋ ਗਈਆਂ। ਆਵਾਜ਼ ਹੌਲੀ ਹੌਲੀ ਨੇੜੇ ਆ ਰਹੀ ਸੀ।"
+    },
+    "cat-calls": {
+      "speaker": "cat",
+      "pa": "ਛੇਤੀ ਕਰ, ਕਿਸੇ ਸੁਰੱਖਿਅਤ ਥਾਂ ਚੱਲੀਏ!"
+    },
+    "cat-climbs": {
+      "speaker": "narrator",
+      "pa": "ਬਿੱਲੀ ਨੇ ਝੱਟ ਦਰੱਖਤ ਉੱਤੇ ਛਾਲ ਮਾਰੀ। ਉਹ ਤਣੇ ਉੱਤੇ ਚੜ੍ਹਦੀ ਹੋਈ ਇੱਕ ਮਜ਼ਬੂਤ ਟਾਹਣੀ ਉੱਤੇ ਪਹੁੰਚ ਗਈ।"
+    },
+    "fox-confused": {
+      "speaker": "fox",
+      "pa": "ਮੈਂ ਕਿਹੜਾ ਤਰੀਕਾ ਵਰਤਾਂ? ਇੱਧਰ ਜਾਵਾਂ ਜਾਂ ਉੱਧਰ?"
+    },
+    "fox-hides": {
+      "speaker": "narrator",
+      "pa": "ਲੂੰਬੜੀ ਸੋਚਦੀ ਰਹੀ। ਅਖ਼ੀਰ ਉਸ ਨੇ ਨੇੜੇ ਇੱਕ ਸੰਘਣੀ ਝਾੜੀ ਵੇਖੀ ਤੇ ਉਸ ਦੇ ਪਿੱਛੇ ਲੁਕ ਗਈ। ਕੁੱਤੇ ਦੂਰ ਲੰਘ ਗਏ।"
+    },
+    "reunion": {
+      "speaker": "narrator",
+      "pa": "ਜਦੋਂ ਸਭ ਪਾਸੇ ਚੁੱਪ ਹੋ ਗਈ, ਬਿੱਲੀ ਹੇਠਾਂ ਉਤਰੀ। ਲੂੰਬੜੀ ਵੀ ਝਾੜੀ ਪਿੱਛੋਂ ਬਾਹਰ ਆ ਗਈ।"
+    },
+    "fox-learns": {
+      "speaker": "fox",
+      "pa": "ਅੱਜ ਮੈਂ ਸਿੱਖਿਆ ਕਿ ਸ਼ੇਖੀ ਮਾਰਨ ਨਾਲੋਂ ਇੱਕ ਕੰਮ ਚੰਗੀ ਤਰ੍ਹਾਂ ਕਰਨਾ ਵਧੀਆ ਹੈ।"
+    },
+    "moral": {
+      "speaker": "narrator",
+      "pa": "ਬੱਚਿਓ, ਸਿਰਫ਼ ਗੱਲਾਂ ਨਾ ਕਰੋ। ਮਨ ਲਾ ਕੇ ਅਭਿਆਸ ਕਰੋ। ਸਿੱਖਿਆ ਹੋਇਆ ਹੁਨਰ ਹੀ ਔਖੇ ਵੇਲੇ ਕੰਮ ਆਉਂਦਾ ਹੈ।"
+    }
+  }
+}

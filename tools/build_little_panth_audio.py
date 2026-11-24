@@ -31,6 +31,7 @@ VOICES={
  "traveller":("Iapetus","An expressive, friendly Punjabi traveller. Speak naturally and clearly for young readers."),
  "jackal":("Orus","A curious young jackal in a Punjabi story for children. Start a little wary and become warmly amused when the sound is explained. Speak clear, natural Gurmukhi Punjabi at an easy read-along pace. Read only the written words."),
  "fox":("Kore","An expressive young fox speaking conversational Punjabi. Give her bright enthusiasm and honest disappointment without overacting. Read only the written words."),
+ "cat":("Leda","A thoughtful, gentle young cat speaking conversational Punjabi in Gurmukhi. Friendly and modest, then alert and reassuring. Clear pronunciation at a comfortable read-along pace. Read only the written words."),
  "goat":("Iapetus","A friendly, curious goat speaking natural Punjabi in Gurmukhi. Clear and warm, with gentle surprise and concern, at a comfortable read-along pace. Read only the written words."),
  "sparrow":("Leda","A small, lively sparrow with a kind, curious voice. Read the Punjabi words clearly, with no imitation of bird sounds."),
  "ant":("Leda","A lively little ant speaking natural Punjabi. Clear, warm pronunciation at an easy pace for children. Read only the written words."),
