@@ -168,7 +168,7 @@
   async function start() {
     const [data, drawing, manifest, timings] = await Promise.all([
       read('dialogue.json'),
-      read('art/stage.svg?v=cat1', 'text'),
+      read('art/stage.svg?v=cat2', 'text'),
       read('audio/generation-manifest.json').catch(() => ({})),
       read('audio/word-timings.json').catch(() => ({})),
       document.fonts.load('700 48px "Little Panth Gurmukhi"', book.getAttribute('aria-label')).catch(() => {}),

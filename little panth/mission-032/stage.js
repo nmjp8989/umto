@@ -18,7 +18,7 @@ function cues(s){
  case 'a-lesson-learned':{const l=line(s,'reunion');return {down:wordAt(s,'reunion','ਉਤਰੀ')-450,return:wordAt(s,'reunion','ਬਾਹਰ')-350,meet:l.end-100};}
  }return {};
 }
-function eventsFor(s){const c=cues(s);let e=[];switch(s.id){case 'forest-meeting':e=[{ms:c.arrive+350,sound:'step'},{ms:c.arrive+780,sound:'step'}];break;case 'a-distant-sound':e=[{ms:c.hear,sound:'rustle'},{ms:c.hear+650,sound:'rustle'}];break;case 'one-useful-skill':e=[{ms:c.jump,sound:'spring'},{ms:c.climb,sound:'twig'},{ms:c.branch,sound:'step'}];break;case 'a-place-to-hide':e=[{ms:c.hide+250,sound:'step'},{ms:c.hide+650,sound:'step'},{ms:c.hide+1150,sound:'rustle'}];break;case 'a-lesson-learned':e=[{ms:c.down+650,sound:'step'},{ms:c.return+450,sound:'step'},{ms:c.meet+400,sound:'chirp'}];break;}return e.filter(a=>a.ms>=0&&a.ms<=s.duration);}
+function eventsFor(s){const c=cues(s);let e=[];switch(s.id){case 'forest-meeting':e=[{ms:c.arrive+350,sound:'step'},{ms:c.arrive+780,sound:'step'}];break;case 'a-distant-sound':e=[{ms:c.hear,sound:'bark'},{ms:c.hear+650,sound:'bark'}];break;case 'one-useful-skill':e=[{ms:c.jump,sound:'spring'},{ms:c.climb,sound:'twig'},{ms:c.branch,sound:'step'}];break;case 'a-place-to-hide':e=[{ms:c.hide+250,sound:'step'},{ms:c.hide+650,sound:'step'},{ms:c.hide+1150,sound:'twig'}];break;case 'a-lesson-learned':e=[{ms:c.down+650,sound:'step'},{ms:c.return+450,sound:'step'},{ms:c.meet+400,sound:'chirp'}];break;}return e.filter(a=>a.ms>=0&&a.ms<=s.duration);}
 const round=n=>Math.round(n*100)/100;
 const xy=(x,y)=>round(x)+' '+round(y);
 function foot(x,walk,reach,front,far,goat,brace=0){
@@ -83,7 +83,7 @@ class ForestStage{
   const motion=(b,e)=>still?Math.round(phase(ms,b,e)):ease(phase(ms,b,e));
   const ft=speech.speaker==='fox'&&word>=0,ct=speech.speaker==='cat'&&word>=0;
   const timing=speech.reading.timings[word],opening=timing?.length===2?.24+.75*Math.sin(Math.PI*phase(ms-speech.start,timing[0],timing[1])):0;
-  let rustle=0,shot={preset:'wide',focus:{x:640,y:360},width:1280};
+  let rustle=0,crouch=0,shot={preset:'wide',focus:{x:640,y:360},width:1280};
   const frame=(x,y,width,preset='medium')=>{shot={preset,focus:{x,y},width};};
   switch(s.id){
    case 'forest-meeting':
@@ -113,11 +113,11 @@ class ForestStage{
     if(ms<c.notice){f.facing=ms%1200<600?1:-1;}
     else {f.facing=-1;f.head=0;}
     if(ms>=c.hide){travel(f,ms,c.hide,c.hide+1200,440,ground,208,ground,still);}
-    if(ms>c.hide+1050){f.x=208;f.y=598;}
+    crouch=motion(c.hide+700,c.hide+1250);f.y=mix(ground,598,crouch);
     rustle=ms<c.hide?1:1-motion(c.hide,c.quiet);
     frame(620,390,1280,'wide');break;
    case 'a-lesson-learned':
-    a.x=854;a.y=319;f.x=208;f.y=598;f.facing=1;
+    a.x=854;a.y=319;f.x=208;f.y=598;f.facing=1;crouch=1-motion(c.return,c.return+450);
     if(ms>=c.down){leap(a,ms,c.down,c.down+1000,854,319,620,ground,28,still);a.angle=-5;}
     if(ms>=c.down+1000){a.angle=0;a.head=0;}
     if(ms>=c.return)travel(f,ms,c.return,Math.max(c.return+850,c.meet),208,598,440,ground,still);
@@ -126,7 +126,7 @@ class ForestStage{
   }
   const key=[shot.preset,shot.focus.x,shot.focus.y,shot.width].join('/');
   if(this.shot!==key){this.camera.cue({...shot,cut:true,motion:'static'});this.shot=key;}
-  tx(p.fox,'translate('+f.x+' '+f.y+') scale('+(f.facing*.71)+' .71)');
+  tx(p.fox,'translate('+f.x+' '+f.y+') scale('+(f.facing*.71)+' '+(.71*(1-.43*crouch))+')');
   tx(p.cat,'translate('+a.x+' '+a.y+') rotate('+a.angle+') scale('+(a.facing*.91)+' .91)');
   drawFox(p,f,ms,still,ft,opening);drawCat(p,a,ms,still,ct,opening);
   for(const [id,v] of [['fox',f],['cat',a]]){p[id+'-shadow'].setAttribute('cx',v.x);p[id+'-shadow'].setAttribute('cy',v.y+4);op(p[id+'-shadow'],Math.abs(v.y-ground)<12?.55:0);p[id].dataset.rig='continuous-curves';p[id].dataset.location=v.y<350?'branch':'ground';}
