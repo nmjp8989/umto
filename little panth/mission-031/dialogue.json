@@ -1,0 +1,174 @@
+{
+  "mission": 31,
+  "title": "ਲੂੰਬੜੀ ਤੇ ਬੱਕਰੀ",
+  "englishTitle": "The Fox and the Goat",
+  "score": "orchard",
+  "speakers": {
+    "narrator": "Narrator",
+    "fox": "Fox",
+    "goat": "Goat"
+  },
+  "scenes": [
+    {
+      "id": "the-old-well",
+      "title": "A thirsty fox finds a well",
+      "framing": "establishing",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "fox-falls"
+      ],
+      "review": "Establish the village and open well in a readable side cutaway. Track the fox's approach; she slips from the rim and lands in shallow water."
+    },
+    {
+      "id": "no-way-out",
+      "title": "The high walls",
+      "framing": "medium",
+      "focus": {
+        "x": 665,
+        "y": 545
+      },
+      "lines": [
+        "trapped"
+      ],
+      "review": "Frame the water and stone walls together. Show the fox attempting a small jump, then looking up."
+    },
+    {
+      "id": "an-invitation",
+      "title": "The goat at the rim",
+      "framing": "two-shot",
+      "focus": {
+        "x": 630,
+        "y": 460
+      },
+      "lines": [
+        "goat-arrives",
+        "goat-asks",
+        "fox-invites"
+      ],
+      "review": "Keep the goat safely above and the fox below, then cut to each speaker with the same screen direction."
+    },
+    {
+      "id": "into-the-well",
+      "title": "A leap without a plan",
+      "framing": "full",
+      "focus": {
+        "x": 650,
+        "y": 430
+      },
+      "lines": [
+        "goat-jumps",
+        "goat-worries"
+      ],
+      "review": "Follow the goat's leap, splash and drink; hold both animals for the worried question."
+    },
+    {
+      "id": "a-clever-escape",
+      "title": "The fox climbs out",
+      "framing": "full",
+      "focus": {
+        "x": 635,
+        "y": 475
+      },
+      "lines": [
+        "fox-plan",
+        "fox-escapes"
+      ],
+      "review": "Show the goat bracing against the left wall, the fox landing on the goat's back, and the second leap to the left bank."
+    },
+    {
+      "id": "the-goat-calls",
+      "title": "The fox leaves; help arrives",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "goat-pleads",
+        "fox-answers",
+        "help-arrives"
+      ],
+      "review": "Show the goat calling up, the fox answering and walking away. A sturdy wooden ramp is lowered into the well from the right."
+    },
+    {
+      "id": "think-before-you-leap",
+      "title": "Safe on the bank",
+      "framing": "wide",
+      "focus": {
+        "x": 640,
+        "y": 360
+      },
+      "lines": [
+        "goat-climbs",
+        "goat-learns",
+        "moral"
+      ],
+      "review": "Show the goat climbing the ramp, then hold a calm reaction close-up before the closing wide shot."
+    }
+  ],
+  "lines": {
+    "fox-falls": {
+      "speaker": "narrator",
+      "pa": "ਇੱਕ ਗਰਮ ਦਿਨ ਇੱਕ ਲੂੰਬੜੀ ਪਾਣੀ ਲੱਭਦੀ ਫਿਰ ਰਹੀ ਸੀ। ਉਸ ਨੂੰ ਇੱਕ ਪੁਰਾਣਾ ਖੂਹ ਦਿੱਸਿਆ। ਉਹ ਝਾਕਣ ਲੱਗੀ ਤਾਂ ਉਸ ਦਾ ਪੈਰ ਤਿਲਕ ਗਿਆ।"
+    },
+    "trapped": {
+      "speaker": "narrator",
+      "pa": "ਖੂਹ ਵਿੱਚ ਪਾਣੀ ਥੋੜ੍ਹਾ ਸੀ, ਪਰ ਕੰਧਾਂ ਉੱਚੀਆਂ ਸਨ। ਲੂੰਬੜੀ ਨੇ ਬਾਹਰ ਨਿਕਲਣ ਦੀ ਬੜੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ।"
+    },
+    "goat-arrives": {
+      "speaker": "narrator",
+      "pa": "ਥੋੜ੍ਹੀ ਦੇਰ ਪਿੱਛੋਂ ਇੱਕ ਬੱਕਰੀ ਉੱਥੇ ਆਈ।"
+    },
+    "goat-asks": {
+      "speaker": "goat",
+      "pa": "ਭੈਣੇ, ਖੂਹ ਦਾ ਪਾਣੀ ਕਿਹੋ ਜਿਹਾ ਹੈ?"
+    },
+    "fox-invites": {
+      "speaker": "fox",
+      "pa": "ਬਹੁਤ ਮਿੱਠਾ ਹੈ! ਤੂੰ ਵੀ ਹੇਠਾਂ ਆ ਜਾ।"
+    },
+    "goat-jumps": {
+      "speaker": "narrator",
+      "pa": "ਬੱਕਰੀ ਨੇ ਬਿਨਾਂ ਸੋਚੇ ਖੂਹ ਵਿੱਚ ਛਾਲ ਮਾਰ ਦਿੱਤੀ। ਉਸ ਨੇ ਪਾਣੀ ਪੀਤਾ ਤੇ ਆਲੇ ਦੁਆਲੇ ਵੇਖਿਆ।"
+    },
+    "goat-worries": {
+      "speaker": "goat",
+      "pa": "ਹੁਣ ਆਪਾਂ ਬਾਹਰ ਕਿਵੇਂ ਨਿਕਲਾਂਗੇ?"
+    },
+    "fox-plan": {
+      "speaker": "fox",
+      "pa": "ਤੂੰ ਆਪਣੇ ਅਗਲੇ ਪੈਰ ਕੰਧ ਉੱਤੇ ਰੱਖ। ਮੈਂ ਤੇਰੀ ਪਿੱਠ ਉੱਤੇ ਚੜ੍ਹ ਕੇ ਬਾਹਰ ਨਿਕਲ ਜਾਵਾਂਗੀ।"
+    },
+    "fox-escapes": {
+      "speaker": "narrator",
+      "pa": "ਬੱਕਰੀ ਨੇ ਲੂੰਬੜੀ ਦੀ ਗੱਲ ਮੰਨ ਲਈ। ਲੂੰਬੜੀ ਉਸ ਦੀ ਪਿੱਠ ਤੋਂ ਛਾਲ ਮਾਰ ਕੇ ਖੂਹ ਤੋਂ ਬਾਹਰ ਨਿਕਲ ਗਈ।"
+    },
+    "goat-pleads": {
+      "speaker": "goat",
+      "pa": "ਹੁਣ ਮੇਰੀ ਵੀ ਮਦਦ ਕਰ ਦੇ!"
+    },
+    "fox-answers": {
+      "speaker": "fox",
+      "pa": "ਤੂੰ ਛਾਲ ਮਾਰਨ ਤੋਂ ਪਹਿਲਾਂ ਬਾਹਰ ਆਉਣ ਦਾ ਰਾਹ ਸੋਚ ਲੈਣਾ ਸੀ।"
+    },
+    "help-arrives": {
+      "speaker": "narrator",
+      "pa": "ਲੂੰਬੜੀ ਚਲੀ ਗਈ। ਬੱਕਰੀ ਨੇ ਮਦਦ ਲਈ ਆਵਾਜ਼ ਮਾਰੀ। ਇੱਕ ਕਿਸਾਨ ਨੇ ਉਸ ਦੀ ਆਵਾਜ਼ ਸੁਣੀ ਤੇ ਖੂਹ ਵਿੱਚ ਇੱਕ ਲੰਮਾ ਫੱਟਾ ਰੱਖ ਦਿੱਤਾ।"
+    },
+    "goat-climbs": {
+      "speaker": "narrator",
+      "pa": "ਬੱਕਰੀ ਹੌਲੀ ਹੌਲੀ ਫੱਟੇ ਉੱਤੇ ਚੜ੍ਹ ਕੇ ਬਾਹਰ ਆ ਗਈ।"
+    },
+    "goat-learns": {
+      "speaker": "goat",
+      "pa": "ਹੁਣ ਮੈਂ ਕੋਈ ਵੀ ਕੰਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਚੰਗੀ ਤਰ੍ਹਾਂ ਸੋਚਾਂਗੀ।"
+    },
+    "moral": {
+      "speaker": "narrator",
+      "pa": "ਬੱਚਿਓ, ਕਿਸੇ ਦੀ ਗੱਲ ਸੁਣ ਕੇ ਜਲਦੀ ਨਾ ਕਰੋ। ਪਹਿਲਾਂ ਸੋਚੋ, ਫਿਰ ਕਦਮ ਚੁੱਕੋ।"
+    }
+  }
+}
