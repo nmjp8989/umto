@@ -5,23 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fff6e5">
   <meta name="robots" content="noindex">
-  <meta name="mission-revision" content="well-cutaway-1">
+  <meta name="mission-revision" content="well-cinematic-2">
   <meta name="description" content="ਲੂੰਬੜੀ ਤੇ ਬੱਕਰੀ. An animated Punjabi read-along adapted from Aesop's fable about thinking before taking a leap.">
   <title>Little Panth XXXI · ਲੂੰਬੜੀ ਤੇ ਬੱਕਰੀ</title>
   <link rel="stylesheet" href="../mission-004/style.css?v=storybook">
-  <link rel="stylesheet" href="../mission-005/style.css?v=well1">
+  <link rel="stylesheet" href="../mission-005/style.css?v=well2">
   <script defer src="../../missions/delivery-camera.js"></script>
   <script defer src="../mission-004/reading.js"></script>
-  <script defer src="stage.js?v=well1"></script>
-  <script defer src="../mission-005/sound.js?v=well1"></script>
-  <script defer src="../mission-005/review.js?v=well1"></script>
-  <script defer src="../mission-005/player.js?v=well1"></script>
+  <script defer src="../../missions/native-character-player.js?v=6"></script>
+  <script defer src="stage.js?v=well2"></script>
+  <script defer src="../mission-005/sound.js?v=well2"></script>
+  <script defer src="../mission-005/review.js?v=well2"></script>
+  <script defer src="player.js?v=well2"></script>
+<style>
+  #voice-start{position:absolute;z-index:3;left:50%;bottom:7%;transform:translateX(-50%);display:flex;align-items:center;gap:.65em;white-space:nowrap;border:1px solid #e2cfaa;border-radius:30px;padding:.65em 1.1em;background:#fff7e9;color:#3b392b;box-shadow:0 4px 22px #30241555;cursor:pointer;font:700 clamp(14px,1.8vw,24px)/1.2 "Little Panth Gurmukhi","Noto Sans Gurmukhi",sans-serif}
+  #voice-start[hidden]{display:none}
+  #voice-start:focus-visible{outline:3px solid #53704b;outline-offset:3px}
+  #voice-start .play-icon{display:grid;place-items:center;width:1.4em;height:1.4em;color:#fff9ed;background:#52734e;border-radius:50%;font:700 .8em/1 system-ui}
+  #loading{z-index:2;text-align:center;padding:12px}
+  #loading[hidden]{display:none}
+</style>
 </head>
 <body>
 <div class="shell" id="shell">
   <main class="book" id="book" data-layout="spread" aria-label="ਲੂੰਬੜੀ ਤੇ ਬੱਕਰੀ">
     <section class="page art-page" aria-label="ਐਨੀਮੇਸ਼ਨ">
       <div id="movie" class="movie" role="group" aria-label="ਕਹਾਣੀ ਸੁਣਨ ਲਈ ਤਸਵੀਰ ਉੱਤੇ ਟੈਪ ਕਰੋ" tabindex="0">
+        <button type="button" id="voice-start" hidden aria-label="ਕਹਾਣੀ ਸੁਣੋ · Play Punjabi narration"><span class="play-icon" aria-hidden="true">▶</span><span id="voice-label">ਕਹਾਣੀ ਸੁਣੋ</span></button>
         <div class="story-loading" id="loading" role="status">ਕਹਾਣੀ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</div>
       </div>
     </section>
@@ -70,5 +80,6 @@
     <button type="button" class="download-review" id="download-review">Download review notes</button>
   </aside>
 </template>
+<iframe id="well-studio" title="UMTO Studio character animation" src="../../index.html?missionBridge=native&amp;v=102" hidden></iframe>
 </body>
 </html>

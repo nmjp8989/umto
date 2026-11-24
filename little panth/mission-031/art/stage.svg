@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
-<title id="stage-title">A fox and a cream-colored goat at a stone village well, shown in side cutaway</title>
+<title id="stage-title">An orange fox and a cream goat at a masonry village well, with separate exterior and underground cutaway views</title>
 <defs>
     <linearGradient id="orchard-sky" x2=".1" y2="1"><stop stop-color="#a9cac5"/><stop offset=".66" stop-color="#dfe5bd"/><stop offset="1" stop-color="#f6e8ae"/></linearGradient>
     <linearGradient id="orchard-ground" x2=".2" y2="1"><stop stop-color="#c6c77f"/><stop offset="1" stop-color="#a5aa61"/></linearGradient>
@@ -43,7 +43,24 @@
  <linearGradient id="well-inside" x2="0" y2="1"><stop stop-color="#9b8b72"/><stop offset=".58" stop-color="#b8a88c"/><stop offset="1" stop-color="#a49c7e"/></linearGradient>
  <linearGradient id="well-water" x2="0" y2="1"><stop stop-color="#a6c9bd"/><stop offset="1" stop-color="#6f9ca0"/></linearGradient>
  <pattern id="well-bricks" width="94" height="48" patternUnits="userSpaceOnUse"><path d="M0 1h94M0 25h94M47 1v24M0 25v23M94 25v23" fill="none" stroke="#766c5c" stroke-width="2.5" opacity=".48"/><path d="M3 4h38m10 24h39" stroke="#e6d1a8" stroke-width="2" opacity=".55"/></pattern>
- <clipPath id="water-clip"><path d="M488 614Q650 598 852 614L852 663Q657 685 488 662Z"/></clipPath>
+ <clipPath id="water-clip"><path d="M415 621Q660 608 908 621L905 680Q660 701 415 680Z"/></clipPath>
+
+ <linearGradient id="wall-light" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7cbaa"/><stop offset=".45" stop-color="#c7ad89"/><stop offset="1" stop-color="#9b8268"/></linearGradient>
+ <linearGradient id="earth-section" x1="0" y1="0" x2=".1" y2="1"><stop stop-color="#d6ae7b"/><stop offset=".22" stop-color="#b38b66"/><stop offset=".73" stop-color="#a17d61"/><stop offset="1" stop-color="#81634e"/></linearGradient>
+ <linearGradient id="shaft-shade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#514c44" stop-opacity=".50"/><stop offset=".17" stop-color="#514c44" stop-opacity=".08"/><stop offset=".52" stop-color="#f9dfa4" stop-opacity=".20"/><stop offset=".88" stop-color="#4c493b" stop-opacity=".13"/><stop offset="1" stop-color="#51483d" stop-opacity=".55"/></linearGradient>
+ <radialGradient id="well-hole" cx=".46" cy=".28" r=".76"><stop stop-color="#81796b"/><stop offset=".53" stop-color="#655e51"/><stop offset="1" stop-color="#3f443c"/></radialGradient>
+ <radialGradient id="well-glow" cx=".48" cy="0" r="1"><stop stop-color="#fff0b6" stop-opacity=".47"/><stop offset="1" stop-color="#fff0b6" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ramp-wood" x2=".2" y2="1"><stop stop-color="#ead0a0"/><stop offset=".45" stop-color="#c99e71"/><stop offset="1" stop-color="#936b49"/></linearGradient>
+ <linearGradient id="tree-leaf" x2=".2" y2="1"><stop stop-color="#b9c48a"/><stop offset=".52" stop-color="#91a36a"/><stop offset="1" stop-color="#637e55"/></linearGradient>
+ <g id="well-tree" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M-28 0q19-83 9-148-12-44-63-79l15-19q50 29 72 70 10-47 62-95l17 15q-50 58-52 112 10-22 42-45l15 16Q35-120 32-88q-6 53 11 88Z" fill="#9e7957" stroke="#80654d" stroke-width="5"/>
+   <path d="M-13-3q13-75 2-139M17-7q-5-80 10-144M-18-152q-14-42-47-68" fill="none" stroke="#c49c6b" stroke-width="5" opacity=".8"/>
+   <path d="M-169-233q10-45 67-55 18-57 83-55 51-38 99-1 68-8 97 50 52 18 42 66-11 39-61 43-37 37-91 16-65 27-107-3-56 15-88-18-38-3-41-43Z" fill="url(#tree-leaf)" stroke="#78905d" stroke-width="4"/>
+   <path d="M-143-257q31-22 62-13 21-42 63-36m16 9q34-23 68-4m17 11q45-8 76 27m-272 45q34 9 66-8m58 16q53 20 84-6m22-18q43 13 71-12" fill="none" stroke="#d1ce95" opacity=".61" stroke-width="9"/>
+   <path d="M-118-203q51 15 89-5m40 28q67 8 95-16" stroke="#597950" stroke-width="4" fill="none" opacity=".7"/>
+ </g>
+ <g id="stone-detail"><path d="M-18 3q2-13 17-14 17 0 23 11-11 12-40 3Z" fill="#b89b78" stroke="#8e745a" stroke-width="2.3"/><path d="M-13-2q10-8 23-3" stroke="#e6cba1" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+ <g id="soil-grain" opacity=".6"><path d="M0 0l25 4m22 9 14-4m36 5 29-3m13 28 22 4m34-16 14 3m-179 14 15 3m70 9 11-4" fill="none" stroke="#d2aa79" stroke-width="2.5" stroke-linecap="round"/></g>
 </defs>
 <g data-camera-depth="-.24">
     <path d="M-140-80h1560v880H-140Z" fill="url(#orchard-sky)"/>
@@ -80,28 +97,73 @@
   </g>
 
   
-<!-- An authored side elevation/cutaway: the front masonry is removed so children can see the animals below ground. -->
-<g id="well">
- <ellipse cx="665" cy="471" rx="284" ry="50" fill="url(#soft-shadow)" opacity=".8"/>
- <path d="M449 446Q650 413 888 446L870 665Q654 705 468 665Z" fill="#93816d" stroke="#786c58" stroke-width="5"/>
- <path d="M483 454Q650 428 855 454L851 655Q657 678 489 655Z" fill="url(#well-inside)"/>
- <path d="M483 454Q650 428 855 454L851 655Q657 678 489 655Z" fill="url(#well-bricks)" opacity=".54"/>
- <path d="M484 614Q654 597 854 614L852 663Q657 685 488 662Z" fill="url(#well-water)" stroke="#658e91" stroke-width="2"/>
- <g clip-path="url(#water-clip)" fill="none" stroke="#e6f1d2" stroke-width="2.4" stroke-linecap="round" opacity=".68">
-  <path id="water-lines" d="M460 630q38-5 77 0t75 0 76 0 77 0 77 0 77 0M488 651q40-5 80 0t80 0 80 0 80 0 80 0"/>
+
+<!-- The exterior is a normal three-quarter village view. The underground view is separately illustrated, not an artificial perspective transform. -->
+<g id="village-details" stroke-linecap="round">
+ <use href="#well-tree" transform="translate(83 472) scale(.92)"/>
+ <use href="#well-tree" transform="translate(1165 457) scale(.72)"/>
+ <path d="M855 419q96-48 194-36 89-10 170 12" fill="none" stroke="#d8c97c" stroke-width="8" opacity=".7"/>
+ <g fill="#d1af79" stroke="#9c845e" stroke-width="2.4"><path d="M925 377h77v53h-77Z"/><path d="m915 380 49-32 47 32Z" fill="#b38d5d"/><path d="M953 430v-25h17v25" fill="#818c73"/></g>
+ <ellipse cx="644" cy="496" rx="355" ry="30" fill="url(#soft-shadow)" opacity=".6"/>
+ <path d="M-120 491q190-30 370-1 217 25 405 3 227-25 479-2l266 15v46q-249-27-432-5-226 27-400 8-272-25-425 0l-263 8Z" fill="#d5b586" opacity=".7"/>
+ <path d="M36 500q98-12 188 1m736-3q94-5 204 14" stroke="#f5d9a8" stroke-width="6" fill="none" opacity=".67"/>
+ <use href="#grass" transform="translate(155 480) scale(.8)"/><use href="#orchard-flower" x="180" y="493"/>
+ <use href="#grass" x="1051" y="490"/><use href="#orchard-flower" transform="translate(1112 500) scale(.9)"/>
+ <use href="#stone-detail" x="274" y="485"/><use href="#stone-detail" transform="translate(983 486) scale(.72)"/>
+</g>
+<g id="exterior-back" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M377 407Q377 370 650 367Q923 370 923 407L916 478Q650 535 384 478Z" fill="url(#wall-light)" stroke="#8b735a" stroke-width="5"/>
+ <path d="M386 431Q650 477 916 431M386 454Q650 500 916 454" fill="none" stroke="#8e795f" stroke-width="3" opacity=".72"/>
+ <path d="M423 429v23m62-12v22m73-13v23m85-20v23m85-26v23m73-31v23m64-34v22M452 454v25m72-15v22m75-16v22m87-24v23m76-32v23m73-36v23" stroke="#9a8165" stroke-width="2.8" fill="none"/>
+ <ellipse cx="650" cy="407" rx="273" ry="58" fill="#d4b991" stroke="#8c765b" stroke-width="5"/>
+ <ellipse cx="650" cy="407" rx="235" ry="43" fill="url(#well-hole)" stroke="#8a755b" stroke-width="3"/>
+ <ellipse cx="650" cy="421" rx="195" ry="20" fill="#8fa39a" opacity=".33"/>
+ <path d="M394 397q68-39 256-40 179 0 254 38" stroke="#f1d7ac" stroke-width="6" fill="none"/>
+ <path d="M444 383l23 12m58-23 14 17m70-21 7 16m68-16-6 16m75-12-14 17m70-10-23 16" stroke="#9e8669" stroke-width="2.6" fill="none"/>
+ <g transform="translate(958 480)">
+  <ellipse cy="3" rx="47" ry="10" fill="url(#soft-shadow)"/>
+  <path d="M-33-58L-27-6Q0 8 27-6L33-58Z" fill="url(#ramp-wood)" stroke="#80644a" stroke-width="3.3"/>
+  <path d="M-19-54l4 50m15-49v53m17-55-4 51" stroke="#94734f" stroke-width="2.1" fill="none"/>
+  <ellipse cy="-58" rx="34" ry="9" fill="#98734e" stroke="#7e6247" stroke-width="3"/>
+  <ellipse cy="-57" rx="27" ry="5" fill="#695b48"/>
+  <path d="M-32-56Q0-114 32-56" fill="none" stroke="#8a7962" stroke-width="4"/>
+  <path d="M-28-18Q0-10 28-18" stroke="#9a9280" stroke-width="5" fill="none"/>
  </g>
- <path d="M447 440h45v219l-24 11-21-17ZM851 440h39v212l-20 17-19-10Z" fill="url(#well-stone)" stroke="#80735e" stroke-width="4"/>
- <path d="M447 440h45v219l-24 11-21-17ZM851 440h39v212l-20 17-19-10Z" fill="url(#well-bricks)"/>
- <path d="M438 442q204-39 460 0l-6 20-42 4v-12q-177-24-357 0v13l-48-5Z" fill="#d7bf98" stroke="#907b5f" stroke-width="4" stroke-linejoin="round"/>
- <path d="M458 442q197-28 419 0" fill="none" stroke="#f4dcae" stroke-width="4.5" stroke-linecap="round"/>
- <path d="M470 674q189 33 399-1" fill="none" stroke="#6d6759" stroke-width="5" opacity=".65"/>
 </g>
-<g id="rescue-ramp" opacity="0" transform="translate(0 -280)" stroke-linecap="round" stroke-linejoin="round">
- <path d="M649 634L900 439 917 450 666 651Z" fill="#bd9867" stroke="#81674c" stroke-width="4"/>
- <path d="M658 639 907 444" stroke="#ecd1a2" stroke-width="4"/>
- <path d="M684 609l16 12m19-39 16 12m19-39 16 12m19-39 16 12m19-39 16 12m19-39 16 12m19-39 16 12" stroke="#876b4c" stroke-width="5"/>
+<g id="cutaway" opacity="0" stroke-linecap="round" stroke-linejoin="round">
+ <!-- Soil extends outward from the masonry to make the underground depth unambiguous. -->
+ <path d="M-120 480Q160 473 390 480L405 686Q650 725 929 686L945 480Q1120 475 1400 485V800H-120Z" fill="url(#earth-section)"/>
+ <path d="M-100 492q239-22 495 4m549 0q200-14 450 6M-90 548q256-18 485 6m550 0q220-12 450 8M-80 621q250-13 477 7m550 0q242-18 450-3" fill="none" stroke="#d1ab80" stroke-width="5" opacity=".48"/>
+ <path d="M-120 481q260-17 512-1M942 480q244-11 458 5" stroke="#f0d4a0" stroke-width="5" fill="none"/>
+ <use href="#soil-grain" x="39" y="507"/><use href="#soil-grain" x="205" y="570"/><use href="#soil-grain" x="39" y="639"/>
+ <use href="#soil-grain" x="990" y="525"/><use href="#soil-grain" x="1038" y="633"/>
+ <use href="#stone-detail" transform="translate(303 556) scale(.68)"/><use href="#stone-detail" transform="translate(178 641) scale(.52)"/><use href="#stone-detail" transform="translate(1093 589) scale(.8)"/>
+ <path d="M374 413Q650 382 926 413L930 678Q650 716 373 679Z" fill="#8b7b65" stroke="#786a55" stroke-width="5"/>
+ <path d="M415 415Q650 390 906 415L905 680Q650 698 415 680Z" fill="url(#well-inside)"/>
+ <path d="M415 415Q650 390 906 415L905 680Q650 698 415 680Z" fill="url(#well-bricks)" opacity=".63"/>
+ <path d="M415 415Q650 390 906 415L905 680Q650 698 415 680Z" fill="url(#shaft-shade)"/>
+ <path d="M447 419L813 413 885 678H429Z" fill="url(#well-glow)" opacity=".69"/>
+ <path d="M415 621Q660 608 908 621L905 680Q660 701 415 680Z" fill="url(#well-water)" stroke="#668d8e" stroke-width="3"/>
+ <g clip-path="url(#water-clip)" fill="none" stroke="#d9ead2" stroke-width="2.5" opacity=".72">
+ <path id="water-lines" d="M395 631q38-5 77 0t75 0 76 0 77 0 77 0 77 0 77 0M402 659q40-5 80 0t80 0 80 0 80 0 80 0 80 0"/>
+ <path d="M466 645q72-10 160-3m65 31q84-12 160-1" stroke-width="5" opacity=".34"/>
+ </g>
+ <path d="M374 412h44v269l-45-2ZM906 412h27v269l-27 1Z" fill="url(#wall-light)" stroke="#8b755d" stroke-width="4"/>
+ <path d="M374 412h44v269l-45-2ZM906 412h27v269l-27 1Z" fill="url(#well-bricks)"/>
+ <path d="M367 410q18-21 67-12l7 13-14 17h-60ZM894 398q35-9 46 12v18h-46l-14-16Z" fill="#d7bc96" stroke="#927b60" stroke-width="3.6"/>
+ <path d="M375 407h49m472 0h34" fill="none" stroke="#f3d7a6" stroke-width="4.5"/>
+ <path d="M416 681q230 21 489-1" stroke="#7a7968" stroke-width="4" fill="none" opacity=".72"/>
 </g>
-<ellipse id="fox-shadow" cx="300" cy="468" rx="76" ry="12" fill="url(#soft-shadow)" opacity=".65"/>
+<g id="rescue-ramp" opacity="0" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M641 648L924 406 944 425 663 665Z" fill="#a27d57" stroke="#7c644d" stroke-width="4"/>
+ <path d="M641 648L924 406 937 416 654 656Z" fill="url(#ramp-wood)" stroke="#85694e" stroke-width="2.7"/>
+ <path d="M649 648L929 412" stroke="#f1d2a0" stroke-width="3.5" fill="none"/>
+ <path d="M680 618l14 13m25-46 14 13m25-46 14 13m25-46 14 13m25-46 14 13m25-46 14 13" stroke="#876b4c" stroke-width="5"/>
+</g>
+<ellipse id="fox-shadow" cx="300" cy="483" rx="92" ry="15" fill="url(#soft-shadow)" opacity=".65"/>
+<ellipse id="goat-shadow" cx="300" cy="483" rx="83" ry="13" fill="url(#soft-shadow)" opacity=".6"/>
+<ellipse id="farmer-shadow" cx="1070" cy="487" rx="58" ry="12" fill="url(#soft-shadow)" opacity="0"/>
+<g id="farmer-plane" opacity="0"><g id="farmer"/><g id="farmer-props"/></g>
 <g id="actors"><g id="goat" style="--goat-coat:#eee1bc;--goat-shade:#c5ab90;--goat-hoof:#8e7465;--goat-accent:#f6eacb;--goat-outline:#997f68;--goat-light:#fff0cd;--goat-horn:#c5b292;--goat-collar:#588c8e" data-speaking="false" stroke="var(--goat-outline)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
       <ellipse cy="3" rx="90" ry="12" fill="url(#shadow)" stroke="none"/>
       <g data-tail="">
@@ -192,8 +254,23 @@
       <ellipse cx="20" cy="-3" rx="7.8" ry="3.4" fill="#e69766" opacity=".64"/>
     </g>
   </g></g>
-<g id="ripples" clip-path="url(#water-clip)" opacity="0" fill="none" stroke="#eaf4dd" stroke-width="3"><ellipse id="splash-ring" cx="650" cy="632" rx="25" ry="5"/><ellipse id="splash-ring2" cx="650" cy="632" rx="13" ry="3"/></g>
+<!-- The front lip is painted in front of surface animals at the moment they step into the opening. -->
+<g id="exterior-front" stroke-linejoin="round" stroke-linecap="round" opacity="1" pointer-events="none">
+ <path d="M377 407Q650 519 923 407L916 478Q650 535 384 478Z" fill="url(#wall-light)" stroke="#8b735a" stroke-width="4"/>
+ <path d="M384 432Q650 525 916 432M384 455Q650 531 916 455" stroke="#92795e" stroke-width="2.8" opacity=".68" fill="none"/>
+ <path d="M425 435v22m60-5v22m70-13v24m87-19v23m87-27v23m71-32v23m64-37v22M455 461v22m68-9v22m76-15v20m86-21v20m76-29v20m75-40v22" stroke="#9a8165" stroke-width="2.6" fill="none"/>
+ <path d="M377 407Q650 519 923 407" stroke="#e7cba4" stroke-width="17" fill="none"/>
+ <path d="M386 413Q650 514 914 413" stroke="#f2d9b1" stroke-width="4.5" fill="none"/>
+</g>
+<!-- Water is a separate foreground film: hooves enter the shallow water, not a floating floor. -->
+<g id="water-front" clip-path="url(#water-clip)" opacity="0" pointer-events="none">
+ <path d="M415 625Q660 612 908 625L905 681Q650 699 415 680Z" fill="#9fc1b4" opacity=".23"/>
+ <g id="ripples" opacity="0" fill="none" stroke="#eaf4dd" stroke-width="3"><ellipse id="splash-ring" cx="650" cy="642" rx="25" ry="5"/><ellipse id="splash-ring2" cx="650" cy="642" rx="13" ry="3"/></g>
+</g>
 <g id="splash" opacity="0" fill="#d6ece0" stroke="#83adb0" stroke-width="1.2"><circle cx="-30" cy="-12" r="5"/><circle cx="26" cy="-22" r="6"/><circle cx="-7" cy="-37" r="4"/><circle cx="43" cy="-7" r="3"/></g>
-<g data-camera-depth=".2"><use href="#grass" transform="translate(63 682) scale(1.5)"/><use href="#orchard-flower" x="103" y="693"/><use href="#grass" x="194" y="705"/><use href="#orchard-flower" transform="translate(1158 683) scale(1.23)"/><use href="#grass" transform="translate(1215 711) scale(1.4)"/></g>
-<path d="M0 0h1280v720H0Z" filter="url(#orchard-grain)" opacity=".44" pointer-events="none"/>
+<g id="foreground-garden" data-camera-depth=".2">
+ <path d="M-120 708q229-55 425 12m650 7q168-60 445-30v63H-120Z" fill="#85925a"/>
+ <use href="#grass" transform="translate(63 682) scale(1.5)"/><use href="#orchard-flower" x="103" y="693"/><use href="#grass" x="194" y="705"/><use href="#orchard-flower" transform="translate(1158 683) scale(1.23)"/><use href="#grass" transform="translate(1215 711) scale(1.4)"/>
+</g>
+<path d="M0 0h1280v720H0Z" filter="url(#orchard-grain)" opacity=".32" pointer-events="none"/>
 </svg>

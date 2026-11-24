@@ -1,0 +1,42 @@
+name: Little Panth Mission 31 browser quality check
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'little panth/mission-031/**'
+      - 'tests/little-panth-031*.cjs'
+      - '.github/workflows/little-panth-mission-031-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Static and recorded-audio validation
+        run: |
+          node --check 'little panth/mission-031/stage.js'
+          node --check 'little panth/mission-031/player.js'
+          node tests/little-panth-031.cjs
+      - name: Install Gurmukhi font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core
+      - name: Install Playwright
+        run: npm install --no-save playwright-core@1.56.1
+      - name: Start local static site
+        run: python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp031-server.log 2>&1 &
+      - name: Validate actual voice playback, scenes and mobile
+        run: node tests/little-panth-031-browser.cjs
+      - name: Upload Mission 31 screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-031-screenshots
+          path: screenshots/little-panth-031/
+          if-no-files-found: ignore
