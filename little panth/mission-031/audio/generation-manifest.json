@@ -1,0 +1,107 @@
+{
+  "fox-falls": {
+    "hash": "a72fe63bd40ae976dc3e66eba05887fefa9b0838a6c32d2f796601e01be68be2",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਗਰਮ ਦਿਨ ਇੱਕ ਲੂੰਬੜੀ ਪਾਣੀ ਲੱਭਦੀ ਫਿਰ ਰਹੀ ਸੀ। ਉਸ ਨੂੰ ਇੱਕ ਪੁਰਾਣਾ ਖੂਹ ਦਿੱਸਿਆ। ਉਹ ਝਾਕਣ ਲੱਗੀ ਤਾਂ ਉਸ ਦਾ ਪੈਰ ਤਿਲਕ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "trapped": {
+    "hash": "ad8043f37a91192e266c04aa0133ec0372d8feda8f99b1e7f41eac2bc0ce0b02",
+    "voice": "Aoede",
+    "text": "ਖੂਹ ਵਿੱਚ ਪਾਣੀ ਥੋੜ੍ਹਾ ਸੀ, ਪਰ ਕੰਧਾਂ ਉੱਚੀਆਂ ਸਨ। ਲੂੰਬੜੀ ਨੇ ਬਾਹਰ ਨਿਕਲਣ ਦੀ ਬੜੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-arrives": {
+    "hash": "32657af177a54eac1dd5e109981d3edf551c9edea7a103424cb4c7b06cfd1296",
+    "voice": "Aoede",
+    "text": "ਥੋੜ੍ਹੀ ਦੇਰ ਪਿੱਛੋਂ ਇੱਕ ਬੱਕਰੀ ਉੱਥੇ ਆਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-asks": {
+    "hash": "287d744b7648a777674833b6f76d3a2baff0c00d25a7bf66fb1aa830067c7592",
+    "voice": "Iapetus",
+    "text": "ਭੈਣੇ, ਖੂਹ ਦਾ ਪਾਣੀ ਕਿਹੋ ਜਿਹਾ ਹੈ?",
+    "speaker": "goat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-invites": {
+    "hash": "588400debb33407036e0b17fb334691729ba0a7a02f821cccc585ac053e64172",
+    "voice": "Kore",
+    "text": "ਬਹੁਤ ਮਿੱਠਾ ਹੈ! ਤੂੰ ਵੀ ਹੇਠਾਂ ਆ ਜਾ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-jumps": {
+    "hash": "9a05228911ca45e8116eeefc4e35336870c6019a66f55b41e3f82d61e2d4734e",
+    "voice": "Aoede",
+    "text": "ਬੱਕਰੀ ਨੇ ਬਿਨਾਂ ਸੋਚੇ ਖੂਹ ਵਿੱਚ ਛਾਲ ਮਾਰ ਦਿੱਤੀ। ਉਸ ਨੇ ਪਾਣੀ ਪੀਤਾ ਤੇ ਆਲੇ ਦੁਆਲੇ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-worries": {
+    "hash": "cf66669319fca0b77330bf334a342f713ddca87bd7a168ef030972e090ecb452",
+    "voice": "Iapetus",
+    "text": "ਹੁਣ ਆਪਾਂ ਬਾਹਰ ਕਿਵੇਂ ਨਿਕਲਾਂਗੇ?",
+    "speaker": "goat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-plan": {
+    "hash": "877dbafa084e77247078f339ab8bdd138a031062e9d46ecf70c3d71b4aa114df",
+    "voice": "Kore",
+    "text": "ਤੂੰ ਆਪਣੇ ਅਗਲੇ ਪੈਰ ਕੰਧ ਉੱਤੇ ਰੱਖ। ਮੈਂ ਤੇਰੀ ਪਿੱਠ ਉੱਤੇ ਚੜ੍ਹ ਕੇ ਬਾਹਰ ਨਿਕਲ ਜਾਵਾਂਗੀ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-escapes": {
+    "hash": "5f0394f4f518aef4125da181327a6eabd1504ae82c5c0b276639b11b98d037dd",
+    "voice": "Aoede",
+    "text": "ਬੱਕਰੀ ਨੇ ਲੂੰਬੜੀ ਦੀ ਗੱਲ ਮੰਨ ਲਈ। ਲੂੰਬੜੀ ਉਸ ਦੀ ਪਿੱਠ ਤੋਂ ਛਾਲ ਮਾਰ ਕੇ ਖੂਹ ਤੋਂ ਬਾਹਰ ਨਿਕਲ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-pleads": {
+    "hash": "c46bde12e113d008314397cd553fcf982dca5c2be9e3eec462bf2efe5f73fb2c",
+    "voice": "Iapetus",
+    "text": "ਹੁਣ ਮੇਰੀ ਵੀ ਮਦਦ ਕਰ ਦੇ!",
+    "speaker": "goat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-answers": {
+    "hash": "cd39520cbb985362371f9e6ddd2bda2eb4cc2efaaffc672a6d6bba6de5324eee",
+    "voice": "Kore",
+    "text": "ਤੂੰ ਛਾਲ ਮਾਰਨ ਤੋਂ ਪਹਿਲਾਂ ਬਾਹਰ ਆਉਣ ਦਾ ਰਾਹ ਸੋਚ ਲੈਣਾ ਸੀ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "help-arrives": {
+    "hash": "d4e2d24989d8401853221ba91d322853f6bacd7512e386021dd78dfe89d19e01",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਚਲੀ ਗਈ। ਬੱਕਰੀ ਨੇ ਮਦਦ ਲਈ ਆਵਾਜ਼ ਮਾਰੀ। ਇੱਕ ਕਿਸਾਨ ਨੇ ਉਸ ਦੀ ਆਵਾਜ਼ ਸੁਣੀ ਤੇ ਖੂਹ ਵਿੱਚ ਇੱਕ ਲੰਮਾ ਫੱਟਾ ਰੱਖ ਦਿੱਤਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-climbs": {
+    "hash": "fc5ac47f4e21105494319ff68f4bc34e5219bb7fc021c849741bb2f622fb4fe6",
+    "voice": "Aoede",
+    "text": "ਬੱਕਰੀ ਹੌਲੀ ਹੌਲੀ ਫੱਟੇ ਉੱਤੇ ਚੜ੍ਹ ਕੇ ਬਾਹਰ ਆ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "goat-learns": {
+    "hash": "815da43cb666d324a90d11806966c186c3c8578f3f613513d71334205c799256",
+    "voice": "Iapetus",
+    "text": "ਹੁਣ ਮੈਂ ਕੋਈ ਵੀ ਕੰਮ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਚੰਗੀ ਤਰ੍ਹਾਂ ਸੋਚਾਂਗੀ।",
+    "speaker": "goat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "moral": {
+    "hash": "74a79cf1ac39c5d8df7b656d4f4499d1869afe0d37a2d10664b1cc08791b0c3a",
+    "voice": "Aoede",
+    "text": "ਬੱਚਿਓ, ਕਿਸੇ ਦੀ ਗੱਲ ਸੁਣ ਕੇ ਜਲਦੀ ਨਾ ਕਰੋ। ਪਹਿਲਾਂ ਸੋਚੋ, ਫਿਰ ਕਦਮ ਚੁੱਕੋ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
