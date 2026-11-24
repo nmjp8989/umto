@@ -79,6 +79,8 @@
 <linearGradient id="goat-smooth-hoof" gradientUnits="userSpaceOnUse" x1="0" y1="-13" x2="0" y2="3"><stop stop-color="#9a785b"/><stop offset="1" stop-color="#5e473d"/></linearGradient>
 <clipPath id="fox-body-clip"><path id="fox-clip-shape"/></clipPath>
 <clipPath id="goat-body-clip"><path id="goat-clip-shape"/></clipPath>
+<clipPath id="fox-far-clip"><use href="#fox-rear-far"/><use href="#fox-front-far"/></clipPath>
+<clipPath id="goat-far-clip"><use href="#goat-far-back"/><use href="#goat-far-front"/></clipPath>
 </defs>
 <g data-camera-depth="-.24">
     <path d="M-140-80h1560v880H-140Z" fill="url(#orchard-sky)"/>
@@ -186,7 +188,7 @@
  <g data-tail=""><path d="M-68-65C-92-67-101-87-91-103Q-89-89-76-84Q-74-89-75-94Q-61-82-65-70Z" fill="url(#goat-smooth-head)" stroke="#a58a6d" stroke-width="1.5"/></g>
  <path id="goat-far-back" data-leg="back-far" fill="#c6aa8a" stroke="#a28a6f" stroke-width="1.4"/>
  <path id="goat-far-front" data-leg="front-far" fill="#cfb598" stroke="#a28a6f" stroke-width="1.4"/>
- <path id="goat-far-hooves" fill="#785d4b"/>
+ <path id="goat-far-hooves" fill="#785d4b" clip-path="url(#goat-far-clip)"/>
  <path id="goat-body" fill="url(#goat-smooth-coat)" stroke="#a58a6d" stroke-width="1.7"/>
  <g clip-path="url(#goat-body-clip)">
   <path d="M-77-70Q-70-89-41-87C-12-84 8-83 26-95Q22-83 12-77L22-80Q2-67-26-74L-21-79Q-49-86-77-70Z" fill="#fff8e2" opacity=".87"/>
@@ -228,7 +230,7 @@
 </g>
 <path id="fox-rear-far" fill="#ae6039" stroke="#93512f" stroke-width="2"/>
 <path id="fox-front-far" fill="#a85d38" stroke="#93512f" stroke-width="2"/>
-<path id="fox-far-paws" fill="#654333"/>
+<path id="fox-far-paws" fill="#654333" clip-path="url(#fox-far-clip)"/>
 <path id="fox-body" fill="url(#fox-smooth-fur)" stroke="#a45a32" stroke-width="2.6"/>
 <g clip-path="url(#fox-body-clip)">
  <path d="M-92-110C-75-133-42-132-18-126C-4-123 17-129 30-140C11-111-23-105-49-109C-68-112-83-107-94-98Z" fill="#ffc16d" opacity=".38"/>
