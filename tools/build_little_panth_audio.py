@@ -34,6 +34,7 @@ VOICES={
  "cat":("Leda","A thoughtful, gentle young cat speaking conversational Punjabi in Gurmukhi. Friendly and modest, then alert and reassuring. Clear pronunciation at a comfortable read-along pace. Read only the written words."),
  "goat":("Iapetus","A friendly, curious goat speaking natural Punjabi in Gurmukhi. Clear and warm, with gentle surprise and concern, at a comfortable read-along pace. Read only the written words."),
  "sparrow":("Leda","A small, lively sparrow with a kind, curious voice. Read the Punjabi words clearly, with no imitation of bird sounds."),
+ "grasshopper":("Puck","A cheerful young grasshopper speaking clear natural Gurmukhi Punjabi. Playful at first, then gently worried and grateful. Child-friendly conversational pronunciation at a comfortable read-along pace. Read only the written words."),
  "ant":("Leda","A lively little ant speaking natural Punjabi. Clear, warm pronunciation at an easy pace for children. Read only the written words."),
  "stork":("Charon","A thoughtful and friendly stork speaking clear conversational Punjabi with a gentle, expressive delivery. Read only the written words."),
  "dove":("Vindemiatrix","A gentle and reassuring dove speaking clear conversational Punjabi. Read only the written words for young listeners."),
