@@ -1,0 +1,79 @@
+{
+  "intro": {
+    "hash": "0ddef1a1a0e76c306cf940766d54b9bb92387745d2a7c8c1d69887b4b335ac44",
+    "voice": "Aoede",
+    "text": "ਨਦੀ ਦੇ ਕੰਢੇ ਇੱਕ ਵੱਡਾ ਬਲੂਤ ਦਾ ਰੁੱਖ ਖੜ੍ਹਾ ਸੀ। ਉਸ ਦੇ ਨੇੜੇ ਪਾਣੀ ਵਿੱਚ ਨਿੱਕੇ ਨਿੱਕੇ ਕਾਨੇ ਉੱਗੇ ਹੋਏ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "breeze": {
+    "hash": "de81070d0292ecd8e1fc52055f1701083f0265b32d431159988ceacf46d17d11",
+    "voice": "Aoede",
+    "text": "ਜਦੋਂ ਹਵਾ ਵਗਦੀ, ਕਾਨੇ ਹੌਲੀ ਹੌਲੀ ਝੁਕ ਜਾਂਦੇ। ਰੁੱਖ ਸਿੱਧਾ ਖੜ੍ਹਾ ਰਹਿੰਦਾ ਤੇ ਉਨ੍ਹਾਂ ਵੱਲ ਵੇਖ ਕੇ ਹੱਸਦਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "boast": {
+    "hash": "809bf67a0a42adf238dba580d5cbbee8e4e2206b04abb491c3055cc8806818d1",
+    "voice": "Charon",
+    "text": "ਤੁਸੀਂ ਕਿੰਨੇ ਕਮਜ਼ੋਰ ਹੋ! ਥੋੜ੍ਹੀ ਜਿਹੀ ਹਵਾ ਅੱਗੇ ਵੀ ਝੁਕ ਜਾਂਦੇ ਹੋ। ਮੇਰੇ ਵਰਗੇ ਮਜ਼ਬੂਤ ਬਣੋ।",
+    "speaker": "oak",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "reply": {
+    "hash": "9be8588dd06f2d3c18f0345deb0fc3d2a847c125f9131eff54c7ec3a1c05deed",
+    "voice": "Leda",
+    "text": "ਅਸੀਂ ਹਵਾ ਨਾਲ ਝੁਕ ਜਾਂਦੇ ਹਾਂ ਤਾਂ ਜੋ ਟੁੱਟ ਨਾ ਜਾਈਏ। ਝੁਕਣਾ ਹਮੇਸ਼ਾ ਕਮਜ਼ੋਰੀ ਨਹੀਂ ਹੁੰਦੀ।",
+    "speaker": "reed",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "clouds": {
+    "hash": "a4e07fa84bac7e5ba2457475e9764f8ce2aa06534f1c786d8d5d18b03716d53b",
+    "voice": "Aoede",
+    "text": "ਸ਼ਾਮ ਨੂੰ ਅਸਮਾਨ ਵਿੱਚ ਕਾਲੇ ਬੱਦਲ ਛਾ ਗਏ। ਹਵਾ ਤੇਜ਼ ਹੋ ਗਈ ਤੇ ਮੀਂਹ ਪੈਣ ਲੱਗਾ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "storm": {
+    "hash": "6e240d463219b8047e52d5074a7fd35d3f6847a0e7e9ddc096677d6df0bdbdb6",
+    "voice": "Aoede",
+    "text": "ਕਾਨੇ ਹਵਾ ਨਾਲ ਇੱਕ ਪਾਸੇ ਝੁਕ ਗਏ। ਰੁੱਖ ਨੇ ਸਿੱਧਾ ਰਹਿਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ। ਉਸ ਦੀਆਂ ਟਾਹਣੀਆਂ ਜ਼ੋਰ ਨਾਲ ਹਿੱਲਣ ਲੱਗੀਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "snap": {
+    "hash": "cbe1b717f25c0abda30cde9e745841599ae4615389c17926cc3e70396d7ad2ba",
+    "voice": "Aoede",
+    "text": "ਅਚਾਨਕ ਇੱਕ ਵੱਡੀ ਟਾਹਣੀ ਟੁੱਟ ਕੇ ਹੇਠਾਂ ਡਿੱਗ ਪਈ। ਰੁੱਖ ਉਦਾਸ ਹੋ ਗਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "calm": {
+    "hash": "721eabeec8028f4e0d5749355e0f0444340280024a325b732cef945a5926d314",
+    "voice": "Aoede",
+    "text": "ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਤੂਫ਼ਾਨ ਰੁਕ ਗਿਆ। ਕਾਨੇ ਮੁੜ ਸਿੱਧੇ ਹੋ ਗਏ। ਸੂਰਜ ਬੱਦਲਾਂ ਵਿੱਚੋਂ ਨਿਕਲ ਆਇਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "regret": {
+    "hash": "a1da287e5f98fba840c8ff13c751b3c6e9ba84b0b726e267b26b969153f6690b",
+    "voice": "Charon",
+    "text": "ਹੁਣ ਮੈਨੂੰ ਸਮਝ ਆਈ। ਹਰ ਵਾਰ ਜ਼ੋਰ ਲਾਉਣਾ ਸਿਆਣਪ ਨਹੀਂ ਹੁੰਦੀ।",
+    "speaker": "oak",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "comfort": {
+    "hash": "aeabbd50033c3cbf59b315e896c48e88db2aa8a339f37025ea0cbedf3897378f",
+    "voice": "Leda",
+    "text": "ਦੋਸਤ, ਤੇਰੀਆਂ ਜੜ੍ਹਾਂ ਮਜ਼ਬੂਤ ਹਨ। ਨਵੀਆਂ ਟਾਹਣੀਆਂ ਫਿਰ ਉੱਗਣਗੀਆਂ।",
+    "speaker": "reed",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moral": {
+    "hash": "1d8ea3afe8555977954c99e047bcd2815464687741355feb0aff4dfe87172981",
+    "voice": "Aoede",
+    "text": "ਬੱਚਿਓ, ਸਮੇਂ ਦੇ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਬਦਲਣਾ ਸਿੱਖੋ। ਔਖੇ ਵੇਲੇ ਨਰਮੀ ਅਤੇ ਸਿਆਣਪ ਵੀ ਵੱਡੀ ਤਾਕਤ ਬਣ ਜਾਂਦੀਆਂ ਹਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
