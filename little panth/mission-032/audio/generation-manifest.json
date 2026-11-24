@@ -1,0 +1,93 @@
+{
+  "meeting": {
+    "hash": "fa501280574323a4a96004cec6e265060e81f811b8a7ae63cd57ae8cbf7eb321",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦਿਨ ਜੰਗਲ ਦੇ ਰਾਹ ਉੱਤੇ ਇੱਕ ਲੂੰਬੜੀ ਤੇ ਇੱਕ ਬਿੱਲੀ ਮਿਲੀਆਂ। ਦੋਵੇਂ ਇੱਕ ਵੱਡੇ ਦਰੱਖਤ ਹੇਠ ਰੁਕ ਗਈਆਂ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-boasts": {
+    "hash": "d94d0d594faf3a4beadb85e52491330b5d6a05949c31a3387e3fd5a81289c1c7",
+    "voice": "Kore",
+    "text": "ਮੈਂ ਬਹੁਤ ਚਲਾਕ ਹਾਂ। ਮੈਨੂੰ ਮੁਸੀਬਤ ਤੋਂ ਬਚਣ ਦੇ ਸੌ ਤਰੀਕੇ ਆਉਂਦੇ ਹਨ। ਤੈਨੂੰ ਕਿੰਨੇ ਤਰੀਕੇ ਆਉਂਦੇ ਹਨ?",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "cat-reply": {
+    "hash": "92c84043e38202d6ef721c5abea1e7fff322a30a58102b2d1809593946478fdd",
+    "voice": "Leda",
+    "text": "ਮੈਨੂੰ ਤਾਂ ਇੱਕੋ ਤਰੀਕਾ ਆਉਂਦਾ ਹੈ। ਮੈਂ ਦਰੱਖਤ ਉੱਤੇ ਚੜ੍ਹ ਸਕਦੀ ਹਾਂ। ਮੈਂ ਹਰ ਰੋਜ਼ ਇਸ ਦਾ ਅਭਿਆਸ ਕਰਦੀ ਹਾਂ।",
+    "speaker": "cat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-laughs": {
+    "hash": "3f550a1a187e76729375a9d36fc2b922bbece66099f7df2089b49e53f94b6d86",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਹੱਸ ਪਈ। ਉਸ ਨੇ ਆਪਣੀ ਪੂਛ ਹਿਲਾਈ ਤੇ ਬੜੇ ਮਾਣ ਨਾਲ ਬਿੱਲੀ ਵੱਲ ਵੇਖਿਆ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-teases": {
+    "hash": "a806c80386b4fa92cb99ddcccf0b4860bc7173d6e6ff945e56372d2dddf1f348",
+    "voice": "Kore",
+    "text": "ਸਿਰਫ਼ ਇੱਕ ਤਰੀਕਾ? ਫਿਰ ਤਾਂ ਤੈਨੂੰ ਮੇਰੇ ਕੋਲੋਂ ਬਹੁਤ ਕੁਝ ਸਿੱਖਣਾ ਪਵੇਗਾ!",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "barking": {
+    "hash": "0f336146aafdcd583ad76c7505b39a1503851f7ef3fed7cab310284b857afb48",
+    "voice": "Aoede",
+    "text": "ਅਚਾਨਕ ਦੂਰੋਂ ਕੁੱਤਿਆਂ ਦੇ ਭੌਂਕਣ ਦੀ ਆਵਾਜ਼ ਆਈ। ਦੋਵੇਂ ਚੌਕੰਨੀਆਂ ਹੋ ਗਈਆਂ। ਆਵਾਜ਼ ਹੌਲੀ ਹੌਲੀ ਨੇੜੇ ਆ ਰਹੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "cat-calls": {
+    "hash": "c021b41835c86af214cc369110c971a8f39b736b786bd7389aa05c9d81edf628",
+    "voice": "Leda",
+    "text": "ਛੇਤੀ ਕਰ, ਕਿਸੇ ਸੁਰੱਖਿਅਤ ਥਾਂ ਚੱਲੀਏ!",
+    "speaker": "cat",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "cat-climbs": {
+    "hash": "9a852053fa8b40f2427bfa4212bf2d374285e493e92540115b3f6d05f63b98e6",
+    "voice": "Aoede",
+    "text": "ਬਿੱਲੀ ਨੇ ਝੱਟ ਦਰੱਖਤ ਉੱਤੇ ਛਾਲ ਮਾਰੀ। ਉਹ ਤਣੇ ਉੱਤੇ ਚੜ੍ਹਦੀ ਹੋਈ ਇੱਕ ਮਜ਼ਬੂਤ ਟਾਹਣੀ ਉੱਤੇ ਪਹੁੰਚ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-confused": {
+    "hash": "2d5b3789509ff702bc8320a25301bf17955c67add8f285ff8e9cadcae2b239fd",
+    "voice": "Kore",
+    "text": "ਮੈਂ ਕਿਹੜਾ ਤਰੀਕਾ ਵਰਤਾਂ? ਇੱਧਰ ਜਾਵਾਂ ਜਾਂ ਉੱਧਰ?",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-hides": {
+    "hash": "beef5e3d45b5380727e7f74fedf6eb85ec445d9f36dd4541f161f185a9ed278c",
+    "voice": "Aoede",
+    "text": "ਲੂੰਬੜੀ ਸੋਚਦੀ ਰਹੀ। ਅਖ਼ੀਰ ਉਸ ਨੇ ਨੇੜੇ ਇੱਕ ਸੰਘਣੀ ਝਾੜੀ ਵੇਖੀ ਤੇ ਉਸ ਦੇ ਪਿੱਛੇ ਲੁਕ ਗਈ। ਕੁੱਤੇ ਦੂਰ ਲੰਘ ਗਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "reunion": {
+    "hash": "225f09246b246b381c80c501a8b750e957508809f3cadab336400adb21b7b072",
+    "voice": "Aoede",
+    "text": "ਜਦੋਂ ਸਭ ਪਾਸੇ ਚੁੱਪ ਹੋ ਗਈ, ਬਿੱਲੀ ਹੇਠਾਂ ਉਤਰੀ। ਲੂੰਬੜੀ ਵੀ ਝਾੜੀ ਪਿੱਛੋਂ ਬਾਹਰ ਆ ਗਈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "fox-learns": {
+    "hash": "37a8302b063c670ec21e840a3a973c08cc02d1709bf1de0faa19800365b15973",
+    "voice": "Kore",
+    "text": "ਅੱਜ ਮੈਂ ਸਿੱਖਿਆ ਕਿ ਸ਼ੇਖੀ ਮਾਰਨ ਨਾਲੋਂ ਇੱਕ ਕੰਮ ਚੰਗੀ ਤਰ੍ਹਾਂ ਕਰਨਾ ਵਧੀਆ ਹੈ।",
+    "speaker": "fox",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "moral": {
+    "hash": "e8bb7aa0367e3101811471df410fe70273dccfdf27a3f5179495ba085e9a324a",
+    "voice": "Aoede",
+    "text": "ਬੱਚਿਓ, ਸਿਰਫ਼ ਗੱਲਾਂ ਨਾ ਕਰੋ। ਮਨ ਲਾ ਕੇ ਅਭਿਆਸ ਕਰੋ। ਸਿੱਖਿਆ ਹੋਇਆ ਹੁਨਰ ਹੀ ਔਖੇ ਵੇਲੇ ਕੰਮ ਆਉਂਦਾ ਹੈ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  }
+}
