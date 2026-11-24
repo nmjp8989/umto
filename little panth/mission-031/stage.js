@@ -107,8 +107,8 @@ function poseAt(s,c,ms,speech,still){
   goat=actor(goatBottom,floor,1);fox.head=-7;
   const brace=motion(c.brace,c.brace+620),release=motion(c.rim,c.rim+400);
   if(brace>0){goat.facing=-1;goat.x=mix(goatBottom,510,brace)*(1-release)+goatBottom*release;goat.y=floor-25*brace*(1-release);goat.angle=38*brace*(1-release);goat.head=-6*brace*(1-release);}
-  if(ms>=c.climb)jump(fox,ms,c.climb,c.perch,foxBottom,floor,610,549,53,still);
-  if(ms>=c.escape)jump(fox,ms,c.escape,c.rim,610,549,399,rim,70,still);
+  if(ms>=c.climb)jump(fox,ms,c.climb,c.perch,foxBottom,floor,610,558,53,still);
+  if(ms>=c.escape)jump(fox,ms,c.escape,c.rim,610,558,399,rim,70,still);
   if(ms>=c.rim)jump(fox,ms,c.rim,c.bank,399,rim,287,bank,15,still);
   if(ms>=c.rim){cross=false;goat.visible=false;}
   if(ms>=c.bank)fox.facing=1;
@@ -275,11 +275,11 @@ class WellStage{
   op(p['exterior-back'],a.cross?0:1);op(p['exterior-front'],a.cross?0:1);
   op(p.cutaway,a.cross?1:0);op(p['water-front'],a.cross?1:0);op(p['foreground-garden'],a.cross?0:1);
   op(p.fox,f.visible?1:0);op(p['fox-shadow'],f.visible&&f.y>=bank-8&&f.y<bank+9?.58:0);
-  tx(p.fox,'translate('+f.x+' '+(f.y-(still?0:Math.abs(f.walk)*.06))+') scale('+(f.facing*.79)+' .79)');
+  tx(p.fox,'translate('+f.x+' '+(f.y-(still?0:Math.abs(f.walk)*.06))+') scale('+(f.facing*.71)+' .71)');
   p['fox-shadow'].setAttribute('cx',f.x);p['fox-shadow'].setAttribute('cy',f.y+4);
   op(p.goat,g.visible?1:0);op(p['goat-shadow'],g.visible&&g.y>=bank-7&&g.y<bank+9?.55:0);
   p['goat-shadow'].setAttribute('cx',g.x);p['goat-shadow'].setAttribute('cy',g.y+3);
-  tx(p.goat,'translate('+g.x+' '+(g.y-(still?0:Math.abs(g.walk)*.06))+') rotate('+g.angle+') scale('+(g.facing*1.35)+' 1.35)');
+  tx(p.goat,'translate('+g.x+' '+(g.y-(still?0:Math.abs(g.walk)*.06))+') rotate('+g.angle+') scale('+(g.facing*1.22)+' 1.22)');
   const gh=smoothAnimals(p,f,g,ms,still,ft,gt,opening);
   tx(this.goatHead,'translate(26 -74) rotate('+gh+')');
   tx(this.goatTail,'rotate('+(still?0:Math.sin(ms/410)*3)+' -67 -68)');
