@@ -198,7 +198,7 @@
         const destinations = [200, 410, 690];
         animals.forEach((mouse, index) => {
           mouse.facing = -1;
-          travel(mouse, ms, mouse.x, destinations[index], c.retreatStart, c.retreatEnd);
+          travel(mouse, ms, index === 1 ? 483 : mouse.x, destinations[index], c.retreatStart, c.retreatEnd);
         });
         framing = shot(640, 360, 1280, 'wide');
         if (spoken.id === 'moral') framing = shot(470, 550, 900, 'medium');
