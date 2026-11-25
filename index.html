@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><meta name="umto-renderer-revision" content="chunni-seam-6"><title>Umto · Character Studio v106</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><meta name="umto-renderer-revision" content="floor-postures-1"><title>Umto · Character Studio v107</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Umto · Character Studio v106</h1><p>v106 · continuous Bibi Ji chunni drape</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Umto · Character Studio v107</h1><p>v107 · expressive faces and floor postures</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -126,7 +126,7 @@
 <label class="motion-label" for="audioFile">Optional: use your own audio (MP3, WAV, M4A)</label><input class="motion-file" id="audioFile" type="file" accept="audio/*"><div class="motion-note" id="audioStatus">No audio selected · animated cue demo only. With audio, cues are stretched uniformly to its duration; this is manual timing, not automatic speech recognition.</div>
 </section><h3>Same character · four mouth positions</h3><div id="fourup" class="fourup"></div><h3>Expression mouths</h3><div id="focus" class="focus-grid"></div><p class="hint">For regular talking, the default library is smaller on purpose: <strong>Closed</strong>, <strong>M/B/P</strong>, <strong>EE/teeth</strong>, <strong>A</strong>, <strong>O</strong>, <strong>U/pucker</strong>, and <strong>F/V</strong>. Separate expressive mouths are available for <strong>Smile</strong>, <strong>Sad</strong>, and <strong>Laugh</strong>.</p><p class="hint">Every mouth uses the same face and mouth anchor. All parts are SVG paths, so the hairstyle, ears, head, face, clothing and mouth can be independently changed without generating a new portrait.</p></section>
 <section class="card"><div class="row"><h2>Character parts</h2><span class="tag">ILLUSTRATION REFINEMENT</span></div><div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-tab="mouth">Mouth</button><button class="tab" role="tab" aria-selected="false" data-tab="eyes">Eyes</button><button class="tab" role="tab" aria-selected="false" data-tab="brows">Brows</button><button class="tab" role="tab" aria-selected="false" data-tab="nose">Nose</button><button class="tab" role="tab" aria-selected="false" data-tab="hair">Hair</button><button class="tab" role="tab" aria-selected="false" data-tab="ears">Ears</button><button class="tab" role="tab" aria-selected="false" data-tab="mood">Moods</button></div><h3 id="category">Mouth shapes</h3><div id="choices" class="choices"></div><div class="sliders"><label>Mouth width <input id="width" type="range" min="75" max="135" value="110"></label><label>Mouth position <input id="position" type="range" min="-22" max="22" value="5"></label></div><div class="toolbar"><button class="btn" id="reset">Reset mouth</button><button class="btn" id="exportPart">Save selected part SVG</button><button class="btn" id="saveJson">Save rig JSON</button></div><div class="notes"><b>v20 simplified mouth system:</b> The main talking set is intentionally reduced to seven practical speech visemes: Closed, M/B/P, EE/teeth, A, O, U/pucker, and F/V. Extra emotional shapes are provided separately for Smile, Sad, and Laugh. <b>Drawing goal:</b> professional cartoon features, strong line weight, no raster face or image overlays. Consistent eyes, eyebrows, mouth and hair are individual SVG layers, not separately generated full portraits. Speech-motion playback uses hand-set cues; imported audio is not automatically transcribed or analyzed. Timing is scaled to the audio duration for preview.</div></section>
-</main><div class="footer">Umto prototype v106 · Local/offline · No uploads or external requests</div>
+</main><div class="footer">Umto prototype v107 · Local/offline · No uploads or external requests</div>
 <script src="scenes/catalog.js"></script><script>
 'use strict';
 
@@ -1253,7 +1253,7 @@ function rigArmSvg(side,view=cameraView){
 function bodyCameraX(x,turn){
  const u=x-627;return turn?627+turn*52+.84*u-turn*.20*(Math.sqrt(u*u+6400)-80):x;
 }
-function bodySurfaceSvg(art,turn){
+function bodySurfaceSvg(art,turn,mapY=y=>y){
  const counts={M:2,L:2,H:1,V:1,C:6,Q:4,S:4,T:2,Z:0};
  const project=(x,y)=>bodyCameraX(bodyShapeX(x,y),turn);
  return art.replace(/ d="([^"]+)"/g,(_,path)=>{
@@ -1262,12 +1262,12 @@ function bodySurfaceSvg(art,turn){
    if(/^[a-zA-Z]$/.test(tokens[i])){cmd=tokens[i++];if(cmd==='Z'){out.push('Z');continue;}}
    const n=counts[cmd];if(!n){if(i<tokens.length)i++;continue;}
    const values=tokens.slice(i,i+n).map(Number);i+=n;
-   if(cmd==='H'){x=values[0];out.push('L',project(x,y),y);}
-   else if(cmd==='V'){y=values[0];out.push('L',project(x,y),y);}
-   else {out.push(cmd);for(let j=0;j<n;j+=2)out.push(project(values[j],values[j+1]),values[j+1]);x=values[n-2];y=values[n-1];}
+   if(cmd==='H'){x=values[0];out.push('L',project(x,y),mapY(y));}
+   else if(cmd==='V'){y=values[0];out.push('L',project(x,y),mapY(y));}
+   else {out.push(cmd);for(let j=0;j<n;j+=2)out.push(project(values[j],values[j+1]),mapY(values[j+1]));x=values[n-2];y=values[n-1];}
   }
   return ' d="'+out.join(' ')+'"';
- }).replace(/<(?:circle|ellipse)\b[^>]*>/g,tag=>{const cx=tag.match(/ cx="([\d.-]+)"/),cy=tag.match(/ cy="([\d.-]+)"/);return cx&&cy?tag.replace(cx[0],` cx="${project(+cx[1],+cy[1])}"`):tag;});
+ }).replace(/<(?:circle|ellipse)\b[^>]*>/g,tag=>{const cx=tag.match(/ cx="([\d.-]+)"/),cy=tag.match(/ cy="([\d.-]+)"/);return cx&&cy?tag.replace(cx[0],` cx="${project(+cx[1],+cy[1])}"`).replace(cy[0],` cy="${mapY(+cy[1])}"`):tag;});
 }
 
 // Match each hip to its own side of the turned garment. A single average
@@ -1317,7 +1317,36 @@ function silhouetteInk(id,edge){
   <feFlood flood-color="#201917"/><feComposite in2="edge" operator="in"/>
   <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
 }
+// Folded floor poses retain the normal head, upper-body joints and wardrobe.
+const FLOOR_POSTURES=Object.freeze({sit:480,kneel:350});
+function isFloorPosture(key){return Object.hasOwn(FLOOR_POSTURES,key);}
+function floorPostureOffset(key){return (FLOOR_POSTURES[key]||0)*bodyHeight();}
+function floorRigSvg(pose,view){
+ const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
+ const drop=FLOOR_POSTURES[pose],ground=2239.36-drop,p=bodyBottomProfile(),b=bodyShapeProfile();
+ const seated=pose==='sit',colour=p.length||p.skirt?'url(#skinFill)':state.trouserColour;
+ const fitX=x=>bodyCameraX(627+x*b.hip,turn);
+ const lowerScale=seated?1:1.15,lowerShift=ground-1759.36*lowerScale;
+ const leg=(side)=>{
+  const cx=fitX(0),scale=(fitX(side*100)-cx)/100;
+  const art=seated
+   ? rigFill('M8 1435 Q150 1415 202 1480 Q318 1510 330 1610 Q352 1685 275 1713 Q190 1743 32 1710 L-53 1680 Q-88 1640 -32 1616 L130 1616 Q96 1563 18 1530Z',colour)
+   : rigFill('M0 1420 Q138 1405 190 1460 Q235 1504 235 1630 Q235 1720 171 1740 Q105 1763 43 1731 Q-15 1704 12 1660 L42 1614 Q9 1520 0 1420Z',colour);
+  const shorts=p.length?rigFill(seated?'M8 1435 Q150 1415 202 1480 Q293 1510 312 1577 L186 1612 Q98 1563 18 1530Z':'M0 1420 Q138 1405 190 1460 Q228 1500 232 1588 L39 1595 Q9 1520 0 1420Z',state.trouserColour):'';
+  const folds=rigDetail(seated?'M165 1530 Q232 1564 259 1610 M76 1669 Q176 1707 251 1684':'M113 1502 Q181 1534 185 1627 M65 1690 Q117 1728 175 1708',3);
+  const shoeX=seated?-65:172,shoeScale=.50*Math.max(1,b.foot/bodyHeight(true))/lowerScale,shoeY=1759.36-116*shoeScale;
+  const shoe='<g data-rig-foot transform="translate('+shoeX+' '+shoeY+') scale('+(.70*b.foot)+' '+shoeScale+')">'+(garmentDesign().jutti?juttiSvg(0):sneakerSvg(0))+'</g>';
+  return '<g data-rig-leg="'+side+'" transform="translate('+cx+' 0) scale('+scale+' 1)">'+art+shorts+folds+shoe+'</g>';
+ };
+ const longest=Math.max(garmentTemplate().hem,bottomProfile().skirt?bottomProfile().hem:0,1451);
+ const hemScale=Math.min(1,(ground-1470)/(longest-1450));
+ const mapY=y=>y<=1450?y:1450+(y-1450)*hemScale;
+ const filter='<defs>'+silhouetteInk('sharedBodyInk','<feMorphology in="SourceAlpha" operator="dilate" radius="3.7"/><feGaussianBlur stdDeviation="1.5"/><feComponentTransfer result="edge"><feFuncA type="linear" slope="3" intercept="-1"/></feComponentTransfer>')+silhouetteInk('armInk','<feGaussianBlur in="SourceAlpha" stdDeviation="1.1"/><feComponentTransfer result="edge"><feFuncA type="linear" slope="16" intercept="-.7"/></feComponentTransfer>')+'</defs>';
+ const skirt=bottomProfile().skirt?bodySurfaceSvg(bottomSkirtSvg(),turn,mapY):'';
+ return filter+'<g data-body-rig="1" data-floor-posture="'+pose+'" data-garment="'+(Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew')+'" transform="translate(37.62 0) scale(.94 1)"><ellipse cx="627" cy="2239.36" rx="'+(seated?330:245)+'" ry="24" fill="#102b42" opacity=".14"/><g data-body-shape="'+state.bodyType+'" transform="translate(0 2239.36) scale(1 '+bodyHeight(true)+') translate(0 '+(-2239.36+drop)+')"><g filter="url(#sharedBodyInk)"><g data-lower-body transform="translate(0 '+lowerShift+') scale(1 '+lowerScale+')">'+leg(far)+leg(near)+'</g>'+skirt+rigArmSvg(far,view)+'<g data-moving-garment>'+bodySurfaceSvg(garmentBodiceSvg()+shoulderChunniSvg(),turn,mapY)+'</g>'+rigArmSvg(near,view)+'</g></g></g>';
+}
 function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
+ if(full&&isFloorPosture(pose))return floorRigSvg(pose,view);
  const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
  const sx=full?.94:1,shift=627*(1-sx);
  // This bridge stays INSIDE the thighs. The old oversized, independently
@@ -1569,6 +1598,10 @@ function stopReaction(restore=true){
 function reactionTick(now){
  if(!reaction.playing)return;
  const p=reactionPose(reaction.key,(now-reaction.started)/1000);
+ if(isFloorPosture(reaction.key)&&state.framing==='full'){
+  const torso=document.getElementById('torso');
+  if(!torso.querySelector('[data-floor-posture="'+reaction.key+'"]'))torso.innerHTML=bodyRigSvg(reaction.key,cameraView,true);
+ }
  if(reaction.key==='walk'){p.y=-3*(1-Math.cos((now-reaction.started)/1000*Math.PI*4/1.2));p.mouth='smile';}
  const faceKey=[p.mouth,p.eyes,p.brows,p.gazeX,p.gazeY,p.wink].join(':');
  if(reaction.last!==faceKey){
@@ -1580,7 +1613,7 @@ function reactionTick(now){
  const head=`translate(${p.x.toFixed(3)} ${p.y.toFixed(3)}) rotate(${p.angle.toFixed(3)} 627 ${bodyHeadPivot()})`;
  for(const id of reactionHeadIds)document.getElementById(id).setAttribute('transform',head);
  document.getElementById('torso').setAttribute('transform',`translate(0 ${p.body.toFixed(3)})`);
- poseChunniDrape({headwearBack:document.getElementById('headwearBack'),headwearFront:document.getElementById('headwearFront')},p,p.body);
+ poseChunniDrape({headwearBack:document.getElementById('headwearBack'),headwearFront:document.getElementById('headwearFront')},p,p.body+(p.postureOffset||0));
  poseHeadshotArms(p,(now-reaction.started)/1000);
  reaction.raf=requestAnimationFrame(reactionTick);
 }
@@ -2196,7 +2229,7 @@ function animationCardIcon(key){
  return `<svg width="32" height="32" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="17" r="12"/>${eyes}<path d="${mouths[key]||mouths.smile}"/>${details[key]?`<path d="${details[key]}"/>`:''}</svg>`;
 }
 const headshotAnimations=[
- ['walk','Walking','🚶','Full body · front & ¾'],
+ ['walk','Walking','🚶','Full body · front & ¾'],['sit','Cross-legged sitting','🧘','Floor sitting · relaxed hands'],['kneel','Kneeling','🧎','Floor kneeling · quiet posture'],
  ['worried','Worried','😟','Concerned brows'],['confused','Confused','😕','Asymmetric brows'],['calm','Calm','😌','Peaceful closed eyes'],['determined','Determined','😤','Focused expression'],['proud','Proud','🙂','Gentle confident smile'],['shy','Shy','☺','Soft smile · downward gaze'],
  ['smile','Smiling','😊','Friendly & warm'],['sad','Sad','😔','A gentle sigh'],
  ['laugh','Laughing','😂','Head & shoulder bounce'],['eyeRoll','Rolling eyes','🙄','Up, around & back'],
@@ -2211,7 +2244,7 @@ const headshotAnimations=[
 ];
 let chosenAnimation='smile',animationFraming='full';
 function applyAnimationFraming(key=chosenAnimation){
- const frame=animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':['wave','explain','shrug','celebrate','point'].includes(key)?'upper':'bust'):animationFraming;
+ const frame=isFloorPosture(key)?'full':animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':['wave','explain','shrug','celebrate','point'].includes(key)?'upper':'bust'):animationFraming;
  svg.dataset.animationFrame=frame;
  // The medium crop retains pelvis and legs underneath the top.
  state.framing=frame==='bust'?'head':'full';
@@ -2225,6 +2258,7 @@ function extendAnimationPose(key,t,w,p,armWeight){
  if(key==='shy')p.gazeY=60*w;
  if(key==='confused')p.gazeX=35*w;
  if(key==='worried')p.gazeY=25*w;
+ if(isFloorPosture(key)){const offset=floorPostureOffset(key);return Object.assign(p,{mouth:'closed',eyes:t>2.82&&t<2.96?'closed':'open',brows:'neutral',y:offset,postureOffset:offset,arms:{left:[8,30,-12],right:[8,30,-12]},hands:{left:{pose:'relaxed',view:'back'},right:{pose:'relaxed',view:'back'}}});}
  if(key==='eyeRoll')Object.assign(p,{mouth:'closed',brows:'raised',gazeX:Math.round(Math.sin(t*2.3)*90*w),gazeY:Math.round(-95*Math.sin(Math.min(1,t/2.4)*Math.PI)*w),angle:-3*w});
  if(key==='wink')Object.assign(p,{mouth:'smile',brows:'raised',wink:t>.5&&t<1.5,angle:-4*w});
  if(key==='think')Object.assign(p,{mouth:'closed',eyes:'open',brows:'raised',gazeX:65*w,gazeY:-75*w,angle:5*w,y:2*beat*w});
@@ -2359,19 +2393,19 @@ let animationPosterRevision=0;
 function animationPoster(key,index){
  const oldFrame=state.framing,oldView=cameraView;
  try{
-  const body=['walk','dance','bow'].includes(key),gesture=['wave','explain','shrug','celebrate','point'].includes(key);
+  const body=isFloorPosture(key)||['walk','dance','bow'].includes(key),gesture=['wave','explain','shrug','celebrate','point'].includes(key);
   state.framing=body||gesture?'full':'head';cameraView='front';
   const clone=svg.cloneNode(true),p=reactionPose(key,key==='sleepy'?1.8:key==='wink'?1:1.3);
   clone.removeAttribute('id');clone.removeAttribute('data-reaction');clone.setAttribute('aria-hidden','true');clone.setAttribute('overflow','hidden');
   clone.setAttribute('viewBox',body?'-200 -200 1654 2600':gesture?'-150 80 1554 1730':'100 80 1054 1120');
   const box=clone.getAttribute('viewBox').split(' ').map(Number),bg=clone.querySelector('#background');for(const [i,attr] of ['x','y','width','height'].entries())bg.setAttribute(attr,box[i]);bg.setAttribute('fill','#edf2ef');
-  clone.querySelector('#torso').innerHTML=bodyRigSvg(state.pose,'front',body||gesture);
+  clone.querySelector('#torso').innerHTML=bodyRigSvg(isFloorPosture(key)?key:state.pose,'front',body||gesture);
   const covered=state.headwear&&state.headwear!=='none'&&state.headwear!=='headband';
   const layers={face:cameraFaceOriginal,hairBack:covered?'':hairBack[state.hair],frontHair:covered?'':hairFront[state.hair],headwearBack:headwearBackSvg(state.headwear||'none'),headwearFront:headwearSvg(state.headwear||'none'),earLeft:ears[state.ears].L,earRight:ears[state.ears].R,eyebrowGroup:browSvg(p.brows),eyeGroup:animationEyesSvg(p),noseGroup:noseSvg(state.nose),beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache),glassesGroup:glassesSvg(),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`};
   for(const [id,art] of Object.entries(layers)){
    const layer=clone.querySelector('#'+id);layer.innerHTML=cameraMarkup(id,art);layer.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
   }
-  poseChunniDrape({headwearBack:clone.querySelector('#headwearBack'),headwearFront:clone.querySelector('#headwearFront')},p);
+  poseChunniDrape({headwearBack:clone.querySelector('#headwearBack'),headwearFront:clone.querySelector('#headwearFront')},p,p.postureOffset||0);
   if(key==='walk'||key==='dance')poseWalking(key==='walk'?.26:.65,clone);
   if(key!=='walk')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},clone);
   const ns='http://www.w3.org/2000/svg',crop=document.createElementNS(ns,'clipPath'),rect=document.createElementNS(ns,'rect');crop.id='animationPosterCrop';for(const [i,attr] of ['x','y','width','height'].entries())rect.setAttribute(attr,box[i]);crop.append(rect);clone.querySelector('defs').append(crop);const art=document.createElementNS(ns,'g');art.setAttribute('clip-path','url(#animationPosterCrop)');for(const child of [...clone.children])if(child.tagName.toLowerCase()!=='defs')art.append(child);clone.append(art);
@@ -2427,7 +2461,7 @@ reactionTick=function(now){
 // Scene previews share the existing character art and pose functions.
 // Each actor owns a state snapshot and a namespaced SVG; editor state stays independent.
 const sceneLocations=window.UMTO_SCENES||{};
-const sceneActions={talk:'Talking',listen:'Listening',smile:'Smiling',wave:'Waving',explain:'Explaining',laugh:'Laughing',walk:'Walking in place',dance:'Happy dance',celebrate:'Celebrating',sad:'Sad',surprise:'Surprised',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy'};
+const sceneActions={talk:'Talking',listen:'Listening',smile:'Smiling',wave:'Waving',explain:'Explaining',laugh:'Laughing',walk:'Walking in place',dance:'Happy dance',celebrate:'Celebrating',sit:'Cross-legged sitting',kneel:'Kneeling',sad:'Sad',surprise:'Surprised',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy'};
 const scene={location:'living',cast:[],nodes:[],playing:false,raf:0,started:0,elapsed:.9,lastPaint:0,alternate:true};
 const sceneStorageKey='anitoons-scene-v1',sceneNS='http://www.w3.org/2000/svg';
 const sceneTab=document.createElement('button');sceneTab.id='scenesMode';sceneTab.type='button';sceneTab.setAttribute('role','tab');sceneTab.setAttribute('aria-selected','false');sceneTab.textContent='Scenes';document.querySelector('.studio-switch').append(sceneTab);
@@ -2472,7 +2506,7 @@ function remapSceneRefs(root,prefix){
 function createSceneActor(actor,index){
  const oldFrame=svg.dataset.animationFrame;
  let copy;
- try{delete svg.dataset.animationFrame;sceneWithState(actor,()=>{applyColours(true);copy=svg.cloneNode(true);});}
+ try{delete svg.dataset.animationFrame;sceneWithState(actor,()=>{applyColours(true);if(isFloorPosture(actor.action))document.getElementById('torso').innerHTML=bodyRigSvg(actor.action,cameraView,true);copy=svg.cloneNode(true);});}
  finally{if(oldFrame!==undefined)svg.dataset.animationFrame=oldFrame;else delete svg.dataset.animationFrame;applyColours(true);}
  copy.removeAttribute('id');copy.removeAttribute('data-reaction');copy.setAttribute('viewBox','-130 -180 1514 2480');copy.setAttribute('overflow','visible');copy.setAttribute('aria-label',actor.id==='current'?'Your character':scenePreset(actor.id)?.name||'Character');copy.querySelector('#background')?.remove();
  const prefix=`sceneActor${index}-`;
@@ -2500,7 +2534,7 @@ function paintSceneActorFace(node,p){
   for(const [id,art] of Object.entries(parts)){node.layers[id].innerHTML=cameraMarkup(id,art);remapSceneRefs(node.layers[id],node.prefix);}node.faceKey=faceKey;
  }
  for(const id of reactionHeadIds)node.layers[id]?.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
- poseChunniDrape(node.layers,p);
+ poseChunniDrape(node.layers,p,p.postureOffset||0);
 }
 function paintScene(seconds){
  const turn=2.4,elapsed=seconds%turn;
