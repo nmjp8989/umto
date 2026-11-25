@@ -25,6 +25,7 @@ ROOT=Path(__file__).resolve().parents[1]
 MODEL="gemini-3.8-flash-tts"
 TTS_MODELS=(MODEL,"gemini-3.8-flash-lite-tts")
 VOICES={
+ "english":("Charon","Warm, reverent English documentary storyteller with natural Indian pronunciation of Sikh names and Punjabi terms. Calm and heartfelt, clear, restrained emotion. Pronounce Guru Nanak Dev Ji, Prakash Purab, Sacha Sauda, langar, sadhus and Dhan Guru Nanak Dev Ji accurately. Speak only the supplied text, at a natural measured pace."),
  "oak":("Charon","A dignified mature oak tree speaking warm natural Gurmukhi Punjabi, confident at first, thoughtful and gentle later. Read only the written words."),
  "reed":("Leda","A small kind reed speaking clear natural Gurmukhi Punjabi, gently confident and reassuring. Read only the written words."),
  "narrator":("Aoede","Warm, gentle Punjabi storyteller, clear and unhurried child-friendly explanation, natural Punjabi pronunciation."),

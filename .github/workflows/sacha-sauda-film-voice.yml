@@ -1,0 +1,30 @@
+name: Sacha Sauda English narration
+on:
+  push:
+    branches: [sacha-sauda-film]
+    paths:
+      - '.github/workflows/sacha-sauda-film-voice.yml'
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check imageio-ffmpeg
+      - name: Generate Gemini English narration
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python tools/build_little_panth_audio.py --mission mission-999 --model gemini-3.8-flash-lite-tts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sacha-sauda-english-narration
+          path: little panth/mission-999/audio/
+          if-no-files-found: error
