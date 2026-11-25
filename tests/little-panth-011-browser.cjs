@@ -91,6 +91,8 @@ async function run() {
       { name: 'ball-hold', scene: 1, ms: 2000, actors: ['mehar', 'boy'] },
       { name: 'bibi-bundle', scene: 2, ms: 4000, actors: ['dadi'] },
       ...attempts.map((event, i) => ({ name: i ? 'sidak-bundle' : 'mehar-bundle', scene: 3, ms: event.ms, actors: [i ? 'boy' : 'mehar'] })),
+      { name: 'mehar-release', scene: 3, ms: attempts[0].ms + 720, actors: ['mehar', 'boy'] },
+      { name: 'bundle-handover', scene: 3, ms: attempts[0].ms + 900, actors: ['mehar', 'boy'] },
       { name: 'bibi-unties', scene: 4, ms: scenes[4].events[0].ms + 265, actors: ['dadi'] },
       { name: 'intact-sticks', scene: 4, ms: snapEvents[0].ms - 40, actors: ['mehar', 'boy'] },
       { name: 'snapped-sticks', scene: 4, ms: snapEvents[1].ms + 300, actors: ['mehar', 'boy'] },
@@ -262,8 +264,12 @@ async function run() {
         assertNatural(await page.evaluate(renderedArms), owner);
         assert.ok(await bundleTouches(owner), 'Both palms touch the actual wooden bundle through bending and set-down');
       }
-      await continuousArms(3, event.ms - 850, event.ms + 900, [owner]);
+      await continuousArms(3, event.ms - 850, event.ms + 1250, [owner]);
     }
+    await seek(3, efforts[0].ms + 720);
+    await capture('04c-mehar-release', ['mehar', 'boy']);
+    await seek(3, efforts[0].ms + 900);
+    await capture('04d-bundle-handover', ['mehar', 'boy']);
     const untie = scenes[4].events.find(event => event.sound === 'ribbon').ms;
     await seek(4, untie + 265);
     assert.ok(await gripDistance('dadi', 'right', 'free-cord', 0, 0) < 2);

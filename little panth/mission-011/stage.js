@@ -113,15 +113,24 @@
   function attempt(actor, bundle, timing, layout, ms, move, still) {
     const { take, squeeze } = timing;
     const setDown = squeeze + 875;
-    const step = move(phase(ms, take - 600, take - 40)) * (1 - move(phase(ms, setDown + 110, setDown + 590)));
+    const approachEnd = take + 60;
+    const releaseEnd = setDown + 220;
+    const retreatEnd = setDown + 590;
+    const step = move(phase(ms, take - 600, approachEnd)) * (1 - move(phase(ms, releaseEnd, retreatEnd)));
     const lift = move(phase(ms, take + 100, squeeze - 80)) * (1 - move(phase(ms, squeeze + 425, setDown)));
-    const hold = ease(phase(ms, take - 90, take + 110)) * (1 - ease(phase(ms, setDown + 15, setDown + 240)));
+    const hold = ease(phase(ms, take - 90, take + 110)) * (1 - ease(phase(ms, setDown + 15, releaseEnd)));
     const press = Math.sin(Math.PI * phase(ms, squeeze - 120, squeeze + 630));
     const weight = lift * step;
     actor.x = mix(actor.x, layout.near, step) + (layout.lifted - layout.near) * weight;
     actor.bend = layout.lean * (step - .55 * weight);
-    if (ms > take - 600 && ms < take - 40) actor.walk = (ms - take + 600) / 1000;
-    if (ms > setDown + 110 && ms < setDown + 590) actor.walk = -(ms - setDown - 110) / 1000;
+    if (ms > take - 600 && ms < approachEnd) {
+      actor.walk = (ms - take + 600) / 1000;
+      actor.armSwing = ease(phase(ms, take - 600, take - 440)) * (1 - ease(phase(ms, take - 250, take - 100)));
+    }
+    if (ms > releaseEnd && ms < retreatEnd) {
+      actor.walk = -(ms - releaseEnd) / 1000;
+      actor.armSwing = ease(phase(ms, releaseEnd, releaseEnd + 160)) * (1 - ease(phase(ms, retreatEnd - 160, retreatEnd)));
+    }
     bundle.position = point(mix(onStool.x, layout.center, weight), mix(onStool.y, 505, weight),
       mix(onStool.angle, layout.lean * .45, weight) + (still ? 0 : Math.sin(ms / 150) * .65 * press));
     bundle.owner = lift > .02 ? layout.id : 'stool';
@@ -206,14 +215,17 @@
         if (stepAside > 0 && stepAside < 1) dadi.walk = (ms - 80) / 1000;
         const first = cue.attempts[0];
         const second = cue.attempts[1];
-        if (ms < second.take - 480) {
-          if (attempt(mehar, bundle, first, { id: 'mehar', near: 567, lifted: 555, center: 559, lean: 3.5, elbows: ['up', 'up'] }, ms, move, still) > .12) {
-            focusChild = 'mehar';
-          }
-        } else {
-          if (attempt(boy, bundle, second, { id: 'boy', near: 609, lifted: 622, center: 620, lean: -3.5, elbows: ['up', 'up'] }, ms, move, still) > .12) {
-            focusChild = 'boy';
-          }
+        const firstBundle = { ...bundle }, secondBundle = { ...bundle };
+        // Both children finish their own reach, release and retreat. Starting
+        // Sidak's approach must not reset Mehar midway through her set-down.
+        const firstHold = attempt(mehar, firstBundle, first,
+          { id: 'mehar', near: 567, lifted: 555, center: 559, lean: 3.5, elbows: ['up', 'up'] }, ms, move, still);
+        const secondHold = attempt(boy, secondBundle, second,
+          { id: 'boy', near: 609, lifted: 622, center: 620, lean: -3.5, elbows: ['up', 'up'] }, ms, move, still);
+        Object.assign(bundle, firstHold > 0 ? firstBundle : secondBundle);
+        // Keep the established camera decisions while the body timelines overlap.
+        if (ms < second.take - 480 ? firstHold > .12 : secondHold > .12) {
+          focusChild = ms < second.take - 480 ? 'mehar' : 'boy';
         }
         break;
       }
@@ -376,6 +388,23 @@
         shadow.setAttribute('cx', pose.x);
         shadow.setAttribute('cy', pose.y + 1);
         performer.paint(pose, ms, line.speaker === id ? reading : null, still);
+        if (!still && pose.walk != null && pose.armSwing != null) {
+          // Hands settle before a reach and leave the bundle before the return
+          // walk. Blend only free arms; held contacts remain the native IK pose.
+          performer.api.withActor(performer.actor, () => {
+            const resting = performer.api.restArms();
+            for (const [index, arm] of performer.arms.entries()) {
+              if (pose.grips[index]?.weight > 0) continue;
+              const rest = resting[index ? 'right' : 'left'];
+              const angles = ['shoulder', 'elbow', 'wrist'].map((part, i) => {
+                const moving = parseFloat(arm.querySelector('[data-rig-' + part + ']').getAttribute('transform').match(/rotate\(([-+\d.e]+)/i)[1]);
+                return mix(rest[i], moving, pose.armSwing);
+              });
+              const far = Number(arm.dataset.rigArm) === performer.facing;
+              performer.api.arm(arm, angles, { pose: 'relaxed', view: far ? 'edge' : 'back' }, performer.facing);
+            }
+          });
+        }
       }
     }
   }
