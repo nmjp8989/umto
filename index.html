@@ -1318,7 +1318,7 @@ function silhouetteInk(id,edge){
   <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
 }
 // Folded floor poses retain the normal head, upper-body joints and wardrobe.
-const FLOOR_POSTURES=Object.freeze({sit:480,kneel:350});
+const FLOOR_POSTURES=Object.freeze({sit:510,kneel:355});
 function isFloorPosture(key){return Object.hasOwn(FLOOR_POSTURES,key);}
 function floorPostureOffset(key){return (FLOOR_POSTURES[key]||0)*bodyHeight();}
 function floorRigSvg(pose,view){
@@ -1330,20 +1330,20 @@ function floorRigSvg(pose,view){
  const leg=(side)=>{
   const cx=fitX(0),scale=(fitX(side*100)-cx)/100;
   const art=seated
-   ? rigFill('M8 1435 Q150 1415 202 1480 Q318 1510 330 1610 Q352 1685 275 1713 Q190 1743 32 1710 L-53 1680 Q-88 1640 -32 1616 L130 1616 Q96 1563 18 1530Z',colour)
-   : rigFill('M0 1420 Q138 1405 190 1460 Q235 1504 235 1630 Q235 1720 171 1740 Q105 1763 43 1731 Q-15 1704 12 1660 L42 1614 Q9 1520 0 1420Z',colour);
+   ? rigFill('M-12 1435 Q115 1408 202 1480 Q300 1518 319 1600 Q344 1668 287 1701 Q208 1744 69 1730 L-74 1703 Q-103 1672 -66 1647 Q9 1617 106 1612 Q69 1558 -12 1530Z',colour)
+   : rigFill('M-4 1420 Q126 1402 183 1460 Q220 1507 214 1603 Q243 1652 227 1702 Q213 1750 155 1752 Q77 1754 32 1727 Q-6 1705 10 1654 L35 1607 Q8 1518 -4 1420Z',colour);
   const shorts=p.length?rigFill(seated?'M8 1435 Q150 1415 202 1480 Q293 1510 312 1577 L186 1612 Q98 1563 18 1530Z':'M0 1420 Q138 1405 190 1460 Q228 1500 232 1588 L39 1595 Q9 1520 0 1420Z',state.trouserColour):'';
-  const folds=rigDetail(seated?'M165 1530 Q232 1564 259 1610 M76 1669 Q176 1707 251 1684':'M113 1502 Q181 1534 185 1627 M65 1690 Q117 1728 175 1708',3);
-  const shoeX=seated?-65:172,shoeScale=.50*Math.max(1,b.foot/bodyHeight(true))/lowerScale,shoeY=1759.36-116*shoeScale;
-  const shoe='<g data-rig-foot transform="translate('+shoeX+' '+shoeY+') scale('+(.70*b.foot)+' '+shoeScale+')">'+(garmentDesign().jutti?juttiSvg(0):sneakerSvg(0))+'</g>';
-  return '<g data-rig-leg="'+side+'" transform="translate('+cx+' 0) scale('+scale+' 1)">'+art+shorts+folds+shoe+'</g>';
+  const folds=rigDetail(seated?'M154 1535 Q232 1566 264 1615 M-28 1681 Q95 1725 223 1700':'M113 1502 Q181 1534 185 1627 M65 1690 Q117 1728 175 1708',3);
+  const shoeX=seated?-68:158,shoeScale=(seated?.43:.29)*Math.max(1,b.foot/bodyHeight(true))/lowerScale,shoeY=1759.36-116*shoeScale-(seated?7:23);
+  const shoe='<g data-rig-foot transform="translate('+shoeX+' '+shoeY+') scale('+((seated?.66:.48)*b.foot)+' '+shoeScale+')">'+(garmentDesign().jutti?juttiSvg(0):sneakerSvg(0))+'</g>';
+  return '<g data-rig-leg="'+side+'" transform="translate('+cx+' 0) scale('+scale+' 1)">'+(seated?art+shorts+folds+shoe:shoe+art+shorts+folds)+'</g>';
  };
  const longest=Math.max(garmentTemplate().hem,bottomProfile().skirt?bottomProfile().hem:0,1451);
  const hemScale=Math.min(1,(ground-1470)/(longest-1450));
  const mapY=y=>y<=1450?y:1450+(y-1450)*hemScale;
  const filter='<defs>'+silhouetteInk('sharedBodyInk','<feMorphology in="SourceAlpha" operator="dilate" radius="3.7"/><feGaussianBlur stdDeviation="1.5"/><feComponentTransfer result="edge"><feFuncA type="linear" slope="3" intercept="-1"/></feComponentTransfer>')+silhouetteInk('armInk','<feGaussianBlur in="SourceAlpha" stdDeviation="1.1"/><feComponentTransfer result="edge"><feFuncA type="linear" slope="16" intercept="-.7"/></feComponentTransfer>')+'</defs>';
  const skirt=bottomProfile().skirt?bodySurfaceSvg(bottomSkirtSvg(),turn,mapY):'';
- return filter+'<g data-body-rig="1" data-floor-posture="'+pose+'" data-garment="'+(Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew')+'" transform="translate(37.62 0) scale(.94 1)"><ellipse cx="627" cy="2239.36" rx="'+(seated?330:245)+'" ry="24" fill="#102b42" opacity=".14"/><g data-body-shape="'+state.bodyType+'" transform="translate(0 2239.36) scale(1 '+bodyHeight(true)+') translate(0 '+(-2239.36+drop)+')"><g filter="url(#sharedBodyInk)"><g data-lower-body transform="translate(0 '+lowerShift+') scale(1 '+lowerScale+')">'+leg(far)+leg(near)+'</g>'+skirt+rigArmSvg(far,view)+'<g data-moving-garment>'+bodySurfaceSvg(garmentBodiceSvg()+shoulderChunniSvg(),turn,mapY)+'</g>'+rigArmSvg(near,view)+'</g></g></g>';
+ return filter+'<g data-body-rig="1" data-floor-posture="'+pose+'" data-garment="'+(Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew')+'" transform="translate(37.62 0) scale(.94 1)"><ellipse cx="627" cy="2239.36" rx="'+(seated?330:245)+'" ry="24" fill="#102b42" opacity=".14"/><g data-body-shape="'+state.bodyType+'" transform="translate(0 2239.36) scale(1 '+bodyHeight(true)+') translate(0 '+(-2239.36+drop)+')"><g filter="url(#sharedBodyInk)"><g data-lower-body transform="translate(0 '+lowerShift+') scale(1 '+lowerScale+')">'+leg(far)+leg(near)+'</g>'+skirt+'<g data-moving-garment>'+bodySurfaceSvg(garmentBodiceSvg()+shoulderChunniSvg(),turn,mapY)+'</g>'+rigArmSvg(far,view)+rigArmSvg(near,view)+'</g></g></g>';
 }
 function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
  if(full&&isFloorPosture(pose))return floorRigSvg(pose,view);
@@ -2258,7 +2258,7 @@ function extendAnimationPose(key,t,w,p,armWeight){
  if(key==='shy')p.gazeY=60*w;
  if(key==='confused')p.gazeX=35*w;
  if(key==='worried')p.gazeY=25*w;
- if(isFloorPosture(key)){const offset=floorPostureOffset(key);return Object.assign(p,{mouth:'closed',eyes:t>2.82&&t<2.96?'closed':'open',brows:'neutral',y:offset,postureOffset:offset,arms:{left:[8,30,-12],right:[8,30,-12]},hands:{left:{pose:'relaxed',view:'back'},right:{pose:'relaxed',view:'back'}}});}
+ if(isFloorPosture(key)){const offset=floorPostureOffset(key);return Object.assign(p,{mouth:'closed',eyes:t>2.82&&t<2.96?'closed':'open',brows:'neutral',y:offset+1.5*Math.sin(t*Math.PI*2/3.6),angle:.7*Math.sin(t*Math.PI*2/3.6),postureOffset:offset,arms:{left:[-16+1.5*beat,38,-18],right:[-16-1.5*beat,38,-18]},hands:{left:{pose:'relaxed',view:'back'},right:{pose:'relaxed',view:'back'}}});}
  if(key==='eyeRoll')Object.assign(p,{mouth:'closed',brows:'raised',gazeX:Math.round(Math.sin(t*2.3)*90*w),gazeY:Math.round(-95*Math.sin(Math.min(1,t/2.4)*Math.PI)*w),angle:-3*w});
  if(key==='wink')Object.assign(p,{mouth:'smile',brows:'raised',wink:t>.5&&t<1.5,angle:-4*w});
  if(key==='think')Object.assign(p,{mouth:'closed',eyes:'open',brows:'raised',gazeX:65*w,gazeY:-75*w,angle:5*w,y:2*beat*w});
@@ -2353,8 +2353,9 @@ function poseWalking(seconds,root=document){
  for(const leg of root.querySelectorAll('#torso [data-rig-leg]')){
   const side=+leg.dataset.rigLeg,g=walkingStep(seconds,side);
   const ankle=bodyAnkleX(),restKnee=standingKneeX(profile,ankle);
-  const knee={x:restKnee+turn*side*.72*g.kneeForward,y:g.kneeDown};
-  const foot={x:ankle+turn*side*.72*g.forward,y:g.down};
+  const front=!turn,stepDepth=g.forward/105;
+  const knee={x:restKnee+(front?8*stepDepth:turn*side*.72*g.kneeForward),y:g.kneeDown};
+  const foot={x:ankle+(front?0:turn*side*.72*g.forward),y:g.down};
   leg.querySelector('[data-leg-surface]').setAttribute('d',legOutline(profile,knee,foot));
   if(profile.length)leg.querySelector('[data-shorts]').setAttribute('d',shortsOutline(profile,knee));
   const segment=(dx,dy,length,ox,oy)=>{const d=Math.hypot(dx,dy);return [dy/d,-dx/d,dx/length,dy/length,ox,oy];};
@@ -2368,12 +2369,12 @@ function poseWalking(seconds,root=document){
   leg.querySelector('[data-rig-ankle]').setAttribute('transform',`translate(0 360) matrix(${d/det} ${-b/det} ${-c/det} ${a/det} 0 0) scale(${flip} 1)`);
   // Pitch only the airborne shoe; the support sole remains level and planted.
   const footScale=bodyShapeProfile().foot,footY=Math.max(1,footScale/bodyHeight());
-  leg.querySelector('[data-rig-foot]').setAttribute('transform',`translate(0 111) rotate(${turn*side*flip*g.footPitch}) scale(${footScale} ${footY}) translate(0 -111)`);
+  leg.querySelector('[data-rig-foot]').setAttribute('transform',`translate(0 111) rotate(${turn*side*flip*g.footPitch}) scale(${footScale*(turn?1:1+.045*g.forward/105)} ${footY*(turn?1:1+.10*g.forward/105)}) translate(0 -111)`);
  }
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/105;
-  const angles=[-3-(turn?turn*side*11:4)*swing,-8-turn*side*6*Math.max(0,swing),0];
+  const angles=[-4-(turn?turn*side*11:7)*swing,-9-(turn?turn*side*6:20)*Math.max(0,swing),turn?0:3*swing];
   poseRigArm(arm,angles,{pose:'relaxed',view:turn&&turn===side?'edge':'back'},turn);
  }
 }
