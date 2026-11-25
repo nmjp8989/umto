@@ -13,10 +13,8 @@
     <radialGradient id="path-light"><stop stop-color="#fff3bc" stop-opacity=".58"/><stop offset="1" stop-color="#ffe6a8" stop-opacity="0"/></radialGradient>
     <radialGradient id="shadow"><stop stop-color="#5c4340" stop-opacity=".38"/><stop offset="1" stop-color="#5c4340" stop-opacity="0"/></radialGradient>
     <radialGradient id="vignette"><stop offset=".67" stop-color="#413c2c" stop-opacity="0"/><stop offset="1" stop-color="#504333" stop-opacity=".16"/></radialGradient>
-    <linearGradient id="skin" x2=".72" y2="1"><stop stop-color="#dca77a"/><stop offset=".61" stop-color="#c58b66"/><stop offset="1" stop-color="#9f6650"/></linearGradient>
-    <linearGradient id="coat" x2=".76" y2="1"><stop stop-color="#efbe72"/><stop offset=".58" stop-color="#ce9151"/><stop offset="1" stop-color="#a97045"/></linearGradient>
     <linearGradient id="indigo" x2=".48" y2="1"><stop stop-color="#829cb8"/><stop offset=".47" stop-color="#5b789c"/><stop offset="1" stop-color="#3e5878"/></linearGradient>
-    <linearGradient id="turban" x2=".6" y2="1"><stop stop-color="#a2655b"/><stop offset=".55" stop-color="#8a514a"/><stop offset="1" stop-color="#713d3e"/></linearGradient>
+    <clipPath id="shawl-hand-clip" clipPathUnits="userSpaceOnUse"><rect x="-80" y="0" width="160" height="180"/></clipPath>
     <filter id="paper-grain">
       <feTurbulence type="fractalNoise" baseFrequency=".56" numOctaves="3" seed="28" stitchTiles="stitch"/>
       <feColorMatrix type="saturate" values="0"/>
@@ -141,61 +139,21 @@
   </g>
 
   <ellipse id="traveller-shadow" cx="640" cy="622" rx="88" ry="22" fill="url(#shadow)"/>
-  <g id="traveller" stroke-linecap="round" stroke-linejoin="round" data-speaking="false">
-    <path id="shawl-tail" d="M-49-190C-73-177-69-145-82-123L-69-108C-44-132-41-159-28-186Z" fill="#587799" stroke="#405b79" stroke-width="3"/>
-    <g id="leg-far">
-      <path id="leg-far-cloth" d="M9-91Q21-98 36-90L38-48 39-12Q25-6 13-13L9-48Z" fill="#a89c78" stroke="#756b53" stroke-width="3"/>
-      <g id="leg-far-shoe"><path d="M10-12Q24-16 37-10L46-5Q61-3 58 4Q36 10 12 4Z" fill="#71523e" stroke="#543e32" stroke-width="2.8"/><path d="M15 3Q34 6 54 2" fill="none" stroke="#ac8461" stroke-width="1.8"/></g>
-    </g>
-    <g id="leg-near">
-      <path id="leg-near-cloth" d="M-34-94Q-19-99-5-91L-3-50-5-11Q-19-6-31-12L-35-50Z" fill="#d5c69b" stroke="#8e805f" stroke-width="3"/>
-      <g id="leg-near-shoe"><path d="M-32-11Q-19-16-5-10L4-4Q20-2 17 5Q-5 11-31 5Z" fill="#87624a" stroke="#624835" stroke-width="3"/><path d="M-27 4Q-7 7 13 3" fill="none" stroke="#c59a70" stroke-width="1.8"/></g>
-    </g>
-    <g id="far-arm">
-      <path id="traveller-far-sleeve-edge" d="M-38-179L-43-117" fill="none" stroke="#90643e" stroke-width="24"/>
-      <path id="traveller-far-sleeve" d="M-38-179L-43-117" fill="none" stroke="#bd8e53" stroke-width="18"/>
-    </g>
-    <g id="traveller-torso">
-      <path d="M-44-196C-31-209-4-214 19-207Q40-204 50-187L45-144Q44-109 55-74C29-63-20-61-51-73Q-46-109-47-140Z" fill="url(#coat)" stroke="#94683f" stroke-width="3.5"/>
-      <path d="M4-197L10-87M-43-78Q1-66 48-78M-25-139Q-31-112-30-94M35-124L34-94" fill="none" stroke="#a87742" stroke-width="2" opacity=".8"/>
-      <path d="M-12-200L2-182 14-199M10-180L23-190" fill="none" stroke="#f2d295" stroke-width="3"/>
-      <path d="M-6-192L1-181 7-188M-42-83Q2-71 46-83" fill="none" stroke="#e4b96e" stroke-width="1.8"/>
-      <g fill="#8d643d"><circle cx="7" cy="-164" r="2.1"/><circle cx="8" cy="-145" r="2.1"/><circle cx="9" cy="-126" r="2.1"/></g>
-      <path d="M19-140Q29-137 36-141L35-124Q26-120 20-125Z" fill="#c68c4d" stroke="#ae793e" stroke-width="1.6"/>
-    </g>
-    <g id="near-arm">
-      <path id="traveller-sleeve-edge" d="M42-177L57-112" fill="none" stroke="#986b42" stroke-width="25"/>
-      <path id="traveller-sleeve" d="M42-177L57-112" fill="none" stroke="#d09a59" stroke-width="19"/>
-      <path id="traveller-cuff" fill="none" stroke="#e6bd7b" stroke-width="3"/>
-      <g id="traveller-hand"><path d="M-9-5Q-5-10 0-7Q7-9 11-3Q15 4 8 7L-8 6Z" fill="url(#skin)" stroke="#95634a" stroke-width="2.2"/><path d="M1-4Q6-4 7 1M-1 3Q3 5 7 3" fill="none" stroke="#a87152" stroke-width="1.4"/></g>
-    </g>
-    <g id="traveller-far-hand"><path d="M-8-5Q-4-10 1-7Q8-8 11-2Q13 5 6 7L-7 5Z" fill="url(#skin)" stroke="#95634a" stroke-width="2.1"/><path d="M2-4L7 1M-1 3L5 4" fill="none" stroke="#a87152" stroke-width="1.3"/></g>
-    <g id="traveller-head" transform="translate(5 -200)">
-      <path d="M-12 12L-11-12 16-16 19 11Q5 24-12 12Z" fill="url(#skin)" stroke="#956044" stroke-width="2.8"/>
-      <path d="M-26-45C-29-69-15-87 8-87C29-87 45-73 45-51L44-39Q45-33 55-27Q59-22 52-19L46-18C46-2 36 11 19 13C-5 13-25-6-26-29Z" fill="url(#skin)" stroke="#98684f" stroke-width="3"/>
-      <path d="M-24-40C-32-56-43-50-40-38Q-36-23-25-28" fill="#c48961" stroke="#98684f" stroke-width="2.5"/>
-      <path d="M-34-42Q-28-47-27-35L-32-34" fill="none" stroke="#a56b4e" stroke-width="1.7"/>
-      <path d="M-24-37Q-19-21-9-15L-5-23Q6-17 15-18Q31-24 45-16L46-4C39 5 35 17 23 23L20 17 13 24 9 17 1 20C-12 9-24-4-26-20Z" fill="#57443b"/>
-      <path d="M-16-16Q-9 2 4 9M-7-7Q2 11 13 14M22 3L21 15M33-2L28 12" fill="none" stroke="#876b54" stroke-width="1.5" opacity=".7"/>
-      <path id="traveller-mouth" d="M23-14Q32-17 40-13Q35-5 26-7Z" fill="#e5ac85"/>
-      <path d="M16-18Q23-25 30-18Q35-21 43-17L42-12Q34-13 29-15Q23-12 16-13Z" fill="#4e3a32"/>
-      <g id="traveller-eyes"><path d="M28-46Q35-51 42-45Q36-40 29-43Z" fill="#f6ead3"/><ellipse cx="36" cy="-45" rx="3.3" ry="4.1" fill="#38352b"/><circle cx="37" cy="-46.2" r="1" fill="#fff7de"/></g>
-      <path id="traveller-lids" d="M28-45Q35-40 42-45" fill="none" stroke="#604535" stroke-width="2" opacity="0"/>
-      <path d="M27-55Q35-58 42-54M44-39Q39-33 42-29" fill="none" stroke="#73503d" stroke-width="2.2"/>
-      <path d="M-36-53C-47-69-40-88-27-99C-12-113 12-118 32-108C51-100 59-86 54-67L46-56Q30-62 19-68C3-61-14-56-31-53Z" fill="url(#turban)" stroke="#71443f" stroke-width="3.3"/>
-      <path d="M-34-61C-8-67 18-81 41-100M-39-72C-14-81 3-90 22-110M-34-84Q-17-96 1-109M-22-56Q15-69 48-88M-4-62Q25-73 53-78M21-68L46-60" fill="none" stroke="#c5917e" stroke-width="2.4"/>
-      <path d="M-29-93Q-16-106-2-108M-31-65Q-6-72 13-84" fill="none" stroke="#e0b29a" stroke-width="1.7" opacity=".75"/>
-    </g>
+  <g id="traveller" data-speaking="false"/>
+  <g id="traveller-props" stroke-linecap="round" stroke-linejoin="round">
     <g id="shawl-cloth">
-      <path id="shawl-main" fill="url(#indigo)" stroke="#3f5977" stroke-width="3.1"/>
+      <path id="shawl-main" fill="url(#indigo)" stroke="#3f5977" stroke-width="2.2"/>
       <path id="shawl-front-fold" fill="#344e70" opacity=".16"/>
-      <path id="shawl-fold-line" fill="none" stroke="#aec3d0" stroke-width="2.2" opacity=".8"/>
-      <path id="shawl-hem" fill="none" stroke="#d4d6bf" stroke-width="2.2" stroke-dasharray="3 4"/>
-      <path id="shawl-fringe" fill="none" stroke="#aabcc3" stroke-width="1.7"/>
+      <path id="shawl-fold-line" fill="none" stroke="#aec3d0" stroke-width="1.5" opacity=".8"/>
+      <path id="shawl-hem" fill="none" stroke="#e4dfc2" stroke-width="1.7"/>
+      <path id="shawl-hem-stitch" fill="none" stroke="#ece7d4" stroke-width="1.1" stroke-dasharray="2 3"/>
+      <path id="shawl-fringe" fill="none" stroke="#b9c8cd" stroke-width="1.25"/>
     </g>
-    <g id="shawl-grips" fill="url(#skin)" stroke="#95634a" stroke-width="1.6" opacity="1">
-      <path id="shawl-far-grip" d="M-4-3Q0-8 4-4L6 1Q5 5 2 3L0-1" opacity="0"/>
-      <path id="shawl-near-grip" d="M-4-3Q0-8 4-4L6 1Q5 5 2 3L0-1" opacity="0"/>
+    <g id="shawl-left-hand" data-shawl-hand="0" data-shawl-contact="true">
+      <g clip-path="url(#shawl-hand-clip)"/>
+    </g>
+    <g id="shawl-right-hand" data-shawl-hand="1" data-shawl-contact="true">
+      <g clip-path="url(#shawl-hand-clip)"/>
     </g>
   </g>
 

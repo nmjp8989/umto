@@ -10,6 +10,11 @@
   const line = (scene, id) => scene.lines.find(entry => entry.id === id);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
   const windHome = { x: 461, y: 137 };
+  const { open, Character, voiceFrame } = window.UmtoNativeCharacterPlayer;
+  const travellerSpec = { preset: 'adult-harpreet', view: 'right', height: 330, serial: 408, hipHinge: true };
+  let studio;
+  const transform = (node, value) => node.setAttribute('transform', value);
+  const matrixString = m => 'matrix(' + [m.a, m.b, m.c, m.d, m.e, m.f].join(' ') + ')';
 
   function wordAt(scene, id, word) {
     const entry = line(scene, id);
@@ -118,33 +123,16 @@
     return { light, wind, clutched, grasp, takeOff, folding, carry, x, stride, walking, lookingUp, cloudShift };
   }
 
-  // Sleeves sit beneath the shawl. Hands follow its hem while wrapped and
-  // its actual top corners during removal, so neither arm pierces the cloth.
-  function shawlArm(shoulder, target, side) {
-    const upper = 42, lower = 41;
-    const dx = target.x - shoulder.x, dy = target.y - shoulder.y;
-    const distance = Math.max(1, Math.hypot(dx, dy));
-    const reach = Math.max(15, Math.min(upper + lower - .5, distance));
-    const x = dx / distance, y = dy / distance;
-    const alongArm = (upper ** 2 - lower ** 2 + reach ** 2) / (2 * reach);
-    const bend = Math.sqrt(Math.max(0, upper ** 2 - alongArm ** 2));
-    const elbow = point(shoulder.x + x * alongArm + side * y * bend,
-      shoulder.y + y * alongArm - side * x * bend);
-    const hand = point(shoulder.x + x * reach, shoulder.y + y * reach);
-    const wrist = along(hand, elbow, .18);
-    const before = along(elbow, shoulder, .2), after = along(elbow, wrist, .25);
-    const sleeve = `M${shoulder.x} ${shoulder.y}L${before.x} ${before.y}Q${elbow.x} ${elbow.y} ${after.x} ${after.y}L${wrist.x} ${wrist.y}`;
-    const angle = Math.atan2(hand.y - elbow.y, hand.x - elbow.x);
-    const cuff = `M${wrist.x - Math.sin(angle) * 9} ${wrist.y + Math.cos(angle) * 9}L${wrist.x + Math.sin(angle) * 9} ${wrist.y - Math.cos(angle) * 9}`;
-    return { sleeve, cuff, hand, angle: angle * 180 / Math.PI };
-  }
-
+  // One continuous cloth keeps its winding while it slips off the shoulders,
+  // hangs from the two hands, folds, and settles across the near forearm.
+  // The asymmetric long end reaches the resting knee plane.
   const wornCloth = [
-    [-62,-190],[-59,-205],[-42,-211],[-29,-199],[-17,-185],[-9,-178],[-3,-177],
-    [14,-179],[32,-188],[43,-198],[66,-194],[83,-183],[87,-162],
-    [95,-138],[74,-112],[41,-107],[22,-101],[16,-112],[1,-112],
-    [-17,-105],[-39,-112],[-58,-126],[-76,-143],[-75,-173],[-62,-190]
-  ].map(([x,y]) => point(x,y));
+    [-.62,-.03],[-.59,-.13],[-.41,-.14],[-.28,-.06],
+    [-.16,.05],[-.08,.11],[.02,.10],[.18,.08],[.34,-.05],[.45,-.08],
+    [.70,-.02],[.86,.13],[.78,.30],[.72,.55],[.78,.90],[.70,.99],
+    [.56,1.07],[.26,1.03],[.20,.97],[.13,.70],[-.20,.60],[-.50,.63],
+    [-.68,.66],[-.78,.24],[-.62,-.03]
+  ];
   const clothOutline = [[0,0],[.12,-.03],[.25,.02],[.33,.02],[.45,.04],[.55,.04],[.67,.02],
     [.8,0],[.9,-.03],[1,0],[1.02,.2],[.98,.42],[.99,.55],
     [1.01,.78],[.97,.98],[.88,1],[.65,1.06],[.4,1.02],[.25,1],
@@ -156,23 +144,15 @@
   function clothPath(points) {
     return points.map((p,i) => `${i === 0 ? 'M' : (i - 1) % 3 === 0 ? 'C' : ''}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ') + 'Z';
   }
-
-  function trouserLeg(hip, cycle, walking, lift) {
-    const u = ((cycle % 1) + 1) % 1;
-    const swing = u > .6 ? (u - .6) / .4 : 0;
-    const step = u < .6 ? mix(23,-23,u/.6) : mix(-23,23,smooth(swing));
-    const foot = point(hip.x + step * walking, lift - Math.sin(swing * Math.PI) * 13 * walking);
-    const ankle = point(foot.x, foot.y - 10);
-    const dx = ankle.x - hip.x, dy = ankle.y - hip.y;
-    const distance = Math.hypot(dx,dy), upper = 40, lower = 37;
-    const a = (upper * upper - lower * lower + distance * distance) / (2 * distance);
-    const h = Math.sqrt(Math.max(0,upper * upper - a * a));
-    const knee = point(hip.x + dx / distance * a + dy / distance * h,
-      hip.y + dy / distance * a - dx / distance * h);
-    const path = `M${hip.x-14} ${hip.y}Q${hip.x} ${hip.y-5} ${hip.x+14} ${hip.y}` +
-      `Q${knee.x+14} ${knee.y-9} ${knee.x+12} ${knee.y+3}L${ankle.x+11} ${ankle.y}` +
-      `Q${ankle.x} ${ankle.y+5} ${ankle.x-11} ${ankle.y}L${knee.x-12} ${knee.y+2}Q${knee.x-13} ${knee.y-6} ${hip.x-14} ${hip.y}Z`;
-    return {path,foot,pitch:-8*Math.sin(swing*Math.PI)*walking};
+  function curve(a,b,c,d,t) {
+    const u=1-t;
+    return point(u*u*u*a.x+3*u*u*t*b.x+3*u*t*t*c.x+t*t*t*d.x,
+      u*u*u*a.y+3*u*u*t*b.y+3*u*t*t*c.y+t*t*t*d.y);
+  }
+  function sidePoint(cloth, side, t) {
+    if (side === 0) return curve(cloth[24],cloth[23],cloth[22],cloth[21],t);
+    return t < .5 ? curve(cloth[9],cloth[10],cloth[11],cloth[12],t*2)
+      : curve(cloth[12],cloth[13],cloth[14],cloth[15],(t-.5)*2);
   }
 
   class WindStage {
@@ -182,6 +162,10 @@
       this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
       this.leaves = [...this.parts['blowing-leaves'].children];
+      this.performer = new Character(studio, svg, this.parts.traveller, this.parts['traveller-props'], travellerSpec);
+      this.puppets = { traveller: this.performer };
+      this.shawlLength = null;
+      this.walkSpeed = null;
     }
 
     select(scene) {
@@ -262,76 +246,104 @@
       this.svg.dataset.warmth = pose.light.toFixed(2);
     }
 
-    traveller(ms, pose) {
-      const p = this.parts;
-      const still = this.reduced.matches;
-      const walking = still ? 0 : pose.walking;
-      const gait = Math.sin(pose.stride * Math.PI * 2) * walking;
-      const lift = (1 - Math.cos(pose.stride * Math.PI * 4)) * .65 * walking;
-      const lean = still ? 0 : Math.sin(ms / 480) * pose.wind * .7 + pose.wind * 2.4;
-      p.traveller.setAttribute('transform', `translate(${pose.x} ${618-lift}) rotate(${lean})`);
-      p['traveller-shadow'].setAttribute('cx', pose.x);
-      for (const [name,hip,offset] of [['near',point(-19,-87),0],['far',point(24,-87),.5]]) {
-        const leg = trouserLeg(hip, pose.stride + offset, walking, lift);
-        p['leg-'+name+'-cloth'].setAttribute('d',leg.path);
-        p['leg-'+name+'-shoe'].setAttribute('transform', `translate(${leg.foot.x-hip.x} ${leg.foot.y}) rotate(${leg.pitch} ${hip.x} 0)`);
-      }
-      p['traveller-head'].setAttribute('transform', `translate(5 -200) rotate(${-pose.lookingUp*10+pose.clutched*4-pose.takeOff*2})`);
-      const flick = still ? 0 : Math.sin(ms / 260) * pose.wind * (6-pose.clutched*4);
-      p['shawl-tail'].setAttribute('transform', `rotate(${flick+pose.wind*28*(1-pose.clutched*.65)} -43 -184)`);
-      opacity(p['shawl-tail'], (1-pose.takeOff)*(1-pose.clutched*.45));
+    rigPoint(node, x=0, y=0) {
+      return new DOMPoint(x,y).matrixTransform(node.getScreenCTM())
+        .matrixTransform(this.svg.getScreenCTM().inverse());
+    }
 
-      const farRest = point(-42-gait*8,-110), nearRest = point(57+gait*9,-105);
-      const farWrapped = along(farRest,point(-18,-124),pose.clutched);
-      const nearWrapped = along(nearRest,point(18,-120),pose.clutched);
-      const liftedFar = point(-27,-158), liftedNear = point(59,-158);
-      const wrappedCloth = wornCloth.map((v,i) => point(v.x*(1-pose.clutched*.07),
-        v.y-(i>=13&&i<=22?pose.clutched*13:0)));
-      let held = blendCloth(drape(liftedFar,liftedNear,55),drape(point(4,-145),point(57,-145),35),pose.folding);
-      held = blendCloth(held,drape(point(14,-126),point(63,-138),40),pose.carry);
-      const cloth = blendCloth(wrappedCloth,held,pose.takeOff);
-      const hold = Math.max(pose.grasp,pose.takeOff);
-      let farHand = along(farWrapped,cloth[0],hold);
-      let nearHand = along(nearWrapped,cloth[9],hold);
-      // Keep the far hand on its corner while laying the fold over the near
-      // forearm, then release it. The near hand changes grip behind the cloth.
-      const release = smooth(clamp((pose.carry-.55)/.45));
-      farHand = along(farHand,farRest,release);
-      nearHand = along(nearHand,point(16,-125),pose.carry);
-      const farArm = shawlArm(point(-38,-179),farHand,-1);
-      const nearArm = shawlArm(point(42,-177),nearHand,1);
-      for (const [prefix,arm] of [['traveller-far',farArm],['traveller',nearArm]]) {
-        p[prefix+'-sleeve-edge'].setAttribute('d',arm.sleeve);
-        p[prefix+'-sleeve'].setAttribute('d',arm.sleeve);
-        p[prefix+'-hand'].setAttribute('transform',`translate(${arm.hand.x} ${arm.hand.y}) rotate(${arm.angle})`);
+    handOverlay(index, contact, visible) {
+      const hand=this.performer.arms[index].querySelector('[data-action-hand]');
+      const overlay=this.parts[index ? 'shawl-right-hand' : 'shawl-left-hand'];
+      const clipped=overlay.firstElementChild;
+      // Copy the current shared hand artwork after a possible torso remount.
+      // Its proximal forearm is below y=0 in hand space and stays under cloth.
+      const sources=[...hand.querySelectorAll('[data-arm-skin],[data-hand-lines]')];
+      while(clipped.children.length<sources.length)clipped.append(document.createElementNS('http://www.w3.org/2000/svg','path'));
+      sources.forEach((source,i)=>{
+        const copy=clipped.children[i];
+        for(const attribute of [...copy.attributes])copy.removeAttribute(attribute.name);
+        for(const attribute of source.attributes)copy.setAttribute(attribute.name,attribute.value);
+      });
+      transform(overlay,matrixString(overlay.parentElement.getScreenCTM().inverse().multiply(hand.getScreenCTM())));
+      overlay.dataset.shawlContact=String(contact);
+      opacity(overlay,visible);
+    }
+
+    traveller(ms, pose, speech) {
+      const p=this.parts, actor=this.performer, still=this.reduced.matches;
+      const nativePose={x:pose.x,y:618,lean:0,bend:still?0:pose.wind*2.3,
+        gazeY:-pose.lookingUp*55,quietHands:true,grips:[null,null]};
+      const distance=this.scene.id==='road'?pose.x-398:pose.x-626;
+      if(!still&&pose.walking>.001&&this.walkSpeed)nativePose.walk=distance/this.walkSpeed;
+      // Establish this frame's grounded body and hip bend before measuring
+      // attachment points; the shawl uses the same stage coordinate system.
+      actor.paint(nativePose,ms,speech,still);
+      const shoulders=actor.arms.map(arm=>this.rigPoint(arm,0,48));
+      const center=along(shoulders[0],shoulders[1],.5);
+      const width=Math.hypot(shoulders[1].x-shoulders[0].x,shoulders[1].y-shoulders[0].y);
+      const axis=point((shoulders[1].x-shoulders[0].x)/width,(shoulders[1].y-shoulders[0].y)/width);
+      if(this.shawlLength===null){
+        const knees=[...actor.torso.querySelectorAll('[data-rig-knee]')].map(knee=>this.rigPoint(knee));
+        this.shawlLength=Math.max(...knees.map(knee=>knee.y))-center.y+6;
+        const leg=actor.torso.querySelector('[data-rig-leg="-1"]');
+        const matrix=this.svg.getScreenCTM().inverse().multiply(leg.getScreenCTM());
+        this.walkSpeed=Math.abs(matrix.a)*.72*210/(1.2*.6);
       }
-      p['traveller-cuff'].setAttribute('d',nearArm.cuff);
+      const length=this.shawlLength;
+      const at=(x,y)=>point(center.x+axis.x*x*width,center.y+axis.y*x*width+y*length);
+      const time=still?0:ms/1000;
+      const flutter=still?0:Math.sin(time*5.8)*pose.wind*5;
+      const wrapped=wornCloth.map(([x,y])=>{
+        const loose=clamp((y-.16)/.84),q=at(x*(1-pose.clutched*.075*loose),y);
+        return point(q.x+flutter*loose*(1-pose.clutched*.58),q.y-pose.clutched*7*loose);
+      });
+      let held=blendCloth(drape(at(-.34,.34),at(.36,.34),length*.78),
+        drape(at(-.15,.44),at(.32,.44),length*.38),pose.folding);
+      held=blendCloth(held,drape(at(-.35,.43),at(.15,.47),length*.48),pose.carry);
+      const cloth=blendCloth(wrapped,held,pose.takeOff);
+      const contacts=[sidePoint(cloth,0,.59*(1-pose.takeOff)),sidePoint(cloth,1,.55*(1-pose.takeOff))];
+      const release=smooth(clamp((pose.carry-.55)/.45));
+      nativePose.grips=contacts.map((target,index)=>({target,weight:index?1-release:1,hand:'pinch',elbow:'down'}));
+      actor.paint(nativePose,ms,speech,still);
+      // Keep cloth above both sleeves but below the native beard and head.
+      // Character.mountArms restores props between the arms after a walk, so
+      // reattach here and undo every enclosing rig/root transform explicitly.
+      actor.torso.after(actor.props);
+      transform(actor.props,matrixString(actor.props.parentElement.getScreenCTM().inverse().multiply(this.svg.getScreenCTM())));
+      p['traveller-shadow'].setAttribute('cx',pose.x);
+      const q=index=>`${cloth[index].x} ${cloth[index].y}`;
       p['shawl-main'].setAttribute('d',clothPath(cloth));
-      const q = index => `${cloth[index].x} ${cloth[index].y}`;
       p['shawl-front-fold'].setAttribute('d',`M${q(6)}Q${q(8)} ${q(9)}C${q(10)} ${q(11)} ${q(12)}C${q(13)} ${q(14)} ${q(15)}Q${q(17)} ${q(18)}Q${q(7)} ${q(6)}Z`);
-      p['shawl-fold-line'].setAttribute('d', `M${q(1)}Q${q(6)} ${q(9)}M${q(22)}Q${q(18)} ${q(13)}`);
-      p['shawl-hem'].setAttribute('d',`M${q(21)}Q${q(18)} ${q(15)}`);
-      p['shawl-fringe'].setAttribute('d', [0,.2,.4,.6,.8,1].map(t => {
-        const a=along(cloth[21],cloth[15],t);return `M${a.x} ${a.y}l${2-pose.clutched*2} ${4*(1-pose.takeOff)+3}`;
+      p['shawl-fold-line'].setAttribute('d',`M${q(1)}Q${q(6)} ${q(9)}M${q(23)}Q${q(18)} ${q(13)}M${q(11)}Q${q(12)} ${q(14)}`);
+      const hem=`M${q(21)}C${q(20)} ${q(19)} ${q(18)}C${q(17)} ${q(16)} ${q(15)}`;
+      p['shawl-hem'].setAttribute('d',hem);
+      p['shawl-hem-stitch'].setAttribute('d',hem);
+      transform(p['shawl-hem-stitch'],'translate(0 -3)');
+      p['shawl-fringe'].setAttribute('d',Array.from({length:15},(_,i)=>{
+        const t=i/14,a=t<.5?curve(cloth[21],cloth[20],cloth[19],cloth[18],t*2)
+          :curve(cloth[18],cloth[17],cloth[16],cloth[15],(t-.5)*2);
+        return `M${a.x} ${a.y}l${flutter*.12} ${mix(5,3,pose.folding)}`;
       }).join(' '));
-      const pinch = smooth(clamp((hold-.82)/.18));
-      for(const [name,arm,visible] of [['far',farArm,1-smooth(clamp((pose.carry-.45)/.17))],
-        ['near',nearArm,1-smooth(clamp(pose.carry/.22))]]) {
-        const grip=p['shawl-'+name+'-grip'];
-        grip.setAttribute('transform',`translate(${arm.hand.x} ${arm.hand.y}) rotate(${arm.angle})`);
-        opacity(grip,pinch*visible);
-      }
-      this.svg.dataset.shawl = pose.carry>.98?'folded':pose.folding>.05?'folding':pose.takeOff>.06?'removing':pose.clutched>.69?'wrapped':'worn';
+      this.handOverlay(0,true,1);
+      this.handOverlay(1,release<.001,1-smooth(clamp(release/.22)));
+      actor.node.layers.face.id='traveller-head';
+      actor.arms[0].id='near-arm';actor.arms[1].id='far-arm';
+      this.svg.dataset.shawl=pose.carry>.98?'folded':pose.folding>.05?'folding':pose.takeOff>.06?'removing':pose.clutched>.69?'wrapped':'worn';
     }
 
     draw(ms, line, word) {
       const pose = sceneState(this.scene, this.cues, ms, this.reduced.matches);
       this.frame(ms, line, pose);
       this.weather(ms, pose);
-      this.traveller(ms, pose);
-      for (const name of ['sun', 'wind', 'traveller']) this.face(name, ms, line, word, pose);
+      const speech=line.speaker==='traveller'?voiceFrame(line,word,ms):null;
+      this.traveller(ms,pose,speech);
+      for(const name of ['sun','wind'])this.face(name,ms,line,word,pose);
     }
   }
 
-  window.LittlePanthStage = { Stage: WindStage, eventsFor };
+  async function prepare(){
+    studio=await open(document.getElementById('wind-studio'));
+  }
+
+  window.LittlePanthStage = { Stage: WindStage, eventsFor, prepare };
 })();
