@@ -1,0 +1,159 @@
+name: Little Panth Mission 35 voices and review
+
+on:
+  push:
+    branches: [main, review/little-panth-035]
+    paths:
+      - 'little panth/mission-035/**'
+      - '!little panth/mission-035/audio/**'
+      - 'tests/little-panth-035.cjs'
+      - 'tests/little-panth-035-browser.cjs'
+      - 'tools/build_little_panth_audio.py'
+      - '.github/workflows/little-panth-mission-035-voices.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: little-panth-035-voices-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  voices-and-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    env:
+      PYTHONUNBUFFERED: '1'
+      LP035_OUTPUT: screenshots/little-panth-035
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate the frozen dialogue before recording
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import runpy
+          data = json.loads(Path('little panth/mission-035/dialogue.json').read_text())
+          profiles = runpy.run_path('tools/build_little_panth_audio.py')['VOICES']
+          spoken = [line for scene in data['scenes'] for line in scene['lines']]
+          assert len(data['scenes']) == 6
+          assert len(spoken) == len(set(spoken)) == 13
+          assert set(spoken) == set(data['lines'])
+          assert sum(len(data['lines'][line]['pa'].split()) for line in spoken) == 182
+          expected = {'narrator': 'Aoede', 'mouse': 'Leda', 'elder-mouse': 'Charon', 'friend-mouse': 'Puck'}
+          assert set(data['speakers']) == set(expected)
+          for line in data['lines'].values():
+              assert line['speaker'] in expected
+              voice, style = profiles[line['speaker']]
+              assert voice == expected[line['speaker']] and style.strip()
+          print('Validated six scenes, thirteen lines,182 Punjabi words and four voice profiles.')
+          PY
+          python tools/build_little_panth_audio.py --mission mission-035 --dry-run
+      - name: Install Punjabi audio tools
+        run: python -m pip install --disable-pip-version-check imageio-ffmpeg numpy sherpa-onnx==1.13.0
+      - name: Record the narrator and three mice
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          for attempt in 1 2 3 4 5 6 7; do
+            if python tools/build_little_panth_audio.py --mission mission-035 --model gemini-3.8-flash-lite-tts ||
+              python tools/build_little_panth_audio.py --mission mission-035; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 7 ]; then sleep 55; fi
+          done
+          exit 1
+      - name: Align Gurmukhi words to the recordings
+        run: |
+          alignment_model=https://huggingface.co/parismitaglobalsolutions/indicconformer-sherpa-onnx/resolve/main
+          curl --fail --location --retry 3 "$alignment_model/pa/model.int8.onnx" -o /tmp/lp035-punjabi.onnx
+          curl --fail --location --retry 3 "$alignment_model/tokens.txt" -o /tmp/lp035-tokens.txt
+          python tools/little-panth-004-align.py /tmp/lp035-punjabi.onnx /tmp/lp035-tokens.txt --mission mission-035
+      - name: Cache only Mission 35 recordings on the current branch
+        if: always()
+        env:
+          VOICE_BRANCH: ${{ github.ref_name }}
+          VOICE_REF_TYPE: ${{ github.ref_type }}
+        run: |
+          test -d 'little panth/mission-035/audio' || exit 0
+          test "$VOICE_REF_TYPE" = branch
+          git check-ref-format --branch "$VOICE_BRANCH"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'little panth/mission-035/audio/'
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add recorded Punjabi voices for Little Panth Mission 35'
+          git pull --rebase origin "$VOICE_BRANCH"
+          git push origin "HEAD:$VOICE_BRANCH"
+      - name: Record the exact reviewed source and audio commit
+        if: always()
+        run: |
+          mkdir -p screenshots/little-panth-035
+          git rev-parse HEAD > screenshots/little-panth-035/source-commit.txt
+      - name: Validate the complete animation and all thirteen recorded clips
+        run: |
+          node --check 'little panth/mission-035/stage.js'
+          node --check 'little panth/mission-035/player.js'
+          node tests/little-panth-035.cjs --audio
+      - name: Install browser and test-render tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends ffmpeg pulseaudio pulseaudio-utils
+          npm install --no-save --package-lock=false playwright-core@1.56.1
+      - name: Start the test site
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp035-server.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:8765/ -o /dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - name: Check narration, contacts, cameras and mobile playback
+        run: node tests/little-panth-035-browser.cjs
+      - name: Render the selected episode as a test with recorded Punjabi audio
+        run: |
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=lp_export rate=48000
+          pactl set-default-sink lp_export
+          paplay --device=lp_export --raw --format=s16le --rate=48000 --channels=2 /dev/zero &
+          audio_feed=$!
+          trap 'kill "$audio_feed" 2>/dev/null || true' EXIT
+          node tools/little-panth-compilation-render.cjs mission-035 test-renders/little-panth-035
+          node tests/little-panth-035.cjs --audio --render test-renders/little-panth-035/mission-035 --browser-report screenshots/little-panth-035/checkpoints.json
+      - name: Verify test work did not change owner approvals or export history
+        if: always()
+        run: git diff --exit-code -- 'little panth/production-db.json'
+      - name: Upload visual review and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-035-review
+          path: screenshots/little-panth-035/
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Upload the test MP4
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-035-test-render
+          path: |
+            test-renders/little-panth-035/mission-035/episode.mp4
+            test-renders/little-panth-035/mission-035/thumbnail.png
+            test-renders/little-panth-035/mission-035/render.json
+            test-renders/little-panth-035/mission-035/verification.json
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 7

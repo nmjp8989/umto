@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="stage" viewBox="0 0 1280 720" role="img" aria-labelledby="stage-title">
+ <title id="stage-title">Three mice consider a small brass bell in a warm Punjabi grain storeroom; a gray tabby passes outside.</title>
+ <defs>
+  <linearGradient id="cat-coat" gradientUnits="userSpaceOnUse" x1="-45" y1="-125" x2="38" y2="8">
+   <stop stop-color="#dfd5c9" />
+   <stop offset=".53" stop-color="#bfb1a2" />
+   <stop offset="1" stop-color="#998d7e" />
+  </linearGradient>
+  <linearGradient id="cat-face" x1=".2" y1="0" x2=".8" y2="1">
+   <stop stop-color="#e6ded3" />
+   <stop offset="1" stop-color="#b7a899" />
+  </linearGradient>
+  <linearGradient id="cat-tail-color" x2=".5" y2="1">
+   <stop stop-color="#c8bcaf" />
+   <stop offset="1" stop-color="#998c7c" />
+  </linearGradient>
+  <clipPath id="cat-clip">
+   <path id="cat-clip-shape" />
+  </clipPath>
+  <radialGradient id="floor-shadow">
+   <stop stop-color="#65482f" stop-opacity=".25" />
+   <stop offset="1" stop-color="#65482f" stop-opacity="0" />
+  </radialGradient>
+  <linearGradient id="mouse-ear" x2=".2" y2="1">
+   <stop stop-color="#e9bbb1" />
+   <stop offset="1" stop-color="#ca9694" />
+  </linearGradient>
+  <linearGradient id="young-fur" x1=".2" y1="0" x2=".65" y2="1">
+   <stop offset="0" stop-color="#d0c1ad" />
+   <stop offset=".5" stop-color="#b4a18f" />
+   <stop offset="1" stop-color="#8c7f78" />
+  </linearGradient>
+  <linearGradient id="elder-fur" x1=".2" y1="0" x2=".65" y2="1">
+   <stop offset="0" stop-color="#ddd9cc" />
+   <stop offset=".5" stop-color="#bebcb2" />
+   <stop offset="1" stop-color="#96958c" />
+  </linearGradient>
+  <linearGradient id="friend-fur" x1=".2" y1="0" x2=".65" y2="1">
+   <stop offset="0" stop-color="#bcc4c3" />
+   <stop offset=".5" stop-color="#99a6a7" />
+   <stop offset="1" stop-color="#75868b" />
+  </linearGradient>
+  <linearGradient id="bell-brass" x1="0" y1="0" x2="1" y2=".25">
+   <stop stop-color="#b78028" />
+   <stop offset=".28" stop-color="#f1d57c" />
+   <stop offset=".57" stop-color="#f8e9a4" />
+   <stop offset="1" stop-color="#b27b27" />
+  </linearGradient>
+  <clipPath id="courtyard-clip" clipPathUnits="userSpaceOnUse">
+   <rect x="900" y="165" width="360" height="375" />
+  </clipPath>
+ </defs>
+ <image id="storeroom" href="art/storeroom.svg" x="0" y="0" width="1280" height="720" />
+ <g id="courtyard-animals" clip-path="url(#courtyard-clip)">
+  <ellipse id="cat-shadow" cx="1150" cy="520" rx="91" ry="11" fill="url(#floor-shadow)" />
+  <g id="cat" data-speaking="false" stroke-linecap="round" stroke-linejoin="round" data-animal="cat" data-role="passing-cat" data-support-y="518" data-rig="continuous-curves" transform="translate(1150 518) scale(-1.25 1.25)">
+   <path id="cat-tail" fill="none" stroke="url(#cat-tail-color)" stroke-width="17" />
+   <path id="cat-tail-tip" fill="none" stroke="#887d6d" stroke-width="12" />
+   <path id="cat-rear-far" fill="#9f9587" stroke="#82786b" stroke-width="1.8" />
+   <path id="cat-front-far" fill="#a59b8e" stroke="#82786b" stroke-width="1.8" />
+   <g id="cat-back-far-foot" data-cat-foot="back-far" data-stance="true" data-support-y="518">
+    <path d="M-10-7Q-5-12 2-8L8-6Q16-5 16-1L12 0H-9Q-14-1-10-7Z" fill="#bdb2a2" stroke="#82786b" stroke-width="1.6" />
+    <path d="M5-1V-4M10-1 9-4" fill="none" stroke="#a39682" stroke-width="1.1" />
+   </g>
+   <g id="cat-front-far-foot" data-cat-foot="front-far" data-stance="true" data-support-y="518">
+    <path d="M-10-7Q-5-12 2-8L8-6Q16-5 16-1L12 0H-9Q-14-1-10-7Z" fill="#bdb2a2" stroke="#82786b" stroke-width="1.6" />
+    <path d="M5-1V-4M10-1 9-4" fill="none" stroke="#a39682" stroke-width="1.1" />
+   </g>
+   <path id="cat-body" fill="url(#cat-coat)" stroke="#82786b" stroke-width="2.1" />
+   <g clip-path="url(#cat-clip)">
+    <path d="M-77-93Q-51-111-14-101Q12-95 37-108Q18-84-13-87Q-47-95-77-82Z" fill="#e4dacf" opacity=".65" />
+    <path d="M17-92Q46-115 62-80Q52-58 15-47Q-5-42-29-53Q-1-55 17-92Z" fill="#fff0d8" />
+    <path id="cat-paws" fill="#e9dfd1" />
+    <path d="M-67-100Q-52-84-58-71M-44-105Q-33-92-37-81M-20-103Q-8-91-10-82" stroke="#958979" stroke-width="6" fill="none" opacity=".57" />
+   </g>
+   <g id="cat-back-foot" data-cat-foot="back" data-stance="true" data-support-y="518">
+    <path d="M-10-7Q-5-12 2-8L8-6Q16-5 16-1L12 0H-9Q-14-1-10-7Z" fill="#e9dfd1" stroke="#82786b" stroke-width="1.6" />
+    <path d="M5-1V-4M10-1 9-4" fill="none" stroke="#a39682" stroke-width="1.1" />
+   </g>
+   <g id="cat-front-foot" data-cat-foot="front" data-stance="true" data-support-y="518">
+    <path d="M-10-7Q-5-12 2-8L8-6Q16-5 16-1L12 0H-9Q-14-1-10-7Z" fill="#e9dfd1" stroke="#82786b" stroke-width="1.6" />
+    <path d="M5-1V-4M10-1 9-4" fill="none" stroke="#a39682" stroke-width="1.1" />
+   </g>
+   <g id="cat-head" data-face="cat">
+    <path d="M-39-28Q-53-42-48-67Q-27-64-12-45M9-45Q24-65 44-65Q50-43 36-26" fill="url(#cat-face)" stroke="#82786b" stroke-width="2" />
+    <path d="M-43-58Q-28-54-23-43L-38-39Z M38-57Q25-52 20-41L35-39Z" fill="#d6a49b" />
+    <path d="M-40-20C-41-41-17-51 7-48C32-46 47-30 47-9Q51 10 36 24Q19 37-6 30Q-37 29-41 7Q-45-5-40-20Z" fill="url(#cat-face)" stroke="#82786b" stroke-width="2.1" />
+    <path d="M-9-45L-3-32 4-44M12-43L16-32 22-41" fill="none" stroke="#9e8f7e" stroke-width="4" opacity=".7" />
+    <path d="M-35 5Q-20-1-6 7Q5-2 20 5Q37 4 41 14Q31 33 6 31Q-22 34-35 5Z" fill="#fff1dd" />
+    <g id="cat-eye">
+     <path d="M-29-14Q-21-31-8-23Q0-18-1-8Q-18 1-29-14Z M10-13Q18-31 32-22Q39-17 39-7Q23 1 10-13Z" fill="#fff7e4" stroke="#706353" stroke-width="1.3" />
+     <g id="cat-pupils">
+      <ellipse cx="-13" cy="-15" rx="8" ry="10" fill="#9b9c56" />
+      <ellipse cx="27" cy="-15" rx="8" ry="10" fill="#9b9c56" />
+      <ellipse cx="-11" cy="-15" rx="4.3" ry="8" fill="#403a32" />
+      <ellipse cx="29" cy="-15" rx="4.3" ry="8" fill="#403a32" />
+      <circle cx="-9" cy="-19" r="2.3" fill="#fffbed" />
+      <circle cx="31" cy="-19" r="2.3" fill="#fffbed" />
+     </g>
+    </g>
+    <path id="cat-lids" d="M-27-15Q-15-7-3-14M12-14Q25-7 37-14" stroke="#726456" stroke-width="2.2" fill="none" opacity="0" />
+    <path id="cat-brows" d="M-27-30Q-19-36-9-30M14-30Q25-36 34-29" fill="none" stroke="#756655" stroke-width="2.5" />
+    <path d="M-4 5Q4 0 12 5Q10 12 4 13Q-2 11-4 5Z" fill="#b97d75" />
+    <path d="M4 13v6" stroke="#8b6256" fill="none" stroke-width="1.7" />
+    <ellipse id="cat-mouth" cx="5" cy="22" rx="7" ry="1" fill="#72504a" opacity="0" />
+    <path d="M-7 19Q0 25 4 19Q10 25 18 18" stroke="#8b6256" stroke-width="1.6" fill="none" />
+    <path d="M-15 14L-47 9M-16 20L-46 22M22 14L52 9M23 20L51 23" stroke="#8d8070" stroke-width="1.35" fill="none" />
+   </g>
+  </g>
+ </g>
+ <path d="M899 541H1263" stroke="#99724b" stroke-width="3" fill="none" opacity=".65" />
+ <g id="mouse-shadows">
+  <ellipse id="young-shadow" cx="0" cy="628" rx="34" ry="5.5" fill="url(#floor-shadow)" />
+  <ellipse id="elder-shadow" cx="0" cy="628" rx="34" ry="5.5" fill="url(#floor-shadow)" />
+  <ellipse id="friend-shadow" cx="0" cy="628" rx="34" ry="5.5" fill="url(#floor-shadow)" />
+ </g>
+ <g id="mice">
+  <g id="mouse-friend" transform="translate(360 621.44) scale(.82)" stroke-linecap="round" stroke-linejoin="round" data-animal="mouse" data-role="friend" data-support-y="626" data-rig="continuous-curves">
+   <g id="friend-tail">
+    <path d="M-40-19C-66-10-101-23-107-43S-94-76-83-63" fill="none" stroke="#ac7c79" stroke-width="6" />
+    <path d="M-43-21C-70-14-101-26-104-44S-93-71-85-63" fill="none" stroke="#dfb2a3" stroke-width="2.6" />
+   </g>
+   <path id="friend-back-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="friend-back-far-foot" data-mouse-foot="back-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-9-5Q-7-10-2-8L4-5Q14-5 14-1L10 0H-8Q-12-1-9-5Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path id="friend-front-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="friend-front-far-foot" data-mouse-foot="front-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-7-6Q-4-9 1-7L5-4Q14-4 14-1L10 0H-6Q-10-1-7-6Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path d="M-48-15C-63-35-48-62-25-66C-4-72 14-62 25-48L39-32Q47-9 25-4L-14-2C-33 2-44-4-48-15Z" fill="url(#friend-fur)" stroke="#88786d" stroke-width="2.8" />
+   <path d="M-11-46Q-27-33-18-11Q-7 2 15-5L31-18L21-42Z" fill="#e1e2d4" opacity=".88" />
+   <path d="M-42-43Q-31-60-12-54" stroke="#e0d3bc" stroke-width="4" fill="none" opacity=".65" />
+   <path id="friend-back-leg" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+   <g id="friend-back-foot" data-mouse-foot="back" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-11-6Q-9-12-2-9L4-6Q17-6 17-1L12 0H-10Q-15-1-11-6Z" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+   </g>
+   <path id="friend-front-leg" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+   <g id="friend-front-foot" data-mouse-foot="front" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-8-7Q-5-11 1-8L6-5Q17-5 17-1L12 0H-7Q-12-1-8-7Z" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+    <g data-contact-paw="" transform="translate(17 -1)" />
+   </g>
+   <g id="friend-head" data-face="friend">
+    <path d="M42-73C29-91 38-113 54-110C73-107 77-83 60-69Z" fill="url(#friend-fur)" stroke="#8a7b70" stroke-width="2.8" />
+    <path d="M48-78C40-89 44-103 54-101Q70-96 59-78Z" fill="url(#mouse-ear)" />
+    <path d="M9-64C4-87 23-98 43-88C57-82 60-66 64-57L84-44Q92-37 79-28L59-18Q37-13 22-25C11-34 4-48 9-64Z" fill="url(#friend-fur)" stroke="#88786d" stroke-width="2.8" />
+    <path d="M23-24Q38-15 59-23L79-32Q74-44 57-44L44-36Z" fill="#ecdbc1" />
+    <path d="M12-65C-10-67-19-88-8-103C3-119 27-116 34-97C40-82 29-67 12-65Z" fill="url(#friend-fur)" stroke="#8b7c72" stroke-width="2.7" />
+    <path d="M10-74C-4-75-10-91-2-100C7-110 22-105 25-94Q28-79 10-74Z" fill="url(#mouse-ear)" />
+    <path d="M-2-95Q4-104 15-98" fill="none" stroke="#f2cfc0" stroke-width="3" opacity=".8" />
+    <path d="M38-73Q48-78 55-70" stroke="#8d7664" stroke-width="2.5" fill="none" />
+    <g id="friend-eye">
+     <ellipse cx="48" cy="-59" rx="7.3" ry="9" fill="#333732" />
+     <ellipse cx="49" cy="-56" rx="4" ry="4.5" fill="#655c4b" />
+     <circle cx="50" cy="-62" r="2.5" fill="#fff9e8" />
+    </g>
+    <path id="friend-lid" d="M41-59Q48-54 55-59" fill="none" stroke="#766459" stroke-width="2.5" opacity="0" />
+    <path d="M78-45Q87-50 91-43Q91-37 82-36Q77-38 78-45" fill="#ba7a7a" />
+    <path d="M83-44l3 1" stroke="#f2c0b5" stroke-width="2" />
+    <path id="friend-mouth" d="M61-28q8 6 16-3" stroke="#885e57" stroke-width="2.5" fill="none" />
+    <path d="M67-37L95-47M69-32L101-31M67-28L94-18" stroke="#f8edda" stroke-width="1.5" fill="none" />
+    <g fill="#9e8674">
+     <circle cx="65" cy="-36" r="1.2" />
+     <circle cx="61" cy="-32" r="1.2" />
+    </g>
+   </g>
+  </g>
+  <g id="mouse-elder" transform="translate(360 621.44) scale(.82)" stroke-linecap="round" stroke-linejoin="round" data-animal="mouse" data-role="elder" data-support-y="626" data-rig="continuous-curves">
+   <g id="elder-tail">
+    <path d="M-40-19C-66-10-101-23-107-43S-94-76-83-63" fill="none" stroke="#ac7c79" stroke-width="6" />
+    <path d="M-43-21C-70-14-101-26-104-44S-93-71-85-63" fill="none" stroke="#dfb2a3" stroke-width="2.6" />
+   </g>
+   <path id="elder-back-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="elder-back-far-foot" data-mouse-foot="back-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-9-5Q-7-10-2-8L4-5Q14-5 14-1L10 0H-8Q-12-1-9-5Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path id="elder-front-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="elder-front-far-foot" data-mouse-foot="front-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-7-6Q-4-9 1-7L5-4Q14-4 14-1L10 0H-6Q-10-1-7-6Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path d="M-48-15C-63-35-48-62-25-66C-4-72 14-62 25-48L39-32Q47-9 25-4L-14-2C-33 2-44-4-48-15Z" fill="url(#elder-fur)" stroke="#88786d" stroke-width="2.8" />
+   <path d="M-11-46Q-27-33-18-11Q-7 2 15-5L31-18L21-42Z" fill="#e9d6b9" opacity=".88" />
+   <path d="M-42-43Q-31-60-12-54" stroke="#e0d3bc" stroke-width="4" fill="none" opacity=".65" />
+   <path id="elder-back-leg" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+   <g id="elder-back-foot" data-mouse-foot="back" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-11-6Q-9-12-2-9L4-6Q17-6 17-1L12 0H-10Q-15-1-11-6Z" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+   </g>
+   <path id="elder-front-leg" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+   <g id="elder-front-foot" data-mouse-foot="front" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-8-7Q-5-11 1-8L6-5Q17-5 17-1L12 0H-7Q-12-1-8-7Z" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+    <g data-contact-paw="" transform="translate(17 -1)" />
+   </g>
+   <g id="elder-head" data-face="elder">
+    <path d="M42-73C29-91 38-113 54-110C73-107 77-83 60-69Z" fill="url(#elder-fur)" stroke="#8a7b70" stroke-width="2.8" />
+    <path d="M48-78C40-89 44-103 54-101Q70-96 59-78Z" fill="url(#mouse-ear)" />
+    <path d="M9-64C4-87 23-98 43-88C57-82 60-66 64-57L84-44Q92-37 79-28L59-18Q37-13 22-25C11-34 4-48 9-64Z" fill="url(#elder-fur)" stroke="#88786d" stroke-width="2.8" />
+    <path d="M23-24Q38-15 59-23L79-32Q74-44 57-44L44-36Z" fill="#ecdbc1" />
+    <path d="M12-65C-10-67-19-88-8-103C3-119 27-116 34-97C40-82 29-67 12-65Z" fill="url(#elder-fur)" stroke="#8b7c72" stroke-width="2.7" />
+    <path d="M10-74C-4-75-10-91-2-100C7-110 22-105 25-94Q28-79 10-74Z" fill="url(#mouse-ear)" />
+    <path d="M-2-95Q4-104 15-98" fill="none" stroke="#f2cfc0" stroke-width="3" opacity=".8" />
+    <path d="M38-73Q48-78 55-70" stroke="#eee7da" stroke-width="3.5" fill="none" />
+    <g id="elder-eye">
+     <ellipse cx="48" cy="-59" rx="7.3" ry="9" fill="#333732" />
+     <ellipse cx="49" cy="-56" rx="4" ry="4.5" fill="#655c4b" />
+     <circle cx="50" cy="-62" r="2.5" fill="#fff9e8" />
+    </g>
+    <path id="elder-lid" d="M41-59Q48-54 55-59" fill="none" stroke="#766459" stroke-width="2.5" opacity="0" />
+    <path d="M78-45Q87-50 91-43Q91-37 82-36Q77-38 78-45" fill="#ba7a7a" />
+    <path d="M83-44l3 1" stroke="#f2c0b5" stroke-width="2" />
+    <path id="elder-mouth" d="M61-28q8 6 16-3" stroke="#885e57" stroke-width="2.5" fill="none" />
+    <path d="M67-37L95-47M69-32L101-31M67-28L94-18" stroke="#f8edda" stroke-width="1.5" fill="none" />
+    <g fill="#9e8674">
+     <circle cx="65" cy="-36" r="1.2" />
+     <circle cx="61" cy="-32" r="1.2" />
+    </g>
+   </g>
+  </g>
+  <g id="mouse-young" transform="translate(360 621.44) scale(.82)" stroke-linecap="round" stroke-linejoin="round" data-animal="mouse" data-role="young" data-support-y="626" data-rig="continuous-curves">
+   <g id="young-tail">
+    <path d="M-40-19C-66-10-101-23-107-43S-94-76-83-63" fill="none" stroke="#ac7c79" stroke-width="6" />
+    <path d="M-43-21C-70-14-101-26-104-44S-93-71-85-63" fill="none" stroke="#dfb2a3" stroke-width="2.6" />
+   </g>
+   <path id="young-back-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="young-back-far-foot" data-mouse-foot="back-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-9-5Q-7-10-2-8L4-5Q14-5 14-1L10 0H-8Q-12-1-9-5Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path id="young-front-far-leg" fill="#bd9d8d" stroke="#957e72" stroke-width="2" />
+   <g id="young-front-far-foot" data-mouse-foot="front-far" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-7-6Q-4-9 1-7L5-4Q14-4 14-1L10 0H-6Q-10-1-7-6Z" fill="#c6a390" stroke="#9a7f73" stroke-width="1.8" />
+   </g>
+   <path d="M-48-15C-63-35-48-62-25-66C-4-72 14-62 25-48L39-32Q47-9 25-4L-14-2C-33 2-44-4-48-15Z" fill="url(#young-fur)" stroke="#88786d" stroke-width="2.8" />
+   <path d="M-11-46Q-27-33-18-11Q-7 2 15-5L31-18L21-42Z" fill="#e9d6b9" opacity=".88" />
+   <path d="M-42-43Q-31-60-12-54" stroke="#e0d3bc" stroke-width="4" fill="none" opacity=".65" />
+   <path id="young-back-leg" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+   <g id="young-back-foot" data-mouse-foot="back" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-11-6Q-9-12-2-9L4-6Q17-6 17-1L12 0H-10Q-15-1-11-6Z" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+   </g>
+   <path id="young-front-leg" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+   <g id="young-front-foot" data-mouse-foot="front" data-stance="true" data-support-y="626" data-bell-contact="false">
+    <path d="M-8-7Q-5-11 1-8L6-5Q17-5 17-1L12 0H-7Q-12-1-8-7Z" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2" />
+    <path d="M5-1L5-4M11-1L10-4" stroke="#ad8c7f" stroke-width="1.3" />
+    <g data-contact-paw="" transform="translate(17 -1)" />
+   </g>
+   <g id="young-head" data-face="young">
+    <path d="M42-73C29-91 38-113 54-110C73-107 77-83 60-69Z" fill="url(#young-fur)" stroke="#8a7b70" stroke-width="2.8" />
+    <path d="M48-78C40-89 44-103 54-101Q70-96 59-78Z" fill="url(#mouse-ear)" />
+    <path d="M9-64C4-87 23-98 43-88C57-82 60-66 64-57L84-44Q92-37 79-28L59-18Q37-13 22-25C11-34 4-48 9-64Z" fill="url(#young-fur)" stroke="#88786d" stroke-width="2.8" />
+    <path d="M23-24Q38-15 59-23L79-32Q74-44 57-44L44-36Z" fill="#ecdbc1" />
+    <path d="M12-65C-10-67-19-88-8-103C3-119 27-116 34-97C40-82 29-67 12-65Z" fill="url(#young-fur)" stroke="#8b7c72" stroke-width="2.7" />
+    <path d="M10-74C-4-75-10-91-2-100C7-110 22-105 25-94Q28-79 10-74Z" fill="url(#mouse-ear)" />
+    <path d="M-2-95Q4-104 15-98" fill="none" stroke="#f2cfc0" stroke-width="3" opacity=".8" />
+    <path d="M38-73Q48-78 55-70" stroke="#8d7664" stroke-width="2.5" fill="none" />
+    <g id="young-eye">
+     <ellipse cx="48" cy="-59" rx="7.3" ry="9" fill="#333732" />
+     <ellipse cx="49" cy="-56" rx="4" ry="4.5" fill="#655c4b" />
+     <circle cx="50" cy="-62" r="2.5" fill="#fff9e8" />
+    </g>
+    <path id="young-lid" d="M41-59Q48-54 55-59" fill="none" stroke="#766459" stroke-width="2.5" opacity="0" />
+    <path d="M78-45Q87-50 91-43Q91-37 82-36Q77-38 78-45" fill="#ba7a7a" />
+    <path d="M83-44l3 1" stroke="#f2c0b5" stroke-width="2" />
+    <path id="young-mouth" d="M61-28q8 6 16-3" stroke="#885e57" stroke-width="2.5" fill="none" />
+    <path d="M67-37L95-47M69-32L101-31M67-28L94-18" stroke="#f8edda" stroke-width="1.5" fill="none" />
+    <g fill="#9e8674">
+     <circle cx="65" cy="-36" r="1.2" />
+     <circle cx="61" cy="-32" r="1.2" />
+    </g>
+   </g>
+  </g>
+ </g>
+ <ellipse id="bell-shadow" cx="558" cy="627" rx="23" ry="4.5" fill="url(#floor-shadow)" />
+ <g id="bell" transform="translate(558 626)" data-support="floor" data-attached="false" stroke-linecap="round" stroke-linejoin="round">
+  <g id="bell-rock">
+   <path d="M-3-20V-24Q-3-28 0-28Q3-28 3-24V-20" stroke="#a87d32" stroke-width="2.4" fill="none" />
+   <path id="bell-body" d="M-15 0Q-16-3-12-7Q-10-11-9-15Q-8-21 0-21Q8-21 9-15Q10-11 12-7Q16-3 15 0Z" fill="url(#bell-brass)" stroke="#98732f" stroke-width="1.6" />
+   <path d="M-8-14Q-9-9-11-6M-6-17Q-3-20 0-19" stroke="#fff0b4" stroke-width="2" opacity=".8" fill="none" />
+   <path d="M-12-5Q0-1 12-5" stroke="#b48533" stroke-width="1.2" fill="none" />
+   <ellipse cx="0" cy="-1.7" rx="14" ry="2.3" fill="#9a6c2b" stroke="#e7c46a" stroke-width="1.2" />
+   <circle cx="1" cy="-1.2" r="1.6" fill="#edce78" />
+   <g data-contact-bell="" transform="translate(-12 -7)" />
+   <g data-bell-support="" transform="translate(15 0)" />
+  </g>
+ </g>
+ <g id="nudge-paw-overlay" aria-hidden="true" />
+</svg>

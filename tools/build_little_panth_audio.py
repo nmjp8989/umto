@@ -58,6 +58,8 @@ VOICES={
  "farmer":("Fenrir","Kind, slightly weathered older Punjabi farmer male voice, thankful and natural, clear Punjabi."),
  "lion":("Charon","Warm, deep, expressive male lion character voice for Punjabi children. Gentle and reassuring rather than frightening; every Punjabi word clear. Read only the given line."),
  "mouse":("Leda","Tiny playful, bright and energetic childlike mouse character speaking natural Punjabi with clear articulation and courage. Read only the given line."),
+ "elder-mouse":("Charon","A warm, wise older mouse speaking gentle conversational Punjabi in Gurmukhi. Ask thoughtful questions kindly, with patient clear pronunciation at an easy read-along pace for children. Read only the written words."),
+ "friend-mouse":("Puck","A friendly young mouse speaking clear natural Punjabi in Gurmukhi. Curious and a little worried at first, then warmly enthusiastic, without exaggerated squeaking. Use a comfortable read-along pace for children. Read only the written words."),
  "crow":("Puck","Curious young crow in a Punjabi children's story. A light, playful speaking voice with clear, natural Gurmukhi Punjabi pronunciation. Read exactly the written line at a comfortable pace for young readers."),
 }
 def main():

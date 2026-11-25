@@ -3,7 +3,7 @@ Select any episodes on `little panth/all-missions.html` or the Little Panth home
 - Recommended: copy the selected IDs, open **Render Little Panth compilation**, sign in to GitHub, use **Run workflow** with the IDs in the episodes field, and download the completed `little-panth-compilation` artifact. It contains a 1920 × 1080 H.264/AAC MP4, a thumbnail and chapter timestamps.
 - Local: on the export page select **Record and download video**. Share the current tab and its audio; stay in that tab. The browser chooses supported MP4 or WebM recording. This takes the playback duration and can consume substantial memory.
 The site is static and does not store GitHub credentials or trigger an authenticated workflow itself.
-The renderer captures the actual episode players with a 30fps clock and the original recorded audio. Each episode is a separate job; the assembler validates streams, preserves selection order and embeds chapters. Episodes 1–3 use their full Watch export APIs, 4–34 use the explicit compilation API. Normal picture-tap or interactive mode remains unchanged.
+The renderer captures the actual episode players with a 30fps clock and the original recorded audio. Each episode is a separate job; the assembler validates streams, preserves selection order and embeds chapters. Episodes 1–3 use their full Watch export APIs, 4–35 use the explicit compilation API. Normal picture-tap or interactive mode remains unchanged.
 Future episodes must expose a compilation API with ready(), start(), and status() (started, finished and error); update the catalogue and provide recorded narration before enabling export.
 
 ## Production tracker

@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="store-title">
+  <title id="store-title">A sunlit Punjabi grain storeroom with woven sacks, a low wooden shelf and a small mouse doorway</title>
+  <defs>
+    <linearGradient id="store-wall" x2=".18" y2="1"><stop stop-color="#f0d397"/><stop offset=".58" stop-color="#e3be7e"/><stop offset="1" stop-color="#d2a567"/></linearGradient>
+    <linearGradient id="store-floor" x2=".84" y2=".92"><stop stop-color="#c59b63"/><stop offset=".5" stop-color="#d9b27a"/><stop offset="1" stop-color="#e9c995"/></linearGradient>
+    <linearGradient id="store-sunbeam" x1=".88" y1="0" x2=".12" y2="1"><stop stop-color="#fff0bc" stop-opacity=".55"/><stop offset="1" stop-color="#fff0bc" stop-opacity=".06"/></linearGradient>
+    <linearGradient id="store-timber" x2="0" y2="1"><stop stop-color="#9e6d3d"/><stop offset=".48" stop-color="#855832"/><stop offset="1" stop-color="#6e492d"/></linearGradient>
+    <linearGradient id="store-sack" x2=".9" y2=".4"><stop stop-color="#d6bf81"/><stop offset=".45" stop-color="#c7ac6b"/><stop offset="1" stop-color="#a98c50"/></linearGradient>
+    <linearGradient id="store-sack-light" x2=".92" y2=".26"><stop stop-color="#e6d5a0"/><stop offset=".58" stop-color="#d4bd85"/><stop offset="1" stop-color="#b89d67"/></linearGradient>
+    <linearGradient id="store-pot" x2=".92" y2=".2"><stop stop-color="#c88955"/><stop offset=".42" stop-color="#d69e6c"/><stop offset="1" stop-color="#a36843"/></linearGradient>
+    <linearGradient id="store-sky" x2="0" y2="1"><stop stop-color="#bdd8d1"/><stop offset="1" stop-color="#e6e9c9"/></linearGradient>
+    <linearGradient id="store-courtyard" x2=".1" y2="1"><stop stop-color="#ead2a0"/><stop offset="1" stop-color="#d3ad76"/></linearGradient>
+    <pattern id="store-weave" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 2H9M2 0V9" fill="none" stroke="#745c35" stroke-width=".75" opacity=".17"/><path d="M0 6H9M6 0V9" fill="none" stroke="#f5e5ae" stroke-width=".8" opacity=".25"/></pattern>
+    <pattern id="store-basket-weave" width="12" height="9" patternUnits="userSpaceOnUse"><path d="M0 3H12M0 8H12" stroke="#6f502f" stroke-width="1.2" opacity=".65"/><path d="M3 0 1 9M10 0 8 9" stroke="#dcc18b" stroke-width="2.1" opacity=".68"/></pattern>
+    <clipPath id="store-door"><path d="M900 165H1260V540H900Z"/></clipPath>
+    <clipPath id="store-left-sack"><path d="M49 452Q42 441 50 436L98 432Q110 437 102 451C116 472 121 506 115 535Q111 551 82 555Q51 555 36 544C29 523 34 481 49 452Z"/></clipPath>
+    <clipPath id="store-back-sack"><path d="M217 444Q210 433 218 428L254 427Q265 433 258 443C272 465 276 500 269 529Q263 545 240 548Q219 549 205 538C197 516 202 474 217 444Z"/></clipPath>
+    <clipPath id="store-right-sack"><path d="M778 443Q768 432 778 426L817 423Q831 430 824 442C840 468 847 494 843 518Q838 534 811 537Q782 539 765 527C757 503 763 468 778 443Z"/></clipPath>
+    <clipPath id="store-basket"><path d="M496 303Q548 293 591 304L583 342Q545 354 505 342Z"/></clipPath>
+    <clipPath id="store-tall-basket"><path d="M636 283Q674 274 710 284L704 340Q672 351 642 340Z"/></clipPath>
+  </defs>
+
+  <path d="M0 0H1280V720H0Z" fill="url(#store-wall)"/>
+  <path d="M0 31Q477 18 868 36T1280 30V0H0Z" fill="#dcc08a" opacity=".45"/>
+  <path d="M0 163Q281 158 551 167T884 164M10 387Q249 379 335 392M345 462Q557 451 742 460" fill="none" stroke="#c5a06a" stroke-width="2" opacity=".3"/>
+  <path d="M51 207Q76 184 106 188L137 190Q155 197 155 224L145 249 70 255Q43 242 51 207Z" fill="#d3ae75" opacity=".65"/>
+  <g fill="#c48f62" stroke="#c6a173" stroke-width="2.4" stroke-linejoin="round">
+    <path d="M63 198 103 197 102 214 61 216Z"/><path d="M110 197 142 201 143 214 110 214Z"/>
+    <path d="M56 222 83 221 83 238 56 239Z"/><path d="M90 221 139 220 140 238 91 239Z"/>
+    <path d="M69 245 104 245 105 252 70 251Z"/>
+  </g>
+  <path d="M813 307Q834 295 860 305L872 326 868 358 824 362Q806 340 813 307Z" fill="#cba26b" opacity=".5"/>
+  <g fill="#c18e62" stroke="#d6b17a" stroke-width="2">
+    <path d="M821 309H858V324H819Z"/><path d="M816 331H839V348H819Z"/><path d="M846 331H865V348H846Z"/>
+  </g>
+  <g fill="#b98d58" opacity=".17">
+    <ellipse cx="185" cy="304" rx="23" ry="5"/><ellipse cx="794" cy="213" rx="18" ry="4"/>
+    <ellipse cx="300" cy="476" rx="24" ry="4"/><ellipse cx="726" cy="150" rx="25" ry="3"/>
+    <ellipse cx="464" cy="224" rx="14" ry="3"/><ellipse cx="76" cy="365" rx="16" ry="4"/>
+  </g>
+
+  <path d="M0 89Q428 101 887 91L1280 83V113Q646 137 0 120Z" fill="url(#store-timber)"/>
+  <path d="M0 94Q436 105 885 96L1280 89M24 112Q401 123 784 112" fill="none" stroke="#b98b54" stroke-width="3" opacity=".54"/>
+  <path d="M149 99Q212 112 281 104M516 110Q579 97 648 104M1019 96Q1116 101 1181 94" fill="none" stroke="#5e3d25" stroke-width="2" opacity=".45"/>
+  <path d="M0 119Q478 140 884 118V132Q399 153 0 135Z" fill="#9b7444" opacity=".12"/>
+
+  <g clip-path="url(#store-door)">
+    <path d="M900 165H1260V540H900Z" fill="url(#store-sky)"/>
+    <path d="M900 311Q962 302 1010 314T1122 309T1260 317V397H900Z" fill="#a8b994"/>
+    <path d="M900 341Q977 325 1044 339T1160 336T1260 342V400H900Z" fill="#8fa685"/>
+    <path d="M943 290H1045V391H943Z" fill="#e8c68a"/>
+    <path d="M934 287 994 264 1053 289 1048 299 940 298Z" fill="#b98056"/>
+    <path d="M987 337Q987 323 999 323T1011 337V390H987Z" fill="#9e8c6b"/>
+    <path d="M955 313H975V337H955Z" fill="#9ba993"/><path d="M952 336H979" fill="none" stroke="#d3ab73" stroke-width="3"/>
+    <path d="M1070 315H1166V391H1070Z" fill="#f0d49b"/>
+    <path d="M1065 307H1170V319H1065Z" fill="#c49261"/>
+    <path d="M1104 344H1125V371H1104Z" fill="#a8b39a"/>
+    <path d="M1193 274Q1198 314 1194 371" fill="none" stroke="#95865b" stroke-width="7"/>
+    <path d="M1151 286Q1127 260 1150 240Q1155 216 1182 223Q1208 200 1227 226Q1257 219 1269 250Q1280 281 1255 295Q1203 319 1151 286Z" fill="#91ac83"/>
+    <path d="M1151 270Q1178 290 1213 276T1260 271" fill="none" stroke="#7d9b72" stroke-width="7" opacity=".6"/>
+    <path d="M900 382Q1066 374 1260 383V540H900Z" fill="url(#store-courtyard)"/>
+    <path d="M900 386Q1069 380 1260 388" fill="none" stroke="#f4dca9" stroke-width="5"/>
+    <path d="M1179 388 1260 410V431L1138 394Z" fill="#b8a078" opacity=".38"/>
+    <path d="M941 446Q987 442 1027 447M1110 473Q1158 469 1216 473M951 505Q1020 501 1072 506" fill="none" stroke="#bd9c68" stroke-width="2" opacity=".35"/>
+    <path d="M908 384Q912 369 924 374Q930 355 946 368Q960 363 968 382Z" fill="#91a779"/>
+  </g>
+  <path d="M883 148H1278V558H1260V165H900V549H881Z" fill="#c6975f"/>
+  <path d="M879 148H1280V163H900V549H884Z" fill="#e6bd7e"/>
+  <path d="M900 165H1260V181H912V540H900Z" fill="#775b3d" opacity=".26"/>
+  <path d="M1260 165H1276V555H1260Z" fill="url(#store-timber)"/>
+  <path d="M884 165H900V548H884Z" fill="url(#store-timber)"/>
+  <path d="M881 146H1280V168H882Z" fill="url(#store-timber)"/>
+  <path d="M891 176V532M1268 178V535M899 153H1265" fill="none" stroke="#c09159" stroke-width="2" opacity=".65"/>
+  <path d="M904 165H1259M900 171V539" fill="none" stroke="#5d412c" stroke-width="2" opacity=".55"/>
+  <path d="M884 540 1260 534 1280 550 876 558Z" fill="#b58a57"/>
+  <path d="M901 542 1258 537" fill="none" stroke="#efd19a" stroke-width="3"/>
+
+  <path d="M0 609Q343 592 641 566T900 544L1280 541V720H0Z" fill="url(#store-floor)"/>
+  <path d="M0 607Q332 589 646 563T900 542" fill="none" stroke="#a67a46" stroke-width="5" opacity=".32"/>
+  <path d="M0 619Q338 601 649 576T904 552" fill="none" stroke="#ecd097" stroke-width="4" opacity=".34"/>
+  <path d="M906 543 1261 539 1280 720 606 720Z" fill="url(#store-sunbeam)"/>
+  <path d="M1238 551 1265 549 1184 720H1148Z" fill="#b68d55" opacity=".12"/>
+  <path d="M85 681Q232 671 334 676M789 675Q917 662 1058 663M1080 601Q1162 592 1248 593" fill="none" stroke="#b38b58" stroke-width="1.6" opacity=".22"/>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M356 349V430L369 433 371 354M723 352 725 427 739 424 739 349" fill="#805733" stroke="#79512f" stroke-width="2"/>
+    <path d="M365 421 728 417 749 427 371 433Z" fill="#8c6139"/>
+    <path d="M350 352Q552 363 741 350V363Q548 375 348 364Z" fill="#b4905e" opacity=".24"/>
+    <path d="M340 338 740 334 760 345 359 350Z" fill="#b88a54" stroke="#8d633b" stroke-width="2"/>
+    <path d="M359 350 760 345 759 358 359 364Z" fill="url(#store-timber)"/>
+    <path d="M370 354Q546 352 741 350" fill="none" stroke="#d0a16a" stroke-width="1.8"/>
+    <path d="M395 354Q443 361 481 355M586 352Q629 357 675 352" fill="none" stroke="#67472d" stroke-width="1.1" opacity=".65"/>
+    <ellipse cx="426" cy="337" rx="43" ry="7" fill="#684b30" opacity=".18"/>
+    <path d="M405 272Q400 284 401 289C378 299 377 322 390 335Q419 347 451 336C466 319 462 298 440 289L438 272Z" fill="url(#store-pot)" stroke="#9d6844" stroke-width="2.2"/>
+    <ellipse cx="421" cy="272" rx="20" ry="6" fill="#b77e50" stroke="#96613f" stroke-width="2"/>
+    <ellipse cx="421" cy="270" rx="15" ry="3.4" fill="#78563b"/>
+    <path d="M395 307Q419 314 451 305M394 316Q422 324 454 313" fill="none" stroke="#e1b780" stroke-width="2" opacity=".72"/>
+    <path d="M399 294Q385 311 395 328" fill="none" stroke="#efc28b" stroke-width="3" opacity=".42"/>
+
+    <path d="M496 303Q548 293 591 304L583 342Q545 354 505 342Z" fill="#b68b53" stroke="#87613a" stroke-width="2"/>
+    <path d="M490 296H599V353H490Z" fill="url(#store-basket-weave)" clip-path="url(#store-basket)"/>
+    <ellipse cx="544" cy="303" rx="47" ry="9" fill="#d1ae73" stroke="#8f693c" stroke-width="2.2"/>
+    <ellipse cx="544" cy="302" rx="40" ry="5.2" fill="#997340"/>
+    <g fill="#dbc48d"><ellipse cx="517" cy="301" rx="4.5" ry="1.6" transform="rotate(-14 517 301)"/><ellipse cx="530" cy="300" rx="4.5" ry="1.6" transform="rotate(19 530 300)"/><ellipse cx="544" cy="302" rx="4.5" ry="1.6" transform="rotate(-28 544 302)"/><ellipse cx="556" cy="299" rx="4.5" ry="1.6" transform="rotate(14 556 299)"/><ellipse cx="569" cy="302" rx="4.5" ry="1.6" transform="rotate(-12 569 302)"/></g>
+    <path d="M504 337Q544 347 584 336" fill="none" stroke="#ddbf85" stroke-width="2.5"/>
+
+    <path d="M649 284Q646 253 673 253Q701 253 699 284" fill="none" stroke="#8a643c" stroke-width="7"/>
+    <path d="M649 284Q648 256 673 256Q697 256 699 284" fill="none" stroke="#d6b77c" stroke-width="2.4"/>
+    <path d="M636 283Q674 274 710 284L704 340Q672 351 642 340Z" fill="#b18a55" stroke="#86613c" stroke-width="2"/>
+    <path d="M630 276H717V352H630Z" fill="url(#store-basket-weave)" clip-path="url(#store-tall-basket)"/>
+    <ellipse cx="673" cy="283" rx="36" ry="7" fill="#cfad74" stroke="#88633c" stroke-width="2"/>
+    <ellipse cx="673" cy="282" rx="28" ry="3.7" fill="#947044"/>
+    <path d="M645 335Q673 345 703 335" fill="none" stroke="#d7b881" stroke-width="2.6"/>
+    <path d="M400 397Q430 390 457 399L453 417Q428 424 405 417Z" fill="#cba56a" stroke="#9c794b" stroke-width="1.8"/>
+    <path d="M405 402Q429 409 454 401M405 409Q429 416 454 408" fill="none" stroke="#8a6a41" stroke-width="1.5"/>
+    <path d="M588 396 649 393 665 414 603 418Z" fill="#d9c18c" stroke="#b39765" stroke-width="1.5"/>
+    <path d="M607 402 648 400M611 409 655 406" fill="none" stroke="#b69a68" stroke-width="1.4"/>
+  </g>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="80" cy="554" rx="55" ry="10" fill="#81613d" opacity=".19"/>
+    <path d="M49 452Q42 441 50 436L98 432Q110 437 102 451C116 472 121 506 115 535Q111 551 82 555Q51 555 36 544C29 523 34 481 49 452Z" fill="url(#store-sack)" stroke="#9a7c46" stroke-width="2.1"/>
+    <path d="M25 425H126V565H25Z" fill="url(#store-weave)" clip-path="url(#store-left-sack)"/>
+    <path d="M50 440Q74 448 101 438M48 447Q73 454 103 444" fill="none" stroke="#8e7548" stroke-width="2.3"/>
+    <path d="M51 461Q43 490 44 531M103 464Q112 495 108 532M63 466Q58 494 61 507M84 450 84 463" fill="none" stroke="#8f7747" stroke-width="1.4" opacity=".48"/>
+    <path d="M46 543Q78 554 108 542" fill="none" stroke="#ecdaa1" stroke-width="2.4" opacity=".68"/>
+    <path d="M72 445Q62 432 68 427Q75 424 77 443Q81 425 88 429Q93 436 79 446L88 458M76 446 67 459" fill="none" stroke="#775d35" stroke-width="1.8"/>
+
+    <ellipse cx="239" cy="548" rx="45" ry="9" fill="#81613d" opacity=".17"/>
+    <path d="M217 444Q210 433 218 428L254 427Q265 433 258 443C272 465 276 500 269 529Q263 545 240 548Q219 549 205 538C197 516 202 474 217 444Z" fill="url(#store-sack-light)" stroke="#aa8e5a" stroke-width="2"/>
+    <path d="M191 419H282V558H191Z" fill="url(#store-weave)" clip-path="url(#store-back-sack)"/>
+    <path d="M217 435Q237 442 259 434M218 441Q237 448 260 440M215 455Q205 492 212 531M260 457Q268 491 264 528" fill="none" stroke="#9b8150" stroke-width="1.8" opacity=".62"/>
+    <path d="M231 438 235 453M242 437 247 450M219 539Q242 547 262 536" fill="none" stroke="#9a7b49" stroke-width="1.6"/>
+
+    <ellipse cx="810" cy="536" rx="49" ry="9" fill="#81613d" opacity=".18"/>
+    <path d="M778 443Q768 432 778 426L817 423Q831 430 824 442C840 468 847 494 843 518Q838 534 811 537Q782 539 765 527C757 503 763 468 778 443Z" fill="url(#store-sack-light)" stroke="#a98b56" stroke-width="2"/>
+    <path d="M752 415H853V546H752Z" fill="url(#store-weave)" clip-path="url(#store-right-sack)"/>
+    <path d="M777 432Q800 441 826 432M775 439Q800 447 826 438M778 454Q766 485 774 522M823 453Q836 482 834 519" fill="none" stroke="#9c8050" stroke-width="1.7" opacity=".67"/>
+    <path d="M796 441Q786 427 794 425Q801 427 801 440Q808 422 813 428Q818 435 804 442M800 443 793 457M804 441 813 453" fill="none" stroke="#897045" stroke-width="1.7"/>
+    <path d="M775 526Q809 540 836 524" fill="none" stroke="#efdda9" stroke-width="2.4" opacity=".7"/>
+  </g>
+
+  <path d="M113 596V563C113 539 132 523 161 522C191 520 211 540 212 564V593Z" fill="#b28a54" opacity=".37"/>
+  <path d="M120 595V564C120 543 138 530 161 530C185 530 204 545 205 565V595Z" fill="#6c5136"/>
+  <path d="M126 595V565C127 548 141 537 161 537C182 537 198 549 199 566V595Z" fill="#493c2c"/>
+  <path d="M120 595V564C120 543 138 530 161 530C185 530 204 545 205 565V595" fill="none" stroke="#997648" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M124 593H202" fill="none" stroke="#312c23" stroke-width="3"/>
+  <path d="M121 598Q163 603 205 597" fill="none" stroke="#efcf95" stroke-width="2.5" opacity=".58"/>
+
+  <g fill="#e5c78d" stroke="#b08b53" stroke-width=".8">
+    <ellipse cx="37" cy="586" rx="4.8" ry="1.9" transform="rotate(24 37 586)"/><ellipse cx="53" cy="591" rx="4.6" ry="1.8" transform="rotate(-28 53 591)"/>
+    <ellipse cx="77" cy="579" rx="4.4" ry="1.8" transform="rotate(11 77 579)"/><ellipse cx="275" cy="574" rx="4.5" ry="1.7" transform="rotate(-31 275 574)"/>
+    <ellipse cx="288" cy="566" rx="4.3" ry="1.7" transform="rotate(17 288 566)"/><ellipse cx="817" cy="557" rx="4.7" ry="1.8" transform="rotate(-18 817 557)"/>
+    <ellipse cx="840" cy="548" rx="4.3" ry="1.7" transform="rotate(31 840 548)"/><ellipse cx="854" cy="559" rx="4.6" ry="1.8" transform="rotate(-39 854 559)"/>
+    <ellipse cx="83" cy="665" rx="4.9" ry="1.8" transform="rotate(-22 83 665)"/><ellipse cx="98" cy="657" rx="4.5" ry="1.7" transform="rotate(34 98 657)"/>
+    <ellipse cx="1184" cy="669" rx="4.9" ry="1.8" transform="rotate(16 1184 669)"/><ellipse cx="1201" cy="662" rx="4.4" ry="1.7" transform="rotate(-35 1201 662)"/>
+  </g>
+  <path d="M26 570 49 561M31 576 61 570M257 557 279 548M1214 681 1241 675" fill="none" stroke="#ba965d" stroke-width="1.5" stroke-linecap="round" opacity=".63"/>
+</svg>
