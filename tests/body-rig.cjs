@@ -2,7 +2,8 @@ const assert=require('node:assert/strict');
 const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright':'playwright');
 const {pathToFileURL}=require('node:url');const path=require('node:path');
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});const p=await browser.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(pathToFileURL(path.resolve(__dirname,'../index.html')).href);
-const result=await p.evaluate(()=>{
+await p.addScriptTag({path:path.resolve(__dirname,'chunni-regression.js')});
+const result=await p.evaluate(async()=>{
  // Verify support, forward knee bend, opposite steps, and seamless loop boundaries.
  for(const side of [-1,1])for(let i=0;i<=120;i++){
   const t=i/100,g=walkingStep(t,side),next=walkingStep(t+.00001,side);
@@ -41,20 +42,7 @@ const result=await p.evaluate(()=>{
   if(box.x<5||box.x+box.width>107||box.y+box.height>94||!shape.isPointInFill(new DOMPoint(52,31)))throw Error('Head covering left the skull on '+covering);
  }
  sample.remove();
- for(const preset of ['elder-bibi-ji','elder-bibi'])for(const view of ['front','left','right']){
-  const actor=newSceneActor(preset,0);actor.view=view;
-  const node=createSceneActor(actor,991);
-  document.body.append(node.svg);
-  const head=node.layers.headwearFront.querySelector('[data-chunni-head]');
-  const drape=node.layers.torso.querySelector('[data-chunni-shoulders]');
-  if(!head||!drape)throw Error('Bibi Ji’s chunni is missing in '+preset+' '+view);
-  const fabric=head.querySelector('path'),sameFabric=drape.querySelector('path');
-  if(fabric.getAttribute('fill')!==sameFabric.getAttribute('fill'))throw Error('Head and shoulders use different scarf colours');
-  if(!fabric.isPointInFill(new DOMPoint(52,28))||fabric.isPointInFill(new DOMPoint(52,85)))throw Error('Chunni does not frame the face');
-  sceneWithState(actor,()=>paintSceneActorFace(node,reactionPose('nod',1.2)));
-  if(head.getBoundingClientRect().bottom<=drape.getBoundingClientRect().top)throw Error('Chunni lost its shoulder overlap while nodding');
-  node.svg.remove();
- }
+ const chunni=await checkChunniDrape();
  for(const hair of Object.keys(indianLongHair))for(const view of ['front','left','right']){state.hair=hair;cameraView=view;render();if(!document.querySelector('#frontHair path'))throw Error('Missing long hair');}
  if(premadeCharacters.filter(p=>p.id.startsWith('india-')).length!==8)throw Error('Indian presets missing');
  feature='hair';for(const section of ['girls','boys','all']){hairSection=section;drawDesigns();if(!document.querySelector('[data-hair-section="'+section+'"][aria-pressed="true"]'))throw Error('Hair filter broken');}
@@ -152,5 +140,5 @@ const result=await p.evaluate(()=>{
  }
 
  WARDROBE.testDesign={label:'Test',template:'short',neck:'v',pocket:true};state.shirt='testDesign';render();if(!document.querySelector('[data-garment="testDesign"]'))throw Error('Registry addition failed');delete WARDROBE.testDesign;render();if(!document.querySelector('[data-garment="crew"]'))throw Error('Removed design fallback failed');
- return {styles:styles.length,checks,templates:Object.keys(GARMENT_TEMPLATES).length};
+ return {styles:styles.length,checks,templates:Object.keys(GARMENT_TEMPLATES).length,chunni};
 });assert.deepEqual(errors,[]);console.log('PASS',result);await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

@@ -6,6 +6,7 @@ on:
       - 'index.html'
       - 'missions/*bridge.js'
       - 'tests/*rig.cjs'
+      - 'tests/chunni-regression.js'
       - 'tests/all-character-poses.cjs'
       - '.github/workflows/character-rig.yml'
   workflow_dispatch:
