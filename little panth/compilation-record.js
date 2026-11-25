@@ -2,7 +2,7 @@
 'use strict';
 const $=id=>document.getElementById(id),screen=$('record-screen'),recordButton=$('record-tab'),renderButton=$('render-mp4');
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
-const raw=new URLSearchParams(location.search).get('episodes')||'';
+const params=new URLSearchParams(location.search),store=window.LPProduction,volume=store.normalize(params.get('name'));const raw=params.get('episodes')||'';
 const requested=[...new Set(raw.split(',').map(s=>s.trim()).filter(Boolean))];
 const repo='https://github.com/nmjp8989/umto/actions/workflows/little-panth-compilation.yml';
 const ids=requested.filter(s=>/^\d{3}$/.test(s));
@@ -13,6 +13,10 @@ function setEnabled(enabled){recordButton.disabled=!enabled||!navigator.mediaDev
 setEnabled(false);
 (async()=>{
  try{
+  await store.load();
+  if(!store.validName(volume)||store.usedName(volume))throw Error('Choose a new valid filename from the contents page.');
+  if(ids.some(id=>!store.review(id).approved))throw Error('Every selected episode must be approved before export.');
+  $('volume-name').textContent='Video: '+volume+'.mp4';
   if(!ids.length||ids.length!==requested.length)throw Error('Select valid episodes from the contents page first.');
   const res=await fetch('all-missions.html',{cache:'no-cache'});if(!res.ok)throw Error('Could not read the episode catalogue.');
   const doc=new DOMParser().parseFromString(await res.text(),'text/html');
@@ -21,13 +25,13 @@ setEnabled(false);
   entries=ids.map(id=>catalogue.get(id));const sum=entries.reduce((s,e)=>s+e.seconds,0);
   $('selected-info').textContent=entries.length+' selected episode'+(entries.length===1?'':'s')+' · approximately '+totalLabel(sum);
   $('selected-list').replaceChildren(...entries.map(e=>{const li=document.createElement('li');li.textContent=e.id+' — '+e.title+' ('+totalLabel(e.seconds)+')';return li;}));
-  $('episode-ids').value=ids.join(',');setEnabled(true);
+  $('episode-ids').value=JSON.stringify(store.request('export',volume,ids));setEnabled(true);
   if(recordButton.disabled)status('Tab recording is not supported in this browser. Use the MP4 renderer.');
  }catch(error){$('selected-info').textContent=error.message;setEnabled(false);}
 })();
-async function copyIds(){const field=$('episode-ids');field.focus();field.select();try{await navigator.clipboard.writeText(field.value);$('workflow-status').textContent='Episode IDs copied.';return true;}catch{$('workflow-status').textContent='Copy the selected episode IDs manually.';return false;}}
+async function copyIds(){const field=$('episode-ids');field.focus();field.select();try{await navigator.clipboard.writeText(field.value);$('workflow-status').textContent='Export request copied.';return true;}catch{$('workflow-status').textContent='Copy the selected export request manually.';return false;}}
 $('copy-ids').onclick=copyIds;
-renderButton.onclick=()=>{const tab=window.open(repo,'_blank','noopener');copyIds();$('workflow-status').textContent='Open Run workflow and paste the episode IDs into the episodes field.';};
+renderButton.onclick=()=>{const tab=window.open(repo,'_blank','noopener');copyIds();$('workflow-status').textContent='Open Run workflow and paste the export request into the request field.';};
 function frameFor(id,preload=false){const frame=document.createElement('iframe');frame.title='Little Panth episode '+id;frame.allow='autoplay';if(preload)frame.className='preload';frame.src='mission-'+id+'/?compilation=1'+(Number(id)<=3?'&export=1':'');screen.append(frame);return frame;}
 function apiFor(frame){const w=frame.contentWindow;if(w?.lpCompilation)return {ready:()=>w.lpCompilation.ready(),start:()=>w.lpCompilation.start(),status:()=>w.lpCompilation.status()};if(w?.lpExport)return {ready:()=>w.lpExport.ready(),start:()=>w.lpExport.start('all'),status:()=>w.lpExport.status()};return null;}
 async function waitReady(frame){const deadline=Date.now()+90000;while(active&&Date.now()<deadline){const api=apiFor(frame);if(api){const state=api.status();if(state?.error)throw Error(state.error);if(api.ready())return api;}await delay(150);}throw Error(active?'Episode did not become ready; reload and try again.':'Recording cancelled.');}
@@ -48,6 +52,7 @@ recordButton.onclick=async()=>{
   if(!stream.getAudioTracks().length)throw Error('Tab audio is missing. Try again and enable Share tab audio.');
   active=true;track.addEventListener('ended',()=>{cancelled=true;active=false;});for(const t of stream.getAudioTracks())t.addEventListener('ended',()=>{cancelled=true;active=false;});
   screen.hidden=false;let frame=frameFor(entries[0].id),api=await waitReady(frame),next=null;
+  const recordingStarted=Date.now();
   const type=mimeType(),options={videoBitsPerSecond:5000000,audioBitsPerSecond:160000,...(type?{mimeType:type}:{})};
   recorder=new MediaRecorder(stream,options);
   ended=new Promise((resolve,reject)=>{recorder.onstop=resolve;recorder.onerror=e=>{recordError=e.error||Error('Recording failed');active=false;reject(recordError);};});
@@ -68,9 +73,9 @@ recordButton.onclick=async()=>{
   active=false;recorder.stop();await ended;
   const mime=recorder.mimeType||type||'video/webm',ext=mime.includes('mp4')?'mp4':'webm',blob=new Blob(chunks,{type:mime});
   if(!blob.size)throw Error('No video was recorded.');
-  objectURL=URL.createObjectURL(blob);const link=$('download-video');link.href=objectURL;link.download='little-panth-'+entries.length+'-stories.'+ext;link.hidden=false;status('Your '+ext.toUpperCase()+' video is ready. Click Download recorded video.');
+  objectURL=URL.createObjectURL(blob);const link=$('download-video');link.href=objectURL;link.download=volume+'.'+ext;link.hidden=false;try{store.addBrowser(volume,ids,ext,(Date.now()-recordingStarted)/1000);status('Your '+ext.toUpperCase()+' video is ready and saved in local export history. Click Download recorded video.');}catch(e){status('Video is ready, but tracker save failed: '+e.message,true);}
  }catch(error){status(error.message||String(error),true);}
- finally{active=false;if(recorder?.state==='recording'||recorder?.state==='paused'){recorder.stop();try{await ended;}catch{}}stream?.getTracks().forEach(t=>t.stop());stream=null;recorder=null;screen.replaceChildren();screen.hidden=true;setEnabled(entries.length>0);}
+ finally{active=false;if(recorder?.state==='recording'||recorder?.state==='paused'){recorder.stop();try{await ended;}catch{}}stream?.getTracks().forEach(t=>t.stop());stream=null;recorder=null;screen.replaceChildren();screen.hidden=true;setEnabled(entries.length>0&&!store.usedName(volume));}
 };
 window.addEventListener('pagehide',()=>{active=false;stream?.getTracks().forEach(t=>t.stop());if(objectURL)URL.revokeObjectURL(objectURL);});
 })();

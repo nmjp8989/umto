@@ -2,10 +2,9 @@ name: Render Little Panth compilation
 on:
   workflow_dispatch:
     inputs:
-      episodes:
-        description: "Comma-separated episode IDs copied from the contents page (e.g. 005,034)"
+      request:
+        description: "Paste the production request copied from the Little Panth tracker"
         required: true
-        default: "005,034"
         type: string
   push:
     branches: [main]
@@ -14,30 +13,53 @@ on:
       - 'tools/little-panth-compilation-render.cjs'
       - 'tools/little-panth-compilation-assemble.py'
       - 'tests/little-panth-compilation.cjs'
+      - 'tools/little-panth-production.py'
 permissions:
   contents: read
 jobs:
   plan:
     runs-on: ubuntu-24.04
     outputs:
+      mode: ${{ steps.plan.outputs.mode }}
+      name: ${{ steps.plan.outputs.name }}
       episodes: ${{ steps.plan.outputs.episodes }}
       matrix: ${{ steps.plan.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
       - id: plan
-        name: Validate selected episodes
+        name: Validate production request
         env:
-          REQUESTED: ${{ inputs.episodes || '005,034' }}
+          REQUEST: ${{ inputs.request }}
+          EVENT: ${{ github.event_name }}
+        run: python3 tools/little-panth-production.py plan
+  persist:
+    needs: plan
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        if: needs.plan.outputs.mode != 'test'
+        with:
+          ref: main
+      - name: Save review decisions and local recording history
+        if: needs.plan.outputs.mode != 'test'
+        env:
+          REQUEST: ${{ inputs.request }}
         run: |
-          python3 - <<'PY'
-          import json,os,pathlib,re
-          ids=[s.strip() for s in os.environ["REQUESTED"].split(",")]
-          if not ids or len(ids)>60 or len(set(ids))!=len(ids) or any(not re.fullmatch(r"[0-9]{3}",s) or not (pathlib.Path("little panth")/("mission-"+s)/"index.html").is_file() for s in ids):
-              raise SystemExit("Invalid episode IDs; use the selection from the contents page.")
-          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
-              print("episodes="+",".join(ids),file=f)
-              print("matrix="+json.dumps({"episode":ids},separators=(",",":")),file=f)
-          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 tools/little-panth-production.py apply
+            git add 'little panth/production-db.json'
+            git diff --cached --quiet && exit 0
+            git commit -m 'Save Little Panth owner review decisions and recording history'
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
   catalogue:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
@@ -50,9 +72,11 @@ jobs:
       - name: Check selection and export controls
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp-compilation-http.log 2>&1 &
+          python3 tests/little-panth-production.py
           node tests/little-panth-compilation.cjs
   render:
-    needs: [plan,catalogue]
+    needs: [plan,catalogue,persist]
+    if: needs.plan.outputs.mode != 'save'
     runs-on: ubuntu-24.04
     timeout-minutes: 23
     strategy:
@@ -92,6 +116,9 @@ jobs:
           retention-days: 2
   assemble:
     needs: [plan,render]
+    outputs:
+      seconds: ${{ steps.assemble.outputs.seconds }}
+      artifact: ${{ steps.artifact.outputs.artifact-id }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -100,17 +127,53 @@ jobs:
         with:
           pattern: episode-*
           path: compilation-renders
-      - name: Assemble one MP4 and chapter timestamps
+      - id: assemble
+        name: Assemble one MP4 and chapter timestamps
         env:
           EPISODES: ${{ needs.plan.outputs.episodes }}
+          VOLUME_NAME: ${{ needs.plan.outputs.name }}
         run: |
           if ! command -v ffmpeg >/dev/null; then sudo apt-get update -q && sudo apt-get install -y ffmpeg; fi
           python3 tools/little-panth-compilation-assemble.py compilation-renders release "$EPISODES"
-          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -of compact release/little-panth-compilation.mp4
-      - uses: actions/upload-artifact@v4
+          mv release/little-panth-compilation.mp4 "release/$VOLUME_NAME.mp4"
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -of compact "release/$VOLUME_NAME.mp4"
+          echo "seconds=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "release/$VOLUME_NAME.mp4")" >> "$GITHUB_OUTPUT"
+      - id: artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: little-panth-compilation
+          name: ${{ needs.plan.outputs.name }}
           path: release/
           if-no-files-found: error
           compression-level: 0
           retention-days: 30
+  record:
+    needs: [plan,assemble]
+    if: needs.plan.outputs.mode == 'export'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Record successful named MP4 in the shared tracker
+        env:
+          VOLUME_NAME: ${{ needs.plan.outputs.name }}
+          EPISODES: ${{ needs.plan.outputs.episodes }}
+          VIDEO_SECONDS: ${{ needs.assemble.outputs.seconds }}
+          ARTIFACT_ID: ${{ needs.assemble.outputs.artifact }}
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 tools/little-panth-production.py record
+            git add 'little panth/production-db.json'
+            git diff --cached --quiet && exit 0
+            git commit -m 'Record completed Little Panth MP4 compilation'
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
