@@ -31,7 +31,7 @@ the bell is never suspended without a visible grip or support.
 | `bright-idea` | `young-idea`, `bell-explained`, `cheer` | Medium shot of the young mouse, an insert of the brass bell and a visible gentle nudge, then a clear group reaction. Everyone remains supported on the floor. |
 | `wise-question` | `elder-question`, `silence` | Calm medium close-up of the elder mouse for the question, then a held group shot as the mice look at one another. The untouched bell remains visible. |
 | `no-volunteer` | `young-hesitates`, `elder-reminds` | Two-shot of young and elder mice. The young mouse lowers its forepaw and the elder answers gently. No imagined or actual bell appears on the cat. |
-| `safe-and-thoughtful` | `cat-passes`, `moral` | Wide courtyard/storeroom view as the cat passes at an unhurried pace. The mice move safely toward their doorway. Finish on a warm, quiet medium-wide view of the mice and bell, with a still final hold. |
+| `safe-and-thoughtful` | `cat-passes`, `moral` | Wide courtyard/storeroom view as the cat passes at an unhurried pace. The mice run into the actual doorway one by one and disappear inside it. Finish on a warm, quiet medium-wide view of the empty floor, mouse doorway and untouched bell, with a still final hold. |
 
 ## Playback and review
 

@@ -68,9 +68,10 @@
       };
       case 'safe-and-thoughtful': {
         const spoken = line(scene, 'cat-passes');
-        const turn = wordAt(scene, 'cat-passes', 'ਮੁੜ');
-        return { catStart: spoken.start, catEnd: turn,
-          retreatStart: turn, retreatEnd: Math.max(turn + 1, spoken.end - spoken.duration * .12) };
+        const notice = wordAt(scene, 'cat-passes', 'ਚੂਹੇ');
+        const bellLine = wordAt(scene, 'cat-passes', 'ਘੰਟੀ');
+        return { catStart: spoken.start, catEnd: bellLine,
+          retreatStart: notice, retreatEnd: Math.max(notice + 1, bellLine) };
       }
       default: return {};
     }
@@ -193,15 +194,28 @@
         }
         break;
       case 'safe-and-thoughtful': {
-        cat.facing = 1;
-        travel(cat, ms, 1030, 1140, c.catStart, c.catEnd);
-        const destinations = [200, 410, 690];
+        // Billi approaches from the right. All three mice share the actual
+        // doorway at (161,595), rather than stopping on the open floor.
+        cat.facing = -1;
+        travel(cat, ms, 1260, 925, c.catStart, c.catEnd);
+        const window = c.retreatEnd - c.retreatStart;
         animals.forEach((mouse, index) => {
-          mouse.facing = -1;
-          travel(mouse, ms, index === 1 ? 483 : mouse.x, destinations[index], c.retreatStart, c.retreatEnd);
+          const from = index === 1 ? 483 : mouse.x;
+          const start = c.retreatStart + window * [.0, .06, .12][index];
+          const end = c.retreatStart + window * [.38, .70, 1][index];
+          mouse.facing = ms >= start ? -1 : mice[index].facing;
+          travel(mouse, ms, from, 161, start, end);
+          const approach = ease((245 - mouse.x) / 84);
+          mouse.y = mix(floorY, 595, approach);
+          mouse.scale = mix(mice[index].scale, .45, approach);
+          mouse.gaitScale = mice[index].scale;
+          mouse.head = ms < start ? -5 : 0;
+          // Darken only while entering the shadow of the doorway.
+          mouse.visibility = 1 - ease((186 - mouse.x) / 25);
+          mouse.running = mouse.motion.moving;
         });
         framing = shot(640, 360, 1280, 'wide');
-        if (spoken.id === 'moral') framing = shot(470, 550, 900, 'medium');
+        if (spoken.id === 'moral') framing = shot(420, 545, 900, 'medium');
         held = ms >= c.retreatEnd;
         break;
       }
@@ -214,7 +228,7 @@
   // support phases, so every walk always has visible paws on the floor.
   function pawTargets(actor, feet, strideLength, sole, lift) {
     const movement = actor.motion;
-    const steps = Math.max(1, Math.ceil(movement.total / (strideLength * actor.scale)));
+    const steps = Math.max(1, Math.ceil(movement.total / (strideLength * (actor.gaitScale ?? actor.scale))));
     const stride = movement.total / steps;
     const progress = movement.total ? Math.min(steps, movement.distance / stride) : 0;
     const root = { x: actor.x, y: actor.y - sole * actor.scale };
@@ -243,7 +257,9 @@
   function drawMouse(p, mouse, state, talking, opening, reduced) {
     const root = p['mouse-' + mouse.id], scale = mouse.scale;
     tx(root, 'translate(' + xy(mouse.x, mouse.y - 8 * scale) + ') scale(' + xy(mouse.facing * scale, scale) + ')');
-    const feet = pawTargets(mouse, mouseFeet, 40, 8, 4.6);
+    opacity(root, mouse.visibility ?? 1);
+    opacity(p[mouse.id + '-shadow'], mouse.visibility ?? 1);
+    const feet = pawTargets(mouse, mouseFeet, mouse.running ? 48 : 40, 8, mouse.running ? 9 : 4.6);
     for (const foot of feet) {
       if (foot.id === 'front' && mouse.gesture > 0) {
         foot.local.x = mix(foot.local.x, 40, mouse.gesture);
@@ -275,8 +291,9 @@
     path(p[mouse.id + '-mouth'], talking ? 'M61-28q8 ' + (6 + opening * 10).toFixed(2) + ' 16-3' : 'M61-28q8 6 16-3');
     Object.assign(root.dataset, { speaking: String(talking), facing: String(mouse.facing),
       moving: String(mouse.motion.moving), x: String(mouse.x), y: String(mouse.y),
-      mouseSurface: 'ground', mouseDistance: mouse.motion.distance.toFixed(3) });
+      mouseSurface: mouse.visibility === 0 ? 'inside-hole' : 'ground', mouseDistance: mouse.motion.distance.toFixed(3) });
     p[mouse.id + '-shadow'].setAttribute('cx', String(mouse.x));
+    p[mouse.id + '-shadow'].setAttribute('cy', String(mouse.y + 2));
     p[mouse.id + '-shadow'].setAttribute('rx', String(52 * scale));
     return feet.map(foot => ({ id: foot.id, ...foot.world, supportY: mouse.y, stance: foot.stance }));
   }
