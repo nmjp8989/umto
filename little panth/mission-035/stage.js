@@ -70,8 +70,9 @@
         const spoken = line(scene, 'cat-passes');
         const notice = wordAt(scene, 'cat-passes', 'ਚੂਹੇ');
         const bellLine = wordAt(scene, 'cat-passes', 'ਘੰਟੀ');
+        const retreatStart = Math.min(notice, spoken.start + 550);
         return { catStart: spoken.start, catEnd: bellLine,
-          retreatStart: notice, retreatEnd: Math.max(notice + 1, bellLine) };
+          retreatStart, retreatEnd: Math.max(retreatStart + 1, Math.min(bellLine, retreatStart + 1400)) };
       }
       default: return {};
     }
@@ -201,8 +202,9 @@
         const window = c.retreatEnd - c.retreatStart;
         animals.forEach((mouse, index) => {
           const from = index === 1 ? 483 : mouse.x;
-          const start = c.retreatStart + window * [.0, .06, .12][index];
-          const end = c.retreatStart + window * [.38, .70, 1][index];
+          // Almost simultaneous alarm, with arrival times proportional to distance.
+          const start = c.retreatStart + window * [0, .012, .024][index];
+          const end = c.retreatStart + window * [.40, .66, 1][index];
           mouse.facing = ms >= start ? -1 : mice[index].facing;
           travel(mouse, ms, from, 161, start, end);
           const approach = ease((245 - mouse.x) / 84);
@@ -212,6 +214,8 @@
           mouse.head = ms < start ? -5 : 0;
           // Darken only while entering the shadow of the doorway.
           mouse.visibility = 1 - ease((186 - mouse.x) / 25);
+          mouse.insideHole = ms >= end;
+          if (mouse.insideHole) mouse.visibility = 0;
           mouse.running = mouse.motion.moving;
         });
         framing = shot(640, 360, 1280, 'wide');
@@ -259,6 +263,9 @@
     tx(root, 'translate(' + xy(mouse.x, mouse.y - 8 * scale) + ') scale(' + xy(mouse.facing * scale, scale) + ')');
     opacity(root, mouse.visibility ?? 1);
     opacity(p[mouse.id + '-shadow'], mouse.visibility ?? 1);
+    // Explicitly hide every body part and shadow after entry; reset on seek.
+    root.setAttribute('visibility', mouse.insideHole ? 'hidden' : 'visible');
+    p[mouse.id + '-shadow'].setAttribute('visibility', mouse.insideHole ? 'hidden' : 'visible');
     const feet = pawTargets(mouse, mouseFeet, mouse.running ? 48 : 40, 8, mouse.running ? 9 : 4.6);
     for (const foot of feet) {
       if (foot.id === 'front' && mouse.gesture > 0) {
