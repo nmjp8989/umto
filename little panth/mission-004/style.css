@@ -178,30 +178,30 @@ html, body { margin: 0; min-height: 100%; }
 
 /* Preserve the original storybook layout; enlarge only its reading text. */
 body:not(.reviewing) .book[data-layout="spread"] .gurmukhi {
-  font-size: clamp(40px, 4.6875vw, 97.5px);
+  font-size: clamp(35.2px, 4.125vw, 85.8px);
 }
 
 @media (max-width: 820px) and (orientation: portrait) {
   body:not(.reviewing) .book[data-layout="spread"] .gurmukhi {
-    font-size: clamp(37.5px, 8.75vw, 70px);
+    font-size: clamp(33px, 7.7vw, 61.6px);
   }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
   body:not(.reviewing) .book[data-layout="spread"] .gurmukhi {
-    font-size: clamp(27.5px, 4.6875vw, 60px);
+    font-size: clamp(24.2px, 4.125vw, 52.8px);
   }
 }
 
 /* Larger cinema captions, keeping review previews at their existing scale. */
 body:not(.reviewing) .book[data-layout="cinema"] .gurmukhi {
-  font-size: clamp(28.75px, 3.5625vw, 72.5px);
+  font-size: clamp(25.3px, 3.135vw, 63.8px);
   max-width: min(100%, 1750px);
 }
 
 @media (max-width: 820px) and (orientation: portrait) {
   body:not(.reviewing) .book[data-layout="cinema"] .gurmukhi {
-    font-size: clamp(22.5px, 6vw, 41.25px);
+    font-size: clamp(19.8px, 5.28vw, 36.3px);
   }
 }
 
