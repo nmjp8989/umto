@@ -24,6 +24,8 @@
   function makeReading(text, durationMs, alignedWords) {
     const words = text.trim().split(/\s+/u);
     const timings = passage(words, durationMs, alignedWords);
+    // Keep more context on screen while preserving sentence boundaries.
+    const maxWords = 12;
     const phrases = [];
     const phraseByWord = [];
     let first = 0;
@@ -31,10 +33,10 @@
       if (last < words.length && !endsSentence(words[last - 1])) continue;
       while (first < last) {
         const remaining = last - first;
-        const ideal = Math.ceil(remaining / Math.ceil(remaining / 8));
+        const ideal = Math.ceil(remaining / Math.ceil(remaining / maxWords));
         let end = first + ideal;
-        if (remaining > 8) {
-          for (let i = Math.min(first + 8, last - 3); i >= end - 1; i--) {
+        if (remaining > maxWords) {
+          for (let i = Math.min(first + maxWords, last - 3); i >= end - 1; i--) {
             if (!/[,;:][”’"']*$/u.test(words[i - 1])) continue;
             end = i;
             break;
