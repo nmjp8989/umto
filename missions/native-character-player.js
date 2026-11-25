@@ -225,7 +225,7 @@
         const match = word?.text ?? '';
         expression.mouth = active && word.phase > .085 && word.phase < .93
           ? /[ਓਔਊੌੋੂ]/u.test(match) ? 'O' : /[ਈਇਏੀਿੇ]/u.test(match) ? 'EE' : 'A'
-          : 'closed';
+          : active || !pose.expression ? 'closed' : expression.mouth;
         if (!active && !pose.expression) expression.eyes = api.reaction('neutral', beat).eyes;
         if (reduced) expression.eyes = 'open';
         if (pose.gazeX != null) expression.gazeX = Math.round(pose.gazeX / 10) * 10;
@@ -238,7 +238,7 @@
         // Follow the speech line with the arms and each recorded word with the lips.
         // Short pauses between words should not reset the shoulders and hands.
         const gesture = !walking && !reduced && !pose.quietHands && word?.seconds > 0 && word.seconds < word.length
-          ? api.reaction('explain', word.seconds, word.length, word.length)
+          ? api.reaction(pose.gesture ?? 'explain', word.seconds, word.length, word.length)
           : null;
         const rest = gesture?.arms ?? api.restArms();
         const screen = stage.getScreenCTM();
