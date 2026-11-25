@@ -30,9 +30,10 @@
  }
  if(missionTwo){
   const {mehar,narrator,baba}=cast;
+  const {headwearColour,shirtColour,trouserColour}=scenePreset('elder-bibi-ji').changes;
   for(const key of Object.keys(cast))delete cast[key];
   Object.assign(cast,{
-   mehar,dadi:{...narrator,colours:{...narrator.colours,headwear:'chunni',headwearColour:'#856882'}},
+   mehar,dadi:{...narrator,colours:{...narrator.colours,headwear:'chunni',headwearColour,shirtColour,trouserColour}},
    friend:{preset:'kid-rohan',colours:{shirtColour:'#4c735a',bodyType:'short'}},
    girl:{preset:'kid-meher',colours:{hair:'sideBraid',shirt:'kurtaChunni',shirtColour:'#b45f55',trouserColour:'#6a5379',bodyType:'short'}},
    boy:{preset:'kid-amir',colours:{shirt:'hoodie',shirtColour:'#bc8b3d',bodyType:'short'}},

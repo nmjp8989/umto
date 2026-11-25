@@ -105,11 +105,16 @@
       '#344a74':['#576f93','#344a74','#23324d'],
       '#a9553d':['#cd805a','#a9553d','#70362c'],
       '#ddc397':['#eddaa9','#ddc397','#ae8c66'],
-      '#856882':['#aa8d9e','#856882','#654d6a'],
-      '#bea185':['#e1c8a5','#bea185','#96795f'],
-      '#8d6b7b':['#aa8390','#8d6b7b','#694e65'],
       '#b78453':['#d7a56a','#b78453','#8d5d3d']
     };
+    const bibi = $('rig').contentWindow.scenePreset('elder-bibi-ji').changes;
+    const tint = (color, target, amount) => '#' + [1,3,5].map(i =>
+      Math.round(lerp(parseInt(color.slice(i,i+2),16), parseInt(target.slice(i,i+2),16), amount))
+        .toString(16).padStart(2,'0')).join('');
+    for (const key of ['headwearColour','shirtColour','trouserColour']) {
+      const color = bibi[key];
+      pigments[color] = [tint(color, '#fff4df', .25), color, tint(color, '#2f2c29', .23)];
+    }
     const styles = [];
     for (const [color,stops] of Object.entries(pigments)) {
       const id = 'pigment-' + color.slice(1);
@@ -164,10 +169,15 @@
       this.actors = [];
       this.background = '';
       this.backdrops = [...$('sky-layer').querySelectorAll('[data-backdrop]')];
-      paintFabrics($('stage').querySelector('defs'));
+      this.fabricsPainted = false;
     }
 
     show(shot, bank) {
+      if (!this.fabricsPainted) {
+        // The cast is ready here, so its shared preset palette is available.
+        paintFabrics($('stage').querySelector('defs'));
+        this.fabricsPainted = true;
+      }
       this.shot = shot;
       this.fx = {};
       for (const id of ['actors','props','set','depth-layer']) $(id).replaceChildren();
