@@ -38,7 +38,9 @@ function findChrome(){for(const cmd of ['google-chrome','google-chrome-stable','
  assert.equal(await page.locator('#english').isVisible(),true,'Muted lines remain readable with CC off');
  await page.locator('#captionToggle').click();
  assert.equal(await page.locator('#stageWrap #objectiveBar').count(),0,'Game prompts must be outside artwork');await shot('01-opening');
- await advance(3);await page.locator('#sceneAction:not([hidden])').waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Narrator must wait for Mehar to inspect the sacks');await action();await page.locator('#english').filter({hasText:'there are already three sacks here'}).waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Mehar speaks first');await advance(1);await page.locator('#narratorFigure.visible').waitFor();await shot('01b-narrator-after-inspection');await advance(1);await advance(2);await action();await advance(2);await ready();await shot('02-harvest');
+ // Two storyteller lines precede the three courtyard lines; inspection now starts automatically.
+ await advance(2);await page.locator('#english').filter({hasText:'Mehar! Come quick!'}).waitFor();
+ await advance(3);assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Narrator must wait for Mehar to inspect the sacks');await page.locator('#english').filter({hasText:'there are already three sacks here'}).waitFor();assert.equal(await page.locator('#narratorFigure.visible').count(),0,'Mehar speaks first');await advance(1);await page.locator('#narratorFigure.visible').waitFor();await shot('01b-narrator-after-inspection');await advance(1);await advance(2);await action();await advance(2);await ready();await shot('02-harvest');
  for(let p=0;p<6;p++)for(let i=0;i<3;i++)await page.locator('[data-patch="'+p+'"]').press('Enter');
  await advance(1);await ready();for(let j=0;j<6;j++)await page.locator('[data-harvest="collect"]:not([data-done])').first().press('Enter');
  await advance(1);await ready();await page.locator('[data-pack-sack]').first().waitFor();
