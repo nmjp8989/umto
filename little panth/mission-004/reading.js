@@ -23,38 +23,74 @@
 
   // The active layout determines the preferred amount of text. Each card
   // stays visible until the last word in it has been read.
-  const limits = { spread: { max: 18 }, cinema: { max: 12 } };
+  const limits = { spread: { target: 8, max: 10 }, cinema: { target: 6, max: 8 } };
   const readingCache = new WeakMap();
 
   function normalizeLayout(layout) {
     return layout === 'cinema' ? 'cinema' : 'spread';
   }
 
+  // Avoid separating common Punjabi postpositions, particles and auxiliary
+  // verbs from the preceding words when choosing a spoken clause boundary.
+  const attached = new Set(['ਦਾ','ਦੀ','ਦੇ','ਦੀਆਂ','ਨੂੰ','ਨੇ','ਤੋਂ','ਵਿੱਚ','ਉੱਤੇ','ਤੇ','ਨਾਲ','ਵੱਲ','ਲਈ','ਕੋਲ','ਹੀ','ਵੀ','ਹੈ','ਹਨ','ਸੀ','ਸਨ','ਗਿਆ','ਗਈ','ਗਏ','ਗਈਆਂ','ਰਿਹਾ','ਰਹੀ','ਰਹੇ','ਸਕਦਾ','ਸਕਦੀ','ਸਕਦੇ','ਸਕੀਏ']);
+  const clean = word => word.replace(/[\p{P}\p{S}]/gu, '');
   function groupWords(words, timings, layout) {
-    const { max } = limits[layout];
+    const { target, max } = limits[layout];
     const n = words.length;
-    const sentenceEnds = [];
-    for (let i = 1; i <= n; i++) {
-      if (i === n || endsSentence(words[i - 1])) sentenceEnds.push(i);
-    }
-    // A full sentence is the smallest reading unit. Join adjacent complete
-    // sentences when they fit the preferred size; never cut a long sentence
-    // just to satisfy a word count. The view can fit long text in its panel.
     const phrases = [], phraseByWord = [];
-    let first = 0, end = 0;
-    function add(last) {
-      const phrase = { first, end: last, text: words.slice(first, last).join(' '),
-        startMs: timings[first][0], endMs: timings[last - 1][1] };
-      for (let i = first; i < last; i++) phraseByWord[i] = phrases.length;
+    function add(first, end) {
+      const phrase = { first, end, text: words.slice(first, end).join(' '),
+        startMs: timings[first][0], endMs: timings[end - 1][1] };
+      for (let i = first; i < end; i++) phraseByWord[i] = phrases.length;
       phrases.push(phrase);
-      first = last;
     }
-    for (const boundary of sentenceEnds) {
-      if (end > first && boundary - first > max) add(end);
-      end = boundary;
-      if (end - first >= max) add(end);
+    // Do not combine independent sentences on one card. Long sentences get
+    // balanced, smaller spoken phrases, prioritizing punctuation and pauses.
+    let sentenceStart = 0;
+    for (let last = 1; last <= n; last++) {
+      if (last !== n && !endsSentence(words[last - 1])) continue;
+      const length = last - sentenceStart;
+      if (length <= max) {
+        add(sentenceStart, last);
+      } else {
+        const count = Math.ceil(length / max);
+        const ideal = length / count;
+        const costs = new Map(), choices = new Map();
+        function best(first, left) {
+          if (left === 0) return first === last ? 0 : Infinity;
+          const key = first + ':' + left;
+          if (costs.has(key)) return costs.get(key);
+          let score = Infinity;
+          const min = Math.min(3, Math.floor(length / count));
+          for (let k = min; k <= Math.min(max, last - first); k++) {
+            const boundary = first + k, remaining = last - boundary;
+            if (remaining < (left - 1) * min || remaining > (left - 1) * max) continue;
+            const tail = best(boundary, left - 1);
+            if (!Number.isFinite(tail)) continue;
+            let penalty = (k - ideal) ** 2 * .6 + Math.max(0, k - target) * .25;
+            if (boundary < last) {
+              const pause = timings[boundary][0] - timings[boundary - 1][1];
+              penalty += /[,;:][”’"']*$/u.test(words[boundary - 1]) ? -5 :
+                pause >= 180 ? -4 : 1;
+              if (attached.has(clean(words[boundary]))) penalty += 7;
+            }
+            if (penalty + tail < score) {
+              score = penalty + tail;
+              choices.set(key, boundary);
+            }
+          }
+          costs.set(key, score);
+          return score;
+        }
+        best(sentenceStart, count);
+        for (let first = sentenceStart, left = count; first < last; left--) {
+          const boundary = choices.get(first + ':' + left) ?? Math.min(last, first + max);
+          add(first, boundary);
+          first = boundary;
+        }
+      }
+      sentenceStart = last;
     }
-    if (end > first) add(end);
     return { phrases, phraseByWord };
   }
 
