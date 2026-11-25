@@ -58,9 +58,15 @@ function renderedGeometry() {
     const copiedSkin = overlay?.querySelector('[data-arm-skin]');
     const sourceLines = hand.querySelector('[data-hand-lines]');
     const copiedLines = overlay?.querySelector('[data-hand-lines]');
+    const elbow = inWorld(arm.querySelector('[data-rig-elbow]'));
+    const wrist = inWorld(arm.querySelector('[data-rig-wrist]'));
+    const forearmSupport = [.2, .35, .5, .65, .8].map(t => {
+      const point = { x: elbow.x + (wrist.x - elbow.x) * t, y: elbow.y + (wrist.y - elbow.y) * t };
+      return { ...point, covered: inCloth(point), edgeGap: edgeDistance(point) };
+    });
     return {
       index, palm, shoulder: inWorld(arm, 0, 48),
-      elbow: inWorld(arm.querySelector('[data-rig-elbow]')),
+      elbow, wrist, forearmSupport,
       covered: [60, 100, 140].map(y => inCloth(inWorld(arm.querySelector('[data-rig-shoulder]'), 0, y))),
       contact: overlay?.dataset.shawlContact === 'true',
       visible: overlay ? Number(getComputedStyle(overlay).opacity) > .01 && getComputedStyle(overlay).display !== 'none' : false,
@@ -171,6 +177,62 @@ async function run() {
         'The worn shawl reaches the knees: hem=' + geometry.bounds.bottom + ', knees=' + geometry.kneeY);
       assert.ok(geometry.hemWidth >= 14, 'A broad cloth end reaches the knee, not only a thin fringe');
     }
+    function assertForearmDrape(geometry) {
+      const near = geometry.hands[0];
+      assert.ok(near.contact, 'The near hand retains the carried cloth edge');
+      assert.ok(near.forearmSupport.filter(point => point.covered).length >= 3,
+        'The folded cloth rests across the native forearm, beyond a single palm corner: ' +
+        JSON.stringify(near.forearmSupport));
+    }
+
+    async function gaitWindow(index, from, to) {
+      const result = await page.evaluate(({ index, from, to }) => {
+        function feet() {
+          const svg = document.getElementById('stage'), traveller = document.getElementById('traveller');
+          const world = svg.getScreenCTM().inverse();
+          const point = (node, x, y) => {
+            const p = new DOMPoint(x, y).matrixTransform(node.getScreenCTM()).matrixTransform(world);
+            return { x: p.x, y: p.y };
+          };
+          return {
+            actor: point(traveller, 0, 0),
+            points: [...traveller.querySelectorAll('[data-rig-leg]')]
+              .sort((a, b) => Number(a.dataset.rigLeg) - Number(b.dataset.rigLeg))
+              .flatMap(leg => {
+                const foot = leg.querySelector('[data-rig-foot]');
+                return [[0, 111], [-45, 98], [105, 105]].map(([x, y]) => point(foot, x, y));
+              })
+          };
+        }
+        const times = [];
+        for (let ms = from; ms < to; ms += 16) times.push(ms);
+        times.push(to);
+        let previous = null, samples = 0, largestJump = 0, highestRatio = 0;
+        for (const ms of times) {
+          window.lp008Test.seek(index, ms);
+          const current = feet();
+          if (previous) {
+            const travel = Math.hypot(current.actor.x - previous.actor.x, current.actor.y - previous.actor.y);
+            // Normal swing can be faster than the body. A stationary actor
+            // still gets a small allowance for a smooth settling step.
+            const allowance = .08 + (ms - previous.ms) * .13 + 4 * travel;
+            for (const [i, p] of current.points.entries()) {
+              const old = previous.points[i], jump = Math.hypot(p.x - old.x, p.y - old.y);
+              largestJump = Math.max(largestJump, jump);
+              highestRatio = Math.max(highestRatio, jump / allowance);
+              if (jump > allowance) return { index, from, to, samples, error: { ms, point: i, jump, allowance, travel } };
+            }
+          }
+          previous = { ...current, ms };
+          samples++;
+        }
+        return { index, from, to, samples, largestJump, highestRatio, error: null, finalFeet: previous.points };
+      }, { index, from, to });
+      report.gaitWindows ??= [];
+      report.gaitWindows.push(result);
+      assert.equal(result.error, null, 'The native feet move continuously at walking boundaries: ' + JSON.stringify(result.error));
+      return result;
+    }
 
     await speak(0, 0, 5);
     await snapshot('01-road', true);
@@ -216,7 +278,12 @@ async function run() {
     assert.equal(removing.shawl, 'removing');
     assertContacts(removing, 2);
     await seek(5, fold - 160);
-    assertContacts(await snapshot('08-off-shoulders', true), 2);
+    const offShoulders = await snapshot('08-off-shoulders', true);
+    assertContacts(offShoulders, 2);
+    for (const hand of offShoulders.hands) {
+      assert.ok(hand.elbow.y > hand.shoulder.y + 8,
+        'Once uncovered, each elbow lowers naturally beside the body');
+    }
     await seek(5, fold + 230);
     const folding = await snapshot('09-folding', true);
     assert.equal(folding.shawl, 'folding');
@@ -225,7 +292,7 @@ async function run() {
     const carried = await snapshot('10-carried', true);
     assert.equal(carried.shawl, 'folded');
     assertContacts(carried);
-    assert.ok(carried.hands[0].contact, 'The near hand keeps supporting the folded shawl');
+    assertForearmDrape(carried);
     assert.ok(carried.bounds.bottom - carried.bounds.top < worn.bounds.bottom - worn.bounds.top - 20,
       'Folding visibly shortens the long hanging cloth');
 
@@ -233,11 +300,34 @@ async function run() {
     for (let ms = remove + 80; ms <= scenes[5].duration - 120; ms += 80) {
       await seek(5, ms);
       const geometry = await measure();
-      assertContacts(geometry, ms < carry ? 2 : 1);
+      // Both hands hold the free cloth. The far hand releases as the near
+      // hand slides along the upper edge to lay it across the forearm.
+      assertContacts(geometry, ms < carry - 200 ? 2 : 1);
+      if (ms >= carry - 200) assert.ok(geometry.hands[0].contact, 'The near hand supports the complete carry transfer');
       largestGap = Math.max(largestGap, ...geometry.hands.filter(hand => hand.contact).map(hand => hand.edgeGap));
       contactSamples++;
     }
     report.contactSweep = { frames: contactSamples, largestGap };
+
+    await gaitWindow(0, 0, 1100);
+    const roadStop = await gaitWindow(0, scenes[0].duration - 1400, scenes[0].duration);
+    const challengeStart = await gaitWindow(1, 0, 0);
+    for (const [i, foot] of roadStop.finalFeet.entries()) {
+      const next = challengeStart.finalFeet[i];
+      assert.ok(Math.hypot(foot.x - next.x, foot.y - next.y) < .5,
+        'The stopped feet stay in place when the challenge scene begins');
+    }
+    const departure = wordAt(6, 'lesson-home', 'ਤੁਰ') - 860;
+    await gaitWindow(6, Math.max(0, departure - 120), departure + 1100);
+    await gaitWindow(6, scenes[6].duration - 1550, scenes[6].duration);
+    await seek(0, 360);
+    await snapshot('15-first-step', true);
+    await seek(0, scenes[0].duration - 650);
+    await snapshot('16-settling-step', true);
+    await seek(6, departure + 420);
+    const walkingCarry = await snapshot('17-carried-walk', true);
+    assertContacts(walkingCarry);
+    assertForearmDrape(walkingCarry);
 
     report.geometrySweep = await page.evaluate(() => {
       const test = window.lp008Test, scenes = test.state().scenes;
@@ -286,7 +376,9 @@ async function run() {
     await seek(5, remove + 170);
     assertContacts(await snapshot('12-phone-removing', true), 2);
     await seek(5, scenes[5].duration - 220);
-    assertContacts(await snapshot('13-phone-carried', true));
+    const phoneCarry = await snapshot('13-phone-carried', true);
+    assertContacts(phoneCarry);
+    assertForearmDrape(phoneCarry);
     const person = await page.locator('#traveller').boundingBox(), movie = await page.locator('#movie').boundingBox();
     assert.ok(person.y >= movie.y - 2 && person.y + person.height <= movie.y + movie.height + 2,
       'The full native traveller remains inside the phone shot');
@@ -296,7 +388,9 @@ async function run() {
     assert.equal(await page.locator('#traveller').getAttribute('data-studio-motion'), 'stand');
     assert.equal(await page.locator('#stage').getAttribute('data-camera-motion'), 'static');
     await seek(5, scenes[5].duration - 220);
-    assertContacts(await snapshot('14-reduced-motion', true));
+    const reducedCarry = await snapshot('14-reduced-motion', true);
+    assertContacts(reducedCarry);
+    assertForearmDrape(reducedCarry);
     assert.equal(await page.locator('#stage').getAttribute('data-shawl'), 'folded');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
 
@@ -321,7 +415,7 @@ async function run() {
     assert.deepEqual(report.errors, []);
     assert.deepEqual(report.consoleErrors.filter(text => /<path>|<g>|NaN|Infinity|Error:/.test(text)), []);
     report.passed = true;
-    console.log('PASS Mission 08: native UMTO traveller, knee-length shawl, covered upper arms, continuous hand contacts, finite poses, 13 aligned recordings, mobile, reduced motion, review and compilation readiness.');
+    console.log('PASS Mission 08: native UMTO traveller, knee-length shawl, covered upper arms, forearm carry, continuous hands and feet, finite poses, 13 aligned recordings, mobile, reduced motion, review and compilation readiness.');
   } catch (error) {
     report.passed = false;
     report.failure = error.stack || String(error);

@@ -127,11 +127,11 @@
   // hangs from the two hands, folds, and settles across the near forearm.
   // The asymmetric long end reaches the resting knee plane.
   const wornCloth = [
-    [-.62,-.03],[-.59,-.13],[-.41,-.14],[-.28,-.06],
-    [-.16,.05],[-.08,.11],[.02,.10],[.18,.08],[.34,-.05],[.45,-.08],
-    [.70,-.02],[.86,.13],[.78,.30],[.72,.55],[.78,.90],[.70,.99],
+    [-.77,-.03],[-.70,-.13],[-.41,-.14],[-.28,-.06],
+    [-.16,.05],[-.08,.11],[.02,.10],[.18,.08],[.34,-.05],[.53,-.08],
+    [.90,-.02],[1.12,.13],[.84,.30],[.72,.55],[.78,.90],[.70,.99],
     [.56,1.07],[.26,1.03],[.20,.97],[.13,.70],[-.20,.60],[-.50,.63],
-    [-.68,.66],[-.78,.24],[-.62,-.03]
+    [-.30,.66],[-1.46,.24],[-.77,-.03]
   ];
   const clothOutline = [[0,0],[.12,-.03],[.25,.02],[.33,.02],[.45,.04],[.55,.04],[.67,.02],
     [.8,0],[.9,-.03],[1,0],[1.02,.2],[.98,.42],[.99,.55],
@@ -154,6 +154,17 @@
     return t < .5 ? curve(cloth[9],cloth[10],cloth[11],cloth[12],t*2)
       : curve(cloth[12],cloth[13],cloth[14],cloth[15],(t-.5)*2);
   }
+  function topPoint(cloth,t) {
+    const segment=Math.min(2,Math.floor(t*3)),index=segment*3;
+    return curve(cloth[index],cloth[index+1],cloth[index+2],cloth[index+3],t*3-segment);
+  }
+  const svgMatrix=node=>DOMMatrix.fromMatrix(node.transform.baseVal.consolidate()?.matrix||new DOMMatrix());
+  const blendMatrix=(a,b,t)=>new DOMMatrix(['a','b','c','d','e','f'].map(key=>mix(a[key],b[key],t)));
+  const numberPattern=/[-+]?(?:\d*\.\d+|\d+)(?:e[-+]?\d+)?/gi;
+  function blendPath(rest,moving,t) {
+    const values=rest.match(numberPattern).map(Number);let i=0;
+    return moving.replace(numberPattern,value=>mix(values[i++],Number(value),t).toFixed(4));
+  }
 
   class WindStage {
     constructor(svg) {
@@ -166,6 +177,8 @@
       this.puppets = { traveller: this.performer };
       this.shawlLength = null;
       this.walkSpeed = null;
+      this.standingLegs = this.legSnapshots();
+      this.fullWalkFrame = null;
     }
 
     select(scene) {
@@ -251,6 +264,38 @@
         .matrixTransform(this.svg.getScreenCTM().inverse());
     }
 
+    legSnapshots() {
+      return [...this.performer.torso.querySelectorAll('[data-rig-leg]')].map(leg=>{
+        const knee=svgMatrix(leg.querySelector('[data-rig-knee]'));
+        return {side:leg.dataset.rigLeg,node:leg,path:leg.querySelector('[data-leg-surface]').getAttribute('d'),
+          details:svgMatrix(leg.querySelector('[data-moving-leg-details]')),knee,
+          ankle:knee.multiply(svgMatrix(leg.querySelector('[data-rig-ankle]'))),
+          foot:svgMatrix(leg.querySelector('[data-rig-foot]'))};
+      });
+    }
+
+    settleWalking(frame,weight) {
+      if(frame==null){this.fullWalkFrame=null;return;}
+      const legs=[...this.performer.torso.querySelectorAll('[data-rig-leg]')];
+      if(frame!==this.fullWalkFrame||this.walkLeg!==legs[0]){
+        this.fullWalkLegs=this.legSnapshots();this.fullWalkFrame=frame;this.walkLeg=legs[0];
+      }
+      // Blend the shared leg contours and joint frames into the standing pose
+      // at the existing entry/exit envelope. Interpolate the ankle in leg space,
+      // then derive its local transform, keeping planted soles level throughout.
+      for(const leg of legs){
+        const rest=this.standingLegs.find(p=>p.side===leg.dataset.rigLeg);
+        const moving=this.fullWalkLegs.find(p=>p.side===leg.dataset.rigLeg);
+        const knee=blendMatrix(rest.knee,moving.knee,weight);
+        const ankle=blendMatrix(rest.ankle,moving.ankle,weight);
+        leg.querySelector('[data-leg-surface]').setAttribute('d',blendPath(rest.path,moving.path,weight));
+        transform(leg.querySelector('[data-moving-leg-details]'),matrixString(blendMatrix(rest.details,moving.details,weight)));
+        transform(leg.querySelector('[data-rig-knee]'),matrixString(knee));
+        transform(leg.querySelector('[data-rig-ankle]'),matrixString(knee.inverse().multiply(ankle)));
+        transform(leg.querySelector('[data-rig-foot]'),matrixString(blendMatrix(rest.foot,moving.foot,weight)));
+      }
+    }
+
     handOverlay(index, contact, visible) {
       const hand=this.performer.arms[index].querySelector('[data-action-hand]');
       const overlay=this.parts[index ? 'shawl-right-hand' : 'shawl-left-hand'];
@@ -297,14 +342,20 @@
         const loose=clamp((y-.16)/.84),q=at(x*(1-pose.clutched*.075*loose),y);
         return point(q.x+flutter*loose*(1-pose.clutched*.58),q.y-pose.clutched*7*loose);
       });
-      let held=blendCloth(drape(at(-.34,.34),at(.36,.34),length*.78),
+      let held=blendCloth(drape(at(-.34,.44),at(.36,.44),length*.68),
         drape(at(-.15,.44),at(.32,.44),length*.38),pose.folding);
-      held=blendCloth(held,drape(at(-.35,.43),at(.15,.47),length*.48),pose.carry);
+      // Lay the folded shawl along the near forearm. The near hand slides
+      // across the folded top edge as the far hand lets go, and ends at its
+      // right corner; the doubled cloth rests across the elbow-to-wrist span.
+      held=blendCloth(held,drape(at(-.52,.17),at(.18,.30),length*.44),pose.carry);
       const cloth=blendCloth(wrapped,held,pose.takeOff);
-      const contacts=[sidePoint(cloth,0,.59*(1-pose.takeOff)),sidePoint(cloth,1,.55*(1-pose.takeOff))];
-      const release=smooth(clamp((pose.carry-.55)/.45));
-      nativePose.grips=contacts.map((target,index)=>({target,weight:index?1-release:1,hand:'pinch',elbow:'down'}));
+      const edgeSlide=Math.pow(1-pose.takeOff,.55);
+      const contacts=[pose.carry>0?topPoint(cloth,smooth(pose.carry)):sidePoint(cloth,0,.59*edgeSlide),
+        sidePoint(cloth,1,.55*edgeSlide)];
+      const release=smooth(clamp((pose.carry-.12)/.43));
+      nativePose.grips=contacts.map((target,index)=>({target,weight:index?1-release:1,hand:'pinch',elbow:'up'}));
       actor.paint(nativePose,ms,speech,still);
+      this.settleWalking(nativePose.walk,still?0:pose.walking);
       // Keep cloth above both sleeves but below the native beard and head.
       // Character.mountArms restores props between the arms after a walk, so
       // reattach here and undo every enclosing rig/root transform explicitly.
@@ -315,6 +366,9 @@
       p['shawl-main'].setAttribute('d',clothPath(cloth));
       p['shawl-front-fold'].setAttribute('d',`M${q(6)}Q${q(8)} ${q(9)}C${q(10)} ${q(11)} ${q(12)}C${q(13)} ${q(14)} ${q(15)}Q${q(17)} ${q(18)}Q${q(7)} ${q(6)}Z`);
       p['shawl-fold-line'].setAttribute('d',`M${q(1)}Q${q(6)} ${q(9)}M${q(23)}Q${q(18)} ${q(13)}M${q(11)}Q${q(12)} ${q(14)}`);
+      const foldRidge=Array.from({length:10},(_,i)=>{const a=topPoint(cloth,i/9);return `${i?'L':'M'}${a.x} ${a.y+mix(2.5,6,pose.carry)}`;}).join(' ');
+      p['shawl-double-fold'].setAttribute('d',foldRidge);
+      opacity(p['shawl-double-fold'],pose.folding);
       const hem=`M${q(21)}C${q(20)} ${q(19)} ${q(18)}C${q(17)} ${q(16)} ${q(15)}`;
       p['shawl-hem'].setAttribute('d',hem);
       p['shawl-hem-stitch'].setAttribute('d',hem);
