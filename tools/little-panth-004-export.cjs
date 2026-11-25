@@ -80,7 +80,7 @@ async function buildTimeline(work) {
       throw Error('Recording length changed for ' + beat.id);
     }
     chunks.push(pcm, Buffer.alloc(frameCount * samplesPerFrame * 2 - pcm.length));
-    const reading = makeReading(beat.pa, track.durationMs, track.words);
+    const reading = makeReading(beat.pa, track.durationMs, track.words, beat.layout);
     scenes.push({ index, frameCount, offset, durationMs, beat, phrases: reading.phrases });
     offset += durationMs;
   }
