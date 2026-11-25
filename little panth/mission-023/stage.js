@@ -21,9 +21,10 @@
   const mouth = point(650, 514);
   const jarFoot = point(650, 577);
   const inJar = point(650, 545);
-  const stuck = point(650, 530);
+  // The loaded fist stops against the narrow throat; only the fingers can pass.
+  const stuck = point(650, 526);
   const outOfJar = point(650, 493);
-  const onJar = point(650, 504);
+  const onJar = point(650, 510);
   const lidRest = point(696, 565);
   const braces = point(682, 541);
   const blue = point(579, 576);
@@ -140,7 +141,7 @@
         const reach = motion(c.enter - 710, c.enter - 340);
         const target = between(outOfJar, between(inJar, stuck, pull), enter);
         frame.tilt = still ? 0 : 3.1 * Math.sin(ms / 108) * pulse(c.pull - 140, c.pull + 180, c.stuck + 190, c.stuck + 710);
-        if (reach > 0) grip(mehar, jarPosition(target, frame.tilt), reach, ms < c.take ? 'open' : 'fist', true);
+        if (reach > 0) grip(mehar, jarPosition(target, frame.tilt), reach, ms < c.take ? 'relaxed' : 'fist', true);
         if (ms >= c.take) [0, 1, 2, 3, 4].forEach(atHand);
         frame.mode = ms < c.pull ? 'open' : 'stuck';
         break;
@@ -192,7 +193,7 @@
           const lifted = between(reach, outOfJar, drawing);
           const goal = between(lifted, blueOver, second);
           mehar.mirror = ms >= c.again + 440;
-          grip(mehar, goal, 1, ms < c.again ? 'open' : ms < c.blue ? 'pinch' : 'open', ms < c.again + 440);
+          grip(mehar, goal, 1, ms < c.again ? 'relaxed' : ms < c.blue ? 'pinch' : 'open', ms < c.again + 440);
         }
         intoBowl(3, green, c.green, 0);
         intoBowl(4, green, c.green, 1);
