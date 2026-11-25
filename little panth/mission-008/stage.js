@@ -128,10 +128,10 @@
   // The asymmetric long end reaches the resting knee plane.
   const wornCloth = [
     [-.77,-.03],[-.70,-.13],[-.41,-.14],[-.28,-.06],
-    [-.16,.05],[-.08,.11],[.02,.10],[.18,.08],[.34,-.05],[.53,-.08],
-    [.90,-.02],[1.12,.13],[.84,.30],[.72,.55],[.78,.90],[.70,.99],
+    [-.16,.05],[-.08,.11],[.02,.10],[.18,.08],[.34,-.05],[.45,-.08],
+    [.70,-.02],[.86,.13],[.78,.30],[.72,.55],[.78,.90],[.70,.99],
     [.56,1.07],[.26,1.03],[.20,.97],[.13,.70],[-.20,.60],[-.50,.63],
-    [-.30,.66],[-1.46,.24],[-.77,-.03]
+    [-.30,.66],[-1.25,.24],[-.77,-.03]
   ];
   const clothOutline = [[0,0],[.12,-.03],[.25,.02],[.33,.02],[.45,.04],[.55,.04],[.67,.02],
     [.8,0],[.9,-.03],[1,0],[1.02,.2],[.98,.42],[.99,.55],
@@ -353,7 +353,7 @@
       const contacts=[pose.carry>0?topPoint(cloth,smooth(pose.carry)):sidePoint(cloth,0,.59*edgeSlide),
         sidePoint(cloth,1,.55*edgeSlide)];
       const release=smooth(clamp((pose.carry-.12)/.43));
-      nativePose.grips=contacts.map((target,index)=>({target,weight:index?1-release:1,hand:'pinch',elbow:'up'}));
+      nativePose.grips=contacts.map((target,index)=>({target,weight:index?1-release:1,hand:'pinch',elbow:index?'down':'up'}));
       actor.paint(nativePose,ms,speech,still);
       this.settleWalking(nativePose.walk,still?0:pose.walking);
       // Keep cloth above both sleeves but below the native beard and head.

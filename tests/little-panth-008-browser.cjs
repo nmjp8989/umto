@@ -423,6 +423,44 @@ async function run() {
       await page.screenshot({ path: output + '/99-failure.png', fullPage: true }).catch(() => {});
       report.lastState = await page.evaluate(() => window.lp008Test?.state()).catch(() => null);
       report.lastGeometry = await page.evaluate(renderedGeometry).catch(() => null);
+      // Keep the original failing frame above, but collect the later poses too
+      // so an early assertion cannot hide the remaining visual review evidence.
+      report.failurePoses = [];
+      const poses = await page.evaluate(() => {
+        const scenes = window.lp008Test?.state().scenes;
+        const index = scenes?.findIndex(scene => scene.id === 'fold');
+        if (index == null || index < 0) return [];
+        const scene = scenes[index], line = scene.lines.find(line => line.id === 'fold-shawl');
+        const word = line?.reading.words.findIndex(value => value.replace(/[\p{P}\p{S}]/gu, '') === 'ਤਹਿ');
+        if (word == null || word < 0) return [];
+        const folding = line.start + line.reading.timings[word][0];
+        return [
+          { name: 'off-shoulders', index, ms: folding - 160 },
+          { name: 'folding', index, ms: folding + 230 },
+          { name: 'final-carry', index, ms: scene.duration - 220 }
+        ];
+      }).catch(() => []);
+      for (const pose of poses) {
+        const diagnostic = { ...pose };
+        try {
+          await page.evaluate(({ index, ms }) => window.lp008Test.seek(index, ms), pose);
+          await page.screenshot({ path: output + '/99-diagnostic-' + pose.name + '.png', fullPage: true });
+          diagnostic.geometry = await page.evaluate(renderedGeometry);
+          const person = await page.locator('#traveller').boundingBox(), cloth = await page.locator('#shawl-main').boundingBox();
+          const movie = await page.locator('#movie').boundingBox(), viewport = page.viewportSize();
+          const x = Math.max(0, movie.x, Math.min(person.x, cloth.x) - 24);
+          const y = Math.max(0, movie.y, Math.min(person.y, cloth.y) - 24);
+          const right = Math.min(viewport.width, movie.x + movie.width, Math.max(person.x + person.width, cloth.x + cloth.width) + 24);
+          const bottom = Math.min(viewport.height, movie.y + movie.height, Math.max(person.y + person.height, cloth.y + cloth.height) + 24);
+          if (right > x && bottom > y) {
+            await page.screenshot({ path: output + '/99-diagnostic-' + pose.name + '-pose.png',
+              clip: { x, y, width: right - x, height: bottom - y } });
+          }
+        } catch (diagnosticError) {
+          diagnostic.error = String(diagnosticError);
+        }
+        report.failurePoses.push(diagnostic);
+      }
     }
     throw error;
   } finally {
