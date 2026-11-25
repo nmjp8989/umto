@@ -77,26 +77,28 @@
       object.y + x * Math.sin(angle) + y * Math.cos(angle), object.angle);
   }
 
-  function grip(actor, index, target, weight = 1, hand, elbow) {
+  // Keep the elbows below the shoulders for the children's waist-height
+  // grips. The mirrored arm roots already handle left/right anatomy.
+  function grip(actor, index, target, weight = 1, hand, elbow = 'down') {
     actor.grips[index] = { target, weight, hand, elbow };
   }
 
-  function couple(actor, object, span, weight = 1, bend = 0, elbow) {
+  function couple(actor, object, span, weight = 1, bend = 0, elbow = 'down') {
     const y = 2 - bend * (1 - (span / 67) ** 2);
     grip(actor, 0, offsetAt(object, -span, y), weight, 'fist', elbow);
     grip(actor, 1, offsetAt(object, span, y), weight, 'fist', elbow);
   }
 
-  function stageStick(position, ms, take, snap, move) {
-    const picked = move(phase(ms, take, take + 540));
+  function stageStick(position, ms, take, snap, move, recoil = 8, spread = 16) {
+    const picked = move(phase(ms, take + 180, take + 740));
     const flex = ease(phase(ms, snap - 375, snap));
     const separated = move(phase(ms, snap, snap + 255));
     const split = ms >= snap;
     return {
       position, snap, split, picked, visible: clamp(phase(ms, take - 170, take)),
       halves: [
-        point(-16 * separated, 8 * separated, 9 * flex - 22 * separated),
-        point(16 * separated, 8 * separated, -9 * flex + 23 * separated)
+        point(-spread * separated, recoil * separated, 9 * flex - 22 * separated),
+        point(spread * separated, recoil * separated, -9 * flex + 23 * separated)
       ]
     };
   }
@@ -104,7 +106,7 @@
   function holdStick(actor, stick, weight) {
     for (const [i, half] of stick.halves.entries()) {
       const local = offsetAt(half, i === 0 ? -38 : 38, 1);
-      grip(actor, i, offsetAt(stick.position, local.x, local.y), weight);
+      grip(actor, i, offsetAt(stick.position, local.x, local.y), weight, 'fist', 'down');
     }
   }
 
@@ -114,21 +116,24 @@
     const step = move(phase(ms, take - 600, take - 40)) * (1 - move(phase(ms, setDown + 110, setDown + 590)));
     const lift = move(phase(ms, take + 100, squeeze - 80)) * (1 - move(phase(ms, squeeze + 425, setDown)));
     const hold = ease(phase(ms, take - 90, take + 110)) * (1 - ease(phase(ms, setDown + 15, setDown + 240)));
-    const press = Math.sin(Math.PI * phase(ms, squeeze - 120, squeeze + 530));
+    const press = Math.sin(Math.PI * phase(ms, squeeze - 120, squeeze + 630));
     const weight = lift * step;
     actor.x = mix(actor.x, layout.near, step) + (layout.lifted - layout.near) * weight;
     actor.bend = layout.lean * (step - .55 * weight);
     if (ms > take - 600 && ms < take - 40) actor.walk = (ms - take + 600) / 1000;
     if (ms > setDown + 110 && ms < setDown + 590) actor.walk = -(ms - setDown - 110) / 1000;
-    bundle.position = point(mix(onStool.x, layout.center, weight), mix(onStool.y, 489, weight),
-      mix(onStool.angle, layout.lean * .6, weight) + (still ? 0 : Math.sin(ms / 72) * 2.2 * press));
+    bundle.position = point(mix(onStool.x, layout.center, weight), mix(onStool.y, 515, weight),
+      mix(onStool.angle, layout.lean * .45, weight) + (still ? 0 : Math.sin(ms / 150) * .65 * press));
     bundle.owner = lift > .02 ? layout.id : 'stool';
-    bundle.flex = 7.6 * press * lift;
-    couple(actor, bundle.position, 49, hold, bundle.flex);
+    bundle.flex = 4.2 * press * lift;
+    couple(actor, bundle.position, mix(45, 48, press * lift), hold, bundle.flex);
     return Math.max(lift, hold);
   }
 
-  function sceneState(scene, cue, ms, still, speaker) {
+  function sceneState(scene, cue, ms, still, speech) {
+    const speaker = speech.speaker;
+    const gestureWeight = ease(phase(ms, speech.start, speech.start + 340)) *
+      (1 - ease(phase(ms, speech.end - 320, speech.end + 80)));
     const move = t => still ? Math.round(t) : ease(t);
     const actor = (x, y) => ({ x, y, lean: 0, bend: 0, grips: [], quietHands: true });
     const mehar = actor(408, 622);
@@ -223,16 +228,16 @@
           owner: coil > .97 ? 'stool' : 'dadi' };
         const setups = [
           { actor: mehar, take: cue.leftTake, snap: cue.leftSnap, start: point(535, 496, -7), end: point(452, 497, -6) },
-          { actor: boy, take: cue.rightTake, snap: cue.rightSnap, start: point(636, 493, 1), end: point(743, 499, 6) }
+          { actor: boy, take: cue.rightTake, snap: cue.rightSnap, start: point(636, 493, 1), end: point(743, 519, 6), recoil: -16, spread: 12 }
         ];
-        sticks = setups.map(({ actor, take, snap, start, end }) => {
-          const pickup = move(phase(ms, take, take + 540));
+        sticks = setups.map(({ actor, take, snap, start, end, recoil, spread }) => {
+          const pickup = move(phase(ms, take + 180, take + 740));
           const step = move(phase(ms, take - 680, take - 60));
           actor.x = mix(actor.x, mix(start.x, end.x, pickup), step);
           if ((step > 0 && step < 1) || (pickup > 0 && pickup < 1)) actor.walk = (ms - take + 680) / 1000;
           const position = point(mix(start.x, end.x, pickup), mix(start.y, end.y, pickup), mix(start.angle, end.angle, pickup));
-          const stick = stageStick(position, ms, take, snap, move);
-          holdStick(actor, stick, ease(phase(ms, take - 120, take + 270)));
+          const stick = stageStick(position, ms, take, snap, move, recoil, spread);
+          holdStick(actor, stick, ease(phase(ms, take - 170, take + 150)));
           return stick;
         });
         break;
@@ -244,9 +249,9 @@
         sticks = [point(550, 501, -16), point(642, 510, 10)].map(position =>
           ({ position, split: true, visible: 1, picked: 0, halves: [point(-12, 2, -12), point(12, 3, 11)] }));
         if (scene.id === 'lesson') {
-          if (speaker === 'dadi') grip(dadi, 1, offsetAt(onStool, 52, -20), .76);
-          if (speaker === 'mehar') grip(mehar, 1, point(472, 475), .68);
-          if (speaker === 'boy') grip(boy, 0, point(725, 479), .65);
+          if (speaker === 'dadi') grip(dadi, 1, offsetAt(onStool, 46, -12), .72 * gestureWeight, 'open');
+          if (speaker === 'mehar') grip(mehar, 1, point(462, 478), .66 * gestureWeight, 'open');
+          if (speaker === 'boy') grip(boy, 0, point(735, 480), .64 * gestureWeight, 'open');
         } else {
           const throwTime = Math.min(cue.roll + 1260, cue.catch);
           const forward = move(phase(ms, cue.roll, throwTime));
@@ -292,7 +297,7 @@
           ? { preset: 'medium', focus: { x: 600, y: 396 }, width: 390 }
           : { preset: 'two-shot', focus: { x: 591, y: 443 }, width: 935 };
       } else if (id === 'try-bundle' && state.focusChild && !this.reduced.matches) {
-        shot = { preset: 'medium', focus: { x: state.focusChild === 'mehar' ? 514 : 672, y: 440 }, width: 743 };
+        shot = { preset: 'two-shot', focus: { x: 650, y: 440 }, width: 960 };
       } else if (id === 'lesson' && line.speaker === 'dadi') {
         shot = { preset: 'medium', focus: { x: 588, y: 407 }, width: 615 };
       } else if (id === 'loose-sticks') {
@@ -356,7 +361,7 @@
     }
 
     draw(ms, line, word) {
-      const state = sceneState(this.scene, this.cues, ms, this.reduced.matches, line.speaker);
+      const state = sceneState(this.scene, this.cues, ms, this.reduced.matches, line);
       this.frame(ms, line, state);
       this.objects(state, ms);
       const still = this.reduced.matches;

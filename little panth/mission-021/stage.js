@@ -8,6 +8,12 @@
   };
   const ns = 'http://www.w3.org/2000/svg';
   const metals = ['gold', 'silver', 'iron'];
+  // Episode-only appearances keep the shared Studio presets unchanged.
+  const appearances = {
+    'elder-baldev': { beard: 'flowing', facialHair: 'beard_flowing', moustache: 'thick' },
+    'adult-anaya': { shirt: 'salwarChunni', shirtColour: '#438b90',
+      trouserColour: '#d5e3d6', shoeColour: '#c39a61', bottom: 'salwar' }
+  };
   const phase = (n, a, b) => Math.min(1, Math.max(0, (n - a) / Math.max(1, b - a)));
   const ease = t => t * t * (3 - 2 * t);
   const mix = (a, b, t) => a + (b - a) * t;
@@ -292,6 +298,16 @@
       this.puppets = Object.fromEntries(Object.entries(cast).map(([id, spec]) => [
         id, new Character(studio, svg, this.parts[id], this.parts[id + '-props'], spec)
       ]));
+      const circlet = document.createElementNS(ns, 'g');
+      circlet.dataset.fairyCirclet = '';
+      circlet.innerHTML = '<path d="M452 403Q627 358 800 403L790 426Q627 384 462 426Z" fill="#d8b264" stroke="#8f754a" stroke-width="5"/>' +
+        '<path d="M546 390Q563 334 599 355Q606 326 627 307Q648 327 655 355Q691 333 708 389Q627 367 546 390Z" fill="#e5d89b" stroke="#9e8152" stroke-width="5"/>' +
+        '<path d="M627 330Q608 353 610 373Q627 385 645 373Q646 353 627 330Z" fill="#5fa9a7" stroke="#f6e6b3" stroke-width="4"/>' +
+        '<path d="M475 414Q627 380 778 414" fill="none" stroke="#fff1bf" stroke-width="5"/>' +
+        '<circle cx="536" cy="400" r="8" fill="#e2efce"/><circle cx="717" cy="400" r="8" fill="#e2efce"/>';
+      this.puppets.pari.node.layers.headwearFront.append(circlet);
+      this.parts.baldev.dataset.beard = 'flowing';
+      this.parts.pari.dataset.costume = 'river-fairy';
       this.sparkles = Array.from({ length: 17 }, (_, index) => {
         const line = document.createElementNS(ns, 'path');
         line.setAttribute('d', 'M0 0Q13-3 ' + (22 + index % 5 * 8) + ' -3');
@@ -379,6 +395,13 @@
         opacity(shadow, pose.visible);
         if (pose.visible > 0) puppet.paint(pose, ms, line.speaker === id ? spoken : null, still);
         else p[id].dataset.speaking = 'false';
+        if (id === 'pari') {
+          const breathe = still ? 0 : Math.sin(ms / 1450) * 1.4;
+          transform(p['pari-wings'], translated(point(pose.x, pose.y)) +
+            ' rotate(' + pose.lean + ') translate(0 -151) scale(' + (still ? 1 : 1 + .025 * Math.sin(ms / 1150)) + ' 1) translate(0 151)');
+          transform(p['pari-aura'], translated(point(pose.x, pose.y + breathe)));
+          opacity(p['pari-aura'], .68 + state.shine * .32);
+        }
       }
 
       for (const metal of metals) this.paintProp(p[metal + '-axe'], state.tools[metal], true);
@@ -401,7 +424,15 @@
   }
 
   async function prepare() {
-    studio = await open(document.getElementById('woodcutter-studio'));
+    const frame = document.getElementById('woodcutter-studio');
+    const shared = await open(frame);
+    // The same-origin renderer can rebuild an actor from an altered appearance.
+    // Keeping this adapter here gives this story its own beard and fairy costume.
+    studio = { ...shared, create(preset, view, index) {
+      const { actor } = shared.create(preset, view, index);
+      Object.assign(actor.appearance, appearances[preset]);
+      return { actor, node: frame.contentWindow.createSceneActor(actor, index) };
+    } };
   }
 
   window.LittlePanthStage = { Stage: RiverStage, eventsFor, prepare };

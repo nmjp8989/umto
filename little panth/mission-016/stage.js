@@ -22,10 +22,9 @@
   const storkJugSip = point(storkJug.x - 3, storkJug.y - 83, -82);
   const foxHeadPivot = point(42, -124);
   const tongueTip = point(78, 25);
-  const noseTip = point(103, -4);
+  const noseTip = point(96, -7);
   const beakLength = 124;
   const sharedFox = point(500, 626);
-  let foxArt;
 
   function lineFor(scene, id) {
     return scene.lines.find(line => line.id === id);
@@ -209,8 +208,7 @@
       this.svg = svg;
       this.camera = new window.UmtoCamera.DeliveryCamera(svg);
       this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-      svg.querySelector('defs').append(document.importNode(foxArt.fur, true));
-      svg.querySelector('#fox-mount').append(document.importNode(foxArt.fox, true));
+      window.LittlePanthFox.mount(svg, svg.querySelector('#fox-mount'));
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
       const p = this.parts;
       p['fox-head'].append(p['fox-tongue']);
@@ -272,21 +270,11 @@
       transform(p['fox-face-plane'], body);
       p['fox-shadow'].setAttribute('cx', pose.x - 37);
       p['fox-shadow'].setAttribute('cy', pose.y + 2);
-      transform(p['fox-rear-far'], 'rotate(' + (-stride * .8) + ' -77 -84)');
-      transform(p['fox-rear-near'], 'rotate(' + (stride * .83) + ' -76 -88)');
-      transform(p['fox-front-far'], 'rotate(' + stride + ' 29 -104)');
-      transform(p['fox-front-near'], 'rotate(' + (-stride) + ' 52 -101)');
-      transform(p['fox-tail'], 'rotate(' + (still ? 0 : 4 * Math.sin(ms / 408) + .25 * stride) + ' -83 -89)');
-      transform(p['fox-head'], 'translate(' + foxHeadPivot.x + ' ' + foxHeadPivot.y + ') rotate(' + pose.angle + ')');
-      transform(p['fox-brow'], 'rotate(' + (14 * pose.effort) + ' 39 -31)');
-      transform(p['fox-ears'], 'rotate(' + (-7 * pose.effort) + ' -6 -44)');
-      const blink = !still && (ms + 530) % 4770 > 4630;
-      opacity(p['fox-eye'], blink ? 0 : 1);
-      opacity(p['fox-lid'], blink ? 1 : 0);
+      window.LittlePanthFox.draw(p, {
+        walk: stride, head: pose.angle, worry: pose.effort, headMotion: false
+      }, ms, still, speaking, opening);
       const chewing = still ? 0 : pose.lapping * (2.6 + 2.6 * Math.sin(ms / 85));
-      transform(p['fox-jaw'], 'rotate(' + (speaking ? 14 * opening : chewing) + ' 20 8)');
-      transform(p['fox-mouth'], 'scale(1 ' + (.22 + opening * .95) + ')');
-      opacity(p['fox-mouth'], Number(speaking));
+      transform(p['fox-jaw'], 'rotate(' + (speaking ? 6 * opening : chewing) + ' 33 12)');
       opacity(p['fox-tongue'], speaking ? 0 : ease(phase(pose.lapping, .62, .95)));
       p.fox.dataset.speaking = String(speaking);
     }
@@ -367,13 +355,6 @@
     }
   }
 
-  async function prepare() {
-    const response = await fetch('../mission-009/art/stage.svg');
-    if (!response.ok) throw Error('The Little Panth fox could not be loaded.');
-    const art = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
-    foxArt = { fox: art.querySelector('#fox'), fur: art.querySelector('#fur') };
-    if (!foxArt.fox || !foxArt.fur) throw Error('The Little Panth fox artwork is incomplete.');
-  }
 
-  window.LittlePanthStage = { Stage: SupperStage, eventsFor, prepare };
+  window.LittlePanthStage = { Stage: SupperStage, eventsFor, prepare: window.LittlePanthFox.prepare };
 })();

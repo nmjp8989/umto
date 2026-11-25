@@ -11,6 +11,16 @@ const validId=id=>/^\d{3}$/.test(id),validName=name=>/^[A-Za-z0-9][A-Za-z0-9_-]{
 const normalize=name=>String(name||'').trim().replace(/\.(mp4|webm)$/i,'');
 const stamp=()=>new Date().toISOString();
 function persist(){return write(key,draft);}
+function reloadDraft(){
+ const saved=read(key,null);
+ if(!saved?.reviews||!Array.isArray(saved.exports))return;
+ // A restored contents page may predate a recording completed on another page.
+ // Merge instead of replacing so a failed storage write cannot discard newer
+ // owner decisions or recordings still held in this page's memory.
+ for(const [id,value] of Object.entries(saved.reviews))if(!draft.reviews[id]||String(value.changedAt)>=String(draft.reviews[id].changedAt))draft.reviews[id]=value;
+ const ids=new Set(draft.exports.map(e=>e.id));
+ for(const entry of saved.exports)if(!ids.has(entry.id)){draft.exports.push(entry);ids.add(entry.id);}
+}
 function review(id){const local=draft.reviews[id],remote=shared.reviews[id];const v=local&&(!remote||local.changedAt>=remote.changedAt)?local:remote;return v||{checked:false,approved:false,changedAt:''};}
 function setReview(id,checked,approved){if(!validId(id))throw Error('Invalid episode');draft.reviews[id]={checked:!!checked,approved:!!checked&&!!approved,changedAt:stamp()};return persist();}
 function exportsList(){const records=new Map(shared.exports.map(e=>[e.id,e]));for(const e of draft.exports)if(!records.has(e.id))records.set(e.id,e);return [...records.values()].sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));}
@@ -18,6 +28,7 @@ function exportedIn(id){return exportsList().filter(e=>e.episodes?.includes(id))
 function usedName(name){return exportsList().some(e=>e.name.toLowerCase()===normalize(name).toLowerCase());}
 function reconcile(){let dirty=false;for(const [id,v] of Object.entries(draft.reviews)){const remote=shared.reviews[id];if(remote&&remote.changedAt>=v.changedAt){delete draft.reviews[id];dirty=true;}}const ids=new Set(shared.exports.map(e=>e.id));const remaining=draft.exports.filter(e=>!ids.has(e.id));if(remaining.length!==draft.exports.length){draft.exports=remaining;dirty=true;}if(dirty)persist();}
 async function load(){
+ reloadDraft();
  const urls=['production-db.json'];
  if(location.hostname==='nmjp8989.github.io')urls.unshift('https://raw.githubusercontent.com/nmjp8989/umto/main/little%20panth/production-db.json?fresh='+Date.now());
  online=false;

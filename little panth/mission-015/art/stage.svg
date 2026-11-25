@@ -48,48 +48,56 @@
       <path d="M-54-78q19 1 36-14 16 10 36-4 28-9 54 6-24 4-44 11-18-4-36 6-30-5-46-5Z" fill="#b8bf7d" opacity=".57"/>
     </g>
 
-    <g id="goat-art" stroke="var(--goat-outline)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-      <ellipse cy="3" rx="90" ry="12" fill="url(#shadow)" stroke="none"/>
-      <g data-tail="">
-        <path d="M-66-63q-20 2-30-24-2-10 7-6 9 12 29 12Z" fill="var(--goat-accent)"/>
-      </g>
-      <g data-leg="back-far">
-        <path d="M-7-2q12-7 14 2L3 16l4 22-1 6H-7l-2-8 2-19Z" fill="var(--goat-shade)"/>
-        <path d="M-8 37q7 3 15-1v8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
-      </g>
-      <g data-leg="front-far">
-        <path d="M-9-3q9-7 17 1L5 23l1 19-2 2H-8l-2-10 1-15Z" fill="var(--goat-shade)"/>
-        <path d="M-9 37q7 3 15 0l-2 7H-8Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
-      </g>
-      <path d="M-80-70q12-21 42-19 29 3 50-2 19-2 37 4 17 11 15 29-3 17-30 24-55 11-94 0-21-8-20-36Z" fill="var(--goat-coat)"/>
-      <path d="M-72-68q23-15 51-9m10-1 30-1M-67-49q15 10 31 8" stroke="var(--goat-light)" stroke-width="3" fill="none" opacity=".85"/>
-      <g data-leg="back-near">
-        <path d="M-11-7q10-11 23-2L8 14 3 23l5 13-1 8H-6l-3-11-1-12 4-14Z" fill="var(--goat-coat)"/>
-        <path d="M-8 36q7 4 16 0l-1 8H-6Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
-      </g>
-      <g data-leg="front-near">
-        <path d="M-9-6q11-9 21 0L8 18 6 22l2 14-1 8H-7l-2-9 1-16Z" fill="var(--goat-coat)"/>
-        <path d="M-8 36q7 4 16 0l-1 8H-7Z" fill="var(--goat-hoof)" stroke-width="1.8"/>
-      </g>
-      <g data-head="">
-        <path d="M-10 8Q-4-9 2-28l25-5q8 15 12 41L28 30q-18 16-37 2Z" fill="var(--goat-coat)"/>
-        <path d="M12-28Q8-49-8-60 20-62 24-34m2 1q2-27 23-36-8 12-8 40"
-          fill="var(--goat-horn)" stroke="var(--goat-outline)"/>
-        <path d="M33-30q24-18 42-10-3 15-28 21Z" fill="var(--goat-shade)"/>
-        <path d="M9-20q19-12 37 0l13 19q19 5 20 13-2 12-22 15-26 4-43-8-16-10-5-39Z" fill="var(--goat-coat)"/>
-        <path d="M55 7q13-6 22 0 6 8-6 15-12 8-20 0-5-7 4-15Z" fill="var(--goat-accent)" stroke="none"/>
-        <path d="M45 22q7 8 9 17-9 0-13-5-7 2-9-11Z" fill="var(--goat-shade)"/>
-        <path d="M20-16q-6 0-14-7-8-6-21 0 2 18 21 22 15-1 17-8Z" fill="var(--goat-accent)"/>
-        <path d="M-9-18q10 2 17 7" stroke="var(--goat-light)" stroke-width="2.3" fill="none"/>
-        <path d="M56 19q9 3 15 0" stroke="var(--goat-outline)" stroke-width="1.9" fill="none"/>
-        <ellipse cx="66" cy="11" rx="3.3" ry="2" fill="#59423c" stroke="none"/>
-        <ellipse cx="45" cy="-6" rx="4.4" ry="4.9" fill="#fff4d8" stroke="none"/>
-        <ellipse cx="47" cy="-5.7" rx="2.7" ry="2" fill="#51433f" stroke="none"/>
-        <circle cx="48" cy="-7" r=".85" fill="#fff9e4" stroke="none"/>
-        <path d="M-6 21q19 10 34 0l1 8q-16 11-37 1Z" fill="var(--goat-collar)" stroke-width="1.6"/>
-        <path d="M13 31q5-2 8 2l3 11q-7 6-15 1l2-11Z" fill="#dfb972" stroke="#9a774e" stroke-width="1.8"/>
-      </g>
-    </g>
+    <!-- Smooth goat artwork reused from mission 031; each instance owns its clips. -->
+    <g xmlns="http://www.w3.org/2000/svg" id="goat-art" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
+ <defs><linearGradient id="goat-coat" x1=".25" y1="0" x2=".55" y2="1"><stop stop-color="#fff2d2"/><stop offset=".48" stop-color="#eedfbc"/><stop offset="1" stop-color="#d5ba94"/></linearGradient>
+    <linearGradient id="goat-face" x1=".15" y1=".1" x2=".85" y2="1"><stop stop-color="#fff4d8"/><stop offset=".56" stop-color="#f0e0bb"/><stop offset="1" stop-color="#ddc29b"/></linearGradient>
+    <linearGradient id="goat-horn" x1="0" y1=".1" x2="1" y2=".8"><stop stop-color="#e0cda9"/><stop offset=".5" stop-color="#bca17b"/><stop offset="1" stop-color="#927758"/></linearGradient>
+    <linearGradient id="goat-hoof" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#927761"/><stop offset="1" stop-color="#665247"/></linearGradient>
+    <linearGradient id="goat-bell" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#ffe1a0"/><stop offset=".5" stop-color="#d9ae60"/><stop offset="1" stop-color="#ac7d43"/></linearGradient>
+    <linearGradient id="goat-smooth-coat" gradientUnits="userSpaceOnUse" x1="-36" y1="-110" x2="38" y2="5"><stop stop-color="var(--goat-light)"/><stop offset=".5" stop-color="var(--goat-coat)"/><stop offset="1" stop-color="var(--goat-shade)"/></linearGradient>
+<linearGradient id="goat-smooth-head" x1=".18" y1=".1" x2=".85" y2="1"><stop stop-color="var(--goat-head-light)"/><stop offset=".6" stop-color="var(--goat-head)"/><stop offset="1" stop-color="var(--goat-head-shade)"/></linearGradient>
+<linearGradient id="goat-smooth-ear" x2=".3" y2="1"><stop stop-color="#f7d7bd"/><stop offset="1" stop-color="#c68d79"/></linearGradient>
+<linearGradient id="goat-smooth-horn" x1=".1" y1=".1" x2=".9" y2=".8"><stop stop-color="#ead2a7"/><stop offset=".5" stop-color="#c7a171"/><stop offset="1" stop-color="#9d784f"/></linearGradient>
+<linearGradient id="goat-smooth-hoof" gradientUnits="userSpaceOnUse" x1="0" y1="-13" x2="0" y2="3"><stop stop-color="#9a785b"/><stop offset="1" stop-color="#5e473d"/></linearGradient>
+<clipPath id="goat-body-clip"><path id="goat-clip-shape"/></clipPath>
+<clipPath id="goat-far-clip"><use href="#goat-far-back"/><use href="#goat-far-front"/></clipPath>
+</defs><ellipse cy="3" rx="83" ry="12" fill="url(#shadow)" stroke="none"/><g data-tail=""><path d="M-68-65C-92-67-101-87-91-103Q-89-89-76-84Q-74-89-75-94Q-61-82-65-70Z" fill="url(#goat-smooth-head)" stroke="var(--goat-outline)" stroke-width="1.5"/></g>
+ <path id="goat-far-back" data-leg="back-far" fill="var(--goat-shade)" stroke="var(--goat-outline)" stroke-width="1.4"/>
+ <path id="goat-far-front" data-leg="front-far" fill="var(--goat-shade)" stroke="var(--goat-outline)" stroke-width="1.4"/>
+ <path id="goat-far-hooves" fill="#785d4b" clip-path="url(#goat-far-clip)"/>
+ <path id="goat-body" fill="url(#goat-smooth-coat)" stroke="var(--goat-outline)" stroke-width="1.7"/>
+ <g clip-path="url(#goat-body-clip)">
+  <path d="M-77-70Q-70-89-41-87C-12-84 8-83 26-95Q22-83 12-77L22-80Q2-67-26-74L-21-79Q-49-86-77-70Z" fill="var(--goat-accent)" opacity=".87"/>
+  <path d="M-55-52Q-4-35 45-63Q20-30-31-37Z" fill="#c9a780" opacity=".22"/>
+  <path d="M31-92Q20-77 22-67L30-73 25-56 38-65 36-47Q56-65 57-90Z" fill="#fff2d7"/>
+  <path id="goat-near-hooves" fill="url(#goat-smooth-hoof)"/>
+  <path id="goat-hoof-splits" stroke="#59463a" stroke-width="1.15" fill="none"/>
+  <path id="goat-leg-shade" fill="#bc9a77" opacity=".22"/>
+ </g>
+ <g data-head="">
+  <path d="M10-24C-3-35-9-49-22-53C-15-66-1-61 8-50Q19-40 19-28Z" fill="url(#goat-smooth-horn)" stroke="#95734f" stroke-width="1.5"/>
+  <path d="M31-25C26-42 34-58 46-59Q53-55 51-49C44-51 42-38 44-27Z" fill="url(#goat-smooth-horn)" stroke="#95734f" stroke-width="1.5"/>
+  <path d="M-14-54l6 3m0 4 9 1m2 5 8-2M37-49l8 3m-10 5 8 2" fill="none" stroke="#a5845e" stroke-width="1.2" opacity=".7"/>
+  <g id="goat-ear-far"><path d="M39-25Q55-38 76-34Q72-17 52-13Z" fill="url(#goat-smooth-head)" stroke="var(--goat-outline)" stroke-width="1.4"/><path d="M48-25Q62-30 70-30Q64-20 54-19Z" fill="url(#goat-smooth-ear)"/></g>
+  <path d="M-4-17C-2-33 16-39 32-35C48-33 57-20 61-7Q63-3 72 0C83 6 84 17 74 25Q61 36 44 32Q26 34 12 23C0 15-7 1-4-17Z" fill="url(#goat-smooth-head)" stroke="var(--goat-outline)" stroke-width="1.7"/>
+  <path d="M11-31Q11-44 25-45Q21-40 30-38Q36-42 42-37Q35-30 28-28Q20-36 11-31Z" fill="var(--goat-accent)"/>
+  <g id="goat-ear-near"><path d="M16-19C4-26-12-25-24-14C-21-3-9 6 4 2Q16-3 20-13Z" fill="url(#goat-smooth-head)" stroke="var(--goat-outline)" stroke-width="1.5"/><path d="M10-16Q-5-21-17-13Q-10-4 0-5Q7-8 10-16Z" fill="url(#goat-smooth-ear)"/></g>
+  <g id="goat-jaw"><path d="M39 26Q53 29 65 24C61 34 57 43 48 46Q51 39 44 35Z" fill="url(#goat-smooth-head)" stroke="#ad9274" stroke-width="1.1"/><path d="M49 30Q56 31 59 29" stroke="#f9ead0" fill="none" stroke-width="1.8"/></g>
+  <path d="M51 5Q61-1 73 4Q83 9 78 18Q72 30 58 26Q48 24 46 16Q44 10 51 5Z" fill="#fff1d9"/>
+  <ellipse id="goat-mouth" cx="65" cy="21" rx="6.5" ry="1" fill="#754b3c" opacity="0"/>
+  <path d="M54 20Q65 27 75 19" fill="none" stroke="#8a614c" stroke-width="1.7"/>
+  <path d="M64 7Q72 4 77 9Q77 13 70 15Q64 13 64 7Z" fill="#94624b"/><path d="M70 15v4" stroke="#9d765e" fill="none" stroke-width="1.3"/>
+  <path id="goat-brow" d="M29-23Q39-31 49-24" fill="none" stroke="#8d6b4d" stroke-width="2.4"/>
+  <path id="goat-eye" d="M29-10Q30-24 43-23Q53-20 53-7Q43 2 29-10Z" fill="#fffdf0" stroke="#a78b6d" stroke-width="1.25"/>
+  <g id="goat-pupil"><ellipse cx="43" cy="-12" rx="7" ry="9" fill="#ad8954"/><ellipse cx="45" cy="-12" rx="4.7" ry="7" fill="#4f3b2c"/></g>
+  <circle id="goat-glint" cx="46.5" cy="-15.5" r="2.3" fill="#fffbee"/>
+  <path id="goat-lid" d="M31-11Q42-4 51-11" stroke="#806247" stroke-width="1.9" opacity="0" fill="none"/>
+  <ellipse cx="29" cy="11" rx="7" ry="3.6" fill="#d9a78c" opacity=".25"/>
+ </g>
+ <path id="goat-collar-band" fill="var(--goat-collar)" stroke="#674736" stroke-width="1"/>
+ <g id="goat-bell-pendant"><ellipse cx="44" cy="-48" rx="3.1" ry="3.8" fill="none" stroke="#b38848" stroke-width="2.2"/><path d="M37-39Q37-46 44-46Q51-46 51-39L54-33Q44-28 34-33Z" fill="url(#goat-bell)" stroke="#a17a46" stroke-width="1.2"/><path d="M38-34Q44-32 51-34" fill="none" stroke="#ffdc94" stroke-width="1.5"/><circle cx="44" cy="-31" r="2.4" fill="#8d6540"/></g>
+</g>
   </defs>
 
   <g data-camera-depth="-.22">

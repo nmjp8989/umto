@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#fff7e8"><meta name="description" content="ਸ਼ੇਰ ਤੇ ਚੂਹਾ · A lovingly animated Punjabi read-along story about kindness, courage and friendship.">
+<meta name="mission-revision" content="lion-mouse-organic-2">
 <title>Little Panth VI · ਸ਼ੇਰ ਤੇ ਚੂਹਾ</title>
 <link rel="stylesheet" href="../mission-004/style.css?v=storybook">
 <link rel="stylesheet" href="../mission-005/style.css?v=storybook">
@@ -51,6 +52,9 @@ body.reviewing #review-panel{display:block;background:#fffcf4;padding:18px;borde
   <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#9dbd67"/><stop offset=".7" stop-color="#7fa654"/><stop offset="1" stop-color="#608b4a"/></linearGradient>
   <radialGradient id="gold" cx=".48" cy=".2" r=".85"><stop stop-color="#ffe8ad"/><stop offset=".62" stop-color="#f1b766"/><stop offset="1" stop-color="#c67b3b"/></radialGradient>
   <radialGradient id="mane"><stop stop-color="#bb673a"/><stop offset=".68" stop-color="#9c4c2f"/><stop offset="1" stop-color="#733c2b"/></radialGradient>
+  <linearGradient id="lion-face-gold" x2=".3" y2="1"><stop stop-color="#ffe1a0"/><stop offset=".58" stop-color="#edb268"/><stop offset="1" stop-color="#d4934e"/></linearGradient>
+  <linearGradient id="mouse-fur" x1=".2" y1="0" x2=".65" y2="1"><stop stop-color="#d0c1ad"/><stop offset=".5" stop-color="#b4a18f"/><stop offset="1" stop-color="#8c7f78"/></linearGradient>
+  <linearGradient id="mouse-ear" x2=".2" y2="1"><stop stop-color="#e9bbb1"/><stop offset="1" stop-color="#ca9694"/></linearGradient>
   <linearGradient id="leaf" x2="1" y2="1"><stop stop-color="#9fbe65"/><stop offset="1" stop-color="#52854c"/></linearGradient>
   <linearGradient id="wood" x2="1" y2="1"><stop stop-color="#876344"/><stop offset="1" stop-color="#4c3c32"/></linearGradient>
   <radialGradient id="shade"><stop stop-color="#32472c" stop-opacity=".42"/><stop offset="1" stop-color="#30472c" stop-opacity="0"/></radialGradient>
@@ -107,38 +111,48 @@ body.reviewing #review-panel{display:block;background:#fffcf4;padding:18px;borde
  <ellipse id="lion-shadow" cx="842" cy="623" rx="168" ry="27" fill="url(#shade)"/>
  <ellipse id="mouse-shadow" cx="360" cy="628" rx="51" ry="13" fill="url(#shade)"/>
  <g id="lion" transform="translate(844 600)" stroke-linejoin="round" stroke-linecap="round">
-   <path id="tail" d="M87-119q140-61 153 20t-31 87" stroke="#c98943" stroke-width="23" fill="none"/>
-   <path d="M210-32q-23 15-23 35 28 16 42-2 8-18-19-33Z" fill="#8c4b31"/>
-   <ellipse cx="0" cy="-98" rx="139" ry="85" fill="url(#gold)" stroke="#b77a47" stroke-width="5"/>
-   <path d="M34-122q56-28 92 12" fill="none" stroke="#ffdc89" stroke-width="8" opacity=".55"/>
-   <path d="M-36-57q-17 40-8 75h38q17-23 19-61m80-18q7 35 1 78h38q8-24 3-68" fill="#d9984c" stroke="#b7753f" stroke-width="5"/>
-   <ellipse cx="-2" cy="17" rx="32" ry="13" fill="#f0b46e" stroke="#bc8249" stroke-width="4"/>
-   <ellipse cx="114" cy="19" rx="30" ry="13" fill="#e8af6c" stroke="#bc8249" stroke-width="4"/>
-   <g id="lion-paw" transform="rotate(0 -104 -70)">
-     <path d="M-90-70q-52 14-52 68 2 18 36 17 29-1 30-22l10-60Z" fill="#e5a65e" stroke="#ad683f" stroke-width="5"/>
-     <path d="M-126 9l3-9m14 14 3-12" stroke="#c48348" stroke-width="4"/>
+   <g id="tail">
+     <path d="M113-118C171-151 223-145 235-110S228-48 204-27" stroke="#af743e" stroke-width="17" fill="none"/>
+     <path d="M113-121C176-150 222-139 231-108S222-50 204-30" stroke="#edb163" stroke-width="10" fill="none"/>
+     <path d="M208-43C198-38 184-28 183-11Q195-14 200-8Q225-14 220-34L217-45L211-37Z" fill="#88462f" stroke="#713c2c" stroke-width="3"/>
    </g>
-   <g id="lion-face" transform="translate(-89 -133)">
-     <circle cx="-38" cy="-65" r="29" fill="#9b4f2e" stroke="#743c2d" stroke-width="5"/>
-     <circle cx="56" cy="-67" r="29" fill="#9b4f2e" stroke="#743c2d" stroke-width="5"/>
-     <ellipse cx="0" cy="0" rx="105" ry="111" fill="url(#mane)" stroke="#7d452c" stroke-width="7"/>
-     <path d="M-65-65q-35-25-34-3m178-9q15-31 27-14m-172 151q-24 21-4 36m118 1q34 13 42-9" fill="none" stroke="#c97d48" stroke-width="11" opacity=".55"/>
-     <ellipse cx="0" cy="-7" rx="76" ry="78" fill="#edb66e" stroke="#bd7a42" stroke-width="4"/>
-     <path d="M-38 24q-19 20-8 48 16 28 46 22 30 3 46-21 13-29-8-48Z" fill="#fbe3b4"/>
-     <path d="M-47-37q17-15 35-7m24-2q16-11 34 7" fill="none" stroke="#854932" stroke-width="6"/>
+   <path d="M-47-102C-58-70-60-26-57 9Q-54 24-18 22Q0 19-5 7L-22-3L-13-91Z" fill="#bf8346" stroke="#996239" stroke-width="4"/>
+   <path d="M78-112C102-99 109-66 103-40L94-3Q86 2 88 14Q105 23 129 17Q139 12 135 1L130-7L138-75Z" fill="#be8344" stroke="#996239" stroke-width="4"/>
+   <path d="M-105-147C-71-175-19-184 43-177C107-179 142-153 147-114C151-82 133-63 117-48L112-7C127-5 132 2 128 13C124 26 86 27 76 16C70 7 76-5 79-12L76-72C54-53 20-50-12-58C-46-52-82-62-101-83Z" fill="url(#gold)" stroke="#b47b42" stroke-width="4.5"/>
+   <path d="M-56-156C9-178 87-166 116-139" fill="none" stroke="#ffe0a0" stroke-width="9" opacity=".58"/>
+   <path d="M54-109C75-124 107-120 112-99C117-85 103-68 90-64" fill="none" stroke="#ca914d" stroke-width="4" opacity=".6"/>
+   <path d="M87 15l1-8m15 10 1-8m14 6 1-6" fill="none" stroke="#b77e49" stroke-width="2.6"/>
+   <g id="lion-paw">
+     <path d="M-119-115C-140-99-137-72-139-45L-146-5C-163-1-171 8-163 18C-156 29-115 29-104 19C-96 11-102 1-112-3L-96-56C-80-75-83-109-99-118Z" fill="url(#lion-face-gold)" stroke="#ad6b3e" stroke-width="4.5"/>
+     <path d="M-154 18l2-8m14 12 2-11m14 10 1-10" stroke="#c1874e" stroke-width="2.8" fill="none"/>
+   </g>
+   <g id="lion-face" transform="translate(-89 -143)">
+     <path d="M-71-76C-95-104-102-83-99-65L-114-52L-108-33Q-128-14-114 9L-117 35L-101 46L-104 68L-83 76L-78 98L-56 103L-43 121L-19 119L0 135L19 120L42 121L56 104L79 99L83 79L104 68L102 47L118 32L111 13Q125-9 112-30L117-51L101-64Q103-93 82-89L65-105L44-101L23-111L1-103L-20-112L-41-103L-61-104Z" fill="url(#mane)" stroke="#82462e" stroke-width="5"/>
+     <path d="M-73-53Q-99-76-86-91Q-70-100-57-71M59-73Q75-103 93-89Q104-74 78-51" fill="#d29353" stroke="#8f512f" stroke-width="4"/>
+     <path d="M-74-64Q-91-80-82-83Q-72-88-64-69M68-69Q79-89 87-82Q93-75 77-63" fill="#9d6042"/>
+     <g stroke="#d28a4c" stroke-width="3.5" opacity=".52" fill="none">
+       <path d="M-48-90Q-66-69-65-41M-88-35Q-100-5-88 22M-87 47Q-81 71-63 83M-49 91L-34 109M69-88Q83-65 81-44M96-20Q106 6 94 24M88 48Q84 70 64 87M45 97L32 110M-10 113L0 123"/>
+     </g>
+     <path d="M-65-45C-60-76-36-88-9-83Q9-90 32-79C61-74 73-53 72-21L63 23C56 54 35 77 2 79C-34 83-59 58-68 31L-74-4Z" fill="url(#lion-face-gold)" stroke="#bd7d43" stroke-width="3"/>
+     <path d="M-49-58Q-22-78-4-68Q20-78 45-57" fill="none" stroke="#ffe2aa" stroke-width="7" opacity=".75"/>
+     <path d="M-47-38Q-28-48-13-39M13-40Q31-49 48-36" fill="none" stroke="#8c552f" stroke-width="5"/>
      <g id="lion-eyes">
-      <ellipse cx="-29" cy="-24" rx="13" ry="17" fill="#fff6db"/><ellipse cx="28" cy="-24" rx="13" ry="17" fill="#fff6db"/>
-      <ellipse cx="-25" cy="-22" rx="5.7" ry="9" fill="#34352d"/><ellipse cx="25" cy="-22" rx="5.7" ry="9" fill="#34352d"/>
-      <circle cx="-27" cy="-26" r="2.2" fill="#fff"/><circle cx="23" cy="-26" r="2.2" fill="#fff"/>
+       <path d="M-46-24Q-30-40-14-24Q-27-8-43-17ZM14-24Q30-40 46-24Q35-8 18-17Z" fill="#fff1c8" stroke="#6b472e" stroke-width="2.3"/>
+       <ellipse cx="-30" cy="-24" rx="7.8" ry="10" fill="#bd8b39"/><ellipse cx="29" cy="-24" rx="7.8" ry="10" fill="#bd8b39"/>
+       <ellipse cx="-32" cy="-24" rx="4.2" ry="8" fill="#34352b"/><ellipse cx="27" cy="-24" rx="4.2" ry="8" fill="#34352b"/>
+       <circle cx="-33" cy="-27" r="2.1" fill="#fff"/><circle cx="26" cy="-27" r="2.1" fill="#fff"/>
      </g>
-     <g id="lion-sleep" opacity="1"><path d="M-43-23q13 14 28 0m29 0q14 14 28 0" stroke="#693e2d" stroke-width="5" fill="none"/></g>
-     <path d="M-19 24q17-15 39 0l-20 14Z" fill="#69443b"/>
-     <path d="M0 36v14" stroke="#674238" stroke-width="4"/>
-     <g id="lion-mouth" transform="translate(0 54) scale(1 0.1)">
-       <ellipse cx="0" cy="0" rx="24" ry="15" fill="#643d43"/><path d="M-19-1q19 9 38 0" fill="none" stroke="#f8d5ca" stroke-width="3"/>
-     </g>
-     <path d="M-1 48q-13 14-24 1m25-1q14 14 25 1" stroke="#7c503f" stroke-width="3.4" fill="none"/>
-     <g stroke="#fce8c0" stroke-width="2.3"><path d="M-25 42l-58-9m60 17-59 9m110-17 58-9m-58 17 59 9"/></g>
+     <g id="lion-sleep" opacity="1"><path d="M-45-23Q-30-11-14-23M14-23Q30-11 45-23" stroke="#70472f" stroke-width="4.5" fill="none"/></g>
+     <path d="M-14-19Q-28 1-26 23L26 23Q26 2 14-19" fill="#e3a45c" opacity=".62"/>
+     <path d="M-4 27C-15 10-40 14-46 32C-55 54-37 69-17 62Q0 72 16 62C39 72 58 53 47 31C39 13 15 11 4 27Z" fill="#fff0d0"/>
+     <path d="M-28 58Q-25 82 0 84Q26 82 29 59Q0 74-28 58" fill="#efd4a5"/>
+     <path d="M-20 22Q0 10 21 23Q17 38 1 40Q-15 35-20 22Z" fill="#644135"/>
+     <path d="M-12 22Q-1 18 11 22" fill="none" stroke="#9a6a50" stroke-width="3"/>
+     <path d="M0 39v12" stroke="#674238" stroke-width="3"/>
+     <g id="lion-mouth" transform="translate(0 54) scale(1 .1)"><path d="M-21-4Q0-10 21-4Q19 18 0 17Q-18 16-21-4" fill="#633c38"/><path d="M-11 10Q0 4 11 10L8 14H-8Z" fill="#d88e88"/></g>
+     <path d="M0 50Q-13 61-26 51M0 50Q14 61 27 51" stroke="#80513c" stroke-width="2.8" fill="none"/>
+     <g fill="#b88762"><circle cx="-29" cy="35" r="2"/><circle cx="-35" cy="43" r="1.8"/><circle cx="-23" cy="44" r="1.6"/><circle cx="29" cy="35" r="2"/><circle cx="35" cy="43" r="1.8"/><circle cx="23" cy="44" r="1.6"/></g>
+     <path d="M-31 39L-78 29M-34 47L-83 48M32 39L79 29M35 47L83 48" stroke="#fff0ca" stroke-width="1.9" fill="none"/>
    </g>
  </g>
  <g id="net" opacity="0" pointer-events="none">
@@ -152,21 +166,31 @@ body.reviewing #review-panel{display:block;background:#fffcf4;padding:18px;borde
   </g>
  </g>
  <ellipse cx="0" cy="0" rx="1" ry="1" fill="transparent"/>
- <g id="mouse" transform="translate(360 621)" stroke-linecap="round" stroke-linejoin="round">
-   <path id="mouse-tail" d="M-24-21Q-101-32-89-74q7-26 29-6" fill="none" stroke="#c58b90" stroke-width="10"/>
-   <ellipse cx="-5" cy="-29" rx="51" ry="38" fill="#b6a4a0" stroke="#877e82" stroke-width="4"/>
-   <ellipse cx="35" cy="-50" rx="43" ry="42" fill="#bcb0a5" stroke="#877e82" stroke-width="4"/>
-   <circle cx="14" cy="-91" r="28" fill="#bfb1aa" stroke="#8a7b7d" stroke-width="4"/>
-   <circle cx="17" cy="-91" r="17" fill="#e9a6aa"/>
-   <circle cx="62" cy="-87" r="26" fill="#bfb1aa" stroke="#8a7b7d" stroke-width="4"/>
-   <circle cx="63" cy="-87" r="16" fill="#e9a6aa"/>
-   <ellipse cx="44" cy="-29" rx="24" ry="18" fill="#e7d1bd"/>
-   <ellipse cx="51" cy="-56" rx="8.5" ry="10" fill="#2d383b"/>
-   <circle cx="54" cy="-60" r="2.8" fill="#fff"/>
-   <circle cx="73" cy="-31" r="7" fill="#cb7d83"/>
-   <path id="mouse-mouth" d="M61-19q8 9 17 1" stroke="#84565c" stroke-width="3.4" fill="none"/>
-   <ellipse cx="-26" cy="4" rx="17" ry="7" fill="#dbb2a7"/><ellipse cx="29" cy="4" rx="16" ry="7" fill="#dbb2a7"/>
-   <g stroke="#f5e5d3" stroke-width="1.7"><path d="M70-24l23-9m-23 11 26 1m-26 0 20 10"/></g>
+ <g id="mouse" transform="translate(360 621) scale(.82)" stroke-linecap="round" stroke-linejoin="round">
+   <g id="mouse-tail"><path d="M-40-19C-66-10-101-23-107-43S-94-76-83-63" fill="none" stroke="#ac7c79" stroke-width="6"/><path d="M-43-21C-70-14-101-26-104-44S-93-71-85-63" fill="none" stroke="#dfb2a3" stroke-width="2.6"/></g>
+   <path d="M-18-16Q-3-6 13-6Q24-2 19 4H-9Q-22 1-26-8M41-24L49-10Q66-5 62 1H37L29-18" fill="#c9a397" stroke="#9e8177" stroke-width="2.4"/>
+   <path d="M-48-15C-63-35-48-62-25-66C-4-72 14-62 25-48L39-32Q47-9 25-4L-14-2C-33 2-44-4-48-15Z" fill="url(#mouse-fur)" stroke="#88786d" stroke-width="2.8"/>
+   <path d="M-11-46Q-27-33-18-11Q-7 2 15-5L31-18L21-42Z" fill="#e9d6b9" opacity=".88"/>
+   <path d="M-42-43Q-31-60-12-54" stroke="#e0d3bc" stroke-width="4" fill="none" opacity=".65"/>
+   <g id="mouse-back-foot"><path d="M-32-20Q-43-18-39-4L-47 2Q-48 9-36 9L-15 7Q-8 2-15-3L-24-5Q-17-19-32-20Z" fill="#d6b09d" stroke="#9e8177" stroke-width="2.2"/><path d="M-35 7l1-4m8 3 1-4" stroke="#ad8c7f" stroke-width="1.4"/></g>
+   <g id="mouse-front-foot"><path d="M25-27Q20-16 26-4L24 2Q23 8 34 8L51 6Q57 2 50-2L38-5L39-22Z" fill="#ddbaa5" stroke="#9e8177" stroke-width="2.2"/><path d="M35 6l1-4m8 3v-4" stroke="#ad8c7f" stroke-width="1.4"/></g>
+   <g id="mouse-head">
+     <path d="M42-73C29-91 38-113 54-110C73-107 77-83 60-69Z" fill="url(#mouse-fur)" stroke="#8a7b70" stroke-width="2.8"/>
+     <path d="M48-78C40-89 44-103 54-101Q70-96 59-78Z" fill="url(#mouse-ear)"/>
+     <path d="M9-64C4-87 23-98 43-88C57-82 60-66 64-57L84-44Q92-37 79-28L59-18Q37-13 22-25C11-34 4-48 9-64Z" fill="url(#mouse-fur)" stroke="#88786d" stroke-width="2.8"/>
+     <path d="M23-24Q38-15 59-23L79-32Q74-44 57-44L44-36Z" fill="#ecdbc1"/>
+     <path d="M12-65C-10-67-19-88-8-103C3-119 27-116 34-97C40-82 29-67 12-65Z" fill="url(#mouse-fur)" stroke="#8b7c72" stroke-width="2.7"/>
+     <path d="M10-74C-4-75-10-91-2-100C7-110 22-105 25-94Q28-79 10-74Z" fill="url(#mouse-ear)"/>
+     <path d="M-2-95Q4-104 15-98" fill="none" stroke="#f2cfc0" stroke-width="3" opacity=".8"/>
+     <path d="M38-73Q48-78 55-70" stroke="#8d7664" stroke-width="2.5" fill="none"/>
+     <g id="mouse-eye"><ellipse cx="48" cy="-59" rx="7.3" ry="9" fill="#333732"/><ellipse cx="49" cy="-56" rx="4" ry="4.5" fill="#655c4b"/><circle cx="50" cy="-62" r="2.5" fill="#fff9e8"/></g>
+     <path id="mouse-lid" d="M41-59Q48-54 55-59" fill="none" stroke="#766459" stroke-width="2.5" opacity="0"/>
+     <path d="M78-45Q87-50 91-43Q91-37 82-36Q77-38 78-45" fill="#ba7a7a"/>
+     <path d="M83-44l3 1" stroke="#f2c0b5" stroke-width="2"/>
+     <path id="mouse-mouth" d="M61-28q8 6 16-3" stroke="#885e57" stroke-width="2.5" fill="none"/>
+     <path d="M67-37L95-47M69-32L101-31M67-28L94-18" stroke="#f8edda" stroke-width="1.5" fill="none"/>
+     <g fill="#9e8674"><circle cx="65" cy="-36" r="1.2"/><circle cx="61" cy="-32" r="1.2"/></g>
+   </g>
  </g>
  <g id="front" pointer-events="none">
   <path d="M-80 686q105-52 233-5t255-15 242 4 276-11 430 19v92H-80Z" fill="#597f41" opacity=".46"/>
@@ -207,13 +231,14 @@ window.addEventListener('DOMContentLoaded', () => {
  const ease=x=>{x=clamp(x);return x*x*(3-2*x)};
  const lerp=(a,b,t)=>a+(b-a)*t;
  const shots={
- morning:[0,0,1280,720],scamper:[60,42,1140,641],caught:[260,106,870,489],
+ morning:[0,0,1280,720],scamper:[60,42,1140,641],caught:[260,136,930,523],
  mercy:[175,70,1030,579],trap:[0,0,1280,720],return:[70,40,1140,641],
- chew:[315,135,865,487],friends:[0,0,1280,720]
+ chew:[270,135,915,515],friends:[0,0,1280,720]
  };
  let sceneIndex=0,position=0,playing=false,activated=false,frame=0,started=0,scenes=[],lastKey='',words=[],lastWord=-1;
  let notes={};
  try{notes=JSON.parse(localStorage.getItem('little-panth-06-review')||'{}')}catch{}
+ const revision=document.querySelector('meta[name="mission-revision"]').content;
  const safeText=s=>String(s||'');
  const musicContext=sound.context;
  function makeFoley(name){
@@ -299,19 +324,32 @@ window.addEventListener('DOMContentLoaded', () => {
   if(id==='chew'){mx=lerp(535,648,part(300,first));net=1-part(second-150,scene.duration-500);netY=-140*(1-net);}
   if(id==='friends'){mx=493;net=0;ly=596;}
   if(id==='trap'&&ms>=second-80)net=1;
-  p.lion.setAttribute('transform','translate('+lx+' '+(ly+wobble)+')');
+  p.lion.setAttribute('transform','translate('+lx+' '+ly+')');
+  p['lion-face'].setAttribute('transform','translate(-89 '+(-143+wobble*.65)+')');
+  p.tail.setAttribute('transform','rotate('+(still?0:Math.sin(t*1.6)*3)+' 113 -118)');
   p['lion-shadow'].setAttribute('cx',lx);p['lion-shadow'].setAttribute('opacity','.8');
   p.mouse.setAttribute('opacity',visibleMouse?'1':'0');
-  p.mouse.setAttribute('transform','translate('+mx+' '+(my+(id==='scamper'||id==='return'?(still?0:-Math.abs(Math.sin(t*13))*6):wobble))+')');
+  const scurrying=['scamper','return','mercy','chew'].includes(id)&&ms<first+700;
+  const mouseStep=still||!scurrying?0:Math.sin(t*16);
+  p.mouse.setAttribute('transform','translate('+mx+' '+(my-Math.abs(mouseStep)*3)+') scale(.82)');
+  p['mouse-back-foot'].setAttribute('transform','translate('+(mouseStep*4)+' '+(-Math.max(0,mouseStep)*3)+')');
+  p['mouse-front-foot'].setAttribute('transform','translate('+(-mouseStep*4)+' '+(-Math.max(0,-mouseStep)*3)+')');
+  p['mouse-tail'].setAttribute('transform','rotate('+(still?0:Math.sin(t*3)*4)+' -40 -19)');
+  const chewing=id==='chew'&&ms>first*.7&&net>.15;
+  p['mouse-head'].setAttribute('transform','rotate('+(still?0:chewing?Math.sin(t*19)*2:Math.sin(t*2.2)*1.5)+' 24 -41)');
+  const blinking=awake&&!still&&(ms%4600)>4420;
+  const mouseBlink=!still&&(ms%3700)>3540;
+  p['mouse-eye'].setAttribute('opacity',mouseBlink?'0':'1');
+  p['mouse-lid'].setAttribute('opacity',mouseBlink?'1':'0');
   p['mouse-shadow'].setAttribute('cx',mx);p['mouse-shadow'].setAttribute('opacity',visibleMouse?'.65':'0');
-  p['lion-sleep'].setAttribute('opacity',awake?'0':'1');
-  p['lion-eyes'].setAttribute('opacity',awake?'1':'0');
+  p['lion-sleep'].setAttribute('opacity',awake&&!blinking?'0':'1');
+  p['lion-eyes'].setAttribute('opacity',awake&&!blinking?'1':'0');
   const speaking=line&&isDuring(ms,line)&&line.speaker;
   const wordProgress=speaking?readingAt(line.reading,ms-line.start).word:-1;
   const rhythm=still ? 0.25 :(Math.abs(Math.sin(t*14))*0.75+0.2);
   p['lion-mouth'].setAttribute('transform','translate(0 54) scale(1 '+(speaking==='lion'&&wordProgress>=0?rhythm:.1)+')');
-  p['mouse-mouth'].setAttribute('d',speaking==='mouse'&&wordProgress>=0?'M61-18q11 17 18-1':'M61-19q8 9 17 1');
-  const pawAngle=id==='caught'? -17:id==='mercy'? -34*part(250,second+400):id==='friends'?-13*Math.sin(t*1.7):0;
+  p['mouse-mouth'].setAttribute('d',speaking==='mouse'&&wordProgress>=0?'M61-28q8 15 16-3':'M61-28q8 6 16-3');
+  const pawAngle=id==='caught'? -17:id==='mercy'? -34*part(250,second+400):id==='friends'?(still?-5:-5-3*Math.sin(t*1.7)):0;
   p['lion-paw'].setAttribute('transform','rotate('+pawAngle+' -104 -70)');
   p.net.setAttribute('opacity',String(clamp(net)));
   p.net.setAttribute('transform','translate(0 '+netY+')');
@@ -327,7 +365,7 @@ window.addEventListener('DOMContentLoaded', () => {
   position=clamp(ms,0,scene.duration);
   const line=scene.lines.findLast(x=>x.start<=position)||scene.lines[0];
   renderReading(line,position-line.start);
-  const shot=shots[scene.id];const sway=Math.sin(ms/1500)*2.8;
+  const shot=shots[scene.id];const sway=matchMedia('(prefers-reduced-motion: reduce)').matches?0:Math.sin(ms/1500)*2.8;
   const dynamic=scene.id==='scamper'?Math.min(80,ms/80):scene.id==='return'?Math.min(70,ms/95):0;
   const camera=[shot[0]+dynamic+sway,shot[1],shot[2],shot[3]];
   svg.setAttribute('viewBox',camera.map(Math.round).join(' '));
@@ -375,12 +413,12 @@ window.addEventListener('DOMContentLoaded', () => {
   $('scene-guidance').textContent=safeText(scene.review);
   $('scene-note').value=current.note||'';
   $('review-scenes').replaceChildren(...scenes.map((s,i)=>{
-   const b=document.createElement('button');b.textContent=(i+1)+'. '+s.title+(notes[s.id]?.status==='approved'?' ✓':notes[s.id]?.status==='changes'?' !':'');
+   const b=document.createElement('button');b.textContent=(i+1)+'. '+s.title+(notes[s.id]?.status==='approved'?(notes[s.id]?.revision===revision?' ✓':' · review update'):notes[s.id]?.status==='changes'?' !':'');
    if(i===sceneIndex)b.classList.add('selected');
    b.addEventListener('click',()=>{stop();select(i)});return b;
   }));
  }
- function mark(status){const s=scenes[sceneIndex];notes[s.id]={...(notes[s.id]||{}),status};save();paintReview()}
+ function mark(status){const s=scenes[sceneIndex];notes[s.id]={...(notes[s.id]||{}),status,revision};save();paintReview()}
  function setupReview(){
   document.body.classList.add('reviewing');
   $('scene-play').onclick=()=>{if(playing){stop();draw(position)}else withAudio(false)};
@@ -417,7 +455,7 @@ window.addEventListener('DOMContentLoaded', () => {
    };
   }
   // The scene-review mode is used to approve every drawing before exporting video.
-  if(params.get('test')==='1')window.lp006Test={seek(i,ms){stop();select(i);draw(ms)},state:()=>({scene:sceneIndex,position,playing,clips:sound.clips.size,line:scenes[sceneIndex].lines.findLast(x=>x.start<=position)?.id})};
+  if(params.get('test')==='1')window.lp006Test={seek(i,ms){stop();select(i);draw(ms)},state:()=>({scene:sceneIndex,position,playing,clips:sound.clips.size,scenes:scenes.map(s=>({id:s.id,duration:s.duration,lines:s.lines.map(l=>({id:l.id,start:l.start,end:l.end}))})),line:scenes[sceneIndex].lines.findLast(x=>x.start<=position)?.id})};
  }
  start().catch(error=>{console.error(error);$('loading').textContent='ਕਹਾਣੀ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ।'});
 });

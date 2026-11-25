@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-225 -235 385 245">
+  <!--Shared Little Panth fox: preferred Mission 031 artwork. The stage animator supplies the continuous body and leg curves.-->
+  <defs><linearGradient id="fox-smooth-fur" gradientUnits="userSpaceOnUse" x1="-75" y1="-145" x2="70" y2="15"><stop stop-color="#f5ad58"/><stop offset=".48" stop-color="#e2873e"/><stop offset="1" stop-color="#b65b31"/></linearGradient>
+<linearGradient id="fox-smooth-head" x1=".15" y1="0" x2=".8" y2="1"><stop stop-color="#ffb965"/><stop offset=".6" stop-color="#e78a42"/><stop offset="1" stop-color="#c36a35"/></linearGradient>
+<linearGradient id="fox-cream" x2=".25" y2="1"><stop stop-color="#fff3d7"/><stop offset="1" stop-color="#ecc798"/></linearGradient>
+<linearGradient id="fox-smooth-paw" gradientUnits="userSpaceOnUse" x1="0" y1="-49" x2="0" y2="3"><stop stop-color="#a95431"/><stop offset=".43" stop-color="#79412e"/><stop offset="1" stop-color="#583c32"/></linearGradient>
+<linearGradient id="fox-tail-fur" x1=".15" y1=".1" x2=".8" y2="1"><stop stop-color="#ffc16e"/><stop offset=".54" stop-color="#de833f"/><stop offset="1" stop-color="#b76036"/></linearGradient>
+<clipPath id="fox-body-clip"><path id="fox-clip-shape"/></clipPath>
+<clipPath id="fox-far-clip"><use href="#fox-rear-far"/><use href="#fox-front-far"/></clipPath>
+</defs>
+  <g id="fox" data-speaking="false" stroke-linecap="round" stroke-linejoin="round">
+<!-- Continuous deforming silhouette, with the far limbs behind it. -->
+<g id="fox-tail">
+ <path d="M-83-100C-119-80-137-103-139-133C-141-166-166-192-205-183C-188-171-186-158-196-149C-173-153-181-127-174-107C-163-67-114-49-80-77Z" fill="url(#fox-tail-fur)" stroke="#a45f39" stroke-width="2.4"/>
+ <path d="M-205-183C-175-192-152-172-144-151C-151-157-161-157-165-152L-163-139C-174-145-180-142-182-134C-181-146-181-154-196-149C-186-158-188-171-205-183Z" fill="url(#fox-cream)"/>
+ <path d="M-173-124Q-164-88-131-82Q-153-95-159-121Z" fill="#f3a351" opacity=".55"/>
+</g>
+<path id="fox-rear-far" fill="#ae6039" stroke="#93512f" stroke-width="2"/>
+<path id="fox-front-far" fill="#a85d38" stroke="#93512f" stroke-width="2"/>
+<path id="fox-far-paws" fill="#654333" clip-path="url(#fox-far-clip)"/>
+<path id="fox-body" fill="url(#fox-smooth-fur)" stroke="#a45a32" stroke-width="2.6"/>
+<g clip-path="url(#fox-body-clip)">
+ <g id="fox-coat-details"><path d="M-92-110C-75-133-42-132-18-126C-4-123 17-129 30-140C11-111-23-105-49-109C-68-112-83-107-94-98Z" fill="#ffc16d" opacity=".38"/>
+ <path d="M-48-63Q-6-55 20-83L42-143Q85-143 90-117Q71-69 42-55Q14-47-48-63Z" fill="url(#fox-cream)"/>
+ <path d="M32-134Q18-109 27-90L36-100 35-84 49-98 47-79Q70-94 75-121Z" fill="#fff0ce" opacity=".8"/>
+ </g><path id="fox-near-paws" fill="url(#fox-smooth-paw)"/>
+ <path id="fox-leg-shade" fill="#a6542e" opacity=".24"/>
+</g>
+<path id="fox-rear-near" fill="none" stroke="none"/>
+<path id="fox-front-near" fill="none" stroke="none"/>
+<g id="fox-head" transform="translate(42 -124)">
+ <g id="fox-ears">
+  <path d="M-22-35C-39-49-50-72-44-94C-20-86-5-71 3-51M13-46C13-68 29-89 42-97C52-78 53-54 44-40" fill="url(#fox-smooth-head)" stroke="#a45a32" stroke-width="2.3"/>
+  <path d="M-36-84Q-15-72-9-51Q-28-55-36-84M40-85Q27-72 26-48Q43-60 40-85" fill="#efb08b"/>
+  <path d="M-44-94Q-34-91-28-85L-43-79Z M42-97L47-86 33-87Z" fill="#815039"/>
+ </g>
+ <path d="M-35 14C-53-9-46-36-24-49C-4-63 25-59 43-43Q55-31 60-23C72-20 83-16 93-11Q98-5 89 2L68 13C57 31 29 39 5 31Q-20 26-35 14Z" fill="url(#fox-smooth-head)" stroke="#a45a32" stroke-width="2.6"/>
+ <path d="M-35 5Q-27-5-13-8Q4-15 18-4C36 5 46-1 60-12Q73-17 91-10L91 0 68 14Q52 37 17 32Q-10 31-35 14L-28 12Z" fill="url(#fox-cream)"/>
+ <path d="M-30 7Q-12-3 5 2L-3 10 12 8 1 18Q-16 16-30 7Z" fill="#fff1d3"/>
+ <path id="fox-jaw" d="M27 15Q52 21 75 7Q62 28 43 28Q35 27 27 15Z" fill="#efd1a4"/>
+ <path id="fox-mouth" d="M32 10Q52 16 75 3Q65 25 47 24Q37 22 32 10Z" fill="#6a3932" opacity="0"/>
+ <path d="M35 11Q55 17 72 7" fill="none" stroke="#784932" stroke-width="2.1"/>
+ <path d="M84-14Q94-18 97-10Q99-5 92 0Q86 2 81-4Q77-10 84-14Z" fill="#573a32"/>
+ <path d="M85-12Q90-15 93-11" fill="none" stroke="#bf9070" stroke-width="2.2"/>
+ <path id="fox-brow" d="M21-35Q33-45 47-34" fill="none" stroke="#85502e" stroke-width="3"/>
+ <g id="fox-eye">
+  <path d="M19-18Q23-35 39-33Q53-29 55-14Q40-4 19-18Z" fill="#fff4db" stroke="#945530" stroke-width="1.8"/>
+  <g id="fox-pupil"><ellipse cx="42" cy="-21" rx="8" ry="11" fill="#7d4b2d"/><ellipse cx="44" cy="-21" rx="5.2" ry="8.8" fill="#422e28"/><circle cx="46" cy="-25" r="2.7" fill="#fff9e8"/></g>
+  <path d="M19-18Q23-35 39-33Q51-30 55-19" fill="none" stroke="#59352c" stroke-width="2.7"/>
+ </g>
+ <path id="fox-lid" d="M22-19Q37-11 52-19" fill="none" stroke="#75452f" stroke-width="2.6" opacity="0"/>
+ <ellipse cx="19" cy="5" rx="9" ry="4" fill="#da8257" opacity=".28"/>
+ <path d="M-7-49Q1-60 11-61Q6-52 24-55Q15-48 9-45" fill="#f0a14e"/>
+</g>
+</g>
+</svg>

@@ -23,10 +23,10 @@
   const leftGrass = point(205, 576);
   const rightGrass = point(1090, 572);
   const colors = {
-    channi: { coat: '#c38c62', shade: '#a36e55', hoof: '#79534a', accent: '#e4b88e',
-      outline: '#855d49', light: '#ecbc8d', horn: '#d3b992', collar: '#588c8e' },
-    moti: { coat: '#eee1bc', shade: '#c5ab90', hoof: '#8e7465', accent: '#f6eacb',
-      outline: '#997f68', light: '#fff0cd', horn: '#c5b292', collar: '#ab6379' }
+    channi: { coat: '#d0a374', shade: '#ac7954', accent: '#f8dfba', outline: '#936a4c',
+      light: '#edc89a', 'head-light': '#f4d6ae', head: '#ddb483', 'head-shade': '#ba895f', collar: '#588c8e' },
+    moti: { coat: '#f4e4c8', shade: '#d7b994', accent: '#fff8e2', outline: '#a58a6d',
+      light: '#fff5db', 'head-light': '#fff9e7', head: '#f6e4c7', 'head-shade': '#dfbf9b', collar: '#ab6379' }
   };
   let studio;
 
@@ -178,19 +178,77 @@
     return state;
   }
 
+  // The same continuous neck, body and curved limbs used in mission 031.
+  // Hooves are adjusted to the bridge surface before the silhouette is drawn.
+const round=n=>Math.round(n*100)/100;
+const xy=(x,y)=>round(x)+' '+round(y);
+function foot(x,walk,reach,front,far,goat,brace=0){
+ const sign=front===far?1:-1;
+ return {x:x+walk*sign*(goat?.59:1.02)+reach*(front?(goat?18:47):(goat?-11:-27))+brace*(front?17:0),
+ y:-(Math.max(0,walk*sign)*.29+reach*(goat?13:25)+brace*(front?28:0))};
+}
+function limb(p,startX,startY,front,goat,far){
+ const w=goat?7:11,x=p.x,y=p.y,k=front?startX-2:startX-8;
+ return 'M'+xy(startX-w*1.6,startY)+' C'+xy(startX-w*2,startY+18)+' '+xy(k-w, y-35)+' '+xy(x-w*.7,y-13)+' Q'+xy(x-w,y-3)+' '+xy(x-w*.65,y)+' L'+xy(x+w,y)+' Q'+xy(x+w*1.5,y-4)+' '+xy(x+w*.65,y-11)+' C'+xy(x+w*.15,y-30)+' '+xy(startX+w*1.5,startY+18)+' '+xy(startX+w*1.45,startY)+' Z';
+}
+function boot(p,w,h){return 'M'+xy(p.x-w*1.7,p.y-h)+' Q'+xy(p.x,p.y-h*.52)+' '+xy(p.x+w*1.7,p.y-h)+' L'+xy(p.x+w*2,p.y+3)+' H'+round(p.x-w*2)+' Z';}
+function bendHead(angle,px,py,x,y){const t=angle*Math.PI/180;return {x:px+x*Math.cos(t)-y*Math.sin(t),y:py+x*Math.sin(t)+y*Math.cos(t)};}
+  function drawGoat(art, pose, ms, still, scale, bounce, flex) {
+ const p=art.parts, tx=transform, op=opacity;
+ const set=(id,d)=>p[id].setAttribute('d',d);
+ const g={walk:still?0:18*pose.walking*Math.sin(pose.distance/9.2),reach:0,
+   head:pose.headDip+(still?0:2.3*pose.walking*Math.sin(pose.distance/9.2)),worry:pose.headDip>12&&pose.headDip<35?.45:0};
+ const gt=false, opening=0;
+ const gw=g.walk,gr=g.reach||0,br=0;
+ const gh=g.head;
+ const gn=foot(47,gw,gr,true,false,true,br),grn=foot(-47,gw,gr,false,false,true);
+ const gf=foot(29,gw,gr,true,true,true,br),grf=foot(-30,gw,gr,false,true,true);
+ for (const hoof of [gn,grn,gf,grf]) {
+  const worldX = pose.x + pose.facing * hoof.x * scale;
+  hoof.y += (pose.onTrail ? trailY(worldX) - pose.y : 0) / scale - bounce / scale;
+ }
+ gn.x += pose.step * .35;
+ gn.y -= pose.step * .65;
+ if (pose.onTrail) gn.y += flex / scale;
+ // A flexible neck joins the moving head and body; its endpoints rotate with the head.
+ const n=bendHead(gh,26,-74,1,9),m=bendHead(gh,26,-74,34,23);
+ const gd='M-81 -65 C-83 -84 -66 -95 -44 -93 Q-14 -87 7 -92 C'+xy(n.x-16,n.y-4)+' '+xy(n.x-10,n.y-21)+' '+xy(n.x+1,n.y-18)+' Q'+xy(n.x+23,n.y-13)+' '+xy(m.x,m.y-9)+' C'+xy(m.x+5,m.y+3)+' 64 -48 '+xy(gn.x+8,gn.y-24)+' C'+xy(gn.x+5,gn.y-13)+' '+xy(gn.x+10,gn.y-9)+' '+xy(gn.x+11,gn.y-2)+' Q'+xy(gn.x+10,gn.y)+' '+xy(gn.x+6,gn.y)+' L'+xy(gn.x-7,gn.y)+' Q'+xy(gn.x-10,gn.y-4)+' '+xy(gn.x-9,gn.y-11)+' C'+xy(gn.x-10,gn.y-29)+' 28 -40 24 -47 Q-5 -35 -29 -47 C-30 -33 '+xy(grn.x-1,grn.y-25)+' '+xy(grn.x-4,grn.y-12)+' Q'+xy(grn.x+9,grn.y-6)+' '+xy(grn.x+8,grn.y)+' L'+xy(grn.x-9,grn.y)+' Q'+xy(grn.x-14,grn.y-3)+' '+xy(grn.x-14,grn.y-12)+' C'+xy(grn.x-17,grn.y-30)+' -58 -47 -62 -50 Q-78 -52 -81 -65Z';
+ set('goat-body',gd);set('goat-clip-shape',gd);
+ set('goat-far-front',limb(gf,32,-48,true,true,true));set('goat-far-back',limb(grf,-38,-51,false,true,true));
+ set('goat-far-hooves',boot(gf,6,10)+boot(grf,6,10));set('goat-near-hooves',boot(gn,7,11)+boot(grn,7,11));
+ set('goat-hoof-splits','M'+xy(gn.x+1,gn.y-7)+' L'+xy(gn.x+1,gn.y)+' M'+xy(grn.x+1,grn.y-7)+' L'+xy(grn.x+1,grn.y));
+ set('goat-leg-shade','M-69 -67Q-50 -59 -52 -47Q-61 -55 -69 -67Z M33 -71Q42 -54 33 -40Q36 -59 33 -71Z');
+ const c1=bendHead(gh,26,-74,0,24),c2=bendHead(gh,26,-74,35,27);
+ set('goat-collar-band','M'+xy(c1.x,c1.y)+' Q'+xy((c1.x+c2.x)/2,(c1.y+c2.y)/2+12)+' '+xy(c2.x,c2.y)+' L'+xy(c2.x,c2.y+6)+' Q'+xy((c1.x+c2.x)/2,(c1.y+c2.y)/2+18)+' '+xy(c1.x,c1.y+6)+' Z');
+ tx(p['goat-bell-pendant'],'translate('+round((c1.x+c2.x)/2-44)+' '+round((c1.y+c2.y)/2+13+48)+') rotate('+round(still?0:gw*.15)+' 44 -48)');
+ tx(p['goat-ear-near'],'rotate('+(-9*g.worry+(still?0:Math.sin(ms/870)*1.5))+' 15 -16)');
+ tx(p['goat-ear-far'],'rotate('+(5*g.worry)+' 39 -24)');
+ tx(p['goat-brow'],'rotate('+(-15*g.worry)+' 40 -23)');
+ const gaze=g.head>10?1:g.head<0?-1:0;
+ tx(p['goat-pupil'],'translate(0 '+gaze+')');tx(p['goat-glint'],'translate(0 '+gaze+')');
+ tx(p['goat-jaw'],'rotate('+(gt?opening*5:0)+' 48 25)');
+ p['goat-mouth'].setAttribute('ry',gt?String(1+opening*3.2):'1');op(p['goat-mouth'],gt?1:0);
+ const gb=!still&&(ms+1520)%3970>3830;
+ for(const id of ['goat-eye','goat-pupil','goat-glint'])op(p[id],gb?0:1);
+ op(p['goat-lid'],gb?1:0);
+ transform(art.head,'translate(26 -74) rotate('+gh+')');
+ transform(art.tail,'rotate('+(still?0:3.3*Math.sin(ms/410+pose.x/100))+' -67 -68)');
+  }
+
   function prepareGoat(container, template, name) {
     const artwork = template.cloneNode(true);
+    const parts = Object.fromEntries([...artwork.querySelectorAll('[id]')].map(node => [node.id, node]));
     artwork.id = name;
-    for (const [property, color] of Object.entries(colors[name])) {
-      artwork.style.setProperty('--goat-' + property, color);
+    for (const node of artwork.querySelectorAll('[id]')) node.id = name + '-' + node.id;
+    for (const node of artwork.querySelectorAll('*')) {
+      for (const attr of [...node.attributes]) {
+        if (attr.value.includes('url(#goat-')) node.setAttribute(attr.name, attr.value.replace(/url\(#(goat-[^)]+)\)/g, 'url(#' + name + '-$1)'));
+        if (attr.name === 'href' && attr.value.startsWith('#goat-')) node.setAttribute('href', '#' + name + '-' + attr.value.slice(1));
+      }
     }
+    for (const [property, color] of Object.entries(colors[name])) artwork.style.setProperty('--goat-' + property, color);
     container.append(artwork);
-    return {
-      root: artwork,
-      head: artwork.querySelector('[data-head]'),
-      tail: artwork.querySelector('[data-tail]'),
-      legs: [...artwork.querySelectorAll('[data-leg]')]
-    };
+    return { root: artwork, parts, head: artwork.querySelector('[data-head]'), tail: artwork.querySelector('[data-tail]') };
   }
 
   class BridgeStage {
@@ -263,24 +321,14 @@
     }
 
     paintGoats(state, ms, still) {
-      const footPins = [[-43, -44], [35, -44], [-32, -44], [50, -44]];
       for (const [name, art] of Object.entries(this.goats)) {
-        const { x, y, facing, walking, distance, onTrail, step, headDip } = state.goats[name];
-        const scale = name === 'moti' ? mix(.83, .99, phase(y, turnout.y, 493)) : 1;
-        const gait = distance / 9.2;
-        const bounce = still ? 0 : -2.8 * walking * Math.abs(Math.sin(gait));
-        const dipped = name === 'channi' ? state.flex : 0;
+        const pose = state.goats[name];
+        const { x, y, facing, walking, distance, onTrail, headDip } = pose;
+        // Modest storybook scale keeps both noses apart and the bridge readable.
+        const scale = .82 * (name === 'moti' ? mix(.85, 1, phase(y, turnout.y, 493)) : 1);
+        const bounce = still ? 0 : -1.6 * walking * Math.abs(Math.sin(distance / 9.2));
         transform(art.root, 'translate(' + x + ' ' + (y + bounce) + ') scale(' + (facing * scale) + ' ' + scale + ')');
-        transform(art.head, 'translate(26 -74) rotate(' + (headDip + 3.1 * walking * Math.sin(gait)) + ')');
-        transform(art.tail, 'rotate(' + (still ? 0 : 3.3 * Math.sin(ms / 340 + x / 100)) + ' -67 -68)');
-        art.legs.forEach((leg, index) => {
-          const [pinX, pinY] = footPins[index];
-          const trailOffset = onTrail ? (trailY(x + facing * pinX * scale) - y) / scale : 0;
-          const stride = still ? 0 : 22 * walking * Math.sin(gait + (index === 0 || index === 3 ? 0 : Math.PI));
-          const accent = index === 3 ? step : 0;
-          const plank = index === 3 ? dipped : 0;
-          transform(leg, 'translate(' + pinX + ' ' + (pinY + trailOffset + plank) + ') rotate(' + (stride - accent) + ')');
-        });
+        drawGoat(art, pose, ms, still, scale, bounce, name === 'channi' ? state.flex : 0);
         art.root.dataset.location = onTrail && x > 350 && x < 928 ? 'bridge' : x < 640 ? 'left-bank' : 'right-bank';
         art.root.dataset.walking = String(!still && walking > .02);
         art.root.dataset.lookingDown = String(headDip >= 12);

@@ -20,13 +20,9 @@
   const crowHead = point(39, -103);
   const crowGrip = point(96, 19);
   const foxHead = point(42, -124);
-  const foxGrip = point(81, 15);
+  const foxGrip = point(73, 12);
   const haunch = point(-63, -80);
-  const tilt = 35;
-  const legs = [
-    ['fox-rear-far', -77, -84, -.81], ['fox-rear-near', -76, -88, .83],
-    ['fox-front-far', 29, -104, 1], ['fox-front-near', 52, -101, -1]
-  ];
+  const tilt = 27;
   let artwork;
 
   function rotate(p, angle, about = point(0, 0)) {
@@ -175,11 +171,7 @@
       for (const gradient of artwork.gradients) defs.append(document.importNode(gradient, true));
       for (const actor of artwork.actors) actors.append(document.importNode(actor, true));
 
-      const fox = actors.querySelector('#fox');
-      const torso = document.createElementNS(svg.namespaceURI, 'g');
-      torso.id = 'fox-torso';
-      fox.insertBefore(torso, fox.querySelector('#fox-rear-near'));
-      torso.append(...[...fox.children].filter(node => node.localName === 'path'));
+      window.LittlePanthFox.mount(svg, actors);
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
     }
 
@@ -253,24 +245,9 @@
       opacity(p['fox-shadow'], Number(pose.visible));
       p['fox-shadow'].setAttribute('cx', String(pose.x - 22 * pose.facing));
       p['fox-shadow'].setAttribute('cy', String(pose.y + 2));
-      transform(p['fox-torso'], 'rotate(' + bend + ' ' + haunch.x + ' ' + haunch.y + ')');
-      transform(p['fox-head'], 'translate(' + head.x + ' ' + head.y + ') rotate(' + pose.angle + ')');
-      const tail = still ? 0 : 4.5 * Math.sin(ms / 350) + stride * .22;
-      transform(p['fox-tail'], 'rotate(' + bend + ' ' + haunch.x + ' ' + haunch.y + ') rotate(' + tail + ' -83 -89)');
-      for (const [name, x, y, swing] of legs) {
-        if (pose.bend > .001) {
-          const joint = rotate(point(x, y), bend, haunch);
-          transform(p[name], 'translate(' + joint.x + ' ' + joint.y + ') scale(1 ' + (joint.y / y) +
-            ') translate(' + (-x) + ' ' + (-y) + ')');
-        } else transform(p[name], 'rotate(' + (stride * swing) + ' ' + x + ' ' + y + ')');
-      }
-      const blink = !still && (ms + 510) % 4580 > 4450;
-      opacity(p['fox-eye'], blink ? 0 : 1);
-      opacity(p['fox-lid'], blink ? 1 : 0);
-      transform(p['fox-jaw'], 'rotate(' + (speaking ? 16 * opening : 0) + ' 20 8)');
-      transform(p['fox-mouth'], 'scale(1 ' + (.24 + opening * .92) + ')');
-      opacity(p['fox-mouth'], Number(speaking));
-      p.fox.dataset.speaking = String(speaking);
+      window.LittlePanthFox.draw(p, {
+        walk: stride, bend, head: pose.angle, headPosition: head, headMotion: false
+      }, ms, still, speaking, opening);
       return gripPosition(pose, foxScale, head, foxGrip, bounce);
     }
 
@@ -309,12 +286,12 @@
   }
 
   async function prepare() {
-    const [crow, fox] = await Promise.all([
+    const [crow] = await Promise.all([
       openArtwork('../mission-005/art/stage.svg', 'crow', ['feathers', 'wing-color', 'beak-color']),
-      openArtwork('../mission-009/art/stage.svg', 'fox', ['fur'])
+      window.LittlePanthFox.prepare()
     ]);
     crow.actor.querySelector('#carried-stone')?.remove();
-    artwork = { actors: [crow.actor, fox.actor], gradients: [...crow.paint, ...fox.paint] };
+    artwork = { actors: [crow.actor], gradients: crow.paint };
   }
 
   window.LittlePanthStage = { Stage: OrchardStage, eventsFor, prepare };

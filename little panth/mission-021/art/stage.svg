@@ -34,6 +34,16 @@
       <stop stop-color="#484639" stop-opacity=".55"/>
       <stop offset="1" stop-color="#484639" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="pari-wing-light" x1=".1" y1=".05" x2=".8" y2="1">
+      <stop stop-color="#f9f9da" stop-opacity=".86"/>
+      <stop offset=".48" stop-color="#b7e1dc" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#6cacae" stop-opacity=".28"/>
+    </linearGradient>
+    <radialGradient id="pari-river-glow">
+      <stop stop-color="#e8f8ce" stop-opacity=".42"/>
+      <stop offset=".6" stop-color="#badfd2" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#badfd2" stop-opacity="0"/>
+    </radialGradient>
     <path id="woodcut-water-edge" d="M1410 404C1151 426 1067 449 925 465C803 480 717 517 679 575C647 629 663 683 601 768H1410Z"/>
     <clipPath id="woodcut-water-clip"><use href="#woodcut-water-edge"/></clipPath>
     <g id="woodcut-rock-shape">
@@ -100,7 +110,23 @@
   <ellipse id="baldev-shadow" rx="65" ry="15" fill="url(#woodcut-shadow)"/>
   <ellipse id="pari-shadow" rx="62" ry="12" fill="url(#woodcut-shadow)"/>
   <g id="baldev-plane"><g id="baldev"/><g id="baldev-props"/></g>
-  <g id="pari-plane"><g id="pari"/><g id="pari-props"/></g>
+  <g id="pari-plane">
+    <g id="pari-aura"><ellipse cy="-150" rx="141" ry="175" fill="url(#pari-river-glow)"/></g>
+    <g id="pari-wings" stroke-linecap="round" stroke-linejoin="round">
+      <g fill="url(#pari-wing-light)" stroke="#c5e8d9" stroke-width="1.7">
+        <path d="M-10-157C-26-193-64-235-101-244C-126-250-132-232-124-212C-110-176-67-148-19-139Z"/>
+        <path d="M9-157C28-192 64-234 98-240C120-244 128-226 120-207C105-175 63-149 18-139Z"/>
+        <path d="M-11-144C-39-146-80-130-86-108C-92-82-64-86-46-99Q-21-117-8-139Z"/>
+        <path d="M11-144C38-146 77-131 84-110C92-86 66-85 46-99Q23-115 8-139Z"/>
+      </g>
+      <g fill="none" stroke="#eaf7db" stroke-width="1.4" opacity=".84">
+        <path d="M-17-148Q-62-183-112-231M-44-168Q-51-194-72-225M-63-183Q-90-185-112-212M-22-144Q-43-125-75-103"/>
+        <path d="M17-148Q62-182 109-227M44-167Q51-191 72-221M63-182Q89-184 110-207M22-144Q43-125 74-104"/>
+      </g>
+      <g fill="#f8efd1" opacity=".9"><circle cx="-105" cy="-225" r="2.1"/><circle cx="102" cy="-221" r="2.1"/><circle cx="-72" cy="-106" r="1.7"/><circle cx="72" cy="-107" r="1.7"/></g>
+    </g>
+    <g id="pari"/><g id="pari-props"/>
+  </g>
   <g id="woodcut-objects" stroke-linecap="round" stroke-linejoin="round">
     <g id="gold-axe" style="--woodcut-handle:#b88850;--woodcut-metal:url(#woodcut-gold)"><use href="#woodcut-axe-shape"/></g>
     <g id="silver-axe" style="--woodcut-handle:#a5876e;--woodcut-metal:url(#woodcut-silver)"><use href="#woodcut-axe-shape"/></g>

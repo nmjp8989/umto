@@ -117,8 +117,18 @@ async function run() {
       await seek(3, event.ms);
       assert.equal(await stage.getAttribute('data-bundle'), 'tied');
       assert.equal(await stage.getAttribute('data-stick-snaps'), '0');
-      assert.ok(await coordinate('bundle', 'f') < 493);
       const owner = i === 0 ? 'mehar' : 'boy';
+      const holdBelowShoulders = await page.evaluate(id => {
+        const world = document.getElementById('stage').getScreenCTM().inverse();
+        const arms = [...document.querySelectorAll('#' + id + ' [data-rig-arm]')];
+        const shoulderY = arms.reduce((sum, arm) => sum + new DOMPoint(0, 48)
+          .matrixTransform(arm.getScreenCTM()).matrixTransform(world).y, 0) / arms.length;
+        const heldY = new DOMPoint().matrixTransform(document.getElementById('bundle').getScreenCTM())
+          .matrixTransform(world).y;
+        return heldY - shoulderY;
+      }, owner);
+      assert.ok(holdBelowShoulders >= 35 && holdBelowShoulders <= 70,
+        owner + ' holds the bundle below the chest, within comfortable arm reach');
       assert.equal(await parent('bundle'), owner + '-props');
       assert.ok(await gripDistance(owner, 'left', 'bundle', -49, -1) < 6);
       assert.ok(await gripDistance(owner, 'right', 'bundle', 49, -1) < 6);

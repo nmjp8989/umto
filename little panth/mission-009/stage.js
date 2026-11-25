@@ -138,6 +138,7 @@
       this.svg = svg;
       this.camera = new window.UmtoCamera.DeliveryCamera(svg);
       this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      window.LittlePanthFox.mount(svg, svg.querySelector('#fox-mount'));
       this.parts = Object.fromEntries([...svg.querySelectorAll('[id]')].map(node => [node.id, node]));
     }
 
@@ -188,24 +189,10 @@
       p['fox-shadow'].setAttribute('cx', pose.x - 31);
       p['fox-shadow'].setAttribute('rx', 160 - pose.jump * .22);
       opacity(p['fox-shadow'], 1 - pose.jump * .0034);
-      transform(p['fox-rear-far'], 'rotate(' + (pose.stride * -.81 + pose.reach * 19) + ' -77 -84)');
-      transform(p['fox-rear-near'], 'rotate(' + (pose.stride * .83 - pose.reach * 38) + ' -76 -88)');
-      transform(p['fox-front-far'], 'rotate(' + (pose.stride - pose.reach * 62) + ' 29 -104)');
-      transform(p['fox-front-near'], 'rotate(' + (-pose.stride - pose.reach * 110) + ' 52 -101)');
-      const tailWave = still ? 0 : Math.sin(ms / 370) * 4;
-      transform(p['fox-tail'], 'rotate(' + (tailWave + pose.stride * .27 + pose.reach * 25) + ' -83 -89)');
-      transform(p['fox-head'], 'translate(42 -124) rotate(' + (-pose.look * 19 + pose.frown * 15 - pose.reach * 8) + ')');
-      transform(p['fox-ears'], 'rotate(' + (pose.frown * -11 + (still ? 0 : Math.sin(ms / 470) * pose.reach * 6)) + ' -6 -44)');
-      transform(p['fox-brow'], 'rotate(' + (pose.frown * 18) + ' 39 -31)');
-      transform(p['fox-pupil'], 'translate(' + (-pose.frown * 2) + ' ' + (-pose.look * 2.2) + ')');
-      transform(p['fox-jaw'], 'rotate(' + (opening * (foxTalking ? 15 : 0)) + ' 20 8)');
-      transform(p['fox-mouth'], 'translate(0 ' + -6 * opening + ') scale(1 ' + (.25 + opening * .92) + ')');
-      opacity(p['fox-mouth'], foxTalking ? 1 : 0);
-
-      const foxBlink = !still && (ms + 475) % 3710 > 3580;
-      opacity(p['fox-eye'], foxBlink ? 0 : 1);
-      opacity(p['fox-lid'], foxBlink ? 1 : 0);
-      p.fox.dataset.speaking = String(foxTalking);
+      window.LittlePanthFox.draw(p, {
+        walk: pose.stride, reach: pose.reach, reachUp: pose.reach,
+        head: -pose.look * 19 + pose.frown * 15, worry: pose.frown
+      }, ms, still, foxTalking, opening);
 
       const birdBlink = !still && (ms + 1300) % 3970 > 3840;
       opacity(p['sparrow-eye'], birdBlink ? 0 : 1);
@@ -236,5 +223,5 @@
     }
   }
 
-  window.LittlePanthStage = { Stage: OrchardStage, eventsFor };
+  window.LittlePanthStage = { Stage: OrchardStage, eventsFor, prepare: window.LittlePanthFox.prepare };
 })();
