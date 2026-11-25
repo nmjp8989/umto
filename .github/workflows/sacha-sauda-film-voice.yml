@@ -22,8 +22,13 @@ jobs:
           GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python tools/build_little_panth_audio.py --mission mission-999 --model gemini-3.8-flash-lite-tts
+          for attempt in 1 2 3 4; do
+            if python tools/build_little_panth_audio.py --mission mission-999 --model gemini-3.8-flash-lite-tts; then exit 0; fi
+            sleep 65
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: sacha-sauda-english-narration
           path: little panth/mission-999/audio/
