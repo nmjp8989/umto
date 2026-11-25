@@ -1583,6 +1583,19 @@ function reactionPose(key,seconds,period=3.6,release=3){
   const [mouth,eyes,brows]=EXPRESSIONS[key];
   Object.assign(pose,{mouth,eyes:blink?'closed':eyes,brows,angle:({worried:-2,confused:5,calm:0,determined:0,proud:-2,shy:4})[key]*weight,y:({worried:3,confused:0,calm:0,determined:1,proud:-3,shy:5})[key]*weight});
  }
+ if(['fear','delight','relief','skeptical','curious','embarrassed','disgust','astonished','pout'].includes(key)){
+  const [mouth,eyes,brows]=EXPRESSIONS[key],anticipate=Math.min(1,t/.22),settle=Math.exp(-Math.max(0,t-.35)*1.5),bounce=Math.sin(t*8)*settle;
+  Object.assign(pose,{mouth,eyes:blink?'closed':eyes,brows});
+  if(key==='fear')Object.assign(pose,{mouth:t<.65?'O':t<1.8?'A':'MBP',x:3*Math.sin(t*19)*weight,y:-12*anticipate*settle,angle:-4*weight});
+  if(key==='delight')Object.assign(pose,{mouth:t<.38?'O':t<2.35?'laugh':'smile',eyes:blink?'closed':t>.45?'happy':'surprised',y:-16*Math.abs(bounce)*weight,angle:4*Math.sin(t*5)*weight,body:-3*Math.abs(bounce)*weight});
+  if(key==='relief')Object.assign(pose,{mouth:t<.75?'O':'smile',eyes:t<.3?'open':'closed',y:7*Math.sin(Math.min(1,t/1.8)*Math.PI)*weight,angle:2*weight});
+  if(key==='skeptical')Object.assign(pose,{mouth:t<.45?'closed':'MBP',angle:-6*weight});
+  if(key==='curious')Object.assign(pose,{mouth:t<.8?'O':'smile',angle:7*Math.sin(Math.min(1,t/.7)*Math.PI/2)*weight,y:-3*weight});
+  if(key==='embarrassed')Object.assign(pose,{mouth:t<.6?'MBP':'smile',eyes:blink?'closed':'sleepy',angle:7*weight,y:10*weight});
+  if(key==='disgust')Object.assign(pose,{mouth:t<.7?'O':'sad',angle:-7*weight,x:7*weight,y:-5*weight});
+  if(key==='astonished')Object.assign(pose,{mouth:t<1.25?'A':'O',eyes:blink?'closed':'surprised',y:-24*anticipate*settle,angle:-6*bounce*weight});
+  if(key==='pout')Object.assign(pose,{mouth:'U',angle:4*weight,y:5*Math.sin(t*2)*weight});
+ }
  return extendAnimationPose(key,t,weight,pose,armGestureWeight(t,release));
 }
 function stopReaction(restore=true){
@@ -1869,11 +1882,11 @@ for(const axis of ['W','H']){
 const featureNames={head:'Head',bodyType:'Body size',mouth:'Mouth',eyes:'Eyes',glasses:'Glasses',brows:'Eyebrows',nose:'Nose',ears:'Ears',hair:'Hair',facialHair:'Beard & moustache',headwear:'Headwear',skin:'Skin',shirt:'Tops',bottom:'Bottoms',dress:'Dresses',background:'Backdrop'};
 const icons={pose:'M12 1 A3 3 0 1 0 12 7 A3 3 0 1 0 12 1 M8 9 H16 L20 17 M8 9 L4 17 M9 10 V18 L7 25 M15 10 V18 L17 25 M9 18 H15',head:'M12 2 C2 2 2 9 3 15 Q4 23 12 25 Q20 23 21 15 C22 9 22 2 12 2Z',glasses:'M1 12 A5 5 0 1 0 11 12 A5 5 0 1 0 1 12 M13 12 A5 5 0 1 0 23 12 A5 5 0 1 0 13 12 M11 12 Q12 10 13 12',facialHair:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z M7 10 Q10 7 12 10 Q14 7 17 10',beard:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z',moustache:'M12 10 Q8 5 5 10 Q2 13 1 8 Q0 16 7 15 Q10 15 12 12 Q14 15 17 15 Q24 16 23 8 Q22 13 19 10 Q16 5 12 10Z',headwear:'M3 15 Q1 7 7 4 Q12 0 18 5 Q24 9 21 16 L18 19 Q12 13 6 19Z M4 12 Q12 5 20 8 M6 15 Q13 9 22 12',mouth:'M3 10 Q12 3 21 10 Q12 21 3 10Z M3 10 Q12 13 21 10',eyes:'M2 12 Q12 -1 22 12 Q12 25 2 12Z M16 12 A4 4 0 1 0 8 12 A4 4 0 1 0 16 12',brows:'M3 12 Q12 3 21 10 L21 13 Q12 7 3 15Z',nose:'M9 3 Q10 12 6 16 Q12 23 18 16 Q14 12 15 3',ears:'M17 19 Q8 27 5 14 Q3 2 13 2 Q23 4 17 13 Q12 12 12 17',hair:'M3 22 L3 10 Q1 0 11 3 Q21 -2 22 12 L20 22 L17 11 Q10 13 7 7Z',skin:'M12 2 C0 2 0 22 12 22 C24 22 24 2 12 2Z',bottom:'M5 3 H19 L21 24 H13 L12 10 L11 24 H3Z',dress:'M8 3 Q12 7 16 3 L18 10 L16 11 L22 24 H2 L8 11 L6 10Z',shirt:'M7 3 L2 6 L4 12 L7 11 L7 22 L17 22 L17 11 L20 12 L22 6 L17 3 Q12 8 7 3Z',background:'M2 3 H22 V22 H2Z M2 20 L9 12 L14 17 L18 10 L22 16'};
 function checkpoint(){history.push(JSON.stringify(state));if(history.length>40)history.shift()}
-const EXPRESSIONS={neutral:['closed','open','neutral'],smile:['smile','happy','raised'],sad:['sad','open','sad'],laugh:['laugh','happy','raised'],surprise:['O','surprised','raised'],angry:['MBP','open','angry'],worried:['sad','open','worried'],confused:['U','open','oneRaised'],calm:['closed','closed','neutral'],determined:['MBP','sleepy','angry'],proud:['smile','open','oneRaised'],shy:['smile','sleepy','sad']};
+const EXPRESSIONS={neutral:['closed','open','neutral'],smile:['smile','happy','raised'],sad:['sad','open','sad'],laugh:['laugh','happy','raised'],surprise:['O','surprised','raised'],angry:['MBP','open','angry'],worried:['sad','open','worried'],confused:['U','open','oneRaised'],calm:['closed','closed','neutral'],determined:['MBP','sleepy','angry'],proud:['smile','open','oneRaised'],shy:['smile','sleepy','sad'],fear:['A','surprised','worried'],delight:['laugh','open','raised'],relief:['smile','closed','neutral'],skeptical:['closed','sleepy','oneRaised'],curious:['O','open','oneRaised'],embarrassed:['MBP','sleepy','sad'],disgust:['sad','sleepy','angry'],astonished:['O','surprised','worried'],pout:['U','sleepy','sad']};
 function currentExpression(){return Object.keys(EXPRESSIONS).find(key=>EXPRESSIONS[key].every((value,i)=>value===state[['mouth','eyes','brows'][i]]))||({smile:'smile',sad:'sad',laugh:'laugh',O:'surprise',MBP:state.brows==='angry'?'angry':'neutral'})[state.mouth]||'neutral';}
 function updateApp(){expression=currentExpression();if(reaction.button)reaction.button.disabled=expression==='neutral';render();drawDesigns();document.querySelectorAll('.expressions button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.expression===expression)))}
 function chooseExpression(key){stopDemo();expression=key;[state.mouth,state.eyes,state.brows]=EXPRESSIONS[key];updateApp();if(reaction.button)reaction.button.disabled=key==='neutral';startReaction(key)}
-for(const [key,label] of Object.entries({neutral:'Neutral',smile:'Smile',sad:'Sad',laugh:'Laugh',surprise:'Surprise',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy'})){const b=document.createElement('button');b.textContent=label;b.dataset.expression=key;b.onclick=()=>{checkpoint();chooseExpression(key)};document.querySelector('.expressions').append(b)}
+for(const [key,label] of Object.entries({neutral:'Neutral',smile:'Smile',sad:'Sad',laugh:'Laugh',surprise:'Surprise',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy',fear:'Afraid',delight:'Delighted',relief:'Relieved',skeptical:'Skeptical',curious:'Curious',embarrassed:'Embarrassed',disgust:'Disgusted',astonished:'Astonished',pout:'Pouting'})){const b=document.createElement('button');b.textContent=label;b.dataset.expression=key;b.onclick=()=>{checkpoint();chooseExpression(key)};document.querySelector('.expressions').append(b)}
 reaction.button=document.createElement('button');
 reaction.button.type='button';reaction.button.className='reactionControl';reaction.button.textContent='▶ Animate reaction';reaction.button.disabled=true;
 reaction.button.onclick=()=>{if(reaction.playing)stopReaction();else if(expression!=='neutral'){stopDemo();startReaction(expression,true)}};
@@ -2231,6 +2244,7 @@ function animationCardIcon(key){
 const headshotAnimations=[
  ['walk','Walking','🚶','Full body · front & ¾'],['sit','Cross-legged sitting','🧘','Floor sitting · relaxed hands'],['kneel','Kneeling','🧎','Floor kneeling · quiet posture'],
  ['worried','Worried','😟','Concerned brows'],['confused','Confused','😕','Asymmetric brows'],['calm','Calm','😌','Peaceful closed eyes'],['determined','Determined','😤','Focused expression'],['proud','Proud','🙂','Gentle confident smile'],['shy','Shy','☺','Soft smile · downward gaze'],
+ ['fear','Afraid','😨','Startle and trembling'],['delight','Delighted','🤩','Big smile and joyful bounce'],['relief','Relieved','😮‍💨','Exhale and soften'],['skeptical','Skeptical','🤨','Raised brow and side glance'],['curious','Curious','🧐','Head tilt and searching gaze'],['embarrassed','Embarrassed','😳','Look down and recover'],['disgust','Disgusted','😖','Recoil and grimace'],['astonished','Astonished','😲','Exaggerated wide-eyed shock'],['pout','Pouting','😗','Pursed lips and sulk'],
  ['smile','Smiling','😊','Friendly & warm'],['sad','Sad','😔','A gentle sigh'],
  ['laugh','Laughing','😂','Head & shoulder bounce'],['eyeRoll','Rolling eyes','🙄','Up, around & back'],
  ['wink','Winking','😉','A playful wink'],['surprise','Surprised','😮','Wide-eyed reaction'],
@@ -2259,6 +2273,11 @@ function extendAnimationPose(key,t,w,p,armWeight){
  if(key==='confused')p.gazeX=35*w;
  if(key==='worried')p.gazeY=25*w;
  if(isFloorPosture(key)){const offset=floorPostureOffset(key);return Object.assign(p,{mouth:'closed',eyes:t>2.82&&t<2.96?'closed':'open',brows:'neutral',y:offset+1.5*Math.sin(t*Math.PI*2/3.6),angle:.7*Math.sin(t*Math.PI*2/3.6),postureOffset:offset,arms:{left:[-16+1.5*beat,38,-18],right:[-16-1.5*beat,38,-18]},hands:{left:{pose:'relaxed',view:'back'},right:{pose:'relaxed',view:'back'}}});}
+ if(key==='skeptical')p.gazeX=-65*w;
+ if(key==='curious')p.gazeX=65*Math.sin(t*2.1)*w;
+ if(key==='embarrassed')p.gazeY=85*w;
+ if(key==='disgust')p.gazeX=-50*w;
+ if(key==='fear')p.gazeX=35*Math.sin(t*5)*w;
  if(key==='eyeRoll')Object.assign(p,{mouth:'closed',brows:'raised',gazeX:Math.round(Math.sin(t*2.3)*90*w),gazeY:Math.round(-95*Math.sin(Math.min(1,t/2.4)*Math.PI)*w),angle:-3*w});
  if(key==='wink')Object.assign(p,{mouth:'smile',brows:'raised',wink:t>.5&&t<1.5,angle:-4*w});
  if(key==='think')Object.assign(p,{mouth:'closed',eyes:'open',brows:'raised',gazeX:65*w,gazeY:-75*w,angle:5*w,y:2*beat*w});
@@ -2462,7 +2481,7 @@ reactionTick=function(now){
 // Scene previews share the existing character art and pose functions.
 // Each actor owns a state snapshot and a namespaced SVG; editor state stays independent.
 const sceneLocations=window.UMTO_SCENES||{};
-const sceneActions={talk:'Talking',listen:'Listening',smile:'Smiling',wave:'Waving',explain:'Explaining',laugh:'Laughing',walk:'Walking in place',dance:'Happy dance',celebrate:'Celebrating',sit:'Cross-legged sitting',kneel:'Kneeling',sad:'Sad',surprise:'Surprised',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy'};
+const sceneActions={talk:'Talking',listen:'Listening',smile:'Smiling',wave:'Waving',explain:'Explaining',laugh:'Laughing',walk:'Walking in place',dance:'Happy dance',celebrate:'Celebrating',sit:'Cross-legged sitting',kneel:'Kneeling',sad:'Sad',surprise:'Surprised',angry:'Angry',worried:'Worried',confused:'Confused',calm:'Calm',determined:'Determined',proud:'Proud',shy:'Shy',fear:'Afraid',delight:'Delighted',relief:'Relieved',skeptical:'Skeptical',curious:'Curious',embarrassed:'Embarrassed',disgust:'Disgusted',astonished:'Astonished',pout:'Pouting'};
 const scene={location:'living',cast:[],nodes:[],playing:false,raf:0,started:0,elapsed:.9,lastPaint:0,alternate:true};
 const sceneStorageKey='anitoons-scene-v1',sceneNS='http://www.w3.org/2000/svg';
 const sceneTab=document.createElement('button');sceneTab.id='scenesMode';sceneTab.type='button';sceneTab.setAttribute('role','tab');sceneTab.setAttribute('aria-selected','false');sceneTab.textContent='Scenes';document.querySelector('.studio-switch').append(sceneTab);
