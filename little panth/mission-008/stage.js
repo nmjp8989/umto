@@ -118,8 +118,8 @@
     return { light, wind, clutched, grasp, takeOff, folding, carry, x, stride, walking, lookingUp, cloudShift };
   }
 
-  // The two elbows remain on the outside of the body. Both hands follow
-  // the same cloth corners used below, so the shawl never floats between poses.
+  // Sleeves sit beneath the shawl. Hands follow its hem while wrapped and
+  // its actual top corners during removal, so neither arm pierces the cloth.
   function shawlArm(shoulder, target, side) {
     const upper = 42, lower = 41;
     const dx = target.x - shoulder.x, dy = target.y - shoulder.y;
@@ -140,10 +140,10 @@
   }
 
   const wornCloth = [
-    [-53,-190],[-49,-202],[-38,-207],[-29,-199],[-17,-185],[-9,-178],[-3,-177],
-    [14,-179],[32,-188],[43,-198],[57,-196],[66,-187],[65,-175],
-    [65,-147],[55,-130],[35,-117],[19,-112],[11,-119],[1,-121],
-    [-11,-114],[-28,-119],[-45,-134],[-54,-149],[-60,-173],[-53,-190]
+    [-62,-190],[-59,-205],[-42,-211],[-29,-199],[-17,-185],[-9,-178],[-3,-177],
+    [14,-179],[32,-188],[43,-198],[66,-194],[83,-183],[87,-162],
+    [95,-138],[74,-112],[41,-107],[22,-101],[16,-112],[1,-112],
+    [-17,-105],[-39,-112],[-58,-126],[-76,-143],[-75,-173],[-62,-190]
   ].map(([x,y]) => point(x,y));
   const clothOutline = [[0,0],[.12,-.03],[.25,.02],[.33,.02],[.45,.04],[.55,.04],[.67,.02],
     [.8,0],[.9,-.03],[1,0],[1.02,.2],[.98,.42],[.99,.55],
@@ -282,14 +282,21 @@
       opacity(p['shawl-tail'], (1-pose.takeOff)*(1-pose.clutched*.45));
 
       const farRest = point(-42-gait*8,-110), nearRest = point(57+gait*9,-105);
-      const farWrapped = along(farRest,point(-17,-146),pose.clutched);
-      const nearWrapped = along(nearRest,point(12,-143),pose.clutched);
+      const farWrapped = along(farRest,point(-18,-124),pose.clutched);
+      const nearWrapped = along(nearRest,point(18,-120),pose.clutched);
       const liftedFar = point(-27,-158), liftedNear = point(59,-158);
-      let farHand = along(farWrapped,point(-31,-183),pose.grasp);
-      let nearHand = along(nearWrapped,point(48,-180),pose.grasp);
-      farHand = along(farHand,along(liftedFar,point(4,-145),pose.folding),pose.takeOff);
-      nearHand = along(nearHand,along(liftedNear,point(57,-145),pose.folding),pose.takeOff);
-      farHand = along(farHand,farRest,pose.carry);
+      const wrappedCloth = wornCloth.map((v,i) => point(v.x*(1-pose.clutched*.07),
+        v.y-(i>=13&&i<=22?pose.clutched*13:0)));
+      let held = blendCloth(drape(liftedFar,liftedNear,55),drape(point(4,-145),point(57,-145),35),pose.folding);
+      held = blendCloth(held,drape(point(14,-126),point(63,-138),40),pose.carry);
+      const cloth = blendCloth(wrappedCloth,held,pose.takeOff);
+      const hold = Math.max(pose.grasp,pose.takeOff);
+      let farHand = along(farWrapped,cloth[0],hold);
+      let nearHand = along(nearWrapped,cloth[9],hold);
+      // Keep the far hand on its corner while laying the fold over the near
+      // forearm, then release it. The near hand changes grip behind the cloth.
+      const release = smooth(clamp((pose.carry-.55)/.45));
+      farHand = along(farHand,farRest,release);
       nearHand = along(nearHand,point(16,-125),pose.carry);
       const farArm = shawlArm(point(-38,-179),farHand,-1);
       const nearArm = shawlArm(point(42,-177),nearHand,1);
@@ -299,18 +306,21 @@
         p[prefix+'-hand'].setAttribute('transform',`translate(${arm.hand.x} ${arm.hand.y}) rotate(${arm.angle})`);
       }
       p['traveller-cuff'].setAttribute('d',nearArm.cuff);
-
-      const wrappedCloth = wornCloth.map((v,i) => point(v.x*(1-pose.clutched*.08),v.y + (i>12?pose.clutched*7:0)));
-      let held = blendCloth(drape(liftedFar,liftedNear,55),drape(point(4,-145),point(57,-145),35),pose.folding);
-      held = blendCloth(held,drape(point(14,-126),point(63,-138),40),pose.carry);
-      const cloth = blendCloth(wrappedCloth,held,pose.takeOff);
       p['shawl-main'].setAttribute('d',clothPath(cloth));
       const q = index => `${cloth[index].x} ${cloth[index].y}`;
+      p['shawl-front-fold'].setAttribute('d',`M${q(6)}Q${q(8)} ${q(9)}C${q(10)} ${q(11)} ${q(12)}C${q(13)} ${q(14)} ${q(15)}Q${q(17)} ${q(18)}Q${q(7)} ${q(6)}Z`);
       p['shawl-fold-line'].setAttribute('d', `M${q(1)}Q${q(6)} ${q(9)}M${q(22)}Q${q(18)} ${q(13)}`);
       p['shawl-hem'].setAttribute('d',`M${q(21)}Q${q(18)} ${q(15)}`);
       p['shawl-fringe'].setAttribute('d', [0,.2,.4,.6,.8,1].map(t => {
         const a=along(cloth[21],cloth[15],t);return `M${a.x} ${a.y}l${2-pose.clutched*2} ${4*(1-pose.takeOff)+3}`;
       }).join(' '));
+      const pinch = smooth(clamp((hold-.82)/.18));
+      for(const [name,arm,visible] of [['far',farArm,1-smooth(clamp((pose.carry-.45)/.17))],
+        ['near',nearArm,1-smooth(clamp(pose.carry/.22))]]) {
+        const grip=p['shawl-'+name+'-grip'];
+        grip.setAttribute('transform',`translate(${arm.hand.x} ${arm.hand.y}) rotate(${arm.angle})`);
+        opacity(grip,pinch*visible);
+      }
       this.svg.dataset.shawl = pose.carry>.98?'folded':pose.folding>.05?'folding':pose.takeOff>.06?'removing':pose.clutched>.69?'wrapped':'worn';
     }
 
