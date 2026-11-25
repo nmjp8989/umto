@@ -56,7 +56,7 @@ function renderedPose() {
   return { scene: current.scenes[current.scene].id, ms: current.position,
     viewBox: [svg.viewBox.baseVal.x, svg.viewBox.baseVal.y, svg.viewBox.baseVal.width, svg.viewBox.baseVal.height],
     camera: { preset: svg.dataset.cameraPreset, motion: svg.dataset.cameraMotion, angle: svg.dataset.cameraAngle },
-    animals, bell: { origin: point(bell), support: point(bell, 15, 0), bounds: bounds(bell),
+    animals, bell: { origin: point(bell), support: point(svg.querySelector('#bell [data-bell-support]')), bounds: bounds(bell),
       parent: bell.parentElement.id, target: point(bellPoint) }, contacts };
 }
 
