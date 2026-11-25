@@ -1,0 +1,93 @@
+{
+  "storeroom": {
+    "hash": "8db77ec1376d963204fa534709edcb4d58ac604d70d710fc27b36196ac5bf46e",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਪਿੰਡ ਦੇ ਅਨਾਜ ਵਾਲੇ ਕਮਰੇ ਵਿੱਚ ਚੂਹੇ ਰਹਿੰਦੇ ਸਨ। ਉੱਥੇ ਇੱਕ ਬਿੱਲੀ ਵੀ ਫਿਰਦੀ ਸੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "quiet-paws": {
+    "hash": "933bfd632a479fd3c1c07924e56a6d1a5ec3bb9be3b7f15c2cd0b0d668862c85",
+    "voice": "Aoede",
+    "text": "ਬਿੱਲੀ ਹੌਲੇ ਪੈਰੀਂ ਆਉਂਦੀ। ਚੂਹੇ ਉਸ ਨੂੰ ਵੇਖਦੇ ਹੀ ਆਪਣੀ ਖੁੱਡ ਵੱਲ ਦੌੜ ਜਾਂਦੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "meeting": {
+    "hash": "133e07c5afa5a8eba5481bddb11874401355c1e26c2d6af41a7b3fb0c3c15496",
+    "voice": "Aoede",
+    "text": "ਇੱਕ ਦਿਨ ਚੂਹੇ ਇਕੱਠੇ ਹੋਏ। ਉਹ ਬਿੱਲੀ ਤੋਂ ਬਚਣ ਦਾ ਕੋਈ ਤਰੀਕਾ ਲੱਭਣਾ ਚਾਹੁੰਦੇ ਸਨ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "mouse-worry": {
+    "hash": "fce53adbcc4b6191a777ccc849283e70741ca7dc4ef92d8608377d7a6c24dc44",
+    "voice": "Puck",
+    "text": "ਸਾਨੂੰ ਉਸ ਦੇ ਆਉਣ ਦਾ ਪਤਾ ਹੀ ਨਹੀਂ ਲੱਗਦਾ! ਹੁਣ ਕੀ ਕਰੀਏ?",
+    "speaker": "friend-mouse",
+    "model": "gemini-3.8-flash-lite-tts"
+  },
+  "young-idea": {
+    "hash": "71a763a5d11cf48af4a9e3262635e7d7c3832d9f7bd4e0acb35512007f507e9d",
+    "voice": "Leda",
+    "text": "ਮੇਰੇ ਕੋਲ ਇੱਕ ਤਰਕੀਬ ਹੈ! ਆਪਾਂ ਬਿੱਲੀ ਦੇ ਗਲ ਇੱਕ ਨਿੱਕੀ ਜਿਹੀ ਘੰਟੀ ਬੰਨ੍ਹ ਦਈਏ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "bell-explained": {
+    "hash": "665cf134605d83ab87d67ffe949f933566fdd86dd726f50df375c571d50ea4fc",
+    "voice": "Leda",
+    "text": "ਜਦੋਂ ਉਹ ਤੁਰੇਗੀ, ਘੰਟੀ ਵੱਜੇਗੀ। ਆਵਾਜ਼ ਸੁਣ ਕੇ ਆਪਾਂ ਝੱਟ ਆਪਣੀ ਖੁੱਡ ਵਿੱਚ ਲੁਕ ਜਾਵਾਂਗੇ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "cheer": {
+    "hash": "8887580c50cd9053cc83481c932c8e3fd489fdaecc642f5573631ef1ebd69c30",
+    "voice": "Puck",
+    "text": "ਵਾਹ! ਫਿਰ ਤਾਂ ਸਾਨੂੰ ਪਹਿਲਾਂ ਹੀ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ!",
+    "speaker": "friend-mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "elder-question": {
+    "hash": "58ac55a9d9f262c9d74eb70bb6fd4434052967d58593adc364aaf2fc91a6e855",
+    "voice": "Charon",
+    "text": "ਗੱਲ ਤਾਂ ਚੰਗੀ ਹੈ। ਪਰ ਬਿੱਲੀ ਦੇ ਨੇੜੇ ਜਾ ਕੇ ਉਸ ਦੇ ਗਲ ਘੰਟੀ ਕੌਣ ਬੰਨ੍ਹੇਗਾ?",
+    "speaker": "elder-mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "silence": {
+    "hash": "7d1432f706f9f69cae502636f6d5d276788d3ab3dcbc8c9e9360354d47581e0a",
+    "voice": "Aoede",
+    "text": "ਸਾਰੇ ਚੁੱਪ ਹੋ ਗਏ। ਉਹ ਇੱਕ ਦੂਜੇ ਵੱਲ ਵੇਖਣ ਲੱਗੇ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "young-hesitates": {
+    "hash": "3028aaf00b5846fda9619906eabe77b931e1f18b12cf555400e01981bf4a2e3c",
+    "voice": "Leda",
+    "text": "ਮੈਂ ਤਾਂ ਇਹ ਸੋਚਿਆ ਹੀ ਨਹੀਂ! ਸਾਨੂੰ ਅਜਿਹਾ ਰਾਹ ਚਾਹੀਦਾ ਹੈ ਜੋ ਅਸੀਂ ਸੱਚਮੁੱਚ ਅਪਣਾ ਸਕੀਏ।",
+    "speaker": "mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "elder-reminds": {
+    "hash": "ba194e96cf007f0b4f180fe4b64f6f6ecaf908971df5daa3762549059ef8a1fa",
+    "voice": "Charon",
+    "text": "ਤਰਕੀਬ ਸੋਚਣੀ ਚੰਗੀ ਗੱਲ ਹੈ। ਪਰ ਉਸ ਨੂੰ ਪੂਰਾ ਕਰਨ ਦਾ ਰਾਹ ਵੀ ਸੋਚਣਾ ਚਾਹੀਦਾ ਹੈ।",
+    "speaker": "elder-mouse",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "cat-passes": {
+    "hash": "e7e386b71d7609118dae3036395ddc3f3bc120d09e45941c50068d082b7c4cd4",
+    "voice": "Aoede",
+    "text": "ਬਿੱਲੀ ਫੇਰ ਲੰਘੀ। ਚੂਹੇ ਸੁਰੱਖਿਅਤ ਆਪਣੀ ਖੁੱਡ ਵੱਲ ਮੁੜ ਗਏ। ਘੰਟੀ ਉੱਥੇ ਹੀ ਪਈ ਰਹੀ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  },
+  "moral": {
+    "hash": "2efe1464280df5e306b06495a154b17a9278c29ae20eabc1346f0bb014442d2e",
+    "voice": "Aoede",
+    "text": "ਬੱਚਿਓ, ਚੰਗੀ ਯੋਜਨਾ ਉਹ ਹੈ ਜਿਸ ਨੂੰ ਅਸੀਂ ਅਮਲ ਵਿੱਚ ਵੀ ਲਿਆ ਸਕੀਏ।",
+    "speaker": "narrator",
+    "model": "gemini-3.8-flash-tts"
+  }
+}
