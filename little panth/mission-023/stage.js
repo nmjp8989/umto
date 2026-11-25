@@ -32,7 +32,8 @@
   const meharReaching = point(600, 640);
   const dadiHome = point(800, 621);
   const dadiHolding = point(736, 637);
-  const grips = [point(-13, 5), point(-5, 11), point(5, 10), point(11, 0), point(-2, -2)];
+  // Small kernels clustered around the palm, not spread beyond the fingers.
+  const grips = [point(-2.6, .8), point(-.9, 2.5), point(1.5, 2.1), point(2.8, -.1), point(0, -1.7)];
   const fallMs = 365;
   let studio;
 
@@ -111,7 +112,7 @@
       if (ms < release) { atHand(i); return; }
       const progress = phase(ms, release, release + fallMs);
       frame.kernels[i] = { source: progress < 1 ? 'falling' : bowl === green ? 'green-bowl' : 'blue-bowl', progress,
-        target: offset(bowl, slot === 0 ? -9 : 8, slot === 0 ? -2 : 1) };
+        target: offset(bowl, slot === 0 ? -4 : 4, slot === 0 ? -1 : 1) };
     };
     const now = point(616, 640);
     const serving = point(650, 641);
@@ -165,7 +166,7 @@
         c.tap.forEach((release, index) => {
           if (ms < release) atHand(index);
           else if (ms < release + fallMs) frame.kernels[index] = { source: 'returned',
-            target: offset(mouth, -10 + index * 10, 51), progress: phase(ms, release, release + fallMs) };
+            target: offset(mouth, -6 + index * 6, 51), progress: phase(ms, release, release + fallMs) };
         });
         [3, 4].forEach(atHand);
         frame.mode = lift > .95 ? 'free' : 'steadied';
@@ -239,8 +240,8 @@
       this.pile = Array.from({ length: 18 }, (_, index) => {
         const node = kernel();
         const row = Math.floor(index / 6);
-        transform(node, translate(point(-30 + 11 * (index % 6) + (row % 2) * 5, 66 - row * 7)) +
-          ' rotate(' + (index * 23 % 65 - 32) + ') scale(.79)');
+        transform(node, translate(point(-14 + 5.2 * (index % 6) + (row % 2) * 2.6, 68 - row * 3.7)) +
+          ' rotate(' + (index * 23 % 65 - 32) + ') scale(.36)');
         this.parts['almond-jar-pile'].append(node);
         return node;
       });
@@ -312,7 +313,7 @@
         const at = kernel.source === 'hand' ? held : t < 1
           ? between(held, kernel.target, t ** 1.35) : kernel.target;
         const angle = index * 46 % 91 - 42 + (t == null ? 0 : t * 176);
-        transform(node, translate(at) + ' rotate(' + angle + ') scale(.83)');
+        transform(node, translate(at) + ' rotate(' + angle + ') scale(.30)');
       });
     }
 
