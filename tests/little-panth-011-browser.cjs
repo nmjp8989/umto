@@ -8,6 +8,12 @@ const { chromium } = require('playwright-core');
 
 const url = process.env.LP011_URL || 'http://127.0.0.1:8765/little%20panth/mission-011/';
 const output = resolve(process.env.LP011_OUTPUT || 'screenshots/little-panth-011');
+const isDefaultFavicon = resource => {
+  try {
+    const requested = new URL(resource);
+    return requested.origin === new URL(url).origin && requested.pathname === '/favicon.ico';
+  } catch { return false; }
+};
 
 function renderedArms() {
   const stage = document.getElementById('stage'), world = stage.getScreenCTM().inverse();
@@ -42,7 +48,7 @@ async function run() {
     args: ['--no-sandbox', '--disable-dev-shm-usage', '--autoplay-policy=no-user-gesture-required']
   });
   let page;
-  const report = { checkpoints: [], errors: [] };
+  const report = { checkpoints: [], errors: [], failedResources: [], ignoredFavicons: [] };
   let failurePoses = [];
   async function capture(name, actors = []) {
     await page.screenshot({ path: output + '/' + name + '.png' });
@@ -65,13 +71,18 @@ async function run() {
     const errors = report.errors;
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => {
-      if (message.type() === 'error') errors.push(message.text());
+      if (message.type() !== 'error') return;
+      const source = message.location().url || '';
+      if (!isDefaultFavicon(source)) errors.push(message.text() + (source ? ' [' + source + ']' : ' [no source URL]'));
+    });
+    page.on('response', response => {
+      if (response.status() < 400) return;
+      const failure = { url: response.url(), status: response.status() };
+      (isDefaultFavicon(failure.url) ? report.ignoredFavicons : report.failedResources).push(failure);
     });
     const backdrop = page.waitForResponse(response => response.url().endsWith('/mission-003/art/courtyard.webp') && response.ok());
     await page.goto(url + '?test=1');
     await page.waitForFunction(() => window.lp011Test || document.getElementById('loading').textContent.includes('ਨਹੀਂ'));
-    assert.deepEqual(errors, []);
-    await backdrop;
     const { scenes, clips } = await page.evaluate(() => window.lp011Test.state());
     const lines = scenes.flatMap(scene => scene.lines);
     const attempts = scenes[3].events.filter(event => event.sound === 'ribbon');
@@ -85,6 +96,9 @@ async function run() {
       { name: 'snapped-sticks', scene: 4, ms: snapEvents[1].ms + 300, actors: ['mehar', 'boy'] },
       { name: 'bibi-lesson', scene: 5, ms: (scenes[5].lines[0].start + scenes[5].lines[0].end) / 2, actors: ['dadi'] }
     ];
+    await backdrop;
+    assert.deepEqual(report.failedResources, [], 'Every story and native-rig resource loads successfully');
+    assert.deepEqual(errors, []);
     assert.equal(scenes.length, 7);
     assert.equal(clips, 13);
     assert.ok(lines.every(line => line.aligned));
@@ -337,6 +351,7 @@ async function run() {
     await page.locator('#approve-scene').click();
     assert.equal(await page.locator('#review-progress').textContent(), '1 of 7 approved');
     assert.deepEqual(errors, []);
+    assert.deepEqual(report.failedResources, [], 'Every story and native-rig resource loads successfully');
     report.passed = true;
     console.log('PASS Mission 11: native rigs, outward lowered elbows, continuous reaches, actual ball/bundle/stick/cord contacts, 186 words, 13 aligned clips, mobile, reduced motion, and review.');
   } catch (error) {
