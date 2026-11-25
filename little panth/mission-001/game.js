@@ -858,7 +858,7 @@ function stopExportAt(next){
  return true;
 }
 if(exportMode){
- const sections={intro:[intro,'harvest'],harvest:[harvest,'storage'],storage:[storage,'requests'],requests:[requests,'share'],share:[share,null]};
+ const sections={all:[intro,null],intro:[intro,'harvest'],harvest:[harvest,'storage'],storage:[storage,'requests'],requests:[requests,'share'],share:[share,null]};
  window.lpExport={
    ready:()=>Boolean(story&&cartSource&&rig.mehar&&rig.narrator),
    status:()=>({...exportState,phase:window.lpPhase}),

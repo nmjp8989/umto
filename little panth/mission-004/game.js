@@ -12,6 +12,8 @@ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 const camera=new UmtoCamera.DeliveryCamera(stage);
 const params=new URLSearchParams(location.search);
 const exportMode=params.get('export')==='1';
+const compiling=params.get('compilation')==='1';
+let compilationStart=0;
 let bank=null,actors=[],index=0,playing=false,elapsed=0,frameAt=0;
 let shownBackground='',gestureGranted=false,autoplayAttempted=false;
 let manifest={},wordTimings={},exportError='';
@@ -277,16 +279,16 @@ function finishScene(){
 
 function playClip(token){
   const beat=beats[index];
-  if(manifest[beat.id]?.text!==beat.pa||(!gestureGranted&&autoplayAttempted))return;
+  if(manifest[beat.id]?.text!==beat.pa||(!gestureGranted&&autoplayAttempted)){if(compiling)exportError='Missing or blocked Punjabi clip: '+beat.id;return;}
   autoplayAttempted=true;
   audio.src='audio/'+beat.id+'.mp3';
   clipActive=true;
   audio.onloadedmetadata=()=>{if(token===serial)setReading(beat,audio.duration*1000)};
   audio.onended=()=>{if(token===serial)finishScene()};
-  audio.onerror=()=>{if(token===serial)clipActive=false};
+  audio.onerror=()=>{if(token===serial){clipActive=false;if(compiling)exportError='Could not load Punjabi clip: '+beat.id;}};
   audio.play().then(()=>{if(token===serial)gestureGranted=true}).catch(()=>{
     if(token!==serial)return;
-    clipActive=false;gestureGranted=false;
+    clipActive=false;gestureGranted=false;if(compiling)exportError='Punjabi playback blocked: '+beat.id;
   });
 }
 function start(){
@@ -344,7 +346,7 @@ window.addEventListener('message',async event=>{
     if(bank)return;
     bank=cast;
     $('loading').hidden=true;
-    if(exportMode)selectScene(0);
+    if(exportMode||compiling)selectScene(0);
     else start();
   }
 });
@@ -361,6 +363,13 @@ window.addEventListener('beforeunload',()=>stopAudio());
 function renderAt(scene,ms){
   if(index!==scene||ms<elapsed*1000)selectScene(scene);
   renderFrame(ms/1000,cameraStart+ms);
+}
+if(compiling){
+  window.lpCompilation={
+    ready:()=>!!bank&&beats.every(b=>!!trackFor(b)),
+    start(){if(!this.ready()||compilationStart)throw Error('Mission 004 narration not ready');gestureGranted=true;compilationStart=Date.now();start();return compilationStart;},
+    status:()=>({started:compilationStart,finished:finished?Date.now():0,error:exportError,elapsed:beats.slice(0,index).reduce((n,b)=>n+(trackFor(b)?.durationMs||0)+180,0)+elapsed*1000,total:beats.reduce((n,b)=>n+(trackFor(b)?.durationMs||0)+180,0)})
+  };
 }
 if(exportMode){
   window.lp004Export={ready:()=>!!bank,error:()=>exportError,frame:renderAt};

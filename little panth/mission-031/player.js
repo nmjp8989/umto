@@ -7,6 +7,10 @@
   const readingLine = $('reading');
   const params = new URLSearchParams(location.search);
   const reviewing = params.get('review') === '1';
+  // Explicit compilation mode preserves normal tap-to-listen playback.
+  const compiling = params.get('compilation') === '1';
+  let compilationStart = 0, compilationError = '';
+
   const { makeReading, readingAt } = window.LP004Reading;
   const stageModule = window.LittlePanthStage || window.LP005Stage;
   const Stage = stageModule.Stage || stageModule.CrowStage;
@@ -208,7 +212,7 @@
     $('loading').hidden = true;
     const initial = reviewing ? scenes.findIndex(scene => scene.id === params.get('scene')) : 0;
     select(Math.max(0, initial));
-    if (!reviewing) {
+    if (!reviewing && !compiling) {
       if (voicesReady) {
         // Match the earlier storybooks: tap the picture to hear the recorded narration.
         play();
@@ -217,6 +221,27 @@
         $('loading').hidden = false;
         $('loading').textContent = 'ਪੰਜਾਬੀ ਆਵਾਜ਼ਾਂ ਲੋਡ ਨਹੀਂ ਹੋਈਆਂ।';
       }
+    }
+    if (compiling) {
+      const ids = scenes.flatMap(s => s.lines.map(l => l.id));
+      const missing = ids.filter(id => !sound.clips.has(id));
+      if (!voicesReady && !missing.length) compilationError = 'Gemini narration or Gurmukhi alignment is incomplete';
+      if (missing.length) compilationError = 'Missing recorded narration: ' + missing.join(', ');
+      window.lpCompilation = {
+        ready: () => !compilationError && scenes.length > 0,
+        async start() {
+          if (!this.ready() || compilationStart) throw Error(compilationError || 'Story not ready');
+          if (!await sound.unlock()) throw Error('Punjabi audio could not be unlocked');
+          stop(); select(0); activated = true;
+          compilationStart = Date.now(); play();
+          return compilationStart;
+        },
+        status() {
+          const total = scenes.reduce((sum,s)=>sum+s.duration,0);
+          const elapsed = (scenes[selected]?.episodeStart || 0) + position;
+          return { started: compilationStart, finished: compilationStart && !playing && selected === scenes.length-1 && position >= scenes[selected].duration ? Date.now() : 0, error: compilationError, elapsed, total };
+        }
+      };
     }
     if (params.get('test') === '1') {
       const mission = String(data.mission || 5).padStart(3, '0');
@@ -260,6 +285,7 @@
   window.addEventListener('pagehide', stop);
   start().catch(error => {
     $('loading').textContent = 'ਕਹਾਣੀ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ।';
+    if (compiling) compilationError = error.message;
     console.error(error.message);
   });
 })();

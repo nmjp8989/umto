@@ -447,9 +447,9 @@
       ready: () => Boolean(story && bank),
       status: () => ({...exportState}),
       start(section) {
-        if (!story.scenes.some(scene => scene.id === section) || exportState.started) throw Error('Unknown or already started section');
+        if ((section !== 'all' && !story.scenes.some(scene => scene.id === section)) || exportState.started) throw Error('Unknown or already started section');
         exportState.started = Date.now();
-        run('watch', section).catch(error => { exportState.error = error.message; });
+        run('watch', section === 'all' ? undefined : section).catch(error => { exportState.error = error.message; });
         return exportState.started;
       }
     };

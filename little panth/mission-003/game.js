@@ -63,10 +63,10 @@
 
     say(id) {
       this.stopLine();
-      if (!this.recorded.has(id)) return;
+      if (!this.recorded.has(id)) { if (exportMode) exportState.error = 'Missing Punjabi audio: ' + id; return; }
       this.line = id;
       this.voice.src = 'audio/' + id + '.mp3';
-      this.voice.play().catch(() => {});
+      this.voice.play().catch(error => { if (exportMode) exportState.error = 'Could not play Punjabi audio: ' + id + ' (' + error.message + ')'; });
     }
 
     resume() {
@@ -450,9 +450,9 @@
       ready:() => ready,
       status:() => ({...exportState}),
       start(chapter) {
-        const index = shots.findIndex(shot => shot.chapter === chapter);
+        const index = chapter === 'all' ? 0 : shots.findIndex(shot => shot.chapter === chapter);
         if (!ready || index < 0 || exportState.started) throw Error('Unknown or already started export chapter');
-        const next = shots.findIndex((shot,i) => i > index && shot.chapter !== chapter);
+        const next = chapter === 'all' ? -1 : shots.findIndex((shot,i) => i > index && shot.chapter !== chapter);
         exportState.started = Date.now();
         start('watch',index,next < 0 ? shots.length : next);
         return exportState.started;
