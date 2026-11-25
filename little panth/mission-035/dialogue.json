@@ -60,7 +60,9 @@
         "bell-explained",
         "cheer"
       ],
-      "review": "Frame the young mouse, then a close insert as a visible forepaw gently nudges the grounded brass bell. Return to the hopeful group."
+      "review": "Frame the young mouse, then a close insert as a visible forepaw gently nudges the grounded brass bell. Return to the hopeful group.",
+      "layout": "cinema",
+      "caption": "top"
     },
     {
       "id": "wise-question",
@@ -102,7 +104,9 @@
         "cat-passes",
         "moral"
       ],
-      "review": "The cat approaches as all three mice run back into the same doorway, disappearing inside one after another. Finish on the empty floor, untouched bell and safe mouse hole."
+      "review": "The cat approaches as all three mice run back into the same doorway, disappearing inside one after another. Finish on the empty floor, untouched bell and safe mouse hole.",
+      "layout": "cinema",
+      "caption": "top"
     }
   ],
   "lines": {

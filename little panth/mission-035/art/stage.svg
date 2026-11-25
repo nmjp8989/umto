@@ -50,7 +50,7 @@
    <rect x="900" y="165" width="360" height="375" />
   </clipPath>
  </defs>
- <image id="storeroom" href="art/storeroom.svg" x="0" y="0" width="1280" height="720" />
+ <image id="storeroom" href="art/storeroom.svg?v=floor-sacks-2" x="0" y="0" width="1280" height="720" />
  <g id="courtyard-animals" clip-path="url(#courtyard-clip)">
   <ellipse id="cat-shadow" cx="1150" cy="520" rx="91" ry="11" fill="url(#floor-shadow)" />
   <g id="cat" data-speaking="false" stroke-linecap="round" stroke-linejoin="round" data-animal="cat" data-role="passing-cat" data-support-y="518" data-rig="continuous-curves" transform="translate(1150 518) scale(-1.25 1.25)">

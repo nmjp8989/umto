@@ -28,10 +28,10 @@ the bell is never suspended without a visible grip or support.
 | --- | --- | --- |
 | `quiet-store` | `storeroom`, `quiet-paws` | Establishing wide of the storeroom and mice, then a restrained track of the cat's quiet passing feet in the courtyard. Mice notice and retreat a short distance along the floor toward their doorway. |
 | `mice-meet` | `meeting`, `mouse-worry` | Medium council shot with all three mice apart; move to a closer reaction of the worried third mouse. The cat is outside the council composition. |
-| `bright-idea` | `young-idea`, `bell-explained`, `cheer` | Medium shot of the young mouse, an insert of the brass bell and a visible gentle nudge, then a clear group reaction. Everyone remains supported on the floor. |
+| `bright-idea` | `young-idea`, `bell-explained`, `cheer` | Full-screen cinema with top captions. Medium shot of the young mouse, an insert of the brass bell and a visible gentle nudge, then a clear group reaction. Everyone remains supported on the floor. |
 | `wise-question` | `elder-question`, `silence` | Calm medium close-up of the elder mouse for the question, then a held group shot as the mice look at one another. The untouched bell remains visible. |
 | `no-volunteer` | `young-hesitates`, `elder-reminds` | Two-shot of young and elder mice. The young mouse lowers its forepaw and the elder answers gently. No imagined or actual bell appears on the cat. |
-| `safe-and-thoughtful` | `cat-passes`, `moral` | Wide courtyard/storeroom view as the cat passes at an unhurried pace. The mice run into the actual doorway one by one and disappear inside it. Finish on a warm, quiet medium-wide view of the empty floor, mouse doorway and untouched bell, with a still final hold. |
+| `safe-and-thoughtful` | `cat-passes`, `moral` | Full-screen cinema with top captions. Wide courtyard/storeroom view as the cat passes at an unhurried pace. The mice run into the actual doorway one by one and disappear inside it. Finish on a warm, quiet medium-wide view of the empty floor, mouse doorway and untouched bell, with a still final hold. |
 
 ## Playback and review
 
