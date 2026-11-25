@@ -112,7 +112,9 @@
    const base=createSceneActor(actor,serial++);
    base.svg.setAttribute('aria-label',({harpreet:'Harpreet',meena:'Meena',kabir:'Kabir',meher:'Meher',rohan:'Rohan',baldev:'Baldev',narrator:'Storyteller',baba:'Baba Ji',farmer:'Farmer'})[id]||id);
    base.svg.setAttribute('viewBox','100 100 1080 2300');base.svg.setAttribute('width','100%');base.svg.setAttribute('height','100%');base.svg.querySelectorAll('style').forEach(e=>e.remove());
-   const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds,turn:cameraDirections[view]||0};bank[id][view]=slot;
+   const pinnedChunni=actor.appearance.headwear==='chunni';
+   const clothLayers=pinnedChunni?['headwearBack','headwearFront']:[];
+   const slot={base:base.svg.outerHTML,frames:{},headLayers:reactionHeadIds.filter(part=>!clothLayers.includes(part)),turn:cameraDirections[view]||0};bank[id][view]=slot;
    if(littlePanth&&(id==='mehar'||id==='narrator'||(missionTwo&&['girl','boy','mother','teacher'].includes(id)))){
     const colour=id==='mehar'?'#f4ce37':'#e8ba37';
     slot.headScarf=sceneWithState(actor,()=>cameraMarkup('headwearFront',headwearSvg('tuckedChunni',colour)));
@@ -149,11 +151,12 @@
       remapSceneRefs(node.layers.eyebrowGroup,node.prefix);
      }
      for(const el of copy.querySelectorAll('[data-hand-action]'))remapSceneRefs(el,node.prefix);
+     if(pinnedChunni)poseChunniDrape(node.layers,p);
      head=`translate(${p.x||0} ${p.y||0}) rotate(${p.angle||0} 627 ${bodyHeadPivot()})`;
     });
     if(key.startsWith('ride')){rider(node);slot.frames[key]={svg:copy.outerHTML};}
     else {
-      const frame={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup',...(littlePanth?['eyebrowGroup']:[])].map(part=>[part,node.layers[part].innerHTML])),head};
+      const frame={parts:Object.fromEntries(['torso','eyeGroup','mouthGroup','beardGroup','moustacheGroup',...(littlePanth?['eyebrowGroup']:[]),...clothLayers].map(part=>[part,node.layers[part].innerHTML])),head};
       if(littlePanth)frame.arms=frameArms(node.layers.torso);
       slot.frames[key]=frame;
     }

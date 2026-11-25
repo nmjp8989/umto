@@ -1,0 +1,66 @@
+name: Little Panth Mission 11 arms and chunni check
+
+on:
+  push:
+    paths:
+      - 'little panth/mission-011/**'
+      - 'little panth/mission-005/player.js'
+      - 'little panth/mission-004/reading.js'
+      - 'index.html'
+      - 'missions/character-bridge.js'
+      - 'missions/delivery-bridge.js'
+      - 'missions/native-character-player.js'
+      - 'missions/delivery-camera.js'
+      - 'chunni-review.html'
+      - 'tests/chunni-regression.js'
+      - 'tests/chunni-browser.cjs'
+      - 'tests/little-panth-011-browser.cjs'
+      - '.github/workflows/little-panth-mission-011-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check story and shared cloth JavaScript
+        run: |
+          node --check 'little panth/mission-011/stage.js'
+          node --check tests/little-panth-011-browser.cjs
+          node --check tests/chunni-regression.js
+          node --check tests/chunni-browser.cjs
+      - name: Install Playwright against runner Chrome
+        run: npm install --no-save playwright-core@1.56.1
+      - name: Start the static site
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp011-server.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8765/ > /dev/null; then
+              exit 0
+            fi
+            sleep 0.2
+          done
+          exit 1
+      - name: Check shared chunni joins and movement
+        env:
+          CHUNNI_OUTPUT: screenshots/chunni
+        run: node tests/chunni-browser.cjs
+      - name: Check bundle arm movement, grips and story playback
+        if: '!cancelled()'
+        env:
+          LP011_OUTPUT: screenshots/little-panth-011
+        run: node tests/little-panth-011-browser.cjs
+      - name: Upload pose and continuity review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-panth-011-and-chunni
+          path: screenshots/
+          if-no-files-found: ignore

@@ -185,8 +185,8 @@ async function run() {
         JSON.stringify(near.forearmSupport));
     }
 
-    async function gaitWindow(index, from, to) {
-      const result = await page.evaluate(({ index, from, to }) => {
+    async function gaitWindow(index, from, to, { step = 16, checkStance = false } = {}) {
+      const result = await page.evaluate(({ index, from, to, step, checkStance }) => {
         function feet() {
           const svg = document.getElementById('stage'), traveller = document.getElementById('traveller');
           const world = svg.getScreenCTM().inverse();
@@ -205,14 +205,22 @@ async function run() {
           };
         }
         const times = [];
-        for (let ms = from; ms < to; ms += 16) times.push(ms);
+        for (let ms = from; ms < to; ms += step) times.push(ms);
         times.push(to);
-        let previous = null, samples = 0, largestJump = 0, highestRatio = 0;
+        let previous = null, first = null, samples = 0, largestJump = 0, highestRatio = 0;
+        let peakSpeed = 0, largestStanceGap = 0;
         for (const ms of times) {
           window.lp008Test.seek(index, ms);
           const current = feet();
+          first ??= current;
+          if (checkStance) {
+            const gap = Math.min(...[0, 3].map(i => Math.abs(current.points[i].y - first.points[i].y)));
+            largestStanceGap = Math.max(largestStanceGap, gap);
+            if (gap > 2.5) return { index, from, to, samples, error: { ms, type: 'stance', gap } };
+          }
           if (previous) {
             const travel = Math.hypot(current.actor.x - previous.actor.x, current.actor.y - previous.actor.y);
+            peakSpeed = Math.max(peakSpeed, travel * 1000 / (ms - previous.ms));
             // Normal swing can be faster than the body. A stationary actor
             // still gets a small allowance for a smooth settling step.
             const allowance = .08 + (ms - previous.ms) * .13 + 4 * travel;
@@ -226,8 +234,11 @@ async function run() {
           previous = { ...current, ms };
           samples++;
         }
-        return { index, from, to, samples, largestJump, highestRatio, error: null, finalFeet: previous.points };
-      }, { index, from, to });
+        const distance = Math.abs(previous.actor.x - first.actor.x);
+        return { index, from, to, samples, largestJump, highestRatio, largestStanceGap,
+          distance, averageSpeed: to > from ? distance * 1000 / (to - from) : 0, peakSpeed,
+          error: null, finalFeet: previous.points, finalActor: previous.actor };
+      }, { index, from, to, step, checkStance });
       report.gaitWindows ??= [];
       report.gaitWindows.push(result);
       assert.equal(result.error, null, 'The native feet move continuously at walking boundaries: ' + JSON.stringify(result.error));
@@ -324,10 +335,33 @@ async function run() {
     await snapshot('15-first-step', true);
     await seek(0, scenes[0].duration - 650);
     await snapshot('16-settling-step', true);
-    await seek(6, departure + 420);
-    const walkingCarry = await snapshot('17-carried-walk', true);
-    assertContacts(walkingCarry);
-    assertForearmDrape(walkingCarry);
+    const arrival = scenes[6].duration - 470;
+    const openingPace = await gaitWindow(0, 180, scenes[0].duration - 380, { step: 80, checkStance: true });
+    const endingPace = await gaitWindow(6, departure, arrival, { step: 80, checkStance: true });
+    report.walkPace = { opening: openingPace, ending: endingPace };
+    assert.ok(endingPace.averageSpeed <= openingPace.averageSpeed * 1.1,
+      'The final walk stays at the opening pace: ' + JSON.stringify(report.walkPace));
+    assert.ok(endingPace.peakSpeed <= openingPace.peakSpeed * 1.1,
+      'The final walk never accelerates into a sprint');
+    assert.ok(endingPace.distance >= 50 && endingPace.distance <= openingPace.distance * .5,
+      'The traveller takes a few calm visible steps, then settles');
+    for (const fraction of [.2, .5, .8]) {
+      await seek(6, departure + (arrival - departure) * fraction);
+      const walkingCarry = fraction === .5 ? await snapshot('17-carried-walk', true) : await measure();
+      assert.equal(walkingCarry.nativeMotion, 'walk');
+      assertContacts(walkingCarry);
+      assertForearmDrape(walkingCarry);
+    }
+    await seek(6, scenes[6].duration);
+    const ending = await snapshot('18-calm-ending', true);
+    assert.equal(ending.nativeMotion, 'stand');
+    assertContacts(ending);
+    assertForearmDrape(ending);
+    const finalPerson = await page.locator('#traveller').boundingBox(), finalMovie = await page.locator('#movie').boundingBox();
+    assert.ok(finalPerson.x >= finalMovie.x && finalPerson.x + finalPerson.width <= finalMovie.x + finalMovie.width,
+      'The final frame keeps the traveller and folded shawl visible');
+    const held = await gaitWindow(6, arrival, scenes[6].duration, { step: 80, checkStance: true });
+    assert.ok(held.distance < .01 && held.largestJump < .01, 'The clean ending holds still after the final step');
 
     report.geometrySweep = await page.evaluate(() => {
       const test = window.lp008Test, scenes = test.state().scenes;
@@ -415,7 +449,7 @@ async function run() {
     assert.deepEqual(report.errors, []);
     assert.deepEqual(report.consoleErrors.filter(text => /<path>|<g>|NaN|Infinity|Error:/.test(text)), []);
     report.passed = true;
-    console.log('PASS Mission 08: native UMTO traveller, knee-length shawl, covered upper arms, forearm carry, continuous hands and feet, finite poses, 13 aligned recordings, mobile, reduced motion, review and compilation readiness.');
+    console.log('PASS Mission 08: native UMTO traveller, knee-length shawl, covered upper arms, forearm carry, calm final walking pace, continuous hands and feet, finite poses, 13 aligned recordings, mobile, reduced motion, review and compilation readiness.');
   } catch (error) {
     report.passed = false;
     report.failure = error.stack || String(error);

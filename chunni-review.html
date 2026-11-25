@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chunni motion regression review</title>
+<style>body{margin:0;background:#e6e5e2;color:#25232a;font:16px/1.5 system-ui}header{padding:18px 28px;background:#fff;display:flex;gap:20px;align-items:center;flex-wrap:wrap}h1{font-size:20px;margin:0}button{padding:9px 16px;font:inherit;border:1px solid #b1aca8;border-radius:5px;background:white}#status{font-weight:600}#results{padding:20px 28px;white-space:pre-wrap;font:14px/1.5 monospace}#cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:0 28px 28px}article{background:#faf8f3;border-radius:8px;overflow:hidden}h2{margin:12px 16px;font-size:16px}article svg{display:block;width:100%;height:470px}iframe{position:fixed;left:-5000px;top:0;width:1280px;height:900px;border:0}@media(max-width:700px){#cards{grid-template-columns:1fr}}</style></head>
+<body><header><h1>Chunni continuity and face clearance</h1><button id="run" disabled>Run checks</button><label>Time <input id="time" type="number" min="0" max="3.6" value="0.942" step="0.12" style="width:75px;font:inherit;padding:8px"></label><label>Action <select id="action"><option value="nod">Nod</option><option value="walk">Walk</option><option value="explain">Explain</option></select></label><label><input id="full" type="checkbox" checked>Full body</label><button id="pose" disabled>Show pose</button><span id="status">Loading Studio…</span></header>
+<div id="results" role="status"></div><main id="cards"></main><iframe id="studio" src="index.html?missionBridge=native&amp;v=chunni-seam-6" title="Studio test renderer"></iframe>
+<script>
+const frame=document.getElementById('studio'),button=document.getElementById('run'),status=document.getElementById('status'),results=document.getElementById('results'),cards=document.getElementById('cards');
+function showPose(){
+ const win=frame.contentWindow;cards.replaceChildren();let serial=9990;
+ for(const preset of ['elder-bibi-ji','elder-bibi'])for(const view of ['front','left','right']){
+  const actor=win.newSceneActor(preset,0);actor.view=view;const node=win.createSceneActor(actor,serial++);
+  frame.contentDocument.body.append(node.svg);win.sceneWithState(actor,()=>{const t=Number(document.getElementById('time').value),action=document.getElementById('action').value,p=win.reactionPose(action,t);if(action==='walk')win.poseWalking(t,node.scope);else win.setBodyArmPose(p.arms||win.restingBodyPose(),p.hands||{},node.scope);win.paintSceneActorFace(node,p);win.remapSceneRefs(node.svg,node.prefix);});
+  node.svg.setAttribute('viewBox',document.getElementById('full').checked?'135 150 1010 2240':'235 200 810 1430');node.svg.setAttribute('width','100%');node.svg.setAttribute('height','470');
+  const card=document.createElement('article'),heading=document.createElement('h2');heading.textContent=preset+' · '+view;card.append(heading);
+  card.insertAdjacentHTML('beforeend',new XMLSerializer().serializeToString(node.svg));node.svg.remove();cards.append(card);
+ }
+}
+document.getElementById('pose').onclick=showPose;document.getElementById('full').onchange=showPose;document.getElementById('action').onchange=showPose;
+button.onclick=()=>{
+ status.textContent='Checking both presets, all views and full nod motion…';button.disabled=true;showPose();results.textContent='';
+ setTimeout(async()=>{
+  try{
+   const report=await frame.contentWindow.checkChunniDrape({onProgress:info=>{status.textContent='Checking '+info.cases+'/16 cases · '+info.poses+' nod poses'}});
+   const {captures,...summary}=report;results.textContent=JSON.stringify(summary,null,2);status.textContent='PASS · '+report.cases+' colour/view cases · '+report.poses+' nod poses';
+  }catch(error){status.textContent='FAIL';results.textContent=error.stack||error.message}
+  finally{button.disabled=false}
+ },60);
+};
+frame.onload=()=>{
+ const script=frame.contentDocument.createElement('script');script.src='tests/chunni-regression.js?v=chunni-seam-6';
+ script.onload=()=>{button.disabled=false;document.getElementById('pose').disabled=false;status.textContent='Ready';button.click()};script.onerror=()=>{status.textContent='Check script failed to load'};frame.contentDocument.body.append(script);
+};
+</script></body></html>

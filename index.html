@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><meta name="umto-renderer-revision" content="chunni-rose-teal-5"><title>Umto · Character Studio v105</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><meta name="umto-renderer-revision" content="chunni-seam-6"><title>Umto · Character Studio v106</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Umto · Character Studio v105</h1><p>v105 · rose and teal Bibi Ji palette</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Umto · Character Studio v106</h1><p>v106 · continuous Bibi Ji chunni drape</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -126,7 +126,7 @@
 <label class="motion-label" for="audioFile">Optional: use your own audio (MP3, WAV, M4A)</label><input class="motion-file" id="audioFile" type="file" accept="audio/*"><div class="motion-note" id="audioStatus">No audio selected · animated cue demo only. With audio, cues are stretched uniformly to its duration; this is manual timing, not automatic speech recognition.</div>
 </section><h3>Same character · four mouth positions</h3><div id="fourup" class="fourup"></div><h3>Expression mouths</h3><div id="focus" class="focus-grid"></div><p class="hint">For regular talking, the default library is smaller on purpose: <strong>Closed</strong>, <strong>M/B/P</strong>, <strong>EE/teeth</strong>, <strong>A</strong>, <strong>O</strong>, <strong>U/pucker</strong>, and <strong>F/V</strong>. Separate expressive mouths are available for <strong>Smile</strong>, <strong>Sad</strong>, and <strong>Laugh</strong>.</p><p class="hint">Every mouth uses the same face and mouth anchor. All parts are SVG paths, so the hairstyle, ears, head, face, clothing and mouth can be independently changed without generating a new portrait.</p></section>
 <section class="card"><div class="row"><h2>Character parts</h2><span class="tag">ILLUSTRATION REFINEMENT</span></div><div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-tab="mouth">Mouth</button><button class="tab" role="tab" aria-selected="false" data-tab="eyes">Eyes</button><button class="tab" role="tab" aria-selected="false" data-tab="brows">Brows</button><button class="tab" role="tab" aria-selected="false" data-tab="nose">Nose</button><button class="tab" role="tab" aria-selected="false" data-tab="hair">Hair</button><button class="tab" role="tab" aria-selected="false" data-tab="ears">Ears</button><button class="tab" role="tab" aria-selected="false" data-tab="mood">Moods</button></div><h3 id="category">Mouth shapes</h3><div id="choices" class="choices"></div><div class="sliders"><label>Mouth width <input id="width" type="range" min="75" max="135" value="110"></label><label>Mouth position <input id="position" type="range" min="-22" max="22" value="5"></label></div><div class="toolbar"><button class="btn" id="reset">Reset mouth</button><button class="btn" id="exportPart">Save selected part SVG</button><button class="btn" id="saveJson">Save rig JSON</button></div><div class="notes"><b>v20 simplified mouth system:</b> The main talking set is intentionally reduced to seven practical speech visemes: Closed, M/B/P, EE/teeth, A, O, U/pucker, and F/V. Extra emotional shapes are provided separately for Smile, Sad, and Laugh. <b>Drawing goal:</b> professional cartoon features, strong line weight, no raster face or image overlays. Consistent eyes, eyebrows, mouth and hair are individual SVG layers, not separately generated full portraits. Speech-motion playback uses hand-set cues; imported audio is not automatically transcribed or analyzed. Timing is scaled to the audio duration for preview.</div></section>
-</main><div class="footer">Umto prototype v105 · Local/offline · No uploads or external requests</div>
+</main><div class="footer">Umto prototype v106 · Local/offline · No uploads or external requests</div>
 <script src="scenes/catalog.js"></script><script>
 'use strict';
 
@@ -490,9 +490,9 @@ function headwearBackSvg(key,colour=state.headwearColour){
  if(key!=='chunni')return '';
  const shade=bodyShade(colour,.17);
  return `<g transform="translate(377 210) scale(5)" data-chunni-back="" stroke-linecap="round" stroke-linejoin="round">`+
-  `<path d="M4 49 C-7 78 -5 111 -8 142 Q-10 166 -12 196 Q9 202 26 190 Q56 184 88 193 Q105 203 117 191 C109 157 106 126 110 94 C116 60 102 30 78 19 Q32 -2 4 49Z" fill="${colour}"/>`+
-  `<path d="M4 67 C-4 106 1 145 -5 195 L8 197 C12 154 15 119 19 93Z M103 69 C107 106 100 145 110 194 L100 198 C92 149 95 118 94 90Z" fill="${shade}"/>`+
-  coveringLines('M4 49 C-7 78 -5 111 -8 142 Q-10 166 -12 196 M117 191 C109 157 106 126 110 94 C116 60 102 30 78 19 Q32 -2 4 49','#473341',1.15)+'</g>';
+  `<path d="M4 49 C-7 78 -5 111 -8 142 Q-10 160 -8.4 173.2 Q14 184 30 172 Q55 163 84 175 Q98 186 102.8 179.2 C105 154 106 126 110 94 C116 60 102 30 78 19 Q32 -2 4 49Z" fill="${colour}"/>`+
+  `<path d="M4 67 C-4 106 1 143 -8.4 173.2 L7 176 C12 148 15 119 19 93Z M103 69 C107 106 100 143 102.8 179.2 L92 176 C92 149 95 118 94 90Z" fill="${shade}"/>`+
+  coveringLines('M4 49 C-7 78 -5 111 -8 142 Q-10 160 -8.4 173.2 M102.8 179.2 C105 154 106 126 110 94 C116 60 102 30 78 19 Q32 -2 4 49','#473341',1.15)+'</g>';
 }
 let headwearSerial=0;
 function headwearSvg(key,colour=state.headwearColour){
@@ -508,15 +508,16 @@ function headwearSvg(key,colour=state.headwearColour){
  if(key==='chunni'){
   // The crown rests on the head, then opens away from the cheeks. Narrow
   // folded edges fall onto the shoulders; they do not close beneath the chin.
-  const outer='M-7 195 C-2 161 -6 128 -7 104 C-10 74 -7 45 9 28 C22 14 39 9 58 11 C82 12 101 24 109 44 C120 69 111 96 108 119 C105 142 108 168 113 195';
-  const opening='C86 171 82 147 89 127 C96 107 99 89 95 71 C92 52 78 39 60 36 C43 33 26 38 17 51 C7 66 9 85 13 104 C18 126 23 146 21 164 Q20 184 17 204';
-  art=`<g data-chunni-head=""><path d="${outer} Q106 201 98 204 ${opening} Q3 202 -7 195Z" fill="${colour}"/>`+
-   `<path d="M1 65 C-3 97 9 130 8 153 Q7 177 3 200 L-7 195 C-2 161 -6 129 -6 105 Q-10 81 1 65Z M105 70 C106 107 94 126 95 149 Q97 179 110 198 L98 204 C85 171 83 148 89 127 Q102 94 95 71Z" fill="${bodyShade(colour,.17)}"/>`+
+  const outer='M-8.4 173.2 C-6 154 -6 128 -7 104 C-10 74 -7 45 9 28 C22 14 39 9 58 11 C82 12 101 24 109 44 C120 69 111 96 108 119 C105 142 104 162 102.8 179.2';
+  const opening='C94 161 86 147 89 127 C96 107 99 89 95 71 C92 52 78 39 60 36 C43 33 26 38 17 51 C7 66 9 85 13 104 C18 126 23 146 16 158 Q12 167 6.4 169.6';
+  const border='M6.4 169.6 C1.1 159.6 15 143 12 123 C6 104 2 83 7 65 C12 44 32 32 52 32 C72 31 89 42 97 59 C108 80 99 106 92 127 C90 144 100 153 98.4 169.6';
+  art=`<g data-chunni-head=""><path d="${outer} L98.4 169.6 ${opening} L-8.4 173.2Z" fill="${colour}"/>`+
+   `<path d="M1 65 C-3 97 9 130 8 148 Q4 165 -8.4 173.2 L6.4 169.6 C12 154 16 141 13 125 Q-3 89 1 65Z M105 70 C106 107 94 126 95 149 Q98 165 102.8 179.2 L98.4 169.6 C86 150 86 139 89 127 Q102 94 95 71Z" fill="${bodyShade(colour,.17)}"/>`+
    `<path data-chunni-highlight="" d="M8 40 C18 22 38 17 57 19 Q83 20 98 38 C79 25 61 24 46 27 Q22 30 8 40Z" fill="#fff8ed" opacity=".13"/>`+
    coveringLines(outer,'#473341',1.2)+
-   coveringLines('M16 198 C22 173 18 143 12 123 C6 104 2 83 7 65 C12 44 32 32 52 32 C72 31 89 42 97 59 C108 80 99 106 92 127 Q83 165 99 197',bodyShade(colour,.32),3.6)+
-   coveringLines('M16 198 C22 173 18 143 12 123 C6 104 2 83 7 65 C12 44 32 32 52 32 C72 31 89 42 97 59 C108 80 99 106 92 127 Q83 165 99 197',chunniTrim,1.55)+
-   coveringLines('M12 196 C17 173 13 143 8 125 M96 193 Q83 162 89 131 M14 36 Q33 19 56 23 M65 23 Q86 27 98 45',bodyShade(colour,.22),.8)+
+   coveringLines(border,bodyShade(colour,.32),2.7)+
+   coveringLines(border,chunniTrim,1.2).replace('<path','<path data-chunni-edge="head"')+
+   coveringLines('M2 166 C7 153 13 143 8 125 M98 165 Q88 146 89 131 M14 36 Q33 19 56 23 M65 23 Q86 27 98 45',bodyShade(colour,.22),.8)+
    `<path data-chunni-hairline="" d="M18 51 C28 39 44 35 60 39 Q80 42 89 56 C77 46 62 44 49 45 Q32 45 18 55Z" fill="${state.hairColour||'#77727a'}"/>`+'</g>';
  }
  if(key==='tuckedChunni'){
@@ -683,7 +684,53 @@ function fittedHeadSvg(id,art,preset=state.head,size=state.headSize){
  if(w===1&&h===1&&bodyHeadShift()===0)return art;
  return `<g data-head-fit="${preset}" transform="translate(0 ${bodyHeadShift()}) translate(627 890) scale(${w} ${h}) translate(-627 -890)">${art}</g>`;
 }
-function cameraMarkup(id,original,view=cameraView){return fittedHeadSvg(id,adjustedFeatureSvg(id,projectCameraMarkup(id,original,view),view));}
+// The crown follows the fitted head; below the jaw the same cloth settles onto
+// the torso projection. Its two gold edges end at the shoulder drape's anchors.
+// Pinning these ends also lets a nod flex the neck folds without lifting the
+// scarf away from the kameez or moving a separate rigid hood across its border.
+function chunniPoint(x,y,pose={},bodyOffset=0,view=cameraView){
+ const sourceX=377+x*5,sourceY=210+y*5,turn=cameraDirections[view]||0;
+ const preset=headPresets[state.head]||headPresets.balanced;
+ const size=Math.max(75,Math.min(103,state.headSize??100))/100;
+ const fit=(state.framing==='full'?.94:1)*bodyShapeProfile().head;
+ const hx=627+((turn?cameraX(sourceX,turn):sourceX)-627)*preset.w*size*fit;
+ const hy=890+(sourceY-890)*preset.h*size*fit+bodyHeadShift();
+ const angle=(pose.angle||0)*Math.PI/180,cos=Math.cos(angle),sin=Math.sin(angle),pivot=bodyHeadPivot();
+ const movingX=627+(hx-627)*cos-(hy-pivot)*sin+(pose.x||0);
+ const movingY=pivot+(hx-627)*sin+(hy-pivot)*cos+(pose.y||0);
+ const bodyScale=state.framing==='full'?.94:1;
+ const fixedX=627+(bodyCameraX(bodyShapeX(sourceX,sourceY),turn)-627)*bodyScale;
+ const fixedY=2239.36+(sourceY-2239.36)*bodyHeight()+bodyOffset;
+ const t=Math.max(0,Math.min(1,(sourceY-830)/205)),weight=t*t*(3-2*t);
+ return {x:(movingX+(fixedX-movingX)*weight-377)/5,y:(movingY+(fixedY-movingY)*weight-210)/5};
+}
+function chunniPath(source,pose={},bodyOffset=0,view=cameraView){
+ const tokens=source.match(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+)(?:e[-+]?\d+)?/g)||[];
+ const counts={M:2,L:2,C:6,Q:4,S:4,T:2};
+ let command='',i=0;const out=[];
+ while(i<tokens.length){
+  if(/^[a-zA-Z]$/.test(tokens[i])){command=tokens[i++];if(command==='Z'){out.push('Z');continue;}}
+  const count=counts[command];if(!count)throw Error('Unsupported chunni path command: '+command);
+  out.push(command);
+  for(let end=i+count;i<end;i+=2){const p=chunniPoint(Number(tokens[i]),Number(tokens[i+1]),pose,bodyOffset,view);out.push(p.x.toFixed(4),p.y.toFixed(4));}
+ }
+ return out.join(' ');
+}
+function projectedChunniSvg(original,view){
+ return original.replace(/ d="([^"]+)"/g,(_,source)=>` data-chunni-source="${source}" d="${chunniPath(source,{},0,view)}"`);
+}
+function poseChunniDrape(layers,pose,bodyOffset=0){
+ for(const id of ['headwearBack','headwearFront']){
+  const layer=layers[id];if(!layer)continue;
+  const paths=layer.querySelectorAll('[data-chunni-source]');if(!paths.length)continue;
+  layer.removeAttribute('transform');
+  for(const path of paths)path.setAttribute('d',chunniPath(path.dataset.chunniSource,pose,bodyOffset));
+ }
+}
+function cameraMarkup(id,original,view=cameraView){
+ if(['headwearBack','headwearFront'].includes(id)&&/data-chunni-(?:head|back)/.test(original))return projectedChunniSvg(original,view);
+ return fittedHeadSvg(id,adjustedFeatureSvg(id,projectCameraMarkup(id,original,view),view));
+}
 function eyeGaze(key){
  // Neutral gaze follows the face yaw; deliberate looks and expression offsets remain available.
  const turn=cameraDirections[cameraView]||0,offset=(state.gazeX||0)/100;
@@ -1117,7 +1164,9 @@ function shoulderChunniSvg(){
   rigFill('M462 1090 C552 1162 682 1229 793 1197 L765 1282 C661 1288 545 1248 454 1173Z',bodyShade(cloth,.08))+
   `<path d="M453 1021 C511 1064 555 1111 614 1131 Q696 1164 776 1108 M395 1221 C378 1396 370 1587 374 1715 M797 1335 C769 1517 773 1754 803 1900" fill="none" stroke="#fff7e9" stroke-opacity=".15" stroke-width="13" stroke-linecap="round"/>`+
   coveringLines('M409 1058 C462 1158 625 1283 779 1256 C742 1450 722 1694 735 1918 Q817 1951 888 1920 M352 1728 Q393 1750 437 1732',deep,12)+
-  coveringLines('M409 1058 C462 1158 625 1283 779 1256 C742 1450 722 1694 735 1918 Q817 1951 888 1920 M352 1728 Q393 1750 437 1732',chunniTrim,6)+
+  coveringLines('M409 1058 C462 1158 625 1283 779 1256 C742 1450 722 1694 735 1918 Q817 1951 888 1920 M352 1728 Q393 1750 437 1732',chunniTrim,6).replace('<path','<path data-chunni-edge="near"')+
+  coveringLines('M869 1058 C860 1148 832 1319 833 1494 C834 1660 859 1836 888 1920',deep,11)+
+  coveringLines('M869 1058 C860 1148 832 1319 833 1494 C834 1660 859 1836 888 1920',chunniTrim,6).replace('<path','<path data-chunni-edge="far"')+
   coveringLines('M467 1051 C532 1112 592 1169 687 1176 M478 1116 C580 1197 679 1227 771 1208 M399 1192 C377 1374 370 1558 376 1692 M820 1304 C796 1493 799 1730 834 1906 M841 1565 Q846 1762 873 1882',shade,5)+
   coveringLines('M504 1174 L511 1168 L518 1176 L511 1182Z M566 1212 L573 1206 L580 1214 L573 1220Z M636 1237 L643 1231 L650 1239 L643 1245Z M708 1249 L715 1243 L722 1251 L715 1257Z',chunniTrim,2.6)+
   coveringLines('M351 1750 L349 1763 M371 1757 L370 1770 M393 1760 L393 1773 M415 1759 L416 1772 M438 1753 L440 1766 M733 1941 L732 1955 M761 1949 L761 1963 M790 1954 L791 1968 M820 1954 L822 1968 M850 1950 L853 1964 M880 1940 L884 1954',chunniTrim,3.5)+'</g>';
@@ -1527,6 +1576,7 @@ function reactionTick(now){
  const head=`translate(${p.x.toFixed(3)} ${p.y.toFixed(3)}) rotate(${p.angle.toFixed(3)} 627 ${bodyHeadPivot()})`;
  for(const id of reactionHeadIds)document.getElementById(id).setAttribute('transform',head);
  document.getElementById('torso').setAttribute('transform',`translate(0 ${p.body.toFixed(3)})`);
+ poseChunniDrape({headwearBack:document.getElementById('headwearBack'),headwearFront:document.getElementById('headwearFront')},p,p.body);
  poseHeadshotArms(p,(now-reaction.started)/1000);
  reaction.raf=requestAnimationFrame(reactionTick);
 }
@@ -2311,6 +2361,7 @@ function animationPoster(key,index){
   for(const [id,art] of Object.entries(layers)){
    const layer=clone.querySelector('#'+id);layer.innerHTML=cameraMarkup(id,art);layer.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
   }
+  poseChunniDrape({headwearBack:clone.querySelector('#headwearBack'),headwearFront:clone.querySelector('#headwearFront')},p);
   if(key==='walk'||key==='dance')poseWalking(key==='walk'?.26:.65,clone);
   if(key!=='walk')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},clone);
   const ns='http://www.w3.org/2000/svg',crop=document.createElementNS(ns,'clipPath'),rect=document.createElementNS(ns,'rect');crop.id='animationPosterCrop';for(const [i,attr] of ['x','y','width','height'].entries())rect.setAttribute(attr,box[i]);crop.append(rect);clone.querySelector('defs').append(crop);const art=document.createElementNS(ns,'g');art.setAttribute('clip-path','url(#animationPosterCrop)');for(const child of [...clone.children])if(child.tagName.toLowerCase()!=='defs')art.append(child);clone.append(art);
@@ -2439,6 +2490,7 @@ function paintSceneActorFace(node,p){
   for(const [id,art] of Object.entries(parts)){node.layers[id].innerHTML=cameraMarkup(id,art);remapSceneRefs(node.layers[id],node.prefix);}node.faceKey=faceKey;
  }
  for(const id of reactionHeadIds)node.layers[id]?.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 ${bodyHeadPivot()})`);
+ poseChunniDrape(node.layers,p);
 }
 function paintScene(seconds){
  const turn=2.4,elapsed=seconds%turn;
@@ -2517,6 +2569,6 @@ document.getElementById('sceneSaveImage').onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseScene();});
 
-</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=105-palette"></script></body></html>
+</script><script src="props/attachments.js"></script><script src="props/catalog.js"></script><script src="props/scene-props.js?v=93"></script><script src="missions/character-bridge.js?v=106-chunni"></script></body></html>
 
 

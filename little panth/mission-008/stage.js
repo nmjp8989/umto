@@ -113,10 +113,14 @@
         light = 1;
         cloudShift = 1;
         takeOff = folding = carry = 1;
-        const walk = between(ms, cues.walk, scene.duration - 470);
-        x = mix(626, 1380, still ? Math.round(walk) : smooth(walk));
+        const stop = scene.duration - 470;
+        const walk = between(ms, cues.walk, stop);
+        // Match the opening's calm walking pace and finish in view. Covering
+        // the whole remaining road during this short spoken outro caused a sprint.
+        const distance = Math.min(90, Math.max(0, stop - cues.walk) * .026);
+        x = mix(626, 626 + distance, still ? Math.round(walk) : smooth(walk));
         stride = (x - 626) / 88;
-        walking = smooth(Math.min(1, walk / .035, (1 - walk) / .06));
+        walking = smooth(Math.min(1, walk / .18, (1 - walk) / .18));
         break;
       }
     }

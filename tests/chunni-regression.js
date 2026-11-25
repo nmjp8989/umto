@@ -58,7 +58,8 @@
   window.checkChunniDrape = async function checkChunniDrape({ capture = false, onProgress = () => {} } = {}) {
     const frames = [...new Set([...Array.from({ length: 31 }, (_, i) => i * .12),
       Math.PI / 10, 3 * Math.PI / 10, 5 * Math.PI / 10, 7 * Math.PI / 10, 9 * Math.PI / 10])].sort((a, b) => a - b);
-    const result = { cases: 0, poses: 0, facePoints: 0, minimumOverlap: Infinity, captures: [] };
+    const result = { cases: 0, poses: 0, facePoints: 0, minimumOverlap: Infinity,
+      seamPoints: 0, maximumSeamGap: 0, captures: [] };
     let serial = 9950;
     for (const preset of ['elder-bibi-ji', 'elder-bibi']) for (const view of ['front', 'left', 'right']) {
       const variants = [{}, { colour: '#416e86' }, ...(view === 'front' ? [{ headSize: 75 }, { headSize: 103 }] : [])];
@@ -98,22 +99,24 @@
           for (const panel of [...heads, ...shoulders]) {
             if (![...panel.querySelectorAll('[stroke]')].some(p => p.getAttribute('stroke') === chunniTrim)) fail('Scarf trim colour is inconsistent', context);
           }
-          if (!heads[0].querySelector('path').isPointInFill(new DOMPoint(52, 28)) ||
-              heads[0].querySelector('path').isPointInFill(new DOMPoint(52, 85))) fail('Chunni no longer frames the face', context);
+          const headEdge = node.layers.headwearFront.querySelector('[data-chunni-edge="head"]');
+          const shoulderEdges = ['near', 'far'].map(side => node.layers.torso.querySelector('[data-chunni-edge="' + side + '"]'));
+          if (!headEdge || shoulderEdges.some(edge => !edge)) fail('Missing continuous scarf border', context);
 
           const landmarks = document.createElementNS(ns, 'g');
           landmarks.setAttribute('opacity', '0');
           landmarks.innerHTML = sceneWithState(actor, () => cameraMarkup('headwearFront',
             '<g transform="translate(377 210) scale(5)">' +
             [[34, 78], [68, 78], [52, 97], [52, 110]].map(([x, y], i) =>
-              '<circle data-check-landmark="' + i + '" cx="' + x + '" cy="' + y + '" r=".4"/>').join('') + '</g>'));
+              '<circle data-check-landmark="' + i + '" cx="' + x + '" cy="' + y + '" r=".4"/>').join('') +
+            '<circle data-check-crown="" cx="52" cy="28" r=".4"/></g>'));
           remapSceneRefs(landmarks, node.prefix);
           root.append(landmarks);
 
           for (const time of frames) {
             const at = context + ' / nod ' + time.toFixed(3) + 's';
             sceneWithState(actor, () => paintSceneActorFace(node, reactionPose('nod', time)));
-            landmarks.setAttribute('transform', node.layers.headwearFront.getAttribute('transform') || '');
+            landmarks.setAttribute('transform', node.layers.face.getAttribute('transform') || '');
             for (const el of root.querySelectorAll('[d],[transform]')) {
               if (/NaN|Infinity|undefined/.test((el.getAttribute('d') || '') + (el.getAttribute('transform') || ''))) fail('Non-finite SVG geometry', at);
             }
@@ -147,10 +150,22 @@
             if (Math.min(...hits) < 6 || Math.min(...rows) < 2) fail('Chunni loses filled overlap at a shoulder (' + hits.join(', ') + ')', at);
             result.minimumOverlap = Math.min(result.minimumOverlap, ...hits);
 
+            // Matching fill alone can conceal a disconnected, rigid hood. Its
+            // visible gold border must meet both torso edges through the nod.
+            const toRoot = path => root.getScreenCTM().inverse().multiply(path.getScreenCTM());
+            for (const [side, edge] of shoulderEdges.entries()) {
+              const headPoint = headEdge.getPointAtLength(side ? headEdge.getTotalLength() : 0).matrixTransform(toRoot(headEdge));
+              const shoulderPoint = edge.getPointAtLength(0).matrixTransform(toRoot(edge));
+              const gap = Math.hypot(headPoint.x - shoulderPoint.x, headPoint.y - shoulderPoint.y);
+              if (!Number.isFinite(gap) || gap > .08) fail('Gold scarf border separates from shoulder (' + gap.toFixed(3) + ')', at);
+              result.maximumSeamGap = Math.max(result.maximumSeamGap, gap);
+              result.seamPoints++;
+            }
+
             const frontCloth = [...node.layers.headwearFront.querySelectorAll('path')]
               .filter(path => path.getAttribute('fill') && path.getAttribute('fill') !== 'none').map(path => geometry(path, root, at));
             const visibleLandmarks = new Set();
-            for (const mark of landmarks.querySelectorAll('circle')) {
+            for (const mark of landmarks.querySelectorAll('[data-check-landmark]')) {
               const test = geometry(mark, root, at);
               const point = new DOMPoint(Number(mark.getAttribute('cx')), Number(mark.getAttribute('cy'))).matrixTransform(test.toRoot);
               if (!test.contains(point)) continue;
@@ -161,6 +176,12 @@
               }
             }
             if (visibleLandmarks.size !== 4) fail('Face clearance check lost a projected landmark', at);
+            const crown = [...landmarks.querySelectorAll('[data-check-crown]')].map(mark => {
+              const probe = geometry(mark, root, at);
+              const point = new DOMPoint(52, 28).matrixTransform(probe.toRoot);
+              return probe.contains(point) && frontCloth.some(path => path.contains(point));
+            });
+            if (!crown.some(Boolean)) fail('Chunni lifts away from the crown', at);
             result.poses++;
             if (result.poses % 6 === 0) onProgress({ cases: result.cases, poses: result.poses });
             // CUA and a human reviewer must be able to inspect or navigate away
