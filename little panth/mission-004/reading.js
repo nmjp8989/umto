@@ -23,8 +23,7 @@
 
   // The active layout determines the preferred amount of text. Each card
   // stays visible until the last word in it has been read.
-  const limits = { spread: { min: 12, max: 18, floor: 7 },
-    cinema: { min: 8, max: 12, floor: 5 } };
+  const limits = { spread: { max: 18 }, cinema: { max: 12 } };
   const readingCache = new WeakMap();
 
   function normalizeLayout(layout) {
@@ -32,38 +31,30 @@
   }
 
   function groupWords(words, timings, layout) {
-    const { min, max, floor } = limits[layout];
+    const { max } = limits[layout];
     const n = words.length;
-    const costs = Array(n + 1).fill(Infinity), ends = Array(n);
-    costs[n] = 0;
-    // Find a natural partition of the recorded line, avoiding tiny leftovers.
-    // Favor complete sentences, then clause punctuation or a recorded pause.
-    for (let first = n - 1; first >= 0; first--) {
-      for (let count = 1; count <= Math.min(max, n - first); count++) {
-        const end = first + count;
-        if (n > max && count < floor) continue;
-        if (!Number.isFinite(costs[end])) continue;
-        const short = Math.max(0, min - count);
-        const punctuation = words[end - 1];
-        const pause = end < n ? timings[end][0] - timings[end - 1][1] : 0;
-        const breakCost = end === n || endsSentence(punctuation) ? 0 :
-          /[,;:][”’"']*$/u.test(punctuation) || pause >= 160 ? 2 : 7;
-        const cost = 2 + short * 1.7 + breakCost + costs[end];
-        if (cost < costs[first] || (cost === costs[first] && end > ends[first])) {
-          costs[first] = cost;
-          ends[first] = end;
-        }
-      }
+    const sentenceEnds = [];
+    for (let i = 1; i <= n; i++) {
+      if (i === n || endsSentence(words[i - 1])) sentenceEnds.push(i);
     }
+    // A full sentence is the smallest reading unit. Join adjacent complete
+    // sentences when they fit the preferred size; never cut a long sentence
+    // just to satisfy a word count. The view can fit long text in its panel.
     const phrases = [], phraseByWord = [];
-    for (let first = 0; first < n;) {
-      const end = ends[first] ?? Math.min(n, first + max);
-      const phrase = { first, end, text: words.slice(first, end).join(' '),
-        startMs: timings[first][0], endMs: timings[end - 1][1] };
-      for (let i = first; i < end; i++) phraseByWord[i] = phrases.length;
+    let first = 0, end = 0;
+    function add(last) {
+      const phrase = { first, end: last, text: words.slice(first, last).join(' '),
+        startMs: timings[first][0], endMs: timings[last - 1][1] };
+      for (let i = first; i < last; i++) phraseByWord[i] = phrases.length;
       phrases.push(phrase);
-      first = end;
+      first = last;
     }
+    for (const boundary of sentenceEnds) {
+      if (end > first && boundary - first > max) add(end);
+      end = boundary;
+      if (end - first >= max) add(end);
+    }
+    if (end > first) add(end);
     return { phrases, phraseByWord };
   }
 
@@ -102,6 +93,61 @@
     const word = Math.max(0, low - 1);
     const active = ms >= reading.timings[word][0] && ms < reading.timings[word][1];
     return { phrase: reading.phraseByWord[word], word: active ? word : -1 };
+  }
+
+  // Fit only when a complete passage would exceed the existing reading area.
+  // This does not change the recorded timings, camera, or normal font size.
+  function installReadingFit() {
+    const doc = root.document;
+    const book = doc?.getElementById('book'), text = doc?.getElementById('reading');
+    const panel = text?.closest('.reading-page');
+    if (!book || !text || !panel || !root.MutationObserver) return;
+    let queued = false;
+    function fit() {
+      queued = false;
+      if (doc.body.classList.contains('reviewing')) {
+        text.style.removeProperty('font-size');
+        return;
+      }
+      text.style.removeProperty('font-size');
+      const base = parseFloat(root.getComputedStyle(text).fontSize);
+      if (!Number.isFinite(base) || !text.textContent.trim()) return;
+      const style = root.getComputedStyle(panel);
+      const cinema = book.dataset.layout === 'cinema';
+      const movie = book.querySelector('.movie');
+      const height = cinema
+        ? Math.min(book.clientHeight * .28, (movie?.clientHeight || book.clientHeight) * .45)
+        : panel.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+      if (height <= 0 || !text.clientWidth) return;
+      const fits = () => text.getBoundingClientRect().height <= height + 1 &&
+        text.scrollWidth <= text.clientWidth + 1;
+      if (fits()) return;
+      let low = 8, high = base;
+      for (let i = 0; i < 12; i++) {
+        const size = (low + high) / 2;
+        text.style.fontSize = size + 'px';
+        if (fits()) low = size;
+        else high = size;
+      }
+      text.style.fontSize = Math.floor(low * 10) / 10 + 'px';
+    }
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      root.requestAnimationFrame(fit);
+    }
+    // A new passage is a child-list change; the per-word highlight only
+    // changes an attribute and must not trigger resizing.
+    new root.MutationObserver(fit).observe(text, { childList: true });
+    new root.MutationObserver(schedule).observe(book, { attributes: true, attributeFilter: ['data-layout'] });
+    root.addEventListener('resize', schedule);
+    doc.fonts?.ready?.then(schedule);
+    schedule();
+  }
+
+  if (root.document) {
+    if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', installReadingFit, { once: true });
+    else installReadingFit();
   }
 
   const api = { makeReading, readingAt };
