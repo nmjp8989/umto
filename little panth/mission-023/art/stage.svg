@@ -77,27 +77,28 @@
   <g id="almond-jar-back">
     <ellipse cy="68" rx="45" ry="9" fill="url(#almond-shadow)"/>
     <use href="#almond-jar-outline" fill="#b7cec0" fill-opacity=".6" stroke="#739488" stroke-width="3"/>
-    <ellipse rx="20" ry="6.7" fill="#b7c5af" stroke="#648b80" stroke-width="2.3"/>
-    <ellipse cy="1" rx="16" ry="4.5" fill="#8dad9e" opacity=".75"/>
+    <ellipse rx="20" ry="8.5" fill="#b7c5af" stroke="#648b80" stroke-width="2.3"/>
+    <ellipse cy="1" rx="16.5" ry="6" fill="#638a7c" opacity=".86"/>
     <g id="almond-jar-pile"/>
   </g>
   <g id="mehar-plane"><g id="mehar"/><g id="mehar-props"/></g>
   <g id="dadi-plane"><g id="dadi"/><g id="dadi-props"/></g>
-  <g id="almond-table">
+  <g id="almond-table" transform="translate(650 650) scale(.86 .62) translate(-650 -650)">
     <path d="M509 553H537L528 647Q515 656 503 648ZM775 553H807L818 644Q806 653 791 649Z" fill="#9b6146" stroke="#754b39" stroke-width="3"/>
     <path d="M496 534Q650 515 813 534L826 553Q805 564 667 566Q528 568 481 553Z" fill="url(#almond-wood)" stroke="#8f5b45" stroke-width="3"/>
     <path d="M482 554Q629 565 825 553V568Q811 579 674 584Q527 584 482 568Z" fill="#9c6248" stroke="#794936" stroke-width="2.4"/>
     <path d="M500 545Q556 533 628 535M699 543q70-9 111 1m-255 14q89 8 177 1" stroke="#e4b983" fill="none" opacity=".73" stroke-width="2.5" stroke-linecap="round"/>
   </g>
   <g id="almond-bowls">
-    <g id="almond-blue-bowl" transform="translate(568 535)" style="--bowl-color:#698eaa;--bowl-edge:#4d6777;--bowl-light:#a8bdc3"><use href="#almond-ceramic"/></g>
-    <g id="almond-green-bowl" transform="translate(725 535)" style="--bowl-color:#799980;--bowl-edge:#4d7365;--bowl-light:#b1c7a9"><use href="#almond-ceramic"/></g>
+    <g id="almond-blue-bowl" transform="translate(579 579) scale(.86)" style="--bowl-color:#698eaa;--bowl-edge:#4d6777;--bowl-light:#a8bdc3"><use href="#almond-ceramic"/></g>
+    <g id="almond-green-bowl" transform="translate(715 579) scale(.86)" style="--bowl-color:#799980;--bowl-edge:#4d7365;--bowl-light:#b1c7a9"><use href="#almond-ceramic"/></g>
   </g>
   <g id="almond-moving"/>
   <g id="almond-jar-front">
     <use href="#almond-jar-outline" fill="url(#almond-glass)" stroke="#628579" stroke-width="2.3"/>
     <path d="M-29 34Q-37 39-37 63M29 35Q35 42 35 55M-7 73H20" fill="none" stroke="#f4f5da" stroke-width="2.8" opacity=".69" stroke-linecap="round"/>
-    <path d="M-20 3Q0 12 20 3M-20 12Q0 20 20 12" fill="none" stroke="#759f90" stroke-width="2.2" opacity=".79"/>
+    <path d="M-20 0Q0 16 20 0" fill="none" stroke="#638a7c" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M-20 12Q0 20 20 12" fill="none" stroke="#759f90" stroke-width="2.2" opacity=".79"/>
     <path d="M-37 63Q2 75 37 63" fill="none" stroke="#628c7e" stroke-width="1.8" opacity=".67"/>
   </g>
   <g id="almond-lid">

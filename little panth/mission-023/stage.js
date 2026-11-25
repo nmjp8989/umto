@@ -16,18 +16,20 @@
   const translate = ({ x, y }) => 'translate(' + x + ' ' + y + ')';
   const transform = (node, value) => node.setAttribute('transform', value);
   const opacity = (node, value) => node.setAttribute('opacity', String(value));
-  const mouth = point(650, 467);
-  const jarFoot = point(650, 539);
-  const inJar = point(650, 503);
-  const stuck = point(650, 485);
-  const outOfJar = point(647, 445);
-  const onJar = point(650, 455);
-  const lidRest = point(704, 522);
-  const braces = point(688, 498);
-  const blue = point(568, 532);
-  const green = point(725, 532);
+  // Keep the opening below Mehar's shoulder, with all targets in stage coordinates.
+  const jarScale = .84;
+  const mouth = point(650, 514);
+  const jarFoot = point(650, 577);
+  const inJar = point(650, 545);
+  const stuck = point(650, 530);
+  const outOfJar = point(650, 493);
+  const onJar = point(650, 504);
+  const lidRest = point(696, 565);
+  const braces = point(682, 541);
+  const blue = point(579, 576);
+  const green = point(715, 576);
   const meharHome = point(520, 628);
-  const meharReaching = point(588, 646);
+  const meharReaching = point(600, 640);
   const dadiHome = point(800, 621);
   const dadiHolding = point(736, 637);
   const grips = [point(-13, 5), point(-5, 11), point(5, 10), point(11, 0), point(-2, -2)];
@@ -87,8 +89,9 @@
     const change = rotate(point(p.x - jarFoot.x, p.y - jarFoot.y), angle);
     return offset(jarFoot, change.x, change.y);
   }
-  function grip(actor, target, weight = 1, hand = 'fist') {
-    actor.grips[1] = { target, weight, hand };
+  function grip(actor, target, weight = 1, hand = 'fist', overJar = false) {
+    // Bend the elbow above the mouth, rather than reaching sideways through the glass.
+    actor.grips[1] = { target, weight, hand, ...(overJar ? { elbow: 'up', wrist: 15 } : {}) };
   }
   function walk(actor, from, to, ms, start, end, movement) {
     const progress = phase(ms, start, end);
@@ -110,7 +113,7 @@
       frame.kernels[i] = { source: progress < 1 ? 'falling' : bowl === green ? 'green-bowl' : 'blue-bowl', progress,
         target: offset(bowl, slot === 0 ? -9 : 8, slot === 0 ? -2 : 1) };
     };
-    const now = point(616, 647);
+    const now = point(616, 640);
     const serving = point(650, 641);
 
     switch (scene.id) {
@@ -136,21 +139,21 @@
         const reach = motion(c.enter - 710, c.enter - 340);
         const target = between(outOfJar, between(inJar, stuck, pull), enter);
         frame.tilt = still ? 0 : 3.1 * Math.sin(ms / 108) * pulse(c.pull - 140, c.pull + 180, c.stuck + 190, c.stuck + 710);
-        if (reach > 0) grip(mehar, jarPosition(target, frame.tilt), reach, ms < c.take ? 'open' : 'fist');
+        if (reach > 0) grip(mehar, jarPosition(target, frame.tilt), reach, ms < c.take ? 'open' : 'fist', true);
         if (ms >= c.take) [0, 1, 2, 3, 4].forEach(atHand);
         frame.mode = ms < c.pull ? 'open' : 'stuck';
         break;
       }
       case 'ask-for-help':
         frame.tilt = still ? 0 : 1.8 * Math.sin(ms / 145) * pulse(120, 480, c.ask, c.ask + 300);
-        grip(mehar, jarPosition(stuck, frame.tilt));
+        grip(mehar, jarPosition(stuck, frame.tilt), 1, 'fist', true);
         [0, 1, 2, 3, 4].forEach(atHand);
         frame.mode = 'stuck';
         break;
       case 'bibi-helps':
         walk(dadi, dadiHome, dadiHolding, ms, 60, c.hold - 155, movement);
         grip(dadi, braces, motion(c.hold - 520, c.hold + 70), 'open');
-        grip(mehar, stuck);
+        grip(mehar, stuck, 1, 'fist', true);
         [0, 1, 2, 3, 4].forEach(atHand);
         frame.mode = 'steadied';
         break;
@@ -158,11 +161,11 @@
         Object.assign(dadi, dadiHolding);
         grip(dadi, braces, 1, 'open');
         const lift = motion(c.lift - 65, c.lift + 560);
-        grip(mehar, between(stuck, outOfJar, lift), 1, ms < c.tap[0] ? 'fist' : 'pinch');
+        grip(mehar, between(stuck, outOfJar, lift), 1, ms < c.tap[0] ? 'fist' : 'pinch', true);
         c.tap.forEach((release, index) => {
           if (ms < release) atHand(index);
           else if (ms < release + fallMs) frame.kernels[index] = { source: 'returned',
-            target: offset(mouth, -13 + index * 12, 61), progress: phase(ms, release, release + fallMs) };
+            target: offset(mouth, -10 + index * 10, 51), progress: phase(ms, release, release + fallMs) };
         });
         [3, 4].forEach(atHand);
         frame.mode = lift > .95 ? 'free' : 'steadied';
@@ -181,11 +184,14 @@
           grip(mehar, between(outOfJar, greenOver, first), 1, ms < c.green ? 'pinch' : 'open');
         } else {
           walk(mehar, serving, now, ms, c.green + 450, c.again - 660, movement);
-          const reach = between(greenOver, inJar, withdrawal);
+          // Return above the rim before lowering the hand vertically into the jar.
+          const reach = withdrawal < .55
+            ? between(greenOver, outOfJar, withdrawal / .55)
+            : between(outOfJar, inJar, (withdrawal - .55) / .45);
           const lifted = between(reach, outOfJar, drawing);
           const goal = between(lifted, blueOver, second);
           mehar.mirror = ms >= c.again + 440;
-          grip(mehar, goal, 1, ms < c.again ? 'open' : ms < c.blue ? 'pinch' : 'open');
+          grip(mehar, goal, 1, ms < c.again ? 'open' : ms < c.blue ? 'pinch' : 'open', ms < c.again + 440);
         }
         intoBowl(3, green, c.green, 0);
         intoBowl(4, green, c.green, 1);
@@ -260,13 +266,13 @@
       if (id === 'afternoon-snack' && line.speaker === 'dadi') {
         shot = shotAt('two-shot', 667, 425, 878);
       } else if (id === 'full-fist') {
-        shot = ms < c.enter - 720 ? shotAt('medium', 623, 454, 780) : shotAt('detail', 641, 466, 617);
+        shot = ms < c.enter - 720 ? shotAt('medium', 623, 475, 780) : shotAt('detail', 641, 495, 617);
       } else if (id === 'three-fall-back') {
-        shot = ms < c.lift + 670 ? shotAt('detail', 646, 474, 546) : shotAt('two-shot', 646, 437, 835);
+        shot = ms < c.lift + 670 ? shotAt('detail', 646, 504, 546) : shotAt('two-shot', 646, 437, 835);
       } else if (id === 'two-for-each') {
-        shot = line.speaker === 'mehar' ? shotAt('two-shot', 658, 425, 835) : shotAt('detail', 651, 480, 755);
+        shot = line.speaker === 'mehar' ? shotAt('two-shot', 658, 425, 835) : shotAt('detail', 651, 505, 755);
       } else if (id === 'ready-to-share' && line.id === 'lid-back-on') {
-        shot = shotAt('detail', 680, 456, 732);
+        shot = shotAt('detail', 680, 480, 732);
       }
       const key = [shot.preset, shot.focus.x, shot.focus.y, shot.width].join('/');
       if (key !== this.shot) {
@@ -284,11 +290,11 @@
     paintProps(state, still) {
       const p = this.parts;
       for (const id of ['almond-jar-back', 'almond-jar-front']) {
-        transform(p[id], translate(jarPosition(mouth, state.tilt)) + ' rotate(' + state.tilt + ')');
+        transform(p[id], translate(jarPosition(mouth, state.tilt)) + ' rotate(' + state.tilt + ') scale(' + jarScale + ')');
       }
       const lid = state.lid;
       const lidAt = lid.owner ? between(this.palm(lid.owner), lid.position, lid.settle ?? 0) : lid.position;
-      transform(p['almond-lid'], translate(lidAt));
+      transform(p['almond-lid'], translate(lidAt) + ' scale(' + jarScale + ')');
       p['almond-lid'].dataset.owner = lid.owner ?? 'table';
       p['almond-lid'].dataset.state = state.mode === 'closed' ? 'closed' : 'open';
       this.svg.dataset.jar = state.mode;
