@@ -3,3 +3,6 @@ main = "worker.mjs"
 compatibility_date = "2026-11-25"
 workers_dev = true
 preview_urls = false
+
+# Preserve owner and Access configuration set in the Cloudflare dashboard.
+keep_vars = true
