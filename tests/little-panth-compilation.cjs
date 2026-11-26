@@ -143,6 +143,25 @@ const { chromium } = require('playwright-core');
     assert.equal(await approve('034').isChecked(), true);
     assert.equal(await row('007').isVisible(), true);
     assert.equal(await approve('007').isChecked(), false);
+    // Regression: the preview must keep the same SVG element and bounds
+    // through repeated intro/transition playback (no 84% static-image reset).
+    const brandPage=await context.newPage();
+    await brandPage.goto(base+'brand-preview.html?v=3');
+    await brandPage.waitForFunction(()=>!document.getElementById('intro').disabled&&!!document.querySelector('#stage>svg'));
+    for(const viewport of [{width:1440,height:900},{width:393,height:852}]){
+      await brandPage.setViewportSize(viewport);
+      await brandPage.evaluate(()=>{window.__previewSvg=document.querySelector('#stage>svg');});
+      const boxBefore=await brandPage.locator('#stage>svg').boundingBox();
+      for(const id of ['intro','transition']){
+        await brandPage.locator('#'+id).click();
+        await brandPage.waitForFunction(()=>document.getElementById('intro').disabled&&document.querySelector('[data-motion="l0"]').getAttribute('opacity')!=='1');
+        await brandPage.waitForFunction(()=>!document.getElementById('intro').disabled&&document.getElementById('status').textContent.startsWith('Preview complete'),null,{timeout:10000});
+        assert.equal(await brandPage.evaluate(()=>window.__previewSvg===document.querySelector('#stage>svg')),true);
+        assert.equal(await brandPage.locator('[data-motion="all"]').getAttribute('opacity'),'1');
+        assert.deepEqual(await brandPage.locator('#stage>svg').boundingBox(),boxBefore);
+      }
+    }
+    await brandPage.close();
     assert.deepEqual(errors, []);
     console.log('PASS tabs, review gate, persistent approvals, named requests, Back/recording regression, export priority, revision flags and mobile');
   } finally {

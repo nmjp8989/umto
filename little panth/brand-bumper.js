@@ -5,6 +5,16 @@ const motion=window.LPLogoMotion;
 let template=null,loading=null;
 function loadLogo(){if(template)return Promise.resolve(template);if(!loading)loading=fetch(logoURL).then(r=>{if(!r.ok)throw Error('Could not load the Little Panth SVG.');return r.text();}).then(svg=>template=motion.build(svg)).catch(e=>{loading=null;throw e;});return loading;}
 let context=null,source=null,layer=null;
+const previewMounts=new WeakMap();
+function previewPose(parent){
+ let entry=previewMounts.get(parent);
+ if(!entry||entry.svg.parentNode!==parent){
+  const pose=motion.mount(parent,template);
+  entry={pose,svg:parent.querySelector('svg')};previewMounts.set(parent,entry);
+ }
+ return entry.pose;
+}
+async function showStill(parent){await loadLogo();previewPose(parent)(1,true,true);}
 const seconds=count=>count>0?2.4+1.2*(count-1):0;
 async function prepare(){
  const C=window.AudioContext||window.webkitAudioContext;
@@ -32,28 +42,36 @@ function sound(intro,duration){
  }
  source=context.createBufferSource();source.buffer=b;source.connect(context.destination);source.start();
 }
-async function play(parent,intro,isActive=()=>true){
+async function play(parent,intro,isActive=()=>true,{hold=false}={}){
  if(!context||context.state!=='running')throw Error('Prepare brand audio before playback.');
  if(!isActive())throw Error('Recording cancelled.');
  const duration=intro?2.4:1.2,ms=duration*1000;
  if(!template)throw Error('Prepare the logo before playback.');
- layer=document.createElement('div');layer.className='lp-brand-layer';
- Object.assign(layer.style,{position:'absolute',width:'100%',height:'100%',maxWidth:'177.7778vh',maxHeight:'56.25vw',inset:'0',margin:'auto',display:'grid',placeItems:'center',overflow:'hidden',background:'#fff',zIndex:'20'});
- const pose=motion.mount(layer,template);pose(0,intro);parent.append(layer);
+ // The preview reuses the same inline SVG before, during and after playback.
+ // Recording retains its original full-screen overlay and white fade to the story.
+ let pose;
+ if(hold){
+  pose=previewPose(parent);pose(0,intro,true);
+ }else{
+  layer=document.createElement('div');layer.className='lp-brand-layer';
+  Object.assign(layer.style,{position:'absolute',width:'100%',height:'100%',maxWidth:'177.7778vh',maxHeight:'56.25vw',inset:'0',margin:'auto',display:'grid',placeItems:'center',overflow:'hidden',background:'#fff',zIndex:'20'});
+  pose=motion.mount(layer,template);pose(0,intro);parent.append(layer);
+ }
  try{
   sound(intro,duration);
   const started=performance.now();
   await new Promise((resolve,reject)=>{
    function tick(now){
     if(!isActive()){reject(Error('Recording cancelled.'));return;}
-    const p=Math.min(1,(now-started)/ms);pose(p,intro);
+    const p=Math.min(1,(now-started)/ms);pose(p,intro,hold);
     if(p>=1)resolve();else requestAnimationFrame(tick);
    }
    requestAnimationFrame(tick);
   });
   if(!isActive())throw Error('Recording cancelled.');
  }finally{
-  layer?.remove();layer=null;
+  if(hold)pose(1,intro,true);
+  else{layer?.remove();layer=null;}
   if(source){try{source.stop();}catch{}source.disconnect();source=null;}
  }
 }
@@ -62,5 +80,5 @@ function close(){
  if(source){try{source.stop();}catch{}source.disconnect();source=null;}
  if(context){context.close().catch(()=>{});context=null;}
 }
-window.LPBrand={seconds,prepare,play,close};
+window.LPBrand={seconds,prepare,play,close,showStill};
 })();

@@ -17,10 +17,21 @@ for(const intro of [true,false]){
  assert.ok(early.l0.opacity>early.l10.opacity);
  assert.equal(initial.k0.opacity,0);assert.equal(settled.k0.opacity,1);assert.equal(settled.k1.opacity,1);
  assert.equal(last.all.opacity,0);
+ // All paths, including both children's nods, have completely settled before
+ // the video fade. The preview preserves exactly that pose at its endpoint.
+ const holdStart=api.poses(.78,intro),held=api.poses(1,intro,true);
+ assert.equal(holdStart.all.opacity,1);
+ assert.equal(held.all.opacity,1);
+ for(const key of Object.keys(held)){
+  assert.equal(holdStart[key].transform,'',key+' must settle before fade');
+  assert.equal(held[key].transform,holdStart[key].transform);
+  assert.equal(held[key].opacity,holdStart[key].opacity);
+ }
+ assert.equal(api.frame(template,1,intro,true),api.frame(template,.78,intro,true));
  const frame=api.frame(template,.45,intro);
  assert.ok(!frame.includes('data-motion='));
  assert.ok(!frame.includes('NaN'));
  assert.ok(!frame.includes('undefined'));
  assert.notEqual(frame,api.frame(template,.75,intro));
 }
-console.log('PASS supplied vector, independently animated letters, kids, swoosh, rays, deterministic frames and fade');
+console.log('PASS supplied vector, independently animated letters, kids, swoosh, rays, deterministic frames, stable final pose, preview hold and video fade');

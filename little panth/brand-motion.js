@@ -42,16 +42,19 @@ function transform(x,y,dx=0,dy=0,sx=1,sy=sx,angle=0){
  if(dx===0&&dy===0&&sx===1&&sy===1&&angle===0)return '';
  return `translate(${num(dx)} ${num(dy)}) translate(${x} ${y}) rotate(${num(angle)}) scale(${num(sx)} ${num(sy)}) translate(${-x} ${-y})`;
 }
-function poses(progress,intro){
+function poses(progress,intro,hold=false){
  const p=clamp(progress),out={};
- out.all={transform:'',opacity:1-smooth((p-(intro?.925:.88))/(intro?.075:.12))};
+ // Finish all individual movement before the final hold. Only actual video
+ // bumpers fade out; the standalone preview stays at the fully settled pose.
+ const fadeStart=intro ? .86 : .80;
+ out.all={transform:'',opacity:hold?1:1-smooth((p-fadeStart)/(1-fadeStart))};
  centres.forEach((x,i)=>{
   const u=clamp((p-(.015+i*(intro?.027:.021)))/(intro?.205:.235)),v=back(u),s=.57+.43*v;
   out['l'+i]={transform:transform(x,267,(i%2?-1:1)*8*(1-v),58*(1-v),s,s,(i%2?-6:6)*(1-v)),opacity:smooth(u/.24)};
  });
  [216,280].forEach((x,i)=>{
   const u=clamp((p-(intro?.20+i*.06:.19+i*.045))/(intro?.25:.23)),v=back(u),s=.45+.55*v;
-  const g=clamp((p-.55)/.32),nod=intro?Math.sin(2*Math.PI*g)*Math.sin(Math.PI*g)*(i?5:-5):0;
+  const g=clamp((p-.50)/.23),nod=intro&&g>0&&g<1?Math.sin(2*Math.PI*g)*Math.sin(Math.PI*g)*(i?5:-5):0;
   out['k'+i]={transform:transform(x,161,0,-36*(1-v)-Math.abs(nod)*.6,s,s,(i?10:-10)*(1-v)+nod),opacity:smooth(u/.26)};
  });
  const s=smooth((p-(intro?.33:.31))/(intro?.24:.25));
@@ -62,15 +65,15 @@ function poses(progress,intro){
  });
  return out;
 }
-function frame(template,progress,intro){
- const pose=poses(progress,intro);
+function frame(template,progress,intro,hold=false){
+ const pose=poses(progress,intro,hold);
  return template.replace(/data-motion="([a-z0-9]+)"/g,(_,id)=>`transform="${pose[id].transform}" opacity="${num(pose[id].opacity)}"`);
 }
 function mount(parent,template){
  parent.innerHTML=template;
  const svg=parent.querySelector('svg');svg.style.cssText='display:block;width:100%;height:100%';
  const elements=[...svg.querySelectorAll('[data-motion]')].map(node=>[node,node.getAttribute('data-motion')]);
- return (progress,intro)=>{const state=poses(progress,intro);for(const [node,key] of elements){const v=state[key];node.setAttribute('transform',v.transform);node.setAttribute('opacity',num(v.opacity));}};
+ return (progress,intro,hold=false)=>{const state=poses(progress,intro,hold);for(const [node,key] of elements){const v=state[key];node.setAttribute('transform',v.transform);node.setAttribute('opacity',num(v.opacity));}};
 }
 globalThis.LPLogoMotion={build,poses,frame,mount};
 })();
