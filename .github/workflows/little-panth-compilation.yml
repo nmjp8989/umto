@@ -12,6 +12,12 @@ on:
       - '.github/workflows/little-panth-compilation.yml'
       - 'tools/little-panth-compilation-render.cjs'
       - 'tools/little-panth-compilation-assemble.py'
+      - 'tools/little_panth_brand.py'
+      - 'tools/little-panth-brand-frames.cjs'
+      - 'tests/little-panth-brand.cjs'
+      - 'little panth/little-panth-logo.svg'
+      - 'little panth/brand-motion.js'
+      - 'little panth/brand-bumper.js'
       - 'tests/little-panth-compilation.cjs'
       - 'tools/little-panth-production.py'
 permissions:
@@ -73,6 +79,7 @@ jobs:
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/lp-compilation-http.log 2>&1 &
           python3 tests/little-panth-production.py
+          node tests/little-panth-brand.cjs
           node tests/little-panth-compilation.cjs
   render:
     needs: [plan,catalogue,persist]
@@ -123,6 +130,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - uses: actions/download-artifact@v4
         with:
           pattern: episode-*

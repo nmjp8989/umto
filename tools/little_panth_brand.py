@@ -6,7 +6,6 @@ import random
 import struct
 import subprocess
 import wave
-import re
 
 INTRO_FRAMES = 72
 TRANSITION_FRAMES = 36
@@ -41,27 +40,17 @@ def soundtrack(path, frames, intro):
 def make_bumpers(directory, logo):
     directory = pathlib.Path(directory).resolve()
     directory.mkdir(parents=True, exist_ok=True)
-    svg = pathlib.Path(logo).read_text(encoding='utf-8')
-    nested = svg[svg.index('<svg'):svg.rindex('</svg>')+6]
-    nested = nested.replace('<svg ', '<svg x="300" y="370" ', 1)
-    nested = re.sub(r'\bwidth="[^"]+"', 'width="1320"', nested, count=1)
-    nested = re.sub(r'\bheight="[^"]+"', 'height="340"', nested, count=1)
-    scene = directory/'brand-scene.svg'
-    scene.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="white"/>'+nested+'</svg>', encoding='utf-8')
+    logo = pathlib.Path(logo).resolve()
+    tools = pathlib.Path(__file__).resolve().parent
+    motion = tools.parent/'little panth'/'brand-motion.js'
     clips = []
     for name, frames in [('intro', INTRO_FRAMES), ('transition', TRANSITION_FRAMES)]:
-        intro = name == 'intro'
         audio = directory/(name+'.wav')
-        soundtrack(audio, frames, intro)
+        soundtrack(audio, frames, name == 'intro')
         target = directory/(name+'.mp4')
-        rise = 23 if intro else 13
-        fade_in = 6 if intro else 4
-        fade_out = 7 if intro else 5
-        zoom = f"1+0.22*(1-pow(1-min(on/{rise},1),3))+0.025*sin(PI*min(on/{rise},1))"
-        filters = ("scale=3840:2160:flags=lanczos,"
-                   f"zoompan=z='{zoom}':x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':d={frames}:s=1920x1080:fps=30,"
-                   f"fade=t=in:s=0:n={fade_in}:color=white,fade=t=out:s={frames-fade_out-1}:n={fade_out}:color=white,format=yuv420p")
-        subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-filter_threads','2','-i',str(scene),'-i',str(audio),'-vf',filters,'-map','0:v:0','-map','1:a:0','-frames:v',str(frames),'-t',str(frames/FPS),'-c:v','libx264','-preset','veryfast','-crf','18','-threads','2','-video_track_timescale','15360','-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-movflags','+faststart',str(target)],check=True)
+        sequence = directory/(name+'-frames')
+        subprocess.run(['node',str(tools/'little-panth-brand-frames.cjs'),str(logo),str(sequence),str(frames),name,str(motion)],check=True)
+        subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-filter_threads','2','-threads','2','-framerate',str(FPS),'-c:v','librsvg','-i',str(sequence/'frame-%03d.svg'),'-i',str(audio),'-map','0:v:0','-map','1:a:0','-frames:v',str(frames),'-t',str(frames/FPS),'-c:v','libx264','-preset','veryfast','-crf','18','-threads','2','-pix_fmt','yuv420p','-video_track_timescale','15360','-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-movflags','+faststart',str(target)],check=True)
         clips.append(target)
     return clips
 
