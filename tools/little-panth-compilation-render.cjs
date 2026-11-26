@@ -142,6 +142,9 @@ async function render() {
     await page.goto('http://127.0.0.1:8765/little%20panth/'+episode+'/?compilation=1'+(legacy?'&export=1':''));
     await page.waitForFunction(()=>{const a=window.lpCompilation||window.lpExport;return a&&(a.ready()||a.status().error);},null,{timeout:90000});
     const initial=await page.evaluate(()=>{const a=window.lpCompilation||window.lpExport;return a.status();});if(initial.error)throw Error(initial.error);
+    // Install the same SVG watermark used by the browser recorder before capture.
+    await page.addScriptTag({url:'http://127.0.0.1:8765/little%20panth/render-watermark.js?v=1'});
+    await page.evaluate(()=>window.LPWatermark.install(document).then(()=>true));
     frames=await beginFrames(page,videoFile);
     audio=beginAudio(audioFile);
     const audioStart=await audio.ready;

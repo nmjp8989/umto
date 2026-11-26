@@ -18,6 +18,7 @@ on:
       - 'little panth/little-panth-logo.svg'
       - 'little panth/brand-motion.js'
       - 'little panth/brand-bumper.js'
+      - 'little panth/render-watermark.js'
       - 'tests/little-panth-compilation.cjs'
       - 'tools/little-panth-production.py'
 permissions:

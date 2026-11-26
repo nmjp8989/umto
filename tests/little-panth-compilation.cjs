@@ -162,6 +162,26 @@ const { chromium } = require('playwright-core');
       }
     }
     await brandPage.close();
+    // Verify the real supplied vector watermark, including caption-safe
+    // corner placement, without running an entire story to test its overlay.
+    const waterPage=await context.newPage({viewport:{width:1920,height:1080}});
+    await waterPage.goto(base+'brand-preview.html');
+    await waterPage.evaluate(()=>{document.body.innerHTML='<main class="book" data-layout="cinema" data-caption="bottom"></main>';});
+    await waterPage.addScriptTag({url:base+'render-watermark.js?v=1'});
+    const watermark=await waterPage.evaluate(async()=>{
+      const a=await LPWatermark.install(document),b=await LPWatermark.install(document),r=a.getBoundingClientRect();
+      const source=new DOMParser().parseFromString(decodeURIComponent(a.src.split(',').slice(1).join(',')),'image/svg+xml');
+      const noWhiteCanvas=![...source.documentElement.children].some(n=>n.localName==='rect'&&n.getAttribute('width')==='100%'&&n.getAttribute('height')==='100%');
+      const bottomCaptionTop=r.top;
+      document.querySelector('.book').dataset.caption='top';
+      const bottomRight=a.getBoundingClientRect();
+      return {same:a===b,count:document.querySelectorAll('#lp-video-watermark').length,noWhiteCanvas,width:r.width,top:bottomCaptionTop,right:r.right,alternateTop:bottomRight.top,alternateBottom:bottomRight.bottom,clicks:getComputedStyle(a).pointerEvents};
+    });
+    assert.equal(watermark.same,true);assert.equal(watermark.count,1);assert.equal(watermark.noWhiteCanvas,true);assert.equal(watermark.clicks,'none');
+    assert.ok(watermark.width>200&&watermark.width<220);
+    assert.ok(watermark.top<30&&watermark.right>1880&&watermark.right<1920);
+    assert.ok(watermark.alternateTop>900&&watermark.alternateBottom<1080);
+    await waterPage.close();
     assert.deepEqual(errors, []);
     console.log('PASS tabs, review gate, persistent approvals, named requests, Back/recording regression, export priority, revision flags and mobile');
   } finally {
