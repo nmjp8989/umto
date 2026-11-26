@@ -11,7 +11,9 @@ function validRequest(v){
  Array.isArray(v.episodes)&&v.episodes.length>0&&v.episodes.length<=60&&new Set(v.episodes).size===v.episodes.length&&v.episodes.every(x=>typeof x==='string'&&/^\d{3}$/.test(x))&&
  v.reviews&&typeof v.reviews==='object'&&!Array.isArray(v.reviews)&&Object.keys(v.reviews).length<=60&&Array.isArray(v.browserExports)&&v.browserExports.length<=200;
 }
-function ghHeaders(env){return {'Accept':'application/vnd.github+json','Authorization':'Bearer '+env.GITHUB_TOKEN,'X-GitHub-Api-Version':'2026-03-10','User-Agent':'little-panth-private-render'};}
+// Cloudflare Workers supports manual/follow, not redirect:error. Never follow
+// a GitHub redirect with the owner's Authorization header or repeat a POST.
+function ghHeaders(env){return {'Accept':'application/vnd.github+json','Authorization':'Bearer '+env.GITHUB_TOKEN.trim(),'X-GitHub-Api-Version':'2026-03-10','User-Agent':'little-panth-private-render'};}
 async function isOwner(env,ctx){
  // Cloudflare provides this context only after Access authenticates this invocation.
  // Fail closed for unauthenticated callers and missing/mismatched configuration.
@@ -29,17 +31,18 @@ async function dispatch(request,env,url){
  if(!env.GITHUB_TOKEN)return error('The render studio is not configured. Add its GitHub token as a Cloudflare secret.',503);
  const headers={...ghHeaders(env),'Content-Type':'application/json'};
  try{
-  const response=await fetch(API+'/actions/workflows/'+WORKFLOW+'/dispatches',{method:'POST',headers,redirect:'error',body:JSON.stringify({ref:'main',inputs:{request:JSON.stringify(value)}})});
+  const response=await fetch(API+'/actions/workflows/'+WORKFLOW+'/dispatches',{method:'POST',headers,redirect:'manual',body:JSON.stringify({ref:'main',inputs:{request:JSON.stringify(value)}})});
+  if(response.status>=300&&response.status<400)return error('GitHub returned an unexpected redirect. No redirect was followed; check the workflow.',502);
   if(!response.ok){if(response.status===401||response.status===403)return error('GitHub authorization failed. Check the render token permissions.',403);return error('GitHub did not accept the render (HTTP '+response.status+'). Check Actions.',response.status>=500?502:400);}
   const result=await response.json().catch(()=>({}));
   const id=String(result.workflow_run_id||'');
   return json({accepted:true,runId:/^\d+$/.test(id)?id:null},202);
- }catch{return error('Could not verify whether GitHub received the request. Check Actions before retrying.',502);}
+ }catch(e){console.warn('Little Panth dispatch transport failure:',e?.name||'Error');return error('Could not verify whether GitHub received the request. Check Actions before retrying.',502);}
 }
 async function runStatus(id,env){
  if(!env.GITHUB_TOKEN)return error('Render studio not configured.',503);
  try{
-  const response=await fetch(API+'/actions/runs/'+id,{headers:ghHeaders(env),redirect:'error'});
+  const response=await fetch(API+'/actions/runs/'+id,{headers:ghHeaders(env),redirect:'manual'});
   if(!response.ok)return error('Render status unavailable.',response.status===404?404:502);
   const run=await response.json();
   if(!String(run.path||'').includes('/'+WORKFLOW))return error('Not a Little Panth render.',404);
