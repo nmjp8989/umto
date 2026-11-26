@@ -106,6 +106,7 @@ async function staticPage(request,url){
  let upstream=new URL(PAGES);upstream.pathname=url.pathname;upstream.search=url.search;
  const isTracker=url.pathname===ROOT+'production-db.json';
  if(isTracker)upstream=new URL('https://raw.githubusercontent.com/nmjp8989/umto/main/little%20panth/production-db.json?fresh='+Date.now());
+ if(url.pathname===ROOT+'brand-voice.mp3')upstream=new URL('https://raw.githubusercontent.com/nmjp8989/umto/main/little%20panth/brand-voice.mp3');
  const headers={};
  if(request.headers.has('Range'))headers.Range=request.headers.get('Range');
  let response;

@@ -1,0 +1,36 @@
+name: Record Little Panth brand voice
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/little-panth-brand-voice.py'
+      - '.github/workflows/little-panth-brand-voice.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: little-panth-brand-voice
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Generate and cache one original synthetic voice sting
+        env:
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if ! command -v ffmpeg >/dev/null; then sudo apt-get update -q && sudo apt-get install -y ffmpeg; fi
+          python3 tools/little-panth-brand-voice.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'little panth/brand-voice.mp3'
+          git diff --cached --quiet && exit 0
+          git commit -m 'Cache Little Panth original synthetic brand voice'
+          git pull --rebase origin main
+          git push origin HEAD:main

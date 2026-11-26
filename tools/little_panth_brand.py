@@ -1,22 +1,28 @@
 #!/usr/bin/env python3
 """Generate original Little Panth brand bumpers in the episode MP4 format."""
 import math
+import json
+from array import array
 import pathlib
 import random
 import struct
 import subprocess
 import wave
 
-INTRO_FRAMES = 72
-TRANSITION_FRAMES = 36
 FPS = 30
 RATE = 48000
 
 
-def soundtrack(path, frames, intro):
+def soundtrack(path, frames, intro, voice_path, voice_at):
     duration = frames / FPS
     rng = random.Random(2157)
     notes = [(0.19, 659.25), (0.34, 880.0), (0.50, 1046.50)] if intro else [(0.17, 783.99), (0.32, 1046.50)]
+    voice = array('h')
+    if voice_path.is_file():
+        voice.frombytes(subprocess.check_output(['ffmpeg','-hide_banner','-loglevel','error','-i',str(voice_path),'-f','s16le','-ac','1','-ar',str(RATE),'-']))
+        if len(voice) > round(1.9 * RATE):
+            raise ValueError('Brand voice is too long for the transition')
+    voice_start = round(voice_at * RATE)
     buf = bytearray()
     smooth = 0.0
     for i in range(round(duration * RATE)):
@@ -29,6 +35,8 @@ def soundtrack(path, frames, intro):
             if 0 <= dt < 0.72:
                 envelope = min(1, dt / 0.008) * math.exp(-6.0 * dt) * min(1, (0.72-dt)/0.08)
                 value += 0.12 * envelope * (math.sin(2*math.pi*hz*dt) + 0.22*math.sin(2*math.pi*hz*2.01*dt))
+        if voice_start <= i < voice_start + len(voice):
+            value += 0.90 * voice[i-voice_start] / 32768.0
         value *= min(1, max(0, (duration-t)/0.06))
         sample = round(32767 * max(-0.95, min(0.95, value)))
         buf.extend(struct.pack('<hh', sample, sample))
@@ -43,10 +51,13 @@ def make_bumpers(directory, logo):
     logo = pathlib.Path(logo).resolve()
     tools = pathlib.Path(__file__).resolve().parent
     motion = tools.parent/'little panth'/'brand-motion.js'
+    timing = json.loads(subprocess.check_output(['node',str(tools/'little-panth-brand-frames.cjs'),'--timing',str(motion)]))
+    voice_path = logo.parent/'brand-voice.mp3'
     clips = []
-    for name, frames in [('intro', INTRO_FRAMES), ('transition', TRANSITION_FRAMES)]:
+    for name in ('intro','transition'):
+        frames = round(timing[name]['duration'] * FPS)
         audio = directory/(name+'.wav')
-        soundtrack(audio, frames, name == 'intro')
+        soundtrack(audio, frames, name == 'intro', voice_path, timing[name]['voiceAt'])
         target = directory/(name+'.mp4')
         sequence = directory/(name+'-frames')
         subprocess.run(['node',str(tools/'little-panth-brand-frames.cjs'),str(logo),str(sequence),str(frames),name,str(motion)],check=True)

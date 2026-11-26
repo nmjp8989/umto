@@ -4,7 +4,17 @@ const logoURL=new URL('little-panth-logo.svg?v=2',document.currentScript.src).hr
 const motion=window.LPLogoMotion;
 let template=null,loading=null;
 function loadLogo(){if(template)return Promise.resolve(template);if(!loading)loading=fetch(logoURL).then(r=>{if(!r.ok)throw Error('Could not load the Little Panth SVG.');return r.text();}).then(svg=>template=motion.build(svg)).catch(e=>{loading=null;throw e;});return loading;}
-let context=null,source=null,layer=null;
+const voiceURL=new URL('brand-voice.mp3?v=1',document.currentScript.src).href;
+let context=null,source=null,voiceSource=null,voiceBuffer=null,layer=null;
+let voiceBytes=null;
+async function loadVoice(){
+ if(!voiceBytes){
+  const r=await fetch(voiceURL,{cache:'no-cache'});
+  if(!r.ok)return null;
+  voiceBytes=await r.arrayBuffer();
+ }
+ return context.decodeAudioData(voiceBytes.slice(0));
+}
 const previewMounts=new WeakMap();
 function previewPose(parent){
  let entry=previewMounts.get(parent);
@@ -15,13 +25,14 @@ function previewPose(parent){
  return entry.pose;
 }
 async function showStill(parent){await loadLogo();previewPose(parent)(1,true,true);}
-const seconds=count=>count>0?2.4+1.2*(count-1):0;
+const seconds=count=>count>0?motion.timing(true).duration+motion.timing(false).duration*(count-1):0;
 async function prepare(){
  const C=window.AudioContext||window.webkitAudioContext;
  if(!C)throw Error('Brand audio is not supported in this browser.');
  if(!context||context.state==='closed')context=new C();
  const resumed=context.resume();
  await Promise.all([resumed,loadLogo()]);
+ voiceBuffer=await loadVoice().catch(()=>null);
  if(context.state!=='running')throw Error('Brand audio could not start.');
 }
 function sound(intro,duration){
@@ -40,12 +51,19 @@ function sound(intro,duration){
   }
   data[i]=v*Math.min(1,Math.max(0,(duration-t)/.06));
  }
- source=context.createBufferSource();source.buffer=b;source.connect(context.destination);source.start();
+ source=context.createBufferSource();source.buffer=b;source.connect(context.destination);
+ const at=context.currentTime+.025;
+ source.start(at);
+ if(voiceBuffer){
+  voiceSource=context.createBufferSource();voiceSource.buffer=voiceBuffer;
+  const gain=context.createGain();gain.gain.value=.90;voiceSource.connect(gain);gain.connect(context.destination);
+  voiceSource.start(at+motion.timing(intro).voiceAt);
+ }
 }
 async function play(parent,intro,isActive=()=>true,{hold=false}={}){
  if(!context||context.state!=='running')throw Error('Prepare brand audio before playback.');
  if(!isActive())throw Error('Recording cancelled.');
- const duration=intro?2.4:1.2,ms=duration*1000;
+ const duration=motion.timing(intro).duration,ms=duration*1000;
  if(!template)throw Error('Prepare the logo before playback.');
  // The preview reuses the same inline SVG before, during and after playback.
  // Recording retains its original full-screen overlay and white fade to the story.
@@ -63,8 +81,8 @@ async function play(parent,intro,isActive=()=>true,{hold=false}={}){
   await new Promise((resolve,reject)=>{
    function tick(now){
     if(!isActive()){reject(Error('Recording cancelled.'));return;}
-    const p=Math.min(1,(now-started)/ms);pose(p,intro,hold);
-    if(p>=1)resolve();else requestAnimationFrame(tick);
+    const elapsed=Math.min(duration,(now-started)/1000);pose(motion.progressAt(elapsed,intro),intro,hold);
+    if(elapsed>=duration)resolve();else requestAnimationFrame(tick);
    }
    requestAnimationFrame(tick);
   });
@@ -73,12 +91,15 @@ async function play(parent,intro,isActive=()=>true,{hold=false}={}){
   if(hold)pose(1,intro,true);
   else{layer?.remove();layer=null;}
   if(source){try{source.stop();}catch{}source.disconnect();source=null;}
+  if(voiceSource){try{voiceSource.stop();}catch{}voiceSource.disconnect();voiceSource=null;}
  }
 }
 function close(){
  layer?.remove();layer=null;
  if(source){try{source.stop();}catch{}source.disconnect();source=null;}
+ if(voiceSource){try{voiceSource.stop();}catch{}voiceSource.disconnect();voiceSource=null;}
  if(context){context.close().catch(()=>{});context=null;}
+ voiceBuffer=null;
 }
-window.LPBrand={seconds,prepare,play,close,showStill};
+window.LPBrand={seconds,prepare,play,close,showStill,hasVoice:()=>Boolean(voiceBuffer)};
 })();

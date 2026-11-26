@@ -42,6 +42,14 @@ function transform(x,y,dx=0,dy=0,sx=1,sy=sx,angle=0){
  if(dx===0&&dy===0&&sx===1&&sy===1&&angle===0)return '';
  return `translate(${num(dx)} ${num(dy)}) translate(${x} ${y}) rotate(${num(angle)}) scale(${num(sx)} ${num(sy)}) translate(${-x} ${-y})`;
 }
+// Clock time is separate from pose progress: animate, hold, then fade.
+function timing(intro){return intro?{duration:4.5,animation:2.15,fade:.5,voiceAt:1.35}:{duration:3,animation:1.25,fade:.4,voiceAt:.82};}
+function progressAt(seconds,intro){
+ const t=timing(intro),s=Math.max(0,seconds),fadeStart=intro?.86:.80;
+ if(s<t.animation)return .78*s/t.animation;
+ if(s<=t.duration-t.fade)return .78;
+ return fadeStart+(1-fadeStart)*clamp((s-(t.duration-t.fade))/t.fade);
+}
 function poses(progress,intro,hold=false){
  const p=clamp(progress),out={};
  // Finish all individual movement before the final hold. Only actual video
@@ -75,5 +83,5 @@ function mount(parent,template){
  const elements=[...svg.querySelectorAll('[data-motion]')].map(node=>[node,node.getAttribute('data-motion')]);
  return (progress,intro,hold=false)=>{const state=poses(progress,intro,hold);for(const [node,key] of elements){const v=state[key];node.setAttribute('transform',v.transform);node.setAttribute('opacity',num(v.opacity));}};
 }
-globalThis.LPLogoMotion={build,poses,frame,mount};
+globalThis.LPLogoMotion={build,poses,frame,mount,timing,progressAt};
 })();
