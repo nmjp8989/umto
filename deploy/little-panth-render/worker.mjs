@@ -67,6 +67,10 @@ async function staticPage(request,url){
  if(request.method==='GET'&&response.ok&&url.pathname===ROOT+'compilation.html'&&(h.get('Content-Type')||'').includes('text/html')){
   return new HTMLRewriter().on('head',{element(e){e.append('<meta name="lp-private-studio" content="1">',{html:true});}}).transform(out);
  }
+ // Production catalogue is for approved stories and video exports, not games.
+ if(request.method==='GET'&&response.ok&&[ROOT,ROOT+'index.html',ROOT+'all-missions.html'].includes(url.pathname)&&(h.get('Content-Type')||'').includes('text/html')){
+  return new HTMLRewriter().on('aside[aria-label="Games"]',{element(e){e.remove();}}).transform(out);
+ }
  return out;
 }
 export default {
