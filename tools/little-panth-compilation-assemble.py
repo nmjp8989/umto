@@ -2,6 +2,7 @@
 """Concatenate complete rendered Little Panth episodes into one MP4."""
 import json, pathlib, re, shutil, subprocess, sys
 from html import unescape
+from little_panth_brand import make_bumpers
 root=pathlib.Path(sys.argv[1])
 release=pathlib.Path(sys.argv[2]); release.mkdir(parents=True,exist_ok=True)
 ids=sys.argv[3].split(",")
@@ -19,7 +20,14 @@ def stamp(ms):
     t=ms//1000
     return f"{t//3600:02}:{t//60%60:02}:{t%60:02}" if t>=3600 else f"{t//60:02}:{t%60:02}"
 concat=[]; chapters=[]; meta=[";FFMETADATA1","title=Little Panth compilation"]; cursor=0
-for i in ids:
+# Generate only two reusable clips, then insert one before every selected story.
+intro, transition = make_bumpers(root/"brand", pathlib.Path(__file__).resolve().parents[1]/"little panth"/"little-panth-logo.svg")
+def add_clip(file):
+    concat.append("file '"+str(file.resolve()).replace("'","'\\''")+"'")
+    return round(float(ffprobe(file)["format"]["duration"])*1000)
+for index, i in enumerate(ids):
+    chapter_start=cursor
+    cursor+=add_clip(intro if index==0 else transition)
     file=root/f"episode-{i}"/f"mission-{i}"/"episode.mp4"
     if not file.is_file():raise SystemExit("Missing rendered episode "+i)
     doc=ffprobe(file);streams=doc["streams"]
@@ -28,10 +36,10 @@ for i in ids:
         raise SystemExit("Unexpected video/audio format for "+i)
     ms=round(float(doc["format"]["duration"])*1000)
     if ms<=0:raise SystemExit("Invalid runtime for "+i)
-    concat.append("file '"+str(file.resolve()).replace("'","'\\''")+"'")
+    add_clip(file)
     name=title(i)
-    chapters.append(stamp(cursor)+" "+name)
-    meta.extend(["[CHAPTER]","TIMEBASE=1/1000",f"START={cursor}",f"END={cursor+ms}","title="+esc(name)])
+    chapters.append(stamp(chapter_start)+" "+name)
+    meta.extend(["[CHAPTER]","TIMEBASE=1/1000",f"START={chapter_start}",f"END={cursor+ms}","title="+esc(name)])
     cursor+=ms
     if len(chapters)==1 and (file.parent/"thumbnail.png").exists():shutil.copyfile(file.parent/"thumbnail.png",release/"thumbnail.png")
 (release/"chapters.txt").write_text("\n".join(chapters)+"\n",encoding="utf-8")
@@ -40,5 +48,5 @@ for i in ids:
 out=release/"little-panth-compilation.mp4"
 subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y","-f","concat","-safe","0","-i",str(root/"concat.txt"),"-f","ffmetadata","-i",str(root/"chapters.ffmeta"),"-map","0:v:0","-map","0:a:0","-map_metadata","1","-map_chapters","1","-c","copy","-movflags","+faststart",str(out)],check=True)
 actual=ffprobe(out);duration=float(actual["format"]["duration"])
-if abs(duration-cursor/1000)>max(1.5,len(ids)*.1):raise SystemExit("Compilation duration differs from the sum of episodes")
+if abs(duration-cursor/1000)>max(1.5,len(ids)*.15):raise SystemExit("Compilation duration differs from episodes plus branding")
 print("Rendered",len(ids),"episodes;",round(duration,1),"seconds")

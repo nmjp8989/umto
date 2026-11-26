@@ -2,6 +2,7 @@
 'use strict';
 const $=id=>document.getElementById(id),screen=$('record-screen'),recordButton=$('record-tab'),renderButton=$('render-mp4');
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
+const brand=window.LPBrand;
 const params=new URLSearchParams(location.search),store=window.LPProduction,volume=store.normalize(params.get('name'));const raw=params.get('episodes')||'';
 const requested=[...new Set(raw.split(',').map(s=>s.trim()).filter(Boolean))];
 const repo='https://github.com/nmjp8989/umto/actions/workflows/little-panth-compilation.yml';
@@ -23,7 +24,7 @@ setEnabled(false);
   const catalogue=new Map([...doc.querySelectorAll('tr[data-seconds]')].map(row=>[row.querySelector('.episode-pick')?.value,{id:row.querySelector('.episode-pick')?.value,title:row.querySelector('a')?.textContent,seconds:Number(row.dataset.seconds)}]));
   if(ids.some(id=>!catalogue.has(id)))throw Error('An episode is not in the catalogue.');
   entries=ids.map(id=>catalogue.get(id));const sum=entries.reduce((s,e)=>s+e.seconds,0);
-  $('selected-info').textContent=entries.length+' selected episode'+(entries.length===1?'':'s')+' · approximately '+totalLabel(sum);
+  $('selected-info').textContent=entries.length+' selected episode'+(entries.length===1?'':'s')+' · approximately '+totalLabel(Math.round(sum+brand.seconds(entries.length)))+' including branding';
   $('selected-list').replaceChildren(...entries.map(e=>{const li=document.createElement('li');li.textContent=e.id+' — '+e.title+' ('+totalLabel(e.seconds)+')';return li;}));
   $('episode-ids').value=JSON.stringify(store.request('export',volume,ids));setEnabled(true);
   if(recordButton.disabled)status('Tab recording is not supported in this browser. Use the MP4 renderer.');
@@ -43,6 +44,7 @@ recordButton.onclick=async()=>{
  try{
   setEnabled(false);$('download-video').hidden=true;if(objectURL){URL.revokeObjectURL(objectURL);objectURL='';}
   status('Choose this tab in the sharing dialog and turn on tab audio.');
+  const brandReady=brand.prepare();brandReady.catch(()=>{});
   // Capture handle confirms the selected tab where Chromium exposes it.
   const handle='little-panth-compilation-'+Math.random().toString(36).slice(2);
   try{navigator.mediaDevices.setCaptureHandleConfig?.({handle,exposeOrigin:true,permittedOrigins:[location.origin]});}catch{}
@@ -51,7 +53,8 @@ recordButton.onclick=async()=>{
   if(!track||surface&&surface!=='browser'||capture&&capture.handle!==handle)throw Error('Please select the Little Panth tab, not a window, screen or another tab.');
   if(!stream.getAudioTracks().length)throw Error('Tab audio is missing. Try again and enable Share tab audio.');
   active=true;track.addEventListener('ended',()=>{cancelled=true;active=false;});for(const t of stream.getAudioTracks())t.addEventListener('ended',()=>{cancelled=true;active=false;});
-  screen.hidden=false;let frame=frameFor(entries[0].id),api=await waitReady(frame),next=null;
+  await brandReady;
+  screen.hidden=false;let frame=frameFor(entries[0].id,true),api=await waitReady(frame),next=null;
   const recordingStarted=Date.now();
   const type=mimeType(),options={videoBitsPerSecond:5000000,audioBitsPerSecond:160000,...(type?{mimeType:type}:{})};
   recorder=new MediaRecorder(stream,options);
@@ -59,6 +62,7 @@ recordButton.onclick=async()=>{
   ended.catch(()=>{});
   recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
   recorder.start(1000);
+  await brand.play(screen,true,()=>active);frame.className='';
   for(let i=0;i<entries.length;i++){
    if(!active)throw Error('Recording cancelled.');
    if(i+1<entries.length)next=frameFor(entries[i+1].id,true);
@@ -67,7 +71,7 @@ recordButton.onclick=async()=>{
    let done=false;
    while(active&&Date.now()<deadline){const s=api.status();if(s.error)throw Error(s.error);if(s.finished){done=true;break;}await delay(100);}
    if(!done)throw Error(active?'Episode playback timed out.':'Recording cancelled.');
-   if(i+1<entries.length){const nextApi=await waitReady(next);next.className='';frame.remove();frame=next;api=nextApi;next=null;}
+   if(i+1<entries.length){const nextApi=await waitReady(next);await brand.play(screen,false,()=>active);next.className='';frame.remove();frame=next;api=nextApi;next=null;}
   }
   if(cancelled||recordError)throw Error('Recording cancelled.');
   active=false;recorder.stop();await ended;
@@ -75,7 +79,7 @@ recordButton.onclick=async()=>{
   if(!blob.size)throw Error('No video was recorded.');
   objectURL=URL.createObjectURL(blob);const link=$('download-video');link.href=objectURL;link.download=volume+'.'+ext;link.hidden=false;try{store.addBrowser(volume,ids,ext,(Date.now()-recordingStarted)/1000);status('Your '+ext.toUpperCase()+' video is ready and saved in local export history. Click Download recorded video.');}catch(e){status('Video is ready, but tracker save failed: '+e.message,true);}
  }catch(error){status(error.message||String(error),true);}
- finally{active=false;if(recorder?.state==='recording'||recorder?.state==='paused'){recorder.stop();try{await ended;}catch{}}stream?.getTracks().forEach(t=>t.stop());stream=null;recorder=null;screen.replaceChildren();screen.hidden=true;setEnabled(entries.length>0&&!store.usedName(volume));}
+ finally{active=false;brand.close();if(recorder?.state==='recording'||recorder?.state==='paused'){recorder.stop();try{await ended;}catch{}}stream?.getTracks().forEach(t=>t.stop());stream=null;recorder=null;screen.replaceChildren();screen.hidden=true;setEnabled(entries.length>0&&!store.usedName(volume));}
 };
-window.addEventListener('pagehide',()=>{active=false;stream?.getTracks().forEach(t=>t.stop());if(objectURL)URL.revokeObjectURL(objectURL);});
+window.addEventListener('pagehide',()=>{active=false;brand.close();stream?.getTracks().forEach(t=>t.stop());if(objectURL)URL.revokeObjectURL(objectURL);});
 })();
