@@ -10,7 +10,7 @@ const ids=requested.filter(s=>/^\d{3}$/.test(s));
 let entries=[],active=false,objectURL='',stream=null,recorder=null;
 const status=(message,error=false)=>{$('record-status').textContent=message;$('record-status').classList.toggle('error',error);};
 const totalLabel=sec=>Math.floor(sec/60)+'m '+String(sec%60).padStart(2,'0')+'s';
-function setEnabled(enabled){recordButton.disabled=!enabled||!navigator.mediaDevices?.getDisplayMedia||!window.MediaRecorder;renderButton.disabled=!enabled;$('copy-ids').disabled=!enabled;}
+function setEnabled(enabled){recordButton.disabled=!enabled||!navigator.mediaDevices?.getDisplayMedia||!window.MediaRecorder;renderButton.disabled=!enabled||window.LPRenderDispatch?.busy();$('copy-ids').disabled=!enabled;}
 setEnabled(false);
 (async()=>{
  try{
@@ -27,12 +27,13 @@ setEnabled(false);
   $('selected-info').textContent=entries.length+' selected episode'+(entries.length===1?'':'s')+' · approximately '+totalLabel(Math.round(sum+brand.seconds(entries.length)))+' including branding';
   $('selected-list').replaceChildren(...entries.map(e=>{const li=document.createElement('li');li.textContent=e.id+' — '+e.title+' ('+totalLabel(e.seconds)+')';return li;}));
   $('episode-ids').value=JSON.stringify(store.request('export',volume,ids));setEnabled(true);
+  window.LPRenderDispatch?.init(volume,ids);
   if(recordButton.disabled)status('Tab recording is not supported in this browser. Use the MP4 renderer.');
  }catch(error){$('selected-info').textContent=error.message;setEnabled(false);}
 })();
 async function copyIds(){const field=$('episode-ids');field.focus();field.select();try{await navigator.clipboard.writeText(field.value);$('workflow-status').textContent='Export request copied.';return true;}catch{$('workflow-status').textContent='Copy the selected export request manually.';return false;}}
 $('copy-ids').onclick=copyIds;
-renderButton.onclick=()=>{const tab=window.open(repo,'_blank','noopener');copyIds();$('workflow-status').textContent='Open Run workflow and paste the export request into the request field.';};
+renderButton.onclick=()=>{if(window.LPRenderDispatch?.enabled()){window.LPRenderDispatch.start(store.request('export',volume,ids));return;}window.open(repo,'_blank','noopener');copyIds();$('workflow-status').textContent='Open Run workflow and paste the export request into the request field.';};
 function frameFor(id,preload=false){const frame=document.createElement('iframe');frame.title='Little Panth episode '+id;frame.allow='autoplay';if(preload)frame.className='preload';frame.src='mission-'+id+'/?compilation=1'+(Number(id)<=3?'&export=1':'');screen.append(frame);return frame;}
 function apiFor(frame){const w=frame.contentWindow;if(w?.lpCompilation)return {ready:()=>w.lpCompilation.ready(),start:()=>w.lpCompilation.start(),status:()=>w.lpCompilation.status()};if(w?.lpExport)return {ready:()=>w.lpExport.ready(),start:()=>w.lpExport.start('all'),status:()=>w.lpExport.status()};return null;}
 async function waitReady(frame){const deadline=Date.now()+90000;while(active&&Date.now()<deadline){const api=apiFor(frame);if(api){const state=api.status();if(state?.error)throw Error(state.error);if(api.ready())return api;}await delay(150);}throw Error(active?'Episode did not become ready; reload and try again.':'Recording cancelled.');}
