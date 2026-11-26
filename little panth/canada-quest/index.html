@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f5e9">
+  <meta name="description" content="A Little Panth geography game about Canada's provinces, territories, capitals, maps, and landmarks.">
+  <title>Canada Quest · Little Panth</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../missions/delivery-camera.js"></script>
+  <script defer src="../../missions/native-character-player.js"></script>
+  <script defer src="narration.js"></script>
+  <script defer src="map.js"></script>
+  <script defer src="questions.js"></script>
+  <script defer src="stage.js"></script>
+  <script defer src="mobile.js"></script>
+</head>
+<body>
+  <header class="mast">
+    <a class="brand" href="./"><span aria-hidden="true">✦</span> Little <strong>Panth</strong></a>
+    <nav aria-label="Game controls">
+      <button id="home" type="button" hidden>Quest board</button>
+      <button id="voice" type="button" aria-pressed="false">Sound off</button>
+    </nav>
+  </header>
+  <main>
+    <section class="scene" aria-label="Harpreet and Mehar at the atlas station">
+      <div class="scene-copy"></div>
+      <svg id="stage" preserveAspectRatio="xMaxYMax slice" viewBox="0 0 1280 720" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x2="0" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#254d46"/><stop offset="1" stop-color="#507764"/></linearGradient>
+          <linearGradient id="glass"><stop stop-color="#b6d9cb"/><stop offset="1" stop-color="#79ad9a"/></linearGradient>
+          <pattern id="atlas-grid" width="49" height="49" patternUnits="userSpaceOnUse"><path d="M49 0H0V49" fill="none" stroke="#b1cfbb" stroke-opacity=".26"/></pattern>
+        </defs>
+        <rect width="1280" height="720" fill="url(#sky)"/>
+        <rect width="1280" height="720" fill="url(#atlas-grid)"/>
+        <g data-camera-depth="-.27">
+          <rect x="440" y="33" width="727" height="471" rx="35" fill="#17352f"/>
+          <rect x="458" y="51" width="691" height="435" rx="26" fill="url(#glass)"/>
+          <g id="scenery-map" transform="translate(510 58) scale(.77)" fill="#568e73" stroke="#b6d9b8" stroke-width="1.5"></g>
+          <path d="M447 501h727" stroke="#ddb369" stroke-width="9" stroke-linecap="round"/>
+        </g>
+        <path d="M0 561H1280V720H0Z" fill="#203f38"/>
+        <path d="M0 566H1280M0 640H1280" stroke="#6f9179" stroke-width="2" opacity=".38"/>
+        <g id="scene-actors">
+          <ellipse cx="787" cy="646" rx="90" ry="13" fill="#142f2a" opacity=".38"/>
+          <ellipse cx="1065" cy="646" rx="78" ry="12" fill="#142f2a" opacity=".38"/>
+          <g id="guide"></g><g id="guide-props"></g><g id="explorer"></g><g id="explorer-props"></g>
+        </g>
+      </svg>
+    </section>
+    <section id="screen" aria-label="Canada Quest"></section>
+  </main>
+  <footer>Grade 4 geography <span aria-hidden="true">·</span> Map data from <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a></footer>
+  <iframe id="studio" src="../../index.html?missionBridge=native" title="UMTO character rig" hidden></iframe>
+  <noscript>Turn on JavaScript to play Canada Quest.</noscript>
+</body>
+</html>
