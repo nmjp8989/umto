@@ -1,4 +1,5 @@
 // Private, owner-only studio. Never store a GitHub credential in browser code.
+import {openVideo} from './zip-video.mjs';
 const API='https://api.github.com/repos/nmjp8989/umto';
 const WORKFLOW='little-panth-compilation.yml';
 const PAGES='https://nmjp8989.github.io';
@@ -39,14 +40,64 @@ async function dispatch(request,env,url){
   return json({accepted:true,runId:/^\d+$/.test(id)?id:null},202);
  }catch(e){console.warn('Little Panth dispatch transport failure:',e?.name||'Error');return error('Could not verify whether GitHub received the request. Check Actions before retrying.',502);}
 }
-async function runStatus(id,env){
+const validVolume=name=>typeof name==='string'&&/^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/.test(name);
+function downloadPath(runId,artifactId,name,ext='mp4'){return '/api/lp-render/download/'+runId+'/'+artifactId+'/'+encodeURIComponent(name)+'.'+ext;}
+async function getRun(id,env){
+ const r=await fetch(API+'/actions/runs/'+id,{headers:ghHeaders(env),redirect:'manual'});
+ if(!r.ok)return null;
+ const j=await r.json();
+ return String(j.path||'').split('@')[0].endsWith('/'+WORKFLOW)&&String(j.id)===id?j:null;
+}
+async function getArtifact(runId,name,env){
+ const r=await fetch(API+'/actions/runs/'+runId+'/artifacts?name='+encodeURIComponent(name),{headers:ghHeaders(env),redirect:'manual'});
+ if(!r.ok)throw Error('Artifact metadata unavailable');
+ const j=await r.json();
+ return (j.artifacts||[]).find(a=>a.name===name&&/^\d+$/.test(String(a.id))&&(!a.workflow_run||String(a.workflow_run.id)===runId))||null;
+}
+async function downloadVideo(runId,artifactId,name,ext,env){
+ if(!env.GITHUB_TOKEN)return error('Render studio not configured.',503);
+ try{
+  const run=await getRun(runId,env);
+  if(!run||run.status!=='completed'||run.conclusion!=='success'||run.event!=='workflow_dispatch')return error('Completed export not found.',404);
+  const artifact=await getArtifact(runId,name,env);
+  if(!artifact||String(artifact.id)!==artifactId)return error('Export artifact not found.',404);
+  if(artifact.expired)return error('This export has expired. GitHub retains completed video artifacts for 30 days.',410);
+  const zip=await fetch(API+'/actions/artifacts/'+artifactId+'/zip',{headers:ghHeaders(env),redirect:'manual'});
+  if(zip.status===410)return error('This export has expired.',410);
+  const location=zip.headers.get('Location');
+  if(zip.status!==302||!location)return error('GitHub download unavailable.',502);
+  // The redirect is a short-lived signed storage URL supplied by GitHub. Never
+  // forward GitHub authorization or the user's Access cookie to storage.
+  const signed=new URL(location);
+  if(signed.protocol!=='https:'||signed.username||signed.password)return error('Unexpected artifact storage location.',502);
+  if(ext==='zip')return new Response(null,{status:302,headers:{...NO_CACHE,Location:signed.href,'Referrer-Policy':'no-referrer'}});
+  try{
+   const fetcher=range=>fetch(signed.href,{headers:{Range:range,'Accept-Encoding':'identity'},redirect:'manual'});
+   const video=await openVideo(fetcher,name+'.mp4');
+   return new Response(video.body,{headers:{...NO_CACHE,'Content-Type':'video/mp4','Content-Disposition':'attachment; filename="'+name+'.mp4"','Content-Length':String(video.size),'Referrer-Policy':'no-referrer'}});
+  }catch(e){
+   console.warn('Little Panth direct MP4 unavailable:',e?.name||'Error');
+   // A storage backend without byte ranges, or an unsupported ZIP variant, can
+   // still provide the complete archive. Explicitly label the fallback.
+   const href=downloadPath(runId,artifactId,name,'zip');
+   return new Response('<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Download video ZIP</title></head><body style="font:16px system-ui;padding:24px"><h1>Direct MP4 download unavailable</h1><p>Your completed video is still available in its original ZIP archive.</p><p><a href="'+href+'">Download '+name+'.zip (contains '+name+'.mp4)</a></p></body></html>',{status:502,headers:{...NO_CACHE,'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'"}});
+  }
+ }catch(e){console.warn('Little Panth download failed:',e?.name||'Error');return error('Download unavailable. Please use the GitHub run link.',502);}
+}
+async function runStatus(id,env,name){
  if(!env.GITHUB_TOKEN)return error('Render studio not configured.',503);
  try{
   const response=await fetch(API+'/actions/runs/'+id,{headers:ghHeaders(env),redirect:'manual'});
   if(!response.ok)return error('Render status unavailable.',response.status===404?404:502);
   const run=await response.json();
   if(!String(run.path||'').includes('/'+WORKFLOW))return error('Not a Little Panth render.',404);
-  return json({status:run.status,conclusion:run.conclusion||null});
+  const result={status:run.status,conclusion:run.conclusion||null};
+  if(run.status==='completed'&&run.conclusion==='success'&&run.event==='workflow_dispatch'&&validVolume(name)){
+   const a=await getArtifact(id,name,env);
+   if(a&&!a.expired){result.downloadUrl=downloadPath(id,String(a.id),name);result.zipUrl=downloadPath(id,String(a.id),name,'zip');}
+   if(a?.expired)result.expired=true;
+  }
+  return json(result);
  }catch{return error('Render status unavailable.',502);}
 }
 async function staticPage(request,url){
@@ -72,7 +123,7 @@ async function staticPage(request,url){
  }
  // Production catalogue is for approved stories and video exports, not games.
  if(request.method==='GET'&&response.ok&&[ROOT,ROOT+'index.html',ROOT+'all-missions.html'].includes(url.pathname)&&(h.get('Content-Type')||'').includes('text/html')){
-  return new HTMLRewriter().on('aside[aria-label="Games"]',{element(e){e.remove();}}).transform(out);
+  return new HTMLRewriter().on('aside[aria-label="Games"]',{element(e){e.remove();}}).on('head',{element(e){e.append('<meta name="lp-private-studio" content="1">',{html:true});}}).transform(out);
  }
  return out;
 }
@@ -82,7 +133,9 @@ export default {
   const url=new URL(request.url);
   if(url.pathname==='/api/lp-render/dispatch')return dispatch(request,env,url);
   const match=url.pathname.match(/^\/api\/lp-render\/runs\/(\d+)$/);
-  if(match&&request.method==='GET')return runStatus(match[1],env);
+  if(match&&request.method==='GET')return runStatus(match[1],env,url.searchParams.get('name'));
+  const download=url.pathname.match(/^\/api\/lp-render\/download\/(\d+)\/(\d+)\/([A-Za-z0-9][A-Za-z0-9_-]{0,79})\.(mp4|zip)$/);
+  if(download&&request.method==='GET')return downloadVideo(download[1],download[2],download[3],download[4],env);
   if(!['GET','HEAD'].includes(request.method))return error('Method not allowed.',405);
   if(url.pathname==='/')return new Response(null,{status:302,headers:{...NO_CACHE,Location:ROOT}});
   return staticPage(request,url);

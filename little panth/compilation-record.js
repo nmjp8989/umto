@@ -15,7 +15,15 @@ setEnabled(false);
 (async()=>{
  try{
   await store.load();
-  if(!store.validName(volume)||store.usedName(volume))throw Error('Choose a new valid filename from the contents page.');
+  if(!store.validName(volume))throw Error('Choose a valid filename from the contents page.');
+  const existing=window.LPRenderDispatch?.enabled()&&store.exports().find(e=>e.kind==='github'&&e.name.toLowerCase()===volume.toLowerCase()&&e.episodes.join(',')===ids.join(','));
+  if(existing){
+   $('volume-name').textContent='Video: '+existing.filename;
+   $('selected-info').textContent=ids.length+' episodes · '+totalLabel(existing.seconds)+' · completed';
+   window.LPRenderDispatch.init(volume,ids,existing);
+   return;
+  }
+  if(store.usedName(volume))throw Error('Choose a new valid filename from the contents page.');
   if(ids.some(id=>!store.review(id).approved))throw Error('Every selected episode must be approved before export.');
   $('volume-name').textContent='Video: '+volume+'.mp4';
   if(!ids.length||ids.length!==requested.length)throw Error('Select valid episodes from the contents page first.');

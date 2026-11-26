@@ -7,9 +7,29 @@ let loaded=false,storageOK=true,activeTab='review';
 try{const saved=new Set(JSON.parse(sessionStorage.getItem(key)||'[]'));for(const p of picks)p.checked=saved.has(p.value);name.value=sessionStorage.getItem(nameKey)||'';}catch{}
 const row=p=>p.closest('tr'),selected=()=>picks.filter(p=>p.checked&&!p.disabled),approved=()=>picks.filter(p=>store.review(p.value).approved);
 function duration(seconds){return Math.floor(seconds/60)+'m '+String(seconds%60).padStart(2,'0')+'s';}
-function historyLink(e){const node=document.createElement(e.kind==='github'&&/^\d+$/.test(String(e.runId))?'a':'span');node.textContent=e.filename;if(node.tagName==='A'){node.href='https://github.com/nmjp8989/umto/actions/runs/'+e.runId;node.target='_blank';node.rel='noopener';}return node;}
-function paintHistory(){for(const p of picks){const cell=row(p).querySelector('.exported-in'),records=store.exportedIn(p.value);cell.replaceChildren();if(!records.length){cell.textContent='—';continue;}for(const e of records){cell.append(historyLink(e));const note=document.createElement('small');note.textContent=e.kind==='github'?'MP4 render':'Browser recording';cell.append(note);}}
-const records=store.exports();$('history-count').textContent='('+records.length+')';$('history-list').replaceChildren(...records.map(e=>{const li=document.createElement('li');li.append(historyLink(e),document.createTextNode(' · '+e.episodes.length+' stories · '+duration(e.seconds||0)+' · '+String(e.createdAt).slice(0,10)));return li;}));if(!records.length){const li=document.createElement('li');li.textContent='No official compilations yet.';$('history-list').append(li);}}
+const privateStudio=Boolean(document.querySelector('meta[name="lp-private-studio"]'));
+function historyLink(e){
+ const github=e.kind==='github'&&/^\d+$/.test(String(e.runId));
+ const node=document.createElement(github?'a':'span');node.textContent=e.filename;
+ if(github){
+  const artifact=/^\d+$/.test(String(e.artifactId));
+  if(privateStudio&&artifact&&/^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/.test(e.name)){
+   node.href='/api/lp-render/download/'+e.runId+'/'+e.artifactId+'/'+encodeURIComponent(e.name)+'.mp4';
+   node.download=e.filename;node.className='render-download-link';node.title='Download completed MP4';
+  }else{
+   node.href='https://github.com/nmjp8989/umto/actions/runs/'+e.runId;node.target='_blank';node.rel='noopener';
+  }
+ }
+ return node;
+}
+function zipLink(e){
+ if(e.kind!=='github'||!/^\d+$/.test(String(e.runId))||!/^\d+$/.test(String(e.artifactId)))return null;
+ const a=document.createElement('a');a.textContent='Download ZIP';a.title='Video and chapter timestamps';
+ a.href=privateStudio&&/^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/.test(e.name)?'/api/lp-render/download/'+e.runId+'/'+e.artifactId+'/'+encodeURIComponent(e.name)+'.zip':'https://github.com/nmjp8989/umto/actions/runs/'+e.runId+'/artifacts/'+e.artifactId;
+ a.target='_blank';a.rel='noopener';return a;
+}
+function paintHistory(){for(const p of picks){const cell=row(p).querySelector('.exported-in'),records=store.exportedIn(p.value);cell.replaceChildren();if(!records.length){cell.textContent='—';continue;}for(const e of records){cell.append(historyLink(e));const zip=zipLink(e);if(zip)cell.append(zip);const note=document.createElement('small');note.textContent=e.kind==='github'?'MP4 render':'Browser recording';cell.append(note);}}
+const records=store.exports();$('history-count').textContent='('+records.length+')';$('history-list').replaceChildren(...records.map(e=>{const li=document.createElement('li');li.append(historyLink(e),document.createTextNode(' · '+e.episodes.length+' stories · '+duration(e.seconds||0)+' · '+String(e.createdAt).slice(0,10)));const zip=zipLink(e);if(zip)li.append(document.createTextNode(' · '),zip);return li;}));if(!records.length){const li=document.createElement('li');li.textContent='No official compilations yet.';$('history-list').append(li);}}
 const tabs=['review','approved','export'];
 function category(p){return store.exportedIn(p.value).length?'export':store.review(p.value).approved?'approved':'review';}
 function paintTabs(){const counts={review:0,approved:0,export:0};for(const p of picks){const c=category(p);counts[c]++;row(p).hidden=c!==activeTab;}for(const t of tabs){const b=$('tab-'+t);b.setAttribute('aria-selected',String(t===activeTab));b.tabIndex=t===activeTab?0:-1;b.querySelector('span').textContent='('+counts[t]+')';}$('story-list').setAttribute('aria-labelledby','tab-'+activeTab);$('tab-empty').hidden=counts[activeTab]>0;document.querySelector('.export-history').hidden=activeTab!=='export';document.querySelector('.selection-tools').hidden=activeTab==='review';document.querySelector('.export-bar').hidden=activeTab==='review';}
