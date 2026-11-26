@@ -1,5 +1,22 @@
 {
-  "exports": [],
+  "exports": [
+    {
+      "artifactId": "15088613120",
+      "createdAt": "2026-11-26T04:57:52.932Z",
+      "episodes": [
+        "005",
+        "006"
+      ],
+      "filename": "test.mp4",
+      "format": "mp4",
+      "id": "github-45757912186",
+      "kind": "github",
+      "name": "test",
+      "runId": "45757912186",
+      "seconds": 229,
+      "sourceCommit": "620b183ebb3175c8273971ea411ce7c1cf250f10"
+    }
+  ],
   "reviews": {
     "005": {
       "approved": true,
@@ -108,5 +125,5 @@
     }
   },
   "schemaVersion": 1,
-  "updatedAt": "2026-11-26T04:52:35.117Z"
+  "updatedAt": "2026-11-26T04:57:52.932Z"
 }
